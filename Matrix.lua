@@ -7952,7 +7952,6 @@ send(msg.chat_id_, msg.id_, "≁⎠   تم تحديث الملفات")
 end
 
 if text == 'السورس' or text == 'الاصدار' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-if AddChannel(msg.sender_user_id_) == false then
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
