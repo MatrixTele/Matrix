@@ -7953,12 +7953,12 @@ end
 
 if text == 'السورس' or text == 'الاصدار' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
 if AddChannel(msg.sender_user_id_) == false then
-local res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-if res then
-if res == 'false' then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@X04XX] ⚜️')   
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @X04XX .')   
 return false 
-end end
+end
 Text = [[
 *⦑ Welcome to Source ⦒*
 
