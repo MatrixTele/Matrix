@@ -7775,7 +7775,7 @@ database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://evzxar.ml/hssen/zh.php?post='..URL.escape(TextZhrfa)..'')
+zh = https.request('https://black-source.tk/BlackTeAM/frills.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
 t = "\n⌔️︙قائمه الزخرفه \n — — — — — — — — — \n"
 i = 0
@@ -7795,7 +7795,7 @@ database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^برج (.*)$") and database:get(bot_id.."Matrix:brj_Bots"..msg.chat_id_) == "open" then
 local Textbrj = text:match("^برج (.*)$")
-gk = https.request('https://evzxar.ml/hssen/brjj.php?text='..URL.escape(Textbrj)..'')
+gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_, br.ok.hso)
 end
@@ -7809,7 +7809,7 @@ database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
-ge = https.request('https://evzxar.ml/hssen/Age.php?text='..URL.escape(Textage)..'')
+ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
