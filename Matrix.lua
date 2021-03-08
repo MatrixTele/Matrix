@@ -6806,7 +6806,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*≁⎠  ايديه -'..Id..'\n≁⎠  رسائله - '..NumMsg..'\n≁⎠  معرفه - *['..UserName_User..']*\n≁⎠  تفاعله - '..TotalMsg..'\n🚸┇رتبته - '..Status_Gps..'\n⚡┇تعديلاته - '..message_edit..'\n💠┇جهاته -  '..Add_Mem..'\n≁⎠  نوع الكشف - بالرد \n*') 
+send(msg.chat_id_, msg.id_,'*≁⎠  ايديه -'..Id..'\n≁⎠  رسائله - '..NumMsg..'\n≁⎠  معرفه - *['..UserName_User..']*\n≁⎠  تفاعله - '..TotalMsg..'\n≁⎠ رتبته - '..Status_Gps..'\n≁⎠ تعديلاته - '..message_edit..'\n≁⎠ جهاته -  '..Add_Mem..'\n≁⎠  نوع الكشف - بالرد \n*') 
 end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
@@ -6830,7 +6830,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*≁⎠  ايديه - '..Id..'\n≁⎠  رسائله - '..NumMsg..'\n≁⎠  معرفه - *['..UserName_User..']*\n≁⎠  تفاعله - '..TotalMsg..'\n🚸┇رتبته - '..Status_Gps..'\n⚡┇تعديلاته - '..message_edit..'\n💠┇جهاته -  '..Add_Mem..'\n≁⎠  نوع الكشف - بالمعرف \n*') 
+send(msg.chat_id_, msg.id_,'*≁⎠  ايديه - '..Id..'\n≁⎠  رسائله - '..NumMsg..'\n≁⎠  معرفه - *['..UserName_User..']*\n≁⎠  تفاعله - '..TotalMsg..'\n≁⎠ رتبته - '..Status_Gps..'\n≁⎠ تعديلاته - '..message_edit..'\n≁⎠ جهاته -  '..Add_Mem..'\n≁⎠  نوع الكشف - بالمعرف \n*') 
 end,nil)   
 else
 send(msg.chat_id_, msg.id_,'≁⎠  لا يوجد حساب بهاذا المعرف')
@@ -7953,14 +7953,12 @@ end
 
 if text == 'السورس' or text == 'الاصدار' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
-end
+local res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+if res then
+if res == 'false' then
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@X04XX] ⚜️')   
+return false 
+end end
 Text = [[
 *⦑ Welcome to Source ⦒*
 
