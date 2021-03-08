@@ -7669,7 +7669,7 @@ end
 ------------------------------------------------------------------------
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://evzxar.ml/hssen/Zkrf.php?text='..URL.escape(TextZhrfa)..'')
+zh = https.request('https://evzxar.ml/hssen/zh.php?post='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
 t = "\n*≁⎠  تم زخرفة الاسم في الاسفل*\n*ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ*\n"
 i = 0
