@@ -1357,15 +1357,12 @@ Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل التثبي�
 return false
 end 
 if text == "قفل التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل تعديل")  
 return false
@@ -1376,15 +1373,12 @@ Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل تعديل")
 return false
 end 
 if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end  
 database:set(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_,true)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
@@ -1395,114 +1389,90 @@ return false
 end 
 --------------------------------------------------------------------------------------------------------------
 if text == "فتح الاضافه" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:Lock:AddMempar"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح اضافة الاعضاء")  
 return false
 end 
 if text == "فتح الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:Lock:text"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الدردشة")  
 return false
 end 
 if text == "فتح الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:Lock:Join"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح دخول الاعضاء")  
 return false
 end 
 if text == "فتح البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح البوتات")  
 return false
 end 
 if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح البوتات")  
 return false
 end 
 if text == "فتح الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end  
 database:del(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الاشعارات")  
 return false
 end 
 if text == "فتح التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:lockpin"..msg.chat_id_)  
 database:srem(bot_id.."Matrix:Lock:pin",msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح التثبيت هنا")  
 return false
 end 
 if text == "فتح التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:Lock:edit"..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح تعديل")  
 return false
@@ -1513,15 +1483,12 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح تعديل"
 return false
 end 
 if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:del(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
@@ -1532,14 +1499,11 @@ return false
 end 
 --------------------------------------------------------------------------------------------------------------
 if text == "قفل الروابط" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل الروابط")  
@@ -1561,28 +1525,22 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل الرو�
 return false
 end 
 if text == "فتح الروابط" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:Link"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الروابط")  
 return false
 end 
 if text == "قفل المعرفات" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل المعرفات")  
@@ -1604,28 +1562,22 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل المع�
 return false
 end 
 if text == "فتح المعرفات" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح المعرفات")  
 return false
 end 
 if text == "قفل التاك" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Lock:hashtak"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل التاك")  
@@ -1647,14 +1599,11 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل التا�
 return false
 end 
 if text == "فتح التاك" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:hashtak"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح التاك")  
@@ -1756,28 +1705,22 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل المت�
 return false
 end 
 if text == "فتح المتحركه" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:Animation"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح المتحركه")  
 return false
 end 
 if text == "قفل الالعاب" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Lock:geam"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل الالعاب")  
@@ -1799,14 +1742,11 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل الال�
 return false
 end 
 if text == "فتح الالعاب" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:geam"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الالعاب")  
@@ -1888,14 +1828,11 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الكيب�
 return false
 end 
 if text == "قفل الملصقات" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Lock:Sticker"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل الملصقات")  
@@ -1917,28 +1854,22 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل المل�
 return false
 end 
 if text == "فتح الملصقات" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:Sticker"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الملصقات")  
 return false
 end 
 if text == "قفل التوجيه" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Lock:forward"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل التوجيه")  
@@ -1960,14 +1891,11 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل التو�
 return false
 end 
 if text == "فتح التوجيه" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:forward"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح التوجيه")  
@@ -1999,14 +1927,11 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الملف�
 return false
 end 
 if text == "قفل السيلفي" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Lock:Unsupported"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفـل السيلفي")  
@@ -2028,14 +1953,11 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل السي�
 return false
 end 
 if text == "فتح السيلفي" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:Unsupported"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح السيلفي")  
@@ -2062,14 +1984,11 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل الما�
 return false
 end 
 if text == "فتح الماركداون" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:Markdaun"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الماركداون")  
@@ -2096,14 +2015,11 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل الجه�
 return false
 end 
  if text == "فتح الجهات" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:Contact"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الجهات")  
@@ -2130,14 +2046,11 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفـل الكل�
 return false
 end 
 if text == "فتح الكلايش" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Lock:Spam"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الكلايش")  
@@ -2169,71 +2082,56 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح الانل�
 return false
 end 
 if text == "قفل التكرار بالطرد" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","kick")  
 Reply_Status(msg,msg.sender_user_id_,"lockkick","≁⎠  تم قفل التكرار")
 return false
 end 
 if text == "قفل التكرار" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠  تم قفل التكرار بالحذف")
 return false
 end 
 if text == "قفل التكرار بالتقيد" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","keed")  
 Reply_Status(msg,msg.sender_user_id_,"lockkid","≁⎠  تم قفل التكرار")
 return false
 end 
 if text == "قفل التكرار بالكتم" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","mute")  
 Reply_Status(msg,msg.sender_user_id_,"lockktm","≁⎠  تم قفل التكرار")
 return false
 end 
 if text == "فتح التكرار" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 database:hdel(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood")  
 Reply_Status(msg,msg.sender_user_id_,"unlock","≁⎠  تم فـتح التكرار")
 return false
@@ -2254,81 +2152,63 @@ texts = "≁⎠   تم مـسح المنشئين الاساسيين"
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "مسح المنشئين" and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Constructor"..msg.chat_id_)
 texts = "≁⎠   تم مـسح المنشئين "
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "مسح المدراء" and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Manager"..msg.chat_id_)
 texts = "≁⎠   تم مـسح المدراء "
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "مسح الادمنيه" and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Mod:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "≁⎠   تم مـسح  قائمة الادمنية  ")
 end
 if text == "مسح المميزين" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "≁⎠   تم مـسح  قائمة الاعضاء المميزين  ")
 end
 if text == "مسح المكتومين" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Muted:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "≁⎠   تم مـسح قائمه المكتومين ")
 end
 if text == "مسح المحظورين" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Ban:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "\n≁⎠  تم مـسح المحظورين")
@@ -2384,14 +2264,11 @@ send(msg.chat_id_, msg.id_, t)
 return false
 end
 if text == ("المنشئين") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:Constructor"..msg.chat_id_)
 t = "\n≁⎠  قائمة المنشئين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -2409,14 +2286,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("المدراء") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:Manager"..msg.chat_id_)
 t = "\n≁⎠  قائمة المدراء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -2434,14 +2308,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("الادمنيه") and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:Mod:User"..msg.chat_id_)
 t = "\n≁⎠  قائمة الادمنيه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -2475,14 +2346,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("المكتومين") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:Muted:User"..msg.chat_id_)
 t = "\n≁⎠  قائمة المكتومين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -2501,14 +2369,11 @@ send(msg.chat_id_, msg.id_, t)
 end
 
 if text == ("المحظورين") then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:Ban:User"..msg.chat_id_)
 t = "\n≁⎠  قائمة محظورين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -2670,14 +2535,11 @@ return false
 end
 
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
@@ -2687,14 +2549,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع منشئ اساسي @(.*)$") and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^رفع منشئ اساسي @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -2713,14 +2572,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^رفع منشئ اساسي (%d+)$") and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
@@ -2728,14 +2584,11 @@ Reply_Status(msg,userid,"reply","≁⎠  تم ترقيته منشئ اساسي")
 return false
 end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
@@ -2745,14 +2598,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي @(.*)$") and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^تنزيل منشئ اساسي @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -2768,14 +2618,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي (%d+)$") and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
 database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
@@ -2784,14 +2631,11 @@ return false
 end
 
 if text == "رفع منشئ" and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
@@ -2800,14 +2644,11 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
 if text and text:match("^رفع منشئ @(.*)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^رفع منشئ @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -2826,14 +2667,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 end
 ------------------------------------------------------------------------
 if text and text:match("^رفع منشئ (%d+)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^رفع منشئ (%d+)$")
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
@@ -2848,14 +2686,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 end
 ------------------------------------------------------------------------
 if text and text:match("^تنزيل منشئ @(.*)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^تنزيل منشئ @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -2870,14 +2705,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 end
 ------------------------------------------------------------------------
 if text and text:match("^تنزيل منشئ (%d+)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^تنزيل منشئ (%d+)$")
 database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
@@ -2885,14 +2717,11 @@ Reply_Status(msg,userid,"reply","≁⎠  تم تنزيله من المنشئين
 end
 
 if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
@@ -2902,14 +2731,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end  
 if text and text:match("^رفع مدير @(.*)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^رفع مدير @(.*)$") 
 function Function_Matrix(extra, result, success)
@@ -2929,14 +2755,11 @@ return false
 end 
 
 if text and text:match("^رفع مدير (%d+)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^رفع مدير (%d+)$") 
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
@@ -2944,14 +2767,11 @@ Reply_Status(msg,userid,"reply","≁⎠  تم ترقيته مدير المجمو
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
@@ -2961,14 +2781,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end  
 if text and text:match("^تنزيل مدير @(.*)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^تنزيل مدير @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -2983,14 +2800,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end  
 if text and text:match("^تنزيل مدير (%d+)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^تنزيل مدير (%d+)$") 
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
@@ -2999,14 +2813,11 @@ return false
 end
 
 if text == ("رفع ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'≁⎠  لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
@@ -3020,14 +2831,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^رفع ادمن @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3050,14 +2858,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^رفع ادمن (%d+)$") and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^رفع ادمن (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3069,14 +2874,11 @@ Reply_Status(msg,userid,"reply","≁⎠  تم ترقيته ادمن للمجمو
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
@@ -3086,14 +2888,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل ادمن @(.*)$") and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^تنزيل ادمن @(.*)$") 
 function Function_Matrix(extra, result, success)
@@ -3108,14 +2907,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
@@ -3124,14 +2920,11 @@ return false
 end
 
 if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'≁⎠  لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
@@ -3145,14 +2938,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^رفع مميز @(.*)$") 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3176,14 +2966,11 @@ return false
 end
 
 if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^رفع مميز (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3196,14 +2983,11 @@ return false
 end
 
 if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
@@ -3213,14 +2997,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل مميز @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^تنزيل مميز @(.*)$") 
 function Function_Matrix(extra, result, success)
@@ -3235,14 +3016,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^تنزيل مميز (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^تنزيل مميز (%d+)$") 
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
@@ -3250,14 +3028,11 @@ Reply_Status(msg,userid,"reply","≁⎠  تم تنزيله من المميزين
 return false
 end  
 if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local RTPA = text:match("رفع (.*)")
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,RTPA) then
@@ -3285,14 +3060,11 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 end
 if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local RTPA = text:match("تنزيل (.*)")
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,RTPA) then
@@ -3320,14 +3092,11 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 end
 if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,text1[2]) then
@@ -3358,14 +3127,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil)
 end 
 end
 if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,text1[2]) then
@@ -3397,14 +3163,11 @@ end
 end
 
 if text == ("حظر") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'≁⎠  لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -3460,14 +3223,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^حظر @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^حظر @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
@@ -3510,14 +3270,11 @@ return false
 end
 
 if text and text:match("^حظر (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^حظر (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
@@ -3548,14 +3305,11 @@ end
 return false
 end
 if text == ("الغاء حظر") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then
@@ -3571,14 +3325,11 @@ return false
 end
  
 if text and text:match("^الغاء حظر @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^الغاء حظر @(.*)$") 
 function Function_Matrix(extra, result, success)
@@ -3599,14 +3350,11 @@ return false
 end
 
 if text and text:match("^الغاء حظر (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^الغاء حظر (%d+)$") 
 if tonumber(userid) == tonumber(bot_id) then
@@ -3620,14 +3368,11 @@ return false
 end
 
 if text == ("كتم") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 if result.sender_user_id_ == tonumber(114518657) then
@@ -3649,14 +3394,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^كتم @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^كتم @(.*)$")
 if msg.can_be_deleted_ == false then 
@@ -3687,14 +3429,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^كتم (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^كتم (%d+)$")
 if userid == tonumber(114518657) then
@@ -3714,14 +3453,11 @@ end
 return false
 end
 if text == ("الغاء كتم") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
@@ -3745,14 +3481,11 @@ return false
 end
 
 if text and text:match("^الغاء كتم (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^الغاء كتم (%d+)$") 
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
@@ -3794,14 +3527,11 @@ database:del(bot_id..'Matrix:lock:Fshar'..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"lock","≁⎠   تـم فـتح الفشار\n")  
 end
 if text == ("تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
@@ -3816,14 +3546,11 @@ return false
 end
 ------------------------------------------------------------------------
 if text and text:match("^تقيد @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^تقيد @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -3847,14 +3574,11 @@ return false
 end
 ------------------------------------------------------------------------
 if text and text:match("^تقيد (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^تقيد (%d+)$")
 if Rank_Checking(userid, msg.chat_id_) then
@@ -3867,14 +3591,11 @@ return false
 end
 ------------------------------------------------------------------------
 if text == ("الغاء تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
@@ -3885,14 +3606,11 @@ return false
 end
 ------------------------------------------------------------------------
 if text and text:match("^الغاء تقيد @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^الغاء تقيد @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -3908,14 +3626,11 @@ return false
 end
 ------------------------------------------------------------------------
 if text and text:match("^الغاء تقيد (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^الغاء تقيد (%d+)$")
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
@@ -3923,14 +3638,11 @@ Reply_Status(msg,userid,"reply","≁⎠  تم الغاء تقييده")
 return false
 end
 if text == ("طرد") and msg.reply_to_message_id_ ~=0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'≁⎠  لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -3958,15 +3670,12 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end  
 if text and text:match("^طرد @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 local username = text:match("^طرد @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'≁⎠  لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -4003,15 +3712,12 @@ return false
 end  
 
 if text and text:match("^طرد (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end 
 local userid = text:match("^طرد (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'≁⎠  لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -4037,14 +3743,11 @@ return false
 end
 
 if text == "تعطيل الطرد" or text == "تعطيل الحظر" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Constructor(msg) then
 database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
@@ -4053,14 +3756,11 @@ return false
 end
 end
 if text == "تفعيل الطرد" or text == "تفعيل الحظر" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Constructor(msg) then
 database:del(bot_id.."Ban:Cheking"..msg.chat_id_)
@@ -4069,14 +3769,11 @@ return false
 end
 end
 if text == "تعطيل الرفع" or text == "تعطيل الترقيه" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Constructor(msg) then
 database:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
@@ -4085,14 +3782,11 @@ return false
 end
 end
 if text == "تفعيل الرفع" or text == "تفعيل الترقيه" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Constructor(msg) then
 database:del(bot_id.."Add:Group:Cheking"..msg.chat_id_)
@@ -4156,14 +3850,11 @@ send(msg.chat_id_, msg.id_,'\n ≁⎠  صلاحيات البوت هي \n••�
 end
 end
 if text ==("تثبيت") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:sismember(bot_id.."Matrix:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"≁⎠  التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
@@ -4181,14 +3872,11 @@ end
 end,nil) 
 end
 if text == "الغاء التثبيت" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:sismember(bot_id.."Matrix:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"≁⎠  التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
@@ -4206,14 +3894,11 @@ end
 end,nil)
 end
 if text == 'الغاء تثبيت الكل' and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:sismember(bot_id.."Matrix:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"≁⎠  التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
@@ -4242,14 +3927,11 @@ database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Nu
 send(msg.chat_id_, msg.id_,"≁⎠  تم وضع زمن التكرار ("..Num..")") 
 end
 if text == "ضع رابط" or text == "وضع رابط" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
 send(msg.chat_id_,msg.id_,"≁⎠  ارسل رابط المجموعه او رابط قناة المجموعه")
@@ -4258,14 +3940,11 @@ return false
 end
 end
 if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then  
 database:set(bot_id.."Matrix:Link_Group"..msg.chat_id_,true) 
@@ -4274,14 +3953,11 @@ return false
 end
 end
 if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then  
 database:del(bot_id.."Matrix:Link_Group"..msg.chat_id_) 
@@ -4289,14 +3965,11 @@ send(msg.chat_id_, msg.id_,"≁⎠  تم تعطيل جلب رابط المجمو
 return false end
 end
 if text == "الرابط" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
 if not status_Link then
@@ -4311,14 +3984,11 @@ send(msg.chat_id_, msg.id_,"≁⎠  لا يوجد رابط ارسل ضع راب�
 end            
 end
 if text == "مسح الرابط" or text == "حذف الرابط" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then     
 send(msg.chat_id_,msg.id_,"≁⎠  تم مـسح الرابط ")           
@@ -4359,28 +4029,22 @@ end
 send(msg.chat_id_, msg.id_, l)
 end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
 send(msg.chat_id_, msg.id_,"≁⎠  ارسل لي الصوره") 
 return false
 end
 if text == "حذف الصوره" or text == "مسح الصوره" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then
 https.request("https://api.telegram.org/bot"..token.."/deleteChatPhoto?chat_id="..msg.chat_id_) 
@@ -4389,14 +4053,11 @@ end
 return false  
 end
 if text == "ضع وصف" or text == "وضع وصف" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then
 database:setex(bot_id.."Matrix:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
@@ -4405,14 +4066,11 @@ end
 return false  
 end
 if text == "ضع ترحيب" or text == "وضع ترحيب" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then
 database:setex(bot_id.."Matrix:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
@@ -4423,14 +4081,11 @@ end
 return false  
 end
 if text == "الترحيب" and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_)   then 
 Welcome = database:get(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_)  
@@ -4441,42 +4096,33 @@ send(msg.chat_id_, msg.id_,"["..Welcome.."]")
 return false  
 end
 if text == "تفعيل الترحيب" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,"≁⎠  تم تفعيل ترحيب المجموعه") 
 return false  
 end
 if text == "تعطيل الترحيب" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"≁⎠  تم تعطيل ترحيب المجموعه") 
 return false  
 end
 if text == "مسح الترحيب" or text == "حذف الترحيب" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then
 database:del(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_) 
@@ -4486,14 +4132,11 @@ return false
 end
 
 if text == "مسح قائمه المنع" and Addictive(msg) then   
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
@@ -4505,14 +4148,11 @@ send(msg.chat_id_, msg.id_,"≁⎠  تم مـسح قائمه المنع")
 end
 
 if text == "قائمه المنع" and Addictive(msg) then  
- if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+ local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:List:Filter"..msg.chat_id_)  
 t = "\n≁⎠  قائمة المنع \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -4553,14 +4193,11 @@ return false  end
 end
 
 if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then    
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 send(msg.chat_id_, msg.id_,"≁⎠  ارسل الكلمه الان")  
 database:set(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
@@ -4576,14 +4213,11 @@ return false  end
 end
 
 if text == "مسح البوتات" and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 tdcli_function ({ ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah)  
 local admins = tah.members_  
@@ -4607,14 +4241,11 @@ end
 end,nil)  
 end   
 if text == ("كشف البوتات") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
@@ -4658,14 +4289,11 @@ database:del(bot_id.."Matrix:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_us
 end  
 
 if text == "ضع قوانين" or text == "وضع قوانين" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then
 database:setex(bot_id.."Matrix:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
@@ -4673,14 +4301,11 @@ send(msg.chat_id_,msg.id_,"≁⎠  ارسل لي القوانين الان")
 end
 end
 if text == "مسح القوانين" or text == "حذف القوانين" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then
 send(msg.chat_id_, msg.id_,"≁⎠  تم ازالة قوانين المجموعه")  
@@ -4688,14 +4313,11 @@ database:del(bot_id.."Matrix:Set:Rules:Group"..msg.chat_id_)
 end
 end
 if text == "القوانين" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local Set_Rules = database:get(bot_id.."Matrix:Set:Rules:Group" .. msg.chat_id_)   
 if Set_Rules then     
@@ -4706,14 +4328,11 @@ end
 end
 
 if text == "الاوامر المضافه" and Constructor(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
 t = "≁⎠  قائمه الاوامر المضافه  \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -4731,14 +4350,11 @@ end
 send(msg.chat_id_, msg.id_,"["..t.."]")
 end
 if text == "حذف الاوامر المضافه" or text == "مسح الاوامر المضافه" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Constructor(msg) then 
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
@@ -4750,28 +4366,22 @@ send(msg.chat_id_, msg.id_,"≁⎠  تم مـسح جميع الاوامر الت
 end
 end
 if text == "اضف امر" and Constructor(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
 send(msg.chat_id_, msg.id_,"≁⎠  الان ارسل لي الامر القديم ..")  
 return false
 end
 if text == "حذف امر" or text == "مسح امر" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Constructor(msg) then
 database:set(bot_id.."Matrix:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
@@ -4780,14 +4390,11 @@ return false
 end
 end
 if text == ("رفع منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'≁⎠  لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
@@ -4801,14 +4408,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع منظف @(.*)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^رفع منظف @(.*)$")
 function Function_Matrix(extra, result, success)
@@ -4827,14 +4431,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^رفع منظف (%d+)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^رفع منظف (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -4846,14 +4447,11 @@ Reply_Status(msg,userid,"reply","≁⎠  تم ترقيته منظف للمجمو
 return false
 end
 if text == ("تنزيل منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:MN:TF"..msg.chat_id_, result.sender_user_id_)
@@ -4863,14 +4461,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل منظف @(.*)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^تنزيل منظف @(.*)$") 
 function Function_Matrix(extra, result, success)
@@ -4885,14 +4480,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^تنزيل منظف (%d+)$") and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local userid = text:match("^تنزيل منظف (%d+)$")
 database:srem(bot_id.."Matrix:MN:TF"..msg.chat_id_, userid)
@@ -4901,14 +4493,11 @@ return false
 end
 
 if text == "الصلاحيات" and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:Coomds"..msg.chat_id_)
 if #list == 0 then
@@ -4927,27 +4516,21 @@ end
 send(msg.chat_id_, msg.id_,t)
 end
 if text == "مسح المنظفين" and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:MN:TF"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "≁⎠  تم مـسح  قائمة المنظفين  ")
 end
 if text == ("المنظفين") and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local list = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
 t = "\n≁⎠  قائمة المنظفين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
@@ -4973,14 +4556,11 @@ end
 send(msg.chat_id_, msg.id_,"≁⎠  تم مـسح الصلاحيات")
 end
 if text and text:match("^اضف صلاحيه (.*)$") and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 ComdNew = text:match("^اضف صلاحيه (.*)$")
 database:set(bot_id.."Matrix:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_,ComdNew)  
@@ -4989,14 +4569,11 @@ database:setex(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_,
 send(msg.chat_id_, msg.id_, "≁⎠  ارسل نوع الصلاحيه ⌔\n≁⎠  (عضو ~ مميز  ~ ادمن  ~ مدير )") 
 end
 if text and text:match("^مسح صلاحيه (.*)$") and Addictive(msg) or text and text:match("^حذف صلاحيه (.*)$") and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 ComdNew = text:match("^مسح صلاحيه (.*)$") or text:match("^حذف صلاحيه (.*)$")
 database:del(bot_id.."Matrix:Comd:New:rt:bot:"..ComdNew..msg.chat_id_)
@@ -5164,28 +4741,22 @@ return false
 end  
 end
 if text == "اضف رد" and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 send(msg.chat_id_, msg.id_,"≁⎠  ارسل الكلمه التي تريد اضافتها")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
 if text == "حذف رد" and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 send(msg.chat_id_, msg.id_,"≁⎠  ارسل الكلمه التي تريد حذفها")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
@@ -5461,14 +5032,11 @@ end
 end
 end
 if text == 'طرد المحذوفين' or text == 'مسح المحذوفين' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if Addictive(msg) then    
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),offset_ = 0,limit_ = 1000}, function(arg,del)
@@ -5503,14 +5071,11 @@ end
 
 
 if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 if tonumber(Id_Sudo) == tonumber(result.sender_user_id_) then
@@ -5582,14 +5147,11 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
 if text == "تاك للكل" and Addictive(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
 local t = "\n≁⎠   قائمة الاعضاء \n ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• \n"
@@ -5605,27 +5167,21 @@ send(msg.chat_id_,msg.id_,t)
 end,nil)
 end
 if text == "رتبتي" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local rtp = Get_Rank(msg.sender_user_id_,msg.chat_id_)
 send(msg.chat_id_, msg.id_,"≁⎠   رتبتك في البوت ›› "..rtp)
 end
 if text == "اسمي"  then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
 if result.first_name_  then
@@ -5642,14 +5198,11 @@ send(msg.chat_id_, msg.id_,first_name.."\n"..last_name)
 end,nil)
 end 
 if text==("عدد الكروب") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_,msg.id_,"≁⎠   البوت ليس ادمن هنا \n") 
@@ -5667,14 +5220,11 @@ end,nil)
 end,nil)
 end 
 if text == "اطردني" or text == "طردني" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if not database:get(bot_id.."Matrix:Kick:Me"..msg.chat_id_) then
 if Rank_Checking(msg.sender_user_id_, msg.chat_id_) == true then
@@ -5706,27 +5256,21 @@ end
 end
 
 if text == "تفعيل اطردني" and Owner(msg) then   
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id.."Matrix:Kick:Me"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == "تعطيل اطردني" and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id.."Matrix:Kick:Me"..msg.chat_id_,true)  
 Text = "\n≁⎠  تم تعطيل امر اطردني"
@@ -5734,14 +5278,11 @@ send(msg.chat_id_, msg.id_,Text)
 end
 
 if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^رفع القيود @(.*)") 
 function Function_Matrix(extra, result, success)
@@ -5767,14 +5308,11 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 end
 if text == "رفع القيود" and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 if DevMatrix(msg) then
@@ -5795,14 +5333,11 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
 if text and text:match("^كشف القيود @(.*)") and Owner(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local username = text:match("^كشف القيود @(.*)") 
 function Function_Matrix(extra, result, success)
@@ -5831,14 +5366,11 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 end
 
 if text == "كشف القيود" and Owner(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 function Function_Matrix(extra, result, success)
 if database:sismember(bot_id.."Matrix:Muted:User"..msg.chat_id_,result.sender_user_id_) then
@@ -5863,14 +5395,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 end
 
 if text and text:match("^ضع اسم (.*)") and Owner(msg) or text and text:match("^وضع اسم (.*)") and Owner(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 local Name = text:match("^ضع اسم (.*)") or text:match("^وضع اسم (.*)") 
 tdcli_function ({ ID = "ChangeChatTitle",chat_id_ = msg.chat_id_,title_ = Name },function(arg,data) 
@@ -5887,14 +5416,11 @@ end,nil)
 end
 
 if text ==("رفع الادمنيه") and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local num2 = 0
@@ -5988,14 +5514,11 @@ send(msg.chat_id_, msg.id_, "≁⎠  تم تعطيل مغادرة البوت")
 return false 
 end
 if text == (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس") then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 local namebot = {
@@ -6437,27 +5960,21 @@ local text =
 send(msg.chat_id_, msg.id_,text)     
 end    
 if text == "تعطيل اوامر التحشيش" and Owner(msg) then    
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 send(msg.chat_id_, msg.id_, '≁⎠  تم تعطيل اوامر التحشيش')
 database:set(bot_id.."Matrix:Fun_Bots"..msg.chat_id_,"true")
 end
 if text == "تفعيل اوامر التحشيش" and Owner(msg) then    
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 send(msg.chat_id_, msg.id_,'≁⎠  تم تفعيل اوامر التحشيش')
 database:del(bot_id.."Matrix:Fun_Bots"..msg.chat_id_)
@@ -6503,66 +6020,51 @@ send(msg.chat_id_, msg.id_,'*≁⎠  تم تفعيل الابراج*')
 database:set(bot_id.."Matrix:abr_Bots"..msg.chat_id_,"open")
 end
 if text == 'تفعيل الايدي' and Owner(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'≁⎠  تم تفعيل الايدي') 
 end
 if text == 'تعطيل الايدي' and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'≁⎠  تم تعطيل الايدي') 
 end
 if text == 'تفعيل الايدي بالصوره' and Owner(msg) then   
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:del(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'≁⎠  تم تفعيل الايدي بالصوره') 
 end
 if text == 'تعطيل الايدي بالصوره' and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'≁⎠  تم تعطيل الايدي بالصوره') 
 end
 if text == 'تعين الايدي' and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 database:setex(bot_id.."Matrix:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
@@ -6664,6 +6166,12 @@ end
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if not database:sismember(bot_id..'Matrix:Spam:Group'..msg.sender_user_id_,text) then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
+end
 database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -6921,14 +6429,11 @@ end,nil)
 end
 
 if text == "سمايلات" or text == "سمايل" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Tshak:Set:Sma"..msg.chat_id_)
@@ -7006,14 +6511,11 @@ database:set(bot_id.."Tshak:Speed:Tr"..msg.chat_id_,true)
 end 
 
 if text == "حزوره" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Tshak:Set:Hzora"..msg.chat_id_)
@@ -7066,14 +6568,11 @@ database:set(bot_id.."Tshak:Set:Hzora"..msg.chat_id_,true)
 end 
 
 if text == "معاني" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Tshak:Set:Maany"..msg.chat_id_)
@@ -7117,14 +6616,11 @@ end
 database:set(bot_id.."Tshak:Set:Maany"..msg.chat_id_,true)
 end 
 if text == "العكس" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Tshak:Set:Aks"..msg.chat_id_)
@@ -7193,15 +6689,12 @@ end
 end
 end
 if text == "خمن" or text == "تخمين" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
-return false
-end   
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 Num = math.random(1,20)
 database:set(bot_id.."Tshak:GAMES:NUM"..msg.chat_id_,Num) 
@@ -7230,14 +6723,11 @@ end
 end
 
 if text == "محيبس" or text == "بات" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then   
 Num = math.random(1,6)
@@ -7256,14 +6746,11 @@ end
 end
 
 if text == "المختلف" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 mktlf = {"😸","☠","🐼","🐇","🌑","🌚","⭐️","✨","⛈","🌥","⛄️","👨‍🔬","👨‍💻","👨‍⌔","🧚‍♀","🧜‍♂","🧝‍♂","🙍‍♂","🧖‍♂","👬","🕒","🕤","⌛️","📅",};
@@ -7309,14 +6796,11 @@ end
 database:set(bot_id.."Tshak:Set:Moktlf:Bot"..msg.chat_id_,true)
 end
 if text == "امثله" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁⎠ عليك الاشتراك في قناة السورس\n≁⎠ لتتمكن من استخدام الاوامر \n≁⎠ CH ~ [@X04XX]')   
+return false 
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 mthal = {"جوز","ضراطه","الحبل","الحافي","شقره","بيدك","سلايه","النخله","الخيل","حداد","المبلل","يركص","قرد","العنب","العمه","الخبز","بالحصاد","شهر","شكه","يكحله",};
@@ -7941,9 +7425,9 @@ Text = [[
 *••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••*
 𓂅 . [Source Channel .](https://t.me/X04XX)
 
-𓂅 . [Files Channel .](https://t.me/X04XX)
+𓂅 . [Files Channel .](https://t.me/Matrix_file)
 
-𓂅 . [The Developer .](https://t.me/Wt_5m)
+𓂅 . [The Developer .](https://t.me/IZlZ7I)
 *••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••*
 𓂅 . [Bot TwsL Dev .](https://t.me/Tsh0bot)
 ]]
@@ -8001,7 +7485,7 @@ Text = [[
 ≁⎠  قفل/فتح + الاوامر الادناه 
 ≁⎠  قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
 ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• 
-??┇الروابط
+≁⎠ الروابط
 ≁⎠  المعرف
 ≁⎠  التاك
 ≁⎠  الشارحه
