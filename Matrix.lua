@@ -7955,7 +7955,7 @@ if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or tex
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @X04XX .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @dqqqp .')   
 return false 
 end
 Text = [[
@@ -7977,7 +7977,7 @@ if text == 'رابط الحذف' or text == 'بوت الحذف' or text == 'را
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @X04XX .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @dqqqp .')   
 return false 
 end
 Text = [[*≁⎠  بوت حذف الحسابات*
@@ -7989,7 +7989,7 @@ if text == 'الاوامر' and Addictive(msg) then
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @X04XX .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @dqqqp .')   
 return false 
 end
 Text = [[
