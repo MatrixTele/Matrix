@@ -7955,7 +7955,7 @@ if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or tex
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @tenntime .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @X04XX .')   
 return false 
 end
 Text = [[
@@ -7974,14 +7974,11 @@ Text = [[
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' or text == 'رابط حذف' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @X04XX .')   
+return false 
 end
 Text = [[*≁⎠  بوت حذف الحسابات*
 *≁⎠   معرف البوت : @Y_2ibot*
@@ -7989,14 +7986,11 @@ Text = [[*≁⎠  بوت حذف الحسابات*
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• اهلا بك عزيزي ❗️\n• لايمكنك استخدام البوت ❕\n• عليك الاشتراك في القناة ❗️\n• ['..database:get(bot_id..'add:ch:username')..'] • ⚜️')
-end
-return false
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ @X04XX .')   
+return false 
 end
 Text = [[
 ≁⎠  هناكـ *{5} *اوامر لعرضها 
