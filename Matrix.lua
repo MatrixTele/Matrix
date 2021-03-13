@@ -3978,7 +3978,7 @@ return false
 end
 local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..linkgpp.result..')")                          
+send(msg.chat_id_,msg.id_,"≁⎠ Group Link ~ : \n ["..link.."]")                          
 else                
 send(msg.chat_id_, msg.id_,"≁⎠  لا يوجد رابط ارسل ضع رابط")              
 end            
