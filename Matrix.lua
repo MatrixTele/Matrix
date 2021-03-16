@@ -2215,7 +2215,7 @@ send(msg.chat_id_, msg.id_, "\n≁⎠  تم مـسح المحظورين")
 end
 if text == ("قائمه العام") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n≁⎠  قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المحظورين عام \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2232,7 +2232,7 @@ return false
 end
 if text == ("المطورين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:Sudo:User")
-t = "\n≁⎠  قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة مطورين البوت \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2248,7 +2248,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == "المنشئين الاساسين" and DevBot(msg) then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "\n≁⎠  قائمة المنشئين الاساسين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المنشئين الاساسين \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2271,7 +2271,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:Constructor"..msg.chat_id_)
-t = "\n≁⎠  قائمة المنشئين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المنشئين \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2293,7 +2293,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:Manager"..msg.chat_id_)
-t = "\n≁⎠  قائمة المدراء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المدراء \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2315,7 +2315,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:Mod:User"..msg.chat_id_)
-t = "\n≁⎠  قائمة الادمنيه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة الادمنيه \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2331,7 +2331,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."Matrix:Special:User"..msg.chat_id_)
-t = "\n≁⎠  قائمة مميزين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة مميزين المجموعه \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2353,7 +2353,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:Muted:User"..msg.chat_id_)
-t = "\n≁⎠  قائمة المكتومين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المكتومين \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -2376,7 +2376,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:Ban:User"..msg.chat_id_)
-t = "\n≁⎠  قائمة محظورين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة محظورين المجموعه \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3846,7 +3846,7 @@ PRo = 'مفعله'
 else
 PRo = 'غير مفعله'
 end 
-send(msg.chat_id_, msg.id_,'\n ≁⎠  صلاحيات البوت هي \n••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••\n≁⎠  تغير معلومات المجموعة : '..INf..'\n≁⎠  حذف الرسائل : '..DEL..'\n≁⎠  حظر المستخدمين : '..REs..'\n≁⎠  دعوة المستخدمين : '..INv..'\n≁⎠  ثتبيت الرسالة : '..Pin..'\n≁⎠  اضافة مشرفين : '..PRo)   
+send(msg.chat_id_, msg.id_,'\n ≁⎠  صلاحيات البوت هي \n••☾• ━━━━━━━━━━━ •☾┉••\n≁⎠  تغير معلومات المجموعة : '..INf..'\n≁⎠  حذف الرسائل : '..DEL..'\n≁⎠  حظر المستخدمين : '..REs..'\n≁⎠  دعوة المستخدمين : '..INv..'\n≁⎠  ثتبيت الرسالة : '..Pin..'\n≁⎠  اضافة مشرفين : '..PRo)   
 end
 end
 if text ==("تثبيت") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
@@ -4155,7 +4155,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:List:Filter"..msg.chat_id_)  
-t = "\n≁⎠  قائمة المنع \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المنع \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do  
 local Matrix_Msg = database:get(bot_id.."Matrix:Add:Filter:Rp2"..v..msg.chat_id_)   
 t = t..""..k.."- "..v.." ›› {"..Matrix_Msg.."}\n"    
@@ -4249,7 +4249,7 @@ return false
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
-text = "\n≁⎠  قائمة البوتات الموجوده \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+text = "\n≁⎠  قائمة البوتات الموجوده \n☾• ━━━━━━━━━━━ •☾\n"
 local n = 0
 local t = 0
 for i=0 , #admins do 
@@ -4268,7 +4268,7 @@ send(msg.chat_id_, msg.id_, "≁⎠  لا توجد بوتات في المجمو�
 return false 
 end
 if #admins == i then 
-local a = "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n≁⎠  عدد البوتات التي هنا >> {"..n.."} بوت\n"
+local a = "\n☾• ━━━━━━━━━━━ •☾\n≁⎠  عدد البوتات التي هنا >> {"..n.."} بوت\n"
 local f = "≁⎠  عدد البوتات التي هي ادمن >> {"..t.."}\n≁⎠  ملاحضه علامة ال (✯) تعني ان البوت ادمن \n⌔"
 send(msg.chat_id_, msg.id_, text..a..f)
 end
@@ -4335,7 +4335,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
-t = "≁⎠  قائمه الاوامر المضافه  \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "≁⎠  قائمه الاوامر المضافه  \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 Cmds = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 if Cmds then 
@@ -4504,7 +4504,7 @@ if #list == 0 then
 send(msg.chat_id_, msg.id_,"≁⎠  لا توجد صلاحيات مضافه")
 return false
 end
-t = "\n≁⎠  قائمة الصلاحيات المضافه \n••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••\n"
+t = "\n≁⎠  قائمة الصلاحيات المضافه \n••☾• ━━━━━━━━━━━ •☾┉••\n"
 for k,v in pairs(list) do
 var = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..v..msg.chat_id_)
 if var then
@@ -4533,7 +4533,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 local list = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
-t = "\n≁⎠  قائمة المنظفين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المنظفين \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -5154,7 +5154,7 @@ send(msg.chat_id_,msg.id_,'≁⎠ لا يمكنك استخدام البوت\n≁
 return false 
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
-local t = "\n≁⎠   قائمة الاعضاء \n ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• \n"
+local t = "\n≁⎠   قائمة الاعضاء \n ••☾• ━━━━━━━━━━━ •☾┉•• \n"
 x = 0
 local list = taha.members_
 for k, v in pairs(list) do
@@ -5923,10 +5923,10 @@ end
 Num_Flood = database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"floodmax") or 0
 local text = 
 "*\n≁⎠  ااعدادات المجموعه "..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
+"\n☾• ━━━━━━━━━━━ •☾"..
 "\n≁⎠  علامة ال {✓} تعني مفعل"..
 "\n≁⎠  علامة ال {✘} تعني معطل"..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
+"\n☾• ━━━━━━━━━━━ •☾"..
 "\n≁⎠  الروابط ›› "..lock_links..
 "\n".."≁⎠  المعرفات ›› "..lock_user..
 "\n".."≁⎠  التاك ›› "..lock_hash..
@@ -5936,7 +5936,7 @@ local text =
 "\n".."≁⎠  الاشعارات ›› "..lock_tagservr..
 "\n".."≁⎠  الماركدون ›› "..lock_mark..
 "\n".."≁⎠  التعديل ›› "..lock_edit..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
+"\n☾• ━━━━━━━━━━━ •☾"..
 "\n".."≁⎠  الكلايش ›› "..lock_spam..
 "\n".."≁⎠  الكيبورد ›› "..lock_inlin..
 "\n".."≁⎠  الاغاني ›› "..lock_vico..
@@ -5945,7 +5945,7 @@ local text =
 "\n".."≁⎠  الدردشه ›› "..lock_text..
 "\n".."≁⎠  الفيديو ›› "..lock_ved..
 "\n".."≁⎠  الصور ›› "..lock_photo..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
+"\n☾• ━━━━━━━━━━━ •☾"..
 "\n".."≁⎠  الصوت ›› "..lock_muse..
 "\n".."≁⎠  الملصقات ›› "..lock_ste..
 "\n".."≁⎠  الجهات ›› "..lock_phon..
@@ -6882,7 +6882,7 @@ Teext = [[
 ≁⎠  مجوهراتي -› لعرض عدد الارباح
 ≁⎠  بيع مجوهراتي + العدد
 ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
@@ -7131,13 +7131,13 @@ if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."Matrix:zhr
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://evzxar.ml/hssen/zh.php?post='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n*≁⎠  تم زخرفة الاسم في الاسفل*\n*ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ*\n"
+t = "\n*≁⎠  تم زخرفة الاسم في الاسفل*\n*ꔹ☾• ━━━━━━━━━━━ •☾┉ ┉ ┉ꔹ*\n"
 i = 0
 for k,v in pairs(zx.results) do
 i = i + 1
 t = t..i.."-  "..v.." \n"
 end
-send(msg.chat_id_, msg.id_, t..'*ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ*\n*≁⎠  اضغط على الاسم ليتم نسخه*\n*≁⎠  تابع جديدنا : @X04XX*')
+send(msg.chat_id_, msg.id_, t..'*ꔹ☾• ━━━━━━━━━━━ •☾┉ ┉ ┉ꔹ*\n*≁⎠  اضغط على الاسم ليتم نسخه*\n*≁⎠  تابع جديدنا : @X04XX*')
 end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
@@ -7276,7 +7276,7 @@ sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end
 end
 if text == 'الملفات' and DevMatrix(msg) then
-t = '≁⎠  جميع الملفات : \n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n'
+t = '≁⎠  جميع الملفات : \n ☾• ━━━━━━━━━━━ •☾\n'
 i = 0
 for v in io.popen('ls Matrix_Files'):lines() do
 if v:match(".lua$") then
@@ -7293,8 +7293,8 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n*≁⎠ اهلا بك في متجر ملفات ماتركس *\n*≁⎠ يوجد في المتجر جميع ملفات السورس *\n*≁⎠ الملفات الموجوده حاليا ↓ *\n*ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ*\n\n"
-local TextE = "*ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ*\n*≁⎠ تعني علامة (√) الملف مفعل*\n".."*≁⎠ تعني علامة (×) الملف معطل*\n"
+local TextS = "\n*≁⎠ اهلا بك في متجر ملفات ماتركس *\n*≁⎠ يوجد في المتجر جميع ملفات السورس *\n*≁⎠ الملفات الموجوده حاليا ↓ *\n*☾• ━━━━━━━━━━━ •☾*\n\n"
+local TextE = "*☾• ━━━━━━━━━━━ •☾*\n*≁⎠ تعني علامة (√) الملف مفعل*\n".."*≁⎠ تعني علامة (×) الملف معطل*\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
 local Check_File_is_Found = io.open("Matrix_Files/"..name,"r")
@@ -7454,7 +7454,7 @@ return false
 end
 Text = [[
 ≁⎠  هناكـ *{5} *اوامر لعرضها 
-••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
+••☾• ━━━━━━━━━━━ •☾┉••
 ≁⎠  م1 -› اوامر حماية المجموعه
 
 ≁⎠  م2 -› اوامر ادمنية المجموعه
@@ -7466,8 +7466,8 @@ Text = [[
 ≁⎠  م5 -› آوآمر منشئين المجموعه
 
 ≁⎠  م6 -› اوآمر مطور اساسي
- ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+ ••☾• ━━━━━━━━━━━ •☾┉••
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7481,10 +7481,10 @@ return false
 end
 Text = [[
 ≁⎠  اوامر -› *حماية المجموعه*
-••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• 
+••☾• ━━━━━━━━━━━ •☾┉•• 
 ≁⎠  قفل/فتح + الاوامر الادناه 
 ≁⎠  قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
-••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• 
+••☾• ━━━━━━━━━━━ •☾┉•• 
 ≁⎠ الروابط
 ≁⎠  المعرف
 ≁⎠  التاك
@@ -7510,8 +7510,8 @@ Text = [[
 ≁⎠  التكرار
 ≁⎠  الكلايش
 ≁⎠  السيلفي
-••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• 
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+••☾• ━━━━━━━━━━━ •☾┉•• 
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7559,7 +7559,7 @@ Text = [[
 
 ≁⎠  ضع تكرار + العدد
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7612,7 +7612,7 @@ Text = [[
 ≁⎠  مسح المطرودين
 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7659,7 +7659,7 @@ Text = [[
 ≁⎠   تفعيل/تعطيل اوامر التحشيش
 ≁⎠   تفعيل/تعطيل الرابط/جلب الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7673,7 +7673,7 @@ return false
 end
 Text = [[
 ≁⎠  اوامر -› *منشئين المجموعه*
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+☾• ━━━━━━━━━━━ •☾
 ≁⎠  تفعيل/تعطيل المجموعة
 
 ≁⎠  رفع/تنزيل منشئ
@@ -7709,7 +7709,7 @@ Text = [[
 ≁⎠   لعمل تاك للكل ~ all@ او all
 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7717,7 +7717,7 @@ end
 if text == 'م6' and DevBot(msg) then
 Text = [[
 ≁⎠  اوامر -› *المطور الاساسي*
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+☾• ━━━━━━━━━━━ •☾
 ≁⎠  تحديث
 ≁⎠  تحديث السورس
 
@@ -7769,7 +7769,7 @@ Text = [[
 ≁⎠  رفع النسخه الاحتياطيه
 ≁⎠  السيرفر / معلومات السيرفر 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-≁⎠  Ch TeAM -› [@Matrix](t.me/X04XX)
+≁⎠  ᯓ 𝙲𝙷 𝚃𝙴𝙰𝙼 -› [𝒎𝒂𝒕𝒓𝒊𝒙 𝒔𝒐𝒖𝒓𝒄𝒆](t.me/X04XX)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8236,7 +8236,7 @@ send(msg.chat_id_, msg.id_, "\n≁⎠  تم مـسح قائمة المطورين
 end
 if text == ("قائمه العام ⛔") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n≁⎠  قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المحظورين عام \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -8253,7 +8253,7 @@ return false
 end
 if text == ("المطورين 🛡️") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:Sudo:User")
-t = "\n≁⎠  قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة مطورين البوت \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -8505,7 +8505,7 @@ database:incr(bot_id..'Matrix:message_edit'..result.chat_id_..result.sender_user
 local Text = result.content_.text_
 if database:get(bot_id.."Matrix:Lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "\n≁⎠  قائمة المنشئين الاساسيين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n≁⎠  قائمة المنشئين الاساسيين \n☾• ━━━━━━━━━━━ •☾\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
