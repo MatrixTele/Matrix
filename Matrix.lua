@@ -3621,7 +3621,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if result.sender_user_id_ == tonumber(1753984669) then
-send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لايمكنني كتم مطور السورس \n")
+send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لايمكنني كتم مبرمج السورس\n")
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
@@ -3656,7 +3656,7 @@ end
 function Function_Matrix(extra, result, success)
 if result.id_ then
 if result.id_ == tonumber(1753984669) then
-send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لايمكنني كتم مطور السورس \n")
+send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لايمكنني كتم مبرمج السورس\n")
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
@@ -3688,7 +3688,7 @@ return false
 end
 local userid = text:match("^كتم (%d+)$")
 if userid == tonumber(1753984669) then
-send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لايمكنني كتم مطور السورس \n")
+send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لايمكنني كتم مبرمج السورس\n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
