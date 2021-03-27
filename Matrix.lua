@@ -151,11 +151,11 @@ return var
 end 
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(1753984669) then  
-var = 'مطور السورس'
+var = 'مبرمج السورس'
 elseif tonumber(user_id) == tonumber(1753984669) then  
-var = "مطور السورس"  
+var = "مبرمج السورس"  
 elseif tonumber(user_id) == tonumber(1753984669) then  
-var = "مطور السورس"  
+var = "مبرمج السورس"  
 elseif DevMatrixe(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -3402,7 +3402,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if result.sender_user_id_ == tonumber(1753984669) then
-send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لا يمكنني حظر مطور السورس\n")
+send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لا يمكنني حظر مبرمج السورس\n")
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
@@ -3467,7 +3467,7 @@ end
 function Function_Matrix(extra, result, success)
 if result.id_ then
 if result.id_ == tonumber(1753984669) then
-send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لا يمكنني حظر مطور السورس\n")
+send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لا يمكنني حظر مبرمج السورس\n")
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
@@ -3515,7 +3515,7 @@ send(msg.chat_id_, msg.id_,'⌁︙ لقد تم تعطيل الحظر و الطر
 return false
 end
 if userid == tonumber(1753984669) then
-send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لا يمكنني حظر مطور السورس\n")
+send(msg.chat_id_, msg.id_, "⌁︙ عذرآ لا يمكنني حظر مبرمج السورس\n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
