@@ -3939,29 +3939,17 @@ database:setex(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.s
 return false
 end
 end
-if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
-return false 
-end
-if Addictive(msg) then  
-database:set(bot_id.."Matrix:Link_Group"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"⌔︙ تم تفعيل جلب الرابط المجموعه") 
+if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
+if Mod(msg) then  
+database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_," 🟢︙ تم تفعيل الرابط") 
 return false  
 end
 end
-if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
-return false 
-end
-if Addictive(msg) then  
-database:del(bot_id.."Matrix:Link_Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⌔︙ تم تعطيل جلب رابط المجموعه") 
+if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
+if Mod(msg) then  
+database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_," 🔴︙ تم تعطيل الرابط") 
 return false end
 end
 if text == "الرابط" then 
