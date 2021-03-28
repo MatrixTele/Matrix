@@ -3985,18 +3985,6 @@ send(msg.chat_id_, msg.id_,linkgp)
 end      
 end,nil)
 end
-local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
-if not status_Link then
-send(msg.chat_id_, msg.id_,"⌔︙ جلب الرابط معطل") 
-return false  
-end
-local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
-if link then                              
-send(msg.chat_id_,msg.id_,"⌔︙Group Link ~ : \n ["..link.."]")                          
-else                
-send(msg.chat_id_, msg.id_,"⌔︙ لا يوجد رابط ارسل ضع رابط")              
-end            
-end
 if text == "مسح الرابط" or text == "حذف الرابط" then
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
