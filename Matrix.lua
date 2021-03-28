@@ -3965,11 +3965,25 @@ send(msg.chat_id_, msg.id_,"⌔︙ تم تعطيل جلب رابط المجمو�
 return false end
 end
 if text == "الرابط" then 
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
-return false 
+local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
+if not status_Link then
+send(msg.chat_id_, msg.id_,"⚠️┇ الرابط معطل") 
+return false  
+end
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
+local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
+if link then                              
+send(msg.chat_id_,msg.id_,'🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..link..')')                          
+else                
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+linkgp = '🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..linkgpp.result..')'
+else
+linkgp = '♻️┇ لا يوجد رابط ارسل ضع رابط'
+end  
+send(msg.chat_id_, msg.id_,linkgp)              
+end      
+end,nil)
 end
 local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
 if not status_Link then
@@ -7435,10 +7449,6 @@ Text = [[
 * — — — — — — — — — *
 𓂅 . [Bot TwsL Dev .](https://t.me/Tsh0bot)
 ]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- MaTriX TeAM .',url="t.me/X04XX"}},
-}
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' or text == 'رابط حذف' then  
