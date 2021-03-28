@@ -3926,16 +3926,19 @@ local Num = text:match("^وضع زمن التكرار (%d+)$")
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Num) 
 send(msg.chat_id_, msg.id_,"⌔︙ تم وضع زمن التكرار ("..Num..")") 
 end
-if text == "ضع رابط" or text == "وضع رابط" then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
-return false 
+if text == "ضع رابط" or text == 'وضع رابط' then
+if msg.reply_to_message_id_ == 0  and Mod(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ≁⎠ لا تستطيع استخدام البوت \n  ≁⎠ يرجى الاشتراك بالقناه اولا \n  ≁⎠ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
-if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
-send(msg.chat_id_,msg.id_,"⌔︙ ارسل رابط المجموعه او رابط قناة المجموعه")
-database:setex(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
+return false
+end
+send(msg.chat_id_,msg.id_," ≁⎠ حسنآ ارسل اليه الرابط الان")
+database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false
 end
 end
