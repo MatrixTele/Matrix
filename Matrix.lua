@@ -7434,11 +7434,8 @@ Text = [[
 𓂅 . [The Developer .](https://t.me/IZlZ7I)
 * — — — — — — — — — *
 𓂅 . [Bot TwsL Dev .](https://t.me/Tsh0bot)
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- MaTriX TeAM .',url="t.me/X04XX"}},
-}
 ]]
+{{text = '- MaTriX TeAM .',url="t.me/X04XX"}},
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' or text == 'رابط حذف' then  
