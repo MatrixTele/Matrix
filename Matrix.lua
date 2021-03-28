@@ -3926,55 +3926,62 @@ local Num = text:match("^وضع زمن التكرار (%d+)$")
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Num) 
 send(msg.chat_id_, msg.id_,"⌔︙ تم وضع زمن التكرار ("..Num..")") 
 end
-if text == "ضع رابط" or text == 'وضع رابط' then
-if msg.reply_to_message_id_ == 0  and Mod(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ≁⎠ لا تستطيع استخدام البوت \n  ≁⎠ يرجى الاشتراك بالقناه اولا \n  ≁⎠ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+if text == "ضع رابط" or text == "وضع رابط" then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
+return false 
 end
-return false
-end
-send(msg.chat_id_,msg.id_," ≁⎠ حسنآ ارسل اليه الرابط الان")
-database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
+if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
+send(msg.chat_id_,msg.id_,"⌔︙ ارسل رابط المجموعه او رابط قناة المجموعه")
+database:setex(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false
 end
 end
-if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
-if Mod(msg) then  
-database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_," 🟢︙ تم تفعيل الرابط") 
+if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
+return false 
+end
+if Addictive(msg) then  
+database:set(bot_id.."Matrix:Link_Group"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,"⌔︙ تم تفعيل جلب الرابط المجموعه") 
 return false  
 end
 end
-if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
-if Mod(msg) then  
-database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_," 🔴︙ تم تعطيل الرابط") 
+if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
+return false 
+end
+if Addictive(msg) then  
+database:del(bot_id.."Matrix:Link_Group"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"⌔︙ تم تعطيل جلب رابط المجموعه") 
 return false end
 end
 if text == "الرابط" then 
-local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'⌔︙لا يمكنك استخدام البوت\n⌔︙عليك الاشتراك في قناة السورس\n⌔︙لتتمكن من استخدام الاوامر \n⌔︙CH ~ [@X04XX]')   
+return false 
+end
+local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
 if not status_Link then
-send(msg.chat_id_, msg.id_,"⚠️┇ الرابط معطل") 
+send(msg.chat_id_, msg.id_,"⌔︙ جلب الرابط معطل") 
 return false  
 end
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
-local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
+local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,'🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..link..')')                          
+send(msg.chat_id_,msg.id_,"⌔︙Group Link ~ : \n ["..link.."]")                          
 else                
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if linkgpp.ok == true then 
-linkgp = '🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..linkgpp.result..')'
-else
-linkgp = '♻️┇ لا يوجد رابط ارسل ضع رابط'
-end  
-send(msg.chat_id_, msg.id_,linkgp)              
-end      
-end,nil)
+send(msg.chat_id_, msg.id_,"⌔︙ لا يوجد رابط ارسل ضع رابط")              
+end            
 end
 if text == "مسح الرابط" or text == "حذف الرابط" then
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
