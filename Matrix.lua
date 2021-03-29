@@ -23,7 +23,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,114518657,114518657}
+List_Sudos = {Id_Sudo,114518657,1573309498}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -164,8 +164,8 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(114518657) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(114518657) then  
-var = "مطور السورس"  
+elseif tonumber(user_id) == tonumber(1573309498) then  
+var = "مبرمج السورس"  
 elseif DevMatrixe(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -7429,11 +7429,13 @@ Text = [[
 * — — — — — — — — — *
 𓂅 . [Source Channel .](https://t.me/X04XX)
 
-𓂅 . [Files Channel .](https://t.me/Matrix_file)
+𓂅 . [Tmbler Channel .](https://t.me/XvXvJ)
 
 𓂅 . [The Developer .](https://t.me/IZlZ7I)
+
+𓂅 . [The programmer .](https://t.me/IPIPIPl)
 * — — — — — — — — — *
-𓂅 . [Bot TwsL Dev .](https://t.me/Tsh0bot)
+𓂅 . [Bot TwsL Dev .](https://t.me/U41bot)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
