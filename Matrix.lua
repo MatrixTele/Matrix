@@ -4744,17 +4744,15 @@ send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة �
 end
 return false
 end
-local status_Link = database:get(bot_id.."LaricA:Link_Group"..msg.chat_id_)
+local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
 if not status_Link then
 send(msg.chat_id_, msg.id_,"• جلب الرابط معطل") 
 return false  
 end
-local link = database:get(bot_id.."LaricA:Private:Group:Link"..msg.chat_id_)            
+local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ['..ta.title_..']('..link..')')                          
+send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..link.."]")                          
 else                
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-else
 send(msg.chat_id_, msg.id_,"• لا يوجد رابط ارسل ضع رابط")              
 end            
 end
@@ -8667,17 +8665,9 @@ send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• ع
 return false 
 end
 Text = [[
-*𝙬𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 𝙨𝙤𝙪𝙧𝙘𝙚* [ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ](t.me/Matrix_Source)
+╭• [˹ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ˼](t.me/Matrix_Source) •╮
 ]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ',url="https://t.me/Matrix_Source"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
