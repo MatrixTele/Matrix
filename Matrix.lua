@@ -14,15 +14,12 @@ Id_Sudo = Sudo
 List_Sudos = {Id_Sudo,114518657,11199}
 print([[
 
-   ________         __         ______   __        ________        __    __ 
-/        |       /  |       /      \ /  |      /        |      /  |  /  |
-$$$$$$$$/_______ $$ |____  /$$$$$$  |$$ |   __ $$$$$$$$/       $$ |  $$ |
-   $$ | /       |$$      \ $$ |__$$ |$$ |  /  |$$ |__          $$  \/$$/ 
-   $$ |/$$$$$$$/ $$$$$$$  |$$    $$ |$$ |_/$$/ $$    |          $$  $$<  
-   $$ |$$      \ $$ |  $$ |$$$$$$$$ |$$   $$<  $$$$$/            $$$$  \ 
-   $$ | $$$$$$  |$$ |  $$ |$$ |  $$ |$$$$$$  \ $$ |_____        $$ /$$  |
-   $$ |/     $$/ $$ |  $$ |$$ |  $$ |$$ | $$  |$$       |      $$ |  $$ |
-   $$/ $$$$$$$/  $$/   $$/ $$/   $$/ $$/   $$/ $$$$$$$$/       $$/   $$/ 
+███╗░░░███╗░█████╗░████████╗██████╗░██╗██╗░░██╗
+████╗░████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝
+██╔████╔██║███████║░░░██║░░░██████╔╝██║░╚███╔╝░
+██║╚██╔╝██║██╔══██║░░░██║░░░██╔══██╗██║░██╔██╗░
+██║░╚═╝░██║██║░░██║░░░██║░░░██║░░██║██║██╔╝╚██╗
+╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝╚═╝░░╚═╝
 
 
 ]])
@@ -2448,7 +2445,7 @@ return false
 end
 if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then 
 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2464,7 +2461,7 @@ end
 if text and text:match("^تنزيل مالك @(.*)$") and DevBot(msg) then 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da.status_.ID == "ChatMemberStatusCreator" then
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2600,7 +2597,7 @@ end
 end
 
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي ?? •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2614,7 +2611,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2639,7 +2636,7 @@ end
 
 
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2655,7 +2652,7 @@ end
 if text and text:match("^رفع منشئ اساسي @(.*)$") and not DevBot(msg) then 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da.status_.ID == "ChatMemberStatusCreator" then
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2682,7 +2679,7 @@ end
 if text and text:match("^رفع منشئ اساسي (%d+)$") and not DevBot(msg) then 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da.status_.ID == "ChatMemberStatusCreator" then
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2698,7 +2695,7 @@ end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and not DevBot(msg) then 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da.status_.ID == "ChatMemberStatusCreator" then
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2716,7 +2713,7 @@ end
 if text and text:match("^تنزيل منشئ اساسي @(.*)$") and not DevBot(msg) then 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da.status_.ID == "ChatMemberStatusCreator" then
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2740,7 +2737,7 @@ end
 if text and text:match("^تنزيل منشئ اساسي (%d+)$") and not DevBot(msg) then 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da.status_.ID == "ChatMemberStatusCreator" then
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2755,7 +2752,7 @@ end,nil)
 end
 
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructoryyu(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2769,7 +2766,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع منشئ اساسي @(.*)$") and Constructoryyu(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2792,7 +2789,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^رفع منشئ اساسي (%d+)$") and Constructoryyu(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2804,7 +2801,7 @@ Reply_Status(msg,userid,"reply","💢┇تم ترقيته منشئ اساسي")
 return false
 end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructoryyu(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2818,7 +2815,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي @(.*)$") and Constructoryyu(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2838,7 +2835,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي (%d+)$") and Constructoryyu(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2851,7 +2848,7 @@ return false
 end
 
 if text == "رفع منشئ" and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2864,7 +2861,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
 if text and text:match("^رفع منشئ @(.*)$") and BasicConstructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2887,7 +2884,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 end
 ------------------------------------------------------------------------
 if text and text:match("^رفع منشئ (%d+)$") and BasicConstructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2906,7 +2903,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 end
 ------------------------------------------------------------------------
 if text and text:match("^تنزيل منشئ @(.*)$") and BasicConstructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2925,7 +2922,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 end
 ------------------------------------------------------------------------
 if text and text:match("^تنزيل منشئ (%d+)$") and BasicConstructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2937,7 +2934,7 @@ Reply_Status(msg,userid,"reply","💢┇تم تنزيله من المنشئين"
 end
 
 if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2971,7 +2968,7 @@ end,nil)
 send(msg.chat_id_, msg.id_,"📬┇تم ازالة 100 من وسائط ") 
 end
 if text and text:match("^رفع مدير @(.*)$") and Constructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -2995,7 +2992,7 @@ return false
 end 
 
 if text and text:match("^رفع مدير (%d+)$") and Constructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3007,7 +3004,7 @@ Reply_Status(msg,userid,"reply","💢┇تم ترقيته مدير المجمو�
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3021,7 +3018,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end  
 if text and text:match("^تنزيل مدير @(.*)$") and Constructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3040,7 +3037,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end  
 if text and text:match("^تنزيل مدير (%d+)$") and Constructor(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3053,7 +3050,7 @@ return false
 end
 
 if text == ("رفع ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3071,7 +3068,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3098,7 +3095,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^رفع ادمن (%d+)$") and Owner(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3114,7 +3111,7 @@ Reply_Status(msg,userid,"reply","💢┇تم ترقيته ادمن للمجمو�
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3128,7 +3125,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل ادمن @(.*)$") and Owner(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة ?? •\n• [@Matrix_Source] ⚜️')   
@@ -3147,7 +3144,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3160,7 +3157,7 @@ return false
 end
 
 if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3178,7 +3175,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3206,7 +3203,7 @@ return false
 end
 
 if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3223,7 +3220,7 @@ return false
 end
 
 if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3237,7 +3234,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل مميز @(.*)$") and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3256,7 +3253,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix,
 return false
 end
 if text and text:match("^تنزيل مميز (%d+)$") and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3268,7 +3265,7 @@ Reply_Status(msg,userid,"reply","💢┇تم تنزيله من المميزين"
 return false
 end  
 if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3300,7 +3297,7 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 end
 if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3332,7 +3329,7 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 end
 if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3367,7 +3364,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil)
 end 
 end
 if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -3959,6 +3956,34 @@ database:del(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)
 return false      
 end
 return false  
+end
+if text == ("امسح") and cleaner(msg) then  
+local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "• تم مسح "..k.." من الوسائط الموجوده"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."Matrix:allM"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "• لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("الميديا") and cleaner(msg) then  
+local num = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
+for k,v in pairs(num) do
+local numl = v
+if numl then
+l = "• عدد الميديا الموجود هو "..k
+end
+end
+if #num == 0 then
+l = "• لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, l)
 end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 database:set(bot_id.."Matrix:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
@@ -5885,6 +5910,12 @@ send(msg.chat_id_, msg.id_,'📌┇تم تعين الايدي')
 end
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+local url,res = http.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
+local data = JSON.decode(url) 
+if data.Ch_Member.Info_Ch ~= true then
+send(msg.chat_id_,msg.id_,'\n📌┇عليك الاشتراك في قناة البوت \n💢┇قناة البوت ← { [@Matrix_Source] }')   
+return false 
+end
 if not database:sismember(bot_id..'Matrix:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
@@ -7248,6 +7279,88 @@ send(msg.chat_id_, msg.id_,Text)
 return false
 end
 
+if text == "اضف كت تويت 📥" and DevBot(msg) then
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+end
+if text == "حذف كت تويت 📤" and DevBot(msg) then
+database:del(bot_id.."gamebot:List:Manager")
+return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
+end
+if text == "غنيلي" then
+data,res = https.request('https://apiabs.ml/Audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='• تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- Matrix TeAM .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text and text:match("^كول (.*)$") then
+local Textxt = text:match("^كول (.*)$")
+send(msg.chat_id_, msg.id_, Textxt)
+end
+if text == "تفعيل الزخرفه" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل الزخرفه')
+database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"open")
+end
+if text == "تفعيل الزخرفه" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل الزخرفه')
+database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_) == "open" then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://black-source.tk/BlackTeAM/frills.php?en='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n• قائمه الزخرفه \n  - - - - - - - - -\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."-  `"..v.."` \n"
+end
+send(msg.chat_id_, msg.id_, t..'  - - - - - - - - -\n• اضغط على الاسم ليتم نسخه')
+end
+if text == "تعطيل الابراج" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '• تم تعطيل الابراج')
+database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل الابراج" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل الابراج')
+database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^برج (.*)$") and database:get(bot_id.."Matrix:brj_Bots"..msg.chat_id_) == "open" then
+local Textbrj = text:match("^برج (.*)$")
+gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
+br = JSON.decode(gk)
+send(msg.chat_id_, msg.id_, br.ok.hso)
+end
+if text == "تعطيل حساب العمر" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '• تم تعطيل حساب العمر')
+database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل حساب العمر" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل حساب العمر')
+database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
+local Textage = text:match("^احسب (.*)$")
+ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
+ag = JSON.decode(ge)
+send(msg.chat_id_, msg.id_, ag.ok.hso)
+end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+database:sadd(bot_id.."gamebot:List:Manager", text)
+return false end
+end
 if text and text:match("ضع لقب (.*)") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
 local namess = text:match("ضع لقب (.*)")
 function Function_Matrix(extra, result, success)
@@ -7525,7 +7638,7 @@ end
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 if text == 'تفعيل' and DevBot(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -7588,7 +7701,7 @@ end,nil)
 end,nil)
 end
 if text == 'تعطيل' and DevBot(msg) then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -7632,7 +7745,7 @@ end,nil)
 end,nil) 
 end
 if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Matrix:Free:Add:Bots') then 
-local res = https.request('https://tshakex.gq/api/Matrix_Source.php?id='..msg.sender_user_id_)
+local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
 if res then
 if res == 'false' then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
@@ -7727,6 +7840,7 @@ local keyboard = {
 {"تغير اسم البوت 🔁"},
 {'تحديث السورس 📥','تحديث ♻'},
 {'معلومات السيرفر 📡'},
+{'اضف كت تويت 📥','حذف كت تويت 📤'},
 {'قائمه العام 🚷'},
 {'جلب نسخه احتياطيه 📁'},
 {'الغاء ✖'}
@@ -9120,52 +9234,46 @@ return false
 end
 end
 
-if Text and Text:match('(.*)/help1') and Addictive(tahaj) then
+if Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-📮┇ اوامر حمايه المجموعه
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⏺┇قفل/فتح + الاوامر الادناه 
-⏺┇قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🔐┇الروابط
-🔐┇المعرف
-🔐┇التاك
-🔐┇الشارحه
-🔐┇التعديل
-🔐┇التثبيت
-🔐┇المتحركه
-🔐┇الملفات
-🔐┇الصور
+• اوامر حمايه المجموعه
+  - - - - - - - - -
+• قفل/فتح + الاوامر الادناه 
+• قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
+  - - - - - - - - -
+• الروابط
+• المعرف
+• التاك
+• الشارحه
+• التعديل
+• التثبيت
+• المتحركه
+• الملفات
+• الصور
 
-🔐┇الملصقات
-🔐┇الفيديو
-🔐┇الانلاين
-🔐┇الدردشه
-🔐┇التوجيه
-🔐┇الاغاني
-🔐┇الصوت
-🔐┇الجهات
-🔐┇الاشعارات
+• الملصقات
+• الفيديو
+• الانلاين
+• الدردشه
+• التوجيه
+• الاغاني
+• الصوت
+• الجهات
+• الاشعارات
 
-🔐┇الماركداون
-🔐┇البوتات
-🔐┇التكرار
-🔐┇الكلايش
-🔐┇السيلفي
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇Ch ~⪼ [@Matrix_Source]
+• الماركداون
+• البوتات
+• التكرار
+• الكلايش
+• السيلفي
+  - - - - - - - - -
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+{text = '1', callback_data=data.sender_user_id_.."/help1"},{text = '2', callback_data=data.sender_user_id_.."/help2"},{text = '3', callback_data=data.sender_user_id_.."/help3"},{text = '4', callback_data=data.sender_user_id_.."/help4"},{text = '5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -9173,81 +9281,71 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-end
-if Text and Text:match('(.*)/help2') and Addictive(tahaj) then
+elseif Text and Text:match('(.*)/help2') then
 if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-🥈┇اوامر الادمنيه
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-▶️┇رفع/تنزيل مميز
-📮┇تاك للكل
-📮┇عدد الكروب
-🚫┇كتم
-🚷┇حظر
-🚷┇طرد
-🚫┇منع
-🚫┇تقيد
-⏺┇الغاء حظر
-⏺┇الغاء كتم
-⏺┇الغاء تقيد
-⏺┇الغاء منع
-📋┇المحظورين
-📋┇المكتومين
-📋┇المميزين
-📋┇الصلاحيات
-📋┇قائمه المنع
-
-〽┇تثبيت
-⏺┇الغاء تثبيت
-📄┇الاعدادات
-
-🗳┇الرابط
-📃┇القوانين
-
-👋🏻┇الترحيب
-👋🏻┇تفعيل/تعطيل الترحيب
-⚠️┇اضف /مسح صلاحيه 
-⚠️┇وضع تكرار + العدد
-💭┇ايدي
-💭┇جهاتي
-💭┇سحكاتي
-💭┇رسائلي
-💭┇كشف البوتات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🔘┇وضع + الاوامر الادناه
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📝┇اسم
-📝┇رابط
-📝┇صوره
-📝┇وصف
-📝┇قوانين
-??┇ترحيب
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🗑┇مسح + الاوامر الادناه
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📮┇قائمه المنع
-📮┇المحظورين
-📮┇المميزين
-📮┇المكتومين
-📮┇المطرودين
-📮┇القوانين
-📮┇البوتات
-📮┇الصوره
-📮┇الصلاحيات
-📮┇الرابط
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH [@Matrix_Source]
+• اوامر الادمنيه
+  - - - - - - - - - 
+ • تفعيل/تعطيل الترحيب
+ • اضف /مسح صلاحيه
+• وضع تكرار + العدد
+• رفع/تنزيل مميز
+• عدد الكروب
+• تاك للكل
+  - - - - - - - - -
+• كتم
+• حظر
+• طرد
+• منع
+• تقيد
+  - - - - - - - - -
+ • المكتومين
+• المحظورين
+• المميزين
+• الصلاحيات
+• قائمه المنع
+  - - - - - - - - -
+• الغاء كتم
+• الغاء حظر
+• الغاء منع
+• الغاء تقيد
+  - - - - - - - - -
+• الغاء تثبيت
+• الاعدادات
+• تثبيت
+• الرابط
+• القوانين
+• الترحيب
+• ايدي
+• جهاتي
+• سحكاتي
+• رسائلي
+• كشف البوتات
+  - - - - - - - - -
+• وضع اسم
+• وضع رابط
+• وضع صوره
+• وضع وصف
+• وضع قوانين
+• وضع ترحيب
+  - - - - - - - - -
+• مسح قائمه المنع
+• مسح المحظورين
+• مسح المميزين
+• مسح المكتومين
+• مسح المطرودين
+• مسح القوانين
+• مسح البوتات
+• مسح الصوره
+• مسح الصلاحيات
+• مسح الرابط
+  - - - - - - - - -
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+{text = '1', callback_data=data.sender_user_id_.."/help1"},{text = '2', callback_data=data.sender_user_id_.."/help2"},{text = '3', callback_data=data.sender_user_id_.."/help3"},{text = '4', callback_data=data.sender_user_id_.."/help4"},{text = '5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -9255,59 +9353,46 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-end
-if Text and Text:match('(.*)/help3') and Owner(tahaj) then
+elseif Text and Text:match('(.*)/help3') and Owner(data) then  
 if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-🥇┇ اوامر المدراء
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-↕️┇رفع/تنزيل ادمن
-↕️┇رفع/كشف القيود
-↕️┇تنزيل الكل
-
-💬┇تفعيل/تعطيل الايدي بالصوره
-💬┇تفعيل/تعطيل الايدي
-💬┇تفعيل/تعطيل ردود المطور
-💬┇تفعيل/تعطيل اللعبه/الالعاب
-💬┇تفعيل/تعطيل ردود المدير
-💬┇تفعيل/تعطيل اطردني
-💬┇تفعيل/تعطيل الرفع
-💬┇تفعيل/تعطيل الحظر/الطرد
-💬┇تفعيل/تعطيل الرابط/جلب الرابط
-💬┇تفعيل/تعطيل اوامر التحشيش
-
-♨️┇تعين/مسح الايدي
-
-🖇┇رفع الادمنيه
-🖇┇اضف/حذف رد
-📋┇الادمنيه
-📋┇ردود المدير
-
-🗑┇تنظيف + عدد
-🗑┇مسح الادمنيه
-🗑┇مسح ردود المدير
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🔘┇لتغير ردود الايدي :- 
-تغير رد المطور + النص
-تغير رد المنشئ الاساسي + النص
-تغير رد المنشئ + النص
-تغير رد المدير + النص
-تغير رد الادمن + النص
-تغير رد المميز + النص
-تغير رد العضو + النص
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH [@Matrix_Source]
+• اوامر المدير
+  - - - - - - - - -
+• رفع القيود
+• كشف القيود
+• تنزيل الكل
+• رفع ادمن
+• تنزيل ادمن
+• رفع الادمنيه
+• مسح الادمنيه
+• الادمنيه
+• تعين الايدي
+• مسح الايدي
+• ردود المدير
+• اضف رد
+• حذف رد
+• تنظيف + عدد
+  - - - - - - - - -
+• تفعيل/تعطيل الرفع
+• تفعيل/تعطيل الايدي
+• تفعيل/تعطيل الابراج
+• تفعيل/تعطيل اطردني
+• تفعيل/تعطيل الزخرفه
+• تفعيل/تعطيل ردود المدير
+• تفعيل/تعطيل حساب العمر
+• تفعيل/تعطيل ردود المطور
+• تفعيل/تعطيل الحظر/الطرد
+• تفعيل/تعطيل اللعبه/الالعاب
+• تفعيل/تعطيل الايدي بالصوره
+• تفعيل/تعطيل اوامر التحشيش
+• تفعيل/تعطيل الرابط/جلب الرابط
+  - - - - - - - - -
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+{text = '1', callback_data=data.sender_user_id_.."/help1"},{text = '2', callback_data=data.sender_user_id_.."/help2"},{text = '3', callback_data=data.sender_user_id_.."/help3"},{text = '4', callback_data=data.sender_user_id_.."/help4"},{text = '5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -9315,40 +9400,35 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-end
-if Text and Text:match('(.*)/help4') and Constructor(tahaj) then
+elseif Text and Text:match('(.*)/help4') and Constructor(data) then  
 if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-🏅┇اوامر المنشئين الاساسين 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-↕️┇رفع/تنزيل منشئ
-↕️┇المنشئين
-🗑┇مسح المنشئين
-
-🏅┇اوامر المنشئين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-↕️┇رفع/تنزيل مدير
-↕️┇المدراء
-🗑┇مسح المدراء
-🔘┇تعين/مسح الايدي
-➕┇اضف/حذف امر
-➕┇الاوامر المضافه
-➕┇حذف/مسح الاوامر المضافه
-➕┇اضف رسائل + العدد بالرد
-➕┇اضف مجوهرات + العدد بالرد
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH [@Matrix_Source]
+• اوامر المنشئين الاساسين 
+  - - - - - - - - -
+• رفع/تنزيل منشئ اساسي
+• رفع/تنزيل منشئ
+• المنشئين
+• مسح المنشئين
+• مسح ردود المدير
+  - - - - - - - - -
+• اوامر المنشئين
+  - - - - - - - - -
+• رفع/تنزيل مدير
+• المدراء
+• مسح المدراء
+• تعين/مسح الايدي
+• اضف/حذف امر
+• الاوامر المضافه
+• حذف/مسح الاوامر المضافه
+• اضف رسائل + العدد بالرد
+• اضف مجوهرات + العدد بالرد
+  - - - - - - - - -
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+{text = '1', callback_data=data.sender_user_id_.."/help1"},{text = '2', callback_data=data.sender_user_id_.."/help2"},{text = '3', callback_data=data.sender_user_id_.."/help3"},{text = '4', callback_data=data.sender_user_id_.."/help4"},{text = '5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -9356,62 +9436,58 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-end
-if Text and Text:match('(.*)/help5') and DevBot(tahaj) then
+elseif Text and Text:match('(.*)/help5') and DevBot(data) then
 if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-👁‍🗨┇اوامر المطور الاساسي  
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-↕️┇حظر عام
-↕️┇الغاء العام
-🗑┇مسح قائمه العام
-🚧┇تغير اسم البوت
-📥┇اضف /حذف مطور 
-👁‍🗨┇المطورين
-🗑┇مسح المطورين
-📋┇اضف/حذف رد للكل 
-📋┇مسح ردود المطور
-📋┇ردود المطور 
-📋┇وضع /حذف كليشه المطور 
-
-☑️┇تحديث  + تحديث السورس 
-
-📥┇تفعيل/تعطيل البوت الخدمي 
-📥┇ تعين عدد الاعضاء + العدد
-📥┇تفعيل/تعطيل المغادرة
-📥┇تفعيل/تعطيل الاذاعه 
-📥┇تفعيل/تعطيل ملف + اسم الملف
-📈┇الملفات 
-🗑┇مسح جميع الملفات 
-📄┇المتجر 
-🏅┇اوامر المطور 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-👁‍🗨┇تفعيل /تعطيل
-
-↕️┇رفع/تنزيل منشئ اساسي
-↕️┇رفع منشئ 
-🗑┇مسح المنشئين الاساسين
-🔘┇المنشئين الاساسين 
-➕┇غادر 
-➕┇غادر + الايدي
-➕┇اذاعه 
-➕┇اذاعه بالتوجيه
-➕┇اذاعه خاص 
-➕┇اذاعه بالتثبيت 
-➕┇الاحصائيات 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH [@Matrix_Source]
+• اوامر المطور الاساسي  
+  - - - - - - - - -
+• تحديث 
+• الملفات 
+• المتجر 
+• حظر عام
+• الغاء العام
+• المطورين
+• ردود المطور 
+• اوامر المطور 
+• اضف رد للكل 
+• حذف رد للكل 
+• مسح المطورين
+• مسح قائمه العام
+• تعطيل الاذاعه 
+• تفعيل الاذاعه 
+• تعطيل الاذاعه
+• تفعيل المغادرة
+• تحديث السورس
+• مسح ردود المطور
+• مسح جميع الملفات
+• اضف /حذف مطور 
+• وضع كليشه المطور 
+• حذف كليشه المطور 
+• تفعيل البوت الخدمي 
+• تعطيل البوت الخدمي
+• تفعيل ملف + اسم الملف
+• تعطيل ملف + اسم الملف
+• تعين عدد الاعضاء + العدد
+  - - - - - - - - -
+• غادر 
+• اذاعه 
+• رفع منشئ 
+• اذاعه خاص 
+• الاحصائيات 
+• غادر + الايدي
+• تفعيل /تعطيل
+• اذاعه بالتوجيه
+• اذاعه بالتثبيت 
+• المنشئين الاساسين 
+• رفع/تنزيل منشئ اساسي
+• مسح المنشئين الاساسين
+  - - - - - - - - -
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+{text = '1', callback_data=data.sender_user_id_.."/help1"},{text = '2', callback_data=data.sender_user_id_.."/help2"},{text = '3', callback_data=data.sender_user_id_.."/help3"},{text = '4', callback_data=data.sender_user_id_.."/help4"},{text = '5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -9419,33 +9495,30 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-end
-if Text and Text:match('(.*)/help') and Addictive(tahaj) then
+elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-📮┇هناك {5} اوامر لعرضها
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🗑┇م1 ~⪼ لعرض اوامر الحمايه
-📚┇م2 ~⪼ لعرض اوامر الادمنيه
-🗓┇م3 ~⪼ لعرض اوامر المدراء
-🎖┇م4 ~⪼ لعرض اوامر المنشئين
-👤┇م5 ~⪼ لعرض اوامر المطورين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH [@Matrix_Source]
+ٴ𝚑𝚒 𝚖𝚊𝚝𝚛𝚒𝚡
+ٴ  - - - - - - - - -
+• ⓪ ↺ المنظفين
+• ① ↺ الحمايه
+• ② ↺ الادمنيه
+• ③ ↺ المدراء
+• ④ ↺ المنشئين
+• ⑤ ↺ المطورين
+ٴ  - - - - - - - - -
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '1', callback_data=data.sender_user_id_.."/help1"},{text = '2', callback_data=data.sender_user_id_.."/help2"},{text = '3', callback_data=data.sender_user_id_.."/help3"},{text = '4', callback_data=data.sender_user_id_.."/help4"},{text = '5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر التعطيل والتفعيل', callback_data=data.sender_user_id_.."/homeaddwd"},
 },
 {
-{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddrem"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر القفل والفتح', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
