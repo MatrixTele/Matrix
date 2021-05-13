@@ -8519,6 +8519,16 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
+if text == "الساعه" then
+local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
+send(msg.chat_id_, msg.id_,yytesj20)
+end
+
+if text == "التاريخ" then
+local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
+send(msg.chat_id_, msg.id_,cfhoog)
+end
+
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
 send(msg.chat_id_, msg.id_, "• تم التحديث")
