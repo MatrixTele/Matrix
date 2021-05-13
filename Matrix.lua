@@ -3156,24 +3156,58 @@ Reply_Status(msg,userid,"reply","💢┇تم تنزيله من ادمنيه ال
 return false
 end
 
-if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then 
-local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
-if res then
-if res == 'false' then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
-return false 
-end end
+if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✖┇لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مميز للمجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
+if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local username = text:match("^رفع مميز @(.*)$") 
+if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+return false
+end
+function Function_Matrix(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","• تم ترقيته مميز للمجموعه")  
+else
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
+return false
+end
+
 if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
