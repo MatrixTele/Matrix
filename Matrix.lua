@@ -8363,6 +8363,596 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+if text == "تعطيل الزخرفه" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '• تم تعطيل الزخرفه')
+database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل الزخرفه" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل الزخرفه')
+database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_) == "open" then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://black-source.tk/BlackTeAM/frills.php?en='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n• قائمه الزخرفه \n  - - - - - - - - -\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."-  `"..v.."` \n"
+end
+send(msg.chat_id_, msg.id_, t..'  - - - - - - - - -\n• اضغط على الاسم ليتم نسخه')
+end
+if text == "تعطيل الابراج" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '• تم تعطيل الابراج')
+database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل الابراج" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل الابراج')
+database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^برج (.*)$") and database:get(bot_id.."Matrix:brj_Bots"..msg.chat_id_) == "open" then
+local Textbrj = text:match("^برج (.*)$")
+gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
+br = JSON.decode(gk)
+send(msg.chat_id_, msg.id_, br.ok.hso)
+end
+if text == "تعطيل حساب العمر" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '• تم تعطيل حساب العمر')
+database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل حساب العمر" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل حساب العمر')
+database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
+local Textage = text:match("^احسب (.*)$")
+ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
+ag = JSON.decode(ge)
+send(msg.chat_id_, msg.id_, ag.ok.hso)
+end
+if text == "تعطيل الانستا" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '• تم تعطيل الانستا')
+database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"close")
+end
+if text == "تفعيل الانستا" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل الانستا')
+database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
+end
+if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
+local Textni = text:match("^معلومات (.*)$")
+data,res = https.request('https://Matrix-source.tk/MatrixTeAM/infoInstagram.php?username='..URL.escape(Textni)..'')
+if res == 200 then
+muaed = json:decode(data)
+if muaed.Info == true then
+local msg_id = msg.id_/2097152/0.5
+SendP(msg.chat_id_, msg_id,muaed.ph, muaed.info) 
+end
+end
+end
+if text == "تعطيل الافلام" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '• تم تعطيل الافلام')
+database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"close")
+end
+if text == "تفعيل الافلام" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'• تم تفعيل الافلام')
+database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
+end
+
+if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
+local Textm = text:match("^فلم (.*)$")
+data,res = https.request('https://Matrix-source.tk/MatrixTeAM/movie.php?serch='..URL.escape(Textm)..'')
+if res == 200 then
+getmo = json:decode(data)
+if getmo.Info == true then
+local Text ='قصه الفلم'..getmo.info
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}},
+{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "غنيلي" then
+data,res = https.request('https://apiabs.ml/Audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='• تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- Matrix TeAM .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text and text:match("^كول (.*)$") then
+local Textxt = text:match("^كول (.*)$")
+send(msg.chat_id_, msg.id_, Textxt)
+end
+if (msg.content_.sticker_)  and msg.reply_to_message_id_ == 0 and database:get(bot_id.."Matrix:Lock:Xn"..msg.chat_id_)=="del" then      
+sticker_id = msg.content_.sticker_.sticker_.persistent_id_
+st = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..token..'&url='..sticker_id.."&type=sticker")
+eker = JSON.decode(st)
+if eker.ok.Info == "Indecent" then
+local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
+t = "• المنشئين الاساسين تعالو مخرب \n  - - - - - - - - -\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."Matrix:User:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "• ماكو منششئين يشوفولك جاره"
+end
+Reply_Status(msg,msg.sender_user_id_,"reply","• قام بنشر ملصق اباحيه\n"..t)  
+DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
+end   
+end
+if (msg.content_.photo_) and msg.reply_to_message_id_ == 0 and database:get(bot_id.."Matrix:Lock:Xn"..msg.chat_id_)=="del" then
+photo_id = msg.content_.photo_.sizes_[1].photo_.persistent_id_  
+Srrt = https.request('https://Matrix-source.tk/MatrixTeAM/ImageInfo.php?token='..token..'&url='..photo_id.."&type=photo")
+Sto = JSON.decode(Srrt)
+if Sto.ok.Info == "Indecent" then
+local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
+t = "• المنشئين الاساسين تعالو مخرب \n  - - - - - - - - -\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."Matrix:User:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "• ماكو منششئين يشوفولك جاره"
+end
+Reply_Status(msg,msg.sender_user_id_,"reply","• قام بنشر صوره اباحيه\n"..t)  
+DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
+end   
+end
+if text == 'ملصق' then   
+if tonumber(msg.reply_to_message_id_) > 0 then
+function by_reply(extra, result, success)   
+if result.content_.photo_ then 
+local pn = result.content_.photo_.sizes_[1].photo_.persistent_id_
+Addsticker(msg,msg.chat_id_,pn,msg.sender_user_id_..'.png')
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+end
+if text == 'صوت' then   
+if tonumber(msg.reply_to_message_id_) > 0 then
+function by_reply(extra, result, success)   
+if result.content_.voice_ then 
+local mr = result.content_.voice_.voice_.persistent_id_ 
+Addmp3(msg,msg.chat_id_,mr,msg.sender_user_id_..'.mp3')
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+end
+if text == 'بصمه' then   
+if tonumber(msg.reply_to_message_id_) > 0 then
+function by_reply(extra, result, success)   
+if result.content_.audio_ then 
+local mr = result.content_.audio_.audio_.persistent_id_
+Addvoi(msg,msg.chat_id_,mr,msg.sender_user_id_..'.ogg')
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+end
+if text == 'صوره' then   
+if tonumber(msg.reply_to_message_id_) > 0 then
+function by_reply(extra, result, success)   
+if result.content_.sticker_ then 
+local Str = result.content_.sticker_.sticker_.persistent_id_ 
+Addjpg(msg,msg.chat_id_,Str,msg.sender_user_id_..'.jpg')
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+end
+if text == 'تفعيل البوت الخدمي' and DevMatrix(msg) then  
+database:del(bot_id..'Matrix:Free:Add:Bots') 
+send(msg.chat_id_, msg.id_,'• تم تفعيل البوت الخدمي ') 
+end
+if text == 'تعطيل البوت الخدمي' and DevMatrix(msg) then  
+database:set(bot_id..'Matrix:Free:Add:Bots',true) 
+send(msg.chat_id_, msg.id_,'• تم تعطيل البوت الخدمي') 
+end
+if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevMatrix(msg) then
+local Num = text:match("تعين عدد الاعضاء (%d+)$") 
+database:set(bot_id..'Matrix:Num:Add:Bot',Num) 
+send(msg.chat_id_, msg.id_,'• تم وضع عدد الاعضاء *~'..Num..'* عضو')
+end
+if text =='الاحصائيات' and DevBot(msg) then
+local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
+local Users = database:scard(bot_id..'Matrix:UsersBot')  
+send(msg.chat_id_, msg.id_,'• احصائيات البوت \n\n• عدد المجموعات *~ '..Groups..'\n• عدد المشتركين ~ '..Users..'*')
+end
+if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
+local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
+local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
+for k,v in pairs(list) do   
+NAME = 'Matrix Chat'
+ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
+MDER = database:smembers(bot_id.."Matrix:Manager"..v)
+MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
+link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
+if k == 1 then
+t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
+else
+t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
+end
+if #ASAS ~= 0 then 
+t = t..'"ASAS":['
+for k,v in pairs(ASAS) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MOD ~= 0 then
+t = t..'"MOD":['
+for k,v in pairs(MOD) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MDER ~= 0 then
+t = t..'"MDER":['
+for k,v in pairs(MDER) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MNSH ~= 0 then
+t = t..'"MNSH":['
+for k,v in pairs(MNSH) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'"linkgroup":"'..link..'"}' or ''
+end
+t = t..'}}'
+local File = io.open('./File_Libs/'..bot_id..'.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '• عدد مجموعات التي في البوت { '..#list..'}')
+end
+if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
+local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
+if Text_Dev then 
+send(msg.chat_id_, msg.id_,Text_Dev)
+else
+tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
+send(msg.chat_id_, msg.id_,"• المطور :: ["..data.first_name_.."](T.me/"..data.username_..")")  
+end,nil)   
+end
+end
+if text == 'الملفات' and DevMatrix(msg) then
+t = '• جميع الملفات : \n  - - - - - - - - -\n'
+i = 0
+for v in io.popen('ls Matrix_Files'):lines() do
+if v:match(".lua$") then
+i = i + 1
+t = t..i..'*~ '..v..'*\n'
+end
+end
+send(msg.chat_id_, msg.id_,t)
+end
+if text == "متجر الملفات" or text == 'المتجر' then
+if DevMatrix(msg) then
+local Get_Files, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/getfile.json")
+if res == 200 then
+local Get_info, res = pcall(JSON.decode,Get_Files);
+vardump(res.plugins_)
+if Get_info then
+local TextS = "\n• اهلا بك في متجر ملفات ماتركس\n• يوجد في المتجر ملف الردود\n• يتم ادراج الملفات في التحديثات القادمه \n  - - - - - - - - -\n"
+local TextE = "\n  - - - - - - - - -\n• تدل علامة (✔) الملف مفعل\n".."• تدل علامة (✖) الملف معطل\n"
+local NumFile = 0
+for name,Info in pairs(res.plugins_) do
+local Check_File_is_Found = io.open("Matrix_Files/"..name,"r")
+if Check_File_is_Found then
+io.close(Check_File_is_Found)
+CeckFile = "(✔)"
+else
+CeckFile = "(✖)"
+end
+NumFile = NumFile + 1
+TextS = TextS..'*'..NumFile.."↺* {`"..name..'`} ↺ '..CeckFile..'\n[-  About to the file]('..Info..')\n'
+end
+send(msg.chat_id_, msg.id_,TextS..TextE) 
+end
+else
+send(msg.chat_id_, msg.id_,"• لا يوجد اتصال من ال api \n") 
+end
+return false
+end
+end
+
+if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevMatrix(msg) then
+local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
+local file = name_t[2]..'.lua'
+local file_bot = io.open("Matrix_Files/"..file,"r")
+if file_bot then
+io.close(file_bot)
+t = "*• الملف ↺ {"..file.."}\n• تم تعطيله وحذفه بنجاح \n✓*"
+else
+t = "*• بالتاكيد تم تعطيل وحذف ملف ↺ {"..file.."} \n✓*"
+end
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/files_MATRIX/"..file)
+if res == 200 then
+os.execute("rm -fr Matrix_Files/"..file)
+send(msg.chat_id_, msg.id_,t) 
+dofile('Matrix.lua')  
+else
+send(msg.chat_id_, msg.id_,"*• عذرا لا يوجد هاكذا ملف في المتجر *\n") 
+end
+return false
+end
+if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and DevMatrix(msg) then
+local name_t = {string.match(text, "^(تفعيل ملف) (.*)(.lua)$")}
+local file = name_t[2]..'.lua'
+local file_bot = io.open("Matrix_Files/"..file,"r")
+if file_bot then
+io.close(file_bot)
+t = "*• بالتاكيد تم تنزيل وتفعيل ملف ↺ {"..file.."} \n✓*"
+else
+t = "*• الملف ↺ {"..file.."}\n• تم تنزيله وتفعيله بنجاح \n*"
+end
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/files_MATRIX/"..file)
+if res == 200 then
+local chek = io.open("Matrix_Files/"..file,'w+')
+chek:write(json_file)
+chek:close()
+send(msg.chat_id_, msg.id_,t) 
+dofile('Matrix.lua')  
+else
+send(msg.chat_id_, msg.id_,"*• عذرا لا يوجد هاكذا ملف في المتجر *\n") 
+end
+return false
+end
+if text == "مسح جميع الملفات" and DevMatrix(msg) then
+os.execute("rm -fr Matrix_Files/*")
+send(msg.chat_id_,msg.id_,"• تم حذف جميع الملفات")
+return false
+end
+if text == 'نقل الاحصائيات' and DevMatrix(msg) then
+local Users = database:smembers('Matrix:'..bot_id.."userss")
+local Groups = database:smembers('Matrix:'..bot_id..'groups') 
+for i = 1, #Groups do
+database:sadd(bot_id..'Matrix:Chek:Groups',Groups[i])  
+end
+for i = 1, #Users do
+database:sadd(bot_id..'Matrix:UsersBot',Users[i])  
+end
+send(msg.chat_id_, msg.id_,'• تم نقل : '..#Groups..' كروب\n• تم نقل : '..#Users..' مشترك \n• من التحديث القديم الى التحديث الجديد')
+end
+if text == 'حذف كليشه المطور' and DevMatrix(msg) then
+database:del(bot_id..'Matrix:Text_Dev')
+send(msg.chat_id_, msg.id_,'• تم حذف كليشه المطور')
+end
+if text == 'وضع كليشه المطور' and DevMatrix(msg) then
+database:set(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_,true)
+send(msg.chat_id_,msg.id_,'• ارسل الكليشه الان')
+return false
+end
+if text and database:get(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_) then
+if text == 'الغاء' then 
+database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
+send(msg.chat_id_,msg.id_,'• تم الغاء حفظ كليشة المطور')
+return false
+end
+database:set(bot_id..'Matrix:Text_Dev',text)
+database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
+send(msg.chat_id_,msg.id_,'• تم حفظ كليشة المطور')
+return false
+end
+if text == 'رفع النسخه الاحتياطيه' and DevMatrix(msg) then   
+if tonumber(msg.reply_to_message_id_) > 0 then
+function by_reply(extra, result, success)   
+if result.content_.document_ then 
+local ID_FILE = result.content_.document_.document_.persistent_id_ 
+local File_Name = result.content_.document_.file_name_
+add_file(msg,msg.chat_id_,ID_FILE,File_Name)
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+end
+if text == "الساعه" then
+local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
+send(msg.chat_id_, msg.id_,yytesj20)
+end
+
+if text == "التاريخ" then
+local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
+send(msg.chat_id_, msg.id_,cfhoog)
+end
+
+if text == "تحديث" and DevMatrix(msg) then
+dofile("Matrix.lua")  
+send(msg.chat_id_, msg.id_, "• تم التحديث")
+end
+if Text and Text:match('(.*)/ideeng') then
+if tonumber(Text:match('(.*)/ideeng')) == tonumber(data.sender_user_id_) then
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
+if deata.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif deata.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif deata.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
+if date.username_ then
+UserName_User = '@'..date.username_
+else
+UserName_User = 'لا يوجد'
+end
+
+local Id = data.sender_user_id_
+local NumMsg = database:get(bot_id..'Tshake:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = database:get(bot_id.."Tshake:Comd:New:rt:User:"..data.chat_id_..Id) or Get_Rank(Id,data.chat_id_)
+local message_edit = database:get(bot_id..'Tshake:message_edit'..data.chat_id_..data.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Tshak:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."Tshake:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
+local Total_Photp = (taha.total_count_ or 0)
+local Texting = {
+'صورتك فدشي 😘😔❤️',
+"صارلك شكد مخليه ",
+"وفالله 😔💘",
+"كشخه برب 😉💘",
+"دغيره شبي هذ 😒",
+"عمري الحلوين 💘",
+}
+local Description = Texting[math.random(#Texting)]
+local get_id = database:get(bot_id.."Tshake:Klesh:Id:Bot"..data.chat_id_) or database:get(bot_id.."Tshake:KleshIDALLBOT")
+if get_id then
+local get_id = get_id:gsub('#AddMem',Add_Mem) 
+local get_id = get_id:gsub('#id',Id) 
+local get_id = get_id:gsub('#username',UserName_User) 
+local get_id = get_id:gsub('#msgs',NumMsg) 
+local get_id = get_id:gsub('#edit',message_edit) 
+local get_id = get_id:gsub('#stast',Status_Gps) 
+local get_id = get_id:gsub('#auto',TotalMsg) 
+local get_id = get_id:gsub('#Description',Description) 
+local get_id = get_id:gsub('#game',Num_Games) 
+local get_id = get_id:gsub('#photos',Total_Photp) 
+local texte = '['..get_id..']'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=data.sender_user_id_.."/idearp"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+else
+local texte = '\n*▹ | Id 𖦹 '..Id..'\n▹ | UsErNaMe 𖦹 * ['..UserName_User..']*\n▹ | StAsT 𖦹 '..Status_Gps..'\n▹ | MsGs 𖦹'..NumMsg..' \n▹ | Activity 𖦹 '..TotalMsg..'\n▹ | GaMeS 𖦹 '..Num_Games..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=data.sender_user_id_.."/idearp"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+end,nil)   
+end,nil)   
+end,nil)   
+end
+end
+if Text and Text:match('(.*)/idearp') then
+if tonumber(Text:match('(.*)/idearp')) == tonumber(data.sender_user_id_) then
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
+if deata.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif deata.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif deata.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
+if date.username_ then
+UserName_User = '@'..date.username_
+else
+UserName_User = 'لا يوجد'
+end
+
+local Id = data.sender_user_id_
+local NumMsg = database:get(bot_id..'Tshake:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = database:get(bot_id.."Tshake:Comd:New:rt:User:"..data.chat_id_..Id) or Get_Rank(Id,data.chat_id_)
+local message_edit = database:get(bot_id..'Tshake:message_edit'..data.chat_id_..data.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Tshak:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."Tshake:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
+local Total_Photp = (taha.total_count_ or 0)
+local Texting = {
+'صورتك فدشي 😘😔❤️',
+"صارلك شكد مخليه ",
+"وفالله 😔💘",
+"كشخه برب 😉💘",
+"دغيره شبي هذ 😒",
+"عمري الحلوين 💘",
+}
+local Description = Texting[math.random(#Texting)]
+local get_id = database:get(bot_id.."Tshake:Klesh:Id:Bot"..data.chat_id_) or database:get(bot_id.."Tshake:KleshIDALLBOT")
+if get_id then
+local get_id = get_id:gsub('#AddMem',Add_Mem) 
+local get_id = get_id:gsub('#id',Id) 
+local get_id = get_id:gsub('#username',UserName_User) 
+local get_id = get_id:gsub('#msgs',NumMsg) 
+local get_id = get_id:gsub('#edit',message_edit) 
+local get_id = get_id:gsub('#stast',Status_Gps) 
+local get_id = get_id:gsub('#auto',TotalMsg) 
+local get_id = get_id:gsub('#Description',Description) 
+local get_id = get_id:gsub('#game',Num_Games) 
+local get_id = get_id:gsub('#photos',Total_Photp) 
+local texte = '['..get_id..']'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=data.sender_user_id_.."/idearp"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+else
+local texte = '\n*▹ |ايديك  . '..Id..'\n▹ | معرفك  .* ['..UserName_User..']*\n▹ |رتبتك  . '..Status_Gps..'\n▹ | رسائلك  . '..NumMsg..' \n▹ | التفاعل . '..TotalMsg..'\n▹ |الالعاب  . '..Num_Games..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=data.sender_user_id_.."/idearp"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+end,nil)   
+end,nil)   
+end,nil)   
+end
+end
 
 if Text and Text:match('amr@(%d+)/user@(%d+)/setiinginfo') then
 local users = {string.match(Text,"^amr@(%d+)/user@(%d+)/setiinginfo$")}
@@ -9173,447 +9763,6 @@ local ListGruoup = voice..manage.. infoo..deletee..'&can_invite_users=false'  ..
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..data.chat_id_ .."&user_id="..users[2]..ListGruoup)
 sendin(Chat_id,msg_idd,data.sender_user_id_,users[2])
 end
-end
-
-if text == "تعطيل الزخرفه" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '• تم تعطيل الزخرفه')
-database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل الزخرفه" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'• تم تفعيل الزخرفه')
-database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"open")
-end
-if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_) == "open" then
-local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://black-source.tk/BlackTeAM/frills.php?en='..URL.escape(TextZhrfa)..'')
-zx = JSON.decode(zh)
-t = "\n• قائمه الزخرفه \n  - - - - - - - - -\n"
-i = 0
-for k,v in pairs(zx.ok) do
-i = i + 1
-t = t..i.."-  `"..v.."` \n"
-end
-send(msg.chat_id_, msg.id_, t..'  - - - - - - - - -\n• اضغط على الاسم ليتم نسخه')
-end
-if text == "تعطيل الابراج" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '• تم تعطيل الابراج')
-database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل الابراج" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'• تم تفعيل الابراج')
-database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"open")
-end
-if text and text:match("^برج (.*)$") and database:get(bot_id.."Matrix:brj_Bots"..msg.chat_id_) == "open" then
-local Textbrj = text:match("^برج (.*)$")
-gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
-br = JSON.decode(gk)
-send(msg.chat_id_, msg.id_, br.ok.hso)
-end
-if text == "تعطيل حساب العمر" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '• تم تعطيل حساب العمر')
-database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل حساب العمر" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'• تم تفعيل حساب العمر')
-database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"open")
-end
-if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
-local Textage = text:match("^احسب (.*)$")
-ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
-ag = JSON.decode(ge)
-send(msg.chat_id_, msg.id_, ag.ok.hso)
-end
-if text == "تعطيل الانستا" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '• تم تعطيل الانستا')
-database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"close")
-end
-if text == "تفعيل الانستا" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'• تم تفعيل الانستا')
-database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
-end
-if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
-local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://Matrix-source.tk/MatrixTeAM/infoInstagram.php?username='..URL.escape(Textni)..'')
-if res == 200 then
-muaed = json:decode(data)
-if muaed.Info == true then
-local msg_id = msg.id_/2097152/0.5
-SendP(msg.chat_id_, msg_id,muaed.ph, muaed.info) 
-end
-end
-end
-if text == "تعطيل الافلام" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '• تم تعطيل الافلام')
-database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"close")
-end
-if text == "تفعيل الافلام" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'• تم تفعيل الافلام')
-database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
-end
-
-if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
-local Textm = text:match("^فلم (.*)$")
-data,res = https.request('https://Matrix-source.tk/MatrixTeAM/movie.php?serch='..URL.escape(Textm)..'')
-if res == 200 then
-getmo = json:decode(data)
-if getmo.Info == true then
-local Text ='قصه الفلم'..getmo.info
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}},
-{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
-if text == "غنيلي" then
-data,res = https.request('https://apiabs.ml/Audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='• تم اختيار المقطع الصوتي لك'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- Matrix TeAM .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
-if text and text:match("^كول (.*)$") then
-local Textxt = text:match("^كول (.*)$")
-send(msg.chat_id_, msg.id_, Textxt)
-end
-if (msg.content_.sticker_)  and msg.reply_to_message_id_ == 0 and database:get(bot_id.."Matrix:Lock:Xn"..msg.chat_id_)=="del" then      
-sticker_id = msg.content_.sticker_.sticker_.persistent_id_
-st = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..token..'&url='..sticker_id.."&type=sticker")
-eker = JSON.decode(st)
-if eker.ok.Info == "Indecent" then
-local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "• المنشئين الاساسين تعالو مخرب \n  - - - - - - - - -\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."Matrix:User:Name" .. v)
-if username then
-t = t..""..k.."- ([@"..username.."])\n"
-else
-t = t..""..k.."- (`"..v.."`)\n"
-end
-end
-if #list == 0 then
-t = "• ماكو منششئين يشوفولك جاره"
-end
-Reply_Status(msg,msg.sender_user_id_,"reply","• قام بنشر ملصق اباحيه\n"..t)  
-DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
-end   
-end
-if (msg.content_.photo_) and msg.reply_to_message_id_ == 0 and database:get(bot_id.."Matrix:Lock:Xn"..msg.chat_id_)=="del" then
-photo_id = msg.content_.photo_.sizes_[1].photo_.persistent_id_  
-Srrt = https.request('https://Matrix-source.tk/MatrixTeAM/ImageInfo.php?token='..token..'&url='..photo_id.."&type=photo")
-Sto = JSON.decode(Srrt)
-if Sto.ok.Info == "Indecent" then
-local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "• المنشئين الاساسين تعالو مخرب \n  - - - - - - - - -\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."Matrix:User:Name" .. v)
-if username then
-t = t..""..k.."- ([@"..username.."])\n"
-else
-t = t..""..k.."- (`"..v.."`)\n"
-end
-end
-if #list == 0 then
-t = "• ماكو منششئين يشوفولك جاره"
-end
-Reply_Status(msg,msg.sender_user_id_,"reply","• قام بنشر صوره اباحيه\n"..t)  
-DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
-end   
-end
-if text == 'ملصق' then   
-if tonumber(msg.reply_to_message_id_) > 0 then
-function by_reply(extra, result, success)   
-if result.content_.photo_ then 
-local pn = result.content_.photo_.sizes_[1].photo_.persistent_id_
-Addsticker(msg,msg.chat_id_,pn,msg.sender_user_id_..'.png')
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text == 'صوت' then   
-if tonumber(msg.reply_to_message_id_) > 0 then
-function by_reply(extra, result, success)   
-if result.content_.voice_ then 
-local mr = result.content_.voice_.voice_.persistent_id_ 
-Addmp3(msg,msg.chat_id_,mr,msg.sender_user_id_..'.mp3')
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text == 'بصمه' then   
-if tonumber(msg.reply_to_message_id_) > 0 then
-function by_reply(extra, result, success)   
-if result.content_.audio_ then 
-local mr = result.content_.audio_.audio_.persistent_id_
-Addvoi(msg,msg.chat_id_,mr,msg.sender_user_id_..'.ogg')
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text == 'صوره' then   
-if tonumber(msg.reply_to_message_id_) > 0 then
-function by_reply(extra, result, success)   
-if result.content_.sticker_ then 
-local Str = result.content_.sticker_.sticker_.persistent_id_ 
-Addjpg(msg,msg.chat_id_,Str,msg.sender_user_id_..'.jpg')
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text == 'تفعيل البوت الخدمي' and DevMatrix(msg) then  
-database:del(bot_id..'Matrix:Free:Add:Bots') 
-send(msg.chat_id_, msg.id_,'• تم تفعيل البوت الخدمي ') 
-end
-if text == 'تعطيل البوت الخدمي' and DevMatrix(msg) then  
-database:set(bot_id..'Matrix:Free:Add:Bots',true) 
-send(msg.chat_id_, msg.id_,'• تم تعطيل البوت الخدمي') 
-end
-if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevMatrix(msg) then
-local Num = text:match("تعين عدد الاعضاء (%d+)$") 
-database:set(bot_id..'Matrix:Num:Add:Bot',Num) 
-send(msg.chat_id_, msg.id_,'• تم وضع عدد الاعضاء *~'..Num..'* عضو')
-end
-if text =='الاحصائيات' and DevBot(msg) then
-local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
-local Users = database:scard(bot_id..'Matrix:UsersBot')  
-send(msg.chat_id_, msg.id_,'• احصائيات البوت \n\n• عدد المجموعات *~ '..Groups..'\n• عدد المشتركين ~ '..Users..'*')
-end
-if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
-local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
-local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
-for k,v in pairs(list) do   
-NAME = 'Matrix Chat'
-ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
-MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
-MDER = database:smembers(bot_id.."Matrix:Manager"..v)
-MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
-link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
-if k == 1 then
-t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
-else
-t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
-end
-if #ASAS ~= 0 then 
-t = t..'"ASAS":['
-for k,v in pairs(ASAS) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MOD ~= 0 then
-t = t..'"MOD":['
-for k,v in pairs(MOD) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MDER ~= 0 then
-t = t..'"MDER":['
-for k,v in pairs(MDER) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MNSH ~= 0 then
-t = t..'"MNSH":['
-for k,v in pairs(MNSH) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-t = t..'"linkgroup":"'..link..'"}' or ''
-end
-t = t..'}}'
-local File = io.open('./File_Libs/'..bot_id..'.json', "w")
-File:write(t)
-File:close()
-sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '• عدد مجموعات التي في البوت { '..#list..'}')
-end
-if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
-if Text_Dev then 
-send(msg.chat_id_, msg.id_,Text_Dev)
-else
-tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"• المطور :: ["..data.first_name_.."](T.me/"..data.username_..")")  
-end,nil)   
-end
-end
-if text == 'الملفات' and DevMatrix(msg) then
-t = '• جميع الملفات : \n  - - - - - - - - -\n'
-i = 0
-for v in io.popen('ls Matrix_Files'):lines() do
-if v:match(".lua$") then
-i = i + 1
-t = t..i..'*~ '..v..'*\n'
-end
-end
-send(msg.chat_id_, msg.id_,t)
-end
-if text == "متجر الملفات" or text == 'المتجر' then
-if DevMatrix(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/getfile.json")
-if res == 200 then
-local Get_info, res = pcall(JSON.decode,Get_Files);
-vardump(res.plugins_)
-if Get_info then
-local TextS = "\n• اهلا بك في متجر ملفات ماتركس\n• يوجد في المتجر ملف الردود\n• يتم ادراج الملفات في التحديثات القادمه \n  - - - - - - - - -\n"
-local TextE = "\n  - - - - - - - - -\n• تدل علامة (✔) الملف مفعل\n".."• تدل علامة (✖) الملف معطل\n"
-local NumFile = 0
-for name,Info in pairs(res.plugins_) do
-local Check_File_is_Found = io.open("Matrix_Files/"..name,"r")
-if Check_File_is_Found then
-io.close(Check_File_is_Found)
-CeckFile = "(✔)"
-else
-CeckFile = "(✖)"
-end
-NumFile = NumFile + 1
-TextS = TextS..'*'..NumFile.."↺* {`"..name..'`} ↺ '..CeckFile..'\n[-  About to the file]('..Info..')\n'
-end
-send(msg.chat_id_, msg.id_,TextS..TextE) 
-end
-else
-send(msg.chat_id_, msg.id_,"• لا يوجد اتصال من ال api \n") 
-end
-return false
-end
-end
-
-if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevMatrix(msg) then
-local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
-local file = name_t[2]..'.lua'
-local file_bot = io.open("Matrix_Files/"..file,"r")
-if file_bot then
-io.close(file_bot)
-t = "*• الملف ↺ {"..file.."}\n• تم تعطيله وحذفه بنجاح \n✓*"
-else
-t = "*• بالتاكيد تم تعطيل وحذف ملف ↺ {"..file.."} \n✓*"
-end
-local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/files_MATRIX/"..file)
-if res == 200 then
-os.execute("rm -fr Matrix_Files/"..file)
-send(msg.chat_id_, msg.id_,t) 
-dofile('Matrix.lua')  
-else
-send(msg.chat_id_, msg.id_,"*• عذرا لا يوجد هاكذا ملف في المتجر *\n") 
-end
-return false
-end
-if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and DevMatrix(msg) then
-local name_t = {string.match(text, "^(تفعيل ملف) (.*)(.lua)$")}
-local file = name_t[2]..'.lua'
-local file_bot = io.open("Matrix_Files/"..file,"r")
-if file_bot then
-io.close(file_bot)
-t = "*• بالتاكيد تم تنزيل وتفعيل ملف ↺ {"..file.."} \n✓*"
-else
-t = "*• الملف ↺ {"..file.."}\n• تم تنزيله وتفعيله بنجاح \n*"
-end
-local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/files_MATRIX/"..file)
-if res == 200 then
-local chek = io.open("Matrix_Files/"..file,'w+')
-chek:write(json_file)
-chek:close()
-send(msg.chat_id_, msg.id_,t) 
-dofile('Matrix.lua')  
-else
-send(msg.chat_id_, msg.id_,"*• عذرا لا يوجد هاكذا ملف في المتجر *\n") 
-end
-return false
-end
-if text == "مسح جميع الملفات" and DevMatrix(msg) then
-os.execute("rm -fr Matrix_Files/*")
-send(msg.chat_id_,msg.id_,"• تم حذف جميع الملفات")
-return false
-end
-if text == 'نقل الاحصائيات' and DevMatrix(msg) then
-local Users = database:smembers('Matrix:'..bot_id.."userss")
-local Groups = database:smembers('Matrix:'..bot_id..'groups') 
-for i = 1, #Groups do
-database:sadd(bot_id..'Matrix:Chek:Groups',Groups[i])  
-end
-for i = 1, #Users do
-database:sadd(bot_id..'Matrix:UsersBot',Users[i])  
-end
-send(msg.chat_id_, msg.id_,'• تم نقل : '..#Groups..' كروب\n• تم نقل : '..#Users..' مشترك \n• من التحديث القديم الى التحديث الجديد')
-end
-if text == 'حذف كليشه المطور' and DevMatrix(msg) then
-database:del(bot_id..'Matrix:Text_Dev')
-send(msg.chat_id_, msg.id_,'• تم حذف كليشه المطور')
-end
-if text == 'وضع كليشه المطور' and DevMatrix(msg) then
-database:set(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_,true)
-send(msg.chat_id_,msg.id_,'• ارسل الكليشه الان')
-return false
-end
-if text and database:get(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_) then
-if text == 'الغاء' then 
-database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'• تم الغاء حفظ كليشة المطور')
-return false
-end
-database:set(bot_id..'Matrix:Text_Dev',text)
-database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'• تم حفظ كليشة المطور')
-return false
-end
-if text == 'رفع النسخه الاحتياطيه' and DevMatrix(msg) then   
-if tonumber(msg.reply_to_message_id_) > 0 then
-function by_reply(extra, result, success)   
-if result.content_.document_ then 
-local ID_FILE = result.content_.document_.document_.persistent_id_ 
-local File_Name = result.content_.document_.file_name_
-add_file(msg,msg.chat_id_,ID_FILE,File_Name)
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text == "الساعه" then
-local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
-send(msg.chat_id_, msg.id_,yytesj20)
-end
-
-if text == "التاريخ" then
-local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
-send(msg.chat_id_, msg.id_,cfhoog)
-end
-
-if text == "تحديث" and DevMatrix(msg) then
-dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
