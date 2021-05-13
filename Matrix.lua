@@ -604,38 +604,6 @@ https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?ch
 end
 end
 end
-if Text and Text:match('@id/(.*)') then
-local Id_Link = Text:match('@id/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})  
-local textt = '- من فضلك اختر نوع التنزيل'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'تنزيل ملف', callback_data="mp3/"..Id_Link},
-},
-{
-{text = 'تنزيل بصمه', callback_data="ogg/"..Id_Link},
-},
-{
-{text = 'تنزيل فيديو', callback_data="mp4/"..Id_Link},
-},
-}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..Chat_id..'&photo='..'https://youtu.be/'..Id_Link..'&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-elseif Text and Text:match('mp3/(.*)') then
-local Id_Link = Text:match('mp3/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})    
-http.request('http://devstorm.ml/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp3&msg=0')
-elseif Text and Text:match('ogg/(.*)') then
-local Id_Link = Text:match('ogg/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})    
-http.request('http://devstorm.ml/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=ogg&msg=0')
-elseif Text and Text:match('mp4/(.*)') then
-local Id_Link = Text:match('mp4/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})    
-http.request('http://devstorm.ml/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
-end
-
-end
 
 function sendDocument(chat_id,reply_id,document,caption,func)
 tdcli_function({
@@ -6410,7 +6378,15 @@ name = math.random(#namebot)
 send(msg.chat_id_, msg.id_, namebot[name]) 
 return false 
 end
+if text == "الساعه" then
+local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
+send(msg.chat_id_, msg.id_,yytesj20)
+end
 
+if text == "التاريخ" then
+local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
+send(msg.chat_id_, msg.id_,cfhoog)
+end
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
