@@ -3248,134 +3248,146 @@ database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المميزين")  
 return false
 end  
-if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then 
-local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
-if res then
-if res == 'false' then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
-return false 
-end end 
+if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 local RTPA = text:match("رفع (.*)")
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 end
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then 
-local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
-if res then
-if res == 'false' then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
-return false 
-end end 
+if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 local RTPA = text:match("تنزيل (.*)")
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_) 
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 end
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then 
-local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
-if res then
-if res == 'false' then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
-return false 
-end end 
+if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
 end
 else
-info = "📌┇المعرف غلط"
+info = "• المعرف غلط"
 send(msg.chat_id_, msg.id_,info)
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil) 
 end 
 end
-if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then 
-local res = https.request('http://78.47.210.126/IZlZ7I/?id='..msg.sender_user_id_)
-if res then
-if res == 'false' then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@Matrix_Source] ⚜️')   
-return false 
-end end 
+if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
 if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n🔰┇تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n🔰┇تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n🔰┇تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n🔰┇تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 end
 else
-info = "📌┇المعرف غلط"
+info = "• المعرف غلط"
 send(msg.chat_id_, msg.id_,info)
 end
 end
