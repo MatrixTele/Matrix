@@ -633,8 +633,8 @@ function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
 local UserName = (data.username_ or "Matrix_Source")
-local NameUser = "[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• بواسطه ↺ ["..data.first_name_.."](T.me/"..UserName..")"
-local NameUserr = "[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• اسم المستخدم ↺ ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUser = "\n• بواسطه ↺ ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserr = "\n• اسم المستخدم ↺ ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
 send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n• تم تنفيذ الامر بخاصيه ( المسح )\n")
 return false
@@ -6915,7 +6915,7 @@ local List = {
 [[
 ┌ 𝐔𝐒𝐄𝐑 𖤱 #username 𖦴 .
 ├ 𝐌𝐒𝐆 𖤱 #msgs 𖦴 .
-├ 𝐒𝐓𝐀 ?? #stast 𖦴 .
+├ 𝐒𝐓𝐀 𖤱 #stast 𖦴 .
 └ 𝐈𝐃 𖤱 #id 𖦴 .
 ]],
 [[
