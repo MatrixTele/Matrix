@@ -7812,8 +7812,11 @@ local keyboard = {
 {"تغير اسم البوت 🔁"},
 {'تحديث السورس 📥','تحديث ♻'},
 {'معلومات السيرفر 📡'},
-{'اضف كت تويت 📥','حذف كت تويت 📤'},
 {'قائمه العام 🚷'},
+{'تغير الاشتراك 🔰','تعين قناة الاشتراك ♻️'},
+{'الاشتراك الاجباري 🏷'},
+{'حذف رسالة الاشتراك 📨','تغير رسالة الاشتراك 📩'},
+{'تعطيل الاشتراك الاجباري 🛡','تفعيل الاشتراك الاجباري ✔'},
 {'جلب نسخه احتياطيه 📁'},
 {'الغاء ✖'}
 }
@@ -7990,98 +7993,6 @@ end,nil)
 end
 return false
 end
-if text and text:match("^تغير الاشتراك 🔰$") and DevMatrix(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
-return false  
-end
-if text and text:match("^تغير رسالة الاشتراك 📩$") and DevMatrix(msg) then  
-database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي النص الذي تريده')
-return false  
-end
-if text == "حذف رسالة الاشتراك 📨" and DevMatrix(msg) then  
-database:del(bot_id..'text:ch:user')
-send(msg.chat_id_, msg.id_, "• تم مسح رساله الاشتراك ")
-return false  
-end
-if text and text:match("^تعين قناة الاشتراك ♻️$") and DevMatrix(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
-return false  
-end
-if text == "تفعيل الاشتراك الاجباري ✔" and DevMatrix(msg) then  
-if database:get(bot_id..'add:ch:id') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"• الاشتراك الاجباري مفعل \n• على القناة ↺ ["..addchusername.."]")
-else
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_,"• اهلا عزيزي المطور \n• ارسل الان معرف قناتك")
-end
-return false  
-end
-if text == "تعطيل الاشتراك الاجباري 🛡" and DevMatrix(msg) then  
-database:del(bot_id..'add:ch:id')
-database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "• تم تعطيل الاشتراك الاجباري ")
-return false  
-end
-if text == "الاشتراك الاجباري 🏷" and DevMatrix(msg) then  
-if database:get(bot_id..'add:ch:username') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "• تم تفعيل الاشتراك الاجباري \n• على القناة ↺ ["..addchusername.."]")
-else
-send(msg.chat_id_, msg.id_, "• لا يوجد قناة في الاشتراك الاجباري ")
-end
-return false  
-end
-if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
-database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-return false  end 
-database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-local username = string.match(text, "@[%a%d_]+") 
-tdcli_function ({    
-ID = "SearchPublicChat",    
-username_ = username  
-},function(arg,data) 
-if data and data.message_ and data.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_, '• المعرف لا يوجد فيه قناة')
-return false  end
-if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' then
-send(msg.chat_id_, msg.id_, '• عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
-return false  end
-if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'• عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
-return false  end
-if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
-if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
-send(msg.chat_id_, msg.id_,'• البوت ادمن في القناة \n• تم تفعيل الاشتراك الاجباري في \n• ايدي القناة ('..data.id_..')\n• معرف القناة ([@'..data.type_.channel_.username_..'])')
-database:set(bot_id..'add:ch:id',data.id_)
-database:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
-else
-send(msg.chat_id_, msg.id_,'• عذرآ البوت ليس ادمن بالقناه ')
-end
-return false  
-end
-end,nil)
-end
-if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
-database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-return false  end 
-database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-local texxt = string.match(text, "(.*)") 
-database:set(bot_id..'text:ch:user',texxt)
-send(msg.chat_id_, msg.id_,'• تم تغيير رسالة الاشتراك ')
-end
-if text == ("مسح قائمه العام ༯") and DevMatrix(msg) then
-database:del(bot_id.."Matrix:GBan:User")
-send(msg.chat_id_, msg.id_, "\n• تم مسح قائمه العام")
-return false
-end
 if text == 'تفعيل البوت الخدمي 💠' then
 database:del(bot_id..'Matrix:Free:Add:Bots') 
 send(msg.chat_id_, msg.id_,'\n📫┇تم تفعيل البوت الخدمي ') 
@@ -8177,6 +8088,93 @@ if text == ("مسح قائمه العام 📮") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:GBan:User")
 send(msg.chat_id_, msg.id_, "\n📮┇تم مسح قائمه العام")
 return false
+end
+if text and text:match("^تغير الاشتراك 🔰$") and DevMatrix(msg) then  
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
+return false  
+end
+if text and text:match("^تغير رسالة الاشتراك 📩$") and DevMatrix(msg) then  
+database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي النص الذي تريده')
+return false  
+end
+if text == "حذف رسالة الاشتراك 📨" and DevMatrix(msg) then  
+database:del(bot_id..'text:ch:user')
+send(msg.chat_id_, msg.id_, "• تم مسح رساله الاشتراك ")
+return false  
+end
+if text and text:match("^تعين قناة الاشتراك ♻️$") and DevMatrix(msg) then  
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
+return false  
+end
+if text == "تفعيل الاشتراك الاجباري ✔" and DevMatrix(msg) then  
+if database:get(bot_id..'add:ch:id') then
+local addchusername = database:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_,"• الاشتراك الاجباري مفعل \n• على القناة ↺ ["..addchusername.."]")
+else
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_,"• اهلا عزيزي المطور \n• ارسل الان معرف قناتك")
+end
+return false  
+end
+if text == "تعطيل الاشتراك الاجباري 🛡" and DevMatrix(msg) then  
+database:del(bot_id..'add:ch:id')
+database:del(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "• تم تعطيل الاشتراك الاجباري ")
+return false  
+end
+if text == "الاشتراك الاجباري 🏷" and DevMatrix(msg) then  
+if database:get(bot_id..'add:ch:username') then
+local addchusername = database:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "• تم تفعيل الاشتراك الاجباري \n• على القناة ↺ ["..addchusername.."]")
+else
+send(msg.chat_id_, msg.id_, "• لا يوجد قناة في الاشتراك الاجباري ")
+end
+return false  
+end
+if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
+if text and text:match("^الغاء$") then 
+send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
+database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+return false  end 
+database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+local username = string.match(text, "@[%a%d_]+") 
+tdcli_function ({    
+ID = "SearchPublicChat",    
+username_ = username  
+},function(arg,data) 
+if data and data.message_ and data.message_ == "USERNAME_NOT_OCCUPIED" then 
+send(msg.chat_id_, msg.id_, '• المعرف لا يوجد فيه قناة')
+return false  end
+if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' then
+send(msg.chat_id_, msg.id_, '• عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
+return false  end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
+send(msg.chat_id_, msg.id_,'• عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
+return false  end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
+send(msg.chat_id_, msg.id_,'• البوت ادمن في القناة \n• تم تفعيل الاشتراك الاجباري في \n• ايدي القناة ('..data.id_..')\n• معرف القناة ([@'..data.type_.channel_.username_..'])')
+database:set(bot_id..'add:ch:id',data.id_)
+database:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
+else
+send(msg.chat_id_, msg.id_,'• عذرآ البوت ليس ادمن بالقناه ')
+end
+return false  
+end
+end,nil)
+end
+if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
+if text and text:match("^الغاء$") then 
+send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
+database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+return false  end 
+database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+local texxt = string.match(text, "(.*)") 
+database:set(bot_id..'text:ch:user',texxt)
+send(msg.chat_id_, msg.id_,'• تم تغيير رسالة الاشتراك ')
 end
 if text == ("مسح المطورين 🚸") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:Sudo:User")
