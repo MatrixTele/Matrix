@@ -3075,226 +3075,6 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من المطورين")
 return false 
 end
 
-if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function Function_Matrix(extra, result, success)
-database:sadd(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مالك")  
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-return false
-end
-if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local username = text:match("^رفع مالك @(.*)$")
-function Function_Matrix(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end      
-database:sadd(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","💢┇تم ترقيته مالك")  
-else
-send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
-return false
-end
-if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then 
-
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function Function_Matrix(extra, result, success)
-database:srem(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم تنزيله من المالك")  
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-return false 
-end
-if text and text:match("^تنزيل مالك @(.*)$") and DevBot(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local username = text:match("^تنزيل مالك @(.*)$")
-function Function_Matrix(extra, result, success)
-if result.id_ then
-database:srem(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.id_)
-
-Reply_Status(msg,result.id_,"reply","💢┇تم تنزيله من المنشئين")  
-else
-send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
-return false
-end
-end,nil)   
-end
-if text == "اضف رد متعدد" and DevMatrix(msg) then
- 
-database:set(bot_id.."botss:tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل الرد الذي اريد اضافته")
-end
-if text == "حذف رد متعدد" and DevMatrix(msg) then
- 
-database:set(bot_id.."botss:tshake:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل الان الكلمه لحذفها ")
-end
-if text then  
-local test = database:get(bot_id.."botss:tshake:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
-database:set(bot_id.."botss:tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd1')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:tshake:Add:Rd:Sudo:Text"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
-return false  
-end  
-end
-if text then  
-local test = database:get(bot_id.."botss:tshake:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
-database:set(bot_id.."botss:tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:tshake:Add:Rd:Sudo:Text1"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
-return false  
-end  
-end
-if text then  
-local test = database:get(bot_id.."botss:tshake:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
-database:set(bot_id.."botss:tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd3')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:tshake:Add:Rd:Sudo:Text2"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد")
-return false  
-end  
-end
-if text then
-local Text = database:get(bot_id.."botss:tshake:Add:Rd:Sudo:Text"..text)   
-local Text1 = database:get(bot_id.."botss:tshake:Add:Rd:Sudo:Text1"..text)   
-local Text2 = database:get(bot_id.."botss:tshake:Add:Rd:Sudo:Text2"..text)   
-if Text or Text1 or Text2 then 
-local texting = {
-Text,
-Text1,
-Text2
-}
-Textes = math.random(#texting)
-send(msg.chat_id_, msg.id_,texting[Textes])
-end
-end
-if text == "الساعه" then
-local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
-send(msg.chat_id_, msg.id_,yytesj20)
-end
-
-if text == "التاريخ" then
-local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
-send(msg.chat_id_, msg.id_,cfhoog)
-end
-if Text and Text:match('(%d+)/UnKed@(%d+):(%d+)') then
-local ramsesadd = {string.match(Text,"^(%d+)/UnKed@(%d+):(%d+)$")}
-if tonumber(ramsesadd[2]) == tonumber(ramsesadd[3]) then
-if tonumber(ramsesadd[1]) == tonumber(data.sender_user_id_) then
-DeleteMessage(data.chat_id_, {[0] = Msg_id})  
-https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. data.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-end
-end
-end
-if Text and Text:match('@id/(.*)') then
-local Id_Link = Text:match('@id/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})  
-local textt = '- من فضلك اختر نوع التنزيل'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'تنزيل ملف', callback_data="mp3/"..Id_Link},
-},
-{
-{text = 'تنزيل بصمه', callback_data="ogg/"..Id_Link},
-},
-{
-{text = 'تنزيل فيديو', callback_data="mp4/"..Id_Link},
-},
-}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..Chat_id..'&photo='..'https://youtu.be/'..Id_Link..'&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-elseif Text and Text:match('mp3/(.*)') then
-local Id_Link = Text:match('mp3/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})    
-http.request('http://devstorm.ml/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp3&msg=0')
-elseif Text and Text:match('ogg/(.*)') then
-local Id_Link = Text:match('ogg/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})    
-http.request('http://devstorm.ml/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=ogg&msg=0')
-elseif Text and Text:match('mp4/(.*)') then
-local Id_Link = Text:match('mp4/(.*)') 
-DeleteMessage(data.chat_id_,{[0] = Msg_id})    
-http.request('http://devstorm.ml/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
-end
-
-end
-if text == 'تفعيل التنزيل' and Owner(msg) then   
-database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
-Text = '\n تم تفعيل التنزيلات' 
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل التنزيل' and Owner(msg) then  
-database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
-Text = '\nتم تعطيل التنزيلات' 
-send(msg.chat_id_, msg.id_,Text) 
-end 
-if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
-local Ttext = text:match('^بحث (.*)$') 
-local msgin = msg.id_/2097152/0.5 
-http.request('http://devstorm.ml/tshake/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin)
-end
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3875,153 +3655,6 @@ database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المميزين")  
 return false
 end  
-if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local RTPA = text:match("رفع (.*)")
-if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,RTPA) then
-function by_reply(extra, result, success)   
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
-database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
-elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
-database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_)  
-elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
-database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
-elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-end
-end,nil)   
-end   
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local RTPA = text:match("تنزيل (.*)")
-if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,RTPA) then
-function by_reply(extra, result, success)   
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
-database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_) 
-database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
-database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-end
-end,nil)   
-end   
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
-if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,text1[2]) then
-function py_username(extra, result, success)   
-if result.id_ then
-local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.id_)  
-database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.id_)  
-database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.id_)  
-database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم رفعه "..text1[2].." هنا")   
-end
-else
-info = "• المعرف غلط"
-send(msg.chat_id_, msg.id_,info)
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil) 
-end 
-end
-if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
-if database:sismember(bot_id.."Matrix:Coomds"..msg.chat_id_,text1[2]) then
-function py_username(extra, result, success)   
-if result.id_ then
-local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_,result.id_)  
-database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.id_)  
-database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_,result.id_)  
-database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- Matrix 𝖲𝗈𝗎𝗋𝖼𝖾 .](https://t.me/Matrix_Source)\n  - - - - - - - - -\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-end
-else
-info = "• المعرف غلط"
-send(msg.chat_id_, msg.id_,info)
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil) 
-end  
-end
-
 if text == ("حظر") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -7282,7 +6915,7 @@ local List = {
 [[
 ┌ 𝐔𝐒𝐄𝐑 𖤱 #username 𖦴 .
 ├ 𝐌𝐒𝐆 𖤱 #msgs 𖦴 .
-├ 𝐒𝐓𝐀 𖤱 #stast 𖦴 .
+├ 𝐒𝐓𝐀 ?? #stast 𖦴 .
 └ 𝐈𝐃 𖤱 #id 𖦴 .
 ]],
 [[
@@ -8250,8 +7883,8 @@ if text == ("تحديث السورس") and DevMatrix(msg) then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/Matrix.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
 dofile('Matrix.lua')  
 return false
 end
@@ -8754,7 +8387,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevMatrix(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_MATRIX/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -8792,7 +8425,7 @@ t = "*• الملف ↺ {"..file.."}\n• تم تعطيله وحذفه بنجا
 else
 t = "*• بالتاكيد تم تعطيل وحذف ملف ↺ {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_MATRIX/master/files_MATRIX/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/files_MATRIX/"..file)
 if res == 200 then
 os.execute("rm -fr Matrix_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -8812,7 +8445,7 @@ t = "*• بالتاكيد تم تنزيل وتفعيل ملف ↺ {"..file.."} 
 else
 t = "*• الملف ↺ {"..file.."}\n• تم تنزيله وتفعيله بنجاح \n*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_MATRIX/master/files_MATRIX/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_MATRIX/master/files_MATRIX/"..file)
 if res == 200 then
 local chek = io.open("Matrix_Files/"..file,'w+')
 chek:write(json_file)
@@ -9969,8 +9602,8 @@ if text == "تحديث السورس ༯" then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/Matrix.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
 dofile('Matrix.lua')  
 return false
 end
