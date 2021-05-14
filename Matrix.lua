@@ -8701,27 +8701,16 @@ end
 return false
 end
 local Text =[[
-ٴ𝚑𝚒 𝚖𝚊𝚝𝚛𝚒𝚡
-ٴ  - - - - - - - - -
-• ⓪ ↺ المنظفين
-• ① ↺ الحمايه
-• ② ↺ الادمنيه
-• ③ ↺ المدراء
-• ④ ↺ المنشئين
-• ⑤ ↺ المطورين
-ٴ  - - - - - - - - -
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+اهلا بك في بوت (t.me/Matrix_Source)[MatrixTeam]
+يمكنك استخدام هذه الاوامر 🔽
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '1', callback_data=msg.sender_user_id_.."/help1"},{text = '2', callback_data=msg.sender_user_id_.."/help2"},{text = '3', callback_data=msg.sender_user_id_.."/help3"},{text = '4', callback_data=msg.sender_user_id_.."/help4"},{text = '5', callback_data=msg.sender_user_id_.."/help5"},
+{text = '•①•', callback_data=msg.sender_user_id_.."/help1"},{text = '•②•', callback_data=msg.sender_user_id_.."/help2"},{text = '•③•', callback_data=msg.sender_user_id_.."/help3"},{text = '•④•', callback_data=msg.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=msg.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل والتفعيل', callback_data=msg.sender_user_id_.."/homeaddwd"},
-},
-{
-{text = 'اوامر القفل والفتح', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
