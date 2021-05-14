@@ -10885,10 +10885,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '•①•', callback_data=msg.sender_user_id_.."/help1"},{text = '•②•', callback_data=msg.sender_user_id_.."/help2"},{text = '•③•', callback_data=msg.sender_user_id_.."/help3"},{text = '•④•', callback_data=msg.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=msg.sender_user_id_.."/help5"},
+{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل والتفعيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل والفتح', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
