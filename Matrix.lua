@@ -10863,16 +10863,8 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-ٴ𝚑𝚒 𝚖𝚊𝚝𝚛𝚒𝚡
-ٴ  - - - - - - - - -
-• ⓪ ↺ المنظفين
-• ① ↺ الحمايه
-• ② ↺ الادمنيه
-• ③ ↺ المدراء
-• ④ ↺ المنشئين
-• ⑤ ↺ المطورين
-ٴ  - - - - - - - - -
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+اهلا بك في بوت (t.me/Matrix_Source)[MatrixTeam]
+يمكنك استخدام هذه الاوامر 🔽
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
