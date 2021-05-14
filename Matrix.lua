@@ -8656,7 +8656,15 @@ if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
+if text == "الساعه" then
+local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
+send(msg.chat_id_, msg.id_,yytesj20)
+end
 
+if text == "التاريخ" then
+local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
+send(msg.chat_id_, msg.id_,cfhoog)
+end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
@@ -9744,16 +9752,6 @@ local File = io.open('./File_Libs/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '• عدد مجموعات التي في البوت { '..#list..'}')
-end
-
-if text == "الساعه" then
-local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
-send(msg.chat_id_, msg.id_,yytesj20)
-end
-
-if text == "التاريخ" then
-local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
-send(msg.chat_id_, msg.id_,cfhoog)
 end
 
 if text == "تحديث السورس ༯" then
