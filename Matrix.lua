@@ -6527,6 +6527,76 @@ send(msg.chat_id_, msg.id_,"• ارسل لي الاسم الان ")
 end
 return false
 end
+if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
+database:set(bot_id.."lock_cleaner"..msg.chat_id_,true)
+send(msg.chat_id_, msg.id_, '☑┇ تم تفعيل التنظيف الوسائط التلقائي ')
+return false
+end
+
+if text == "تعطيل تنظيف الوسائط" and Owner(msg) then
+database:del(bot_id.."lock_cleaner"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, '🔏┇ تم تعطيل » التنظيف التلقائي ')
+return false
+end
+
+if text and text:match("^(ضع وقت التنظيف) (%d+)$") and Owner(msg) then
+local NumLoop = tonumber(text:match("(%d+)"))
+database:set(bot_id..':Timer_Cleaner:'..msg.chat_id_,NumLoop) 
+return send(msg.chat_id_, msg.id_,"📡*¦* تم وضع وقت التنظيف » { *"..NumLoop.."* } ساعه")
+end
+
+if text == "مسح الوسائط" and Owner(msg) then 
+local mmezz = database:smembers(bot_id..":IdsMsgsCleaner:"..msg.chat_id_)
+if #mmezz == 0 then return send(msg.chat_id_, msg.id_,"📮¦ لا يوجد وسائط مجدوله للحذف \n ") end
+for k,v in pairs(mmezz) do DeleteMessage(msg.chat_id_, {[0] = v}) end
+return send(msg.chat_id_, msg.id_,"📮¦ تم مسح جميع الوسائط المجدوله")
+end
+
+if text == "اضف رد عام" and DevMatrix(msg) then 
+database:set(bot_id.."Matrix:witt:Rd_All"..msg.sender_user_id_..":"..msg.chat_id_,true)
+database:del(bot_id.."Matrix:witt:jwab_All"..msg.sender_user_id_..":"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,"📥┇  ارسل الكلمه التري تريد اضافتها للرد العام")
+return false 
+end
+
+if text and DevMatrix(msg) and database:get(bot_id.."Matrix:witt:Rd_All"..msg.sender_user_id_..":"..msg.chat_id_) then
+database:del(bot_id.."Matrix:witt:Rd_All"..msg.sender_user_id_..":"..msg.chat_id_)
+database:set(bot_id.."Matrix:witt:jwab_All"..msg.sender_user_id_..":"..msg.chat_id_,text)
+send(msg.chat_id_, msg.id_, '📥┇ الان ارسل الرد الذي تريد اضافته للعام \n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
+return false
+end
+
+if text and DevMatrix(msg) and database:get(bot_id.."Matrix:witt:jwab_All"..msg.sender_user_id_..":"..msg.chat_id_) then
+Klma = database:get(bot_id.."Matrix:witt:jwab_All"..msg.sender_user_id_..":"..msg.chat_id_)
+Jwab = text
+database:hset(bot_id..':Replay:Source:',Klma,Jwab)
+send(msg.chat_id_, msg.id_, '\n|تم اضافته للرد العام بنجاح .')
+database:del(bot_id.."Matrix:witt:jwab_All"..msg.sender_user_id_..":"..msg.chat_id_)
+return false
+end
+
+if text == "مسح رد عام" and DevMatrix(msg) then 
+database:set(bot_id.."Matrix:witt:Del_All"..msg.sender_user_id_..":"..msg.chat_id_,true)
+send(msg.chat_id_, msg.id_,"📥┇  ارسل الكلمه التي تريد مسحها للرد العام")
+return false 
+end
+
+
+if text == "مسح الردود العامه" and DevMatrix(msg) then 
+local rdood = database:del(bot_id..':Replay:Source:')
+if rdood== 0 then return send(msg.chat_id_, msg.id_,'🚸*¦* لا يوجد ردود مضافه حاليا \n❕') end
+send(msg.chat_id_, msg.id_,"📥┇  تم حذف الردود العامه")
+return false 
+end
+
+if text == 'الردود العامه' and DevMatrix(msg) then
+local rdood = database:hkeys(bot_id..':Replay:Source:')
+if #rdood==0 then return send(msg.chat_id_, msg.id_,'🚸*¦* لا يوجد ردود مضافه حاليا \n❕') end
+local message = '🛑*¦* الردود العامه في البوت :   :\n\n'
+for i=1, #rdood 	do message = message ..i..' - *{* '..	rdood[i]..' *}*\n' end
+message = message..'\n➖➖➖'
+return send(msg.chat_id_, msg.id_,message)
+end
 if text == 'تعين الايدي عام' and DevMatrix(msg) then
 database:setex(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 send(msg.chat_id_, msg.id_,[[
