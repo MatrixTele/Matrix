@@ -6527,6 +6527,41 @@ send(msg.chat_id_, msg.id_,"• ارسل لي الاسم الان ")
 end
 return false
 end
+if text == 'تعين الايدي عام' and DevMatrix(msg) then
+database:setex(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
+send(msg.chat_id_, msg.id_,[[
+   ☑┇ ارسل الان النص
+   ☑┇ يمكنك اضافه :
+   - `#username` > اسم المستخدم
+   - `#msgs` > عدد رسائل المستخدم
+   - `#photos` > عدد صور المستخدم
+   - `#id` > ايدي المستخدم
+   - `#auto` > تفاعل المستخدم
+   - `#stast` > موقع المستخدم 
+   - `#edit` > عدد السحكات
+   - `#game` > المجوهرات
+   - `#AddMem` > عدد الجهات
+   - `#Description` > تعليق الصوره
+   ]])
+return false  
+end 
+
+if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' and DevMatrix(msg) then
+database:del(bot_id.."Matrix:KleshIDALLBOT")
+send(msg.chat_id_, msg.id_, '📌┇تم ازالة كليشة الايدي ')
+return false  
+end 
+
+if database:get(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) then 
+database:del(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) 
+if text == 'الغاء' then 
+send(msg.chat_id_, msg.id_,"📫┇تم الغاء تعين الايدي عام") 
+return false  
+end 
+database:set(bot_id.."Matrix:KleshIDALLBOT",text:match("(.*)"))
+send(msg.chat_id_, msg.id_,'📌┇تم تعين الايدي عام')   
+return false 
+end
 
 if text ==("مسح المطرودين") and Addictive(msg) then    
 local function delbans(extra, result)  
