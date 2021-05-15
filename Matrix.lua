@@ -8701,15 +8701,13 @@ end
 return false
 end
 local Text =[[
-[Matrixteam](t.me/Matrix_Source)
- - - - - - - - - -
+اهلا بك في بوت [Matrixteam](t.me/Matrix_Source)
+يمكنك استخدام هذه الاوامر 🔽
  • ① ↺ Cleaners - المنظفين
  • ② ↺ Protection - الحماية
  • ③ ↺ Addictive - الادمنية
  • ④ ↺ Managers - المدراء
  • ⑤ ↺ originators - المنشئين
- - - - - - - - - -
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10668,15 +10666,13 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-[Matrixteam](t.me/Matrix_Source)
- - - - - - - - - -
+اهلا بك في بوت [Matrixteam](t.me/Matrix_Source)
+يمكنك استخدام هذه الاوامر 🔽
  • ① ↺ Cleaners - المنظفين
  • ② ↺ Protection - الحماية
  • ③ ↺ Addictive - الادمنية
  • ④ ↺ Managers - المدراء
  • ⑤ ↺ originators - المنشئين
- - - - - - - - - -
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
