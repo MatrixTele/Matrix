@@ -8701,8 +8701,8 @@ end
 return false
 end
 local Text =[[
-اهلا بك في بوت [Matrixteam](t.me/Matrix_Source)
-يمكنك استخدام هذه الاوامر 🔽
+Welcome to the [Matrixteam](t.me/Matrix_Source) bot
+ You can use these commands 🔽
  • ① ↺ Cleaners - المنظفين
  • ② ↺ Protection - الحماية
  • ③ ↺ Addictive - الادمنية
@@ -10666,8 +10666,8 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-اهلا بك في بوت [Matrixteam](t.me/Matrix_Source)
-يمكنك استخدام هذه الاوامر 🔽
+Welcome to the [Matrixteam](t.me/Matrix_Source) bot
+ You can use these commands 🔽
  • ① ↺ Cleaners - المنظفين
  • ② ↺ Protection - الحماية
  • ③ ↺ Addictive - الادمنية
