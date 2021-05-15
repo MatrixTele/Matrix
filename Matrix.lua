@@ -8715,7 +8715,7 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '•⓪•', callback_data=data.sender_user_id_.."/help5"},{text = '•①•', callback_data=msg.sender_user_id_.."/help1"},{text = '•②•', callback_data=msg.sender_user_id_.."/help2"},{text = '•③•', callback_data=msg.sender_user_id_.."/help3"},{text = '•④•', callback_data=msg.sender_user_id_.."/help4"},
+{text = '•①•', callback_data=msg.sender_user_id_.."/help1"},{text = '•②•', callback_data=msg.sender_user_id_.."/help2"},{text = '•③•', callback_data=msg.sender_user_id_.."/help3"},{text = '•④•', callback_data=msg.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=msg.sender_user_id_.."/help5"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
@@ -10526,6 +10526,31 @@ end
 if Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[
+• اوامر البوت للمنظفين 
+— — — —― — — — — ― — — — —
+• الميديا - لعرض عدد الميديا المرسله
+• امسح - لمسح الميديا المرسله
+— — — —― — — — — ― — — — —
+• اوامر البوت للمالك ،
+• رفع منظف - تنزيل منظف
+• المنظفين - مسح المنظفين
+— — — —― — — — — ― — — — —
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=data.sender_user_id_.."/help5"},
+},
+{
+{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/help2') then
+if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
+local Teext =[[
 اوامر القفل والفتح :
 
 { قفل|فتح }
@@ -10544,7 +10569,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '•⓪•', callback_data=data.sender_user_id_.."/help5"},{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},
+{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -10552,8 +10577,8 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help2') then
-if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/help3') and Owner(data) then  
+if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 قائمة الادمنية :
 
@@ -10568,7 +10593,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '•⓪•', callback_data=data.sender_user_id_.."/help5"},{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},
+{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -10576,8 +10601,8 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help3') and Owner(data) then  
-if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/help4') and Constructor(data) then  
+if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 قائمة المدراء :-
 
@@ -10609,7 +10634,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '•⓪•', callback_data=data.sender_user_id_.."/help5"},{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},
+{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -10617,8 +10642,8 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help4') and Constructor(data) then  
-if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/help5') and DevBot(data) then
+if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 قائمة المنشئ :
 
@@ -10633,32 +10658,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '•⓪•', callback_data=data.sender_user_id_.."/help5"},{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/help5') and DevBot(data) then
-if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
-local Teext =[[
-• اوامر البوت للمنظفين 
-— — — —― — — — — ― — — — —
-• الميديا - لعرض عدد الميديا المرسله
-• امسح - لمسح الميديا المرسله
-— — — —― — — — — ― — — — —
-• اوامر البوت للمالك ،
-• رفع منظف - تنزيل منظف
-• المنظفين - مسح المنظفين
-— — — —― — — — — ― — — — —
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '•⓪•', callback_data=data.sender_user_id_.."/help5"},{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},
+{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -10683,7 +10683,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '•⓪•', callback_data=data.sender_user_id_.."/help5"},{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},
+{text = '•①•', callback_data=data.sender_user_id_.."/help1"},{text = '•②•', callback_data=data.sender_user_id_.."/help2"},{text = '•③•', callback_data=data.sender_user_id_.."/help3"},{text = '•④•', callback_data=data.sender_user_id_.."/help4"},{text = '•⑤•', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
