@@ -3075,6 +3075,49 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من المطورين")
 return false 
 end
 
+if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function Function_Matrix(extra, result, success)
+database:sadd(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مالك")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
+return false
+end
+if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local username = text:match("^رفع مالك @(.*)$")
+function Function_Matrix(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+database:sadd(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","💢┇تم ترقيته مالك")  
+else
+send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
+return false
+end
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6082,6 +6125,13 @@ end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
+if text == ("تصفيه") and msg.reply_to_message_id_ == 0 and BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,"\n• تم تنزيل جميع الرتب  \n")
+database:del(bot_id.."Matrix:Constructor"..msg.chat_id_)
+database:del(bot_id.."Matrix:Manager"..msg.chat_id_)
+database:del(bot_id.."Matrix:Mod:User"..msg.chat_id_)
+database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
+end
 if text == "تاك للكل" and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6498,27 +6548,28 @@ send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة �
 end
 return false
 end
-Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local namebot = {
-"عمري فداك "..Namebot.. " كول حب ",
-"كول حبيبي ؟ اني "..Namebot,
-'ها حبي وياك مكتب ئلسيد .',
-'الو الو رد مخنوك',
-'ها يحلو كول',
-'عمري الحلو',
-'صاعد اتصال ويا الحب دقيقة وجيك 😘💘',
-'مشغول حالياً 🌚🌸',
-'لابسك لتلح',
-" هايروحي؟ "..Namebot,
-}
-name = math.random(#namebot)
-send(msg.chat_id_, msg.id_, namebot[name]) 
-return false 
-end
 
-if text == "بوت" then
+----==========================================================================================================
+----==========================================================================================================
+
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
+ArrayRdods = {
+"تراك ازعجتنا",
+"اسممممممممممييي "..Namebot,
+"؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
+"انطم",
+"ياصبر الارض",
+"اسمي "..Namebot,
+"الله يعين",
+"الله يصبرني",
+"ها ",
+"استغفر الله"
+}
+
+if text == "بوت" or text == Namebot then
+NameRandomBot = ArrayRdods[math.random(#ArrayRdods)]
+send(msg.chat_id_, msg.id_," ["..NameRandomBot.."] ") 
+return false 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
 if DevMatrix(msg) then
@@ -6529,13 +6580,13 @@ return false
 end
 if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
 database:set(bot_id.."lock_cleaner"..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_, '☑┇ تم تفعيل التنظيف الوسائط التلقائي ')
+send(msg.chat_id_, msg.id_, '• تم تفعيل التنظيف الوسائط التلقائي ')
 return false
 end
 
 if text == "تعطيل تنظيف الوسائط" and Owner(msg) then
 database:del(bot_id.."lock_cleaner"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '🔏┇ تم تعطيل » التنظيف التلقائي ')
+send(msg.chat_id_, msg.id_, '• تم تعطيل » التنظيف التلقائي ')
 return false
 end
 
@@ -6547,22 +6598,22 @@ end
 
 if text == "مسح الوسائط" and Owner(msg) then 
 local mmezz = database:smembers(bot_id..":IdsMsgsCleaner:"..msg.chat_id_)
-if #mmezz == 0 then return send(msg.chat_id_, msg.id_,"📮¦ لا يوجد وسائط مجدوله للحذف \n ") end
+if #mmezz == 0 then return send(msg.chat_id_, msg.id_,"• لا يوجد وسائط مجدوله للحذف \n ") end
 for k,v in pairs(mmezz) do DeleteMessage(msg.chat_id_, {[0] = v}) end
-return send(msg.chat_id_, msg.id_,"📮¦ تم مسح جميع الوسائط المجدوله")
+return send(msg.chat_id_, msg.id_,"• تم مسح جميع الوسائط المجدوله")
 end
 
 if text == "اضف رد عام" and DevMatrix(msg) then 
 database:set(bot_id.."Matrix:witt:Rd_All"..msg.sender_user_id_..":"..msg.chat_id_,true)
 database:del(bot_id.."Matrix:witt:jwab_All"..msg.sender_user_id_..":"..msg.chat_id_)
-send(msg.chat_id_, msg.id_,"📥┇  ارسل الكلمه التري تريد اضافتها للرد العام")
+send(msg.chat_id_, msg.id_,"•  ارسل الكلمه التري تريد اضافتها للرد العام")
 return false 
 end
 
 if text and DevMatrix(msg) and database:get(bot_id.."Matrix:witt:Rd_All"..msg.sender_user_id_..":"..msg.chat_id_) then
 database:del(bot_id.."Matrix:witt:Rd_All"..msg.sender_user_id_..":"..msg.chat_id_)
 database:set(bot_id.."Matrix:witt:jwab_All"..msg.sender_user_id_..":"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_, '📥┇ الان ارسل الرد الذي تريد اضافته للعام \n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
+send(msg.chat_id_, msg.id_, '• الان ارسل الرد الذي تريد اضافته للعام \n• يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
 return false
 end
 
@@ -6577,7 +6628,7 @@ end
 
 if text == "مسح رد عام" and DevMatrix(msg) then 
 database:set(bot_id.."Matrix:witt:Del_All"..msg.sender_user_id_..":"..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_,"📥┇  ارسل الكلمه التي تريد مسحها للرد العام")
+send(msg.chat_id_, msg.id_,"•  ارسل الكلمه التي تريد مسحها للرد العام")
 return false 
 end
 
@@ -6585,7 +6636,7 @@ end
 if text == "مسح الردود العامه" and DevMatrix(msg) then 
 local rdood = database:del(bot_id..':Replay:Source:')
 if rdood== 0 then return send(msg.chat_id_, msg.id_,'🚸*¦* لا يوجد ردود مضافه حاليا \n❕') end
-send(msg.chat_id_, msg.id_,"📥┇  تم حذف الردود العامه")
+send(msg.chat_id_, msg.id_,"•  تم حذف الردود العامه")
 return false 
 end
 
@@ -6600,8 +6651,8 @@ end
 if text == 'تعين الايدي عام' and DevMatrix(msg) then
 database:setex(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 send(msg.chat_id_, msg.id_,[[
-   ☑┇ ارسل الان النص
-   ☑┇ يمكنك اضافه :
+   • ارسل الان النص
+   • يمكنك اضافه :
    - `#username` > اسم المستخدم
    - `#msgs` > عدد رسائل المستخدم
    - `#photos` > عدد صور المستخدم
@@ -6618,18 +6669,18 @@ end
 
 if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' and DevMatrix(msg) then
 database:del(bot_id.."Matrix:KleshIDALLBOT")
-send(msg.chat_id_, msg.id_, '📌┇تم ازالة كليشة الايدي ')
+send(msg.chat_id_, msg.id_, '•تم ازالة كليشة الايدي ')
 return false  
 end 
 
 if database:get(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) then 
 database:del(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) 
 if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_,"📫┇تم الغاء تعين الايدي عام") 
+send(msg.chat_id_, msg.id_,"•تم الغاء تعين الايدي عام") 
 return false  
 end 
 database:set(bot_id.."Matrix:KleshIDALLBOT",text:match("(.*)"))
-send(msg.chat_id_, msg.id_,'📌┇تم تعين الايدي عام')   
+send(msg.chat_id_, msg.id_,'•تم تعين الايدي عام')   
 return false 
 end
 
