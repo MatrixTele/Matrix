@@ -6082,13 +6082,6 @@ end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
-if text == ("تصفيه") and msg.reply_to_message_id_ == 0 and BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,"\n• تم تنزيل جميع الرتب  \n")
-database:del(bot_id.."Matrix:Constructor"..msg.chat_id_)
-database:del(bot_id.."Matrix:Manager"..msg.chat_id_)
-database:del(bot_id.."Matrix:Mod:User"..msg.chat_id_)
-database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
-end
 if text == "تاك للكل" and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
