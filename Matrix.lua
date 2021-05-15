@@ -8701,7 +8701,7 @@ end
 return false
 end
 local Text =[[
-𝚑𝚒 𝚖𝚊𝚝𝚛𝚒𝚡
+[Matrixteam](t.me/Matrix_Source)
  - - - - - - - - -
  • ① ↺ Cleaners - المنظفين
  • ② ↺ Protection - الحماية
@@ -10668,7 +10668,7 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-𝚑𝚒 𝚖𝚊𝚝𝚛𝚒𝚡
+[Matrixteam](t.me/Matrix_Source)
  - - - - - - - - -
  • ① ↺ Cleaners - المنظفين
  • ② ↺ Protection - الحماية
