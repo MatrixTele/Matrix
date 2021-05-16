@@ -4704,7 +4704,8 @@ return false
 end
 local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"•  LinK GrOup : \n ["..link.."]")                          
+send(msg.chat_id_,msg.id_,"- Link group :
+••━━━━━━━━━━••\n ["..link.."]")                          
 else                
 send(msg.chat_id_, msg.id_,"•  لا يوجد رابط ارسل ضع رابط")              
 end            
@@ -6983,7 +6984,7 @@ local text =
 "\n".."•  التكرار ↺ "..flood..
 "\n".."•  الترحيب ↺ "..welcome..
 "\n".."•  عدد التكرار ↺ "..Num_Flood..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*"
+"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n.*"
 send(msg.chat_id_, msg.id_,text)     
 end    
 if text == "تعطيل اوامر التحشيش" and Owner(msg) then    
