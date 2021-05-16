@@ -4699,21 +4699,16 @@ send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة �
 end
 return false
 end
-local status_Link = redis:get(bot_id.."Link_Group"..msg.chat_id_)
-if status_Link then
-send(msg.chat_id_, msg.id_,"⌔︙جلب الرابط معطل") 
+local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
+if not status_Link then
+send(msg.chat_id_, msg.id_,"• جلب الرابط معطل") 
 return false  
 end
-local link = redis:get(bot_id.."Status:link:set:Group"..msg.chat_id_)            
+local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"- Link group :\n••━━━━━━━━━━••\n ["..link.."]")
+send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..link.."]")                          
 else                
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if linkgpp.ok == true then 
-send(msg.chat_id_,msg.id_,"- Link group :\n••━━━━━━━━━━••\n ["..linkgpp.result.."]")
-redis:set(bot_id.."Status:link:set:Group"..msg.chat_id_,linkgpp.result)
-else
-send(msg.chat_id_, msg.id_,"⌔︙لا يوجد رابط للمجموعه")              
+send(msg.chat_id_, msg.id_,"• لا يوجد رابط ارسل ضع رابط")              
 end            
 end
 if text == "مسح الرابط" or text == "حذف الرابط" then
