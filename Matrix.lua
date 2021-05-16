@@ -3564,6 +3564,7 @@ send(msg.chat_id_, msg.id_,'•  عـليك الاشـتࢪاك في قنـاة 
 end
 return false
 end
+local username = text:match("^حظر @(.*)$")
 database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","del")  
 database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
@@ -4163,7 +4164,7 @@ database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","•  تم الغاء كتمه من هنا")  
 return false
 end
-if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","•  تم قفـل الفارسيه")  
 end
@@ -4176,13 +4177,13 @@ return false
 end
 end
 end
-if text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:del(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"lock","•  تـم فـتح الفارسيه\n")  
+Reply_Status(msg,msg.sender_user_id_,"lock",تم فتح الفشار\n")  
 end
-if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","•  تم قفـل الفشار")  
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفل الفارسيه")  
 end
 if text and database:get(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
 list = {"ڄ","که","پی","خسته","برم","راحتی","بیام","بپوشم","كرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن"}
@@ -4193,9 +4194,9 @@ return false
 end
 end
 end
-if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+if text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:del(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"lock","•  تـم فـتح الفشار\n")  
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم فتح الفارسيه\n")  
 end
 if text == ("تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -7720,7 +7721,7 @@ database:set(bot_id.."Tshak::Set:Moktlf"..msg.chat_id_,name)
 name = string.gsub(name,"😸","😹😹😹😹😹😹😹😹😸😹😹😹😹")
 name = string.gsub(name,"☠","💀💀💀💀💀💀💀☠💀💀💀💀💀")
 name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻👻")
-name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊??🕊")
+name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
 name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟🌟🌟")
