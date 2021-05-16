@@ -3566,8 +3566,11 @@ return false
 end
 database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","del")  
-database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
-Reply_Status(msg,userid,"reply","• تم تفعيل الحمايه القصوى")  
+database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
+database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) 
+Reply_Status(msg,userid,"reply","• تم تفعيل الحمايه القصوى")
+return false
+end
 if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
