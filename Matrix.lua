@@ -6983,7 +6983,7 @@ local text =
 "\n".."•  التكرار ↺ "..flood..
 "\n".."•  الترحيب ↺ "..welcome..
 "\n".."•  عدد التكرار ↺ "..Num_Flood..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"
+"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n.*"
 send(msg.chat_id_, msg.id_,text)     
 end    
 if text == "تعطيل اوامر التحشيش" and Owner(msg) then    
