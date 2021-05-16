@@ -2653,11 +2653,11 @@ database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة الاعضاء المميزين  ")
 end
 if text == 'تنزيل جميع الرتب' and PresidentGroup(msg) then
-redis:del(bot_id..'Basic:User'..msg.chat_id_)
-redis:del(bot_id..'Constructor:Group'..msg.chat_id_)
-redis:del(bot_id..'Manager:Group'..msg.chat_id_)
-redis:del(bot_id..'Admin:Group'..msg.chat_id_)
-redis:del(bot_id..'Vip:Group'..msg.chat_id_)
+database:del(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
+database:del(bot_id.."Matrix:Constructor"..msg.chat_id_)
+database:del(bot_id.."Matrix:Manager"..msg.chat_id_)
+database:del(bot_id.."Matrix:Mod:User"..msg.chat_id_)
+database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,'⌔︙تم تنزيل الكل من جميع الرتب\n{الاساسين، المنشئين ، المدراء ، الادمنيه ، المميزين}')  
 end
 if text == "مسح المكتومين" and Addictive(msg) then  
@@ -4699,16 +4699,21 @@ send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة �
 end
 return false
 end
-local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
-if not status_Link then
-send(msg.chat_id_, msg.id_,"• جلب الرابط معطل") 
+local status_Link = redis:get(bot_id.."Link_Group"..msg.chat_id_)
+if status_Link then
+send(msg.chat_id_, msg.id_,"⌔︙جلب الرابط معطل") 
 return false  
 end
-local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
+local link = redis:get(bot_id.."Status:link:set:Group"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..link.."]")                          
+send(msg.chat_id_,msg.id_,"- Link group :\n••━━━━━━━━━━••\n ["..link.."]")
 else                
-send(msg.chat_id_, msg.id_,"• لا يوجد رابط ارسل ضع رابط")              
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+send(msg.chat_id_,msg.id_,"- Link group :\n••━━━━━━━━━━••\n ["..linkgpp.result.."]")
+redis:set(bot_id.."Status:link:set:Group"..msg.chat_id_,linkgpp.result)
+else
+send(msg.chat_id_, msg.id_,"⌔︙لا يوجد رابط للمجموعه")              
 end            
 end
 if text == "مسح الرابط" or text == "حذف الرابط" then
