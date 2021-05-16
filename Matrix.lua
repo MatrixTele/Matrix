@@ -3555,15 +3555,6 @@ Reply_Status(msg,userid,"reply","•  تم ترقيته مميز للمجموع�
 return false
 end
 if text == ("تفعيل الحمايه القصوى") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'•  عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n •  قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","del")  
 database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
@@ -7230,7 +7221,7 @@ local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
 'طالع ححلو الوصخ 😂😔💘',
 "بشر لو كيك نتهه😹💘 ",
-"وفالله ??💘",
+"وفالله 😔💘",
 "متحس روحك لحيت بيه؟😹💘",
 "موبشر ضيم برب 💘",
 "بدله لتلح عاد دبسزز 😔💘",
