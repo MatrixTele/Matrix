@@ -2652,58 +2652,13 @@ end
 database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة الاعضاء المميزين  ")
 end
-if text == "تنزيل جميع الرتب" and DevBot(msg) then
-database:del(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-texts = "• تم تنزيل جميع الرتب "
-send(msg.chat_id_, msg.id_, texts)
-end
-if text == "تنزيل جميع الرتب" and BasicConstructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-database:del(bot_id.."Matrix:Constructor"..msg.chat_id_)
-end
-if text == "تنزيل جميع الرتب" and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-database:del(bot_id.."Matrix:Manager"..msg.chat_id_)
-end
-if text == "تنزيل جميع الرتب" and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-database:del(bot_id.."Matrix:Mod:User"..msg.chat_id_)
-end
-if text == "تنزيل جميع الرتب" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
+if text == 'تنزيل جميع الرتب' and PresidentGroup(msg) then
+redis:del(bot_id..'Basic:User'..msg.chat_id_)
+redis:del(bot_id..'Constructor:Group'..msg.chat_id_)
+redis:del(bot_id..'Manager:Group'..msg.chat_id_)
+redis:del(bot_id..'Admin:Group'..msg.chat_id_)
+redis:del(bot_id..'Vip:Group'..msg.chat_id_)
+send(msg.chat_id_, msg.id_,'⌔︙تم تنزيل الكل من جميع الرتب\n{الاساسين، المنشئين ، المدراء ، الادمنيه ، المميزين}')  
 end
 if text == "مسح المكتومين" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
