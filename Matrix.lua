@@ -3073,6 +3073,34 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
+if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'•  عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n •  قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+end
+end
+tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
+if b.first_name_ == false then
+send(msg.chat_id_, msg.id_,"• حساب المالك محذوف")
+return false  
+end
+local UserName = (b.username_ or "ramses20")
+send(msg.chat_id_, msg.id_,"• تم ترقية مالك المجموعه ← ["..b.first_name_.."](T.me/"..UserName..")")  
+redis:sadd(bot_id.."Matrix:President:Group"..msg.chat_id_,b.id_)
+end,nil)   
+end,nil)   
+end
 if text and text:match("^رفع منشئ اساسي (%d+)$") and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
