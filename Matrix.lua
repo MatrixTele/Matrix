@@ -3564,13 +3564,11 @@ send(msg.chat_id_, msg.id_,'•  عـليك الاشـتࢪاك في قنـاة 
 end
 return false
 end
-local username = text:match("^حظر @(.*)$")
 database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","del")  
 database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
 database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'• تم تفعيل الحمايه القصوى')
-return false
+send(msg.chat_id_, msg.id_,'• تم تفعيل الحمايه القصوى')  
 end
 if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -7232,7 +7230,7 @@ local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
 'طالع ححلو الوصخ 😂😔💘',
 "بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
+"وفالله ??💘",
 "متحس روحك لحيت بيه؟😹💘",
 "موبشر ضيم برب 💘",
 "بدله لتلح عاد دبسزز 😔💘",
