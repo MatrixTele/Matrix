@@ -3029,49 +3029,6 @@ database:srem(bot_id.."Matrix:Sudo:User", userid)
 Reply_Status(msg,userid,"reply","•  تم تنزيله من المطورين")  
 return false 
 end
-if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'•  عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n •  قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function Function_Matrix(extra, result, success)
-database:sadd(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مالك")  
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-return false
-end
-if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'•  عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n •  قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local userid = text:match("^رفع مالك (%d+)$") 
-function Function_Matrix(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end      
-database:sadd(bot_id.."Matrix:Basic:Constructor23"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","💢┇تم ترقيته مالك")  
-else
-send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
-return false
-end
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3597,7 +3554,20 @@ database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","•  تم ترقيته مميز للمجموعه")  
 return false
 end
-
+if text == ("تفعيل الحمايه القصوى") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'•  عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n •  قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
+database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","del")  
+database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
+Reply_Status(msg,userid,"reply","• تم تفعيل الحمايه القصوى")  
 if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -7406,7 +7376,7 @@ return false
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Tshak:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","??","🎪","🎟","• ","🎗","🏵","• ","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","• ","📍","📓","📗","• ","📅","📪","• ","• ","📭","⏰","📺","🎚","☎️","• "}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","• ","🎗","🏵","• ","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","• ","📍","📓","📗","• ","📅","📪","• ","• ","📭","⏰","📺","🎚","☎️","• "}
 SM = Random[math.random(#Random)]
 database:set(bot_id.."Tshak:Random:Sm"..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,"•  اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
