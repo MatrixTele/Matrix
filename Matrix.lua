@@ -8604,21 +8604,6 @@ local Num = text:match("تعين عدد الاعضاء (%d+)$")
 database:set(bot_id..'Matrix:Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,'• تم وضع عدد الاعضاء *~'..Num..'* عضو')
 end
-if text == ("معلومات السيرفر 📡") and DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_, io.popen([[
-linux_version=`lsb_release -ds`
-memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
-HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
-CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
-uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '• { نظام التشغيل } •\n*>> '"$linux_version"'*' 
-echo '*•━━━━━━━━━•*\n•{ الذاكره العشوائيه }•\n*>> '"$memUsedPrc"'*'
-echo '*•━━━━━━━━━•*\n•{ وحـده الـتـخـزيـن }•\n*>> '"$HardDisk"'*'
-echo '*•━━━━━━━━━•*\n•{ الـمــعــالــج }•\n*>> '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*•━━━━━━━━━•*\n•{ الــدخــول }•\n*>> '`whoami`'*'
-echo '*•━━━━━━━━━•*\n•{ مـده تـشغيـل الـسـيـرفـر }\n*>> '"$uptime"'*'
-]]):read('*all'))  
-end
 if text =='الاحصائيات' and DevBot(msg) then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
@@ -9346,7 +9331,6 @@ local keyboard = {
 {'اضف كت تويت','حذف كت تويت'},
 {'جلب النسخه •'},
 {'تفعيل النسخه التلقائيه •','تعطيل النسخه التلقائيه •'},
-{'معلومات السيرفر 📡'},
 {'الغاء•'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
