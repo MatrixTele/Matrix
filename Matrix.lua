@@ -8540,7 +8540,7 @@ local Groups = database:scard(bot_id..'Matrix:Chek:Groups')
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'• احصائيات البوت \n\n• عدد المجموعات *~ '..Groups..'\n• عدد المشتركين ~ '..Users..'*')
 end
-if text == 'جلب النسخه •' and DevMatrix(msg) then
+if text == 'جلب النسخه' and DevMatrix(msg) then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -9220,7 +9220,6 @@ local keyboard = {
 {'تحديث السورس•','تحديث الملفات•'},
 {'قائمه العام•'},
 {'اضف كت تويت','حذف كت تويت'},
-{'جلب نسخه احتياطيه•'},
 {'تفعيل النسخه التلقائيه •','جلب النسخه •','تعطيل النسخه التلقائيه •'},
 {'الغاء•'}
 }
@@ -9705,7 +9704,7 @@ t = "• لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'جلب نسخه احتياطيه•' then
+if text == 'جلب النسخه •' then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
