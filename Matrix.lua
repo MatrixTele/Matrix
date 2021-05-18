@@ -8604,24 +8604,21 @@ local Num = text:match("تعين عدد الاعضاء (%d+)$")
 database:set(bot_id..'Matrix:Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,'• تم وضع عدد الاعضاء *~'..Num..'* عضو')
 end
-if text == 'معلومات السيرفر 📡' then
-   ioserver =  io.popen([[
-         linux_version=`lsb_release -ds`
-         memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
-         HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
-         CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
-         uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-         echo '📟l•⊱ { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
-         echo '*------------------------------\n*🔖l•⊱ { الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
-         echo '*------------------------------\n*💾l•⊱ { وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
-         echo '*------------------------------\n*⚙️l•⊱ { الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-         echo '*------------------------------\n*📡l•⊱ { موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
-         echo '*------------------------------\n*👨🏾‍🔧l•⊱ { الــدخــول } ⊰•\n*»» '`whoami`'*'
-         echo '*------------------------------\n*🔌l•⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
-         ]]):read('*all')
-         send(msg.chat_id_, msg.id_,ioserver)
-   return false
-   end
+if text == ("السيرفر •") and DevMatrix(msg) then 
+send(msg.chat_id_, msg.id_, io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
+echo '• { نظام التشغيل } •\n*>> '"$linux_version"'*' 
+echo '*•━━━━━━━━━•*\n•{ الذاكره العشوائيه }•\n*>> '"$memUsedPrc"'*'
+echo '*•━━━━━━━━━•*\n•{ وحـده الـتـخـزيـن }•\n*>> '"$HardDisk"'*'
+echo '*•━━━━━━━━━•*\n•{ الـمــعــالــج }•\n*>> '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*•━━━━━━━━━•*\n•{ الــدخــول }•\n*>> '`whoami`'*'
+echo '*•━━━━━━━━━•*\n•{ مـده تـشغيـل الـسـيـرفـر }\n*>> '"$uptime"'*'
+]]):read('*all'))  
+end
 if text =='الاحصائيات' and DevBot(msg) then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
@@ -8888,6 +8885,17 @@ Text = [[
 ╭• [˹ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ˼](t.me/Matrix_Source)•╮
 ]]
 send(msg.chat_id_, msg.id_,Text)
+end
+if text and text:match('^الحساب (%d+)$') then
+local id = text:match('^الحساب (%d+)$')
+local text = 'اضغط لمشاهده الحساب'
+tdcli_function ({ID="SendMessage", chat_id_=msg.chat_id_, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=19, user_id_=id}}}}, dl_cb, nil)
+end
+local function oChat(chat_id,cb)
+tdcli_function ({
+ID = "OpenChat",
+chat_id_ = chat_id
+}, cb, nil)
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -9338,6 +9346,7 @@ local keyboard = {
 {'اضف كت تويت','حذف كت تويت'},
 {'جلب النسخه •'},
 {'تفعيل النسخه التلقائيه •','تعطيل النسخه التلقائيه •'},
+{'معلومات السيرفر 📡'},
 {'الغاء•'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
