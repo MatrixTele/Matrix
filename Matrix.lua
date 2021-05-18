@@ -4747,7 +4747,7 @@ end
 end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
-send(msg.chat_id_, msg.id_,' • تم تنظيف الميديا المعدله')
+send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
@@ -9220,7 +9220,8 @@ local keyboard = {
 {'تحديث السورس•','تحديث الملفات•'},
 {'قائمه العام•'},
 {'اضف كت تويت','حذف كت تويت'},
-{'تفعيل النسخه التلقائيه  •','جلب النسخه  •','تعطيل النسخه التلقائيه  •'},
+{'جلب نسخه احتياطيه•'},
+{'تفعيل النسخه التلقائيه •','جلب النسخه •','تعطيل النسخه التلقائيه •'},
 {'الغاء•'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
@@ -9375,14 +9376,14 @@ if text == 'تعطيل التواصل•' then
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'• تم تعطيل التواصل ') 
 end
-if text == 'تفعيل النسخه التلقائيه  •' then
+if text == 'تفعيل النسخه التلقائيه •' then
 database:del(bot_id.."AutoFile")
-send(msg.chat_id_, msg.id_," •: تم تفعيل النسخه الاحتياطيه التلقائيه .") 
+send(msg.chat_id_, msg.id_,"•: تم تفعيل النسخه الاحتياطيه التلقائيه .") 
 return false
 end
-if text == "تعطيل النسخه التلقائيه  •" then  
+if text == "تعطيل النسخه التلقائيه •" then  
 database:set(bot_id.."AutoFile",true) 
-send(msg.chat_id_, msg.id_," •: تم تعطيل النسخه الاحتياطيه التلقائيه .") 
+send(msg.chat_id_, msg.id_,"•: تم تعطيل النسخه الاحتياطيه التلقائيه .") 
 return false  
 end
 if text =='الاحصائيات•' then
@@ -9704,17 +9705,16 @@ t = "• لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text =='جلب النسخه  •' then
-local list = database:smembers(bot_id..'Chek:Groups')  
-local memo = database:smembers(bot_id..'UsersBot')  
+if text == 'جلب نسخه احتياطيه•' then
+local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
 NAME = 'Matrix Chat'
-ASAS = database:smembers(bot_id.."Basic:Constructor"..v)
-MNSH = database:smembers(bot_id.."Constructor"..v)
-MDER = database:smembers(bot_id.."Manager"..v)
-MOD = database:smembers(bot_id.."Mod:User"..v)
-link = database:get(bot_id.."Link_Group"..v) or ''
+ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
+MDER = database:smembers(bot_id.."Matrix:Manager"..v)
+MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
+link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
 if k == 1 then
 t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
 else
@@ -9766,22 +9766,11 @@ t = t..'],'
 end
 t = t..'"linkgroup":"'..link..'"}' or ''
 end
-if #memo ~= 0 then 
-t = t..'"mem":['
-for k,v in pairs(memo) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
 t = t..'}}'
-local File = io.open('./File/'..bot_id..'.json', "w")
+local File = io.open('./File_Libs/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,'./File/'..bot_id..'.json', ' •:  عدد مجموعات التي في البوت { '..#list..'} .\n •: عدد المشتركين { '..#memo..' } .')
+sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '• عدد مجموعات التي في البوت { '..#list..'}')
 end
 
 if text == "تحديث السورس•" then
