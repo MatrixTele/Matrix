@@ -8715,6 +8715,35 @@ end
 end
 send(msg.chat_id_, msg.id_,t)
 end
+if text == "تاك للمشرفين" and BasicConstructor(msg) then
+if database:get(bot_id.."VVVZVV:admin:Time"..msg.chat_id_) then 
+return
+ send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
+end
+database:setex(bot_id..'VVVZVV:admin:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100 },function(extra,result,success)
+m = 0
+tgad = 0
+local ans = result.members_  
+for k, v in pairs(ans) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if m == 1 or m == tgad or k == 0 then
+tgad = m + 5
+t = "#Admin"
+end
+m = m + 1
+Adminame = data.first_name_
+Adminame = Adminame:gsub("]","")
+Adminame = Adminame:gsub("[[]","")
+t = t..", ["..Adminame.."](tg://user?id="..v.user_id_..")"
+if m == 1 or m == tgad or k == 0 then
+local Text = t:gsub('#Admin,','#Admin\n')
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end
+end,nil)
+end
+end,nil)
+end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevMatrix(msg) then
 local Get_Files, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/getfile.json")
