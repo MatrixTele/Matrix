@@ -4729,6 +4729,26 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
+if text == "امسح" and Owner(msg) then
+Msgs = {[0]=msg.id_}
+local Message = msg.id_
+for i=1,200 do
+Message = Message - 1048576
+Msgs[i] = Message
+end
+tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+new = 0
+Msgs2 = {}
+for i=0 ,data.total_count_ do
+if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
+Msgs2[new] = data.messages_[i].id_
+new = new + 1
+end
+end
+DeleteMessage(msg.chat_id_,Msgs2)
+end,nil)  
+send(msg.chat_id_, msg.id_,'✫ تم تنظيف الميديا المعدله')
+end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
 for k,v in pairs(list) do
@@ -7194,8 +7214,8 @@ send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة �
 end
 return false
 end
-if not database:sismember(bot_id..'Matrix:Spam:Group'..msg.sender_user_id_,text) then
-database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
+if not database:sismember(bot_id..'Spam:Group'..msg.sender_user_id_,text) then
+database:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ then
@@ -7204,24 +7224,24 @@ else
 UserName_User = 'لا يوجد'
 end
 local Id = msg.sender_user_id_
-local NumMsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local NumMsg = database:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(Id,msg.chat_id_)
-local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
-local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
+local message_edit = database:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
+'صورتك فدشي 😘😔❤️',
+"صارلك شكد مخليه ",
 "وفالله 😔💘",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+"كشخه برب 😉💘",
+"دغيره شبي هذ 😒",
+"عمري الحلوين 💘",
 }
 local Description = Texting[math.random(#Texting)]
-local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_)
-if not database:get(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_) then
+local get_id = database:get(bot_id.."Klesh:Id:Bot"..msg.chat_id_)
+if not database:get(bot_id..'Lock:ID:Bot:Photo'..msg.chat_id_) then
 if taha.photos_[0] then
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
@@ -7236,10 +7256,10 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'• '..Description..'\n• ايديك ↺ '..Id..'\n• معرفك ↺ '..UserName_User..'\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'✫: '..Description..'\n✫: ايديك -› '..Id..'\n✫: معرفك -› '..UserName_User..'\n✫: رتبتك -› '..Status_Gps..'\n✫: رسائلك -› '..NumMsg..'\n✫: السحكات -› '..message_edit..' \n✫: تتفاعلك -› '..TotalMsg..'\n✫:  مجوهراتك -› '..Num_Games)
 end
 else
-send(msg.chat_id_, msg.id_,'• ليس لديك صوره \n'..'\n*• ايديك ↺ '..Id..'\n• معرفك ↺* ['..UserName_User..']*\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'✫: ليس لديك صوره \n'..'\n*✫: ايديك -› '..Id..'\n✫: معرفك -›* ['..UserName_User..']*\n✫: رتبتك -› '..Status_Gps..'\n✫: رسائلك -› '..NumMsg..'\n✫: السحكات -› '..message_edit..' \n✫: تتفاعلك -› '..TotalMsg..'\n✫:  مجوهراتك -› '..Num_Games..'*') 
 end
 else
 if get_id then
@@ -7255,7 +7275,7 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
-send(msg.chat_id_, msg.id_,'\n*• ايديك ↺ '..Id..'\n• معرفك ↺* ['..UserName_User..']*\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'\n*✫: ايديك -› '..Id..'\n✫: معرفك -›* ['..UserName_User..']*\n✫: رتبتك -› '..Status_Gps..'\n✫: رسائلك -› '..NumMsg..'\n✫: السحكات -› '..message_edit..' \n✫: تتفاعلك -› '..TotalMsg..'\n✫:  مجوهراتك -› '..Num_Games..'*') 
 end
 end
 end,nil)   
@@ -8820,7 +8840,7 @@ Text = [[
 • رفع منظف - تنزيل منظف
 • المنظفين - مسح المنظفين
 — — — —― — — — — ― — — — —
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8849,7 +8869,7 @@ Text = [[
 
 ملاحظه : انصح بأستخدام امر (اوامر القفل) للسهولة.
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8873,7 +8893,7 @@ Text = [[
 
 الاعدادات <بالتقيد>
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8914,7 +8934,7 @@ Text = [[
 ردود البوت | اطردني | الايدي
 الايدي بالصورة | الايدي بالازرار
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8938,7 +8958,7 @@ Text = [[
 مسح <المحذوفين|البوتات>
 تغير اللغه
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8988,7 +9008,7 @@ Text = [[
 • رفع/تنزيل منشئ اساسي
 • مسح المنشئين الاساسين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -10613,7 +10633,7 @@ local Teext =[[
 • رفع منظف - تنزيل منظف
 • المنظفين - مسح المنظفين
 — — — —― — — — — ― — — — —
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10642,7 +10662,7 @@ local Teext =[[
 
 ملاحظه : انصح بأستخدام امر (اوامر القفل) للسهولة.
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10666,7 +10686,7 @@ local Teext =[[
 
 الاعدادات <بالتقيد>
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10707,7 +10727,7 @@ local Teext =[[
 ردود البوت | اطردني | الايدي
 الايدي بالصورة | الايدي بالازرار
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10731,7 +10751,7 @@ local Teext =[[
 مسح <المحذوفين|البوتات>
 تغير اللغه
 ⎯ ⎯ ⎯ ⎯
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
