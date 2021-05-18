@@ -8604,7 +8604,7 @@ local Num = text:match("تعين عدد الاعضاء (%d+)$")
 database:set(bot_id..'Matrix:Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,'• تم وضع عدد الاعضاء *~'..Num..'* عضو')
 end
-if text == ("السيرفر •") and DevMatrix(msg) then 
+if text == ("معلومات السيرفر 📡") and DevMatrix(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
