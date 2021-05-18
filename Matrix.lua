@@ -8540,7 +8540,7 @@ local Groups = database:scard(bot_id..'Matrix:Chek:Groups')
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'• احصائيات البوت \n\n• عدد المجموعات *~ '..Groups..'\n• عدد المشتركين ~ '..Users..'*')
 end
-if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
+if text == 'جلب النسخه •' and DevMatrix(msg) then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -9378,12 +9378,12 @@ send(msg.chat_id_, msg.id_,'• تم تعطيل التواصل ')
 end
 if text == 'تفعيل النسخه التلقائيه •' then
 database:del(bot_id.."AutoFile")
-send(msg.chat_id_, msg.id_,"•: تم تفعيل النسخه الاحتياطيه التلقائيه .") 
+send(msg.chat_id_, msg.id_,"• تم تفعيل النسخه الاحتياطيه التلقائيه .") 
 return false
 end
 if text == "تعطيل النسخه التلقائيه •" then  
 database:set(bot_id.."AutoFile",true) 
-send(msg.chat_id_, msg.id_,"•: تم تعطيل النسخه الاحتياطيه التلقائيه .") 
+send(msg.chat_id_, msg.id_,"• تم تعطيل النسخه الاحتياطيه التلقائيه .") 
 return false  
 end
 if text =='الاحصائيات•' then
