@@ -8865,12 +8865,15 @@ send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• ع
 return false 
 end
 Text = [[
-╭• [ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ](t.me/Matrix_Source)•╮
+╭•[ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ](t.me/Matrix_Source)•╮
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '🔰ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ',url="https://t.me/Matrix_Source"},
+{text = '™️ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ',url="https://t.me/Matrix_Source"},
+},
+{
+{text = '🔰ᦔꫀꪜꫀꪶꪮρꫀ𝘳',url="t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
