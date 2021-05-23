@@ -8913,11 +8913,11 @@ keyboard.inline_keyboard = {
 {text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=msg.sender_user_id_.."/help2"},
 },
 {
-	{text = 'اوامر المدير', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=msg.sender_user_id_.."/help4"},
-	},
+{text = 'اوامر المدير', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=msg.sender_user_id_.."/help4"},
+},
 {
-	{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},
-	},
+{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},
+},
 {
 {text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=msg.sender_user_id_.."/homelocks"},
 },
