@@ -8439,14 +8439,15 @@ end
 end
 end
 if text == "تعطيل الافلام" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '✫: تم تعطيل الافلام')
-database:set(bot_id.."movie_bot"..msg.chat_id_,"close")
+send(msg.chat_id_, msg.id_, '• تم تعطيل الافلام')
+database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"close")
 end
 if text == "تفعيل الافلام" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'✫: تم تفعيل الافلام')
-database:set(bot_id.."movie_bot"..msg.chat_id_,"open")
+send(msg.chat_id_, msg.id_,'• تم تفعيل الافلام')
+database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
 end
-if text and text:match("^فلم (.*)$") and database:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
+
+if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
@@ -8460,6 +8461,9 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
 if text == "غنيلي" then
 data,res = https.request('https://boyka-api.ml/audios.php')
 if res == 200 then
@@ -8903,12 +8907,12 @@ local Text =[[
 Welcome to the [Matrixteam] (t.me/Matrix_Source) bot
   You can use these commands 🔽
 — — — — — — — — —
- • 𝟎 ↺ Cleaners
- • 𝟏 ↺ Protection
- • 𝟐 ↺ addictive
- • 𝟑 ↺ Managers
- • 𝟒 ↺ originators
- • 𝟓 ↺ Developers
+ • 𝟎 ↺ Cleaners ☓ المنظفين
+ • 𝟏 ↺ Protection ☓ الحماية
+ • 𝟐 ↺ addictive ☓ الادمنية
+ • 𝟑 ↺ Managers ☓ المدراء
+ • 𝟒 ↺ originators ☓ المنشئين
+ • 𝟓 ↺ Developers ☓ المطورين
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10906,12 +10910,12 @@ local Teext =[[
 Welcome to the [Matrixteam] (t.me/Matrix_Source) bot
   You can use these commands 🔽
 — — — — — — — — —
- • 𝟎 ↺ Cleaners
- • 𝟏 ↺ Protection
- • 𝟐 ↺ addictive
- • 𝟑 ↺ Managers
- • 𝟒 ↺ originators
- • 𝟓 ↺ Developers
+ • 𝟎 ↺ Cleaners ☓ المنظفين
+ • 𝟏 ↺ Protection ☓ الحماية
+ • 𝟐 ↺ addictive ☓ الادمنية
+ • 𝟑 ↺ Managers ☓ المدراء
+ • 𝟒 ↺ originators ☓ المنشئين
+ • 𝟓 ↺ Developers ☓ المطورين
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
