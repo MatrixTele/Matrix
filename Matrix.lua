@@ -8905,14 +8905,12 @@ return false
 end
 local Text =[[
 Wꫀꪶᥴꪮꪑꫀ 𝓽ꪮ 𝓽ꫝꫀ [Mꪖ𝓽𝘳𝓲᥊𝓽ꫀꪖꪑ] (t.me/Matrix_Source) ᥇ꪮ𝓽  🔽
-— — — — — — — — —
  • 𝟎 •↺ Cleaners - المنظفين
  • 𝟏 •↺ Protection - الحماية
  • 𝟐 •↺ addictive - الادمنية
  • 𝟑 •↺ Managers - المدراء
  • 𝟒 •↺ originators - المنشئين
  • 𝟓 •↺ Developers - المطورين
-— — — — — — — — —
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10908,14 +10906,12 @@ elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 Wꫀꪶᥴꪮꪑꫀ 𝓽ꪮ 𝓽ꫝꫀ [Mꪖ𝓽𝘳𝓲᥊𝓽ꫀꪖꪑ] (t.me/Matrix_Source) ᥇ꪮ𝓽  🔽
-— — — — — — — — —
  • 𝟎 •↺ Cleaners - المنظفين
  • 𝟏 •↺ Protection - الحماية
  • 𝟐 •↺ addictive - الادمنية
  • 𝟑 •↺ Managers - المدراء
  • 𝟒 •↺ originators - المنشئين
  • 𝟓 •↺ Developers - المطورين
-— — — — — — — — —
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
