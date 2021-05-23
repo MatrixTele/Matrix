@@ -8904,15 +8904,13 @@ end
 return false
 end
 local Text =[[
-Welcome to the [Matrixteam] (t.me/Matrix_Source) bot
-  You can use these commands 🔽
-— — — — — — — — —
- • 𝟎 ↺ Cleaners ☓ المنظفين
- • 𝟏 ↺ Protection ☓ الحماية
- • 𝟐 ↺ addictive ☓ الادمنية
- • 𝟑 ↺ Managers ☓ المدراء
- • 𝟒 ↺ originators ☓ المنشئين
- • 𝟓 ↺ Developers ☓ المطورين
+Welcome to the Matrixteam bot
+ You can use these commands 🔽
+• ① ↺ Cleaners - المنظفين
+• ② ↺ Protection - الحماية
+• ③ ↺ Addictive - الادمنية
+• ④ ↺ Managers - المدراء
+• ⑤ ↺ originators - المنشئين
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10907,15 +10905,13 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-Welcome to the [Matrixteam] (t.me/Matrix_Source) bot
-  You can use these commands 🔽
-— — — — — — — — —
- • 𝟎 ↺ Cleaners ☓ المنظفين
- • 𝟏 ↺ Protection ☓ الحماية
- • 𝟐 ↺ addictive ☓ الادمنية
- • 𝟑 ↺ Managers ☓ المدراء
- • 𝟒 ↺ originators ☓ المنشئين
- • 𝟓 ↺ Developers ☓ المطورين
+Welcome to the Matrixteam bot
+ You can use these commands 🔽
+• ① ↺ Cleaners - المنظفين
+• ② ↺ Protection - الحماية
+• ③ ↺ Addictive - الادمنية
+• ④ ↺ Managers - المدراء
+• ⑤ ↺ originators - المنشئين
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
