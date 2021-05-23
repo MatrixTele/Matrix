@@ -9489,7 +9489,7 @@ database:set(bot_id.."AutoFile",true)
 send(msg.chat_id_, msg.id_,"• تم تعطيل النسخه الاحتياطيه التلقائيه .") 
 return false  
 end
-if text == '• قناة تحديثات البوت .' then  
+if text == 'قناة تحديثات البوت •' then  
 send(msg.chat_id_, msg.id_,'• [تحديثات البوت](t.me/infoo_Matrix) .\n - [قناه السورس](t.me/Matrix_Source) .')
 return false  
 end
