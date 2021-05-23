@@ -9304,6 +9304,7 @@ if text == '/start' then
 if DevMatrix(msg) then
 local Text = '• مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
+{'قناة تحديثات البوت •'},
 {'الاحصائيات•','تغيير المطور الاساسي•'},
 {'تفعيل التواصل•','تعطيل التواصل•'},
 {'تنظيف الكروبات•','تنظيف المشتركين•'},
@@ -9486,6 +9487,10 @@ end
 if text == "تعطيل النسخه التلقائيه •" then  
 database:set(bot_id.."AutoFile",true) 
 send(msg.chat_id_, msg.id_,"• تم تعطيل النسخه الاحتياطيه التلقائيه .") 
+return false  
+end
+if text == '• قناه تحديثات البوت .' then  
+send(msg.chat_id_, msg.id_,'• [تحديثات البوت](t.me/infoo_Matrix) .\n - [قناه السورس](t.me/Matrix_Source) .')
 return false  
 end
 if text =='الاحصائيات•' then
@@ -11053,20 +11058,6 @@ tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data
 if data.username_ ~= false then
 database:set(bot_id..'Matrix:User:Name'..msg.sender_user_id_,data.username_)
 end;end,nil)   
-------------------------------------------------------------------------
-if msg.content_.ID == "MessageChatAddMembers" then  
-
-   ---==========================================
-   ---==========================================
-if msg.content_.members_[0].id_ == tonumber(bot_id) then 
-print("it is Bot")
-Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local Texti = "↞ اهلين انا + "..Namebot.." 🐉\n\n↞ اختصاصي ادارة المجموعات من السبام والخ..\n↞ للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."
-keyboard = {} 
-keyboard.inline_keyboard ={{{text = "اضفني", switch_inline_query="أنا بوت حمايه اضيفوني في مجموعتكم لزيادة الامان ."}}}
-local msg_id = msg.id_/2097152/0.5
-local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
 ------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
 database:set(bot_id.."Matrix:Who:Added:Me"..msg.chat_id_..":"..msg.content_.members_[0].id_,msg.sender_user_id_)
