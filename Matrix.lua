@@ -8865,9 +8865,17 @@ send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• ع
 return false 
 end
 Text = [[
-╭• [˹ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ˼](t.me/Matrix_Source)•╮
+╭• [ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ](t.me/Matrix_Source)•╮
 ]]
-send(msg.chat_id_, msg.id_,Text)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ',url="https://t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 if text and text:match('^الحساب (%d+)$') then
 local id = text:match('^الحساب (%d+)$')
