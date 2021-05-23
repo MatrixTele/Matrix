@@ -11055,6 +11055,20 @@ database:set(bot_id..'Matrix:User:Name'..msg.sender_user_id_,data.username_)
 end;end,nil)   
 ------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
+
+   ---==========================================
+   ---==========================================
+if msg.content_.members_[0].id_ == tonumber(bot_id) then 
+print("it is Bot")
+Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
+local Texti = "↞ اهلين انا + "..Namebot.." 🐉\n\n↞ اختصاصي ادارة المجموعات من السبام والخ..\n↞ للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."
+keyboard = {} 
+keyboard.inline_keyboard ={{{text = "اضفني", switch_inline_query="أنا بوت حمايه اضيفوني في مجموعتكم لزيادة الامان ."}}}
+local msg_id = msg.id_/2097152/0.5
+local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatAddMembers" then  
 database:set(bot_id.."Matrix:Who:Added:Me"..msg.chat_id_..":"..msg.content_.members_[0].id_,msg.sender_user_id_)
 local mem_id = msg.content_.members_  
 local Bots = database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) 
