@@ -6094,78 +6094,106 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n• قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'✫: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ✫: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 function Function_Matrix(extra, result, success)
 if tonumber(Id_Sudo) == tonumber(result.sender_user_id_) then
-send(msg.chat_id_, msg.id_,"• لا تستطيع تنزيل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"✫:  لا تستطيع تنزيل المطور الاساسي")
 return false 
 end
-if database:sismember(bot_id.."Matrix:Sudo:User",result.sender_user_id_) then
-dev = "• تم تنزيله من المطورين"
-else 
-dev = "• هو ليس مطور" 
-end
-if database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_) then
-crr = "• تم تنزيل من الاساسيين" 
-else 
-crr = "• هو ليس منشئ اساسي" 
-end
-if database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_) then
-cr = "• تم تنزيله من المنشئين" 
-else 
-cr = "• هو ليس منشئ" 
-end
-if database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_) then
-own = "• تم تنزيله من المدراء" 
-else 
-own = "• هو ليس مدير" 
-end
-if database:sismember(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_) then
-mod = "• تم تنزيله من الادميه"
- else 
-mod = "• هو ليس ادمن" 
-end
-if database:sismember(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_) then
-vip = "• تم تنزيل من المميزين"
-else
-vip = "• هو ليس مميز"
-end
 if Rank_Checking(result.sender_user_id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"\n• تم تنزيل الشخص من جميع الرتب")
+send(msg.chat_id_, msg.id_,"\n✫: تم تنزيل الشخص من جميع الرتب")
 else
-send(msg.chat_id_, msg.id_,"\n• ليس لديه رتب حتى استطيع تنزيله \n")
+send(msg.chat_id_, msg.id_,"\n✫: ليس لديه رتب حتى استطيع تنزيله \n")
 end
-if tonumber(Id_Sudo) == tonumber(msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Sudo:User", result.sender_user_id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id.."Matrix:Sudo:User",msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
+if DevBotsIs(msg) == true then
+database:srem(bot_id.."DEV:Sudo:T",result.sender_user_id_)
+database:srem(bot_id.."Sudo:User", result.sender_user_id_)
+database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+elseif database:sismember(bot_id.."DEV:Sudo:T",msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
+database:srem(bot_id.."Sudo:User",result.sender_user_id_)
+elseif database:sismember(bot_id.."Sudo:User",msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
+elseif database:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+elseif database:sismember(bot_id.."Constructor"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+elseif database:sismember(bot_id.."Manager"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
 end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
+end
+if text and text:match("^تنزيل الكل @(.*)$") and Owner(msg) then
+function FunctionStatus(extra, result, success)
+if (result.id_) then
+if tonumber(Id_Sudo) == tonumber(result.id_) then
+send(msg.chat_id_, msg.id_,"✫:  لا تستطيع تنزيل المطور الاساسي")
+return false 
+end
+if Rank_Checking(result.id_,msg.chat_id_) ~= false then
+send(msg.chat_id_, msg.id_,"\n✫: تم تنزيل الشخص من جميع الرتب")
+else
+send(msg.chat_id_, msg.id_,"\n✫: ليس لديه رتب حتى استطيع تنزيله \n")
+end
+if DevBotsIs(msg) == true then
+database:srem(bot_id.."DEV:Sudo:T",result.id_)
+database:srem(bot_id.."Sudo:User", result.id_)
+database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
+elseif database:sismember(bot_id.."DEV:Sudo:T",msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.id_)
+database:srem(bot_id.."Sudo:User",result.id_)
+elseif database:sismember(bot_id.."Sudo:User",msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.id_)
+elseif database:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Constructor"..msg.chat_id_, result.id_)
+elseif database:sismember(bot_id.."Constructor"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
+elseif database:sismember(bot_id.."Manager"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
+end
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, FunctionStatus, nil)
 end
 if text == "تاك للكل" and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
