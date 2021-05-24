@@ -6094,19 +6094,19 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'✫: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ✫: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 function Function_Matrix(extra, result, success)
 if tonumber(Id_Sudo) == tonumber(result.sender_user_id_) then
-send(msg.chat_id_, msg.id_,"✫:  لا تستطيع تنزيل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"•  لا تستطيع تنزيل المطور الاساسي")
 return false 
 end
 if Rank_Checking(result.sender_user_id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"\n✫: تم تنزيل الشخص من جميع الرتب")
+send(msg.chat_id_, msg.id_,"\n• تم تنزيل الشخص من جميع الرتب")
 else
-send(msg.chat_id_, msg.id_,"\n✫: ليس لديه رتب حتى استطيع تنزيله \n")
+send(msg.chat_id_, msg.id_,"\n• ليس لديه رتب حتى استطيع تنزيله \n")
 end
 if DevBotsIs(msg) == true then
 database:srem(bot_id.."DEV:Sudo:T",result.sender_user_id_)
@@ -6149,13 +6149,13 @@ if text and text:match("^تنزيل الكل @(.*)$") and Owner(msg) then
 function FunctionStatus(extra, result, success)
 if (result.id_) then
 if tonumber(Id_Sudo) == tonumber(result.id_) then
-send(msg.chat_id_, msg.id_,"✫:  لا تستطيع تنزيل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"•  لا تستطيع تنزيل المطور الاساسي")
 return false 
 end
 if Rank_Checking(result.id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"\n✫: تم تنزيل الشخص من جميع الرتب")
+send(msg.chat_id_, msg.id_,"\n• تم تنزيل الشخص من جميع الرتب")
 else
-send(msg.chat_id_, msg.id_,"\n✫: ليس لديه رتب حتى استطيع تنزيله \n")
+send(msg.chat_id_, msg.id_,"\n• ليس لديه رتب حتى استطيع تنزيله \n")
 end
 if DevBotsIs(msg) == true then
 database:srem(bot_id.."DEV:Sudo:T",result.id_)
