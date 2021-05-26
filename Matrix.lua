@@ -6565,7 +6565,7 @@ send(msg.chat_id_, msg.id_,"\n• تم تعطيل الاذاعه")
 return false
 end 
 
-if text == "الاعدادات" and Addictive(msg) then    
+if text == "/add" and Addictive(msg) then    
 if database:get(bot_id.."Matrix:lockpin"..msg.chat_id_) then    
 lock_pin = "✓"
 else 
@@ -8093,7 +8093,7 @@ end,nil)
 end,nil)
 end
 end
-if text == '/locks' and Addictive(msg) then  
+if text == 'الاعدادات' and Addictive(msg) then  
 local Texti = 'تستطيع قفل وفتح عبر الازرار'
 local mute_text = (database:get(bot_id.."Matrix:Lock:text"..msg.chat_id_)  or '❌')
 local mute_text1 = mute_text:gsub('del', '❬ ✅ ❭')
@@ -8154,7 +8154,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == '/add' then
+if text == 'اوامر التعطيل' then
 local Texti = 'تستطيع تفعيل وتعطيل عبر الازرار'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8304,7 +8304,7 @@ end
 
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
-data,res = https.request('https://Matrix-source.tk/MatrixTeAM/movie.php?serch='..URL.escape(Textm)..'')
+data,res = https.request('https://xclient.tk/.API/film.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
 getmo = json:decode(data)
 if getmo.Info == true then
