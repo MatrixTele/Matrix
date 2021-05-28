@@ -5177,7 +5177,11 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
-t = "• قائمه الاوامر المضافه  \n  - - - - - - - - -\n"
+t = "• قائمه الاوامر المضافه  \n  - - - - - - - - -\n
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '🗑 مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/AM"},"
 for k,v in pairs(list) do
 Cmds = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 if Cmds then 
@@ -9993,6 +9997,12 @@ sendin1(Chat_id,msg_idd,data.sender_user_id_)
 end
 end
 
+if Text and Text:match('(.*)/AM') and Constructor(data) then
+if tonumber(Text:match('(.*)/AM')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
+database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
+local Textedit = 'تم مسح جميع الاوامر المضافه🗑'
+end
 
 if Text and Text:match('(.*)/Ban:Cheking') and Constructor(data) then
 if tonumber(Text:match('(.*)/Ban:Cheking')) == tonumber(data.sender_user_id_) then
