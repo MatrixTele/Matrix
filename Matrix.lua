@@ -3199,7 +3199,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫| تم ترقيته منشئ اساسي")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3222,7 +3222,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","??︙تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.id_,"reply","⏫| تم ترقيته منشئ اساسي")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3242,7 +3242,7 @@ return false
 end
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته منشئ اساسي")  
+Reply_Status(msg,userid,"reply","⏫| تم ترقيته منشئ اساسي")  
 return false
 end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
@@ -3277,7 +3277,7 @@ function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_)
 
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من المنشئين")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من المنشئين")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3297,7 +3297,7 @@ return false
 end
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
 database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من المنشئين")  
+Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المنشئين")  
 return false
 end
 
@@ -3313,7 +3313,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫| تم ترقيته منشئ في المجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
@@ -3335,7 +3335,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫| تم ترقيته منشئ في المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3355,12 +3355,12 @@ return false
 end
 local userid = text:match("^رفع منشئ (%d+)$")
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,userid,"reply","⏫| تم ترقيته منشئ في المجموعه")  
 end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المنشئين")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم تنزيله من المنشئين")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
@@ -3379,7 +3379,7 @@ local username = text:match("^تنزيل منشئ @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من المنشئين")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من المنشئين")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3399,7 +3399,7 @@ return false
 end
 local userid = text:match("^تنزيل منشئ (%d+)$")
 database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من المنشئين")  
+Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المنشئين")  
 end
 
 if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -3414,7 +3414,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫| تم ترقيته مدير المجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3437,7 +3437,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫| تم ترقيته مدير المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3458,7 +3458,7 @@ return false
 end
 local userid = text:match("^رفع مدير (%d+)$") 
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته مدير المجموعه")  
+Reply_Status(msg,userid,"reply","⏫| تم ترقيته مدير المجموعه")  
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -3473,7 +3473,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المدراء")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم تنزيله من المدراء")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3492,7 +3492,7 @@ local username = text:match("^تنزيل مدير @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من المدراء")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من المدراء")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3512,7 +3512,7 @@ return false
 end
 local userid = text:match("^تنزيل مدير (%d+)$") 
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من المدراء")  
+Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المدراء")  
 return false
 end
 
@@ -3532,7 +3532,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫| تم ترقيته ادمن للمجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3559,7 +3559,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫| تم ترقيته ادمن للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3583,7 +3583,7 @@ send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لا�
 return false
 end
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,userid,"reply","⏫| تم ترقيته ادمن للمجموعه")  
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
@@ -3598,7 +3598,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم تنزيله من ادمنيه المجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3617,7 +3617,7 @@ local username = text:match("^تنزيل ادمن @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من ادمنيه المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3637,7 +3637,7 @@ return false
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه المجموعه")  
+Reply_Status(msg,userid,"reply","⏬| تم تنزيله من ادمنيه المجموعه")  
 return false
 end
 
@@ -3725,7 +3725,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المميزين")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم تنزيله من المميزين")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3744,7 +3744,7 @@ local username = text:match("^تنزيل مميز @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من المميزين")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من المميزين")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3764,7 +3764,7 @@ return false
 end
 local userid = text:match("^تنزيل مميز (%d+)$") 
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من المميزين")  
+Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المميزين")  
 return false
 end  
 if text == ("حظر") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
@@ -7599,7 +7599,7 @@ name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️
 name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
 name = string.gsub(name,"👬","👭👭👭👭👭👬👭👭👭")
 name = string.gsub(name,"👨‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦👨‍👨‍👦")
-name = string.gsub(name,"🕒","🕒🕒??🕒??🕒🕓🕒🕒🕒")
+name = string.gsub(name,"🕒","🕒🕒🕒🕒??🕒🕓🕒🕒🕒")
 name = string.gsub(name,"🕤","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
 name = string.gsub(name,"⌛️","⏳⏳⏳⏳⏳⏳⌛️⏳⏳")
 name = string.gsub(name,"📅","📆📆📆📆📆📆📅📆📆")
