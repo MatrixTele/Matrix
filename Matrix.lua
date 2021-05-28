@@ -5177,17 +5177,22 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
-t = "• قائمه الاوامر المضافه  \n  - - - - - - - - -\n
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '🗑 مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/AM"},"
+t = "• قائمه الاوامر المضافه  \n  - - - - - - - - -\n"
 for k,v in pairs(list) do
 Cmds = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 if Cmds then 
 t = t..""..k.."- ("..v..") ~ {"..Cmds.."}\n"
 else
 t = t..""..k.."- ("..v..") \n"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '🗑 مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/AM"},
+},
+
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 if #list == 0 then
