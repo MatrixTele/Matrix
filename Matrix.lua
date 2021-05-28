@@ -4762,6 +4762,15 @@ for k,v in pairs(num) do
 local numl = v
 if numl then
 l = "• عدد الميديا الموجود هو "..k
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '🗑 مسح الميديا', callback_data=data.sender_user_id_.."/ME"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 end
 end
 if #num == 0 then
@@ -5184,15 +5193,6 @@ if Cmds then
 t = t..""..k.."- ("..v..") ~ {"..Cmds.."}\n"
 else
 t = t..""..k.."- ("..v..") \n"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '🗑 مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/AM"},
-},
-
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 if #list == 0 then
@@ -10002,11 +10002,10 @@ sendin1(Chat_id,msg_idd,data.sender_user_id_)
 end
 end
 
-if Text and Text:match('(.*)/AM') and Constructor(data) then
-if tonumber(Text:match('(.*)/AM')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
-database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
-local Textedit = 'تم مسح جميع الاوامر المضافه🗑'
+if Text and Text:match('(.*)/ME') and Constructor(data) then
+if tonumber(Text:match('(.*)/ME')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:allM"..msg.chat_id_)
+local Textedit = 'تم حذف الميديا🗑'
 end
 
 if Text and Text:match('(.*)/Ban:Cheking') and Constructor(data) then
