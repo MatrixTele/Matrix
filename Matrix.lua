@@ -3242,7 +3242,7 @@ return false
 end
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫| تم ترقيته منشئ اساسي")  
+Reply_Status(msg,userid,"reply","• تم ترقيته منشئ اساسي")  
 return false
 end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
@@ -3297,7 +3297,7 @@ return false
 end
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
 database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المنشئين")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من المنشئين")  
 return false
 end
 
@@ -3355,7 +3355,7 @@ return false
 end
 local userid = text:match("^رفع منشئ (%d+)$")
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫| تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته منشئ في المجموعه")  
 end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
 function Function_Matrix(extra, result, success)
@@ -3399,7 +3399,7 @@ return false
 end
 local userid = text:match("^تنزيل منشئ (%d+)$")
 database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المنشئين")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من المنشئين")  
 end
 
 if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -3458,7 +3458,7 @@ return false
 end
 local userid = text:match("^رفع مدير (%d+)$") 
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫| تم ترقيته مدير المجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته مدير المجموعه")  
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -3512,7 +3512,7 @@ return false
 end
 local userid = text:match("^تنزيل مدير (%d+)$") 
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المدراء")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من المدراء")  
 return false
 end
 
@@ -3583,7 +3583,7 @@ send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لا�
 return false
 end
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫| تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته ادمن للمجموعه")  
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
@@ -3637,7 +3637,7 @@ return false
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏬| تم تنزيله من ادمنيه المجموعه")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه المجموعه")  
 return false
 end
 
@@ -3709,7 +3709,7 @@ send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لا�
 return false
 end
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫| تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,userid,"reply","✅| تم ترقيته مميز للمجموعه")  
 return false
 end
 
@@ -3764,7 +3764,7 @@ return false
 end
 local userid = text:match("^تنزيل مميز (%d+)$") 
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المميزين")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من المميزين")  
 return false
 end  
 if text == ("حظر") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
