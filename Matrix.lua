@@ -3709,7 +3709,7 @@ send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لا�
 return false
 end
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","&| تم ترقيته مميز في المجموعة")  
+Reply_Status(msg,userid,"reply","⏫| تم ترقيته مميز في المجموعة")  
 return false
 end
 
