@@ -636,19 +636,19 @@ local UserName = (data.username_ or "Matrix_Source")
 local NameUser = "\n◀️꒐ بواسطه ↺ ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "\n🚹| العضو : ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n• تم تنفيذ الامر بخاصيه ( المسح )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n🗑꒐ تم تنفيذ الامر بخاصيه ( المسح )\n")
 return false
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n• تم تنفيذ الامر بخاصيه ( الكتم )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n🚫꒐ تم تنفيذ الامر بخاصيه ( الكتم )\n")
 return false
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n• تم تنفيذ الامر بخاصيه ( الطرد )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n⛔꒐ تم تنفيذ الامر بخاصيه ( الطرد )\n")
 return false
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n• تم تنفيذ الامر بخاصيه ( التقييد )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n🚷꒐ تم تنفيذ الامر بخاصيه ( التقييد )\n")
 return false
 end
 if status == "unlock" then
@@ -7599,7 +7599,7 @@ name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️
 name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
 name = string.gsub(name,"👬","👭👭👭👭👭👬👭👭👭")
 name = string.gsub(name,"👨‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦👨‍👨‍👦")
-name = string.gsub(name,"🕒","🕒🕒🕒🕒🕒🕒🕓🕒🕒🕒")
+name = string.gsub(name,"🕒","🕒🕒🕒🕒??🕒🕓🕒🕒🕒")
 name = string.gsub(name,"🕤","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
 name = string.gsub(name,"⌛️","⏳⏳⏳⏳⏳⏳⌛️⏳⏳")
 name = string.gsub(name,"📅","📆📆📆📆📆📆📅📆📆")
