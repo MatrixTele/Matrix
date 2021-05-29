@@ -4896,59 +4896,8 @@ local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)
 if link then                              
 send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..link.."]")                          
 else                
-local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..msg.chat_id_))
-if InviteLink.result.invite_link then
-jk = InviteLink.result.invite_link
-elseif not InviteLink.result.invite_link then
-https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..msg.chat_id_)
-jk = InviteLink.result.invite_link
-end 
-send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..jk.."]")                          
+send(msg.chat_id_, msg.id_,"• لا يوجد رابط ارسل ضع رابط")              
 end            
-end
-if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if Addictive(msg) then  
-database:set(bot_id.."Matrix:Link_Group"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"• تم تفعيل جلب الرابط المجموعه") 
-return false  
-end
-end
-if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if Addictive(msg) then  
-database:del(bot_id.."Matrix:Link_Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم تعطيل جلب رابط المجموعه") 
-return false end
-end
-if text == 'رقمي' then   
-tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
-if result.phone_number_  then
-one_nu = "•  رقمك {`"..(result.phone_number_).."`}"
-else
-one_nu = "• تم وضع رقمك لجهاتك اتصالك فقط"
-end      
-send(msg.chat_id_, msg.id_,one_nu) 
-end,nil)
-end 
-if text == 'ايديي' then   
-send(msg.chat_id_, msg.id_,'•  ايديك > '..msg.sender_user_id_)
 end
 if text == "مسح الرابط" or text == "حذف الرابط" then
 if AddChannel(msg.sender_user_id_) == false then
@@ -4970,41 +4919,33 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
-if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then
-if database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
-local gmedia = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
-if gmedia == 200 then
-local liste = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
-for k,v in pairs(liste) do
-local Mesge = v
-if Mesge then
-t = "• تم مسح "..k.." من الوسائط تلقائيا\n• يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
-DeleteMessage(msg.chat_id_,{[0]=Mesge})
-end
-end
-send(msg.chat_id_, msg.id_, t)
-database:del(bot_id.."Matrix:allM"..msg.chat_id_)
-end
-end
-end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "• تم مسح "..k.." من الوسائط الموجوده"
+t = "🗑| تم مسح "..k.." من الوسائط الموجوده"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."Matrix:allM"..msg.chat_id_)
 end
 end
 if #list == 0 then
-t = "• لا يوجد ميديا في المجموعه"
+t = "⛔ لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("عدد الميديا") and cleaner(msg) then  
-local gmria = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
+if text == ("الميديا") and cleaner(msg) then  
+local num = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
+for k,v in pairs(num) do
+local numl = v
+if numl then
+l = "✅ عدد الميديا الموجود هو "..k
+end
+end
+if #num == 0 then
+l = "⛔ لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, l)
 end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -11955,7 +11896,7 @@ elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 اهلا بك في بوت [Matrix Team](t.me/Matrix_Source)
-يمكنك استخدام هذه الاوامر 🔽
+يمكنك استخدام هذه الاوامر ??
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
