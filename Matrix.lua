@@ -8981,7 +8981,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=msg.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=msg.sender_user_id_.."/homelocks"},
@@ -11683,46 +11683,7 @@ sendin(Chat_id,msg_idd,data.sender_user_id_,users[2])
 end
 end
 
-if Text and Text:match('(.*)/help6') then
-if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
-local Teext =[[
-📋| الاوامر الخدمية ↓
-⎯ ⎯ ⎯ ⎯
-• تفعيل - تعطيل التحويل
-• تحويل ~ صوره - ملصق - بصمه ..
-• استعاده الاوامر 
-• وضع لقب + لقب
-• حذف لقب بالرد
-• اعدادات المجموعه
-• ردود المدير
-• اسم بوت + الرتبه
-⎯ ⎯ ⎯ ⎯
-• نسبه الحب 
-• نسبه رجوله
-• نسبه الكره
-• نسبه الانوثه
-• الساعه
-• التاريخ
-⎯ ⎯ ⎯ ⎯
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
-},
-{
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
-},
-{
-{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/help1') then
+if Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 الاعدادات والفتح :
@@ -11748,7 +11709,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11777,7 +11738,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11823,7 +11784,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11852,7 +11813,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11884,7 +11845,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11896,7 +11857,7 @@ elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 اهلا بك في بوت [Matrix Team](t.me/Matrix_Source)
-يمكنك استخدام هذه الاوامر ??
+يمكنك استخدام هذه الاوامر 🔽
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11907,7 +11868,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=data.sender_user_id_.."/homelocks"},
