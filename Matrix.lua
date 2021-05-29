@@ -8817,7 +8817,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=msg.sender_user_id_.."/help6"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=msg.sender_user_id_.."/homelocks"},
@@ -11519,7 +11519,48 @@ sendin(Chat_id,msg_idd,data.sender_user_id_,users[2])
 end
 end
 
-if Text and Text:match('(.*)/help1') then
+if Text and Text:match('(.*)/help6') then
+if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
+local Teext =[[
+📋| الاوامر الخدمية ↓
+⎯ ⎯ ⎯ ⎯
+• تفعيل - تعطيل التحويل
+• تحويل ~ صوره - ملصق - بصمه ..
+• استعاده الاوامر 
+• وضع لقب + لقب
+• حذف لقب بالرد
+• اعدادات المجموعه
+• ردود المدير
+• اسم بوت + الرتبه
+⎯ ⎯ ⎯ ⎯
+• نسبه الحب 
+• نسبه رجوله
+• نسبه الكره
+• نسبه الانوثه
+• نسبه الزحف
+• نسبه الغباء
+• الساعه
+• التاريخ
+⎯ ⎯ ⎯ ⎯
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+},
+{
+{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+},
+{
+{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 الاعدادات والفتح :
@@ -11545,7 +11586,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11574,7 +11615,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11620,7 +11661,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11649,7 +11690,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11681,7 +11722,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11704,7 +11745,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=data.sender_user_id_.."/homelocks"},
@@ -11900,13 +11941,13 @@ return false
 end
 ------------------------------------------------------------------------
 if data.message_.content_.text_ then
-local NewCmmd = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
+local NewCmmd = database:get(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
 if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-if not database:get(bot_id.."Matrix:Fun_Bots"..msg.chat_id_) then
+local Name_Bot = (database:get(bot_id.."Name:Bot") or "بويكا")
+if not database:get(bot_id.."Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
 local Fun = {'لوكي وزاحف من ساع زحفلي وحضرته 😒','خوش ولد و ورده مال الله 🙄','يلعب ع البنات 🙄', 'ولد زايعته الكاع 😶🙊','صاك يخبل ومعضل ','محلو وشواربه جنها مكناسه 😂🤷🏼‍♀️','اموت عليه 🌝','هوه غير الحب مال اني ❤️','مو خوش ولد صراحه ☹️','ادبسز وميحترم البنات  ', 'فد واحد قذر 🙄😒','ماطيقه كل ما اكمشه ريحته جنها بخاخ بف باف مال حشرات 😂🤷‍♀️','مو خوش ولد 🤓' } 
@@ -11920,13 +11961,96 @@ function FunBot(extra, result, success)
 local Fun = {'الكبد مال اني هيه ','ختولي ماحبها ','خانتني ويه صديقي 😔','بس لو الكفها اله اعضها 💔','خوش بنيه بس عده مكسرات زايده وناقصه منا ومنا وهيه تدري بنفسها 😒','جذابه ومنافقه سوتلي مشكله ويه الحب مالتي ','ئووووووووف اموت ع ربها ','ديرو بالكم منها تلعب ع الولد 😶 ضحكت ع واحد قطته ايفون 7 ','صديقتي وختي وروحي وحياتي ','فد وحده منحرفه 😥','ساكنه بالعلاوي ونته حدد بعد لسانها لسان دلاله 🙄🤐','ام سحوره سحرت اخويا وعلكته 6 سنوات 🤕','ماحبها 🙁','بله هاي جهره تسئل عليها ؟ ','بربك ئنته والله فارغ وبطران وماعدك شي تسوي جاي تسئل ع بنات العالم ولي يله 🏼','ياخي بنيه حبوبه بس لبعرك معمي عليها تشرب هواي 😹' } 
 send(msg.chat_id_,result.id_,''..Fun[math.random(#Fun)]..'') 
 end  
-
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunBot, nil)
 return false
 end    
 end
 if text and text:match('^'..Name_Bot..' ') then
 data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..' ','')
+end
+if text == "نسبه الحب" or text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
+Text = 'ارسل اسمك واسم الشخص الثاني،  \n مثال اسد و لبوى'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
+num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","49","100","6","0",};
+sendnum = num[math.random(#num)]
+sl = 'نسبه حب '..text..' هي : '..sendnum..'%'
+send(msg.chat_id_, msg.id_,sl) 
+database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
+end
+if text == "نسبه الكره" or text == "نسبه كره" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:krh'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_,"sendkrhe")
+Text = 'ارسل اسمك واسم الشخص الثاني،  \n مثال اسد و لبوى'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
+num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
+sendnum = num[math.random(#num)]
+sl = 'نسبه كره '..text..' هي : '..sendnum..'%'
+send(msg.chat_id_, msg.id_,sl) 
+database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
+end
+if text == "نسبه رجوله" or text == "نسبه الرجوله" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه رجولته \n مثال امير'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه رجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+xl = 'نسبه رجوله '..text..' هي : \n '..sendnuj..'%'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
+end
+if text == "نسبه الانوثه" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_,"sendanoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال نونه'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
+end
+if text == "نسبه الزحف" or text == "نسبه الزحف" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه الزحف له\nمثال حسين'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+xl = 'نسبه الزحف '..text..' هي : \n '..sendnuj..'%'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
+end
+if text == "نسبه الغباء" or text == "نسبه الغباء" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه الغباء له\nمثال حسين'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+xl = 'نسبه الغباء '..text..' هي : \n '..sendnuj..'%'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
 end
 ------------------------------------------------------------------------
 Matrix_Started_Bot(msg,data)
