@@ -11537,8 +11537,6 @@ local Teext =[[
 • نسبه رجوله
 • نسبه الكره
 • نسبه الانوثه
-• نسبه الزحف
-• نسبه الغباء
 • الساعه
 • التاريخ
 ⎯ ⎯ ⎯ ⎯
@@ -12030,27 +12028,6 @@ database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrj
 Text = 'ارسل اسم الشخص الذي تريد قياس نسبه الزحف له\nمثال حسين'
 send(msg.chat_id_, msg.id_,Text) 
 end
-end
-if text and text ~="نسبه الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-xl = 'نسبه الزحف '..text..' هي : \n '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
-end
-if text == "نسبه الغباء" or text == "نسبه الغباء" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه الغباء له\nمثال حسين'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-xl = 'نسبه الغباء '..text..' هي : \n '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
 end
 ------------------------------------------------------------------------
 Matrix_Started_Bot(msg,data)
