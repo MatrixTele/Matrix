@@ -2540,7 +2540,7 @@ end
 if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."DEV:Sudo:T", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المطور ثانويين")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬ تم تنزيله من المطور ثانويين")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false 
@@ -2550,7 +2550,7 @@ local username = text:match("^حذف مطور ثانوي @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."DEV:Sudo:T", result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من المطور ثانويين")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من المطور ثانويين")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -2561,7 +2561,7 @@ end
 if text and text:match("^حذف مطور ثانوي (%d+)$") and VIP_DeV(msg) then
 local userid = text:match("^حذف مطور ثانوي (%d+)$")
 database:srem(bot_id.."DEV:Sudo:T", userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من المطور ثانويين")  
+Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المطور ثانويين")  
 return false 
 end
 if text == ("الثانويين") and DevMatrix(msg) then
@@ -2582,20 +2582,20 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("مسح الثانويين") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
-send(msg.chat_id_, msg.id_, "\n• تم مسح قائمة المطورين الثانويين  ")
+send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمة المطورين الثانويين  ")
 end
 if text == ("مسح قائمه العام") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:GBan:User")
-send(msg.chat_id_, msg.id_, "\n• تم مسح قائمه العام")
+send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمه العام")
 return false
 end
 if text == ("مسح المطورين") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:Sudo:User")
-send(msg.chat_id_, msg.id_, "\n• تم مسح قائمة المطورين  ")
+send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمة المطورين  ")
 end
 if text == "مسح المنشئين الاساسين" and DevBot(msg) then
 database:del(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-texts = "• تم مسح المنشئين الاساسيين"
+texts = "🗑| تم مسح المنشئين الاساسيين"
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "مسح المنشئين" and BasicConstructor(msg) then  
@@ -2609,7 +2609,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Constructor"..msg.chat_id_)
-texts = "• تم مسح المنشئين "
+texts = "🗑| تم مسح المنشئين "
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "مسح المدراء" and Constructor(msg) then  
@@ -2623,7 +2623,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Manager"..msg.chat_id_)
-texts = "• تم مسح المدراء "
+texts = "🗑| تم مسح المدراء "
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "مسح الادمنيه" and Owner(msg) then  
@@ -7139,6 +7139,12 @@ end,nil)
 end,nil)   
 end
 end
+if Text and Text:match('amr@(%d+)/user@(%d+)/setiinginfo') then
+local users = {string.match(Text,"^amr@(%d+)/user@(%d+)/setiinginfo$")}
+if tonumber(users[1]) == tonumber(data.sender_user_id_) then
+sendin(Chat_id,msg_idd,data.sender_user_id_,users[2])
+end
+end
 if text == 'تعطيل التنظيف' and BasicConstructor(msg) then   
 if database:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
 database:del(bot_id..'Lock:delmsg'..msg.chat_id_) 
@@ -7599,7 +7605,7 @@ name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️
 name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
 name = string.gsub(name,"👬","👭👭👭👭👭👬👭👭👭")
 name = string.gsub(name,"👨‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦👨‍👨‍👦")
-name = string.gsub(name,"🕒","🕒🕒🕒🕒??🕒🕓🕒🕒🕒")
+name = string.gsub(name,"🕒","??🕒🕒🕒??🕒🕓🕒🕒🕒")
 name = string.gsub(name,"🕤","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
 name = string.gsub(name,"⌛️","⏳⏳⏳⏳⏳⏳⌛️⏳⏳")
 name = string.gsub(name,"📅","📆📆📆📆📆📆📅📆📆")
