@@ -12103,13 +12103,13 @@ return false
 end
 ------------------------------------------------------------------------
 if data.message_.content_.text_ then
-local NewCmmd = database:get(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
+local NewCmmd = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
 if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."Name:Bot") or "بويكا")
-if not database:get(bot_id.."Fun_Bots"..msg.chat_id_) then
+local Name_Bot = (database:get(bot_id.."Matrix:Name:Bot") or "بلاك")
+if not database:get(bot_id.."Matrix:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
 local Fun = {'لوكي وزاحف من ساع زحفلي وحضرته 😒','خوش ولد و ورده مال الله 🙄','يلعب ع البنات 🙄', 'ولد زايعته الكاع 😶🙊','صاك يخبل ومعضل ','محلو وشواربه جنها مكناسه 😂🤷🏼‍♀️','اموت عليه 🌝','هوه غير الحب مال اني ❤️','مو خوش ولد صراحه ☹️','ادبسز وميحترم البنات  ', 'فد واحد قذر 🙄😒','ماطيقه كل ما اكمشه ريحته جنها بخاخ بف باف مال حشرات 😂🤷‍♀️','مو خوش ولد 🤓' } 
@@ -12129,69 +12129,6 @@ end
 end
 if text and text:match('^'..Name_Bot..' ') then
 data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..' ','')
-end
-if text == "نسبه الحب" or text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
-Text = 'ارسل اسمك واسم الشخص الثاني،  \n مثال اسد و لبوى'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
-num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","49","100","6","0",};
-sendnum = num[math.random(#num)]
-sl = 'نسبه حب '..text..' هي : '..sendnum..'%'
-send(msg.chat_id_, msg.id_,sl) 
-database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
-end
-if text == "نسبه الكره" or text == "نسبه كره" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:krh'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_,"sendkrhe")
-Text = 'ارسل اسمك واسم الشخص الثاني،  \n مثال اسد و لبوى'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
-num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
-sendnum = num[math.random(#num)]
-sl = 'نسبه كره '..text..' هي : '..sendnum..'%'
-send(msg.chat_id_, msg.id_,sl) 
-database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
-end
-if text == "نسبه رجوله" or text == "نسبه الرجوله" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه رجولته \n مثال امير'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه رجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-xl = 'نسبه رجوله '..text..' هي : \n '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
-end
-if text == "نسبه الانوثه" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_,"sendanoe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال نونه'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
-end
-if text == "نسبه الزحف" or text == "نسبه الزحف" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه الزحف له\nمثال حسين'
-send(msg.chat_id_, msg.id_,Text) 
-end
 end
 ------------------------------------------------------------------------
 Matrix_Started_Bot(msg,data)
