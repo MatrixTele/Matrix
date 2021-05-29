@@ -1353,26 +1353,26 @@ end
 --------------------------------------------------------------------------------------------------------------
 if database:get(bot_id.."Matrix:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text == "الغاء" then 
-send(msg.chat_id_, msg.id_,"• تم الغاء حفظ الترحيب") 
+send(msg.chat_id_, msg.id_,"❎| تم الغاء حفظ الترحيب") 
 database:del(bot_id.."Matrix:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
 database:del(bot_id.."Matrix:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 database:set(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_,text) 
-send(msg.chat_id_, msg.id_,"• تم حفظ ترحيب المجموعه")   
+send(msg.chat_id_, msg.id_,"✅| تم حفظ ترحيب المجموعة")   
 return false   
 end
 --------------------------------------------------------------------------------------------------------------
 if database:get(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) then
 if text == "الغاء" then
-send(msg.chat_id_,msg.id_,"• تم الغاء حفظ الرابط")       
+send(msg.chat_id_,msg.id_,"❎| تم الغاء حفظ الرابط")       
 database:del(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false
 end
 if text and text:match("(https://telegram.me/joinchat/%S+)") or text and text:match("(https://t.me/joinchat/%S+)") then     
 local Link = text:match("(https://telegram.me/joinchat/%S+)") or text:match("(https://t.me/joinchat/%S+)")   
 database:set(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_,Link)
-send(msg.chat_id_,msg.id_,"• تم حفظ الرابط بنجاح")       
+send(msg.chat_id_,msg.id_,"✅| تم حفظ الرابط بنجاح")       
 database:del(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false 
 end
@@ -2927,7 +2927,7 @@ end
 if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
 if General_ban(result, result.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
@@ -3527,7 +3527,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -3549,7 +3549,7 @@ return false
 end
 local username = text:match("^رفع ادمن @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -3579,7 +3579,7 @@ return false
 end
 local userid = text:match("^رفع ادمن (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
@@ -3652,7 +3652,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -3674,7 +3674,7 @@ return false
 end
 local username = text:match("^رفع مميز @(.*)$") 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -3684,7 +3684,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫| تم ترقيته مميز للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3705,7 +3705,7 @@ return false
 end
 local userid = text:match("^رفع مميز (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
@@ -3791,7 +3791,7 @@ send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقي�
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -3864,7 +3864,7 @@ send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقي�
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -3920,7 +3920,7 @@ send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقي�
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -4034,7 +4034,7 @@ send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقي�
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 return false 
 end     
 if msg.can_be_deleted_ == false then 
@@ -4069,7 +4069,7 @@ send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقي�
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end     
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -4101,7 +4101,7 @@ send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقي�
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
@@ -4204,7 +4204,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تقييده في المجموعه")  
@@ -4232,7 +4232,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 if Rank_Checking(result.id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end      
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
@@ -4257,7 +4257,7 @@ return false
 end
 local userid = text:match("^تقيد (%d+)$")
 if Rank_Checking(userid, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
 Reply_Status(msg,userid,"reply","• تم تقييده في المجموعه")  
@@ -4337,7 +4337,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -4374,7 +4374,7 @@ end
 function Function_Matrix(extra, result, success)
 if result.id_ then
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -4417,7 +4417,7 @@ send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد 
 return false
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -4663,7 +4663,7 @@ end
 return false
 end
 if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
-send(msg.chat_id_,msg.id_,"• ارسل رابط المجموعه او رابط قناة المجموعه")
+send(msg.chat_id_,msg.id_,"↪️| حسنآ ارسل اليه الرابط الان")
 database:setex(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false
 end
@@ -4711,7 +4711,7 @@ return false
 end
 local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
 if not status_Link then
-send(msg.chat_id_, msg.id_,"• جلب الرابط معطل") 
+send(msg.chat_id_, msg.id_,"❎| عذراً الرابط معطل") 
 return false  
 end
 local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
@@ -4732,7 +4732,7 @@ end
 return false
 end
 if Addictive(msg) then     
-send(msg.chat_id_,msg.id_,"• تم مسح الرابط ")           
+send(msg.chat_id_,msg.id_,"🗑| تم مسح الرابط ")           
 database:del(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_) 
 return false      
 end
@@ -4746,13 +4746,13 @@ local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "• تم مسح "..k.." من الوسائط الموجوده"
+t = "🗑| تم مسح "..k.." من الوسائط الموجوده"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."Matrix:allM"..msg.chat_id_)
 end
 end
 if #list == 0 then
-t = "• لا يوجد ميديا في المجموعه"
+t = "⛔ لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4761,11 +4761,11 @@ local num = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
 for k,v in pairs(num) do
 local numl = v
 if numl then
-l = "• عدد الميديا الموجود هو "..k
+l = "◀️ عدد الميديا الموجود هو "..k
 end
 end
 if #num == 0 then
-l = "• لا يوجد ميديا في المجموعه"
+l = "⛔ لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, l)
 end
@@ -4827,8 +4827,8 @@ return false
 end
 if Addictive(msg) then
 database:setex(bot_id.."Matrix:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-t  = "• ارسل لي الترحيب الان"
-tt = "\n• تستطيع اضافة مايلي !\n• دالة عرض الاسم ↺{`name`}\n• دالة عرض المعرف ↺{`user`}"
+t  = "↪️| ارسل لي الترحيب الان"
+tt = "\n⏬| تستطيع اضافة مايلي !\n• دالة عرض الاسم -›{name}\n• دالة عرض المعرف -›{user}"
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
@@ -4846,7 +4846,7 @@ end
 if database:get(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_)   then 
 Welcome = database:get(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_)  
 else 
-Welcome = "• لم يتم تعيين ترحيب للمجموعه"
+Welcome = "⚠️| لايوجد ترحيب في المجموعة"
 end 
 send(msg.chat_id_, msg.id_,"["..Welcome.."]") 
 return false  
@@ -4862,7 +4862,7 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"• تم تفعيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"✅| تم تفعيل ترحيب في المجموعة") 
 return false  
 end
 if text == "تعطيل الترحيب" and Addictive(msg) then  
@@ -4876,7 +4876,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم تعطيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"❎| تم تعطيل ترحيب في المجموعة") 
 return false  
 end
 if text == "مسح الترحيب" or text == "حذف الترحيب" then 
@@ -4891,7 +4891,7 @@ return false
 end
 if Addictive(msg) then
 database:del(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم ازالة ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"🗑| تم حذف ترحيب المجموعه") 
 end
 return false  
 end
@@ -5251,12 +5251,12 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫| تم ترقيته منظف للمجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -5279,7 +5279,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫| تم ترقيته منظف للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -5299,11 +5299,11 @@ return false
 end
 local userid = text:match("^رفع منظف (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,userid,"reply","⏫| تم ترقيته منظف للمجموعه")  
 return false
 end
 if text == ("تنزيل منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
@@ -5318,7 +5318,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:MN:TF"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من منظفيه المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم تنزيله من منظفيه المجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -5337,7 +5337,7 @@ local username = text:match("^تنزيل منظف @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:MN:TF"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من منظفيه المجموعه")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من منظفيه المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -5357,7 +5357,7 @@ return false
 end
 local userid = text:match("^تنزيل منظف (%d+)$")
 database:srem(bot_id.."Matrix:MN:TF"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من منظفيه المجموعه")  
+Reply_Status(msg,userid,"reply","⏬| تم تنزيله من منظفيه المجموعه")  
 return false
 end
 
@@ -5546,7 +5546,7 @@ database:del(bot_id.."Matrix:Add:Rd:Manager:File"..v..msg.chat_id_)
 database:del(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..msg.chat_id_)
 database:del(bot_id.."Matrix:List:Manager"..msg.chat_id_)
 end
-send(msg.chat_id_, msg.id_,"• تم مسح ردود المدير")
+send(msg.chat_id_, msg.id_,"✅| تم ازالة الردود من المجموعة")
 end
 if text == ("ردود المدير") and Owner(msg) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..msg.chat_id_.."")
@@ -5572,7 +5572,7 @@ end
 text = text..""..k..">> ("..v..") ↺ {"..db.."}\n"
 end
 if #list == 0 then
-text = "• لا يوجد ردود للمدير"
+text = "⚠️| لا يوجد ردود للمدير"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
@@ -5620,7 +5620,7 @@ photo_in_group = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 end
 database:set(bot_id.."Matrix:Add:Rd:Manager:Photo"..test..msg.chat_id_, photo_in_group)  
 end
-send(msg.chat_id_, msg.id_,"• تم حفظ الرد بنجاح")
+send(msg.chat_id_, msg.id_,"✅| تم حفظ الرد في المجموعة")
 return false  
 end  
 end
@@ -5634,7 +5634,7 @@ send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة �
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه التي تريد اضافتها")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -5653,7 +5653,7 @@ send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة �
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه التي تريد حذفها")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد حذفة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
@@ -5759,7 +5759,7 @@ database:del(bot_id.."Matrix:Add:Rd:Sudo:File"..v)
 database:del(bot_id.."Matrix:Add:Rd:Sudo:Audio"..v)
 database:del(bot_id.."Matrix:List:Rd:Sudo")
 end
-send(msg.chat_id_, msg.id_,"• تم مسح ردود المطور")
+send(msg.chat_id_, msg.id_,"✅| تم ازالة ردود المطور")
 end
 if text == ("ردود المطور") and DevMatrix(msg) then 
 local list = database:smembers(bot_id.."Matrix:List:Rd:Sudo")
@@ -5785,7 +5785,7 @@ end
 text = text..""..k.." >> ("..v..") ↺ {"..db.."}\n"
 end
 if #list == 0 then
-text = "• لا يوجد ردود للمطور"
+text = "⚠️| لا يوجد ردود للمطور"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
@@ -5833,18 +5833,18 @@ photo_in_group = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 end
 database:set(bot_id.."Matrix:Add:Rd:Sudo:Photo"..test, photo_in_group)  
 end
-send(msg.chat_id_, msg.id_,"• تم حفظ الرد بنجاح")
+send(msg.chat_id_, msg.id_,"✅| تم حفظ الرد في المجموعة")
 return false  
 end  
 end
 
 if text == "اضف رد للكل" and DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه التري تريد اضافتها")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
 if text == "حذف رد للكل" and DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه التري تريد حذفها")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد حذفة")
 database:set(bot_id.."Matrix:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -9152,13 +9152,13 @@ else
 var= 'عضو'
 end
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'• المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل المجموعة')
 else
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
-Reply_Status(msg,result.id_,'reply_Add','• تم تفعيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add',🚹| تم تفعيل المجموعة ~ '..chat.title_..'')
 database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
 database:sadd(bot_id..'Matrix:Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
