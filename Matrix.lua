@@ -1644,12 +1644,12 @@ if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
 if text == "تعطيل المسح التلقائي" and Owner(msg) then        
 database:del(bot_id.."y:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'❎| تم تعطيل المسح التلقائي للميديا')
 return false
 end 
 if text == "تفعيل المسح التلقائي" and Owner(msg) then        
 database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'✅| تم تفعيل المسح التلقائي للميديا')
 return false
 end 
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
@@ -3320,7 +3320,7 @@ end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مالك")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم ترقيته مالك")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3334,7 +3334,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."creator"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته مالك")  
+Reply_Status(msg,result.id_,"reply","⏬| تم ترقيته مالك")  
 else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
 end
@@ -3345,13 +3345,13 @@ end
 if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
 local userid = text:match("^رفع مالك (%d+)$") 
 database:sadd(bot_id.."creator"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته مالك")  
+Reply_Status(msg,userid,"reply","⏬| تم ترقيته مالك")  
 return false
 end
 if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","*• تم تنزيله من المالكين*")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⏬| تم تنزيله من المالكين*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3361,7 +3361,7 @@ local username = text:match("^تنزيل مالك @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."creator"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من المالكين")  
+Reply_Status(msg,result.id_,"reply","⏬| تم تنزيله من المالكين")  
 else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
 end
@@ -3372,7 +3372,7 @@ end
 if text and text:match("^تنزيل مالك (%d+)$") and DevBot(msg) then  
 local userid = text:match("^تنزيل مالك (%d+)$") 
 database:srem(bot_id.."creator"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","*• تم تنزيله من المالكين*")  
+Reply_Status(msg,userid,"reply","*⏬| تم تنزيله من المالكين*")  
 return false
 end
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
@@ -3445,7 +3445,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المنشئين")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم تنزيله من المنشئين")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4230,7 +4230,7 @@ send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي
 return false  
 end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم كتمه من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","🚷| تم كتمه من هنا")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4265,7 +4265,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم كتمه من هنا")  
+Reply_Status(msg,result.id_,"reply","🚷| تم كتمه من هنا")  
 else
 send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
 end
@@ -4296,7 +4296,7 @@ send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي
 return false  
 end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم كتمه من هنا")  
+Reply_Status(msg,userid,"reply","🚷| تم كتمه من هنا")  
 end
 return false
 end
@@ -4312,7 +4312,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","🚷| تم الغاء كتمه من هنا")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4322,7 +4322,7 @@ local username = text:match("^الغاء كتم @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.id_,"reply","🚷| تم الغاء كتمه من هنا")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -4343,7 +4343,7 @@ return false
 end
 local userid = text:match("^الغاء كتم (%d+)$") 
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم الغاء كتمه من هنا")  
+Reply_Status(msg,userid,"reply","🚷| تم الغاء كتمه من هنا")  
 return false
 end
 if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -4395,7 +4395,7 @@ if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تقييده في المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","🚷| تم تقييده في المجموعه")  
 end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
@@ -4424,7 +4424,7 @@ send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر
 return false 
 end      
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تقييده في المجموعه")  
+Reply_Status(msg,result.id_,"reply","🚷| تم تقييده في المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -4448,7 +4448,7 @@ if Rank_Checking(userid, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
-Reply_Status(msg,userid,"reply","• تم تقييده في المجموعه")  
+Reply_Status(msg,userid,"reply","🚷| تم تقييده في المجموعه")  
 end
 return false
 end
@@ -4465,7 +4465,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء تقييده")  
+Reply_Status(msg,result.sender_user_id_,"reply","🚷| تم الغاء تقييده")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4485,7 +4485,7 @@ local username = text:match("^الغاء تقيد @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,result.id_,"reply","• تم الغاء تقييده")  
+Reply_Status(msg,result.id_,"reply","🚷| تم الغاء تقييده")  
 else
 send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
 end
@@ -4506,7 +4506,7 @@ return false
 end
 local userid = text:match("^الغاء تقيد (%d+)$")
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,userid,"reply","• تم الغاء تقييده")  
+Reply_Status(msg,userid,"reply","🚷| تم الغاء تقييده")  
 return false
 end
 if text == ("طرد") and msg.reply_to_message_id_ ~=0 and Addictive(msg) then  
@@ -4537,7 +4537,7 @@ send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي
 return false  
 end
 Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم طرده من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","🚷| تم طرده من هنا")  
 end,nil)
 end
 end
@@ -4578,7 +4578,7 @@ send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي
 return false  
 end
 Kick_Group(msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم طرده من هنا")  
+Reply_Status(msg,result.id_,"reply","🚷| تم طرده من هنا")  
 end,nil)   
 end
 else
@@ -4617,7 +4617,7 @@ send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي
 return false  
 end
 Kick_Group(msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم طرده من هنا")  
+Reply_Status(msg,userid,"reply","🚷| تم طرده من هنا")  
 end,nil)   
 end
 return false
