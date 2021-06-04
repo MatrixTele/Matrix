@@ -9038,8 +9038,8 @@ end
 return false
 end
 local Text =[[
-اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
-يمكنك استخدام هذه الاوامر ⤵️*
+*اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
+*يمكنك استخدام هذه الاوامر ⤵️*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
