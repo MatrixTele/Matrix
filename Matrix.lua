@@ -9038,8 +9038,8 @@ end
 return false
 end
 local Text =[[
-اهلا بك في بوت [𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖](t.me/Matrix_Source)
-*يمكنك استخدام هذه الاوامر ⤵️*
+𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝗈 𝖻𝗈𝗍 [𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖](t.me/Matrix_Source)
+*يمكنك استخدام هذه الاوامر 🔽*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11992,8 +11992,8 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-اهلا بك في بوت [𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖](t.me/Matrix_Source)
-يمكنك استخدام هذه الاوامر 🔽
+𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝗈 𝖻𝗈𝗍 [𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖](t.me/Matrix_Source)
+*يمكنك استخدام هذه الاوامر 🔽*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
