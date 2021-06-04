@@ -8651,7 +8651,7 @@ if audios.Info == true then
 local Text ='• تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- Matrix TeAM .',url="t.me/Matrix_Source"}},
+{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9038,7 +9038,7 @@ end
 return false
 end
 local Text =[[
-اهلا بك في بوت [Matrix Team](t.me/Matrix_Source)
+اهلا بك في بوت [𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖](t.me/Matrix_Source)
 *يمكنك استخدام هذه الاوامر ⤵️*
 ]]
 keyboard = {} 
@@ -11992,7 +11992,7 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-اهلا بك في بوت [Matrix Team](t.me/Matrix_Source)
+اهلا بك في بوت [𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖](t.me/Matrix_Source)
 يمكنك استخدام هذه الاوامر 🔽
 ]]
 keyboard = {} 
