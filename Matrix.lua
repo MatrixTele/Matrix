@@ -8999,7 +8999,7 @@ send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• ع
 return false 
 end
 Text = [[
-╭•[™️ ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ](t.me/Matrix_Source)•╮
+╭•[*™️ ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ*](t.me/Matrix_Source)•╮
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9038,7 +9038,7 @@ end
 return false
 end
 local Text =[[
-*اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
+اهلا بك في بوت [Matrix Team](t.me/Matrix_Source)
 *يمكنك استخدام هذه الاوامر ⤵️*
 ]]
 keyboard = {} 
