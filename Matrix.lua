@@ -11781,7 +11781,7 @@ end
 
 if Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
-local Teext =[[
+local Teext =[[*
 الاعدادات والفتح :
 
 { قفل|فتح }
@@ -11795,7 +11795,7 @@ local Teext =[[
 
 ملاحظه : انصح بأستخدام امر (الاعدادات) للسهولة.
 ⎯ ⎯ ⎯ ⎯
-]]
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -11815,7 +11815,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help2') then
 if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
-local Teext =[[
+local Teext =[[*
 قائمة الادمنية :
 
 حظر <معرف | رد | ايدي>
@@ -11824,7 +11824,7 @@ local Teext =[[
 
 الاجرائات <بالتقيد>
 ⎯ ⎯ ⎯ ⎯
-]]
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -11844,7 +11844,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help3') and Owner(data) then  
 if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
-local Teext =[[
+local Teext =[[*
 قائمة المدراء :-
 
 (رفع|تنزيل) ادمن <معرف|بالرد|ايدي>
@@ -11870,7 +11870,7 @@ local Teext =[[
 ردود البوت | اطردني | الايدي
 الايدي بالصورة | الايدي بالازرار
 ⎯ ⎯ ⎯ ⎯
-]]
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -11890,7 +11890,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help4') and Constructor(data) then  
 if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
-local Teext =[[
+local Teext =[[*
 قائمة المنشئ :
 
 (رفع|تنزيل) مدير <معرف|بالرد|ايدي>
@@ -11899,7 +11899,7 @@ local Teext =[[
 مسح <المحذوفين|البوتات>
 تغير اللغه
 ⎯ ⎯ ⎯ ⎯
-]]
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -11919,7 +11919,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help5') and DevBot(data) then
 if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
-local Teext =[[
+local Teext =[[*
 • اوامر البوت للمنظفين 
 — — — —― — — — — ― — — — —
 • الميديا - لعرض عدد الميديا المرسله
@@ -11931,7 +11931,7 @@ local Teext =[[
 • رفع منظف - تنزيل منظف
 • المنظفين - مسح المنظفين
 — — — —― — — — — ― — — — —
-]]
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -11951,7 +11951,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help6') and DevBot(data) then
 if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
-local Teext =[[
+local Teext =[[*
 📋| الاوامر الخدمية ↓
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 • تفعيل - تعطيل التحويل
@@ -11971,7 +11971,7 @@ local Teext =[[
 • الساعه
 • التاريخ
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-]]
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
