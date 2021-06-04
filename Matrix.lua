@@ -9050,7 +9050,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=msg.sender_user_id_.."/help6"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=msg.sender_user_id_.."/homelocks"},
@@ -9534,7 +9534,7 @@ local keyboard = {
 {'اذاعه بالتوجيه •','اذاعه بالتوجيه خاص •'},
 {'تفعيل الاذاعه •','تعطيل الاذاعه •'},
 {'تفعيل المغادره •','تعطيل المغادره •'},
-{'• الثانويين','• مسح الثانويين'},
+{'• الثانويين .','• مسح الثانويين .'},
 {'مسح قائمه العام •','مسح المطورين •'},
 {'حذف كليشه ستارت •','ضع كليشه ستارت •'},
 {'- تعطيل الاشتراك الاجباري • .'},
@@ -11805,7 +11805,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11834,7 +11834,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11880,7 +11880,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11909,7 +11909,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11941,7 +11941,47 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+},
+{
+{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/help6') and DevBot(data) then
+if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
+local Teext =[[
+📋| الاوامر الخدمية ↓
+ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
+• تفعيل - تعطيل التحويل
+• تحويل ~ صوره - ملصق - بصمه ..
+• استعاده الاوامر 
+• وضع لقب + لقب
+• حذف لقب بالرد
+• اعدادات المجموعه
+• ردود المدير
+• اسم بوت + الرتبه
+• ترتيب الاوامر 
+ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
+• نسبه الحب 
+• نسبه رجوله
+• نسبه الكره
+• نسبه الانوثه
+• الساعه
+• التاريخ
+ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+},
+{
+{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11964,7 +12004,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=data.sender_user_id_.."/homelocks"},
