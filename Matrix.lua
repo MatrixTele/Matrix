@@ -9037,9 +9037,9 @@ send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة ال�
 end
 return false
 end
-local Text =[[*
-اهلا بك في بوت [Matrix Team](t.me/Matrix_Source)
-يمكنك استخدام هذه الاوامر 🔽*
+local Text =[[
+اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
+يمكنك استخدام هذه الاوامر ⤵️*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
