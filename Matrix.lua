@@ -9534,6 +9534,7 @@ local keyboard = {
 {'اذاعه بالتوجيه •','اذاعه بالتوجيه خاص •'},
 {'تفعيل الاذاعه •','تعطيل الاذاعه •'},
 {'تفعيل المغادره •','تعطيل المغادره •'},
+{'• الثانويين','• مسح الثانويين'},
 {'مسح قائمه العام •','مسح المطورين •'},
 {'حذف كليشه ستارت •','ضع كليشه ستارت •'},
 {'- تعطيل الاشتراك الاجباري • .'},
@@ -9698,6 +9699,32 @@ end
 if text == 'تعطيل التواصل •' then  
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'• تم تعطيل التواصل ') 
+end
+if text =='• الثانويين .' and DevMatrix(msg) then
+local list = database:smembers(bot_id.."TSudo:User")
+t = "\n•  قائمة مطورين الثانويين للبوت \n — — — — — — — — — \n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."User:Name" .. v)
+if username then
+t = t..""..k.."• ([@"..username.."])\n"
+else
+t = t..""..k.."• (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "• لا يوجد مطورين ثانويين"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text =='• الثانويين .' and not DevBotsIs(msg) then
+send(msg.chat_id_, msg.id_,'• تسرسح .')
+end
+if text =='• مسح الثانويين .' and DevBotsIs(msg) then
+send(msg.chat_id_, msg.id_,'• تم بالفعل مسح قائمه المطورين الثانوي .')
+database:del(bot_id.."TSudo:User")
+end
+if text =='• مسح الثانويين .' and not DevBotsIs(msg) then
+send(msg.chat_id_, msg.id_,'• تسرسح .')
 end
 if text =='الاحصائيات •' then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
