@@ -8999,33 +8999,22 @@ send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• ع
 return false 
 end
 Text = [[
-╭•[™️ ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ](t.me/Matrix_Source)•╮
+🐲 • Welcome to Source
+🚩 • TeAm - ”Matrix”
+ ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '™️ ꪑꪖ𝓽𝘳𝓲᥊ 𝘴ꪮꪊ𝘳𝘴ꫀ',url="https://t.me/Matrix_Source"},
+{text = '🐉 • TeAM Matrix .',url="https://t.me/Matrix_Source"},
 },
 {
-{text = '🔰ᦔꫀꪜꫀꪶꪮρꫀ𝘳',url="t.me/IZlZ7I"},
+{text = '📮 • Bot TwisL',url="t.me/U41bot"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
-if text == 'رابط الحذف' or text == 'بوت الحذف' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-Text = [[• ︙  @LC6BOT   ]]
-send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
