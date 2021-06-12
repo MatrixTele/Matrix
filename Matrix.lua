@@ -9347,20 +9347,20 @@ return false end
 end
 if text == 'تفعيل' and DevBot(msg) then 
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'• البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'⚠️ البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'⚠️ عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'• المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'📮 المجموعه مفعله سابقا ')
 else
-Reply_Status(msg,result.id_,'reply_Add','• تم تفعيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','📌 تم تفعيل المجموعه ~ '..chat.title_..'')
 database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -9405,9 +9405,9 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'• المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'📮 المجموعه معطله سابقا ')
 else
-Reply_Status(msg,result.id_,'reply_Add','• تم تعطيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','📌 تم تعطيل المجموعه ~ '..chat.title_..'')
 database:srem(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -9468,10 +9468,10 @@ if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل المجموعة')
 else
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'⚠️ عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
-Reply_Status(msg,result.id_,'reply_Add','• تم تفعيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','📌 تم تفعيل المجموعه ~ '..chat.title_..'')
 database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
 database:sadd(bot_id..'Matrix:Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
