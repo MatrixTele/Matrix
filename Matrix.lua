@@ -3613,6 +3613,15 @@ end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⏫| تم ترقيته مدير المجموعه")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3845,15 +3854,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-Text = "• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• اشترك الان ⚜️',url="t.me/['..database:get(bot_id..'add:ch:username')..']"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
