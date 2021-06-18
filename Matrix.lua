@@ -8487,7 +8487,7 @@ end,nil)
 end,nil)
 end
 end
-if text == 'الاعدادات' and Addictive(msg) then  
+if text == 'الاعدادات ⚙' and Addictive(msg) then  
 local Texti = 'تستطيع قفل وفتح عبر الازرار'
 local mute_text = (database:get(bot_id.."Matrix:Lock:text"..msg.chat_id_)  or '❌')
 local mute_text1 = mute_text:gsub('del', '❬ ✅ ❭')
@@ -8548,7 +8548,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == 'اوامر التعطيل' then
+if text == 'اوامر التعطيل ⛔' then
 local Texti = 'تستطيع تفعيل وتعطيل عبر الازرار'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9120,19 +9120,19 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=msg.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=msg.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=msg.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=msg.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=msg.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=msg.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=msg.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=msg.sender_user_id_.."/help7"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل ⛔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات ⚙', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9222,7 +9222,7 @@ end
 return false
 end
 Text = [[
-• اوامر الادمنيه
+• اوامر الادمنية 📚يه
   - - - - - - - - - 
  • تفعيل/تعطيل الترحيب
  • اضف /مسح صلاحيه
@@ -9249,7 +9249,7 @@ Text = [[
 • الغاء تقيد
   - - - - - - - - -
 • الغاء تثبيت
-• الاعدادات
+• الاعدادات ⚙
 • تثبيت
 • الرابط
 • القوانين
@@ -9294,7 +9294,7 @@ end
 return false
 end
 Text = [[
-• اوامر المدير
+• اوامر المدراء 📃
   - - - - - - - - -
 • رفع القيود
 • كشف القيود
@@ -9341,7 +9341,7 @@ end
 return false
 end
 Text = [[
-• اوامر المنشئين الاساسين 
+• اوامر المنشئين 🎖ين الاساسين 
   - - - - - - - - -
 • رفع/تنزيل منشئ اساسي
 • رفع/تنزيل منشئ
@@ -9349,7 +9349,7 @@ Text = [[
 • مسح المنشئين
 • مسح ردود المدير
   - - - - - - - - -
-• اوامر المنشئين
+• اوامر المنشئين 🎖ين
   - - - - - - - - -
 • رفع/تنزيل مدير
 • المدراء
@@ -9722,7 +9722,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 𖥈 𖥅 𖥃 𖥂 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 𖤝 ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 ?? 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12215,7 +12215,7 @@ end
 if Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-الاعدادات والفتح :
+الاعدادات ⚙ والفتح :
 
 { قفل|فتح }
 الروابط | البوتات | الفيديو
@@ -12226,22 +12226,22 @@ local Teext =[[*
 الانكليزيه | العربيه | التاك
 الاشعارات | التعديل | الكلايش
 
-ملاحظه : انصح بأستخدام امر (الاعدادات) للسهولة.
+ملاحظه : انصح بأستخدام امر (الاعدادات ⚙) للسهولة.
 ⎯ ⎯ ⎯ ⎯
 *]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -12264,16 +12264,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -12313,16 +12313,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -12345,16 +12345,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -12380,16 +12380,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -12430,16 +12430,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -12497,16 +12497,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -12523,19 +12523,19 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+{text = 'اوامر القفل 🔒', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمنية 📚', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+{text = 'اوامر المدراء 📃', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئين 🎖', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+{text = 'اوامر المنظفين 🗑', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية 🏷', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+{text = 'اوامر المطورين 🚹', callback_data=data.sender_user_id_.."/help7"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل ⛔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات ⚙', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
