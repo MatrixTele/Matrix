@@ -9406,20 +9406,37 @@ return false end
 end
 if text == 'تفعيل' and DevBot(msg) then 
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'⚠️ البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'⚠️ عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'📮 المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
 else
-Reply_Status(msg,result.id_,'reply_Add','📌 تم تفعيل المجموعه ~ '..chat.title_..'')
+local Text = '☑┇تم تفعيل البوت في المجموعة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '  معرفة المزيد ؟',url="https://t.me/DevMatrix"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+database:sadd(bot_id..'Matrix:Basic:Constructoryyu23'..msg.chat_id_, owner_id)
+end
+end
+end,nil)
 database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -9437,12 +9454,13 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تفعيل مجموعه جديده\n'..
-'\n• بواسطة ~ '..Name..''..
-'\n• ايدي المجموعه ~ `'..IdChat..'`'..
-'\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n• اسم المجموعه ~ ['..NameChat..']'..
-'\n• الرابط ~ ['..LinkGp..']'
+database:set(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_,LinkGp)
+Text = '🔖┇تم تفعيل مجموعه جديده\n'..
+'\n👤┇بواسطة ~ '..Name..''..
+'\n📛┇ايدي المجموعه ~ `'..IdChat..'`'..
+'\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
+'\n📬┇اسم المجموعه ~ ['..NameChat..']'..
+'\n📥┇الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
@@ -9451,22 +9469,21 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text == 'تعطيل' and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
+if text == 'تعطيل' and DevBot(msg) then 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'📮 المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'☑┇المجموعه معطله سابقا ')
 else
-Reply_Status(msg,result.id_,'reply_Add','📌 تم تعطيل المجموعه ~ '..chat.title_..'')
+local Text = '❎┇تم تعطيل البوت في المجموعة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '  معرفة المزيد ؟',url="https://t.me/DevMatrix"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:srem(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -9484,11 +9501,13 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تعطيل مجموعه جديده\n'..
-'\n• بواسطة ~ '..Name..''..
-'\n• ايدي المجموعه ~ `'..IdChat..'`'..
-'\n• اسم المجموعه ~ ['..NameChat..']'..
-'\n• الرابط ~ ['..LinkGp..']'
+database:set(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_,LinkGp) 
+
+Text = '🔖┇تم تعطيل مجموعه جديده\n'..
+'\n🔘┇بواسطة ~ '..Name..''..
+'\n🔧┇ايدي المجموعه ~ `'..IdChat..'`'..
+'\n📥┇اسم المجموعه ~ ['..NameChat..']'..
+'\n📮┇الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
@@ -9496,18 +9515,9 @@ end
 end,nil) 
 end,nil) 
 end
-if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Matrix:Free:Add:Bots') then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
+if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Matrix:Free:Add:Bots') then 
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'• البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
@@ -9523,16 +9533,33 @@ var = 'الادمن'
 else 
 var= 'عضو'
 end
-if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل المجموعة')
-else
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'⚠️ عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
-Reply_Status(msg,result.id_,'reply_Add','📌 تم تفعيل المجموعه ~ '..chat.title_..'')
+if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
+else
+local Text = '☑┇تم تفعيل البوت في المجموعة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '  معرفة المزيد ؟',url="https://t.me/DevMatrix"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
-database:sadd(bot_id..'Matrix:Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+database:sadd(bot_id..'Matrix:Basic:Constructoryyu23'..msg.chat_id_, owner_id)
+end
+end
+end,nil)
+database:sadd(bot_id..'Matrix:Basic:Constructoryyu'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NumMember = data.member_count_
 local NameChat = chat.title_
@@ -9550,13 +9577,13 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تفعيل مجموعه جديده\n'..
-'\n• بواسطة ~ '..Name..''..
-'\n• موقعه في المجموعه ~ '..AddPy..'' ..
-'\n• ايدي المجموعه ~ `'..IdChat..'`'..
-'\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n• اسم المجموعه ~ ['..NameChat..']'..
-'\n• الرابط ~ ['..LinkGp..']'
+Text = '🔖┇تم تفعيل مجموعه جديده\n'..
+'\n??┇بواسطة ~ '..Name..''..
+'\n📌┇موقعه في المجموعه ~ '..AddPy..'' ..
+'\n📛┇ايدي المجموعه ~ `'..IdChat..'`'..
+'\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
+'\n📬┇اسم المجموعه ~ ['..NameChat..']'..
+'\n📥┇الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
@@ -9603,15 +9630,86 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-Test = '• مرحبا انا بوت حماية كروبات\n• وضيفتي حماية المجموعات من السبام والتفليش والخ...\n• لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n• معرف المطور @['..data.username_..']'
-end,nil)
-end 
-send(msg.chat_id_, msg.id_, Test) 
+Texti = "*↞* أهلـين انا بوت آسمي "..Namebot.."* . 🐉*\n\n*↞* اختصاصي ادارة المجموعات من السبام والخ ..\n\n*↞* للتفعيل ارفعني مشرف وارسل تفعيل في المجموعة .\n\n*↞* للعب داخل البوت ارسل  : /play ."
+keyboard = {} 
+keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
+local msg_id = msg.id_/2097152/0.5
+local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 end
 end
 database:setex(bot_id..'Matrix:Start:Time'..msg.sender_user_id_,60,true)
 return false
+end
+if text == '/play' then
+local Text = '*مرحبا بك في العاب البوت اختر ما تريد *'
+local keyboard = {
+{'نسبة الخيانة','نسبة الزحف'},
+{'نسبة الكره','نسبة الرجوله','نسبة الحب'},
+{'نسبة الغباء','كشف الحيوان','كشف الارتباط'},
+{'رموز مزخرفة 🏷️','ارقام جاهزة 🔢'},
+{'قناة السورس 📡 .'},
+}
+send_inline_key(msg.chat_id_,Text,keyboard)
+return false
+end
+if text == 'قناة السورس 📡 .' then
+Text = [[
+🐲 • Welcome to Source
+🚩 • TeAm - ”Matrix”
+ ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '🐉 • TeAM Matrix .',url="https://t.me/Matrix_Source"},
+},
+{
+{text = '📮 • Bot TwisL',url="t.me/U41bot"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text == 'رموز مزخرفة 🏷️' then
+Text = [[
+ ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 𖥈 𖥅 𖥃 𖥂 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 𖤝 ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ' معرفة المزيد ؟',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text == 'ارقام جاهزة 🔢' then
+Text = [[
+*₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
+𝟏 𝟐 𝟑 𝟒 𝟓 𝟔 𝟕 ?? 𝟗 𝟎
+𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
+••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
+⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
+⓵⓶⓷⓸⓹❻❼❽❾⓿
+⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
+ 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
+ ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
+ 𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
+ 𝟎  𝟏  𝟐  𝟑  𝟒   𝟓   𝟔  𝟕   𝟖   𝟗
+０ １ ２ ３ ４ ５ ６ ７８９
+••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
+*]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ' معرفة المزيد ؟',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text and text:match("^/start ph(.*)$") then
 Sf = database:get(bot_id.."Matrix:Filter:msg")
