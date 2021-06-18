@@ -10295,13 +10295,10 @@ local textt = '- من فضلك اختر نوع التنزيل'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'تنزيل ملف', callback_data="mp3/"..Id_Link[2]},
+{text = 'تنزيل ملف 🔊', callback_data="mp3/"..Id_Link[2]},{text = 'تنزيل بصمه 🎙️', callback_data="ogg/"..Id_Link[2]},
 },
 {
-{text = 'تنزيل بصمه', callback_data="ogg/"..Id_Link[2]},
-},
-{
-{text = 'تنزيل فيديو', callback_data="mp4/"..Id_Link[2]},
+{text = 'تنزيل فيديو 🎼', callback_data="mp4/"..Id_Link[2]},
 },
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..Chat_id..'&photo='..'https://youtu.be/'..Id_Link[2]..'&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -10320,14 +10317,6 @@ DeleteMessage(data.chat_id_, {[0] = Msg_id})
 https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
 end
 
-if text == 'تعطيل تحقق' and Addictive(msg) then   
-database:del(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
-end
-if text == 'تفعيل تحقق' and Addictive(msg) then  
-database:set(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_,'true') 
-send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
-end 
 
 if Text and Text:match('(.*)/mute_text') then
 if tonumber(Text:match('(.*)/mute_text')) == tonumber(data.sender_user_id_) then
@@ -12594,6 +12583,14 @@ if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 return false  
 end
+if text == 'تعطيل تحقق' and Addictive(msg) then   
+database:del(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
+end
+if text == 'تفعيل تحقق' and Addictive(msg) then  
+database:set(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_,'true') 
+send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
+end 
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) == 'true'then
 numphoto = {'3','8','9','6'}
