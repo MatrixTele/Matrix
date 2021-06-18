@@ -9900,7 +9900,7 @@ send(msg.chat_id_, msg.id_,'*🔘┇احصائيات البوت* \n\n👥┇عد
 end
 if text == 'لاصدار 🛡️' then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'☑┇ اصدار سورس* تويكس* لديك (*v1.0*) 🛡️')
+send(msg.chat_id_, msg.id_,'☑┇ اصدار سورس* ماتركس* لديك (*v1.0*) 🛡️')
 end
 if text == "اعادة التشغيل ⚙️" then  
 dofile("Matrix.lua") 
@@ -10256,7 +10256,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '• عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == "تحديث السورس •" then
+if text == "تحديث السورس ☑" then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
@@ -10265,7 +10265,7 @@ os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/star
 dofile('Matrix.lua')  
 return false
 end
-if text == "تحديث الملفات •" then
+if text == "تحديث ♻" then
 dofile("Matrix.lua")  
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
@@ -10320,6 +10320,14 @@ DeleteMessage(data.chat_id_, {[0] = Msg_id})
 https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
 end
 
+if text == 'تعطيل تحقق' and Addictive(msg) then   
+database:del(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
+end
+if text == 'تفعيل تحقق' and Addictive(msg) then  
+database:set(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_,'true') 
+send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
+end 
 
 if Text and Text:match('(.*)/mute_text') then
 if tonumber(Text:match('(.*)/mute_text')) == tonumber(data.sender_user_id_) then
@@ -12580,6 +12588,34 @@ local msg = data.message_
 local text = msg.content_.text_
 if msg.date_ and msg.date_ < tonumber(os.time() - 30) then
 print("OLD MESSAGE")
+return false
+end
+if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
+return false  
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) == 'true'then
+numphoto = {'3','8','9','6'}
+numphotoid = numphoto[math.random(#numphoto)]
+local numjoine = (numphotoid + 3)
+local Texti = 'اختر اللجابه الصحيحه \n'..numphotoid..' + 3 ='
+local num1 = (5 + numphotoid)
+local num2 = (7 + numphotoid)
+local num3 = (1 + numphotoid)
+
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = num1, callback_data=msg.sender_user_id_.."/lockjoine"},{text = num2, callback_data=msg.sender_user_id_.."/unlockjoine"},
+},
+{
+{text =numjoine, callback_data=msg.sender_user_id_.."/UnKed@"..numjoine..":"..numjoine},{text = num3, callback_data=msg.sender_user_id_.."/unlockjoine"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
 return false
 end
 if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then 
