@@ -2130,7 +2130,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌁ ??‍⬛ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4408,7 +4408,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n ⌁ ??قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7386,19 +7386,24 @@ send(msg.chat_id_, msg.id_,'• تم تعين الايدي')
 end
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if not database:sismember(bot_id..'Matrix:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,deata) 
+if deata.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif deata.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif deata.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
 if data.username_ then
 UserName_User = '@'..data.username_
 else
@@ -7407,7 +7412,7 @@ end
 local Id = msg.sender_user_id_
 local NumMsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
-local Status_Gps = Get_Rank(Id,msg.chat_id_)
+local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
@@ -7421,7 +7426,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_)
+local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_) or database:get(bot_id.."Matrix:KleshIDALLBOT")
 if not database:get(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_) then
 if taha.photos_[0] then
 if get_id then
@@ -7435,12 +7440,29 @@ local get_id = get_id:gsub('#auto',TotalMsg)
 local get_id = get_id:gsub('#Description',Description) 
 local get_id = get_id:gsub('#game',Num_Games) 
 local get_id = get_id:gsub('#photos',Total_Photp) 
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(get_id)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id) 
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'• '..Description..'\n• ايديك ↺ '..Id..'\n• معرفك ↺ '..UserName_User..'\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=msg.sender_user_id_.."/ideengphoto"},{text = 'ar', callback_data=msg.sender_user_id_.."/idearpphoto"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+local texte = '▹ |'..Description..'\n▹ |ايديك  . '..Id..'\n▹ | معرفك  . '..UserName_User..'\n▹ |رتبتك  . '..Status_Gps..'\n▹ | رسائلك  . '..NumMsg..' \n▹ | التفاعل . '..TotalMsg..'\n▹ |الالعاب  . '..Num_Games
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-send(msg.chat_id_, msg.id_,'• ليس لديك صوره \n'..'\n*• ايديك ↺ '..Id..'\n• معرفك ↺* ['..UserName_User..']*\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games..'*') 
+local texte = '\n*▹ |ايديك  . '..Id..'\n▹ | معرفك  .* ['..UserName_User..']*\n▹ |رتبتك  . '..Status_Gps..'\n▹ | رسائلك  . '..NumMsg..' \n▹ | التفاعل . '..TotalMsg..'\n▹ |الالعاب  . '..Num_Games..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=msg.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=msg.sender_user_id_.."/idearp"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 else
 if get_id then
@@ -7454,15 +7476,28 @@ local get_id = get_id:gsub('#auto',TotalMsg)
 local get_id = get_id:gsub('#Description',Description) 
 local get_id = get_id:gsub('#game',Num_Games) 
 local get_id = get_id:gsub('#photos',Total_Photp) 
-send(msg.chat_id_, msg.id_,'['..get_id..']') 
+local texte = '['..get_id..']'
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-send(msg.chat_id_, msg.id_,'\n*• ايديك ↺ '..Id..'\n• معرفك ↺* ['..UserName_User..']*\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games..'*') 
+local texte = '\n*▹ |ايديك  . '..Id..'\n▹ | معرفك  .* ['..UserName_User..']*\n▹ |رتبتك  . '..Status_Gps..'\n▹ | رسائلك  . '..NumMsg..' \n▹ | التفاعل . '..TotalMsg..'\n▹ |الالعاب  . '..Num_Games..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=msg.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=msg.sender_user_id_.."/idearp"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end,nil)   
 end,nil)   
+end,nil)   
 end
 end
+
+
 if text == 'تعطيل التنظيف' and BasicConstructor(msg) then   
 if database:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
 database:del(bot_id..'Lock:delmsg'..msg.chat_id_) 
@@ -8155,7 +8190,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n ⌁ ??قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'📌┇عليك الاشتراك في قناة البوت\n💢┇قناة البوت ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end    
@@ -8643,6 +8678,27 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 end
 end
+if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
+local Ttext = text:match('^بحث (.*)$') 
+local msgin = msg.id_/2097152/0.5 
+https.request('https://devstorm.ml/IZlZ7I/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin..'&user='..msg.sender_user_id_)
+end
+if text == 'تفعيل اليوتيوب' and Owner(msg) then   
+if not database:get(bot_id..'dw:bot:api'..msg.chat_id_)  then
+send(msg.chat_id_, msg.id_, '📛| تم تفعيل امر تنزيل اليوتيوب مسبقا')
+else
+database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_, '📛| تم تفعيل امر تنزيل اليوتيوب')
+end
+end
+if text == 'تعطيل اليوتيوب' and Owner(msg) then   
+if (database:get(bot_id..'dw:bot:api'..msg.chat_id_) == 'true') then
+send(msg.chat_id_, msg.id_, '📛| تم تعطيل امر تنزيل اليوتيوب مسبقا')
+else
+database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_, '📛| تم تعطيل امر تنزيل اليوتيوب')
+end
+end
 if text == "غنيلي" then
 data,res = https.request('https://apiabs.ml/Audios.php')
 if res == 200 then
@@ -9040,6 +9096,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'اوامر المنظفين', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=msg.sender_user_id_.."/help6"},
+},
+{
+{text = 'اوامر المطورين', callback_data=msg.sender_user_id_.."/help7"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=msg.sender_user_id_.."/homelocks"},
@@ -10132,6 +10191,40 @@ local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
 local Text = data.payload_.data_
 
+if Text and Text:match('(%d+)@id/(.*)') then
+local Id_Link = {string.match(Text,"^(%d+)@id/(.*)$")}
+if tonumber(Id_Link[1]) == tonumber(data.sender_user_id_) then
+DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
+local textt = '- من فضلك اختر نوع التنزيل'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'تنزيل ملف', callback_data="mp3/"..Id_Link[2]},
+},
+{
+{text = 'تنزيل بصمه', callback_data="ogg/"..Id_Link[2]},
+},
+{
+{text = 'تنزيل فيديو', callback_data="mp4/"..Id_Link[2]},
+},
+}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..Chat_id..'&photo='..'https://youtu.be/'..Id_Link[2]..'&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('mp3/(.*)') then
+local Id_Link = Text:match('mp3/(.*)') 
+DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
+https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp3&msg=0')
+elseif Text and Text:match('ogg/(.*)') then
+local Id_Link = Text:match('ogg/(.*)') 
+DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
+https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=ogg&msg=0')
+elseif Text and Text:match('mp4/(.*)') then
+local Id_Link = Text:match('mp4/(.*)') 
+DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
+https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
+end
+
+
 if Text and Text:match('(.*)/mute_text') then
 if tonumber(Text:match('(.*)/mute_text')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."Matrix:Lock:text"..data.chat_id_,true) 
@@ -10954,6 +11047,219 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+end
+
+if Text and Text:match('(.*)/ideengphoto') then
+if tonumber(Text:match('(.*)/ideengphoto')) == tonumber(data.sender_user_id_) then
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
+if deata.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif deata.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif deata.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
+if date.username_ then
+UserName_User = '@'..date.username_
+else
+UserName_User = 'لا يوجد'
+end
+local Id = data.sender_user_id_
+local NumMsg = database:get(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id_..Id) or Get_Rank(Id,data.chat_id_)
+local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Tshak:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
+local Total_Photp = (taha.total_count_ or 0)
+local Texting = {
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب 💘",
+"بدله لتلح عاد دبسزز 😔💘",
+}
+local Description = Texting[math.random(#Texting)]
+local texte = '\n▹ | Id 𖦹 '..Id..'\n▹ | UsErNaMe 𖦹 '..UserName_User..'\n▹ | StAsT 𖦹 '..Status_Gps..'\n▹ | MsGs 𖦹'..NumMsg..' \n▹ | Activity 𖦹 '..TotalMsg..'\n▹ | GaMeS 𖦹 '..Num_Games..''
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideengphoto"},{text = 'ar', callback_data=data.sender_user_id_.."/idearpphoto"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageCaption?chat_id='..Chat_id..'&caption='..URL.escape(texte)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end,nil)   
+end,nil)   
+end,nil)   
+end
+end
+if Text and Text:match('(.*)/idearpphoto') then
+if tonumber(Text:match('(.*)/idearpphoto')) == tonumber(data.sender_user_id_) then
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
+if deata.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif deata.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif deata.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
+if date.username_ then
+UserName_User = '@'..date.username_
+else
+UserName_User = 'لا يوجد'
+end
+
+local Id = data.sender_user_id_
+local NumMsg = database:get(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id_..Id) or Get_Rank(Id,data.chat_id_)
+local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Tshak:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
+local Total_Photp = (taha.total_count_ or 0)
+local Texting = {
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب 💘",
+"بدله لتلح عاد دبسزز 😔💘",
+}
+local Description = Texting[math.random(#Texting)]
+local texte = '\n▹ |ايديك  . '..Id..'\n▹ | معرفك  . '..UserName_User..'\n▹ |رتبتك  . '..Status_Gps..'\n▹ | رسائلك  . '..NumMsg..' \n▹ | التفاعل . '..TotalMsg..'\n▹ |الالعاب  . '..Num_Games..''
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideengphoto"},{text = 'ar', callback_data=data.sender_user_id_.."/idearpphoto"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageCaption?chat_id='..Chat_id..'&caption='..URL.escape(texte)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end,nil)   
+end,nil)   
+end,nil)   
+end
+end
+
+if Text and Text:match('(.*)/ideeng') then
+if tonumber(Text:match('(.*)/ideeng')) == tonumber(data.sender_user_id_) then
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
+if deata.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif deata.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif deata.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
+if date.username_ then
+UserName_User = '@'..date.username_
+else
+UserName_User = 'لا يوجد'
+end
+
+local Id = data.sender_user_id_
+local NumMsg = database:get(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id_..Id) or Get_Rank(Id,data.chat_id_)
+local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Tshak:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
+local Total_Photp = (taha.total_count_ or 0)
+local Texting = {
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب ??",
+"بدله لتلح عاد دبسزز 😔💘",
+}
+local Description = Texting[math.random(#Texting)]
+local texte = '\n*▹ | Id 𖦹 '..Id..'\n▹ | UsErNaMe 𖦹 * ['..UserName_User..']*\n▹ | StAsT 𖦹 '..Status_Gps..'\n▹ | MsGs 𖦹'..NumMsg..' \n▹ | Activity 𖦹 '..TotalMsg..'\n▹ | GaMeS 𖦹 '..Num_Games..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=data.sender_user_id_.."/idearp"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end,nil)   
+end,nil)   
+end,nil)   
+end
+end
+if Text and Text:match('(.*)/idearp') then
+if tonumber(Text:match('(.*)/idearp')) == tonumber(data.sender_user_id_) then
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
+if deata.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif deata.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif deata.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
+if date.username_ then
+UserName_User = '@'..date.username_
+else
+UserName_User = 'لا يوجد'
+end
+
+local Id = data.sender_user_id_
+local NumMsg = database:get(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id_..Id) or Get_Rank(Id,data.chat_id_)
+local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Tshak:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
+local Total_Photp = (taha.total_count_ or 0)
+local Texting = {
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب 💘",
+"بدله لتلح عاد دبسزز 😔💘",
+}
+local Description = Texting[math.random(#Texting)]
+local texte = '\n*▹ |ايديك  . '..Id..'\n▹ | معرفك  .* ['..UserName_User..']*\n▹ |رتبتك  . '..Status_Gps..'\n▹ | رسائلك  . '..NumMsg..' \n▹ | التفاعل . '..TotalMsg..'\n▹ |الالعاب  . '..Num_Games..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'en', callback_data=data.sender_user_id_.."/ideeng"},{text = 'ar', callback_data=data.sender_user_id_.."/idearp"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end,nil)   
+end,nil)   
+end,nil)   
 end
 end
 
@@ -11797,6 +12103,9 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+},
+{
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
 },
 }
@@ -11824,6 +12133,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+},
+{
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11872,6 +12184,9 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+},
+{
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
 },
 }
@@ -11899,6 +12214,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+},
+{
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11931,6 +12249,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+},
+{
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -11973,6 +12294,76 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
 },
 {
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+},
+{
+{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/help7') and DevBot(data) then
+if tonumber(Text:match('(.*)/help7')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+📮┆اوامر المطور الاساسي 
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+• تحديث 
+• الملفات 
+• المتجر 
+• حظر عام
+• الغاء العام
+• المطورين
+• ردود المطور 
+• اوامر المطور 
+• اضف رد للكل 
+• حذف رد للكل 
+• مسح المطورين
+• مسح قائمه العام
+• تعطيل الاذاعه 
+• تفعيل الاذاعه 
+• تعطيل الاذاعه
+• تفعيل المغادرة
+• تحديث السورس
+• مسح ردود المطور
+• مسح جميع الملفات
+• اضف /حذف مطور 
+• وضع كليشه المطور 
+• حذف كليشه المطور 
+• تفعيل البوت الخدمي 
+• تعطيل البوت الخدمي
+• تفعيل ملف + اسم الملف
+• تعطيل ملف + اسم الملف
+• تعين عدد الاعضاء + العدد
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+• غادر 
+• اذاعه 
+• رفع منشئ 
+• اذاعه خاص 
+• الاحصائيات 
+• غادر + الايدي
+• تفعيل /تعطيل
+• اذاعه بالتوجيه
+• اذاعه بالتثبيت 
+• المنشئين الاساسين 
+• رفع/تنزيل منشئ اساسي
+• مسح المنشئين الاساسين
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+*]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/help1"},{text = 'اوامر الادمن', callback_data=data.sender_user_id_.."/help2"},
+},
+{
+{text = 'اوامر المدير', callback_data=data.sender_user_id_.."/help3"},{text = 'اوامر المنشئ', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+},
+{
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
+},
+{
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
 },
 }
@@ -11994,6 +12385,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'اوامر المنظفين', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدميه', callback_data=data.sender_user_id_.."/help6"},
+},
+{
+{text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
 },
 {
 {text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=data.sender_user_id_.."/homelocks"},
