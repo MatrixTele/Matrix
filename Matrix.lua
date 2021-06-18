@@ -9841,13 +9841,31 @@ end
 sendText(Id_Sudo,Text..'\n'..'• ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
 if DevMatrix(msg) then
-if text == 'تفعيل التواصل •' then  
+if text == 'تفعيل التواصل ⚡' then  
 database:del(bot_id..'Texting:In:Bv') 
-send(msg.chat_id_, msg.id_,'• تم تفعيل التواصل ') 
+send(msg.chat_id_, msg.id_,'🔘┇ تم تفعيل التواصل ') 
 end
-if text == 'تعطيل التواصل •' then  
+if text == 'تعطيل التواصل 🔰' then  
 database:set(bot_id..'Texting:In:Bv',true) 
-send(msg.chat_id_, msg.id_,'• تم تعطيل التواصل ') 
+send(msg.chat_id_, msg.id_,'🔘┇ تم تعطيل التواصل ') 
+end
+if text == 'معلومات السيرفر 📡' then
+ioserver =  io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
+echo '📟l •⊱ { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
+echo '*------------------------------\n*🔖┇•⊱ { الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
+echo '*------------------------------\n*💾┇•⊱ { وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
+echo '*------------------------------\n*⚙️┇•⊱ { الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*------------------------------\n*📡┇•⊱ { موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
+echo '*------------------------------\n*👨🏾‍🔧┇•⊱ { الــدخــول } ⊰•\n*»» '`whoami`'*'
+echo '*------------------------------\n*🔌┇•⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+]]):read('*all')
+send(msg.chat_id_, msg.id_,ioserver)
+return false
 end
 if text =='• الثانويين .' and DevMatrix(msg) then
 local list = database:smembers(bot_id.."TSudo:User")
@@ -9875,30 +9893,39 @@ end
 if text =='• مسح الثانويين .' and not DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'• تسرسح .')
 end
-if text =='الاحصائيات •' then
+if text =='الاحصائيات 📊' then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
-send(msg.chat_id_, msg.id_,'• احصائيات البوت \n\n• عدد المجموعات *~ '..Groups..'\n• عدد المشتركين ~ '..Users..'*')
+send(msg.chat_id_, msg.id_,'*🔘┇احصائيات البوت* \n\n👥┇عدد المجموعات *~ '..Groups..'*\n👤┇عدد المشتركين ~* '..Users..'*')
 end
-if text == "تنظيف المشتركين •" then
+if text == 'لاصدار 🛡️' then 
+database:del(bot_id..'Srt:Bot') 
+send(msg.chat_id_, msg.id_,'☑┇ اصدار سورس* تويكس* لديك (*v1.0*) 🛡️')
+end
+if text == "اعادة التشغيل ⚙️" then  
+dofile("Matrix.lua") 
+dofile("sudo.lua")  
+send(msg.chat_id_, msg.id_,"*✅┇Ok Done rested bot my dev ..*")
+end
+if text == "تنظيف المشتركين 🚷" then
 local pv = database:smembers(bot_id..'Matrix:UsersBot')  
 local sendok = 0
 for i = 1, #pv do
 tdcli_function({ID='GetChat',chat_id_ = pv[i]},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = pv[i], action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,data) 
 if data.ID and data.ID == "Ok"  then
-print('\27[30;33m↺ THE USER IS SAVE ME ↓\n↺ '..pv[i]..'\n\27[1;37m')
+print('\27[30;33m»» THE USER IS SAVE ME ↓\n»» '..pv[i]..'\n\27[1;37m')
 else
-print('\27[30;31m↺ THE USER IS BLOCK ME ↓\n↺ '..pv[i]..'\n\27[1;37m')
+print('\27[30;31m»» THE USER IS BLOCK ME ↓\n»» '..pv[i]..'\n\27[1;37m')
 database:srem(bot_id..'Matrix:UsersBot',pv[i])  
 sendok = sendok + 1
 end
 if #pv == i then 
 if sendok == 0 then
-send(msg.chat_id_, msg.id_,'• لا يوجد مشتركين وهميين')   
+send(msg.chat_id_, msg.id_,'👤┇لا يوجد مشتركين وهميين')   
 else
 local ok = #pv - sendok
-send(msg.chat_id_, msg.id_,'*• عدد المشتركين الان ~ '..#pv..'\n• تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n• اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
+send(msg.chat_id_, msg.id_,'*👥┇عدد المشتركين الان ~ '..#pv..'\n💢┇تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n☑┇اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
 end
 end
 end,nil)
@@ -9906,7 +9933,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات •" then
+if text == "تنظيف الكروبات 🗑️" then
 local group = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local w = 0
 local q = 0
@@ -9914,19 +9941,19 @@ for i = 1, #group do
 tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
-print('\27[30;34m↺ THE BOT IS NOT ADMIN ↓\n↺ '..group[i]..'\n\27[1;37m')
+print('\27[30;34m»» THE BOT IS NOT ADMIN ↓\n»» '..group[i]..'\n\27[1;37m')
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;35m↺ THE BOT IS LEFT GROUP ↓\n↺ '..group[i]..'\n\27[1;37m')
+print('\27[30;35m»» THE BOT IS LEFT GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;36m↺ THE BOT IS KICKED GROUP ↓\n↺ '..group[i]..'\n\27[1;37m')
+print('\27[30;36m»» THE BOT IS KICKED GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
@@ -9934,21 +9961,21 @@ w = w + 1
 end
 if #group == i then 
 if (w + q) == 0 then
-send(msg.chat_id_, msg.id_,'• لا توجد مجموعات وهميه ')   
+send(msg.chat_id_, msg.id_,'👥┇لا توجد مجموعات وهميه ')   
 else
 local taha = (w + q)
 local sendok = #group - taha
 if q == 0 then
 taha = ''
 else
-taha = '\n• تم ازالة ~ '..q..' مجموعات من البوت'
+taha = '\n🚯┇ تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 storm = ''
 else
-storm = '\n• تم ازالة ~'..w..' مجموعه لان البوت عضو'
+storm = '\n🚯┇ تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*• عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*👥┇ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n🔘┇اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -9980,190 +10007,158 @@ A:close()
 database:del(bot_id.."LACKBOTSS:Ed:DevBots")
 end
 end
-if text == 'تفعيل البوت الخدمي •' then
+if text and text:match("^تغير الاشتراك ♻️$") and DevMatrix(msg) then  
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي معرف القناة') 
+return false  
+end
+if text and text:match("^تغير رساله الاشتراك 📃$") and DevMatrix(msg) then  
+database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي النص الذي تريده مع معرف القناة') 
+return false  
+end
+if text == "حذف رساله الاشتراك 🚸" and DevMatrix(msg) then  
+database:del(bot_id..'text:ch:user')
+send(msg.chat_id_, msg.id_, "📮┇تم مسح رساله الاشتراك ") 
+return false  
+end
+if text == "تفعيل الاشتراك الاجباري ✅" and DevMatrix(msg) then  
+if database:get(bot_id..'add:ch:id') then
+local addchusername = database:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_,"♨️┇الاشتراك الاجباري مفعل \n✅┇على القناة ~ ["..addchusername.."]") 
+else
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_,"🚸┇اهلا عزيزي المطور \n🔖┇ارسل معرف قناتك ليتم تفعيل الاشتراك الاجباري") 
+end
+return false  
+end
+if text == "تعطيل الاشتراك الاجباري ⛔" and DevMatrix(msg) then  
+database:del(bot_id..'add:ch:id')
+database:del(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "☑┇تم تعطيل الاشتراك الاجباري ") 
+return false  
+end
+if text == "الاشتراك الاجباري 🚸" and DevMatrix(msg) then  
+if database:get(bot_id..'add:ch:username') then
+local addchusername = database:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "☑┇تم تفعيل الاشتراك الاجباري \n♨️┇على القناة ~ ["..addchusername.."]") 
+else
+send(msg.chat_id_, msg.id_, "♨️┇لا يوجد قناة في الاشتراك الاجباري ") 
+end
+return false  
+end
+if text == 'تفعيل البوت الخدمي 💲' then
 database:del(bot_id..'Matrix:Free:Add:Bots') 
-send(msg.chat_id_, msg.id_,'\n• تم تفعيل البوت الخدمي ') 
+send(msg.chat_id_, msg.id_,'\n📫┇تم تفعيل البوت الخدمي ') 
 end
-if text == 'تعطيل البوت الخدمي •' then
+if text == 'تعطيل البوت الخدمي 📛' then
 database:set(bot_id..'Matrix:Free:Add:Bots',true) 
-send(msg.chat_id_, msg.id_,'\n• تم تعطيل البوت الخدمي') 
+send(msg.chat_id_, msg.id_,'\n📫┇تم تعطيل البوت الخدمي') 
 end
-if text=="اذاعه خاص •" and msg.reply_to_message_id_ == 0 then
+if text == "الاشتراك الاجباري 🔖"  then  
+if database:get(bot_id..'add:ch:username') then
+local addchusername = database:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "💢️┇تم تفعيل الاشتراك الاجباري \n☑┇على القناة -› ["..addchusername.."]")
+else
+send(msg.chat_id_, msg.id_, "💢️┇لا يوجد قناة في الاشتراك الاجباري ")
+end
+return false  
+end
+if text=="اذاعه خاص 📡" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."Matrix:Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n📫┇للخروج ارسل الغاء ") 
 return false
 end 
-
-if text=="اذاعه •" and msg.reply_to_message_id_ == 0 then
+if text=="اذاعه 📡" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."Matrix:Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n📫┇للخروج ارسل الغاء ") 
 return false
 end  
-if text=="اذاعه بالتوجيه •" and msg.reply_to_message_id_ == 0  then
+if text=="اذاعه بالتوجيه 👥" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"⌁ ??الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."Matrix:Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي التوجيه الان") 
+send(msg.chat_id_, msg.id_,"📥┇ارسل لي التوجيه الان") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص •" and msg.reply_to_message_id_ == 0  then
+if text=="اذاعه بالتوجيه خاص 👤" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
+send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
 database:setex(bot_id.."Matrix:Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي التوجيه الان") 
+send(msg.chat_id_, msg.id_,"📥┇ارسل لي التوجيه الان") 
 return false
 end 
-if text == "تفعيل الاذاعه •" then
+if text == "تفعيل الاذاعه 🔔" then
 database:del(bot_id.."Matrix:Status:Bc") 
-send(msg.chat_id_, msg.id_,"\n• تم تفعيل الاذاعه " ) 
+send(msg.chat_id_, msg.id_,"\n📫┇تم تفعيل الاذاعه " ) 
 return false
 end 
-if text == "تعطيل الاذاعه •" then
+if text == "تعطيل الاذاعه 🔕" then
 database:set(bot_id.."Matrix:Status:Bc",true) 
-send(msg.chat_id_, msg.id_,"\n• تم تعطيل الاذاعه") 
+send(msg.chat_id_, msg.id_,"\n📫┇تم تعطيل الاذاعه") 
 return false
 end 
-if text == "تفعيل المغادره •" then
+if text == "تفعيل المغادره 🔏" then
 database:del(bot_id.."Matrix:Left:Bot"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"• تم تفعيل مغادرة البوت") 
+send(msg.chat_id_, msg.id_,"📫┇تم تفعيل مغادرة البوت") 
 return false 
 end
-if text == "تعطيل المغادره •" then
+if text == "تغير اسم البوت 🔁"  then 
+if DevMatrix(msg) then
+database:setex(bot_id.."Matrix:Set:Name:Bot"..msg.sender_user_id_,300,true) 
+send(msg.chat_id_, msg.id_,"📫┇ ارسل لي الاسم الان ")  
+end
+return false
+end
+if text == "تعطيل المغادره 🔓" then
 database:set(bot_id.."Matrix:Left:Bot"..msg.chat_id_,true)   
-send(msg.chat_id_, msg.id_, "• تم تعطيل مغادرة البوت") 
+send(msg.chat_id_, msg.id_, "🔘┇تم تعطيل مغادرة البوت") 
 return false 
 end
 if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء •' then   
-send(msg.chat_id_, msg.id_,"• تم الغاء حفظ كليشه ستارت") 
+if text == 'الغاء ✖' then   
+send(msg.chat_id_, msg.id_,"🔘┇تم الغاء حفظ كليشه ستارت") 
 database:del(bot_id..'Start:Bots') 
 return false
 end
 database:set(bot_id.."Start:Bot",text)  
-send(msg.chat_id_, msg.id_,'• تم حفظ كليشه ستارت') 
+send(msg.chat_id_, msg.id_,'🔘┇تم حفظ كليشه ستارت') 
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت •' then
+if text == 'ضع كليشه ستارت 📧' then
 database:set(bot_id..'Start:Bots',true) 
-send(msg.chat_id_, msg.id_,'• ارسل لي الكليشه الان') 
+send(msg.chat_id_, msg.id_,'🔘┇ارسل لي الكليشه الان') 
 return false
 end
-if text == 'حذف كليشه ستارت •' then
+if text == 'حذف كليشه ستارت 🃏' then
 database:del(bot_id..'Start:Bot') 
-send(msg.chat_id_, msg.id_,'• تم حذف كليشه ستارت') 
+send(msg.chat_id_, msg.id_,'🔘┇تم حذف كليشه ستارت') 
 end
-if text and text:match("^- تغير الاشتراك • .$") and DevMatrix(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
-return false  
-end
-if text and text:match("^- تغير رساله الاشتراك • .$") and DevMatrix(msg) then  
-database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي النص الذي تريده')
-return false  
-end
-if text == "حذف رساله الاشتراك • ." and DevMatrix(msg) then  
-database:del(bot_id..'text:ch:user')
-send(msg.chat_id_, msg.id_, "• تم مسح رساله الاشتراك ")
-return false  
-end
-if text and text:match("^- تعين قناة الاشتراك • .$") and DevMatrix(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
-return false  
-end
-if text == "- تفعيل الاشتراك الاجباري • ." and DevMatrix(msg) then  
-if database:get(bot_id..'add:ch:id') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"• الاشتراك الاجباري مفعل \n• على القناة ↺ ["..addchusername.."]")
-else
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_,"• اهلا عزيزي المطور \n• ارسل الان معرف قناتك")
-end
-return false  
-end
-if text == "- تعطيل الاشتراك الاجباري • ." and DevMatrix(msg) then  
-database:del(bot_id..'add:ch:id')
-database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "• تم تعطيل الاشتراك الاجباري ")
-return false  
-end
-if text == "- الاشتراك الاجباري • ." and DevMatrix(msg) then  
-if database:get(bot_id..'add:ch:username') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "• تم تفعيل الاشتراك الاجباري \n• على القناة ↺ ["..addchusername.."]")
-else
-send(msg.chat_id_, msg.id_, "• لا يوجد قناة في الاشتراك الاجباري ")
-end
-return false  
-end
-if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
-database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-return false  end 
-database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-local username = string.match(text, "@[%a%d_]+") 
-tdcli_function ({    
-ID = "SearchPublicChat",    
-username_ = username  
-},function(arg,data) 
-if data and data.message_ and data.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_, '• المعرف لا يوجد فيه قناة')
-return false  end
-if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' then
-send(msg.chat_id_, msg.id_, '• عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
-return false  end
-if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'• عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
-return false  end
-if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
-if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
-send(msg.chat_id_, msg.id_,'• البوت ادمن في القناة \n• تم تفعيل الاشتراك الاجباري في \n• ايدي القناة ('..data.id_..')\n• معرف القناة ([@'..data.type_.channel_.username_..'])')
-database:set(bot_id..'add:ch:id',data.id_)
-database:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
-else
-send(msg.chat_id_, msg.id_,'• عذرآ البوت ليس ادمن بالقناه ')
-end
-return false  
-end
-end,nil)
-end
-if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
-database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-return false  end 
-database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-local texxt = string.match(text, "(.*)") 
-database:set(bot_id..'text:ch:user',texxt)
-send(msg.chat_id_, msg.id_,'• تم تغيير رسالة الاشتراك ')
-end
-if text == ("مسح قائمه العام •") and DevMatrix(msg) then
+if text == ("مسح قائمه العام 📮") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:GBan:User")
-send(msg.chat_id_, msg.id_, "\n• تم مسح قائمه العام")
+send(msg.chat_id_, msg.id_, "\n📮┇تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين •") and DevMatrix(msg) then
+if text == ("مسح المطورين 🚸") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:Sudo:User")
-send(msg.chat_id_, msg.id_, "\n• تم مسح قائمة المطورين  ")
+send(msg.chat_id_, msg.id_, "\n📮┇ تم مسح قائمة المطورين  ")
 end
-if text == ("قائمه العام •") and DevMatrix(msg) then
+if text == ("قائمة العام 📃") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n• قائمة المحظورين عام \n  - - - - - - - - -\n"
+t = "\n⛔┇قائمة المحظورين عام \n••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• \n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -10173,14 +10168,14 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد محظورين عام"
+t = "✖┇لا يوجد محظورين عام"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين •") and DevMatrix(msg) then
+if text == ("المطورين 🔱") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:Sudo:User")
-t = "\n• قائمة مطورين البوت \n  - - - - - - - - -\n"
+t = "\n⛔┇قائمة مطورين البوت \n••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉•• \n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -10190,11 +10185,11 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد مطورين"
+t = "✖┇لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'جلب نسخه احتياطيه •' then
+if text == 'جلب نسخه احتياطيه 📁' then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
