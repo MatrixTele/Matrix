@@ -10073,14 +10073,14 @@ A:close()
 database:del(bot_id.."LACKBOTSS:Ed:DevBots")
 end
 end
-if text and text:match("^تغير الاشتراك ♻️$") and DevMatrix(msg) then  
+if text == 'تغير الاشتراك ♻️' then
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي معرف القناة') 
+send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^تغير رساله الاشتراك 📃$") and DevMatrix(msg) then  
+if text == 'تغير رساله الاشتراك 📃' then
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي النص الذي تريده مع معرف القناة') 
+send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي النص الذي تريده مع معرف القناة')
 return false  
 end
 if text == "حذف رساله الاشتراك 🚸" and DevMatrix(msg) then  
