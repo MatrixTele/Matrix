@@ -4728,6 +4728,17 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
+if text == 'لقبه' and tonumber(msg.reply_to_message_id_) > 0 then
+function start_function(extra, result, success)
+Gee = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_)
+GeIad = JSON.decode(Gee)
+if not GeIad.result.custom_title then
+send(msg.chat_id_, msg.id_,'• وينكو لقب ') 
+else
+send(msg.chat_id_, msg.id_,'• لقبك هو : '..GeIad.result.custom_title) 
+end
+end
+end
 if text == 'لقبي' and tonumber(msg.reply_to_message_id_) == 0 then
 Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..msg.sender_user_id_)
 GeId = JSON.decode(Ge)
@@ -5017,20 +5028,45 @@ database:del(bot_id.."Matrix:allM"..msg.chat_id_)
 end
 end
 end
-if text == ("امسح") and cleaner(msg) then  
-local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
-for k,v in pairs(list) do
-local Message = v
-if Message then
-t = "• تم مسح "..k.." من الوسائط الموجوده"
-DeleteMessage(msg.chat_id_,{[0]=Message})
-database:del(bot_id.."Matrix:allM"..msg.chat_id_)
+if text == "امسح" and Owner(msg) then
+msgm = {[0]=msg.id_}
+local Message = msg.id_
+for i=1,200 do
+Message = Message - 1048576
+msgm[i] = Message
+end
+tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = msgm},function(arg,data)
+new = 0
+msgm2 = {}
+for i=0 ,data.total_count_ do
+if data.messages_[i] and data.messages_[i].content_ and data.messages_[i].content_.ID ~= "MessageText" then
+msgm2[new] = data.messages_[i].id_
+new = new + 1
 end
 end
-if #list == 0 then
-t = "• لا يوجد ميديا في المجموعه"
+DeleteMessage(msg.chat_id_,msgm2)
+end,nil)  
+send(msg.chat_id_, msg.id_,"تم تنظيف الميديا بنجاح •")
 end
-send(msg.chat_id_, msg.id_, t)
+if text == "امسح" and Owner(msg) then
+Msgs = {[0]=msg.id_}
+local Message = msg.id_
+for i=1,200 do
+Message = Message - 1048576
+Msgs[i] = Message
+end
+tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+new = 0
+Msgs2 = {}
+for i=0 ,data.total_count_ do
+if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
+Msgs2[new] = data.messages_[i].id_
+new = new + 1
+end
+end
+DeleteMessage(msg.chat_id_,Msgs2)
+end,nil)  
+send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
 if text == ("عدد الميديا") and cleaner(msg) then  
 local gmria = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
@@ -8653,6 +8689,12 @@ ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..UR
 ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
+if text == "التفاعل" and ChCheck(msg) then
+local EntryNumber = (DevAbs:get(Matrix..'Abs:EntryNumber'..msg.chat_id_..':'..os.date('%d')) or 0)
+local ExitNumber = (DevAbs:get(Matrix..'Abs:ExitNumber'..msg.chat_id_..':'..os.date('%d')) or 0)
+local MsgNumberDay = (DevAbs:get(Matrix..'Abs:MsgNumberDay'..msg.chat_id_..':'..os.date('%d')) or 0)
+Dev_Abs(msg.chat_id_, msg.id_, 1, "⌁︙انضمام الاعضاء اليوم ↫ *"..EntryNumber.."*\n⌁︙مغادرة الاعضاء اليوم ↫ *"..ExitNumber.."*\n⌁︙عدد الرسائل اليوم ↫ *"..MsgNumberDay.."*\n⌁︙نسبة التفاعل اليوم ↫ *"..math.random(40,100).."%*", 1, 'md')
+end
 if text == "تعطيل الانستا" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '• تم تعطيل الانستا')
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"close")
@@ -8683,7 +8725,7 @@ end
 
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
-data,res = https.request('https://Matrix-source.tk/MatrixTeAM/movie.php?serch='..URL.escape(Textm)..'')
+data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
 getmo = json:decode(data)
 if getmo.Info == true then
