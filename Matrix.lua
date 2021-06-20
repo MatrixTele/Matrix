@@ -9664,10 +9664,10 @@ if text == 'كيبورد الاشتراك الاجباري📛' then
 if DevMatrix(msg) then
 local Text = '📮┇مرحبا بك في كيبورد اوامر الاشتراك'
 local keyboard = {
-{'تعطيل الاشتراك الاجباري ⛔'},
-{'تغير الاشتراك ♻️','حذف رساله الاشتراك 🚸'},
-{'تفعيل الاشتراك الاجباري ✅'},
-{'الاشتراك الاجباري 🚸','تغير رساله الاشتراك 📃'},
+{'- تفعيل الاشتراك الاجباري ⌔ .','- تعطيل الاشتراك الاجباري ⌔ .'},
+{'- تغير رساله الاشتراك ⌔ .','حذف رساله الاشتراك ⌔ .'},
+{'- تعين قناة الاشتراك ⌔ .','- تغير الاشتراك ⌔ .'},
+{'- الاشتراك الاجباري ⌔ .'},
 {'رجوع 🔚'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
@@ -10073,45 +10073,75 @@ A:close()
 database:del(bot_id.."LACKBOTSS:Ed:DevBots")
 end
 end
-if text == 'تغير الاشتراك ♻️' then
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي معرف القناة')
-return false  
-end
-if text == 'تغير رساله الاشتراك 📃' then
-database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '📮┇حسنآ ارسل لي النص الذي تريده مع معرف القناة')
-return false  
-end
-if text == "حذف رساله الاشتراك 🚸" and DevMatrix(msg) then  
-database:del(bot_id..'text:ch:user')
-send(msg.chat_id_, msg.id_, "📮┇تم مسح رساله الاشتراك ") 
-return false  
-end
-if text == "تفعيل الاشتراك الاجباري ✅" and DevMatrix(msg) then  
-if database:get(bot_id..'add:ch:id') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"♨️┇الاشتراك الاجباري مفعل \n✅┇على القناة ~ ["..addchusername.."]") 
-else
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_,"🚸┇اهلا عزيزي المطور \n🔖┇ارسل معرف قناتك ليتم تفعيل الاشتراك الاجباري") 
-end
-return false  
-end
-if text == "تعطيل الاشتراك الاجباري ⛔" and DevMatrix(msg) then  
-database:del(bot_id..'add:ch:id')
-database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "☑┇تم تعطيل الاشتراك الاجباري ") 
-return false  
-end
-if text == "الاشتراك الاجباري 🚸" and DevMatrix(msg) then  
+if VIP_DeV(msg) then
+if text == "- الاشتراك الاجباري ⌔ ."  then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "☑┇تم تفعيل الاشتراك الاجباري \n♨️┇على القناة ~ ["..addchusername.."]") 
+send(msg.chat_id_, msg.id_, "⌔︙تم تفعيل الاشتراك الاجباري \n⌔︙على القناة -› ["..addchusername.."]")
 else
-send(msg.chat_id_, msg.id_, "♨️┇لا يوجد قناة في الاشتراك الاجباري ") 
+send(msg.chat_id_, msg.id_, "⌔︙لا يوجد قناة في الاشتراك الاجباري ")
 end
 return false  
+end
+if text == "- تفعيل الاشتراك الاجباري ⌔ ."  then  
+if database:get(bot_id..'add:ch:id') then
+local addchusername = database:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_,"⌔︙الاشتراك الاجباري مفعل \n⌔︙على القناة -› ["..addchusername.."]")
+else
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_,"⌔︙اهلا عزيزي المطور \n⌔︙ارسل الان معرف قناتك")
+end
+return false  
+end
+if text == "- تعطيل الاشتراك الاجباري ⌔ ."  then  
+database:del(bot_id..'add:ch:id')
+database:del(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "⌔︙تم تعطيل الاشتراك الاجباري ")
+return false  
+end
+if text == '- تغير الاشتراك ⌔ .' then
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '⌔︙حسنآ ارسل لي معرف القناة')
+return false  
+end
+if text == '- تغير رساله الاشتراك ⌔ .' then
+database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '⌔︙حسنآ ارسل لي النص الذي تريده')
+return false  
+end
+if text == "حذف رساله الاشتراك ⌔ ." then
+database:del(bot_id..'text:ch:user')
+send(msg.chat_id_, msg.id_, "⌔︙تم مسح رساله الاشتراك ")
+return false  
+end
+if text == '- تعين قناة الاشتراك ⌔ .' then
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, '⌔︙حسنآ ارسل لي معرف القناة')
+return false  
+end
+end
+if not VIP_DeV(msg) then
+if text == "- الاشتراك الاجباري ⌔ ."  or text == "- تفعيل الاشتراك الاجباري ⌔ ."  or text == "- تعطيل الاشتراك الاجباري ⌔ ."  or text == '- تغير رساله الاشتراك ⌔ .' or text == '- تغير الاشتراك ⌔ .' or text == "حذف رساله الاشتراك ⌔ ." or text == '- تعين قناة الاشتراك ⌔ .' then
+send(msg.chat_id_, msg.id_,'⌔︙عذا الامر للمطور الاساسي فقط .')
+end
+end
+if database:get(bot_id.."Matrix:Ed:DevBots") then
+if text and text:match("^(%d+)$") then
+local IdDe = text:match("^(%d+)$")
+send(msg.chat_id_,msg.id_, "⌔︙تم تحفظ المعلومات اضغط ( تحديث الملفات ⌔ ) للتنفيذ")
+local A = io.open("sudo.lua", 'w')
+A:write([[
+s = "IZlZ7I"
+
+q = "Matrix_Source"
+
+token = "]]..token..[["
+
+Sudo = ]]..IdDe..[[  
+]])
+A:close()
+database:del(bot_id.."Matrix:Ed:DevBots")
+end
 end
 if text == 'تفعيل البوت الخدمي 💲' then
 database:del(bot_id..'Matrix:Free:Add:Bots') 
