@@ -5007,26 +5007,27 @@ database:del(bot_id.."Matrix:allM"..msg.chat_id_)
 end
 end
 end
-if text == ("امسح") and cleaner(msg) then  
-local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
-for k,v in pairs(list) do
-local Message = v
-if Message then
-t = "✅┇تم حذف "..k.." من الوسائط"
-DeleteMessage(msg.chat_id_,{[0]=Message})
-database:del(bot_id.."msg:media"..msg.chat_id_)
+if text == "امسح" and Owner(msg) then
+msgm = {[0]=msg.id_}
+local Message = msg.id_
+for i=1,200 do
+Message = Message - 1048576
+msgm[i] = Message
+end
+tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = msgm},function(arg,data)
+new = 0
+msgm2 = {}
+for i=0 ,data.total_count_ do
+if data.messages_[i] and data.messages_[i].content_ and data.messages_[i].content_.ID ~= "MessageText" then
+msgm2[new] = data.messages_[i].id_
+new = new + 1
 end
 end
-if #list == 0 then
-t = "💢┇لا يوجد ميديا في المجموعه"
+DeleteMessage(msg.chat_id_,msgm2)
+end,nil)  
+send(msg.chat_id_, msg.id_,"تم تنظيف الميديا بنجاح ✫")
 end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("عدد الميديا") and cleaner(msg) then  
-local gmria = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
-end
-if text == "امسح" and cleaner(msg) and GetSourseMember(msg) then   
+if text == "امسح" and Owner(msg) then
 Msgs = {[0]=msg.id_}
 local Message = msg.id_
 for i=1,200 do
@@ -5044,22 +5045,7 @@ end
 end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
-send(msg.chat_id_, msg.id_,'📛┇تم حذف الميديا المعدلة ..')
-end
-if not database:get(bot_id.."y:Matrix:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
-local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-if gmedia == 150 then
-local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
-for k,v in pairs(liste) do
-local Mesge = v
-if Mesge then
-t = "✅┇تم حذف *"..k..".* من الميديا ."
-DeleteMessage(msg.chat_id_,{[0]=Mesge})
-end
-end
-send(msg.chat_id_, msg.id_, t)
-database:del(bot_id.."msg:media"..msg.chat_id_)
-end
+send(msg.chat_id_, msg.id_,'✫ تم تنظيف الميديا المعدله')
 end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -8499,8 +8485,6 @@ end
 end
 if text == 'الاعدادات ⚙' and Addictive(msg) then  
 local Texti = 'تستطيع قفل وفتح عبر الازرار'
-local mute_add = (database:get(bot_id.."Matrix:Lock:AddMempar"..msg.chat_id_)  or '❌')
-local mute_add1 = mute_add:gsub('del', '❬ ✅ ❭')
 local mute_text = (database:get(bot_id.."Matrix:Lock:text"..msg.chat_id_)  or '❌')
 local mute_text1 = mute_text:gsub('del', '❬ ✅ ❭')
 local lock_bots = (database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) or '❌')
@@ -8523,9 +8507,6 @@ local mute_video = (database:get(bot_id.."Matrix:Lock:Video"..msg.chat_id_) or '
 local mute_video1 = mute_video:gsub('del', '❬ ✅ ❭')
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = URL.escape(mute_add1) , callback_data="h"},{text = 'قفل الاضافه', callback_data=msg.sender_user_id_.."/lockjoine"},{text = 'فتح الاضافه', callback_data=msg.sender_user_id_.."/unlockjoine"},
-},
 {
 {text = URL.escape(mute_text1) , callback_data="h"},{text = 'قفل الدردشه ', callback_data=msg.sender_user_id_.."/mute_text"},{text = 'فتح الدردشه', callback_data=msg.sender_user_id_.."/unmute_text"},
 },
@@ -10347,15 +10328,6 @@ local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
 local Text = data.payload_.data_
 
-if Text and Text:match('(%d+)/UnKed@(%d+):(%d+)') then
-local ramsesadd = {string.match(Text,"^(%d+)/UnKed@(%d+):(%d+)$")}
-if tonumber(ramsesadd[2]) == tonumber(ramsesadd[3]) then
-if tonumber(ramsesadd[1]) == tonumber(data.sender_user_id_) then
-DeleteMessage(data.chat_id_, {[0] = Msg_id})  
-https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. data.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-end
-end
-end
 if Text and Text:match('(%d+)@id/(.*)') then
 local Id_Link = {string.match(Text,"^(%d+)@id/(.*)$")}
 if tonumber(Id_Link[1]) == tonumber(data.sender_user_id_) then
@@ -10390,11 +10362,6 @@ end
 if Text and Text:match('(.*)/mute_text') then
 if tonumber(Text:match('(.*)/mute_text')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."Matrix:Lock:text"..data.chat_id_,true) 
-sendin1(Chat_id,msg_idd,data.sender_user_id_)
-end
-elseif Text and Text:match('(.*)/unlockjoine') then
-if tonumber(Text:match('(.*)/unlockjoine')) == tonumber(data.sender_user_id_) then
-database:set(bot_id.."Matrix:Lock:AddMempar"..data.chat_id_,"kick")  
 sendin1(Chat_id,msg_idd,data.sender_user_id_)
 end
 elseif Text and Text:match('(.*)/lock_bots') then
@@ -10496,11 +10463,6 @@ end
 elseif Text and Text:match('(.*)/unlock_bots') then
 if tonumber(Text:match('(.*)/unlock_bots')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Lock:Bot:kick"..data.chat_id_)  
-sendin1(Chat_id,msg_idd,data.sender_user_id_)
-end
-elseif Text and Text:match('(.*)/lockjoine') then
-if tonumber(Text:match('(.*)/lockjoine')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Lock:AddMempar"..data.chat_id_)  
 sendin1(Chat_id,msg_idd,data.sender_user_id_)
 end
 elseif Text and Text:match('(.*)/unmute_tgservice') then
@@ -12959,7 +12921,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","?? 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnnk = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الغباء لـ : *'..text..'*'
 keyboard = {} 
