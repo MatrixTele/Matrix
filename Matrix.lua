@@ -97,44 +97,60 @@ else
 return false  
 end  
 end
+function creatorA(msg)
+local hash = database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) 
+if hash or DevBot(msg) or DevBLACKBOTSS(msg) or VIP_DeV(msg) then    
+return true 
+else 
+return false 
+end 
+end
 function BasicConstructor(msg)
-local hash = database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevMatrix(msg) or DevBot(msg) or VIP_DeV(msg) then     
+local hash = database:sismember(bot_id.."BLACKBOTSS:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
+if hash or Bot(msg) or DevBLACKBOTSS(msg) or DevBot(msg) or VIP_DeV(msg) or creatorA(msg) then     
 return true 
 else 
 return false 
 end 
 end
 function Constructor(msg)
-local hash = database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevMatrix(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) then        
+local hash = database:sismember(bot_id.."BLACKBOTSS:Constructor"..msg.chat_id_, msg.sender_user_id_) 
+if hash or Bot(msg) or DevBLACKBOTSS(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
 end 
 end
 function Owner(msg)
-local hash = database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevMatrix(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) then        
+local hash = database:sismember(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_,msg.sender_user_id_)    
+if hash or Bot(msg) or DevBLACKBOTSS(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
 end 
 end
 function Addictive(msg)
-local hash = database:sismember(bot_id.."Matrix:Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevMatrix(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or VIP_DeV(msg) then        
+local hash = database:sismember(bot_id.."BLACKBOTSS:Mod:User"..msg.chat_id_,msg.sender_user_id_)    
+if hash or Bot(msg) or DevBLACKBOTSS(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or VIP_DeV(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
 end 
 end
 function cleaner(msg)
-local hash = database:sismember(bot_id.."Matrix:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevMatrix(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) then        
+local hash = database:sismember(bot_id.."BLACKBOTSS:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
+if hash or Bot(msg) or DevBLACKBOTSS(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
+end 
+end
+function Vips(msg)
+local hash = database:sismember(bot_id.."BLACKBOTSS:Special:User"..msg.chat_id_,msg.sender_user_id_) 
+if hash or Bot(msg) or  DevBLACKBOTSS(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorA(msg) then             
+return true 
+else 
+return false 
 end 
 end
 function Vips(msg)
@@ -173,6 +189,8 @@ elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then
 var = true  
 elseif database:sismember(bot_id.."Matrix:Sudo:User", user_id) then
 var = true  
+elseif database:sismember(bot_id.."creator"..chat_id, user_id) then
+var = true  
 elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..chat_id, user_id) then
 var = true                 
 elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..chat_id, user_id) then
@@ -202,7 +220,8 @@ var = "البوت"
 elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "المطور الاساسي²"  
 elseif database:sismember(bot_id.."Matrix:Sudo:User", user_id) then
 var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..chat_id, user_id) then
+elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "المالك"
+elseif database:sismember(bot_id.."BLACKBOTSS:Basic:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
 elseif database:sismember(bot_id.."Matrix:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "المنشئ"  
