@@ -9490,7 +9490,7 @@ return false
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'⌔︙عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
@@ -9511,10 +9511,9 @@ tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100"
 local admins = data.members_
 for i=0 , #admins do
 if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-owner_id = admins[i].user_id_
-database:sadd(bot_id..'Matrix:Basic:Constructoryyu23'..msg.chat_id_, owner_id)
-end
-end
+database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+end 
+end  
 end,nil)
 database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
@@ -9595,6 +9594,15 @@ end,nil)
 end,nil) 
 end
 if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Matrix:Free:Add:Bots') then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
 return false  
@@ -9612,13 +9620,13 @@ var = 'الادمن'
 else 
 var= 'عضو'
 end
+if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
+else
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
-if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
-else
 local Text = '☑┇تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9633,10 +9641,9 @@ tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100"
 local admins = data.members_
 for i=0 , #admins do
 if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-owner_id = admins[i].user_id_
-database:sadd(bot_id..'Matrix:Basic:Constructoryyu23'..msg.chat_id_, owner_id)
-end
-end
+database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+end 
+end  
 end,nil)
 database:sadd(bot_id..'Matrix:Basic:Constructoryyu'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
