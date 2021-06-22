@@ -9509,7 +9509,7 @@ return false
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'⌔︙عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
@@ -10265,6 +10265,27 @@ end
 if text == 'حذف كليشه ستارت 🃏' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'🔘┇تم حذف كليشه ستارت') 
+end
+if data and data.message_ and data.message_ == "USERNAME_NOT_OCCUPIED" then 
+send(msg.chat_id_, msg.id_, '• المعرف لا يوجد فيه قناة')
+return false  end
+if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' then
+send(msg.chat_id_, msg.id_, '• عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
+return false  end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
+send(msg.chat_id_, msg.id_,'• عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
+return false  end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
+send(msg.chat_id_, msg.id_,'• البوت ادمن في القناة \n• تم تفعيل الاشتراك الاجباري في \n• ايدي القناة ('..data.id_..')\n• معرف القناة ([@'..data.type_.channel_.username_..'])')
+database:set(bot_id..'add:ch:id',data.id_)
+database:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
+else
+send(msg.chat_id_, msg.id_,'• عذرآ البوت ليس ادمن بالقناه ')
+end
+return false  
+end
+end,nil)
 end
 if text == ("مسح قائمه العام 📮") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:GBan:User")
