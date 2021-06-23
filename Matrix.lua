@@ -8426,8 +8426,8 @@ if text == ("تحديث السورس") and DevMatrix(msg) then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/Matrix.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
 dofile('Matrix.lua')  
 return false
 end
@@ -9012,7 +9012,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevMatrix(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_Matrix/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -9050,7 +9050,7 @@ t = "*• الملف ↺ {"..file.."}\n• تم تعطيله وحذفه بنجا
 else
 t = "*• بالتاكيد تم تعطيل وحذف ملف ↺ {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_Matrix/master/files_Matrix/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
 os.execute("rm -fr Matrix_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -9070,7 +9070,7 @@ t = "*• بالتاكيد تم تنزيل وتفعيل ملف ↺ {"..file.."} 
 else
 t = "*• الملف ↺ {"..file.."}\n• تم تنزيله وتفعيله بنجاح \n*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_Matrix/master/files_Matrix/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
 local chek = io.open("Matrix_Files/"..file,'w+')
 chek:write(json_file)
@@ -9731,6 +9731,7 @@ if text == '/start' or text == 'رجوع 🔚' then
 if DevMatrix(msg) then
 local Text = '📥┇مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
+{'تغيير المطور الاساسي 🔁'},
 {'تغير اسم البوت 🔁','الاحصائيات 📊'},
 {'تعطيل التواصل 🔰','تفعيل التواصل ⚡'},
 {'مسح قائمه العام 🚫','قائمة العام 📃','مسح المطورين 🚸'},
@@ -10101,11 +10102,11 @@ end,nil)
 end
 return false
 end
-if text =='تغيير المطور الاساسي •' and VIP_DeV(msg) then
+if text =='تغيير المطور الاساسي 🔁' and VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'• ارسل ايدي المطور الاساسي الجديد')
 database:set(bot_id..'LACKBOTSS:Ed:DevBots',true) 
 end
-if text =='تغيير المطور الاساسي •' and not VIP_DeV(msg) then
+if text =='تغيير المطور الاساسي 🔁' and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'• تسرسح')
 end
 if VIP_DeV(msg) then
@@ -10426,8 +10427,8 @@ if text == "تحديث السورس ☑" then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/Matrix.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
 dofile('Matrix.lua')  
 return false
 end
