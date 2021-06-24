@@ -4684,8 +4684,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
+Text = "• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• اشترك الان ⚜️'['..database:get(bot_id..'add:ch:username')..']"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if Constructor(msg) then
@@ -9439,7 +9446,7 @@ Text = [[
 • اضف رسائل + العدد بالرد
 • اضف مجوهرات + العدد بالرد
   ━═━═━═━
-𝘊?? -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
