@@ -4688,7 +4688,7 @@ Text = "• لايمكنك استخدام البوت ✅ •\n• عليك ال�
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اشترك الان ⚜️'['..database:get(bot_id..'add:ch:username')..']"},
+{text = '• اشترك الان ⚜️'["..addchusername.."]"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
