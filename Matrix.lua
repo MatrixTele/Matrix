@@ -9244,64 +9244,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if text == 'تعيين الايدي عام' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if not Dev_Bots(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
-return false
-end
-redis:setex(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
-local Text= [[
-܁يمكنك اضافة ܊
-▹ `#username` - ܁ اسم المستخدم
-▹ `#msgs` - ܁ عدد رسائل المستخدم
-▹ `#photos` - ܁ عدد صور المستخدم
-▹ `#id` - ܁ ايدي المستخدم
-▹ `#stast` - ܁ رتبة المستخدم
-▹ `#edit` - ܁ عدد تعديلات 
-▹ `#game` - ܁ نقاط
-]]
-send(msg.chat_id_, msg.id_,Text)
-return false  
-end
-if redis:get(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) then 
-if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_,"܁تم الغاء تعيين الايدي") 
-redis:del(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) 
-return false  
-end 
-redis:del(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) 
-local CHENGER_ID = text:match("(.*)")  
-redis:set(bot_id.."KLISH:ID:bot",CHENGER_ID)
-send(msg.chat_id_, msg.id_,'܁تم تعيين الايدي بنجاح')    
-end
-if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if not Dev_Bots(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
-return false
-end
-redis:del(bot_id.."KLISH:ID:bot")
-send(msg.chat_id_, msg.id_, '܁ تم ازالة كليشة الايدي ')
-return false  
-end 
-if text == 'الاوامر' or text == 'اوامر' or text == 'الأوامر' then
+if text == 'الاوامر' or text == 'اوامر' or text == 'الأوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
