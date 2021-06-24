@@ -943,6 +943,39 @@ else
 Chat_Type = 'GroupBot' 
 end
 end
+if text and text:match("@[%a%d_]+") and  msg.sender_user_id_ == tonumber(Id_Sudo) and database:get(bot_id..":usernewsudo:"..msg.sender_user_id_) then 
+function Function_Matrix(arg, data)
+msg = arg.msg
+if data.id_ then
+if (data and data.type_ and data.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"💢┇ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end
+idmsgq = database:get(bot_id..":usernewsudo:"..msg.sender_user_id_)
+DeleteMessage(msg.chat_id_,{[0] = idmsgq}) 
+local Matrix_Info_Sudo = io.open("sudo.lua", 'w')
+Matrix_Info_Sudo:write([[
+token = "]]..token..[["
+
+Sudo = ]]..data.id_..[[  
+
+UserName = "]]..msg.content_.text_..[[" ;
+]])
+Matrix_Info_Sudo:close()
+send(msg.chat_id_,msg.id_,"🚧┇ تم تغيير المطور الاساسي للبوت بنجاح .")
+database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
+dofile('Matrix.lua')  
+else
+send(msg.chat_id_, msg.id_,"💢┇ لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = text},Function_Matrix,{msg=msg})
+
+
+
+return false
+end
+
 if database:get(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "تغير المطور الاساسي" and  msg.sender_user_id_ == tonumber(Id_Sudo) then 
 local Text = "🚧 ┇سوف يتم تغير المطور الاساسي\n❗️ ┇هل  انت  متأكد من هذا التغير ؟"
