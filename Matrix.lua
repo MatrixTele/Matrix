@@ -9149,8 +9149,16 @@ if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or tex
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ⏬"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- Matrix Team',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 Text = [[*
 🐲 • Welcome to Source
@@ -9431,7 +9439,7 @@ Text = [[
 • اضف رسائل + العدد بالرد
 • اضف مجوهرات + العدد بالرد
   ━═━═━═━
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
+𝘊?? -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
