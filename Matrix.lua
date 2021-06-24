@@ -274,6 +274,26 @@ function send(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
 tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil)
 end
+function send(chat_id, reply_to_message_id, text)
+local text1 = redis:get(bot_id..'Matrix:new:sourse1') or '━━━━━━━━'
+local text2 = redis:get(bot_id..'Matrix:new:sourse2') or '•'
+text = string.gsub(text,"━━━━━━━━",text1)
+text = string.gsub(text,"•",text2)
+local TextParseMode = {ID = "TextParseModeMarkdown"}
+pcall(tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil))
+end
+function send1(chat_id, reply_to_message_id, text)
+local text1 = redis:get(bot_id..'Matrix:new:sourse1') or '━━━━━━━━'
+local text2 = redis:get(bot_id..'Matrix:new:sourse2') or '•'
+text = string.gsub(text,"━━━━━━━━",text1)
+text = string.gsub(text,"•",text2)
+local TextParseMode = {ID = "TextParseModeMarkdown"}
+pcall(tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 0,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil))
+end
+function send2(chat_id, reply_to_message_id, text)
+local TextParseMode = {ID = "TextParseModeMarkdown"}
+pcall(tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 0,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil))
+end
 function DeleteMessage(chat,id)
 tdcli_function ({
 ID="DeleteMessages",
@@ -6532,25 +6552,6 @@ end
 send(msg.chat_id_,msg.id_,t)
 end,nil)
 end
-if text == 'المشرفين' and Admin(msg) then
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"}, offset_ = 0,limit_ = 400},function(ta,yazon1)
-t = "\n• قائمة المشرفين \n━━━━━━━━━\n"
-local list = yazon1.members_
-for i=1 ,#list do
-tdcli_function ({ID = "GetUser",user_id_ = yazon1.members_[i].user_id_},function(arg,data) 
-if data.username_ then
-username = '[@'..data.username_..']'
-else
-username = yazon1.members_[i].user_id_
-end
-t = t..''..i..'- '..username..' \n '
-if #list == i then
-send(msg.chat_id_, msg.id_,t)
-end
-end,nil)
-end
-end,nil)
-end
 if text == "رتبتي" then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -8258,6 +8259,46 @@ Teext = [[
 • بيع مجوهراتي + العدد ↺ لستبدال كل مجوهره ب50 رساله
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
+end
+if text == 'تغير شكل السورس' and Dev_Bots(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+redis:set(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_,'true1') 
+send2(msg.chat_id_, msg.id_, 'ارسل رمز بدلا عن هاذا \n ━━━━━━━━')
+return false
+end
+if redis:get(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_) == 'true1' then
+redis:set(bot_id..'Matrix:new:sourse1',text)
+send2(msg.chat_id_, msg.id_, 'الان ارسل رمز بدلا عن • ')
+redis:set(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_,'true2') 
+return false
+end
+if redis:get(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_) == 'true2' then
+redis:set(bot_id..'Matrix:new:sourse2',text)
+redis:del(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_, 'تم تغير شكل السورس')
+return false
+end
+if text == 'حذف شكل السورس' and Dev_Bots(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+redis:del(bot_id..'Matrix:new:sourse1')
+redis:del(bot_id..'Matrix:new:sourse2')
+send(msg.chat_id_, msg.id_, 'تم حظف تغير شكل السورس')
 end
 if text == 'رسائلي' then
 local nummsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
