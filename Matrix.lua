@@ -6532,6 +6532,25 @@ end
 send(msg.chat_id_,msg.id_,t)
 end,nil)
 end
+if text == 'المشرفين' and Admin(msg) then
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"}, offset_ = 0,limit_ = 400},function(ta,yazon1)
+t = "\n• قائمة المشرفين \n━━━━━━━━━\n"
+local list = yazon1.members_
+for i=1 ,#list do
+tdcli_function ({ID = "GetUser",user_id_ = yazon1.members_[i].user_id_},function(arg,data) 
+if data.username_ then
+username = '[@'..data.username_..']'
+else
+username = yazon1.members_[i].user_id_
+end
+t = t..''..i..'- '..username..' \n '
+if #list == i then
+send(msg.chat_id_, msg.id_,t)
+end
+end,nil)
+end
+end,nil)
+end
 if text == "رتبتي" then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
