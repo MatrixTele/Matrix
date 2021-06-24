@@ -12374,6 +12374,10 @@ https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id
 sendin(Chat_id,msg_idd,data.sender_user_id_,users[2])
 end
 end
+
+
+
+
 if Text and Text:match('(.*)/noS') then
 sudoo = Text:gsub("/noS","")
 print(msg.sender_user_id_,sudoo)
