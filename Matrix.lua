@@ -7386,24 +7386,6 @@ local Ttext = text:match('^بحث (.*)$')
 local msgin = msg.id_/2097152/0.5 
 http.request('http://devstorm.ml/tshake/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin)
 end
-if text == 'تعين الايدي عام' and DevMatrix(msg) then
-database:setex(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
-send(msg.chat_id_, msg.id_,[[
-   ☑┇ ارسل الان النص
-   ☑┇ يمكنك اضافه :
-   - `#username` > اسم المستخدم
-   - `#msgs` > عدد رسائل المستخدم
-   - `#photos` > عدد صور المستخدم
-   - `#id` > ايدي المستخدم
-   - `#auto` > تفاعل المستخدم
-   - `#stast` > موقع المستخدم 
-   - `#edit` > عدد السحكات
-   - `#game` > المجوهرات
-   - `#AddMem` > عدد الجهات
-   - `#Description` > تعليق الصوره
-   ]])
-return false  
-end 
 if text == 'تعين الايدي' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -7458,22 +7440,6 @@ local List = {
 local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'• تم تغير الايدي ارسل ايدي لرؤيته')
-end
-if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' and DevMatrix(msg) then
-database:del(bot_id.."Matrix:KleshIDALLBOT")
-send(msg.chat_id_, msg.id_, '📌┇تم ازالة كليشة الايدي ')
-return false  
-end 
-
-if database:get(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) then 
-database:del(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) 
-if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_,"📫┇تم الغاء تعين الايدي عام") 
-return false  
-end 
-database:set(bot_id.."Matrix:KleshIDALLBOT",text:match("(.*)"))
-send(msg.chat_id_, msg.id_,'📌┇تم تعين الايدي عام')   
-return false 
 end
 if text == 'حذف الايدي' or text == 'مسح الايدي' then
 if Owner(msg) then
