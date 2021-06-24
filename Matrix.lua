@@ -943,48 +943,7 @@ else
 Chat_Type = 'GroupBot' 
 end
 end
-if text and text:match("@[%a%d_]+") and  msg.sender_user_id_ == tonumber(Id_Sudo) and database:get(bot_id..":usernewsudo:"..msg.sender_user_id_) then 
-function Function_Matrix(arg, data)
-msg = arg.msg
-if data.id_ then
-if (data and data.type_ and data.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"💢┇ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end
-idmsgq = database:get(bot_id..":usernewsudo:"..msg.sender_user_id_)
-DeleteMessage(msg.chat_id_,{[0] = idmsgq}) 
-local Matrix_Info_Sudo = io.open("sudo.lua", 'w')
-Matrix_Info_Sudo:write([[
-token = "]]..token..[["
-
-Sudo = ]]..data.id_..[[  
-
-UserName = "]]..msg.content_.text_..[[" ;
-]])
-Matrix_Info_Sudo:close()
-send(msg.chat_id_,msg.id_,"🚧┇ تم تغيير المطور الاساسي للبوت بنجاح .")
-database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
-dofile('Matrix.lua')  
-else
-send(msg.chat_id_, msg.id_,"💢┇ لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text},Function_Matrix,{msg=msg})
-
-
-
-return false
-end
-
 if database:get(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "تغير المطور الاساسي" and  msg.sender_user_id_ == tonumber(Id_Sudo) then 
-local Text = "🚧 ┇سوف يتم تغير المطور الاساسي\n❗️ ┇هل  انت  متأكد من هذا التغير ؟"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = 'نعم', callback_data=msg.sender_user_id_.."/yesS"},{text = 'كلا , الغاء', callback_data=msg.sender_user_id_.."/noS"}}}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 if text == "الغاء" or text == "الغاء •" then   
 send(msg.chat_id_, msg.id_,"• تم الغاء الاذاعه") 
 database:del(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
@@ -1044,6 +1003,46 @@ Time_Spam = database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"flo
 end 
 end 
 --------------------------------------------------------------------------------------------------------------
+if text and text:match("@[%a%d_]+") and  msg.sender_user_id_ == tonumber(Id_Sudo) and database:get(bot_id..":usernewsudo:"..msg.sender_user_id_) then 
+function Function_Matrix(arg, data)
+msg = arg.msg
+if data.id_ then
+if (data and data.type_ and data.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"💢┇ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end
+idmsgq = database:get(bot_id..":usernewsudo:"..msg.sender_user_id_)
+DeleteMessage(msg.chat_id_,{[0] = idmsgq}) 
+local Matrix_Info_Sudo = io.open("sudo.lua", 'w')
+Matrix_Info_Sudo:write([[
+token = "]]..token..[["
+
+Sudo = ]]..data.id_..[[  
+
+UserName = "]]..msg.content_.text_..[[" ;
+]])
+Matrix_Info_Sudo:close()
+send(msg.chat_id_,msg.id_,"🚧┇ تم تغيير المطور الاساسي للبوت بنجاح .")
+database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
+dofile('Matrix.lua')  
+else
+send(msg.chat_id_, msg.id_,"💢┇ لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = text},Function_Matrix,{msg=msg})
+
+
+
+return false
+end
+if text == "تغير المطور الاساسي" and  msg.sender_user_id_ == tonumber(Id_Sudo) then 
+local Text = "🚧 ┇سوف يتم تغير المطور الاساسي\n❗️ ┇هل  انت  متأكد من هذا التغير ؟"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = 'نعم', callback_data=msg.sender_user_id_.."/yesS"},{text = 'كلا , الغاء', callback_data=msg.sender_user_id_.."/noS"}}}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 --------------------------------------------------------------------------------------------------------------
 if database:get(bot_id.."Matrix:Lock:text"..msg.chat_id_) and not Vips(msg) then       
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})   
