@@ -944,6 +944,14 @@ Chat_Type = 'GroupBot'
 end
 end
 if database:get(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if text == "تغير المطور الاساسي" and  msg.sender_user_id_ == tonumber(Id_Sudo) then 
+local Text = "🚧 ┇سوف يتم تغير المطور الاساسي\n❗️ ┇هل  انت  متأكد من هذا التغير ؟"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = 'نعم', callback_data=msg.sender_user_id_.."/yesS"},{text = 'كلا , الغاء', callback_data=msg.sender_user_id_.."/noS"}}}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 if text == "الغاء" or text == "الغاء •" then   
 send(msg.chat_id_, msg.id_,"• تم الغاء الاذاعه") 
 database:del(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
@@ -6891,7 +6899,30 @@ send(msg.chat_id_, msg.id_,"• ارسل لي الاسم الان ")
 end
 return false
 end
+if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
+database:set(bot_id.."lock_cleaner"..msg.chat_id_,true)
+send(msg.chat_id_, msg.id_, '☑┇ تم تفعيل التنظيف الوسائط التلقائي ')
+return false
+end
 
+if text == "تعطيل تنظيف الوسائط" and Owner(msg) then
+database:del(bot_id.."lock_cleaner"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, '🔏┇ تم تعطيل » التنظيف التلقائي ')
+return false
+end
+
+if text and text:match("^(ضع وقت التنظيف) (%d+)$") and Owner(msg) then
+local NumLoop = tonumber(text:match("(%d+)"))
+database:set(bot_id..':Timer_Cleaner:'..msg.chat_id_,NumLoop) 
+return send(msg.chat_id_, msg.id_,"📡*¦* تم وضع وقت التنظيف » { *"..NumLoop.."* } ساعه")
+end
+
+if text == "مسح الوسائط" and Owner(msg) then 
+local mmezz = database:smembers(bot_id..":IdsMsgsCleaner:"..msg.chat_id_)
+if #mmezz == 0 then return send(msg.chat_id_, msg.id_,"📮¦ لا يوجد وسائط مجدوله للحذف \n ") end
+for k,v in pairs(mmezz) do DeleteMessage(msg.chat_id_, {[0] = v}) end
+return send(msg.chat_id_, msg.id_,"📮¦ تم مسح جميع الوسائط المجدوله")
+end
 if text ==("مسح المطرودين") and Addictive(msg) then    
 local function delbans(extra, result)  
 if not msg.can_be_deleted_ == true then  
@@ -12311,6 +12342,30 @@ https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id
 sendin(Chat_id,msg_idd,data.sender_user_id_,users[2])
 end
 end
+if Text and Text:match('(.*)/noS') then
+sudoo = Text:gsub("/noS","")
+print(msg.sender_user_id_,sudoo)
+print(msg.sender_user_id_== tonumber(sudoo))
+if msg.sender_user_id_ == tonumber(sudoo) then 
+--DeleteMessage(msg.chat_id_,{[0] = msg.message_id_})
+local Teext = "🚧 ┇ تم الغاء الامر بنجاح ."
+database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
+return false
+end
+end
+
+if Text and Text:match('(.*)/yesS') then
+sudoo = Text:gsub("/yesS","")
+if msg.sender_user_id_ == tonumber(sudoo) then 
+local Texxt = "🚧 ┇ حسننا الان يمكنك ارسال معرف المطور الاساسي الجديد ..."
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = 'إالـغـاء الأمـر', callback_data=msg.sender_user_id_.."/noS"}}}
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Texxt).."&message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:set(bot_id..":usernewsudo:"..msg.sender_user_id_,data.message_id_)
+return false
+end
+end
 
 if Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
@@ -12738,6 +12793,39 @@ if text == 'تفعيل تحقق' and Addictive(msg) then
 database:set(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_,'true') 
 send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
 end 
+--======================================================================================================
+--======================================================================================================
+if Addictive(msg) then 
+
+
+if (msg.content_.ID == "MessagePhoto" 
+or msg.content_.ID == "MessageSticker" 
+or msg.content_.ID == "MessageVoice" 
+or msg.content_.ID == "MessageAudio" 
+or msg.content_.ID == "MessageVideo" 
+or msg.content_.ID == "MessageAnimation" 
+or msg.content_.ID == "MessageUnsupported") 
+and database:get(bot_id.."lock_cleaner"..msg.chat_id_) then
+print("Clener >>> ")
+database:sadd(bot_id..":IdsMsgsCleaner:"..msg.chat_id_,msg.id_)
+Timerr = database:get(bot_id..':Timer_Cleaner:'..msg.chat_id_)
+if Timerr then 
+Timerr = tonumber(Timerr)
+Timerr = 60*60*Timerr
+end
+database:setex(bot_id..":SetTimerCleaner:"..msg.chat_id_..msg.id_,Timerr or 21600,true)  
+end
+local Cleaner = database:smembers(bot_id..":IdsMsgsCleaner:"..msg.chat_id_)
+for k,v in pairs(Cleaner) do
+if not database:get(bot_id..":SetTimerCleaner:"..msg.chat_id_..v) then
+DeleteMessage(msg.chat_id_, {[0] = v}) 
+database:srem(bot_id..":IdsMsgsCleaner:"..msg.chat_id_,v)
+print("MSG DELET CLEANER : "..v)
+else
+print("MSG List CLEANER : "..v.." : Lodding ...")
+end
+end
+end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) == 'true'then
 numphoto = {'3','8','9','6'}
