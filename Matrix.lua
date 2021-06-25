@@ -8489,8 +8489,8 @@ if text == ("تحديث السورس") and DevMatrix(msg) then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/Matrix.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
 dofile('Matrix.lua')  
 return false
 end
@@ -9042,7 +9042,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevMatrix(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_Matrix/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -9080,7 +9080,7 @@ t = "*• الملف ↺ {"..file.."}\n• تم تعطيله وحذفه بنجا
 else
 t = "*• بالتاكيد تم تعطيل وحذف ملف ↺ {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_Matrix/master/files_Matrix/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
 os.execute("rm -fr Matrix_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -9100,7 +9100,7 @@ t = "*• بالتاكيد تم تنزيل وتفعيل ملف ↺ {"..file.."} 
 else
 t = "*• الملف ↺ {"..file.."}\n• تم تنزيله وتفعيله بنجاح \n*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MATRIXIQ/files_Matrix/master/files_Matrix/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
 local chek = io.open("Matrix_Files/"..file,'w+')
 chek:write(json_file)
@@ -9859,7 +9859,7 @@ Text = [[
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
 ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
- 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 ?? 𝟽 𝟾  𝟿
+ 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
  𝟎  𝟏  𝟐  𝟑  𝟒   𝟓   𝟔  𝟕   𝟖   𝟗
@@ -10468,8 +10468,8 @@ if text == "تحديث السورس ☑" then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/Matrix.lua')
-os.execute('wget https://raw.githubusercontent.com/MATRIXIQ/Matrix/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
 dofile('Matrix.lua')  
 return false
 end
