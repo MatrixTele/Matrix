@@ -8868,6 +8868,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' ..
 end
 end
 end
+_____________________
 if text == "فلم" then
 data,res = https.request('https://ccccxcc.ml/David/Movies.php')
 if res == 200 then
@@ -8883,6 +8884,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' ..
 end
 end
 end
+_____________________
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://ccccxcc.ml/David/Movies.php?serch='..URL.escape(Textm)..'')
@@ -9313,7 +9315,7 @@ return false
 end
 local Text =[[
 *𝙬𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 * [𝙨𝙤𝙪𝙧𝙘𝙚 𝙢𝙖𝙩𝙧𝙞𝙭 🦁](t.me/Matrix_Source)
-*𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤𝙣𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️*
+*𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤??𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13283,7 +13285,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الخيانة" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
+numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","??🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
 sendhen = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
