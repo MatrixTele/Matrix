@@ -1825,7 +1825,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:Join"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح دخول الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","✅꒐ تم فتح دخول الاعضاء")  
 return false
 end 
 if text == "فتح البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -1839,7 +1839,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","✅ تم فـتح البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","✅꒐ تم فـتح البوتات")  
 return false
 end 
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'سورس ماتركس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' then
@@ -1884,7 +1884,7 @@ end
 return false
 end  
 database:del(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","✅ تم فـتح الاشعارات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","✅꒐ تم فـتح الاشعارات")  
 return false
 end 
 if text == "فتح التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1899,7 +1899,7 @@ return false
 end 
 database:del(bot_id.."Matrix:lockpin"..msg.chat_id_)  
 database:srem(bot_id.."Matrix:Lock:pin",msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"unlock","✅ تم فـتح التثبيت هنا")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","✅꒐ تم فـتح التثبيت هنا")  
 return false
 end 
 if text == "فتح التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1913,7 +1913,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:edit"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"unlock","✅ تم فـتح تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","✅꒐ تم فـتح تعديل")  
 return false
 end 
 if text == "فتح التعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
@@ -1936,7 +1936,7 @@ list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","L
 for i,lock in pairs(list) do 
 database:del(bot_id..'Matrix:'..lock..msg.chat_id_)    
 end
-Reply_Status(msg,msg.sender_user_id_,"unlock","✅ تم فـتح جميع الاوامر")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","✅꒐ تم فـتح جميع الاوامر")  
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
@@ -1951,22 +1951,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","✅ تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lock","✅꒐ تم قفـل الروابط")  
 return false
 end 
 if text == "قفل الروابط بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","✅ تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","✅꒐ تم قفـل الروابط")  
 return false
 end 
 if text == "قفل الروابط بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","✅ تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","✅꒐ تم قفـل الروابط")  
 return false
 end 
 if text == "قفل الروابط بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","✅ تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","✅꒐ تم قفـل الروابط")  
 return false
 end 
 if text == "فتح الروابط" and Addictive(msg) then  
@@ -1980,7 +1980,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Lock:Link"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","✅꒐ تم فتح الروابط")  
 return false
 end 
 if text == "قفل المعرفات" and Addictive(msg) then  
@@ -1994,22 +1994,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","✅ تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","✅꒐ تم قفـل المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","✅ تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","✅꒐ تم قفـل المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","✅ تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","✅꒐ تم قفـل المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","✅ تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","✅꒐ تم قفـل المعرفات")  
 return false
 end 
 if text == "فتح المعرفات" and Addictive(msg) then  
@@ -3456,7 +3456,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐| تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐ تم ترقيته منشئ اساسي")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3479,7 +3479,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⏫꒐| تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.id_,"reply","⏫꒐ تم ترقيته منشئ اساسي")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3499,7 +3499,7 @@ return false
 end
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫꒐| تم ترقيته منشئ اساسي")  
+Reply_Status(msg,userid,"reply","⏫꒐ تم ترقيته منشئ اساسي")  
 return false
 end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
@@ -3570,7 +3570,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐| تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐ تم ترقيته منشئ في المجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
@@ -3592,7 +3592,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⏫꒐| تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫꒐ تم ترقيته منشئ في المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3612,7 +3612,7 @@ return false
 end
 local userid = text:match("^رفع منشئ (%d+)$")
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫꒐| تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,userid,"reply","⏫꒐ تم ترقيته منشئ في المجموعه")  
 end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
 function Function_Matrix(extra, result, success)
@@ -3671,7 +3671,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐| تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐ تم ترقيته مدير المجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3694,7 +3694,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⏫꒐| تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫꒐ تم ترقيته مدير المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3715,7 +3715,7 @@ return false
 end
 local userid = text:match("^رفع مدير (%d+)$") 
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫꒐| تم ترقيته مدير المجموعه")  
+Reply_Status(msg,userid,"reply","⏫꒐ تم ترقيته مدير المجموعه")  
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -3789,7 +3789,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐| تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐ تم ترقيته ادمن للمجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3816,7 +3816,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⏫꒐| تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫꒐ تم ترقيته ادمن للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3840,7 +3840,7 @@ send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫꒐| تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,userid,"reply","⏫꒐ تم ترقيته ادمن للمجموعه")  
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
@@ -3941,7 +3941,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⏫꒐| تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫꒐ تم ترقيته مميز للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3966,7 +3966,7 @@ send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫꒐| تم ترقيته مميز في المجموعة")  
+Reply_Status(msg,userid,"reply","⏫꒐ تم ترقيته مميز في المجموعة")  
 return false
 end
 
@@ -5637,7 +5637,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐| تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","⏫꒐ تم ترقيته منظف للمجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -5660,7 +5660,7 @@ send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا م�
 return false 
 end      
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⏫꒐| تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,result.id_,"reply","⏫꒐ تم ترقيته منظف للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"❎ لا يوجد حساب بهاذا المعرف")
 end
@@ -5684,7 +5684,7 @@ send(msg.chat_id_, msg.id_,'❎| تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⏫꒐| تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,userid,"reply","⏫꒐ تم ترقيته منظف للمجموعه")  
 return false
 end
 if text == ("تنزيل منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
@@ -8792,103 +8792,6 @@ if text == "تفعيل الافلام" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'• تم تفعيل الافلام')
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
 end
---     Source Matrix     --
-if text == "متحركه" then
-data,res = https.request('https://ccccxcc.ml/David/animation.php')
-if res == 200 then
-animation = json:decode(data)
-if animation.Info == true then
-local Text ='*• تم اختيار المتحركه لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
---     Source Matrix     --
-if text == "ميمز" then
-data,res = https.request('https://ccccxcc.ml/David/memz.php')
-if res == 200 then
-Audios = json:decode(data)
-if Audios.Info == true then
-local Text ='*• تم اختيار مقطع الميمز لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
---     Source Matrix     --
-if text == "ريمكس" then
-data,res = https.request('https://ccccxcc.ml/David/Remix.php')
-if res == 200 then
-Audios = json:decode(data)
-if Audios.Info == true then
-local Text ='*• تم اختيار الريمكس لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
---     Source Matrix     --
-if text == "صوره" then
-data,res = https.request('https://ccccxcc.ml/David/Photo.php')
-if res == 200 then
-photo = json:decode(data)
-if photo.Info == true then
-local Text ='*• تم اختيار الصوره لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
---     Source Matrix     --
-if text == "مسلسل" then
-data,res = https.request('https://ccccxcc.ml/David/Series.php')
-if res == 200 then
-photo = json:decode(data)
-if photo.Info == true then
-local Text ='*• تم اختيار مسلسل لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
---     Source Matrix     --
-if text == "فلم" then
-data,res = https.request('https://ccccxcc.ml/David/Movies.php')
-if res == 200 then
-photo = json:decode(data)
-if photo.Info == true then
-local Text ='*• تم اختيار فلم لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
---     Source Matrix     --
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://ccccxcc.ml/David/Movies.php?serch='..URL.escape(Textm)..'')
@@ -9866,7 +9769,7 @@ end end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'رجوع 🔚' then  
 if DevMatrix(msg) then
-local Text = '📥┇مرحبا بك في اوامر المطور الجاهزه \n[𝒘𝒆𝒍𝒄𝒐𝒎𝒆 ??𝒂𝒕𝒓𝒊𝒙᪣](t.me/NIGGA_SoUrcE)'
+local Text = '📥┇مرحبا بك في اوامر المطور الجاهزه \n[𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒎𝒂𝒕𝒓𝒊𝒙᪣](t.me/NIGGA_SoUrcE)'
 local keyboard = {
 {'تغيير المطور الاساسي 🔁'},
 {'تغير اسم البوت 🔁','الاحصائيات 📊'},
@@ -9955,7 +9858,7 @@ Text = [[
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
 ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
- 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
+ 𝟶 𝟷 ?? 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
  𝟎  𝟏  𝟐  𝟑  𝟒   𝟓   𝟔  𝟕   𝟖   𝟗
