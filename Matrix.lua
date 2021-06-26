@@ -6024,15 +6024,7 @@ send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قنا
 end
 return false
 end
-local Text = '↪️꒐ الان ارسل الرد الذي تريد وضعة'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '#️⃣꒐ معرفه المزيد؟',url="https://t.me/Matrix_Source"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
