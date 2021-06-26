@@ -8793,6 +8793,21 @@ send(msg.chat_id_, msg.id_,'• تم تفعيل الافلام')
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
 end
 
+if text == "فلم" then
+data,res = https.request('https://ccccxcc.ml/David/Movies.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*• تم اختيار فلم لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://ccccxcc.ml/David/Movies.php?serch='..URL.escape(Textm)..'')
@@ -9859,7 +9874,7 @@ Text = [[
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
 ••┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉••
- 𝟶 ?? 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
+ 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
  𝟎  𝟏  𝟐  𝟑  𝟒   𝟓   𝟔  𝟕   𝟖   𝟗
