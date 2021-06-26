@@ -8793,6 +8793,81 @@ send(msg.chat_id_, msg.id_,'• تم تفعيل الافلام')
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
 end
 
+if text == "متحركه" then
+data,res = https.request('https://ccccxcc.ml/David/animation.php')
+if res == 200 then
+animation = json:decode(data)
+if animation.Info == true then
+local Text ='*• تم اختيار المتحركه لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "ميمز" then
+data,res = https.request('https://ccccxcc.ml/David/memz.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*• تم اختيار مقطع الميمز لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "ريمكس" then
+data,res = https.request('https://ccccxcc.ml/David/Remix.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*• تم اختيار الريمكس لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "صوره" then
+data,res = https.request('https://ccccxcc.ml/David/Photo.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*• تم اختيار الصوره لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "مسلسل" then
+data,res = https.request('https://ccccxcc.ml/David/Series.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*• تم اختيار مسلسل لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
 if text == "فلم" then
 data,res = https.request('https://ccccxcc.ml/David/Movies.php')
 if res == 200 then
@@ -8804,7 +8879,7 @@ keyboard.inline_keyboard = {
 {{text = '- 𝚖𝚊𝚝𝚛𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end
