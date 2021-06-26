@@ -8792,7 +8792,7 @@ if text == "تفعيل الافلام" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'• تم تفعيل الافلام')
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
 end
-
+--     Source Matrix     --
 if text == "متحركه" then
 data,res = https.request('https://ccccxcc.ml/David/animation.php')
 if res == 200 then
@@ -8808,6 +8808,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=
 end
 end
 end
+--     Source Matrix     --
 if text == "ميمز" then
 data,res = https.request('https://ccccxcc.ml/David/memz.php')
 if res == 200 then
@@ -8823,6 +8824,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' ..
 end
 end
 end
+--     Source Matrix     --
 if text == "ريمكس" then
 data,res = https.request('https://ccccxcc.ml/David/Remix.php')
 if res == 200 then
@@ -8838,6 +8840,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' ..
 end
 end
 end
+--     Source Matrix     --
 if text == "صوره" then
 data,res = https.request('https://ccccxcc.ml/David/Photo.php')
 if res == 200 then
@@ -8853,6 +8856,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' ..
 end
 end
 end
+--     Source Matrix     --
 if text == "مسلسل" then
 data,res = https.request('https://ccccxcc.ml/David/Series.php')
 if res == 200 then
@@ -8868,7 +8872,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' ..
 end
 end
 end
-_____________________
+--     Source Matrix     --
 if text == "فلم" then
 data,res = https.request('https://ccccxcc.ml/David/Movies.php')
 if res == 200 then
@@ -8884,7 +8888,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' ..
 end
 end
 end
-_____________________
+--     Source Matrix     --
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://ccccxcc.ml/David/Movies.php?serch='..URL.escape(Textm)..'')
@@ -9315,7 +9319,7 @@ return false
 end
 local Text =[[
 *𝙬𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 * [𝙨𝙤𝙪𝙧𝙘𝙚 𝙢𝙖𝙩𝙧𝙞𝙭 🦁](t.me/Matrix_Source)
-*𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤??𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️*
+*𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤𝙣𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9862,7 +9866,7 @@ end end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'رجوع 🔚' then  
 if DevMatrix(msg) then
-local Text = '📥┇مرحبا بك في اوامر المطور الجاهزه \n[𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒎𝒂𝒕𝒓𝒊𝒙᪣](t.me/NIGGA_SoUrcE)'
+local Text = '📥┇مرحبا بك في اوامر المطور الجاهزه \n[𝒘𝒆𝒍𝒄𝒐𝒎𝒆 ??𝒂𝒕𝒓𝒊𝒙᪣](t.me/NIGGA_SoUrcE)'
 local keyboard = {
 {'تغيير المطور الاساسي 🔁'},
 {'تغير اسم البوت 🔁','الاحصائيات 📊'},
@@ -13285,7 +13289,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الخيانة" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","??🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
+numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
 sendhen = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
