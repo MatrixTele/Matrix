@@ -9700,6 +9700,9 @@ database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.cha
 database:sadd(bot_id.."gamebot:List:Manager", text)
 return false end
 end
+
+end ---- Chat_Type = 'GroupBot' 
+end ---- Chat_Type = 'GroupBot' 
 if text == 'تفعيل' and DevBot(msg) then 
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
