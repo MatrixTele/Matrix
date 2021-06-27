@@ -9682,9 +9682,6 @@ send(msg.chat_id_, msg.id_,Text)
 return false
 end
 
-end ---- Chat_Type = 'GroupBot' 
-end ---- Chat_Type = 'GroupBot' 
-
 if text == "اضف كت تويت ➕" and DevBot(msg) then
 database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
@@ -9778,7 +9775,7 @@ local Text = '❎꒐ تم تعطيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '#️⃣꒐ معرفة المزيد ؟',url="https://t.me/DevMatrix"},
+{text = '#️⃣꒐ معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9843,7 +9840,7 @@ local Text = '✅꒐ تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '#️⃣꒐ معرفة المزيد ؟',url="https://t.me/DevMatrix"},
+{text = '#️⃣꒐ معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
