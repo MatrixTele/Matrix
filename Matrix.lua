@@ -2862,7 +2862,7 @@ return false
 end
 if text == ("الثانويين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
-t = "\n• قائمة مطورين الثانويين للبوت \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة مطورين الثانويين للبوت \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3029,7 +3029,7 @@ send(msg.chat_id_, msg.id_, "\n• تم مسح المحظورين")
 end
 if text == ("قائمه العام") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n• قائمة المحظورين عام \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة المحظورين عام \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3045,7 +3045,7 @@ return SendMsg_Msgeeslist("listbans",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == ("المطورين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:Sudo:User")
-t = "\n• قائمة مطورين البوت \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة مطورين البوت \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3061,7 +3061,7 @@ return SendMsg_Msgeeslist("listsudo",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == "المنشئين الاساسين" and DevBot(msg) then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "\n• قائمة المنشئين الاساسين \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة المنشئين الاساسين \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3087,7 +3087,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Constructor"..msg.chat_id_)
-t = "\n• قائمة المنشئين \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة المنشئين \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3113,7 +3113,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Manager"..msg.chat_id_)
-t = "\n• قائمة المدراء \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة المدراء \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3139,7 +3139,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Mod:User"..msg.chat_id_)
-t = "\n• قائمة الادمنيه \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة الادمنيه \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3156,7 +3156,7 @@ return SendMsg_Msgeeslist("listadmin",msg.chat_id_,msg.sender_user_id_,msg.id_, 
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."Matrix:Special:User"..msg.chat_id_)
-t = "\n• قائمة مميزين المجموعه \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة مميزين المجموعه \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3182,7 +3182,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Muted:User"..msg.chat_id_)
-t = "\n• قائمة المكتومين \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة المكتومين \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3209,7 +3209,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Ban:User"..msg.chat_id_)
-t = "\n• قائمة محظورين المجموعه \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة محظورين المجموعه \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3490,7 +3490,7 @@ end
 end
 if text == "المالكين" and DevBot(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "\n• قائمة مالكين المجموعه \n — — — — — — — — — \n"
+t = "\n📋꒐ قائمة مالكين المجموعه \n — — — — — — — — — \n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
@@ -5572,7 +5572,7 @@ return false
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
-text = "\n• قائمة البوتات الموجوده \n  ━═━═━═━\n"
+text = "\n📋꒐ قائمة البوتات الموجوده \n  ━═━═━═━\n"
 local n = 0
 local t = 0
 for i=0 , #admins do 
@@ -5888,7 +5888,7 @@ if #list == 0 then
 send(msg.chat_id_, msg.id_,"❎꒐  لا توجد صلاحيات مضافه")
 return false
 end
-t = "\n• قائمة الصلاحيات المضافه \n━━━━━━━━━━━━━\n"
+t = "\n📋꒐ قائمة الصلاحيات المضافه \n━━━━━━━━━━━━━\n"
 for k,v in pairs(list) do
 var = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..v..msg.chat_id_)
 if var then
@@ -5923,7 +5923,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
-t = "\n• قائمة المنظفين \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة المنظفين \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -6310,7 +6310,7 @@ send(msg.chat_id_, msg.id_,"✅| تم ازالة ردود المطور")
 end
 if text == ("ردود المطور") and DevMatrix(msg) then 
 local list = database:smembers(bot_id.."Matrix:List:Rd:Sudo")
-text = "\n• قائمة ردود المطور \n  ━═━═━═━\n"
+text = "\n📋꒐ قائمة ردود المطور \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 if database:get(bot_id.."Matrix:Add:Rd:Sudo:Gif"..v) then
 db = "متحركه 🎭"
@@ -10083,7 +10083,7 @@ end
 if text and text:match("^/start msg(.*)$") then
 sl = text:match("^/start msg(.*)$")
 local list = database:smembers(bot_id.."Matrix:List:Filter:text"..sl)
-t = "\n• قائمة الكلمات الممنوعه \n  ━═━═━═━\n"
+t = "\n📋꒐ قائمة الكلمات الممنوعه \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 if v then
 t = t..""..k.."- ["..v.."]\n"
