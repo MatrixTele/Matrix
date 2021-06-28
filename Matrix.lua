@@ -7090,7 +7090,7 @@ return false
 end
 if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
 database:set(bot_id.."lock_cleaner"..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_, '☑┇ تم تفعيل التنظيف الوسائط التلقائي ')
+send(msg.chat_id_, msg.id_, '✅꒐  تم تفعيل التنظيف الوسائط التلقائي ')
 return false
 end
 
@@ -7606,6 +7606,24 @@ local Ttext = text:match('^بحث (.*)$')
 local msgin = msg.id_/2097152/0.5 
 http.request('http://devstorm.ml/tshake/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin)
 end
+if text == 'تعين الايدي عام' and DevMatrix(msg) then
+database:setex(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
+send(msg.chat_id_, msg.id_,[[
+   ✅꒐  ارسل الان النص
+   ✅꒐  يمكنك اضافه :
+   - `#username` > اسم المستخدم
+   - `#msgs` > عدد رسائل المستخدم
+   - `#photos` > عدد صور المستخدم
+   - `#id` > ايدي المستخدم
+   - `#auto` > تفاعل المستخدم
+   - `#stast` > موقع المستخدم 
+   - `#edit` > عدد السحكات
+   - `#game` > المجوهرات
+   - `#AddMem` > عدد الجهات
+   - `#Description` > تعليق الصوره
+   ]])
+return false  
+end 
 if text == 'تعين الايدي' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -7660,6 +7678,22 @@ local List = {
 local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'• تم تغير الايدي ارسل ايدي لرؤيته')
+end
+if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' and DevMatrix(msg) then
+database:del(bot_id.."Matrix:KleshIDALLBOT")
+send(msg.chat_id_, msg.id_, '📌┇تم ازالة كليشة الايدي ')
+return false  
+end 
+
+if database:get(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) then 
+database:del(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) 
+if text == 'الغاء' then 
+send(msg.chat_id_, msg.id_,"📫┇تم الغاء تعين الايدي عام") 
+return false  
+end 
+database:set(bot_id.."Matrix:KleshIDALLBOT",text:match("(.*)"))
+send(msg.chat_id_, msg.id_,'📌┇تم تعين الايدي عام')   
+return false 
 end
 if text == 'حذف الايدي' or text == 'مسح الايدي' then
 if Owner(msg) then
@@ -9182,7 +9216,7 @@ if Text_Dev then
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"• المطور :: ["..data.first_name_.."](T.me/"..data.username_..")")  
+send(msg.chat_id_, msg.id_,"👨‍💼꒐ developer ["..data.first_name_.."](T.me/"..data.username_..") ←")  
 end,nil)   
 end
 end
@@ -9769,7 +9803,7 @@ if text == 'تعطيل' and DevBot(msg) then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'☑┇المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'✅꒐ المجموعه معطله سابقا ')
 else
 local Text = '❎꒐ تم تعطيل البوت في المجموعة'
 keyboard = {} 
@@ -10213,7 +10247,7 @@ send(msg.chat_id_, msg.id_,'*🔘┇احصائيات البوت* \n\n👥┇عد
 end
 if text == 'لاصدار 🛡️' then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'☑┇ اصدار سورس* ماتركس* لديك (*v1.0*) 🛡️')
+send(msg.chat_id_, msg.id_,'✅꒐  اصدار سورس* ماتركس* لديك (*v1.0*) 🛡️')
 end
 if text == "اعادة التشغيل ⚙️" then  
 dofile("Matrix.lua") 
@@ -10238,7 +10272,7 @@ if sendok == 0 then
 send(msg.chat_id_, msg.id_,'👤┇لا يوجد مشتركين وهميين')   
 else
 local ok = #pv - sendok
-send(msg.chat_id_, msg.id_,'*👥┇عدد المشتركين الان ~ '..#pv..'\n💢┇تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n☑┇اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
+send(msg.chat_id_, msg.id_,'*👥┇عدد المشتركين الان ~ '..#pv..'\n💢┇تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n✅꒐ اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
 end
 end
 end,nil)
