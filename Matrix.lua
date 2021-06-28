@@ -5061,51 +5061,33 @@ local Num = text:match("^وضع زمن التكرار (%d+)$")
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Num) 
 send(msg.chat_id_, msg.id_,"• تم وضع زمن التكرار ("..Num..")") 
 end
-if text == "ضع رابط" or text == "وضع رابط" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
+if text == "ضع رابط" or text == 'وضع رابط' then
 if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
-send(msg.chat_id_,msg.id_,"• ارسل رابط المجموعه او رابط قناة المجموعه")
-database:setex(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
-return false
-end
-end
-if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'  *• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت* \n*• اشتࢪڪ هنا عمࢪي* ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
+send(msg.chat_id_,msg.id_," *• حسنآ ارسل اليه الرابط الان*")
+database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
+return false
+end
+end
+if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
 if Addictive(msg) then  
-database:set(bot_id.."Matrix:Link_Group"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"• تم تفعيل جلب الرابط المجموعه") 
+database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_," *• تم تفعيل الرابط*") 
 return false  
 end
 end
-if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
+if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
 if Addictive(msg) then  
-database:del(bot_id.."Matrix:Link_Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم تعطيل جلب رابط المجموعه") 
+database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_," *• تم تعطيل الرابط*") 
 return false end
 end
 if text == "الرابط" then 
@@ -5129,36 +5111,24 @@ send(msg.chat_id_, msg.id_,linkgp)
 end            
  end,nil)
 end
-if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
+if text == 'مسح الرابط' or text == 'حذف الرابط' then
+if Addictive(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'  *• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت* \n*• اشتࢪڪ هنا عمࢪي* ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if Addictive(msg) then  
-database:set(bot_id.."Matrix:Link_Group"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"• تم تفعيل جلب الرابط المجموعه") 
+send(msg.chat_id_,msg.id_," *• تم مسح الرابط*")   
+database:del(bot_id.."Private:Group:Link"..msg.chat_id_) 
 return false  
 end
 end
-if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if Addictive(msg) then  
-database:del(bot_id.."Matrix:Link_Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم تعطيل جلب رابط المجموعه") 
-return false end
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
 if text == 'رقمي' then   
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
@@ -5172,23 +5142,6 @@ end,nil)
 end 
 if text == 'ايديي' then   
 send(msg.chat_id_, msg.id_,'•  ايديك > '..msg.sender_user_id_)
-end
-if text == "مسح الرابط" or text == "حذف الرابط" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if Addictive(msg) then     
-send(msg.chat_id_,msg.id_,"• تم مسح الرابط ")           
-database:del(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_) 
-return false      
-end
-return false  
 end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
