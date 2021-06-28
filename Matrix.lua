@@ -5720,7 +5720,15 @@ database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":تعط","تع�
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"تعط")
 database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":تفع","تفعيل الايدي بالصوره")
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"تفع")
-send(msg.chat_id_, msg.id_,"• تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .")  
+database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":رد","اضف رد")
+database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"رد")
+database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":ت","تثبيت")
+database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"ت")
+database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":تك","تنزيل الكل")
+database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"تك")
+database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":حذ","حذف رد")
+database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"حذ")
+send(msg.chat_id_, msg.id_,"• تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .\n- اضف رد - رد . \n- تثبيت - ت . \n- تنزيل الكل - تك . \n- حذف رد - حذ")  
 end
 if text == "اضف امر" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -13684,7 +13692,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الخيانة" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
+numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔?? 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
 sendhen = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
