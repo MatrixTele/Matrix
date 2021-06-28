@@ -9682,17 +9682,31 @@ send(msg.chat_id_, msg.id_,Text)
 return false
 end
 
-if text == "اضف كت تويت ➕" and DevBot(msg) then
+if text == 'كت تويت' or text == 'كت' or text == 'تويت' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local list = database:smembers(bot_id..'gamebot:List:Manager')
+quschen = list[math.random(#list)]
+send(msg.chat_id_, msg.id_,quschen)
+end
+if text == "اضف سوال" or text == 'اضف سؤال' or text == 'اضف كت تويت' or text == 'اضف كت' and DevMatrix(msg) then
 database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
 end
-if text == "حذف كت تويت ➖" and DevBot(msg) then
+if text == "حذف الاسئله" or text == 'حذف كت تويت' and DevMatrix(msg) then
 database:del(bot_id.."gamebot:List:Manager")
 return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
+send(msg.chat_id_, msg.id_, '\n✅┇تم حفظ السؤال بنجاح')
 database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
 database:sadd(bot_id.."gamebot:List:Manager", text)
 return false end
