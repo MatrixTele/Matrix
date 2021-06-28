@@ -5114,7 +5114,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5127,14 +5127,7 @@ local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)
 if link then                              
 send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..link.."]")                          
 else                
-local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..msg.chat_id_))
-if InviteLink.result.invite_link then
-jk = InviteLink.result.invite_link
-elseif not InviteLink.result.invite_link then
-https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..msg.chat_id_)
-jk = InviteLink.result.invite_link
-end 
-send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..jk.."]")                          
+send(msg.chat_id_, msg.id_,"• لا يوجد رابط ارسل ضع رابط")              
 end            
 end
 if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
@@ -13692,7 +13685,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الخيانة" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔?? 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
+numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
 sendhen = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
