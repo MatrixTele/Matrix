@@ -5109,33 +5109,25 @@ send(msg.chat_id_, msg.id_,"• تم تعطيل جلب رابط المجموعه
 return false end
 end
 if text == "الرابط" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local status_Link = database:get(bot_id.."Matrix:Link_Group"..msg.chat_id_)
+local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
 if not status_Link then
-send(msg.chat_id_, msg.id_,"• جلب الرابط معطل") 
+send(msg.chat_id_, msg.id_,"• الرابط معطل") 
 return false  
 end
-local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
+local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"📎꒐ رابط المجموعة : \n ["..link.."]")                          
+send(msg.chat_id_,msg.id_,' ['..ta.title_..']('..link..')')                          
 else                
-local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..msg.chat_id_))
-if InviteLink.result.invite_link then
-jk = InviteLink.result.invite_link
-elseif not InviteLink.result.invite_link then
-https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..msg.chat_id_)
-jk = InviteLink.result.invite_link
-end 
-send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..jk.."]")                          
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+linkgp = '📎꒐ رابط المجموعة : \n ['..ta.title_..']('..linkgpp.result..')'
+else
+linkgp = '• لا يوجد رابط ارسل ضع رابط'
+end  
+send(msg.chat_id_, msg.id_,linkgp)              
 end            
+ end,nil)
 end
 if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
 if AddChannel(msg.sender_user_id_) == false then
@@ -5258,7 +5250,7 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
-if text == ("عدد الميديا") and cleaner(msg) then  
+if text == ("الميديا") and cleaner(msg) then  
 local gmria = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
 end
@@ -9757,11 +9749,11 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
 else
-local Text = '✅꒐ تم تفعيل البوت في المجموعة'
+local Text = '☑┇تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '#️⃣꒐ معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9811,13 +9803,13 @@ if text == 'تعطيل' and DevBot(msg) then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'✅꒐ المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'☑┇المجموعه معطله سابقا ')
 else
-local Text = '❎꒐ تم تعطيل البوت في المجموعة'
+local Text = '❎┇تم تعطيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '#️⃣꒐ معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9878,11 +9870,11 @@ end
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
 else
-local Text = '✅꒐ تم تفعيل البوت في المجموعة'
+local Text = '☑┇تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '#️⃣꒐ معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9916,7 +9908,7 @@ else
 LinkGp = 'لا يوجد'
 end
 Text = '🔖┇تم تفعيل مجموعه جديده\n'..
-'\n??┇بواسطة ~ '..Name..''..
+'\n🦇┇بواسطة ~ '..Name..''..
 '\n📌┇موقعه في المجموعه ~ '..AddPy..'' ..
 '\n📛┇ايدي المجموعه ~ `'..IdChat..'`'..
 '\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
@@ -9933,8 +9925,7 @@ end,nil)
 end,nil) 
 end,nil)
 end
----------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------
+
 if text == 'كيبورد اوامر الاذاعة 📣' then  
 if DevMatrix(msg) then
 local Text = '📩┇مرحبا بك في كيبورد اوامر الاذاعة'
