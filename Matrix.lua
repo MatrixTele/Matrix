@@ -5114,7 +5114,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5125,9 +5125,16 @@ return false
 end
 local link = database:get(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..link.."]")                          
+send(msg.chat_id_,msg.id_,"📎꒐ رابط المجموعة : \n ["..link.."]")                          
 else                
-send(msg.chat_id_, msg.id_,"• لا يوجد رابط ارسل ضع رابط")              
+local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..msg.chat_id_))
+if InviteLink.result.invite_link then
+jk = InviteLink.result.invite_link
+elseif not InviteLink.result.invite_link then
+https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..msg.chat_id_)
+jk = InviteLink.result.invite_link
+end 
+send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..jk.."]")                          
 end            
 end
 if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
