@@ -9216,7 +9216,7 @@ if Text_Dev then
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"👨‍💼꒐ developer ["..data.first_name_.."](T.me/"..data.username_..") ←")  
+send(msg.chat_id_, msg.id_,"*👨‍💼꒐ developer* ["..data.first_name_.."](T.me/"..data.username_..") ←")  
 end,nil)   
 end
 end
@@ -11600,7 +11600,7 @@ end
 elseif Text and Text:match('(.*)/unMatrix:Status:Bc') and DevMatrix(data) then  
 if tonumber(Text:match('(.*)/unMatrix:Status:Bc')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."Matrix:Status:Bc",true) 
-local Textedit = '📛| تم تعطيل الاذاعه '
+local Textedit = '??| تم تعطيل الاذاعه '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
