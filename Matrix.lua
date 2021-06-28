@@ -9216,7 +9216,7 @@ if Text_Dev then
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"*👨‍💼꒐ developer* ["..data.first_name_.."](T.me/"..data.username_..") ←")  
+send(msg.chat_id_, msg.id_,"*⌯  𝖬𝖺𝗂𝗇 𝖻𝗈𝗍 𝖽𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋* ["..data.first_name_.."](T.me/"..data.username_..") *←*")  
 end,nil)   
 end
 end
