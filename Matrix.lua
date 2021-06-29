@@ -9383,9 +9383,6 @@ keyboard.inline_keyboard = {
 {
 {text = 'اوامر المطورين', callback_data=msg.sender_user_id_.."/help7"},
 },
-{
-{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=msg.sender_user_id_.."/homelocks"},
-},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9411,7 +9408,6 @@ Text = [[
 • رفع منظف - تنزيل منظف
 • المنظفين - مسح المنظفين
 — — — —― — — — — ― — — — —
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9458,7 +9454,6 @@ Text = [[
 • الكلايش
 • السيلفي
   ━═━═━═━
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9530,7 +9525,6 @@ Text = [[
 • مسح الصلاحيات
 • مسح الرابط
   ━═━═━═━
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9577,7 +9571,6 @@ Text = [[
 • تفعيل/تعطيل اوامر التحشيش
 • تفعيل/تعطيل الرابط/جلب الرابط
   ━═━═━═━
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9613,7 +9606,6 @@ Text = [[
 • اضف رسائل + العدد بالرد
 • اضف مجوهرات + العدد بالرد
   ━═━═━═━
-𝘊?? -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9663,7 +9655,6 @@ Text = [[
 • رفع/تنزيل منشئ اساسي
 • مسح المنشئين الاساسين
   ━═━═━═━
-𝘊𝘩 -[˹ꪑꪖ𝓽𝘳𝓲᥊˼](t.me/Matrix_Source)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9895,10 +9886,10 @@ if text == 'كيبورد الاشتراك الاجباري📛' then
 if DevMatrix(msg) then
 local Text = '📮┇مرحبا بك في كيبورد اوامر الاشتراك'
 local keyboard = {
-{'- تفعيل الاشتراك الاجباري ⌔ .','- تعطيل الاشتراك الاجباري ⌔ .'},
-{'- تغير رساله الاشتراك ⌔ .','حذف رساله الاشتراك ⌔ .'},
-{'- تعين قناة الاشتراك ⌔ .','- تغير الاشتراك ⌔ .'},
-{'- الاشتراك الاجباري ⌔ .'},
+{'تفعيل الاشتراك الاجباري 🖇','تعطيل الاشتراك الاجباري 🖇'},
+{'تغير رساله الاشتراك 🖇','حذف رساله الاشتراك 🖇'},
+{'تعين قناة الاشتراك 🖇','- تغير الاشتراك ⌔ .'},
+{'الاشتراك الاجباري 🖇'},
 {'رجوع 🔚'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
@@ -10289,61 +10280,61 @@ if text =='تغيير المطور الاساسي 🔁' and not VIP_DeV(msg) the
 send(msg.chat_id_, msg.id_,'• تسرسح')
 end
 if VIP_DeV(msg) then
-if text == "- الاشتراك الاجباري ⌔ ."  then  
+if text == "الاشتراك الاجباري 🖇"  then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "⌔︙تم تفعيل الاشتراك الاجباري \n⌔︙على القناة -› ["..addchusername.."]")
+send(msg.chat_id_, msg.id_, "• تم تفعيل الاشتراك الاجباري \n• على القناة -› ["..addchusername.."]")
 else
-send(msg.chat_id_, msg.id_, "⌔︙لا يوجد قناة في الاشتراك الاجباري ")
+send(msg.chat_id_, msg.id_, "• لا يوجد قناة في الاشتراك الاجباري ")
 end
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري ⌔ ."  then  
+if text == "تفعيل الاشتراك الاجباري 🖇"  then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"⌔︙الاشتراك الاجباري مفعل \n⌔︙على القناة -› ["..addchusername.."]")
+send(msg.chat_id_, msg.id_,"• الاشتراك الاجباري مفعل \n• على القناة -› ["..addchusername.."]")
 else
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_,"⌔︙اهلا عزيزي المطور \n⌔︙ارسل الان معرف قناتك")
+send(msg.chat_id_, msg.id_,"• اهلا عزيزي المطور \n• ارسل الان معرف قناتك")
 end
 return false  
 end
-if text == "- تعطيل الاشتراك الاجباري ⌔ ."  then  
+if text == "تعطيل الاشتراك الاجباري 🖇"  then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "⌔︙تم تعطيل الاشتراك الاجباري ")
+send(msg.chat_id_, msg.id_, "• تم تعطيل الاشتراك الاجباري ")
 return false  
 end
 if text == '- تغير الاشتراك ⌔ .' then
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '⌔︙حسنآ ارسل لي معرف القناة')
+send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == '- تغير رساله الاشتراك ⌔ .' then
+if text == 'تغير رساله الاشتراك 🖇' then
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '⌔︙حسنآ ارسل لي النص الذي تريده')
+send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "حذف رساله الاشتراك ⌔ ." then
+if text == "حذف رساله الاشتراك 🖇" then
 database:del(bot_id..'text:ch:user')
-send(msg.chat_id_, msg.id_, "⌔︙تم مسح رساله الاشتراك ")
+send(msg.chat_id_, msg.id_, "• تم مسح رساله الاشتراك ")
 return false  
 end
-if text == '- تعين قناة الاشتراك ⌔ .' then
+if text == 'تعين قناة الاشتراك 🖇' then
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '⌔︙حسنآ ارسل لي معرف القناة')
+send(msg.chat_id_, msg.id_, '• حسنآ ارسل لي معرف القناة')
 return false  
 end
 end
 if not VIP_DeV(msg) then
-if text == "- الاشتراك الاجباري ⌔ ."  or text == "- تفعيل الاشتراك الاجباري ⌔ ."  or text == "- تعطيل الاشتراك الاجباري ⌔ ."  or text == '- تغير رساله الاشتراك ⌔ .' or text == '- تغير الاشتراك ⌔ .' or text == "حذف رساله الاشتراك ⌔ ." or text == '- تعين قناة الاشتراك ⌔ .' then
-send(msg.chat_id_, msg.id_,'⌔︙عذا الامر للمطور الاساسي فقط .')
+if text == "الاشتراك الاجباري 🖇"  or text == "تفعيل الاشتراك الاجباري 🖇"  or text == "تعطيل الاشتراك الاجباري 🖇"  or text == 'تغير رساله الاشتراك 🖇' or text == '- تغير الاشتراك ⌔ .' or text == "حذف رساله الاشتراك 🖇" or text == 'تعين قناة الاشتراك 🖇' then
+send(msg.chat_id_, msg.id_,'• عذا الامر للمطور الاساسي فقط .')
 end
 end
 if database:get(bot_id.."LACKBOTSS:Ed:DevBots") then
 if text and text:match("^(%d+)$") then
 local IdDe = text:match("^(%d+)$")
-send(msg.chat_id_,msg.id_, "⌔︙تم تحفظ المعلومات اضغط ( تحديث الملفات ⌔ ) للتنفيذ")
+send(msg.chat_id_,msg.id_, "• تم تحفظ المعلومات اضغط ( تحديث الملفات ⌔ ) للتنفيذ")
 local A = io.open("sudo.lua", 'w')
 A:write([[
 s = "BGBBB"
@@ -10453,7 +10444,7 @@ database:del(bot_id..'docu:Bots')
 end
 if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "⌔︙تم الغاء الامر ")
+send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
 database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -10463,21 +10454,21 @@ ID = "SearchPublicChat",
 username_ = username  
 },function(arg,data) 
 if data and data.message_ and data.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_, '⌔︙المعرف لا يوجد فيه قناة')
+send(msg.chat_id_, msg.id_, '• المعرف لا يوجد فيه قناة')
 return false  end
 if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' then
-send(msg.chat_id_, msg.id_, '⌔︙عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
+send(msg.chat_id_, msg.id_, '• عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'⌔︙عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
+send(msg.chat_id_, msg.id_,'• عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
-send(msg.chat_id_, msg.id_,'⌔︙البوت ادمن في القناة \n⌔︙تم تفعيل الاشتراك الاجباري في \n⌔︙ايدي القناة ('..data.id_..')\n⌔︙معرف القناة ([@'..data.type_.channel_.username_..'])')
+send(msg.chat_id_, msg.id_,'• البوت ادمن في القناة \n• تم تفعيل الاشتراك الاجباري في \n• ايدي القناة ('..data.id_..')\n• معرف القناة ([@'..data.type_.channel_.username_..'])')
 database:set(bot_id..'add:ch:id',data.id_)
 database:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
 else
-send(msg.chat_id_, msg.id_,'⌔︙عذرآ البوت ليس ادمن بالقناه ')
+send(msg.chat_id_, msg.id_,'• عذرآ البوت ليس ادمن بالقناه ')
 end
 return false  
 end
@@ -10485,13 +10476,13 @@ end,nil)
 end
 if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "⌔︙تم الغاء الامر ")
+send(msg.chat_id_, msg.id_, "• تم الغاء الامر ")
 database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local texxt = string.match(text, "(.*)") 
 database:set(bot_id..'text:ch:user',texxt)
-send(msg.chat_id_, msg.id_,'⌔︙تم تغيير رسالة الاشتراك ')
+send(msg.chat_id_, msg.id_,'• تم تغيير رسالة الاشتراك ')
 end
 if text == ("مسح قائمه العام 📮") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:GBan:User")
@@ -13169,9 +13160,6 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'اوامر المطورين', callback_data=data.sender_user_id_.."/help7"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'الاعدادات', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
