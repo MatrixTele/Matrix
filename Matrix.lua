@@ -9898,7 +9898,8 @@ end end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'رجوع 🔚' then  
 if DevMatrix(msg) then
-local Text = '⌯  👨🏻‍💻| 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝘁𝗵𝗲 𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 𝗰𝗼𝗺𝗺𝗮𝗻𝗱𝘀 𝗼𝗳 [𝗦𝗼𝘂𝗿𝗰𝗲 𝗠𝗮𝘁𝗿𝗶𝘅](t.me/Matrix_Source) .𖠢'
+local Text = '،🖇:اهلا بك عزيزي .
+،🖇:في لوحه الاوامر ألخاصه بالمطور الاساسي .'
 local keyboard = {
 {'تغيير المطور الاساسي 🔁'},
 {'تغير اسم البوت 🔁','الاحصائيات 📊'},
