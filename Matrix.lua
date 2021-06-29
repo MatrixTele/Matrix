@@ -7032,7 +7032,7 @@ end
 
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
+send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
 if DevMatrix(msg) then
