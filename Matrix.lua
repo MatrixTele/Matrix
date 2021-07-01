@@ -4574,12 +4574,12 @@ database:del(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"lock","• تـم فـتح الفارسيه\n")  
 end
 if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
-database:set(bot_id.."y:Twix:msg:media"..msg.chat_id_,true)
+database:set(bot_id.."y:Matrix:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'💢️┇تم تعطيل المسح التلقائي للميديا')
 return false
 end 
 if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
-database:del(bot_id.."y:Twix:msg:media"..msg.chat_id_)
+database:del(bot_id.."y:Matrix:msg:media"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"lock",'💢️┇تم تفعيل المسح التلقائي للميديا')
 return false
 end 
@@ -5156,23 +5156,6 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
-if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then
-if database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
-local gmedia = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
-if gmedia == 200 then
-local liste = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
-for k,v in pairs(liste) do
-local Mesge = v
-if Mesge then
-t = "• تم مسح "..k.." من الوسائط تلقائيا\n• يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
-DeleteMessage(msg.chat_id_,{[0]=Mesge})
-end
-end
-send(msg.chat_id_, msg.id_, t)
-database:del(bot_id.."Matrix:allM"..msg.chat_id_)
-end
-end
-end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
@@ -5212,7 +5195,7 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'📛┇تم حذف الميديا المعدلة ..')
 end
-if not database:get(bot_id.."y:Twix:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
+if not database:get(bot_id.."y:Matrix:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 if gmedia == 150 then
 local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
@@ -9897,7 +9880,7 @@ local Text = '📩┇مرحبا بك في كيبورد اوامر الاذاعة
 local keyboard = {
 {'اذاعه خاص 📡','المطورين 🔱','اذاعه 📡'},
 {'تفعيل الاذاعه 🔔','تعطيل الاذاعه 🔕'},
-{'اذاعه بالتوجيه 👥','اذاعه بالتوجيه خاص 👤'},
+{'اذاعه بالتوجيه ??','اذاعه بالتوجيه خاص 👤'},
 {'رجوع 🔚'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
