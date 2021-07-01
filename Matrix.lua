@@ -5156,6 +5156,9 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
+database:sadd(bot_id.."msg:media"..msg.chat_id_, msg.id_)
+end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
@@ -9880,7 +9883,7 @@ local Text = '📩┇مرحبا بك في كيبورد اوامر الاذاعة
 local keyboard = {
 {'اذاعه خاص 📡','المطورين 🔱','اذاعه 📡'},
 {'تفعيل الاذاعه 🔔','تعطيل الاذاعه 🔕'},
-{'اذاعه بالتوجيه ??','اذاعه بالتوجيه خاص 👤'},
+{'اذاعه بالتوجيه 👥','اذاعه بالتوجيه خاص 👤'},
 {'رجوع 🔚'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
