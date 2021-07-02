@@ -9667,44 +9667,29 @@ send(msg.chat_id_, msg.id_,Text)
 return false
 end
 
+end ---- Chat_Type = 'GroupBot' 
+end ---- Chat_Type = 'GroupBot' 
 
-end ---- Chat_Type = 'GroupBot' 
-end ---- Chat_Type = 'GroupBot' 
-if text == "اضف كت تويت ➕" and DevBot(msg) then
-database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
-end
-if text == "حذف كت تويت ➖" and DevBot(msg) then
-database:del(bot_id.."gamebot:List:Manager")
-return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
-database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
-database:sadd(bot_id.."gamebot:List:Manager", text)
-return false end
-end
 if text == 'تفعيل' and DevBot(msg) then 
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'• البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'• المجموعه مفعله سابقا ')
 else
 local Text = '☑┇تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = '  معرفة المزيد ؟',url="https://t.me/DevTwix"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9713,10 +9698,9 @@ tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100"
 local admins = data.members_
 for i=0 , #admins do
 if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-owner_id = admins[i].user_id_
-database:sadd(bot_id..'Matrix:Basic:Constructoryyu23'..msg.chat_id_, owner_id)
-end
-end
+database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+end 
+end  
 end,nil)
 database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
@@ -9735,13 +9719,12 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-database:set(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_,LinkGp)
-Text = '🔖┇تم تفعيل مجموعه جديده\n'..
-'\n👤┇بواسطة ~ '..Name..''..
-'\n📛┇ايدي المجموعه ~ `'..IdChat..'`'..
-'\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n📬┇اسم المجموعه ~ ['..NameChat..']'..
-'\n📥┇الرابط ~ ['..LinkGp..']'
+Text = '• تم تفعيل مجموعه جديده\n'..
+'\n• بواسطة ~ '..Name..''..
+'\n• ايدي المجموعه ~ `'..IdChat..'`'..
+'\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
+'\n• اسم المجموعه ~ ['..NameChat..']'..
+'\n• الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
@@ -9750,21 +9733,22 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text == 'تعطيل' and DevBot(msg) then 
+if text == 'تعطيل' and DevBot(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'☑┇المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'• المجموعه معطله سابقا ')
 else
-local Text = '❎┇تم تعطيل البوت في المجموعة'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+Reply_Status(msg,result.id_,'reply_Add','• تم تعطيل المجموعه ~ '..chat.title_..'')
 database:srem(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -9782,13 +9766,11 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-database:set(bot_id.."Matrix:Private:Group:Link"..msg.chat_id_,LinkGp) 
-
-Text = '🔖┇تم تعطيل مجموعه جديده\n'..
-'\n🔘┇بواسطة ~ '..Name..''..
-'\n🔧┇ايدي المجموعه ~ `'..IdChat..'`'..
-'\n📥┇اسم المجموعه ~ ['..NameChat..']'..
-'\n📮┇الرابط ~ ['..LinkGp..']'
+Text = '• تم تعطيل مجموعه جديده\n'..
+'\n• بواسطة ~ '..Name..''..
+'\n• ايدي المجموعه ~ `'..IdChat..'`'..
+'\n• اسم المجموعه ~ ['..NameChat..']'..
+'\n• الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
@@ -9796,9 +9778,18 @@ end
 end,nil) 
 end,nil) 
 end
-if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Matrix:Free:Add:Bots') then 
+if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Matrix:Free:Add:Bots') then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'• البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
@@ -9814,33 +9805,31 @@ var = 'الادمن'
 else 
 var= 'عضو'
 end
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
-send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
-return false
-end
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'• المجموعه مفعله سابقا ')
+end
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
+send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 else
 local Text = '☑┇تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = '  معرفة المزيد ؟',url="https://t.me/DevTwix"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
 if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-owner_id = admins[i].user_id_
-database:sadd(bot_id..'Matrix:Basic:Constructoryyu23'..msg.chat_id_, owner_id)
-end
-end
+database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+end 
+end  
 end,nil)
-database:sadd(bot_id..'Matrix:Basic:Constructoryyu'..msg.chat_id_, msg.sender_user_id_)
+database:sadd(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
+database:sadd(bot_id..'Matrix:Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NumMember = data.member_count_
 local NameChat = chat.title_
@@ -9858,13 +9847,13 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '🔖┇تم تفعيل مجموعه جديده\n'..
-'\n🦇┇بواسطة ~ '..Name..''..
-'\n📌┇موقعه في المجموعه ~ '..AddPy..'' ..
-'\n📛┇ايدي المجموعه ~ `'..IdChat..'`'..
-'\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n📬┇اسم المجموعه ~ ['..NameChat..']'..
-'\n📥┇الرابط ~ ['..LinkGp..']'
+Text = '• تم تفعيل مجموعه جديده\n'..
+'\n• بواسطة ~ '..Name..''..
+'\n• موقعه في المجموعه ~ '..AddPy..'' ..
+'\n• ايدي المجموعه ~ `'..IdChat..'`'..
+'\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
+'\n• اسم المجموعه ~ ['..NameChat..']'..
+'\n• الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
