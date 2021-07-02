@@ -5680,7 +5680,7 @@ database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":تك","تنز�
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"تك")
 database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":حذ","حذف رد")
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"حذ")
-send(msg.chat_id_, msg.id_,"• تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .\n- اضف رد - رد . \n- تثبيت - ت . \n- تنزيل الكل - تك . \n- حذف رد - حذ")  
+send(msg.chat_id_, msg.id_,"*• تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .\n- اضف رد - رد . \n- حذف رد - حذ . \n- تنزيل الكل - تك . \n- تثبيت - ت . *")  
 end
 if text == "اضف امر" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -8636,7 +8636,7 @@ end,nil)
 end
 return false
 end
-if text == ("تحديث السورس") and DevMatrix(msg) then  
+if text == ("تحديث") and DevMatrix(msg) then  
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
