@@ -9689,7 +9689,7 @@ local Text = '☑┇تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/DevTwix"},
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9815,7 +9815,7 @@ local Text = '☑┇تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/DevTwix"},
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
