@@ -1968,21 +1968,21 @@ database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فـتح البوتات")  
 return false
 end 
-if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'سورس ماتركس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' then
-Text = [[
-•- DEV @IZlZ7I مبرمج بوتات•
-]]
-send(msg.chat_id_, msg.id_,Text)
-return false
-end
-if text == 'اريد انصب بوت' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'مطور السورس' or text == 'انصبلك'  or text == 'انصبلك بوت' then
-Text = [[
+if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس'  or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'انصبلك'  or text == 'انصبلك بوت' then
+Text = [[*
 اهلا عزيزي
 متوفر تنصيب بوتات ع سورس ماتركس
 احدث واسرع البوتات وضمان الثقه
-للاستفسار راسل المطور @IZlZ7I
+للاستفسار راسل المطور @IZlZ7I *
 ]]
-send(msg.chat_id_, msg.id_,Text)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• مبرمج البوتات •',url="https://t.me/IZlZ7I"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/IZlZ7I&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -1996,7 +1996,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","✅\n• تم فـتح البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","•\n• تم فـتح البوتات")  
 return false
 end 
 if text == "فتح الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -2222,12 +2222,12 @@ return false
 end 
 if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
 database:set(bot_id.."y:Matrix:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'💢️┇تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
 return false
 end 
 if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
 database:del(bot_id.."y:Matrix:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'💢️┇تم تفعيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
 if text == "قفل الصور"and Addictive(msg) then
@@ -4575,12 +4575,12 @@ Reply_Status(msg,msg.sender_user_id_,"lock","• تـم فـتح الفارسي�
 end
 if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
 database:set(bot_id.."y:Matrix:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'💢️┇تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
 return false
 end 
 if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
 database:del(bot_id.."y:Matrix:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'💢️┇تم تفعيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
 if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
