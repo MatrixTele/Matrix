@@ -4156,11 +4156,11 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من المميزين")
 return false
 end  
 
-if text == 'تنزيل المطايه' and Mod(msg) then
+if text == 'تنزيل المطايه' and Owner(msg) then
 database:del(bot_id..'Mote:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ✸∫ تم مسح جميع المطايه')
 end
-if text == ("تاك للمطايه") and Mod(msg) then
+if text == ("تاك للمطايه") and Owner(msg) then
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
 t = "\n ✸∫ قائمة مطايه الكروب \n≪━━━━━━━━━━━━━≫\n"
 for k,v in pairs(list) do
@@ -4177,13 +4177,13 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ✸∫ لا تستطيع استخدام البوت \n  ✸∫ يرجى الاشتراك بالقناه اولا \n  ✸∫ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4203,13 +4203,13 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل مطي")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل مطي")) and msg.reply_to_message_id_ and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ✸∫ لا تستطيع استخدام البوت \n  ✸∫ يرجى الاشتراك بالقناه اولا \n  ✸∫ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
