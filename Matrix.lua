@@ -2880,299 +2880,9 @@ if text == ("مسح الثانويين") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
 send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمة المطورين الثانويين  ")
 end
-if text == ("مسح قائمه العام") and DevBot(msg) then
-database:del(bot_id..'GBan:User')
-send(msg.chat_id_, msg.id_, '\n • تم مسح قائمه العام')
-return false
-end
-if text == ("قائمه العام") and DevBot(msg) then
-local list = database:smembers(bot_id..'GBan:User')
-t = "\n • قائمة المحظورين عام \n  ━═━═━═━\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t..""..k.."- ([@"..username.."])\n"
-else
-t = t..""..k.."- (`"..v.."`)\n"
-end
-end
-if #list == 0 then
-t = " • لا يوجد محظورين عام"
-end
-send(msg.chat_id_, msg.id_, t)
-return false
-end
-if text == ("حظر عام") and msg.reply_to_message_id_ and DevBot(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
-if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك حظر المطور الاساسي \n")
-return false 
-end
-if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع حظر البوت عام")
-return false 
-end
-database:sadd(bot_id..'GBan:User', result.sender_user_id_)
-chat_kick(result.chat_id_, result.sender_user_id_)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
-function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-return false
-end
-if text and text:match("^حظر عام @(.*)$")  and DevBot(msg) then
-local username = text:match("^حظر عام @(.*)$") 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_," • عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end      
-if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع حظر البوت عام")
-return false 
-end
-if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك حظر المطور الاساسي \n")
-return false 
-end
-usertext = '\n • العضو » ['..result.title_..'](t.me/'..(username or 'fandam0')..')'
-status  = '\n • تم حظره عام من الكروبات'
-texts = usertext..status
-database:sadd(bot_id..'GBan:User', result.id_)
-else
-texts = ' • لا يوجد حساب بهاذا المعرف'
-end
-send(msg.chat_id_, msg.id_, texts)
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-return false
-end
-if text and text:match("^حظر عام (%d+)$") and DevBot(msg) then
-local userid = text:match("^حظر عام (%d+)$")
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك حظر المطور الاساسي \n")
-return false 
-end
-if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع حظر البوت عام")
-return false 
-end
-database:sadd(bot_id..'GBan:User', userid)
-tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
-if data.first_name_ then
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-else
-usertext = '\n • العضو » '..userid..''
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end;end,nil)
-return false
-end
-if text == ("كتم عام") and msg.reply_to_message_id_ and DevBot(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
-if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك كتم المطور الاساسي \n")
-return false 
-end
-if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع كتم البوت عام")
-return false 
-end
-database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
-function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم كتمه عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-return false
-end
-if text and text:match("^كتم عام @(.*)$")  and DevBot(msg) then
-local username = text:match("^كتم عام @(.*)$") 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_," • عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end      
-if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع كتم البوت عام")
-return false 
-end
-if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك كتم المطور الاساسي \n")
-return false 
-end
-usertext = '\n • العضو » ['..result.title_..'](t.me/'..(username or 'fandam0')..')'
-status  = '\n • تم كتمه عام من الكروبات'
-texts = usertext..status
-database:sadd(bot_id..'Gmute:User', result.id_)
-else
-texts = ' • لا يوجد حساب بهاذا المعرف'
-end
-send(msg.chat_id_, msg.id_, texts)
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-return false
-end
-if text and text:match("^كتم عام (%d+)$") and DevBot(msg) then
-local userid = text:match("^كتم عام (%d+)$")
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك كتم المطور الاساسي \n")
-return false 
-end
-if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع كتم البوت عام")
-return false 
-end
-database:sadd(bot_id..'Gmute:User', userid)
-
-tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
-if data.first_name_ then
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم كتمه عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-else
-usertext = '\n • العضو » '..userid..''
-status  = '\n • تم كتمه عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end;end,nil)
-return false
-end
-if text == ("الغاء العام") and msg.reply_to_message_id_ and DevBot(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم الغاء (الحظر-الكتم) عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
-database:srem(bot_id..'GBan:User', result.sender_user_id_)
-database:srem(bot_id..'Gmute:User', result.sender_user_id_)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-return false
-end
-if text and text:match("^الغاء العام @(.*)$") and DevBot(msg) then
-local username = text:match("^الغاء العام @(.*)$") 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
-if result.id_ then
-usertext = '\n • العضو » ['..result.title_..'](t.me/'..(username or 'fandam0')..')'
-status  = '\n • تم الغاء (الحظر-الكتم) عام من الكروبات'
-texts = usertext..status
-database:srem(bot_id..'GBan:User', result.id_)
-database:srem(bot_id..'Gmute:User', result.id_)
-else
-texts = ' • لا يوجد حساب بهاذا المعرف'
-end
-send(msg.chat_id_, msg.id_, texts)
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-return false
-end
-if text and text:match("^الغاء العام (%d+)$") and DevBot(msg) then
-local userid = text:match("^الغاء العام (%d+)$")
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-database:srem(bot_id..'GBan:User', userid)
-database:srem(bot_id..'Gmute:User', userid)
-tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
-if data.first_name_ then
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم الغاء (الحظر-الكتم) عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-else
-usertext = '\n • العضو » '..userid..''
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end;end,nil)
+if text == ("مسح قائمه العام") and DevMatrix(msg) then
+database:del(bot_id.."Matrix:GBan:User")
+send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمه العام")
 return false
 end
 if text == ("مسح المطورين") and DevMatrix(msg) then
@@ -3514,6 +3224,98 @@ return send(msg.chat_id_, msg.id_, t)
 end
 return SendMsg_Msgeeslist("listban",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end 
+
+if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
+function Function_Matrix(extra, result, success)
+if General_ban(result, result.chat_id_) == true then
+send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+else
+database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
+Kick_Group(result.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","• تم حظره عام من المجموعات")  
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
+return false
+end
+if text and text:match("^حظر عام @(.*)$")  and DevMatrix(msg) then
+local username = text:match("^حظر عام @(.*)$") 
+function Function_Matrix(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+if result.id_ == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
+if result.id_ == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if tonumber(result.id_) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, "• لا تسطيع حظر البوت عام")
+return false 
+end
+database:sadd(bot_id.."Matrix:GBan:User", result.id_)
+Reply_Status(msg,result.id_,"reply","• تم حظره عام من المجموعات")  
+else
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
+return false
+end
+if text and text:match("^حظر عام (%d+)$") and DevMatrix(msg) then
+local userid = text:match("^حظر عام (%d+)$")
+if userid == tonumber(Id_Sudo) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+return false 
+end
+if userid == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
+if userid == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if tonumber(userid) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, "• لا تسطيع حظر البوت عام")
+return false 
+end
+database:sadd(bot_id.."Matrix:GBan:User", userid)
+Reply_Status(msg,userid,"reply","• تم حظره عام من المجموعات")  
+return false
+end
+if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
+function Function_Matrix(extra, result, success)
+database:srem(bot_id.."Matrix:GBan:User", result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء حظره عام من المجموعات")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
+return false
+end
+if text and text:match("^الغاء العام @(.*)$") and DevMatrix(msg) then
+local username = text:match("^الغاء العام @(.*)$") 
+function Function_Matrix(extra, result, success)
+if result.id_ then
+Reply_Status(msg,result.id_,"reply","• تم الغاء حظره عام من المجموعات")  
+database:srem(bot_id.."Matrix:GBan:User", result.id_)
+else
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
+return false
+end
+if text and text:match("^الغاء العام (%d+)$") and DevMatrix(msg) then
+local userid = text:match("^الغاء العام (%d+)$")
+database:srem(bot_id.."Matrix:GBan:User", userid)
+Reply_Status(msg,userid,"reply","• تم الغاء حظره عام من المجموعات")  
+return false
+end
 
 if text == ("اضف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
