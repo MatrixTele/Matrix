@@ -2880,16 +2880,16 @@ if text == ("مسح الثانويين") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
 send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمة المطورين الثانويين  ")
 end
-if text == ("مسح قائمه العام") and DevBot(msg) then
-database:del(bot_id..'GBan:User')
-send(msg.chat_id_, msg.id_, '\n • تم مسح قائمه العام')
+if text == ("مسح قائمه العام") and DevMatrix(msg) then
+database:del(bot_id.."Matrix:GBan:User")
+send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمه العام")
 return false
 end
-if text == ("قائمه العام") and DevBot(msg) then
-local list = database:smembers(bot_id..'GBan:User')
-t = "\n • قائمة المحظورين عام \n  ━═━═━═━\n"
+if text == ("قائمه العام") and DevMatrix(msg) then
+local list = database:smembers(bot_id.."Matrix:GBan:User")
+t = "\n📋꒐ قائمة المحظورين عام \n  ━═━═━═━\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
+local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2897,10 +2897,9 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = " • لا يوجد محظورين عام"
+return send(msg.chat_id_, msg.id_, "• لا يوجد محظورين عام")
 end
-send(msg.chat_id_, msg.id_, t)
-return false
+return SendMsg_Msgeeslist("listbans",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
