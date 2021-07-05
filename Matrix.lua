@@ -2902,279 +2902,162 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("حظر عام") and msg.reply_to_message_id_ and DevBot(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
+if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
+function Function_Matrix(extra, result, success)
+if General_ban(result, result.chat_id_) == true then
+send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
+Kick_Group(result.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","• تم حظره عام من المجموعات")  
 end
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-function start_function(extra, result, success)
-if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك حظر المطور الاساسي \n")
-return false 
-end
-if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع حظر البوت عام")
-return false 
-end
-database:sadd(bot_id..'GBan:User', result.sender_user_id_)
-chat_kick(result.chat_id_, result.sender_user_id_)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
-function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-return false
-end
-if text and text:match("^حظر عام @(.*)$")  and DevBot(msg) then
+if text and text:match("^حظر عام @(.*)$")  and DevMatrix(msg) then
 local username = text:match("^حظر عام @(.*)$") 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_," • عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
+if result.id_ == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
+if result.id_ == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "• لا تسطيع حظر البوت عام")
 return false 
 end
-if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك حظر المطور الاساسي \n")
-return false 
-end
-usertext = '\n • العضو » ['..result.title_..'](t.me/'..(username or 'fandam0')..')'
-status  = '\n • تم حظره عام من الكروبات'
-texts = usertext..status
-database:sadd(bot_id..'GBan:User', result.id_)
+database:sadd(bot_id.."Matrix:GBan:User", result.id_)
+Reply_Status(msg,result.id_,"reply","• تم حظره عام من المجموعات")  
 else
-texts = ' • لا يوجد حساب بهاذا المعرف'
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
-send(msg.chat_id_, msg.id_, texts)
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^حظر عام (%d+)$") and DevBot(msg) then
+if text and text:match("^حظر عام (%d+)$") and DevMatrix(msg) then
 local userid = text:match("^حظر عام (%d+)$")
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+if userid == tonumber(Id_Sudo) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+return false 
 end
-return false
+if userid == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
 end
-if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك حظر المطور الاساسي \n")
+if userid == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "• لا تسطيع حظر البوت عام")
 return false 
 end
-database:sadd(bot_id..'GBan:User', userid)
-tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
-if data.first_name_ then
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
+database:sadd(bot_id.."Matrix:GBan:User", userid)
+Reply_Status(msg,userid,"reply","• تم حظره عام من المجموعات")  
+return false
+end
+if text == ("كتم عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
+function Function_Matrix(extra, result, success)
+if General_ban(result, result.chat_id_) == true then
+send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
-usertext = '\n • العضو » '..userid..''
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end;end,nil)
+database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
+Kick_Group(result.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","• تم كتمه عام من المجموعات")  
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text == ("كتم عام") and msg.reply_to_message_id_ and DevBot(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
-if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك كتم المطور الاساسي \n")
-return false 
-end
-if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع كتم البوت عام")
-return false 
-end
-database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
-function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم كتمه عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-return false
-end
-if text and text:match("^كتم عام @(.*)$")  and DevBot(msg) then
+if text and text:match("^كتم عام @(.*)$")  and DevMatrix(msg) then
 local username = text:match("^كتم عام @(.*)$") 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_," • عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
+if result.id_ == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
+if result.id_ == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع كتم البوت عام")
+send(msg.chat_id_, msg.id_, "• لا تستطيع كتم البوت عام")
 return false 
 end
-if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك كتم المطور الاساسي \n")
+database:sadd(bot_id.."Matrix:GBan:User", result.id_)
+Reply_Status(msg,result.id_,"reply","• تم كتمه عام من المجموعات")  
+else
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
+return false
+end
+if text and text:match("^كتم عام (%d+)$") and DevMatrix(msg) then
+local userid = text:match("^حظر عام (%d+)$")
+if userid == tonumber(Id_Sudo) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-usertext = '\n • العضو » ['..result.title_..'](t.me/'..(username or 'fandam0')..')'
-status  = '\n • تم كتمه عام من الكروبات'
-texts = usertext..status
-database:sadd(bot_id..'Gmute:User', result.id_)
-else
-texts = ' • لا يوجد حساب بهاذا المعرف'
+if userid == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
 end
-send(msg.chat_id_, msg.id_, texts)
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-return false
-end
-if text and text:match("^كتم عام (%d+)$") and DevBot(msg) then
-local userid = text:match("^كتم عام (%d+)$")
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " • لا يمكنك كتم المطور الاساسي \n")
+if userid == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " • لا تسطيع كتم البوت عام")
+send(msg.chat_id_, msg.id_, "• لا تستطيع كتم البوت عام")
 return false 
 end
-database:sadd(bot_id..'Gmute:User', userid)
-
-tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
-if data.first_name_ then
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم كتمه عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-else
-usertext = '\n • العضو » '..userid..''
-status  = '\n • تم كتمه عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end;end,nil)
+database:sadd(bot_id.."Matrix:GBan:User", userid)
+Reply_Status(msg,userid,"reply","• تم كتمه عام من المجموعات")  
 return false
 end
-if text == ("الغاء العام") and msg.reply_to_message_id_ and DevBot(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
+function Function_Matrix(extra, result, success)
+database:srem(bot_id.."Matrix:GBan:User", result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء حظره عام من المجموعات")  
 end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-function start_function(extra, result, success)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم الغاء (الحظر-الكتم) عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
-database:srem(bot_id..'GBan:User', result.sender_user_id_)
-database:srem(bot_id..'Gmute:User', result.sender_user_id_)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-return false
-end
-if text and text:match("^الغاء العام @(.*)$") and DevBot(msg) then
+if text and text:match("^الغاء العام @(.*)$") and DevMatrix(msg) then
 local username = text:match("^الغاء العام @(.*)$") 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function start_function(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
-usertext = '\n • العضو » ['..result.title_..'](t.me/'..(username or 'fandam0')..')'
-status  = '\n • تم الغاء (الحظر-الكتم) عام من الكروبات'
-texts = usertext..status
-database:srem(bot_id..'GBan:User', result.id_)
-database:srem(bot_id..'Gmute:User', result.id_)
+Reply_Status(msg,result.id_,"reply","• تم الغاء حظره عام من المجموعات")  
+database:srem(bot_id.."Matrix:GBan:User", result.id_)
 else
-texts = ' • لا يوجد حساب بهاذا المعرف'
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
-send(msg.chat_id_, msg.id_, texts)
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^الغاء العام (%d+)$") and DevBot(msg) then
+if text and text:match("^الغاء العام (%d+)$") and DevMatrix(msg) then
 local userid = text:match("^الغاء العام (%d+)$")
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' • لا تستطيع استخدام البوت \n  • يرجى الاشتراك بالقناه اولا \n  • اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
+database:srem(bot_id.."Matrix:GBan:User", userid)
+Reply_Status(msg,userid,"reply","• تم الغاء حظره عام من المجموعات")  
 return false
 end
-database:srem(bot_id..'GBan:User', userid)
-database:srem(bot_id..'Gmute:User', userid)
-tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
-if data.first_name_ then
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
-status  = '\n • تم الغاء (الحظر-الكتم) عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-else
-usertext = '\n • العضو » '..userid..''
-status  = '\n • تم حظره عام من الكروبات'
-send(msg.chat_id_, msg.id_, usertext..status)
-end;end,nil)
-return false
-end
+
 if text == ("مسح المطورين") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:Sudo:User")
 send(msg.chat_id_, msg.id_, "\n🗑| تم مسح قائمة المطورين  ")
@@ -4414,7 +4297,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Mote:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل العضو مطي في الكروب\n • تعال حبي رجع العربانه'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4483,7 +4366,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Ownere:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل العضــو الحاته من الكروب\n • مشيي مو خوش حاتهه'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4552,7 +4435,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Ownerde:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل العضــو الحات من الكروب\n • مشيي مو خوش حات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4599,7 +4482,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Sakl:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع المتهم صخل بالكروب\n • الان اصبح صخل الكروب'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -4622,7 +4505,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Sakl:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل العضو صخل\n • ارجع للبيتكم حبي'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4669,7 +4552,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Motte:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع جلب في الكروب\n • تعال حبي اطيك عضمه'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -4691,7 +4574,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Motte:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل جلب في الكروب\n • حبي رجع عضمه'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4738,7 +4621,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع قرد في الكروب\n • تعال حبي استلم موزه'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -4760,7 +4643,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل قرد من الكروب\n • رجع موزه حبي'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4807,7 +4690,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Hors:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع حصان في الكروب\n • تعال حبي احطلك سرج وركبك فرني فره حلوه'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -4829,7 +4712,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Hors:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل حصان من الكروب\n • رجع السرج حبي'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4876,7 +4759,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Bakra:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع بقره في الكروب\n • ها يالهايشه تع احلبك'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -4898,7 +4781,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Bakra:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل بقره من الكروب\n • تعال هاك حليب مالتك'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -4945,7 +4828,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Tele:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع الطلي في الكروب\n • طلع برا ابو البعرور الوصخ'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -4967,7 +4850,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Tele:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل الطلي من الكروب\n • هاك اخذ بعرور'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5014,7 +4897,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Zahf:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع زاحف في الكروب\n • كمشتك حبي جيب رقم'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5036,7 +4919,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Zahf:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل زاحف من الكروب\n • هاك حبي هاذا رقم مالك'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5083,7 +4966,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n • تم رفع جريذي في الكروب\n • خايس ريحتك موتتنه روح سبح يع'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5105,7 +4988,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل جريذي من الكروب\n • هاك ليفه اسبح'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5127,7 +5010,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Mote:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'fandam0')..')'
+usertext = '\n • العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n • تم تنزيل العضو مطي في الكروب\n • تعال حبي رجع العربانه'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
