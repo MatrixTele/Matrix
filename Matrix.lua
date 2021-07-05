@@ -14479,11 +14479,11 @@ data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
 if (text and text == "تعطيل اوامر التحشيش") then 
-send(msg.chat_id_, msg.id_, ' ✸∫ تم تعطيل اوامر التحشيش')
+send(msg.chat_id_, msg.id_, ' • تم تعطيل اوامر التحشيش')
 database:set(bot_id.."Fun_Bots:"..msg.chat_id_,"true")
 end
 if (text and text == "تفعيل اوامر التحشيش") then 
-send(msg.chat_id_, msg.id_, '  ✸∫ تم تفعيل اوامر التحشيش')
+send(msg.chat_id_, msg.id_, '  • تم تفعيل اوامر التحشيش')
 database:del(bot_id.."Fun_Bots:"..msg.chat_id_)
 end
 local Name_Bot = (database:get(bot_id..'Name:Bot') or 'فانۨــہدامۘ⁶³')
