@@ -14473,21 +14473,13 @@ return false
 end
 ------------------------------------------------------------------------
 if data.message_.content_.text_ then
-local NewCmmd = database:get(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..':'..data.message_.content_.text_)
+local NewCmmd = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
 if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-if (text and text == "تعطيل اوامر التحشيش") then 
-send(msg.chat_id_, msg.id_, ' • تم تعطيل اوامر التحشيش')
-database:set(bot_id.."Fun_Bots:"..msg.chat_id_,"true")
-end
-if (text and text == "تفعيل اوامر التحشيش") then 
-send(msg.chat_id_, msg.id_, '  • تم تفعيل اوامر التحشيش')
-database:del(bot_id.."Fun_Bots:"..msg.chat_id_)
-end
-local Name_Bot = (database:get(bot_id..'Name:Bot') or 'فانۨــہدامۘ⁶³')
-if not database:get(bot_id.."Fun_Bots:"..msg.chat_id_) then
+local Name_Bot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
+if not database:get(bot_id.."Matrix:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
 local Fun = {'لوكي وزاحف من ساع زحفلي وحضرته 😒','خوش ولد و ورده مال الله 💋🙄','يلعب ع البنات 🙄', 'ولد زايعته الكاع 😶🙊','صاك يخبل ومعضل ','محلو وشواربه جنها مكناسه 😂🤷🏼‍♀️','اموت عليه 🌝','هوه غير الحب مال اني 🤓❤️','مو خوش ولد صراحه ☹️','ادبسز وميحترم البنات  ', 'فد واحد قذر 🙄😒','ماطيقه كل ما اكمشه ريحته جنها بخاخ بف باف مال حشرات 😂🤷‍♀️','مو خوش ولد 🤓' } 
