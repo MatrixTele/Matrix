@@ -10777,7 +10777,27 @@ end,nil)
 end,nil) 
 end,nil)
 end
-
+if text == "نسبة الحب" or text == "نسبه حب" then
+if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
+Text = '• الان ارسل اسمك واسم الشخص الثاني :'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبة الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
+num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+sendnum = num[math.random(#num)]
+local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الحب بيـن : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• '..sendnum..'%',url="https://t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
+end
 if text == 'كيبورد اوامر الاذاعة 📣' then  
 if DevMatrix(msg) then
 local Text = '📩┇مرحبا بك في كيبورد اوامر الاذاعة'
@@ -10847,8 +10867,10 @@ local Text = '*مرحبا بك في العاب البوت اختر ما تريد
 local keyboard = {
 {'نسبة الخيانة','نسبة الزحف'},
 {'نسبة الكره','نسبة الرجوله','نسبة الحب'},
+{'زنسبة الرجوله','نسبة الحب'},
 {'نسبة الغباء','كشف الحيوان','كشف الارتباط'},
 {'رموز مزخرفة 🏷️','ارقام جاهزة 🔢'},
+{'زخرفه'},
 {'قناة السورس 📡 .'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
