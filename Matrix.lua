@@ -10414,20 +10414,20 @@ end
 if text and text:match("^(.*)$") then
 if database:get(bot_id..'•'..msg.sender_user_id_) == 'true' then
 send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help'..msg.sender_user_id_)
-database:set(bot_id..'help_text',text)
+database:del(bot_id..'•'..msg.sender_user_id_)
+database:set(bot_id..'•_text',text)
 return false
 end
 end
 
-if text == 'استعاده الاوامر' and SudoBot(msg) then
+if text == 'استعاده الاوامر' and DevBot(msg) then
 database:del(bot_id..'•_text')
-
 send(msg.chat_id_, msg.id_, ' ✸∫ تم استعادة الاوامر القديمه')
 end
-if text == 'تغير رمز السورس' and SudoBot(msg) then
+
+if text == 'تغير رمز السورس' and DevBot(msg) then
 send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه الاوامر')
-database:set(bot_id..'help'..msg.sender_user_id_,'true')
+database:set(bot_id..'•'..msg.sender_user_id_,'true')
 return false 
 end
 
