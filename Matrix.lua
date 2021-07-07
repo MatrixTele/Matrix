@@ -7793,15 +7793,6 @@ Text = '\n • بالتاكيد تم تعطيل امر منو ضافني'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل صيح' and Manager(msg) then   
-if database:get(bot_id..'Seh:User'..msg.chat_id_) then
-Text = ' • تم تفعيل امر صيح'
-database:del(bot_id..'Seh:User'..msg.chat_id_)  
-else
-Text = ' • بالتاكيد تم تفعيل امر صيح'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
 if text == "تفعيل اطردني" and Owner(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -7829,15 +7820,7 @@ database:set(bot_id.."Matrix:Kick:Me"..msg.chat_id_,true)
 Text = "\n✅ تم تعطيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل صيح' and Manager(msg) then  
-if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
-database:set(bot_id..'Seh:User'..msg.chat_id_,true)  
-Text = '\n • تم تعطيل امر صيح'
-else
-Text = '\n • بالتاكيد تم تعطيل امر صيح'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
+
 if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
