@@ -10441,6 +10441,7 @@ send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قنا
 end
 return false
 end
+local help_text = database:get(bot_id..'help_text')
 local Text =[[
 *اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
 *يمكنك استخدام هذه الاوامر 🔽*
