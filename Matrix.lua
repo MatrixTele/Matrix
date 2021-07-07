@@ -10412,173 +10412,25 @@ return false
 end
 
 if text and text:match("^(.*)$") then
-if database:get(bot_id..'help'..msg.sender_user_id_) == 'true' then
+if database:get(bot_id..'•'..msg.sender_user_id_) == 'true' then
 send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
 database:del(bot_id..'help'..msg.sender_user_id_)
 database:set(bot_id..'help_text',text)
 return false
 end
 end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help1'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help1'..msg.sender_user_id_)
-database:set(bot_id..'help1_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help2'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help2'..msg.sender_user_id_)
-database:set(bot_id..'help2_text',text)
-return false
-end
-end
-
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help3'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help3'..msg.sender_user_id_)
-database:set(bot_id..'help3_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help4'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help4'..msg.sender_user_id_)
-database:set(bot_id..'help4_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help5'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help5'..msg.sender_user_id_)
-database:set(bot_id..'help5_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help6'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help6'..msg.sender_user_id_)
-database:set(bot_id..'help6_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help7'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help7'..msg.sender_user_id_)
-database:set(bot_id..'help7_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help8'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help8'..msg.sender_user_id_)
-database:set(bot_id..'help8_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help9'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help9'..msg.sender_user_id_)
-database:set(bot_id..'help9_text',text)
-return false
-end
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help10'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help10'..msg.sender_user_id_)
-database:set(bot_id..'help10_text',text)
-return false
-end
-end
 
 if text == 'استعاده الاوامر' and SudoBot(msg) then
-database:del(bot_id..'help_text')
-database:del(bot_id..'help1_text')
-database:del(bot_id..'help2_text')
-database:del(bot_id..'help3_text')
-database:del(bot_id..'help4_text')
-database:del(bot_id..'help5_text')
-database:del(bot_id..'help6_text')
-database:del(bot_id..'help7_text')
-database:del(bot_id..'help8_text')
-database:del(bot_id..'help9_text')
-database:del(bot_id..'help10_text')
+database:del(bot_id..'•_text')
+
 send(msg.chat_id_, msg.id_, ' ✸∫ تم استعادة الاوامر القديمه')
 end
-if text == 'تغير امر الاوامر' and SudoBot(msg) then
+if text == 'تغير رمز السورس' and SudoBot(msg) then
 send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه الاوامر')
 database:set(bot_id..'help'..msg.sender_user_id_,'true')
 return false 
 end
-if text == 'تغير امر م1' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م1')
-database:set(bot_id..'help1'..msg.sender_user_id_,'true')
-return false 
-end
 
-if text == 'تغير امر م2' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م2')
-database:set(bot_id..'help2'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م3' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م3')
-database:set(bot_id..'help3'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م4' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م4')
-database:set(bot_id..'help4'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م5' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م5')
-database:set(bot_id..'help5'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م6' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م6')
-database:set(bot_id..'help6'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م7' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م7')
-database:set(bot_id..'help7'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م8' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫  الان يمكنك ارسال الكليشه م8')
-database:set(bot_id..'help8'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م9' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م9')
-database:set(bot_id..'help9'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر م10' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه م10')
-database:set(bot_id..'help10'..msg.sender_user_id_,'true')
-return false 
-end
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
