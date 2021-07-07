@@ -3176,7 +3176,7 @@ end
 end
 
 if text == 'تفعيل ضافني' and Manager(msg) then   
-database:del(bot_id..'Added:Me'..msg.chat_id_) then
+if database:get(bot_id..'Added:Me'..msg.chat_id_) then
 Text = ' • تم تفعيل امر منو ضافني'
 database:del(bot_id..'Added:Me'..msg.chat_id_)  
 else
@@ -3185,7 +3185,7 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل ضافني' and Manager(msg) then  
-database:set(bot_id..'Added:Me'..msg.chat_id_) then
+if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
 database:set(bot_id..'Added:Me'..msg.chat_id_,true)  
 Text = '\n • تم تعطيل امر منو ضافني'
 else
@@ -3194,20 +3194,11 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل صيح' and Manager(msg) then   
-database:del(bot_id..'Seh:User'..msg.chat_id_) then
+if database:get(bot_id..'Seh:User'..msg.chat_id_) then
 Text = ' • تم تفعيل امر صيح'
 database:del(bot_id..'Seh:User'..msg.chat_id_)  
 else
 Text = ' • بالتاكيد تم تفعيل امر صيح'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل صيح' and Manager(msg) then  
-database:set(bot_id..'Seh:User'..msg.chat_id_) then
-database:set(bot_id..'Seh:User'..msg.chat_id_,true)  
-Text = '\n • تم تعطيل امر صيح'
-else
-Text = '\n • بالتاكيد تم تعطيل امر صيح'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -7022,6 +7013,15 @@ Text = ' • تم تفعيل امر صيح'
 database:del(bot_id..'Seh:User'..msg.chat_id_)  
 else
 Text = ' • بالتاكيد تم تفعيل امر صيح'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل صيح' and Manager(msg) then  
+if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
+database:set(bot_id..'Seh:User'..msg.chat_id_,true)  
+Text = '\n • تم تعطيل امر صيح'
+else
+Text = '\n • بالتاكيد تم تعطيل امر صيح'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
