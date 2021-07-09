@@ -1639,17 +1639,17 @@ send(msg.chat_id_, msg.id_,"• تم حفظ ترحيب المجموعه")
 return false   
 end
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) then
+if database:get(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) then
 if text == "الغاء" then
 send(msg.chat_id_,msg.id_,"• تم الغاء حفظ الرابط")       
-database:del(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false
 end
 if text and text:match("(https://telegram.me/joinchat/%S+)") or text and text:match("(https://t.me/joinchat/%S+)") then     
 local Link = text:match("(https://telegram.me/joinchat/%S+)") or text:match("(https://t.me/joinchat/%S+)")   
 database:set(bot_id.."Private:Group:Link"..msg.chat_id_,Link)
 send(msg.chat_id_,msg.id_,"• تم حفظ الرابط بنجاح")       
-database:del(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false 
 end
 end 
@@ -5886,37 +5886,31 @@ local Num = text:match("^وضع زمن التكرار (%d+)$")
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Num) 
 send(msg.chat_id_, msg.id_,"• تم وضع زمن التكرار ("..Num..")") 
 end
-if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' and msg.reply_to_message_id_ == 0 and Addictive(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-database:set(bot_id.."Link_Group"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل جلب الرابط المجموعه") 
+if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
+if Addictive(msg) then  
+database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_," *• تم تفعيل الرابط*") 
 return false  
 end
-if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' and msg.reply_to_message_id_ == 0 and Addictive(msg) then
+end
+if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
+if Addictive(msg) then  
+database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_," *• تم تعطيل الرابط*") 
+return false end
+end
+if text == "ضع رابط" or text == 'وضع رابط' then
+if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'  *• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت* \n*• اشتࢪڪ هنا عمࢪي* ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."Link_Group"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل جلب رابط المجموعه") 
-return false
-end
-if text == "ضع رابط" or text == "وضع رابط" then   
-if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
-send(msg.chat_id_,msg.id_,"• ارسل رابط المجموعه او رابط قناة المجموعه")
+send(msg.chat_id_,msg.id_," *• حسنآ ارسل اليه الرابط الان*")
 database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false
 end
@@ -5942,16 +5936,24 @@ send(msg.chat_id_, msg.id_,linkgp)
 end            
  end,nil)
 end
-if text == "مسح الرابط" or text == "حذف الرابط" then   
-if Addictive(msg) then     
-send(msg.chat_id_,msg.id_,"• تم مسح الرابط ")           
-database:del(bot_id.."Private:Group:Link"..msg.chat_id_) 
-return false      
+if text == 'مسح الرابط' or text == 'حذف الرابط' then
+if Addictive(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'  *• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت* \n*• اشتࢪڪ هنا عمࢪي* ['..database:get(bot_id..'add:ch:username')..']')
 end
+return false
+end
+send(msg.chat_id_,msg.id_," *• تم مسح الرابط*")   
+database:del(bot_id.."Private:Group:Link"..msg.chat_id_) 
 return false  
 end
-if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
-database:sadd(bot_id.."msg:media"..msg.chat_id_, msg.id_)
+end
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
