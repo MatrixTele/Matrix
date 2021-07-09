@@ -4267,26 +4267,6 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من المميزين")
 return false
 end  
 
-if text == 'تنزيل المطايه' and Owner(msg) then
-database:del(bot_id..'Mote:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' • تم مسح جميع المطايه')
-end
-if text == ("تاك للمطايه") and Owner(msg) then
-local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
-t = "\n • قائمة مطايه الكروب \n  ━═━═━═━\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t..""..k.."» المطي [@"..username.."]\n"
-else
-t = t..""..k.."» المطي `"..v.."`\n"
-end
-end
-if #list == 0 then
-t = " • لا يوجد مطايه"
-end
-send(msg.chat_id_, msg.id_, t)
-end
 ---------
 if text == ("رفع اثول") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then   
 function start_function(extra, result, success)
@@ -5941,36 +5921,27 @@ database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_u
 return false
 end
 end
-                if text == "الرابط" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
+if text == "الرابط" then 
+local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
+if not status_Link then
+send(msg.chat_id_, msg.id_,"• الرابط معطل") 
+return false  
+end
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
+local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
+if link then                              
+send(msg.chat_id_,msg.id_,' ['..ta.title_..']('..link..')')                          
+else                
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+linkgp = '\n*⛓꒐ 𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 : *\n━═━═━═━\n ['..ta.title_..']('..linkgpp.result..')'
 else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+linkgp = '• لا يوجد رابط ارسل ضع رابط'
+end  
+send(msg.chat_id_, msg.id_,linkgp)              
+end            
+ end,nil)
 end
-return false
-end
-                    local status_Link = database:get(bot_id .. "Link_Group" .. msg.chat_id_)
-                    if not status_Link then
-                        send(msg.chat_id_, msg.id_, "܂• جلب الرابط معطل")
-                        return false
-                    end
-                    local link = database:get(bot_id .. "Private:Group:Link" .. msg.chat_id_)
-                    if link then
-                        send(msg.chat_id_, msg.id_, '܂• رابط المجموعة ~\n [' .. link .. ']')
-                    else
-                        local linkgpp = json:decode(https.request(
-                                                        'https://api.telegram.org/bot' .. token ..
-                                                            '/exportChatInviteLink?chat_id=' .. msg.chat_id_))
-                        if linkgpp.ok == true then
-                            linkgp = '܂• رابط المجموعة ~\n [' .. linkgpp.result .. ']'
-                        else
-                            linkgp = '܂• لا يوجد رابط ارسل ضع رابط'
-                        end
-                        send(msg.chat_id_, msg.id_, linkgp)
-                    end
-                end
 if text == "مسح الرابط" or text == "حذف الرابط" then   
 if Addictive(msg) then     
 send(msg.chat_id_,msg.id_,"• تم مسح الرابط ")           
@@ -14212,6 +14183,10 @@ local Teext =[[*
   • رفع /تنزيل طلي
 • رفع /تنزيل زاحف
 • رفع /تنزيل جريذي
+• رفع /تنزيل بكلبي
+• رفع /تنزيل نبي
+• رفع /تنزيل اثول
+• زواج / طلاق
 • تاك  ← الامࢪ
     ━═━═━═━
 • نسبه الحب
