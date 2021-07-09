@@ -3120,88 +3120,6 @@ end
 database:del(bot_id.."Matrix:Special:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "• تم مسح  قائمة الاعضاء المميزين  ")
 end
-if text and text:match("^صيح (.*)$") then
-local username = text:match("^صيح (.*)$") 
-if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
-function start_function(extra, result, success)
-if result and result.message_ and result.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_,' • المعرف غلط ') 
-return false  
-end
-if result and result.type_ and result.type_.channel_ and result.type_.channel_.ID == "Channel" then
-send(msg.chat_id_, msg.id_,' • لا استطيع اصيح معرف قنوات') 
-return false  
-end
-if result.type_.user_.type_.ID == "UserTypeBot" then
-send(msg.chat_id_, msg.id_,' • لا استطيع اصيح معرف بوتات') 
-return false  
-end
-if result and result.type_ and result.type_.channel_ and result.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'⚠| لا اسطيع صيح معرفات الكروبات') 
-return false  
-end
-if result.id_ then
-send(msg.chat_id_, msg.id_,' • تعال حبي يصيحونك بل كروب [@'..username..']') 
-return false
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-else
-send(msg.chat_id_, msg.id_,' • تم تعطيل امر صيح') 
-end
-return false
-end
-
-if text == 'منو ضافني' then
-if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusCreator" then
-send(msg.chat_id_, msg.id_,' • انت منشئ الكروب') 
-return false
-end
-local Added_Me = database:get(bot_id.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
-if Added_Me then 
-tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = ' • الشخص الذي قام باضافتك هو » '..Name
-sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
-end,nil)
-else
-send(msg.chat_id_, msg.id_,' • انت دخلت عبر الرابط لتلح') 
-end
-end,nil)
-else
-send(msg.chat_id_, msg.id_,' • تم تعطيل امر منو ضافني') 
-end
-end
-
-if text == 'تفعيل ضافني' and Manager(msg) then   
-if database:get(bot_id..'Added:Me'..msg.chat_id_) then
-Text = ' • تم تفعيل امر منو ضافني'
-database:del(bot_id..'Added:Me'..msg.chat_id_)  
-else
-Text = ' • بالتاكيد تم تفعيل امر منو ضافني'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل ضافني' and Manager(msg) then  
-if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
-database:set(bot_id..'Added:Me'..msg.chat_id_,true)  
-Text = '\n • تم تعطيل امر منو ضافني'
-else
-Text = '\n • بالتاكيد تم تعطيل امر منو ضافني'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تفعيل صيح' and Manager(msg) then   
-if database:get(bot_id..'Seh:User'..msg.chat_id_) then
-Text = ' • تم تفعيل امر صيح'
-database:del(bot_id..'Seh:User'..msg.chat_id_)  
-else
-Text = ' • بالتاكيد تم تفعيل امر صيح'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
 if text == "تنزيل جميع الرتب" and DevBot(msg) then
 database:del(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
 texts = "• تم تنزيل جميع الرتب "
@@ -4339,6 +4257,78 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
+if text == ("رفع بكلبي") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then   
+function start_function(extra, result, success)
+database:sadd(bot_id..'Galby:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n• رفعتك بكلبي لتجرحني 😘😭💞'
+local  statuss  = ''
+send(msg.chat_id_, msg.id_, usertext..statuss)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if (text == ("تنزيل بكلبي")) and msg.reply_to_message_id_ and Addictive(msg) then   
+function start_function(extra, result, success)
+database:srem(bot_id..'Galby:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n• مو كتلك لتجرحني نزلتك من كلبي 😭💞'
+status  = ''
+send(msg.chat_id_, msg.id_, usertext..status)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text == ("رفع تاج") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then   
+function start_function(extra, result, success)
+database:sadd(bot_id..'Tag:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n• هو تاج ميحتاج ارفعه 🤴🏻💞'
+local  statuss  = ''
+send(msg.chat_id_, msg.id_, usertext..statuss)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if (text == ("تنزيل تاج")) and msg.reply_to_message_id_ and Addictive(msg) then   
+function start_function(extra, result, success)
+database:srem(bot_id..'Tag:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n• التاج ماينزل من مكانه 🤴🏻💞'
+status  = ''
+send(msg.chat_id_, msg.id_, usertext..status)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text == ("زواج") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then   
+function start_function(extra, result, success)
+database:sadd(bot_id..'Zoag:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n• نزوج وماتباوع على غيري 🥺💞'
+local  statuss  = ''
+send(msg.chat_id_, msg.id_, usertext..statuss)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text == ("طلاق") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then   
+function start_function(extra, result, success)
+database:sadd(bot_id..'Mote:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n• طالق طالق طالق بالعشرة 😹😭💞'
+local  statuss  = ''
+send(msg.chat_id_, msg.id_, usertext..statuss)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
 if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6933,60 +6923,6 @@ if text and text:match("^تغير رد العضو (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد العضو (.*)$") 
 database:set(bot_id.."Matrix:Memp:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_,"• تم تغير رد العضو الى ⌁ "..Teext)
-end
-if text and text:match("^صيح (.*)$") then
-local username = text:match("^صيح (.*)$") 
-if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
-function start_function(extra, result, success)
-if result and result.message_ and result.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_,' • المعرف غلط ') 
-return false  
-end
-if result and result.type_ and result.type_.channel_ and result.type_.channel_.ID == "Channel" then
-send(msg.chat_id_, msg.id_,' • لا استطيع اصيح معرف قنوات') 
-return false  
-end
-if result.type_.user_.type_.ID == "UserTypeBot" then
-send(msg.chat_id_, msg.id_,' • لا استطيع اصيح معرف بوتات') 
-return false  
-end
-if result and result.type_ and result.type_.channel_ and result.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'⚠| لا اسطيع صيح معرفات الكروبات') 
-return false  
-end
-if result.id_ then
-send(msg.chat_id_, msg.id_,' • تعال حبي يصيحونك بل كروب [@'..username..']') 
-return false
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-else
-send(msg.chat_id_, msg.id_,' • تم تعطيل امر صيح') 
-end
-return false
-end
-
-if text == 'منو ضافني' then
-if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusCreator" then
-send(msg.chat_id_, msg.id_,' • انت منشئ الكروب') 
-return false
-end
-local Added_Me = database:get(bot_id.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
-if Added_Me then 
-tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = ' • الشخص الذي قام باضافتك هو » '..Name
-sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
-end,nil)
-else
-send(msg.chat_id_, msg.id_,' • انت دخلت عبر الرابط لتلح') 
-end
-end,nil)
-else
-send(msg.chat_id_, msg.id_,' • تم تعطيل امر منو ضافني') 
-end
 end
 
 if text == ("مسح الرتب") and BasicConstructor(msg) then
@@ -10410,27 +10346,6 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-
-if text and text:match("^(.*)$") then
-if database:get(bot_id..'help'..msg.sender_user_id_) == 'true' then
-send(msg.chat_id_, msg.id_, ' ✸∫ تم حفظ الكليشه')
-database:del(bot_id..'help'..msg.sender_user_id_)
-database:set(bot_id..'help_text',text)
-return false
-end
-end
-
-if text == 'استعاده الاوامر' and DevBot(msg) then
-database:del(bot_id..'help_text')
-send(msg.chat_id_, msg.id_, ' ✸∫ تم استعادة الاوامر القديمه')
-end
-
-if text == 'تغير رمز السورس' and DevBot(msg) then
-send(msg.chat_id_, msg.id_, ' ✸∫ الان يمكنك ارسال الكليشه الاوامر')
-database:set(bot_id..'help'..msg.sender_user_id_,'true')
-return false 
-end
-
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -10441,7 +10356,6 @@ send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قنا
 end
 return false
 end
-local help_text = database:get(bot_id..'help_text')
 local Text =[[
 *اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
 *يمكنك استخدام هذه الاوامر 🔽*
@@ -10962,7 +10876,7 @@ local Text = '📩┇مرحبا بك في كيبورد اوامر الاذاعة
 local keyboard = {
 {'اذاعه خاص 📡','المطورين 🔱','اذاعه 📡'},
 {'تفعيل الاذاعه 🔔','تعطيل الاذاعه 🔕'},
-{'اذاعه بالتوجيه 👥','اذاعه بالتثبيت 🅿️','اذاعه بالتوجيه خاص 👤'},
+{'اذاعه بالتوجيه 👥','اذاعه بالتوجيه خاص 👤'},
 {'رجوع 🔚'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
@@ -11450,15 +11364,6 @@ database:setex(bot_id.."Matrix:Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sende
 send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
 return false
 end 
-if text=="اذاعه بالتثبيت 🅿️" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
-return false
-end
-database:setex(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
-return false
-end  
 if text=="اذاعه 📡" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
