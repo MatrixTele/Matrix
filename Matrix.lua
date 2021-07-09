@@ -14516,6 +14516,7 @@ if data.username_ ~= false then
 database:set(bot_id..'Matrix:User:Name'..msg.sender_user_id_,data.username_)
 end;end,nil)   
 ------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatAddMembers" then  
 database:set(bot_id.."Matrix:Who:Added:Me"..msg.chat_id_..":"..msg.content_.members_[0].id_,msg.sender_user_id_)
 local mem_id = msg.content_.members_  
 local Bots = database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) 
