@@ -10020,10 +10020,10 @@ keyboard.inline_keyboard = {
 {text = 'كرة قدم ⚽',url="https://t.me/gamee?game=FootballStar"},
 },
 {
-{text = 'دومنا🥇',url="https://vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},
+{text = 'دومنا🥇',url="https://t.me/vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},
 },
 {
-{text = '❕ليدو',url="https://vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby"},
+{text = '❕ليدو',url="https://t.me/vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby"},
 },
 {
 {text = 'ورق🤹‍♂',url="https://t.me/gamee?game=Hexonix"},
