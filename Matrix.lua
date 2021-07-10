@@ -10001,7 +10001,7 @@ keyboard.inline_keyboard = {
 {text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
 },
 {
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},{text = 'تحداني فالرياضيات 🔢',url="https://t.me/gamebot?game=MathBattle"},
+{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
 },
 {
 {text = 'Matrix Team', url="https://t.me/Matrix_Source"},
