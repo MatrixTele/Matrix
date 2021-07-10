@@ -10002,24 +10002,6 @@ keyboard.inline_keyboard = {
 {text = 'لعبة فلابي بيرد 🐥',url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات 🔢',url="https://t.me/gamebot?game=MathBattle"},
 },
 {
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},{text = 'Squares🏁',url="https://t.me/gamee?game=Squares"},
-},
-{
-,{text = 'Corsairs',url="https://t.me/gamebot?game=Corsairs"},
-},
-{
-{text = 'LumberJack',url="https://t.me/gamebot?game=LumberJack"},
-},
-{
-{text = '🦖 Dragon Game 🦖',url="https://t.me/T4TTTTBOT?game=dragon"},{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
-},
-{
-{text = '🔵 Color Game 🔴',url="https://t.me/T4TTTTBOT?game=color"},
-},
-{
-{text = '🚀 Rocket Game 🚀',url="https://t.me/T4TTTTBOT?game=rocket"},{text = '🏹 Arrow Game 🏹',url="https://t.me/T4TTTTBOT?game=arrow"},
-},
-{
 {text = 'Matrix Team', url="https://t.me/Matrix_Source"},
 },
 {
