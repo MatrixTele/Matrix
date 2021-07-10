@@ -9999,7 +9999,7 @@ keyboard.inline_keyboard = {
 {text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
 },
 {
-{text = 'لعبة فلابي بيرد 🐥',url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات 🔢',url="https://t.me/gamebot?game=MathBattle"},
+{text = 'MotoFx🏍️',url="https://t.me/gamee?game=MotoFx"},
 },
 {
 {text = 'Matrix Team', url="https://t.me/Matrix_Source"},
