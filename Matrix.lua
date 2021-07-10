@@ -9975,9 +9975,18 @@ database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
-if text == 'الالعاب احتراف' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
-Text = [[
- *• قائمه الالعاب الاحترافيه اضغط للعب*
+if text == 'السورس' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[*
+• قائمة الالعاب الاحترافية اظغط للعب *
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10027,10 +10036,10 @@ keyboard.inline_keyboard = {
 {text='🚀 Rocket Game 🚀',url="https://t.me/T4TTTTBOT?game=rocket"},{text='🏹 Arrow Game 🏹',url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
-{text='- Matrix Team', url="t.me/Matrix_Source"},
+{text='- Matrix Team',url="t.me/Matrix_Source"},
 },
 {
-{text='مطور السورس', url="t.me/IZlZ7I"},
+{text='مطور السورس',url="t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
