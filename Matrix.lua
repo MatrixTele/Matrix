@@ -10002,7 +10002,7 @@ keyboard.inline_keyboard = {
 {text = 'لعبة فلابي بيرد 🐥',url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات 🔢',url="https://t.me/gamebot?game=MathBattle"},
 },
 {
-{text = 'تحداني في ❌⭕️',url="t.me/XO_AABOT?start3836619"},{text = 'سباق الدراجات 🏍',url="https://t.me/gamee?game=MotoFX"},
+{text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},{text = 'سباق الدراجات 🏍',url="https://t.me/gamee?game=MotoFX"},
 },
 {
 {text = 'سباق سيارات 🏎',url="https://t.me/gamee?game=F1Racer"},{text = 'متشابه 👾',url="https://t.me/gamee?game=DiamondRows"},
@@ -10011,7 +10011,7 @@ keyboard.inline_keyboard = {
 {text = 'كرة قدم ⚽',url="https://t.me/gamee?game=FootballStar"},
 },
 {
-{text = 'دومنا🥇',url="https://vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},{text = '❕ليدو',url="https://vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby"},
+{text = 'دومنا🥇',url="https://t.me/vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},{text = '❕ليدو',url="https://t.me/vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby"},
 },
 {
 {text = 'ورق🤹‍♂',url="https://t.me/gamee?game=Hexonix"},{text = 'Hexonix❌',url="https://t.me/gamee?game=Hexonix"},
@@ -10041,10 +10041,10 @@ keyboard.inline_keyboard = {
 {text = '🚀 Rocket Game 🚀',url="https://t.me/T4TTTTBOT?game=rocket"},{text = '🏹 Arrow Game 🏹',url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
-{text = 'Matrix Team', url="t.me/Matrix_Source"},
+{text = 'Matrix Team', url="https://t.me/Matrix_Source"},
 },
 {
-{text = 'مطور السورس', url="t.me/IZlZ7I"},
+{text = 'مطور السورس', url="https://t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
