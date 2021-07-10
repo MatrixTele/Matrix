@@ -9991,8 +9991,8 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 Text = [[*
-🐲 • اهلا بك في قائمة الالعاب الاحترافية 
-🚩 • لسورس ماتركس”*
+🐲 • Welcome to the list of professional games
+🚩 • TeAm - ”Matrix”*
  ••  ━═━═━═━••
 ]]
 keyboard = {} 
