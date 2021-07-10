@@ -9975,7 +9975,7 @@ database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
-if text == 'السورس' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
+if text == 'الالعاب احتراف' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
 Text = [[
  *• قائمه الالعاب الاحترافيه اضغط للعب*
 ]]
