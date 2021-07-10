@@ -10003,9 +10003,6 @@ keyboard.inline_keyboard = {
 {
 {text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
 },
-{
-{text = 'دومنا🥇',url="https://t.me/vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},
-},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
