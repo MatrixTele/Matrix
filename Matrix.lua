@@ -9991,7 +9991,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 Text = [[*
-🐲 • Welcome to the list of professional games
+🐲 • Welcome to the game list
 🚩 • TeAm - ”Matrix”*
  ••  ━═━═━═━••
 ]]
@@ -10001,7 +10001,7 @@ keyboard.inline_keyboard = {
 {text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
 },
 {
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
+{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},{text = 'تحداني فالرياضيات 🔢',url="https://t.me/gamebot?game=MathBattle"},
 },
 {
 {text = 'Matrix Team', url="https://t.me/Matrix_Source"},
