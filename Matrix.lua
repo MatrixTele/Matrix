@@ -9991,9 +9991,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 Text = [[*
-🐲 • Welcome to Source
-🚩 • TeAm - ”Matrix”*
- ••  ━═━═━═━••
+• قائمة الالعاب الاحترافية اظغط للعب *
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
