@@ -7728,19 +7728,42 @@ send(msg.chat_id_, msg.id_, taha)
 end,nil)
 end,nil)
 end 
-if text == 'اطردني' or text == 'طردني' and GetChannelMember(msg) then   
-if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-if Can_or_NotCan(msg.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, '\n *✬︙عذرا لا استطيع طرد ( '..Rutba(msg.sender_user_id_,msg.chat_id_)..' )*')
+if text == "اطردني" or text == "طردني" then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
-_key = {
-{{text="تأكيد الامر",callback_data="OkKikedMe"..msg.sender_user_id_},{text="الغاء الامر",callback_data="noKikedMe"..msg.sender_user_id_}},
-}
-send_inlin_key(msg.chat_id_," *✬︙قم بتأكيد العمليه الان*",_key,msg.id_)
+if not database:get(bot_id.."Matrix:Kick:Me"..msg.chat_id_) then
+if Rank_Checking(msg.sender_user_id_, msg.chat_id_) == true then
+send(msg.chat_id_, msg.id_, "\n• عذرا لا استطيع طرد ( "..Get_Rank(msg.sender_user_id_,msg.chat_id_).." )")
 return false
+end
+tdcli_function({ID="ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=msg.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
+if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
+send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+return false  
+end
+if (data and data.code_ and data.code_ == 3) then 
+send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
+return false  
+end
+if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
+send(msg.chat_id_, msg.id_,"• عذرا لا استطيع طرد ادمنية المجموعه") 
+return false  
+end
+if data and data.ID and data.ID == "Ok" then
+send(msg.chat_id_, msg.id_,"• تم طردك من المجموعه ") 
+tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
+return false
+end
+end,nil)   
 else
-send(msg.chat_id_, msg.id_,' *✬︙تم تعطيل امر اطردني*') 
+send(msg.chat_id_, msg.id_,"• امر اطردني تم تعطيله من قبل المدراء ") 
 end
 end
 
@@ -9952,40 +9975,6 @@ database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
-if text == 'تعطيل الالعاب الاحترافيه' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
-database:set(bot_id..'lockGeamVip'..msg.chat_id_,true)  
-send(msg.chat_id_, msg.id_,'*• تم تعطيل الالعاب الاحترافيه*')
-end
-if text == 'تفعيل الالعاب الاحترافيه' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
-database:del(bot_id..'lockGeamVip'..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,'*• تم تفعيل الالعاب الاحترافيه*')
-end
-if text == 'الالعاب الاحترافيه' and Special(msg) then  
-if not database:get(bot_id..'lockGeamVip'..msg.chat_id_) then
-_key = {
-{{text="♟ Chess Game ♟",url='https://t.me/T4TTTTBOT?game=chess'}},
-{{text="لعبة فلابي بيرد 🐥",url='https://t.me/awesomebot?game=FlappyBird'},{text="تحداني فالرياضيات 🔢",url='https://t.me/gamebot?game=MathBattle'}},
-{{text="تحداني في ❌⭕️",url='t.me/XO_AABOT?start3836619'},{text="سباق الدراجات 🏍",url='https://t.me/gamee?game=MotoFX'}},
-{{text="سباق سيارات 🏎",url='https://t.me/gamee?game=F1Racer'},{text="متشابه 👾",url='https://t.me/gamee?game=DiamondRows'}},
-{{text="كرة قدم ⚽",url='https://t.me/gamee?game=FootballStar'}},
-{{text="دومنا🥇",url='https://vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby'},{text="❕ليدو",url='https://vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby'}},
-{{text="ورق🤹‍♂",url='https://t.me/gamee?game=Hexonix'},{text="Hexonix❌",url='https://t.me/gamee?game=Hexonix'}},
-{{text="MotoFx🏍️",url='https://t.me/gamee?game=MotoFx'}},
-{{text="لعبة 2048 🎰",url='https://t.me/awesomebot?game=g2048'},{text="Squares🏁",url='https://t.me/gamee?game=Squares'}},
-{{text="Atomic 1▶️",url='https://t.me/gamee?game=AtomicDrop1'},{text="Corsairs",url='https://t.me/gamebot?game=Corsairs'}},
-{{text="LumberJack",url='https://t.me/gamebot?game=LumberJack'}},
-{{text="LittlePlane",url='https://t.me/gamee?game=LittlePlane'},{text="RollerDisco",url='https://t.me/gamee?game=RollerDisco'}},
-{{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
-{{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
-{{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
-{{text = 'Matrix Team', url="t.me/Matrix_Source"}},
-{{text = 'مطور السورس', url="t.me/IZlZ7I"}},
-}
-send_inlin_key(msg.chat_id_," *• قائمه الالعاب الاحترافيه اضغط للعب*",_key,msg.id_)
-else
-send(msg.chat_id_, msg.id_," *• الالعاب الاحترافيه معطله في الوقت الحالي .*")
-end
-end
 if text == "تعطيل الزخرفه" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '• تم تعطيل الزخرفه')
 database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"close")
@@ -14526,52 +14515,6 @@ tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data
 if data.username_ ~= false then
 database:set(bot_id..'Matrix:User:Name'..msg.sender_user_id_,data.username_)
 end;end,nil)   
-------------------------------------------------------------------------
-if DAata == 'OkKikedMe'..data.sender_user_id_ then  
-tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
-if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʙᴏʏᴋᴀ',url='http://t.me/BOBBW'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *✬︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if (data and data.code_ and data.code_ == 3) then 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʙᴏʏᴋᴀ',url='http://t.me/BOBBW'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *✬︙البوت ليس ادمن يرجى ترقيتي !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʙᴏʏᴋᴀ',url='http://t.me/BOBBW'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *✬︙عذرا لا استطيع طرد ادمنية الكروب*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if data and data.ID and data.ID == 'Ok' then
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʙᴏʏᴋᴀ',url='http://t.me/BOBBW'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *✬︙تم الطرد بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-end,nil)   
-end
-if DAata == 'noKikedMe'..data.sender_user_id_ then  
-local Text ="*✬ تم الغاء الطرد بنجاح .*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʙᴏʏᴋᴀ',url='http://t.me/BOBBW'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-end
-if data.ID == "UpdateNewMessage" then  -- new msg
-msg = data.message_
-text = msg.content_.text_
 ------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
 database:set(bot_id.."Matrix:Who:Added:Me"..msg.chat_id_..":"..msg.content_.members_[0].id_,msg.sender_user_id_)
