@@ -9975,14 +9975,19 @@ database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
-if text == 'الالعاب احتراف' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
+if text == 'الالعاب الاحتراف' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+Text = "• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ⏬"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- Matrix Team',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 Text = [[*
@@ -10036,7 +10041,7 @@ keyboard.inline_keyboard = {
 {text = '🚀 Rocket Game 🚀',url="https://t.me/T4TTTTBOT?game=rocket"},{text = '🏹 Arrow Game 🏹',url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
-{text = '- Matrix Team', url="t.me/Matrix_Source"},
+{text = 'Matrix Team', url="t.me/Matrix_Source"},
 },
 {
 {text = 'مطور السورس', url="t.me/IZlZ7I"},
