@@ -9975,7 +9975,7 @@ database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
-if text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' or text == 'العاب احترافيه' then  
+if text == 'الالعاب الاحترافيةة' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
@@ -9991,19 +9991,61 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 Text = [[*
-🐲 • Welcome to Source
-🚩 • TeAm - ”Matrix”*
- ••  ━═━═━═━••
+• قائمة الالعاب الاحترافية اظغط للعب *
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
 {text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
 },
+{
+{text = 'لعبة فلابي بيرد 🐥',url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات 🔢',url="https://t.me/gamebot?game=MathBattle"},
+},
+{
+{text = 'سباق سيارات 🏎',url="https://t.me/gamee?game=F1Racer"},{text = 'متشابه 👾',url="https://t.me/gamee?game=DiamondRows"},
+},
+{
+{text = 'كرة قدم ⚽',url="https://t.me/gamee?game=FootballStar"},
+},
+{
+{text = 'دومنا🥇',url="https://t.me/vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},{text = '❕ليدو',url="https://t.me/vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby"},
+},
+{
+{text = 'ورق🤹‍♂',url="https://t.me/gamee?game=Hexonix"},{text = 'Hexonix❌',url="https://t.me/gamee?game=Hexonix"},
+},
+{
+{text = 'MotoFx🏍️',url="https://t.me/gamee?game=MotoFx"},
+},
+{
+{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},{text = 'Squares🏁',url="https://t.me/gamee?game=Squares"},
+},
+{
+{text = 'Atomic 1▶️',url="https://t.me/gamee?game=AtomicDrop1"},{text = 'Corsairs',url="https://t.me/gamebot?game=Corsairs"},
+},
+{
+{text = 'LumberJack',url="https://t.me/gamebot?game=LumberJack"},
+},
+{
+{text = 'LittlePlane',url="https://t.me/gamee?game=LittlePlane"},{text = 'RollerDisco',url="https://t.me/gamee?game=RollerDisco"},
+},
+{
+{text = '🦖 Dragon Game 🦖',url="https://t.me/T4TTTTBOT?game=dragon"},{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
+},
+{
+{text = '🔵 Color Game 🔴',url="https://t.me/T4TTTTBOT?game=color"},
+},
+{
+{text = '🚀 Rocket Game 🚀',url="https://t.me/T4TTTTBOT?game=rocket"},{text = '🏹 Arrow Game 🏹',url="https://t.me/T4TTTTBOT?game=arrow"},
+},
+{
+{text = 'Matrix Team', url="https://t.me/Matrix_Source"},
+},
+{
+{text = 'مطور السورس', url="https://t.me/IZlZ7I"},
+},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == "تعطيل الزخرفه" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '• تم تعطيل الزخرفه')
