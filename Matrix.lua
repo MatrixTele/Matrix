@@ -1883,16 +1883,16 @@ database:set(bot_id.."Matrix:Lock:Join"..msg.chat_id_,"kick")
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل دخول الاعضاء")  
 return false
 end 
-if text == 'قفل البوتات' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
-database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'del')  
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,' *✬︙بواسطه »* ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'pvv_v')..') \n*✬︙تـم قفـل البوتات* ')
-end,nil)   
-i text == 'قفل البوتات بالطرد' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
-database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'kick')  
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,' *✬︙بواسطه »* ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'pvv_v')..') \n*✬︙تـم قفـل البوتات بالطرد* ')
-end,nil)   
+if text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","⌔️︙تم قفـل البوتات")  
+return false
+end 
+if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔️︙تم قفـل البوتات")  
+return false
+end 
 if text == "قفل الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 database:set(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_,true)  
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل الاشعارات")  
@@ -10534,8 +10534,8 @@ end
 return false
 end
 local Text =[[
-،🖇:اهلا بك عزيزي .
-،🖇:في لوحه الاوامر ألخاصه بالبوت .
+*،🖇:اهلا بك عزيزي .*
+*،🖇:في لوحه الاوامر ألخاصه بالبوت .*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
