@@ -10540,10 +10540,7 @@ keyboard.inline_keyboard = {
 {text = 'م1', callback_data=msg.sender_user_id_.."/help1"},{text = 'م2', callback_data=msg.sender_user_id_.."/help2"},
 },
 {
-{text = 'م3', callback_data=msg.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=msg.sender_user_id_.."/help4"},
-},
-{
-{text = 'التسلية', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=msg.sender_user_id_.."/help6"},
+{text = 'م3', callback_data=msg.sender_user_id_.."/help3"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14089,13 +14086,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
-},
-{
-{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -14139,13 +14130,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
-},
-{
-{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -14226,13 +14211,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
-},
-{
-{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -14254,13 +14233,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
-},
-{
-{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -14332,15 +14305,6 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
-},
-{
-{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
-},
-{
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
 },
 }
@@ -14358,10 +14322,7 @@ keyboard.inline_keyboard = {
 {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
-},
-{
-{text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
