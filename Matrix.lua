@@ -10534,8 +10534,8 @@ end
 return false
 end
 local Text =[[
-*• اهلا بك عزيزي *
-*• في لوحه الاوامر ألخاصه بالبوت *
+• *اهلا بك في لوحة البوت*
+• *للاستفسار* ⇜ [- ᴅᴇᴠᴇʟᴏᴘᴇʀ - ʜᴜѕѕᴀɪɴ ༒](t.me/IZlZ7I)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
