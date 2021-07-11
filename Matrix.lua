@@ -1883,16 +1883,16 @@ database:set(bot_id.."Matrix:Lock:Join"..msg.chat_id_,"kick")
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل دخول الاعضاء")  
 return false
 end 
-if text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔️︙تم قفـل البوتات")  
-return false
-end 
-if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔️︙تم قفـل البوتات")  
-return false
-end 
+if text == 'قفل البوتات' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'del')  
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+send(msg.chat_id_, msg.id_,' *✬︙بواسطه »* ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'pvv_v')..') \n*✬︙تـم قفـل البوتات* ')
+end,nil)   
+if text == 'قفل البوتات بالطرد' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'kick')  
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+send(msg.chat_id_, msg.id_,' *✬︙بواسطه »* ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'pvv_v')..') \n*✬︙تـم قفـل البوتات بالطرد* ')
+end,nil)   
 if text == "قفل الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 database:set(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_,true)  
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل الاشعارات")  
@@ -8087,30 +8087,6 @@ database:setex(bot_id.."Matrix:Set:Name:Bot"..msg.sender_user_id_,300,true)
 send(msg.chat_id_, msg.id_,"• ارسل لي الاسم الان ")  
 end
 return false
-end
-if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
-database:set(bot_id.."lock_cleaner"..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_, '• تم تفعيل التنظيف الوسائط التلقائي ')
-return false
-end
-
-if text == "تعطيل تنظيف الوسائط" and Owner(msg) then
-database:del(bot_id.."lock_cleaner"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '• تم تعطيل » التنظيف التلقائي ')
-return false
-end
-
-if text and text:match("^(ضع وقت التنظيف) (%d+)$") and Owner(msg) then
-local NumLoop = tonumber(text:match("(%d+)"))
-database:set(bot_id..':Timer_Cleaner:'..msg.chat_id_,NumLoop) 
-return send(msg.chat_id_, msg.id_,"*• تم وضع وقت التنظيف » { *"..NumLoop.."* } ساعه*")
-end
-
-if text == "مسح الوسائط" and Owner(msg) then 
-local mmezz = database:smembers(bot_id..":IdsMsgsCleaner:"..msg.chat_id_)
-if #mmezz == 0 then return send(msg.chat_id_, msg.id_,"• لا يوجد وسائط مجدوله للحذف \n ") end
-for k,v in pairs(mmezz) do DeleteMessage(msg.chat_id_, {[0] = v}) end
-return send(msg.chat_id_, msg.id_,"• تم مسح جميع الوسائط المجدوله")
 end
 if text ==("مسح المطرودين") and Addictive(msg) then    
 local function delbans(extra, result)  
@@ -14619,11 +14595,11 @@ end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
 local mem_id = msg.content_.members_  
-local Bots = database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) 
+local Bots = database:get(bot_id.."lock:Bot:kick"..msg.chat_id_) 
 for i=0,#mem_id do  
-if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Addictive(msg) and Bots == "del" then   
-Get_Info = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
-local Json_Info = JSON.decode(Get_Info)
+if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Mod(msg) and Bots == "del" then   
+BoykA = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
+local Json_Info = JSON.decode(BoykA)
 if Json_Info.ok == true and #mem_id == i then
 local Msgs = {}
 Msgs[0] = msg.id_
@@ -14632,9 +14608,20 @@ for i=1 ,(150) do
 msgs_id = msgs_id+1048576
 table.insert(Msgs,msgs_id)
 end
-tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_}) tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_Addictive(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
+tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_})
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID,filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_mod(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
 end
-end     
+end 
+end
+end
+if msg.content_.ID == 'MessagePinMessage' then
+if Constructor(msg) then 
+database:set(bot_id..'Pin:Id:Msg'..msg.chat_id_,msg.content_.message_id_)
+else
+local Msg_Pin = database:get(bot_id..'Pin:Id:Msg'..msg.chat_id_)
+if Msg_Pin and database:get(bot_id.."lockpin"..msg.chat_id_) then
+PinMessage(msg.chat_id_,Msg_Pin)
+end
 end
 end
 ------------------------------------------------------------------------
