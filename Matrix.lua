@@ -10007,6 +10007,15 @@ keyboard.inline_keyboard = {
 {text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
 },
 {
+{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
+},
+{
+{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
+},
+{
+{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
+},
+{
 {text = 'Matrix Team', url="https://t.me/Matrix_Source"},
 },
 {
