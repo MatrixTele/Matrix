@@ -7469,7 +7469,7 @@ end,nil)
 end
 end,nil)
 end
-if text == "@all" or text == "all" and Constructoryyu(msg) then
+if text == "@all" or text == "all" and Owner(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."cccbcc:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
@@ -7503,7 +7503,7 @@ end,nil)
 end,nil)
 end
 end
-if text and text:match("^تاك ل (%d+)$") and tonumber(msg) then   
+if text and text:match("^تاك ل (%d+)$") and Addictive(msg) then   
 taglimit = text:match("^تاك ل (%d+)$"):gsub('تاك ل ','')
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = taglimit
 },function(ta,Matrix)
@@ -7519,7 +7519,7 @@ else
 tagname = data.first_name_
 tagname = tagname:gsub("]","")
 tagname = tagname:gsub("[[]","")
-t = t.."*︙"..x.."︙l>* {["..tagname.."](tg://user?id="..v.user_id_..")} \n"
+t = t.."•┆"..x.."︙[@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
 end
 if k == 0 then
 send(msg.chat_id_,msg.id_,t)
@@ -7528,7 +7528,7 @@ end,nil)
 end
 end,nil)
 end
-if text == ("تاك للصخول") and tonumber(msg) then
+if text == ("تاك للصخول") and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
