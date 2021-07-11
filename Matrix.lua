@@ -10537,10 +10537,10 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م 1', callback_data=msg.sender_user_id_.."/help1"},{text = 'م 2', callback_data=msg.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=msg.sender_user_id_.."/help1"},{text = 'م2', callback_data=msg.sender_user_id_.."/help2"},
 },
 {
-{text = 'م 3', callback_data=msg.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=msg.sender_user_id_.."/help4"},
+{text = 'م3', callback_data=msg.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
 {text = 'التسلية', callback_data=msg.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=msg.sender_user_id_.."/help6"},
@@ -14089,10 +14089,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م 1', callback_data=data.sender_user_id_.."/help1"},{text = 'م 2', callback_data=data.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م 3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
@@ -14139,10 +14139,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م 1', callback_data=data.sender_user_id_.."/help1"},{text = 'م 2', callback_data=data.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م 3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
@@ -14226,10 +14226,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م 1', callback_data=data.sender_user_id_.."/help1"},{text = 'م 2', callback_data=data.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م 3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
@@ -14254,10 +14254,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م 1', callback_data=data.sender_user_id_.."/help1"},{text = 'م 2', callback_data=data.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م 3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
@@ -14332,10 +14332,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م 1', callback_data=data.sender_user_id_.."/help1"},{text = 'م 2', callback_data=data.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م 3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
@@ -14349,16 +14349,16 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-*اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
-*يمكنك استخدام هذه الاوامر 🔽*
+• *اهلا بك في لوحة البوت*
+• *للاستفسار* ⇜ [- ᴅᴇᴠᴇʟᴏᴘᴇʀ - ʜᴜѕѕᴀɪɴ ༒](t.me/IZlZ7I)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م 1', callback_data=data.sender_user_id_.."/help1"},{text = 'م 2', callback_data=data.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م 3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'اليوتيوب', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = 'التسلية', callback_data=data.sender_user_id_.."/help5"},{text = 'اوامر الخدمية', callback_data=data.sender_user_id_.."/help6"},
