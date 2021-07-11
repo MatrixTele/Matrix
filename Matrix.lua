@@ -2001,12 +2001,12 @@ return false
 end 
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس'  or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'انصبلك'  or text == 'انصبلك بوت' then
 Text = [[
-• *مطور السورس*  [- ᴅᴇᴠᴇʟᴏᴘᴇʀ - ʜᴜѕѕᴀɪɴ ༒](t.me/IZlZ7I)
+• [مطور السورس](t.me/IZlZ7I)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• مبرمج البوتات •',url="https://t.me/IZlZ7I"},
+{text = '• مطور السورس •',url="https://t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
