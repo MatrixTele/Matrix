@@ -10534,8 +10534,8 @@ end
 return false
 end
 local Text =[[
-*اهلا بك في بوت* [Matrix Team](t.me/Matrix_Source)
-*يمكنك استخدام هذه الاوامر 🔽*
+*🖇:اهلا بك عزيزي .
+🖇:في لوحه الاوامر ألخاصه بالبوت .*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13110,7 +13110,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n*🏷꒐ Id : '..Id..'\n🚹꒐ UsErNaMe : * ['..UserName_User..']*\n⏏️꒐ StAsT : '..Status_Gps..'\n💭꒐ MsGs : '..NumMsg..' \n📊꒐ Activity : '..TotalMsg..'\n🗯꒐ GaMeS : '..Num_Games..'*'
+local texte = '\n*🏷꒐ Id : '..Id..'\n🚹꒐ UsErNaMe : * ['..UserName_User..']*\n⏏️꒐ StAsT : '..Status_Gps..'\n??꒐ MsGs : '..NumMsg..' \n📊꒐ Activity : '..TotalMsg..'\n🗯꒐ GaMeS : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
