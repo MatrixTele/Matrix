@@ -10483,6 +10483,34 @@ dofile("Matrix.lua")
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 
+if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '*• تم تفعيل الرسائل اليوميه*')
+database:set(bot_id.."msg:match:"..msg.chat_id_,true)
+end
+if text == "تعطيل الرسائل اليوميه" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'*• تم تعطيل الرسائل اليوميه*')
+database:del(bot_id.." msg:match:"..msg.chat_id_)
+end
+if database:get(bot_id.."msg:match:"..msg.chat_id_) then
+if msg.content_.ID then
+get_msg = database:get(bot_id.."msg:match:"..msg.sender_user_id_..":"..msg.chat_id_) or 0
+gms = get_msg + 1
+database:setex(bot_id..'msg:match:'..msg.sender_user_id_..":"..msg.chat_id_,86400,gms)
+end
+if text == "تفاعلي اليوم" and tonumber(msg.reply_to_message_id_) == 0 then    
+get_msg = database:get(bot_id.."msg:match:"..msg.sender_user_id_..":"..msg.chat_id_) or 0
+send(msg.chat_id_, msg.id_,"*• عدد رسائلك الكلي هو :-*\n"..get_msg.." *من الرسائل*")
+end  
+if text == "تفاعله اليوم" and tonumber(msg.reply_to_message_id_) > 0 then    
+if tonumber(msg.reply_to_message_id_) ~= 0 then 
+function prom_reply(extra, result, success) 
+get_msg = database:get(bot_id.."msg:match:"..result.sender_user_id_..":"..msg.chat_id_) or 0
+send(msg.chat_id_, msg.id_,"*• عدد رسائل اشخص الكلي هو :-*\n"..get_msg.." *من الرسائل*")
+end  
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},prom_reply, nil)
+end
+end
+end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
