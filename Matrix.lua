@@ -7503,7 +7503,7 @@ end,nil)
 end,nil)
 end
 end
-if text and text:match("^تاك ل (%d+)$") and Addictive(msg) then   
+if text and text:match("^تاك ل (%d+)$") and tonumber(msg) then   
 taglimit = text:match("^تاك ل (%d+)$"):gsub('تاك ل ','')
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = taglimit
 },function(ta,Matrix)
@@ -7528,7 +7528,7 @@ end,nil)
 end
 end,nil)
 end
-if text == ("تاك للصخول") and Addictive(msg) then
+if text == ("تاك للصخول") and tonumber(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
