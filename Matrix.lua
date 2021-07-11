@@ -10534,10 +10534,8 @@ end
 return false
 end
 local Text =[[
-*
 ،🖇:اهلا بك عزيزي .
 ،🖇:في لوحه الاوامر ألخاصه بالبوت .
-*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
