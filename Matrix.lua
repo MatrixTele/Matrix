@@ -1886,9 +1886,13 @@ end
 elseif text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Admin(msg) then 
 redis:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"del")  
 Send_Options(msg,msg.sender_user_id_,"Close_Status","☑┇تم قفـل البوتات")  
+return false
+end 
 elseif text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Admin(msg) then 
 redis:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
 Send_Options(msg,msg.sender_user_id_,"Close_Status_Kick","☑┇تم قفـل البوتات")  
+return false
+end 
 if text == "قفل الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 database:set(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_,true)  
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل الاشعارات")  
