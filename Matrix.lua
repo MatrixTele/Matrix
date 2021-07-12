@@ -8157,7 +8157,7 @@ send(msg.chat_id_, msg.id_,"\n• تم تعطيل الاذاعه")
 return false
 end 
 
-if text == "/add" and Addictive(msg) then    
+if text == "الاعدادات" and Addictive(msg) then    
 if database:get(bot_id.."Matrix:lockpin"..msg.chat_id_) then    
 lock_pin = "✓"
 else 
@@ -9805,7 +9805,7 @@ Text = '\n • بالتاكيد تم تعطيل امر @all'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'الاعدادات' and Addictive(msg) then  
+if text == '/lock' and Addictive(msg) then  
 local Texti = 'تستطيع قفل وفتح عبر الازرار'
 local mute_text = (database:get(bot_id.."Matrix:Lock:text"..msg.chat_id_)  or '❌')
 local mute_text1 = mute_text:gsub('del', '❬ ✅ ❭')
@@ -9866,7 +9866,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == 'اوامر التعطيل' then
+if text == '/add' then
 local Texti = 'تستطيع تفعيل وتعطيل عبر الازرار'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10532,6 +10532,8 @@ return false
 end
 local Text =[[
 • *اهلا بك في لوحة البوت*
+• *للدخول الى اعدادات القفل اظغط* /lock
+• *للدخول الى اوامر التعطيل اظغط* /add
 • *للاستفسار* ⇜ [- ᴅᴇᴠᴇʟᴏᴘᴇʀ - ʜᴜѕѕᴀɪɴ ༒](t.me/IZlZ7I)
 ]]
 keyboard = {} 
@@ -14314,6 +14316,8 @@ elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 • *اهلا بك في لوحة البوت*
+• *للدخول الى اعدادات القفل اظغط* /lock
+• *للدخول الى اوامر التعطيل اظغط* /add
 • *للاستفسار* ⇜ [- ᴅᴇᴠᴇʟᴏᴘᴇʀ - ʜᴜѕѕᴀɪɴ ༒](t.me/IZlZ7I)
 ]]
 keyboard = {} 
