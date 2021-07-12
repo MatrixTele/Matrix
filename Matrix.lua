@@ -10534,7 +10534,7 @@ local Text =[[
 • *اهلا بك في لوحة البوت*
 • *للدخول الى اعدادات القفل اظغط* /lock
 • *للدخول الى اوامر التعطيل اظغط* /add
-• *للاستفسار* ⇜ [ᴅᴇᴠᴇʟᴏᴘᴇʀ](t.me/IZlZ7I)
+• *للاستفسار* ⇜ [مبرمج السورس ](t.me/IZlZ7I)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -14015,7 +14015,7 @@ print(msg.sender_user_id_,sudoo)
 print(msg.sender_user_id_== tonumber(sudoo))
 if msg.sender_user_id_ == tonumber(sudoo) then 
 --DeleteMessage(msg.chat_id_,{[0] = msg.message_id_})
-local Teext = "?? ┇ تم الغاء الامر بنجاح ."
+local Teext = "🚧 ┇ تم الغاء الامر بنجاح ."
 database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
 https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
 return false
@@ -14318,7 +14318,7 @@ local Teext =[[
 • *اهلا بك في لوحة البوت*
 • *للدخول الى اعدادات القفل اظغط* /lock
 • *للدخول الى اوامر التعطيل اظغط* /add
-• *للاستفسار* ⇜ [ᴅᴇᴠᴇʟᴏᴘᴇʀ](t.me/IZlZ7I)
+• *للاستفسار* ⇜ [مبرمج السورس ](t.me/IZlZ7I)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
