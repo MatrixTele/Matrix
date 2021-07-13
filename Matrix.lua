@@ -6869,6 +6869,207 @@ end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 
+if text == "تفعيل ميمز" and Owner(msg)  or text == "تفعيل الميمز" and Owner(msg)  then
+local t = ' \n• تم تفعيل الميمز'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:memz:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل ميمز" and Owner(msg)  or text == "تعطيل الميمز" and Owner(msg)  then
+local t= ' \n• تم تعطيل الميمز'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:memz:Rio'..msg.chat_id_,true)  
+end
+if text == "ميمز" and not database:get(bot_id..'Rio:memz:Rio'..msg.chat_id_)  then
+data,res = https.request('https://ccccxcc.ml/David/memz.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*• تم اختيار مقطع الميمز لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+--     Source David     --
+if text == "تفعيل غنيلي" and Owner(msg)  then
+local t = ' \n• تم تفعيل غنيلي'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:Audios:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل غنيلي" and Owner(msg)  then
+local t = ' \n• تم تعطيل غنيلي'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:Audios:Rio'..msg.chat_id_,true)  
+end
+if text == "غنيلي" and not database:get(bot_id..'Rio:Audios:Rio'..msg.chat_id_)  then
+data,res = https.request('https://ccccxcc.ml/David/Audios.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*• تم اختيار المقطع الصوتي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+--     Source David     --
+if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
+local t = ' \n• تم تفعيل الريمكس'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:Remix:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل ريمكس" and Owner(msg)  or text == "تعطيل الريمكس" and Owner(msg)  then
+local t = ' \n• تم تعطيل الريمكس'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:Remix:Rio'..msg.chat_id_,true)  
+end
+if text == "ريمكس" and not database:get(bot_id..'Rio:Remix:Rio'..msg.chat_id_)  then
+data,res = https.request('https://ccccxcc.ml/David/Remix.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*• تم اختيار الريمكس لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '• Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+--     Source David     --
+if text == "تفعيل صوره" and Owner(msg)  or text == "تفعيل الصوره" and Owner(msg)  then
+local t = ' \n• تم تفعيل الصوره'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:Photo:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل صوره" and Owner(msg)  or text == "تعطيل الصوره" and Owner(msg)  then
+local t = ' \n• تم تعطيل الصوره'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:Photo:Rio'..msg.chat_id_,true)  
+end
+if text == "صوره" and not database:get(bot_id..'Rio:Photo:Rio'..msg.chat_id_)  then
+data,res = https.request('https://ccccxcc.ml/David/Photo.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*• تم اختيار الصوره لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+--     Source David     --
+if text == "تفعيل انمي" and Owner(msg)  or text == "تفعيل الانمي" and Owner(msg)  then
+local t = ' \n• تم تفعيل الانمي'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:Anime:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل انمي" and Owner(msg)  or text == "تعطيل الانمي" and Owner(msg)  then
+local t = ' \n• تم تعطيل الانمي'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:Anime:Rio'..msg.chat_id_,true)  
+end
+if text == "انمي" and not database:get(bot_id..'Rio:Anime:Rio'..msg.chat_id_)  then
+data,res = https.request('https://ccccxcc.ml/David/Anime.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*• تم اختيار صورة الانمي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+--     Source David     --
+if text == "تفعيل فلم" and Owner(msg)  then
+local t = ' \n• تم تفعيل الافلام'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:Movies:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل فلم" and Owner(msg)  then
+local t = ' \n• تم تعطيل الافلام'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:Movies:Rio'..msg.chat_id_,true)  
+end
+if text == "فلم" and not database:get(bot_id..'Rio:Movies:Rio'..msg.chat_id_)  then
+data,res = https.request('https://ccccxcc.ml/David/Movies.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*• تم اختيار فلم لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+--     Source David     --
+if text == "تفعيل مسلسل" and Owner(msg)  then
+local t = ' \n• تم تفعيل المسلسلات'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:Series:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل مسلسل" and Owner(msg)  then
+local t = ' \n• تم تعطيل المسلسلات'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:Series:Rio'..msg.chat_id_,true)  
+end
+if text == "مسلسل" and not database:get(bot_id..'Rio:Series:Rio'..msg.chat_id_)  then
+data,res = https.request('https://ccccxcc.ml/David/Series.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*• تم اختيار مسلسل لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "تفعيل انطق" and Owner(msg)  then
+local t = ' \n• تم تفعيل ميزة انطق'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:Antk:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل انطق" and Owner(msg)  then
+local t = ' \n• تم تعطيل ميزة انطق'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:Antk:Rio'..msg.chat_id_,true)  
+end
+if text and text:match("^انطق (.*)$") and not database:get(bot_id..'Rio:Antk:Rio'..msg.chat_id_) then
+local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(text:match("^انطق (.*)$")))
+Antk = JSON.decode(UrlAntk)
+if UrlAntk.ok ~= false then
+download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.mp3') 
+sendAudio(msg.chat_id_,msg.id_,'./'..Antk.result.translate..'.mp3')  
+os.execute('rm -rf ./'..Antk.result.translate..'.mp3')
+
+end
+end
+
 
 if text == 'الردود' and Owner(msg) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..msg.chat_id_)
