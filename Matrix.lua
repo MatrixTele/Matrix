@@ -6894,7 +6894,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. ms
 end
 end
 end
---     Source David     --
+--     Source Matrix     --
 if text == "تفعيل غنيلي" and Owner(msg)  then
 local t = ' \n• تم تفعيل غنيلي'
 send(msg.chat_id_, msg.id_,t)
@@ -6920,7 +6920,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. ms
 end
 end
 end
---     Source David     --
+--     Source Matrix     --
 if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
 local t = ' \n• تم تفعيل الريمكس'
 send(msg.chat_id_, msg.id_,t)
@@ -6945,7 +6945,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. ms
 end
 end
 end
---     Source David     --
+--     Source Matrix     --
 if text == "تفعيل صوره" and Owner(msg)  or text == "تفعيل الصوره" and Owner(msg)  then
 local t = ' \n• تم تفعيل الصوره'
 send(msg.chat_id_, msg.id_,t)
@@ -6971,7 +6971,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. ms
 end
 end
 end
---     Source David     --
+--     Source Matrix     --
 if text == "تفعيل انمي" and Owner(msg)  or text == "تفعيل الانمي" and Owner(msg)  then
 local t = ' \n• تم تفعيل الانمي'
 send(msg.chat_id_, msg.id_,t)
@@ -6997,7 +6997,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. ms
 end
 end
 end
---     Source David     --
+--     Source Matrix     --
 if text == "تفعيل فلم" and Owner(msg)  then
 local t = ' \n• تم تفعيل الافلام'
 send(msg.chat_id_, msg.id_,t)
@@ -7023,7 +7023,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. ms
 end
 end
 end
---     Source David     --
+--     Source Matrix     --
 if text == "تفعيل مسلسل" and Owner(msg)  then
 local t = ' \n• تم تفعيل المسلسلات'
 send(msg.chat_id_, msg.id_,t)
@@ -12124,13 +12124,13 @@ local texte = '- ردود المجموعه'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'مسح ردود المتحركه', callback_data=data.sender_user_id_.."/delereplygif"},{text = 'مسح ردود النصيه', callback_data=data.sender_user_id_.."/delereplytext"},
+{text = 'المتحركه', callback_data=data.sender_user_id_.."/delereplygif"},{text = 'النصيه', callback_data=data.sender_user_id_.."/delereplytext"},
 },
 {
-{text = 'مسح ردود الملصقات', callback_data=data.sender_user_id_.."/delereplystickar"},{text = 'مسح ردود الصوتيات', callback_data=data.sender_user_id_.."/delereplyogg"},
+{text = 'الملصقات', callback_data=data.sender_user_id_.."/delereplystickar"},{text = 'الصوتيات', callback_data=data.sender_user_id_.."/delereplyogg"},
 },
 {
-{text = 'مسح ردود الMP3', callback_data=data.sender_user_id_.."/delereplymp3"},
+{text = 'ال mp3', callback_data=data.sender_user_id_.."/delereplymp3"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
