@@ -860,18 +860,9 @@ local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat
 data = json:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
 var = false
-local Text = database:get(bot_id..'text:ch:id') or '*✬︙عذࢪا عليڪ الاشتࢪاڪ بالقناه*'
-local Usext = database:get(bot_id..'add:ch:username'):gsub('@',"")
-keyboard = {} 
-keyboard.inline_keyboard = {{{text ="اضغط هنا للاشتࢪاڪ عمࢪي",url="t.me/"..Usext}},}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif data.ok then
-return var
 end
-else
-return var
 end
+return var
 end
 
 function Reply_Status(msg,user_id,status,text)
@@ -4146,7 +4137,16 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه الم�
 return false
 end
 
-if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and AddChannel then    
+if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and then    
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
