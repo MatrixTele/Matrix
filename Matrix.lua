@@ -14532,9 +14532,14 @@ elseif Text and Text:match('(.*)/help6') and DevBot(data) then
 if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 • تم اخفاء الاوامر 
-• *للاستفسار* ⇜ [مبرمج السورس ](t.me/IZlZ7I)
 ]]
-send(msg.chat_id_, msg.id_,Text)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
