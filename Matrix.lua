@@ -853,18 +853,6 @@ user_id_ = user,
 status_ = {ID = "ChatMemberStatusKicked"},},function(arg,data) end,nil)
 end
 
-function AddChannel(User)
-local var = true
-if database:get(bot_id..'add:ch:id') then
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'add:ch:id').."&user_id="..User);
-data = json:decode(url)
-if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
-var = false
-end
-end
-return var
-end
-
 function GetChannelMember(msg)
 local var = true 
 if database:get(bot_id..'add:ch:username') then
@@ -1850,7 +1838,7 @@ if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
 if text == "تعطيل المسح التلقائي" and Owner(msg) then        
 database:del(bot_id.."y:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'✟꒐| تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
 return false
 end 
 if text == "تفعيل المسح التلقائي" and Owner(msg) then        
@@ -4044,7 +4032,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4066,7 +4054,7 @@ return false
 end
 local username = text:match("^رفع ادمن @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4096,7 +4084,7 @@ return false
 end
 local userid = text:match("^رفع ادمن (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
@@ -4158,7 +4146,7 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه الم�
 return false
 end
 
-if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetChannelMember(msg) then    
+if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and and GetChannelMember(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4169,7 +4157,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4191,7 +4179,7 @@ return false
 end
 local username = text:match("^رفع مميز @(.*)$") 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4222,7 +4210,7 @@ return false
 end
 local userid = text:match("^رفع مميز (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
@@ -6731,7 +6719,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -6779,7 +6767,7 @@ return false
 end
 local userid = text:match("^رفع منظف (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, userid)
