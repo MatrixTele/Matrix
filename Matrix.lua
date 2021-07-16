@@ -14528,6 +14528,13 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+elseif Text and Text:match('(.*)/help7') then
+if tonumber(Text:match('(.*)/help7')) == tonumber(data.sender_user_id_) then
+local Teext =[[
+- تم اخفاء قائمة الاوامر
+]]
+send(msg.chat_id_, msg.id_,Text)
+end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
@@ -14543,6 +14550,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+},
+{
+{text = '- اخفاء الامر', callback_data=data.sender_user_id_.."/help7"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
