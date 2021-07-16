@@ -4158,7 +4158,7 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه الم�
 return false
 end
 
-if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetChannelMember(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4427,7 +4427,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) and GetChannelMember(msg) then  
+if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10479,7 +10479,7 @@ end
 
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
-data,res = https.request('https://Matrix-api.ml/movie.php?serch='..URL.escape(Textm)..'')
+data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
 getmo = json:decode(data)
 if getmo.Info == true then
@@ -11893,51 +11893,6 @@ database:set(bot_id..'Matrix:Ed:DevBots',true)
 end
 if text =='تغيير المطور الاساسي 🔁' and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'• تسرسح')
-end
-if text and text:match("^تغير الاشتراك$") and DevMatrixW(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, ' *✬︙حسنآ ارسل لي معرف القناة*')
-return false  
-end
-if text and text:match("^تغير رساله الاشتراك$") and DevMatrixW(msg) then  
-database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, ' *✬︙حسنآ ارسل لي النص الذي تريده*')
-return false  
-end
-if text == "حذف رساله الاشتراك ✬" and DevMatrixW(msg) then  
-database:del(bot_id..'text:ch:user')
-send(msg.chat_id_, msg.id_, " *✬︙تم مسح رساله الاشتراك* ")
-return false  
-end
-if text and text:match("^وضع قناة الاشتراك ✬$") and DevMatrixW(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, ' *✬︙حسنآ ارسل لي معرف القناة*')
-return false  
-end
-if text == "تفعيل الاشتراك الاجباري ✬" and DevMatrixW(msg) then  
-if database:get(bot_id..'add:ch:id') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_," *✬︙الاشتراك الاجباري مفعل* \n*✬︙على القناة »* ["..addchusername.."]")
-else
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_," *✬︙اهلا عزيزي المطور* \n*✬︙ارسل الان معرف قناتك*")
-end
-return false  
-end
-if text == "تعطيل الاشتراك الاجباري ✬" and DevMatrixW(msg) then  
-database:del(bot_id..'add:ch:id')
-database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, " *✬︙تم تعطيل الاشتراك الاجباري* ")
-return false  
-end
-if text == "الاشتراك الاجباري ✬" and DevMatrixW(msg) then  
-if database:get(bot_id..'add:ch:username') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, " *✬︙تم تفعيل الاشتراك الاجباري* \n*✬︙على القناة »* ["..addchusername.."]")
-else
-send(msg.chat_id_, msg.id_, " *✬︙لا يوجد قناة في الاشتراك الاجباري* ")
-end
-return false  
 end
 if VIP_DeV(msg) then
 if text == "الاشتراك الاجباري 🖇"  then  
