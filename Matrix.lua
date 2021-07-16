@@ -14528,8 +14528,8 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help7') then
-if tonumber(Text:match('(.*)/help7')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/help6') and DevBot(data) then
+if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
 local Teext =[[
 - تم اخفاء قائمة الاوامر
 ]]
