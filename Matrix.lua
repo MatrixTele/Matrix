@@ -14531,7 +14531,8 @@ end
 elseif Text and Text:match('(.*)/help6') and DevBot(data) then
 if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-- تم اخفاء قائمة الاوامر
+• تم اخفاء الاوامر 
+• *للاستفسار* ⇜ [مبرمج السورس ](t.me/IZlZ7I)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
