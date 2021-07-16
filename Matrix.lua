@@ -853,14 +853,14 @@ user_id_ = user,
 status_ = {ID = "ChatMemberStatusKicked"},},function(arg,data) end,nil)
 end
 
-function GetChannelMember(msg)
-local var = true 
-if database:get(bot_id..'add:ch:username') then
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'add:ch:id').."&user_id="..msg.sender_user_id_);
+function AddChannel(User)
+local var = true
+if database:get(bot_id..'add:ch:id') then
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'add:ch:id').."&user_id="..User);
 data = json:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
-var = false 
-local Text = database:get(bot_id..'text:ch:user') or '*✬︙عذࢪا عليڪ الاشتࢪاڪ بالقناه*'
+var = false
+local Text = database:get(bot_id..'text:ch:id') or '*✬︙عذࢪا عليڪ الاشتࢪاڪ بالقناه*'
 local Usext = database:get(bot_id..'add:ch:username'):gsub('@',"")
 keyboard = {} 
 keyboard.inline_keyboard = {{{text ="اضغط هنا للاشتࢪاڪ عمࢪي",url="t.me/"..Usext}},}
@@ -4146,7 +4146,7 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه الم�
 return false
 end
 
-if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and and GetChannelMember(msg) then  
+if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and AddChannel then    
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11476,7 +11476,7 @@ if DevMatrix(msg) then
 local Text = '📩┇مرحبا بك في كيبورد اوامر الاذاعة'
 local keyboard = {
 {'اذاعه خاص 📡','المطورين 🔱','اذاعه 📡'},
-{'تفعيل الاذاعه 🔔','تعطيل الاذاعه 🔕'},
+{'تفعيل الاذاعه ??','تعطيل الاذاعه 🔕'},
 {'اذاعه بالتوجيه 👥','اذاعه بالتوجيه خاص 👤'},
 {'رجوع 🔚'},
 }
