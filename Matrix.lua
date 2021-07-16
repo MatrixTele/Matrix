@@ -8181,7 +8181,7 @@ send(msg.chat_id_, msg.id_,"• تمت ترقية { "..num2.." } من ادمني
 end
 end,nil)   
 end
-if text ==("المنشئ") then
+if text ==("المالك") then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -8199,7 +8199,7 @@ end
 end
 end,nil)   
 end
-if text ==("رفع المنشئ") and DevBot(msg) then 
+if text ==("رفع المالك") and DevBot(msg) then 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -8738,37 +8738,42 @@ send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
 end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
-if text == 'تفعيل الحمايه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then
+if text == 'تفعيل الحمايه' and Owner(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n • قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)   
-list ={"lock:Matrix:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+database:set(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_,true)   
+list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:set(bot_id..lock..msg.chat_id_,'del')    
+database:set(bot_id..'Matrix:'..lock..msg.chat_id_,"del")    
 end
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل الحمايه بنجاح") 
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل الحمايه")  
 return false
-end,nil)   
+end 
+if text == 'تفعيل الحمايه' and Owner(msg) then   
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
-if text == 'تعطيل الحمايه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then   
-database:del(bot_id..'lock:tagrvrbot'..msg.chat_id_)   
-list ={"lock:Matrix:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+return false
+end
+database:del(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_)   
+list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:del(bot_id..lock..msg.chat_id_)    
+database:del(bot_id..'Matrix:'..lock..msg.chat_id_)    
 end
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل الحمايه بنجاح") 
+Reply_Status(msg,msg.sender_user_id_,"unlock","• تم تعطيل الحمايه")  
 return false
-end,nil)   
-end
+end 
 
 if text == 'تفعيل الايدي' and Owner(msg) then 
   if AddChannel(msg.sender_user_id_) == false then
@@ -10899,8 +10904,8 @@ Text = [[
 • مسح الردود ↢ تمسح كل الردود
 -
 • الردود المتعددة ↢ تشوف كل الردود المتعددة المضافه
-• اضف رد عشوائي ↢ عشان تضيف كلمة لها اكثر من رد
-• مسح رد عشوائي ↢ عشان تمسح رد عشوائي
+• اضف رد متعدد ↢ عشان تضيف كلمة لها اكثر من رد
+• مسح رد متعدد ↢ عشان تمسح رد متعدد
 • مسح الردود المتعددة ↢ تمسح كل الردود المتعددة
 
 *❨ اوامر القفل والفتح بالمسح ❩*
@@ -14367,8 +14372,8 @@ local Teext =[[
 • مسح الردود ↢ تمسح كل الردود
 -
 • الردود المتعددة ↢ تشوف كل الردود المتعددة المضافه
-• اضف رد عشوائي ↢ عشان تضيف كلمة لها اكثر من رد
-• مسح رد عشوائي ↢ عشان تمسح رد عشوائي
+• اضف رد متعدد ↢ عشان تضيف كلمة لها اكثر من رد
+• مسح رد متعدد ↢ عشان تمسح رد متعدد
 • مسح الردود المتعددة ↢ تمسح كل الردود المتعددة
 
 *❨ اوامر القفل والفتح بالمسح ❩*
@@ -14528,19 +14533,6 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help6') and DevBot(data) then
-if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
-local Teext =[[
-• تم اخفاء الاوامر 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[
@@ -14556,9 +14548,6 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '- اخفاء الامر', callback_data=data.sender_user_id_.."/help7"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
