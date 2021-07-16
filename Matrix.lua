@@ -4147,15 +4147,6 @@ return false
 end
 
 if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and AddChannel then    
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'• تم تعطيل الرفع')
 return false
@@ -11476,7 +11467,7 @@ if DevMatrix(msg) then
 local Text = '📩┇مرحبا بك في كيبورد اوامر الاذاعة'
 local keyboard = {
 {'اذاعه خاص 📡','المطورين 🔱','اذاعه 📡'},
-{'تفعيل الاذاعه ??','تعطيل الاذاعه 🔕'},
+{'تفعيل الاذاعه 🔔','تعطيل الاذاعه 🔕'},
 {'اذاعه بالتوجيه 👥','اذاعه بالتوجيه خاص 👤'},
 {'رجوع 🔚'},
 }
