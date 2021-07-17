@@ -15124,7 +15124,6 @@ end
 if Text and Text:match('(.*)/help0') then
 if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-*
 ⌔︙اوامر البوت للمنظفين 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙الميديا - لعرض عدد الميديا المرسله
@@ -15157,7 +15156,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
+local Teext =[[
 ⌔︙اوامر الحمايه اتبع مايلي ...
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙قفل ، فتح ← الامر 
@@ -15214,7 +15213,6 @@ end
 elseif Text and Text:match('(.*)/help2') then
 if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-*
 ⌔︙اوامر ادمنية المجموعه ...
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙رفع، تنزيل ← مميز
@@ -15274,7 +15272,6 @@ end
 elseif Text and Text:match('(.*)/help3') and Owner(data) then  
 if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-*
 ⌔︙اوامر المدراء في المجموعه
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙رفع ، تنزيل ← ادمن
@@ -15326,7 +15323,6 @@ end
 elseif Text and Text:match('(.*)/help4') and Constructor(data) then  
 if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-*
 ⌔︙اوامر المنشئ الاساسي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙رفع ، تنزيل ←{ منشئ }
@@ -15365,7 +15361,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help5') and DevBot(data) then
 if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
+local Teext =[[
 ⌔︙اوامر المطور الاساسي  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙حظر عام ، الغاء العام
@@ -15418,7 +15414,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
+local Teext =[[
 ⌔︙توجد ← 5 اوامر في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙ارسل ( م1 ) ← اوامر الحمايه
