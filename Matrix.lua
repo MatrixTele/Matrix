@@ -11691,7 +11691,6 @@ Text = [[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
