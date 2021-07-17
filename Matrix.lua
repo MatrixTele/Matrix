@@ -11660,7 +11660,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=msg.sender_user_id_.."/help4"},{text = 'م5', callback_data=msg.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=msg.sender_user_id_.."/add"},{text = 'lock commands', callback_data=msg.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/lock"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -15157,7 +15157,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=data.sender_user_id_.."/add"},{text = 'lock commands', callback_data=data.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/lock"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15214,7 +15214,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=data.sender_user_id_.."/add"},{text = 'lock commands', callback_data=data.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/lock"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15275,7 +15275,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=data.sender_user_id_.."/add"},{text = 'lock commands', callback_data=data.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/lock"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15328,7 +15328,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=data.sender_user_id_.."/add"},{text = 'lock commands', callback_data=data.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/lock"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15369,7 +15369,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=data.sender_user_id_.."/add"},{text = 'lock commands', callback_data=data.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/lock"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15423,7 +15423,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=data.sender_user_id_.."/add"},{text = 'lock commands', callback_data=data.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/lock"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15456,7 +15456,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'Deactivation commands', callback_data=data.sender_user_id_.."/add"},{text = 'lock commands', callback_data=data.sender_user_id_.."/lock"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/add"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/lock"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
