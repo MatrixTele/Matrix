@@ -10975,6 +10975,9 @@ keyboard.inline_keyboard = {
 {text = 'تفعيل الطرد ', callback_data=msg.sender_user_id_.."/Ban:Cheking"},{text = 'تعطيل الطرد', callback_data=msg.sender_user_id_.."/unBan:Cheking"},
 },
 {
+{text = 'قفل الاضافه', callback_data=data.sender_user_id_.."/lockjoine"},{text = 'فتح الاضافه', callback_data=data.sender_user_id_.."/unlockjoine"},
+},
+{
 {text = 'تفعيل الرفع', callback_data=msg.sender_user_id_.."/Add:Group:Cheking"},{text = 'تعطيل الرفع', callback_data=msg.sender_user_id_.."/unAdd:Group:Cheking"},
 },
 {
@@ -13518,6 +13521,18 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 
 end
+if Text and Text:match('(.*)/unlockjoine') and Addictive(data) then
+if tonumber(Text:match('(.*)/unlockjoine')) == tonumber(data.sender_user_id_) then
+local Textedit = '• تم فتح الاضافه '
+database:del(bot_id.."Matrix:Lock:AddMempar"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data=data.sender_user_id_.."/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
 elseif Text and Text:match('(.*)/Add:Group:Cheking') and Constructor(data) then
 if tonumber(Text:match('(.*)/Add:Group:Cheking')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Add:Group:Cheking"..data.chat_id_)
@@ -14038,6 +14053,18 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 
+end
+elseif Text and Text:match('(.*)/lock_joine') and Addictive(data) then
+if tonumber(Text:match('(.*)/lock_joine')) == tonumber(data.sender_user_id_) then
+local Textedit = '• تم قفل الدخول '
+database:set(bot_id.."Matrix:Lock:Join"..Chat_id,"kick")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data=data.sender_user_id_.."/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
 elseif Text and Text:match('(.*)/unMatrix:insta_bot') and Owner(data) then
 if tonumber(Text:match('(.*)/unMatrix:insta_bot')) == tonumber(data.sender_user_id_) then
@@ -15607,6 +15634,10 @@ end
 end
 end
 --------------------------------------------------------------------------------------------------------------
+--======================================================================================================
+--======================================================================================================
+
+
 if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) == 'true'then
 numphoto = {'3','8','9','6'}
 numphotoid = numphoto[math.random(#numphoto)]
@@ -15634,6 +15665,7 @@ if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 return false  
 end
+--------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 if tonumber(msg.sender_user_id_) ~= tonumber(bot_id) then  
 if msg.sender_user_id_ and Ban_Groups(msg.chat_id_,msg.sender_user_id_) then 
