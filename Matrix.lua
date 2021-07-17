@@ -15134,7 +15134,6 @@ local Teext =[[
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15191,7 +15190,6 @@ local Teext =[[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15252,7 +15250,6 @@ local Teext =[[
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15305,7 +15302,6 @@ local Teext =[[
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15346,7 +15342,6 @@ local Teext =[[
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15400,7 +15395,6 @@ local Teext =[[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15433,7 +15427,6 @@ local Teext =[[*
 ⌔︙ارسل ( م4 ) ← اوامر المنشئين
 ⌔︙ارسل ( م5 ) ← اوامر مطورين البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
