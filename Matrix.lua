@@ -15123,7 +15123,7 @@ end
 
 if Text and Text:match('(.*)/help0') then
 if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
-local Teext =[[
+local Teext =[[*
 ⌔︙اوامر البوت للمنظفين 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙الميديا - لعرض عدد الميديا المرسله
@@ -15132,7 +15132,7 @@ local Teext =[[
 ⌔︙اوامر البوت للمالك ،
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
