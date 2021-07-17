@@ -11646,7 +11646,6 @@ local Text =[[*
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
