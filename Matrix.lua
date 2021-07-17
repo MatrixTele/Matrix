@@ -11704,7 +11704,7 @@ end
 
 return false
 end
-Text = [[*
+Text = [[
 ⌔︙اوامر الحمايه اتبع مايلي ...
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙قفل ، فتح ← الامر 
@@ -11737,7 +11737,6 @@ Text = [[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* @Matrix_Source
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
