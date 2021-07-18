@@ -15211,6 +15211,9 @@ keyboard.inline_keyboard = {
 {text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
 },
 {
+{text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
+},
+{
 {text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
 },
 {
