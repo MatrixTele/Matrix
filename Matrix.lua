@@ -10525,22 +10525,24 @@ end
 return false
 end
 Teext = [[
-⌔︙قائمه الالعاب الموجوده
+⌔︙اهلا بك في قائمة الالعاب .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙لعبة البات ⌁ بات
-⌔︙لعبة التخمين ⌁ خمن
-⌔︙لعبه الاسرع ⌁ الاسرع
-⌔︙لعبة السمايلات ⌁ سمايلات
-⌔︙لعبة المختلف ⌁ المختلف
-⌔︙لعبة الامثله ⌁ امثله
-⌔︙لعبة العكس ⌁ العكس 
-⌔︙لعبة الحزوره ⌁ حزوره
-⌔︙لعبة المعاني ⌁ معاني
+⌔︙يمكنك اختيار مجموعة الالعاب .
+⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙مجوهراتي ⌁ لعرض عدد الارباح
-⌔︙بيع مجوهراتي + العدد ⌁ لستبدال كل مجوهره ب50 رساله
+[⌔︙Ch Source](t.me/Matrix_Source)
 ]]
-send(msg.chat_id_, msg.id_,Teext) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• العاب السورس •', callback_data=msg.sender_user_id_.."/gamesos"},
+},
+{
+{text = '• العاب متطورة •', callback_data=msg.sender_user_id_.."/gamemm"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'رسائلي' then
 local nummsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
@@ -15130,7 +15132,99 @@ return false
 end
 end
 
-if Text and Text:match('(.*)/help0') then
+if Text and Text:match('(.*)/gamehome') then
+if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+⌔︙اهلا بك في قائمة الالعاب .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙يمكنك اختيار مجموعة الالعاب .
+⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+[⌔︙Ch Source](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• العاب السورس •', callback_data=data.sender_user_id_.."/gamesos"},
+},
+{
+{text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
+},
+{
+{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/gamesos') then
+if tonumber(Text:match('(.*)/gamesos')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+⌔︙قائمه الالعاب الموجوده
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙لعبة البات ⌁ بات
+⌔︙لعبة التخمين ⌁ خمن
+⌔︙لعبه الاسرع ⌁ الاسرع
+⌔︙لعبة السمايلات ⌁ سمايلات
+⌔︙لعبة المختلف ⌁ المختلف
+⌔︙لعبة الامثله ⌁ امثله
+⌔︙لعبة العكس ⌁ العكس 
+⌔︙لعبة الحزوره ⌁ حزوره
+⌔︙لعبة المعاني ⌁ معاني
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙مجوهراتي ⌁ لعرض عدد الارباح
+⌔︙بيع مجوهراتي + العدد ⌁ لستبدال كل مجوهره ب50 رساله*
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
+},
+{
+{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
+},
+{
+{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/gamemm') then
+if tonumber(Text:match('(.*)/gamemm')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+🐲 ⌔︙Welcome to the game list
+🚩 ⌔︙TeAm - ”Matrix”*
+ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
+},
+{
+{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
+},
+{
+{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
+},
+{
+{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
+},
+{
+{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
+},
+{
+{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
+},
+{
+{text = 'Matrix Team', url="https://t.me/Matrix_Source"},
+},
+{
+{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/help0') then
 if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔︙اوامر البوت للمنظفين
