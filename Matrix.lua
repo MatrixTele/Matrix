@@ -11054,56 +11054,6 @@ database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'⌔︙تم تفعيل المسح التلقائي للميديا')
 return false
 end 
-if text == 'الالعاب الاحترافيةة' or text == 'الالعاب الاحترافيه' or text == 'الالعاب الاحترافية' or text == 'العاب احترافية' then  
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n⌔︙اشتࢪڪ هنا عمࢪي ⏬"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '- Matrix Team',url="t.me/Matrix_Source"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
-Text = [[*
-🐲 ⌔︙Welcome to the game list
-🚩 ⌔︙TeAm - ”Matrix”*
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
-},
-{
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
-},
-{
-{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
-},
-{
-{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
-},
-{
-{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
-},
-{
-{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
-},
-{
-{text = 'Matrix Team', url="https://t.me/Matrix_Source"},
-},
-{
-{text = 'مطور السورس', url="https://t.me/IZlZ7I"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
 if text == "تعطيل الزخرفه" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل الزخرفه')
 database:set(bot_id.."Matrix:zhrf_Bots"..msg.chat_id_,"close")
@@ -15212,9 +15162,6 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
-},
-{
-{text = 'دومنا🥇',url="https://vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},
 },
 {
 {text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
