@@ -15176,7 +15176,7 @@ keyboard.inline_keyboard = {
 {text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
-{text = 'Matrix Team', url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .', url="https://t.me/Matrix_Source"},
 },
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
