@@ -15214,6 +15214,9 @@ keyboard.inline_keyboard = {
 {text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
 },
 {
+{text = 'دومنا🥇',url="https://vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby"},
+},
+{
 {text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
 },
 {
