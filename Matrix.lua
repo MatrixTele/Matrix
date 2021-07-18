@@ -11541,35 +11541,35 @@ end
 end
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n⌔︙اشتࢪڪ هنا عمࢪي ⏬"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '- Matrix Team',url="t.me/Matrix_Source"},
-},
-}
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = 'آشـترگ بآلقنآ‌‏هہ ',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
 return false
 end
 Text = [[*
-🐲 ⌔︙Welcome to Source
-🚩 ⌔︙TeAm - ”Matrix”*
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙Welcome to Source
+⌔︙TeAm - ”Matrix”
+ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '🐉 ⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
 },
 {
-{text = '📁⌔︙Matrix Files .',url="https://t.me/infoo_Matrix"},
+{text = '⌔︙Matrix Files .',url="https://t.me/infoo_Matrix"},
 },
 {
-{text = '📮 ⌔︙Bot TwisL',url="t.me/U41bot"},
+{text = '⌔︙Bot TwisL',url="t.me/U41bot"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11901,6 +11901,20 @@ database:sadd(bot_id.."gamebot:List:Manager", text)
 return false end
 end
 if text == 'تفعيل' and DevBot(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = 'آشـترگ بآلقنآ‌‏هہ ',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+return false
+end
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'⌔︙البوت ليس ادمن يرجى ترقيتي !') 
 return false  
@@ -11969,8 +11983,13 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = 'آشـترگ بآلقنآ‌‏هہ ',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
@@ -12014,8 +12033,13 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = 'آشـترگ بآلقنآ‌‏هہ ',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 if msg.can_be_deleted_ == false then 
