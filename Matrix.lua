@@ -2037,10 +2037,10 @@ return false
 end 
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس'  or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'انصبلك'  or text == 'انصبلك بوت' then
 Text = [[
-⌔︙Dev Name : [𝗛ٍَ𝗮َ!َِ𝗦َِ𝗼](t.me/IZlZ7I).
-⌔︙Dev User : @IZlZ7I.
-⌔︙Dev ID : 114518657.
-⌔︙Dev Ch : @Matrix_Source.
+⌔︙Dev Name : [𝗛ٍَ𝗮َ!َِ𝗦َِ𝗼](t.me/IZlZ7I) .
+⌔︙Dev User : @IZlZ7I .
+⌔︙Dev ID : 114518657 .
+⌔︙Dev Ch : @Matrix_Source .
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
