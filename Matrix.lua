@@ -3878,7 +3878,7 @@ end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم ترقيته مالك")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مالك*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3892,7 +3892,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."creator"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم ترقيته مالك")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم ترقيته مالك*")  
 else
 send(msg.chat_id_, msg.id_,"*⌔︙لا يوجد حساب بهاذا المعرف*")
 end
@@ -3903,7 +3903,7 @@ end
 if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
 local userid = text:match("^رفع مالك (%d+)$") 
 database:sadd(bot_id.."creator"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم ترقيته مالك")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته مالك*")  
 return false
 end
 if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
@@ -3950,7 +3950,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته منشئ اساسي*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -3978,7 +3978,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم ترقيته منشئ اساسي*")  
 else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
@@ -4003,7 +4003,7 @@ return false
 end
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم ترقيته منشئ اساسي")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته منشئ اساسي*")  
 return false
 end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
@@ -4094,7 +4094,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته منشئ في المجموعه*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
@@ -4121,7 +4121,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم ترقيته منشئ في المجموعه*")  
 else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
@@ -4146,7 +4146,7 @@ return false
 end
 local userid = text:match("^رفع منشئ (%d+)$")
 database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته منشئ في المجموعه*")  
 end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
 function Function_Matrix(extra, result, success)
@@ -4220,7 +4220,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مدير المجموعه*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4248,7 +4248,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم ترقيته مدير المجموعه*")  
 else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
@@ -4274,7 +4274,7 @@ return false
 end
 local userid = text:match("^رفع مدير (%d+)$") 
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم ترقيته مدير المجموعه")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته مدير المجموعه*")  
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -4294,7 +4294,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم تنزيله من المدراء")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم تنزيله من المدراء*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4318,7 +4318,7 @@ local username = text:match("^تنزيل مدير @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم تنزيله من المدراء")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم تنزيله من المدراء*")  
 else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
@@ -4368,7 +4368,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته ادمن للمجموعه*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4429,7 +4429,7 @@ send(msg.chat_id_, msg.id_,'⌔︙تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته ادمن للمجموعه*")  
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
@@ -4523,7 +4523,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مميز للمجموعه.*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -4555,7 +4555,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم ترقيته مميز للمجموعه.*")  
 else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
@@ -4585,7 +4585,7 @@ send(msg.chat_id_, msg.id_,'⌔︙تم تعطيل الرفع')
 return false
 end
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم ترقيته مميز في المجموعة")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته مميز في المجموعة.*")  
 return false
 end
 
@@ -10813,7 +10813,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'⌔︙تم التحديث')
+send(msg.chat_id_,msg.id_,'*⌔︙تم التحديث*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
@@ -11509,7 +11509,7 @@ end
 
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "⌔︙تم التحديث")
+send(msg.chat_id_, msg.id_, "*⌔︙تم التحديث*")
 end
 
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
