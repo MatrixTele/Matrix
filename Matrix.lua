@@ -869,22 +869,22 @@ function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
 local UserName = (data.username_ or "Matrix_Source")
-local NameUser = "\n⌔︙بواسطه -› ["..data.first_name_.."](T.me/"..UserName..")"
-local NameUserr = "\n⌔︙المستخدم -› ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUser = "\n*⌔︙بواسطه -›* ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserr = "\n*⌔︙المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n⌔︙تم تنفيذ الامر بخاصيه ( المسح )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔︙تم تنفيذ الامر بخاصيه ( المسح )*\n")
 return false
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n⌔︙تم تنفيذ الامر بخاصيه ( الكتم )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔︙تم تنفيذ الامر بخاصيه ( الكتم )*\n")
 return false
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n⌔︙تم تنفيذ الامر بخاصيه ( الطرد )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔︙تم تنفيذ الامر بخاصيه ( الطرد )*\n")
 return false
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n⌔︙تم تنفيذ الامر بخاصيه ( التقييد )\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔︙تم تنفيذ الامر بخاصيه ( التقييد )*\n")
 return false
 end
 if status == "unlock" then
@@ -3008,7 +3008,7 @@ end
 if text == ("اضف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."DEV:Sudo:T", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم ترقيته مطور ثانوي في البوت")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مطور ثانوي في البوت*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false 
@@ -3022,7 +3022,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."DEV:Sudo:T", result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم ترقيته مطور ثانوي في البوت")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم ترقيته مطور ثانوي في البوت*")  
 else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
@@ -3033,13 +3033,13 @@ end
 if text and text:match("^اضف مطور ثانوي (%d+)$") and VIP_DeV(msg) then
 local userid = text:match("^اضف مطور ثانوي (%d+)$")
 database:sadd(bot_id.."DEV:Sudo:T", userid)
-Reply_Status(msg,userid,"reply","⌔︙تم ترقيته مطور ثانوي في البوت")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته مطور ثانوي في البوت*")  
 return false 
 end
 if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."DEV:Sudo:T", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم تنزيله من المطور ثانويين")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم تنزيله من المطور ثانويين*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false 
@@ -3075,7 +3075,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⌔︙لا يوجد مطورين ثانويين"
+t = "*⌔︙لا يوجد مطورين ثانويين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
