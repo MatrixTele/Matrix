@@ -2039,7 +2039,7 @@ if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش �
 Text = [[
 *⌔︙Dev Name :* [𝗛ٍَ𝗮َ!َِ𝗦َِ𝗼](t.me/IZlZ7I).
 *⌔︙Dev User :* @IZlZ7I.
-*⌔︙Dev ID : *114518657.
+*⌔︙Dev ID :* 114518657.
 *⌔︙Dev Ch :* @Matrix_Source.
 ]]
 keyboard = {} 
