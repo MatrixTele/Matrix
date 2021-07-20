@@ -11801,21 +11801,18 @@ local Text =[[*
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=msg.sender_user_id_.."/help0"},{text = 'م1', callback_data=msg.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=msg.sender_user_id_.."/help2"},{text = '𝟏', callback_data=msg.sender_user_id_.."/help1"},{text = '𝟎', callback_data=msg.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=msg.sender_user_id_.."/help2"},{text = 'م3', callback_data=msg.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=msg.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=msg.sender_user_id_.."/help4"},{text = '𝟑', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=msg.sender_user_id_.."/help4"},{text = 'م5', callback_data=msg.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11848,7 +11845,7 @@ Text = [[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -11902,7 +11899,7 @@ Text = [[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -11959,7 +11956,7 @@ Text = [[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12008,12 +12005,12 @@ Text = [[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م4' and Constructor(msg) then  
+if text == 'م4 ' and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12045,7 +12042,7 @@ Text = [[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12081,7 +12078,7 @@ Text = [[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -15429,21 +15426,18 @@ local Teext =[[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15486,21 +15480,18 @@ local Teext =[[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15546,21 +15537,18 @@ local Teext =[[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15598,21 +15586,18 @@ local Teext =[[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15638,21 +15623,18 @@ local Teext =[[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15692,21 +15674,18 @@ local Teext =[[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15724,21 +15703,18 @@ local Teext =[[*
 ⌔︙البـحث عن اغنية ↓
 ⌔︙بحث ← اسم الاغنية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15758,18 +15734,18 @@ local Teext =[[*
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝗺𝗮𝘁𝗿𝗶𝘅 𝄮](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},
+{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},
+{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'disable', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'lock', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = 'lock', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
