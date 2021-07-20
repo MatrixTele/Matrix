@@ -868,7 +868,7 @@ end
 function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
-local UserName = (data.username_ or "Matrix_Source")
+local UserName = (data.username_ or "MatrixSource")
 local NameUser = "\n*⌔︙بواسطه -›* ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "\n*⌔︙المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
@@ -7727,7 +7727,7 @@ if Audios.Info == true then
 local Text ='*⌔︙تم اختيار مقطع الميمز لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+{{text = '⌔︙Matrix Team .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7753,7 +7753,7 @@ if Audios.Info == true then
 local Text ='*⌔︙تم اختيار المقطع الصوتي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+{{text = '⌔︙Matrix Team .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7778,7 +7778,7 @@ Audios = json:decode(data)
 if Audios.Info == true then
 local Text ='*⌔︙تم اختيار الريمكس لك*'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+keyboard.inline_keyboard = {{{text = '⌔︙Matrix Team .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7804,7 +7804,7 @@ if photo.Info == true then
 local Text ='*⌔︙تم اختيار الصوره لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+{{text = '⌔︙Matrix Team .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7830,7 +7830,7 @@ if photo.Info == true then
 local Text ='*⌔︙تم اختيار صورة الانمي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+{{text = '⌔︙Matrix Team .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7856,7 +7856,7 @@ if photo.Info == true then
 local Text ='*⌔︙تم اختيار فلم لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+{{text = '⌔︙Matrix Team .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7882,7 +7882,7 @@ if photo.Info == true then
 local Text ='*⌔︙تم اختيار مسلسل لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+{{text = '⌔︙Matrix Team .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9140,7 +9140,7 @@ if b.first_name_ == false then
 send(msg.chat_id_, msg.id_,"⌔︙حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "Matrix_Source")
+local UserName = (b.username_ or "MatrixSource")
 send(msg.chat_id_, msg.id_,"⌔︙منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
@@ -9160,7 +9160,7 @@ if b.first_name_ == false then
 send(msg.chat_id_, msg.id_,"⌔︙حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "Matrix_Source")
+local UserName = (b.username_ or "MatrixSource")
 send(msg.chat_id_, msg.id_,"⌔︙تم ترقية منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,b.id_)
 end,nil)   
@@ -10727,7 +10727,7 @@ local Text =[[*
 ⌔︙يمكنك اختيار مجموعة الالعاب .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10738,7 +10738,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب متطورة •', callback_data=msg.sender_user_id_.."/gamemm"},
 },
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11377,7 +11377,7 @@ if audios.Info == true then
 local Text ='⌔︙تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝚖??𝚝??𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
+{{text = '- 𝚖??𝚝??𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/MatrixSource"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -11765,7 +11765,7 @@ Text = [[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .',url="https://t.me/MatrixSource"},
 },
 {
 {text = '⌔︙Matrix Files .',url="https://t.me/infoo_Matrix"},
@@ -11775,7 +11775,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MatrixSource&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if text == 'الاوامر' and Addictive(msg) then  
@@ -11804,7 +11804,7 @@ local Text =[[*
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11851,7 +11851,7 @@ Text = [[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -11905,7 +11905,7 @@ Text = [[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -11962,7 +11962,7 @@ Text = [[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12011,7 +12011,7 @@ Text = [[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12048,7 +12048,7 @@ Text = [[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12084,7 +12084,7 @@ Text = [[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12142,7 +12142,7 @@ local Text = '⌔︙تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = '  معرفة المزيد ؟',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12280,7 +12280,7 @@ local Text = '⌔︙تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = '  معرفة المزيد ؟',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12344,7 +12344,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة �
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendnum..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendnum..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12438,14 +12438,14 @@ Text = [[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .',url="https://t.me/MatrixSource"},
 },
 {
 {text = '⌔︙Bot TwisL',url="t.me/U41bot"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MatrixSource&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
@@ -12455,7 +12455,7 @@ Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ' معرفة المزيد ؟',url="t.me/Matrix_Source"},
+{text = ' معرفة المزيد ؟',url="t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12481,7 +12481,7 @@ Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ' معرفة المزيد ؟',url="t.me/Matrix_Source"},
+{text = ' معرفة المزيد ؟',url="t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12822,7 +12822,7 @@ local A = io.open("sudo.lua", 'w')
 A:write([[
 s = "IZlZ7I"
 
-q = "Matrix_Source"
+q = "MatrixSource"
 
 token = "]]..token..[["
 
@@ -15329,7 +15329,7 @@ local Teext =[[*
 ⌔︙يمكنك اختيار مجموعة الالعاب .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15340,7 +15340,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
 },
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .',url="https://t.me/MatrixSource"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15372,7 +15372,7 @@ keyboard.inline_keyboard = {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
 },
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .',url="https://t.me/MatrixSource"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15386,7 +15386,7 @@ local Teext =[[*
 ⌔︙قم بارسال اللعبه في المجموعة .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15412,7 +15412,7 @@ keyboard.inline_keyboard = {
 {text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
-{text = '⌔︙TeAM Matrix .', url="https://t.me/Matrix_Source"},
+{text = '⌔︙TeAM Matrix .', url="https://t.me/MatrixSource"},
 },
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
@@ -15432,7 +15432,7 @@ local Teext =[[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15489,7 +15489,7 @@ local Teext =[[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15549,7 +15549,7 @@ local Teext =[[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15601,7 +15601,7 @@ local Teext =[[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15641,7 +15641,7 @@ local Teext =[[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15695,7 +15695,7 @@ local Teext =[[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15729,7 +15729,7 @@ local Teext =[[*
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
 *┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-[⌔︙Ch Source](t.me/Matrix_Source)
+[⌔︙Ch Source](t.me/MatrixSource)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15756,7 +15756,7 @@ local idchci = "-100"..idch
 local animation = DAata:match("^animation(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="⌔︙تم اللغاء منعها بنجاح"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/MatrixSource'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -15767,7 +15767,7 @@ local idchci = database:get(bot_id.."Matrix:Filter:msg")
 local photo = DAata:match("^pito(.*)$")
 local Text ="⌔︙تم اللغاء منعها بنجاح"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋??𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋??𝖾  .',url='http://t.me/MatrixSource'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -15779,7 +15779,7 @@ local idchci = "-100"..idch
 local Sticker = DAata:match("^Sticker(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="⌔︙تم اللغاء منعه بنجاح"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/MatrixSource'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -15789,7 +15789,7 @@ if DAata and DAata:match("^delallSticker(.*)$") and Addictive(data) then
 local delallSticker = DAata:match("^delallSticker(.*)$")
 local Text ="⌔︙تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '⌔︙Matrix 𝖲??𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲??𝗎𝗋𝖼𝖾  .',url='http://t.me/MatrixSource'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -15802,7 +15802,7 @@ if DAata and DAata:match("^delallanimation(.*)$") and Addictive(data) then
 local delallmation = DAata:match("^delallanimation(.*)$")
 local Text ="⌔︙تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/MatrixSource'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -15815,7 +15815,7 @@ if DAata and DAata:match("^delallph(.*)$") and Addictive(data) then
 local delallph = DAata:match("^delallph(.*)$")
 local Text ="⌔︙تم اللغاء منع كل الصور"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/MatrixSource'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16076,7 +16076,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة �
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendnum..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendnum..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16097,7 +16097,7 @@ local Text = '⌯ اليك النتائج الخـاصة :\n\n⌯ نسبه ال�
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendnum..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendnum..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16118,7 +16118,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙ نسبة 
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendnuj..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendnuj..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16139,7 +16139,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙ نسبه 
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendnuj..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendnuj..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16160,7 +16160,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙ نوع ا
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ''..sendnmj..' ‹‹-',url="https://t.me/Matrix_Source"},
+{text = ''..sendnmj..' ‹‹-',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16181,7 +16181,7 @@ local Text = '⌔︙ اليك النتائج الخـاصة :\n\n⌔︙ نوع �
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ''..sendnuk..' ‹‹-',url="https://t.me/Matrix_Source"},
+{text = ''..sendnuk..' ‹‹-',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16202,7 +16202,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة �
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendnnk..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendnnk..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16223,7 +16223,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة �
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendzff..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendzff..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16244,7 +16244,7 @@ local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة �
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙'..sendhen..'%',url="https://t.me/Matrix_Source"},
+{text = '⌔︙'..sendhen..'%',url="https://t.me/MatrixSource"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -16430,7 +16430,7 @@ if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
 print("\27[34m"..[[
 >> The Bot is Running
 >> Bot source > Matrix
->>Source channel > @Matrix_Source
+>>Source channel > @MatrixSource
 >>Source developer > @IZlZ7I
 ███╗░░░███╗░█████╗░████████╗██████╗░██╗██╗░░██╗
 ████╗░████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝
