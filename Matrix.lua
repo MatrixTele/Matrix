@@ -15763,10 +15763,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
+{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},
 },
 {
 {text = 'disable', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'lock', callback_data=data.sender_user_id_.."/homelocks"},
