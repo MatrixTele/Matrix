@@ -6557,7 +6557,7 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-linkgp = '\n*⌔︙𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 ↓ *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n ['..ta.title_..']('..link..') ←'
+linkgp = '\n*⌔︙𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 ↓ *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n⌔ ['..ta.title_..']('..link..') ←'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -6569,7 +6569,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '\n*⌔︙𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 ↓ *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n ['..ta.title_..']('..linkgpp.result..') ←'
+linkgp = '\n*⌔︙𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 ↓ *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n⌔ ['..ta.title_..']('..linkgpp.result..') ←'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -11806,10 +11806,10 @@ local Text =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=msg.sender_user_id_.."/help2"},{text = '𝟏', callback_data=msg.sender_user_id_.."/help1"},{text = '𝟎', callback_data=msg.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=msg.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=msg.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=msg.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=msg.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=msg.sender_user_id_.."/help4"},{text = '𝟑', callback_data=msg.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=msg.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=msg.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
@@ -12458,7 +12458,7 @@ end
 if text == 'ارقام جاهزة 🔢' then
 Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
-𝟏 𝟐 𝟑 𝟒 𝟓 𝟔 𝟕 ?? 𝟗 𝟎
+⌔𝟏⌔ ⌔𝟐⌔ ⌔𝟑⌔ ⌔𝟒⌔⌔𝟓⌔ 𝟔 𝟕 ?? 𝟗 ⌔𝟎⌔
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
@@ -12468,7 +12468,7 @@ Text = [[
  𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
- 𝟎  𝟏  𝟐  𝟑  𝟒   𝟓   𝟔  𝟕   𝟖   𝟗
+ ⌔𝟎⌔  ⌔𝟏⌔  ⌔𝟐⌔  ⌔𝟑⌔  ⌔𝟒⌔  ⌔𝟓⌔   𝟔  𝟕   𝟖   𝟗
 ０ １ ２ ３ ４ ５ ６ ７８９
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 *]]
@@ -15431,10 +15431,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
@@ -15485,10 +15485,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
@@ -15542,10 +15542,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
@@ -15591,10 +15591,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
@@ -15628,10 +15628,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
@@ -15679,10 +15679,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
@@ -15708,10 +15708,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
@@ -15739,10 +15739,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝟐', callback_data=data.sender_user_id_.."/help2"},{text = '𝟏', callback_data=data.sender_user_id_.."/help1"},{text = '𝟎', callback_data=data.sender_user_id_.."/help0"},
+{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '𝟓', callback_data=data.sender_user_id_.."/help5"},{text = '𝟒 ', callback_data=data.sender_user_id_.."/help4"},{text = '𝟑', callback_data=data.sender_user_id_.."/help3"},
+{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
