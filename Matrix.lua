@@ -11815,7 +11815,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=msg.sender_user_id_.."/help4"},{text = 'م5', callback_data=msg.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -15443,7 +15443,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15500,7 +15500,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15560,7 +15560,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15612,7 +15612,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15652,7 +15652,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15706,7 +15706,39 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+},
+{
+{text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/YouTube') and DevBot(data) then
+if tonumber(Text:match('(.*)/YouTube')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+⌔︙اليـوتيوب ..
+⌔︙امر التشغيل ← ❨ تفعيل اليوتيوب ❩
+⌔︙امر التعطيل ← ❨ تعطيل اليوتيوب ❩
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙البـحث عن اغنية ↓
+⌔︙بحث ← اسم الاغنية
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+},
+{
+{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+},
+{
+{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+},
+{
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data=data.sender_user_id_.."/help"},
@@ -15740,7 +15772,7 @@ keyboard.inline_keyboard = {
 {text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
