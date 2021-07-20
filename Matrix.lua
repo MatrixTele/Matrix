@@ -15763,16 +15763,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},
+{text = 'م0', callback_data=data.sender_user_id_.."/help0"},{text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+{text = 'م3', callback_data=data.sender_user_id_.."/help3"},{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
 },
 {
-{text = 'م4', callback_data=data.sender_user_id_.."/help4"},{text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'disable', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=data.sender_user_id_.."/YouTube"},{text = 'lock', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
