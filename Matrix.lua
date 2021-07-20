@@ -2035,23 +2035,20 @@ database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فـتح البوتات")  
 return false
 end 
-
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس'  or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'انصبلك'  or text == 'انصبلك بوت' then
 Text = [[
-⌔︙Dev Name : [𝗛ٍَ𝗮َ!َِ𝗦َِ𝗼](t.me/IZlZ7I) .
-⌔︙Dev User : @IZlZ7I .
+⌔︙[مطور السورس](t.me/IZlZ7I)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙Matrix programmer.',url="https://t.me/IZlZ7I"},
+{text = '⌔︙مطور السورس ⌔︙',url="https://t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/IZlZ7I&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-
 if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3103,7 +3100,7 @@ return false
 end
 if text == ("الثانويين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
-t = "\n⌔︙قائمة مطورين الثانويين للبوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة مطورين الثانويين للبوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3128,7 +3125,7 @@ return false
 end
 if text == ("قائمه العام") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n⌔︙قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3502,7 +3499,7 @@ send(msg.chat_id_, msg.id_, "\n⌔︙تم مسح المحظورين")
 end
 if text == ("قائمه العام") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n⌔︙قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3518,7 +3515,7 @@ return SendMsg_Msgeeslist("listbans",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == ("المطورين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:Sudo:User")
-t = "\n⌔︙قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3534,7 +3531,7 @@ return SendMsg_Msgeeslist("listsudo",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == "المنشئين الاساسين" and DevBot(msg) then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "\n⌔︙قائمة المنشئين الاساسين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة المنشئين الاساسين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3566,7 +3563,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Constructor"..msg.chat_id_)
-t = "\n⌔︙قائمة المنشئين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة المنشئين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3598,7 +3595,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Manager"..msg.chat_id_)
-t = "\n⌔︙قائمة المدراء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة المدراء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3630,7 +3627,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Mod:User"..msg.chat_id_)
-t = "\n⌔︙قائمة الادمنيه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة الادمنيه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3647,7 +3644,7 @@ return SendMsg_Msgeeslist("listadmin",msg.chat_id_,msg.sender_user_id_,msg.id_, 
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."Matrix:Special:User"..msg.chat_id_)
-t = "\n⌔︙قائمة مميزين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة مميزين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3679,7 +3676,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Muted:User"..msg.chat_id_)
-t = "\n⌔︙قائمة المكتومين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة المكتومين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3712,7 +3709,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Ban:User"..msg.chat_id_)
-t = "\n⌔︙قائمة محظورين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة محظورين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3901,7 +3898,7 @@ end
 end
 if text == "المالكين" and DevBot(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "\n⌔︙قائمة مالكين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة مالكين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
@@ -6270,7 +6267,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل ← الحظر ~ والطرد ')
+send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل ⌁ الحظر ~ والطرد ')
 return false
 end
 end
@@ -6292,7 +6289,7 @@ return false
 end
 if Constructor(msg) then
 database:del(bot_id.."Ban:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل ← الحظر ~ والطرد ')
+send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل ⌁ الحظر ~ والطرد ')
 return false
 end
 end
@@ -6314,7 +6311,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل رفع ← الادمن ~ المميز ')
+send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل رفع ⌁ الادمن ~ المميز ')
 return false
 end
 end
@@ -6336,7 +6333,7 @@ return false
 end
 if Constructor(msg) then
 database:del(bot_id.."Add:Group:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل رفع ← الادمن ~ المميز ')
+send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل رفع ⌁ الادمن ~ المميز ')
 return false
 end
 end
@@ -6350,8 +6347,8 @@ send(msg.chat_id_, msg.id_,'⌔︙لا يمكنني تعديل  او وضع لق
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n⌔︙العضو ← ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..') '
-status  = '\n⌔︙الايدي ← '..result.sender_user_id_..'\n⌔︙تم ضافه {'..timsh..'} كلقب له'
+usertext = '\n⌔︙العضو ⌁ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..') '
+status  = '\n⌔︙الايدي ⌁ '..result.sender_user_id_..'\n⌔︙تم ضافه {'..timsh..'} كلقب له'
 send(msg.chat_id_, msg.id_, usertext..status)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&custom_title="..timsh)
@@ -6547,7 +6544,7 @@ end
 return false
 end
 send(msg.chat_id_,msg.id_," *⌔︙حسنآ ارسل اليه الرابط الان*")
-database:setex(bot_id.."Matrix:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
+database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false
 end
 end
@@ -6560,7 +6557,7 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-linkgp = '\n*⌔︙𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 : *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..link..')'
+linkgp = '\n*⛓꒐ 𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 : *\n━═━═━═━\n ['..ta.title_..']('..link..')'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -6572,7 +6569,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '\n*⌔︙𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 : *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..linkgpp.result..')'
+linkgp = '\n*⛓꒐ 𝗴ٰ𝗿ٰ𝗼ٰ𝘂ٰ𝗽 ٰ𝗹ٰ𝗶ٰ𝗻ٰ𝗸 : *\n━═━═━═━\n ['..ta.title_..']('..linkgpp.result..')'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -6762,7 +6759,7 @@ end
 if Addictive(msg) then
 database:setex(bot_id.."Matrix:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 t  = "⌔︙ارسل لي الترحيب الان"
-tt = "\n⌔︙تستطيع اضافة مايلي !\n⌔︙دالة عرض الاسم ←{`name`}\n⌔︙دالة عرض المعرف ←{`user`}"
+tt = "\n⌔︙تستطيع اضافة مايلي !\n⌔︙دالة عرض الاسم ⌁{`name`}\n⌔︙دالة عرض المعرف ⌁{`user`}"
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
@@ -7067,7 +7064,7 @@ return false
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
-text = "\n⌔︙قائمة البوتات الموجوده \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+text = "\n📋꒐ قائمة البوتات الموجوده \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 local n = 0
 local t = 0
 for i=0 , #admins do 
@@ -7475,7 +7472,7 @@ if #list == 0 then
 send(msg.chat_id_, msg.id_,"⌔︙لا توجد صلاحيات مضافه")
 return false
 end
-t = "\n⌔︙قائمة الصلاحيات المضافه \n━━━━━━━━━━━━━\n"
+t = "\n📋꒐ قائمة الصلاحيات المضافه \n━━━━━━━━━━━━━\n"
 for k,v in pairs(list) do
 var = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..v..msg.chat_id_)
 if var then
@@ -7522,7 +7519,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
-t = "\n⌔︙قائمة المنظفين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة المنظفين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -7622,37 +7619,37 @@ end
 if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
 database:set(bot_id.."Matrix:Sudo:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المطور الى ← "..Teext)
+send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المطور الى ⌁ "..Teext)
 end
 if text and text:match("^تغير رد المنشئ الاساسي (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المنشئ الاساسي (.*)$") 
 database:set(bot_id.."Matrix:BasicConstructor:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المنشئ الاساسي الى ← "..Teext)
+send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المنشئ الاساسي الى ⌁ "..Teext)
 end
 if text and text:match("^تغير رد المنشئ (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المنشئ (.*)$") 
 database:set(bot_id.."Matrix:Constructor:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المنشئ الى ← "..Teext)
+send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المنشئ الى ⌁ "..Teext)
 end
 if text and text:match("^تغير رد المدير (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المدير (.*)$") 
 database:set(bot_id.."Matrix:Manager:Rd"..msg.chat_id_,Teext) 
-send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المدير الى ← "..Teext)
+send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المدير الى ⌁ "..Teext)
 end
 if text and text:match("^تغير رد الادمن (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد الادمن (.*)$") 
 database:set(bot_id.."Matrix:Mod:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد الادمن الى ← "..Teext)
+send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد الادمن الى ⌁ "..Teext)
 end
 if text and text:match("^تغير رد المميز (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المميز (.*)$") 
 database:set(bot_id.."Matrix:Special:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المميز الى ← "..Teext)
+send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد المميز الى ⌁ "..Teext)
 end
 if text and text:match("^تغير رد العضو (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد العضو (.*)$") 
 database:set(bot_id.."Matrix:Memp:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد العضو الى ← "..Teext)
+send(msg.chat_id_, msg.id_,"⌔︙تم تغير رد العضو الى ⌁ "..Teext)
 end
 
 if text == ("مسح الرتب") and BasicConstructor(msg) then
@@ -7701,7 +7698,7 @@ db = "ملف ⌔︙"
 elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..msg.chat_id_) then
 db = "اغنيه 🎵"
 end
-text = text..""..k..">> ("..v..") ← {"..db.."}\n"
+text = text..""..k..">> ("..v..") ⌁ {"..db.."}\n"
 end
 if #list == 0 then
 text = "⌔︙لا يوجد ردود للمدير"
@@ -8134,7 +8131,7 @@ send(msg.chat_id_, msg.id_,"⌔︙تم ازالة ردود المطور")
 end
 if text == ("ردود المطور") and DevMatrix(msg) then 
 local list = database:smembers(bot_id.."Matrix:List:Rd:Sudo")
-text = "\n⌔︙قائمة ردود المطور \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+text = "\n📋꒐ قائمة ردود المطور \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 if database:get(bot_id.."Matrix:Add:Rd:Sudo:Gif"..v) then
 db = "متحركه 🎭"
@@ -8153,7 +8150,7 @@ db = "ملف ⌔︙"
 elseif database:get(bot_id.."Matrix:Add:Rd:Sudo:Audio"..v) then
 db = "اغنيه 🎵"
 end
-text = text..""..k.." >> ("..v..") ← {"..db.."}\n"
+text = text..""..k.." >> ("..v..") ⌁ {"..db.."}\n"
 end
 if #list == 0 then
 text = "⌔︙لا يوجد ردود للمطور"
@@ -8757,7 +8754,7 @@ end
 return false
 end
 local rtp = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,"⌔︙رتبتك في البوت ← "..rtp)
+send(msg.chat_id_, msg.id_,"⌔︙رتبتك في البوت ⌁ "..rtp)
 end
 if text == "اسمي"  then 
 if AddChannel(msg.sender_user_id_) == false then
@@ -8928,7 +8925,7 @@ if DevMatrix(msg) then
 database:srem(bot_id.."Matrix:GBan:User",result.id_)
 database:srem(bot_id.."Matrix:Ban:User"..msg.chat_id_,result.id_)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_,result.id_)
-usertext = "\n⌔︙العضو ← ["..result.title_.."](t.me/"..(username or "kenwa")..")"
+usertext = "\n⌔︙العضو ⌁ ["..result.title_.."](t.me/"..(username or "kenwa")..")"
 status  = "\n⌔︙تم الغاء القيود عنه"
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
@@ -8970,7 +8967,7 @@ else
 database:srem(bot_id.."Matrix:Ban:User"..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_,result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = "\n?? العضو ← ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
+usertext = "\n?? العضو ⌁ ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
 status  = "\n✅ تم الغاء القيود عنه"
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -9012,7 +9009,7 @@ GBan = "محظور عام"
 else
 GBan = "غير محظور عام"
 end
-send(msg.chat_id_, msg.id_,"⌔︙الحظر العام ← "..GBan.."\n⌔︙الحظر ← "..Ban.."\n⌔︙الكتم ← "..Muted)
+send(msg.chat_id_, msg.id_,"⌔︙الحظر العام ⌁ "..GBan.."\n⌔︙الحظر ⌁ "..Ban.."\n⌔︙الكتم ⌁ "..Muted)
 else
 send(msg.chat_id_, msg.id_,"⌔︙المعرف غلط")
 end
@@ -9052,7 +9049,7 @@ GBan = "محظور عام"
 else
 GBan = "غير محظور عام"
 end
-Textt = "⌔︙الحظر العام ← "..GBan.."\n⌔︙الحظر ← "..Ban.."\n⌔︙الكتم ← "..Muted..""
+Textt = "⌔︙الحظر العام ⌁ "..GBan.."\n⌔︙الحظر ⌁ "..Ban.."\n⌔︙الكتم ⌁ "..Muted..""
 send(msg.chat_id_, msg.id_,Textt)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
@@ -9083,7 +9080,7 @@ end
 if data.message_ == "CHAT_ADMIN_REQUIRED" then
 send(msg.chat_id_,msg.id_,"⌔︙ليست لدي صلاحية تغير اسم المجموعه")  
 else
-send(msg.chat_id_,msg.id_,"← ??تم تغيير اسم المجموعه الى {["..Name.."]}")  
+send(msg.chat_id_,msg.id_,"⌁ ??تم تغيير اسم المجموعه الى {["..Name.."]}")  
 end
 end,nil) 
 end
@@ -9613,35 +9610,35 @@ local text =
 "\n⌔︙علامة ال {✓} تعني مفعل"..
 "\n⌔︙علامة ال {✘} تعني معطل"..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
-"\n⌔︙الروابط ← "..lock_links..
-"\n".."⌔︙المعرفات ← "..lock_user..
-"\n".."⌔︙التاك ← "..lock_hash..
-"\n".."⌔︙البوتات ← "..lock_bots..
-"\n".."⌔︙التوجيه ← "..lock_fwd..
-"\n".."⌔︙التثبيت ← "..lock_pin..
-"\n".."⌔︙الاشعارات ← "..lock_tagservr..
-"\n".."⌔︙الماركدون ← "..lock_mark..
-"\n".."⌔︙التعديل ← "..lock_edit..
+"\n⌔︙الروابط ⌁ "..lock_links..
+"\n".."⌔︙المعرفات ⌁ "..lock_user..
+"\n".."⌔︙التاك ⌁ "..lock_hash..
+"\n".."⌔︙البوتات ⌁ "..lock_bots..
+"\n".."⌔︙التوجيه ⌁ "..lock_fwd..
+"\n".."⌔︙التثبيت ⌁ "..lock_pin..
+"\n".."⌔︙الاشعارات ⌁ "..lock_tagservr..
+"\n".."⌔︙الماركدون ⌁ "..lock_mark..
+"\n".."⌔︙التعديل ⌁ "..lock_edit..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
-"\n".."⌔︙الكلايش ← "..lock_spam..
-"\n".."⌔︙الكيبورد ← "..lock_inlin..
-"\n".."⌔︙الاغاني ← "..lock_vico..
-"\n".."⌔︙المتحركه ← "..lock_gif..
-"\n".."⌔︙الملفات ← "..lock_file..
-"\n".."⌔︙الدردشه ← "..lock_text..
-"\n".."⌔︙الفيديو ← "..lock_ved..
-"\n".."⌔︙الصور ← "..lock_photo..
+"\n".."⌔︙الكلايش ⌁ "..lock_spam..
+"\n".."⌔︙الكيبورد ⌁ "..lock_inlin..
+"\n".."⌔︙الاغاني ⌁ "..lock_vico..
+"\n".."⌔︙المتحركه ⌁ "..lock_gif..
+"\n".."⌔︙الملفات ⌁ "..lock_file..
+"\n".."⌔︙الدردشه ⌁ "..lock_text..
+"\n".."⌔︙الفيديو ⌁ "..lock_ved..
+"\n".."⌔︙الصور ⌁ "..lock_photo..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
-"\n".."⌔︙الصوت ← "..lock_muse..
-"\n".."⌔︙الملصقات ← "..lock_ste..
-"\n".."⌔︙الجهات ← "..lock_phon..
-"\n".."⌔︙الدخول ← "..lock_join..
-"\n".."⌔︙الاضافه ← "..lock_add..
-"\n".."⌔︙السيلفي ← "..lock_self..
-"\n".."⌔︙الالعاب ← "..lock_geam..
-"\n".."⌔︙التكرار ← "..flood..
-"\n".."⌔︙الترحيب ← "..welcome..
-"\n".."⌔︙عدد التكرار ← "..Num_Flood..
+"\n".."⌔︙الصوت ⌁ "..lock_muse..
+"\n".."⌔︙الملصقات ⌁ "..lock_ste..
+"\n".."⌔︙الجهات ⌁ "..lock_phon..
+"\n".."⌔︙الدخول ⌁ "..lock_join..
+"\n".."⌔︙الاضافه ⌁ "..lock_add..
+"\n".."⌔︙السيلفي ⌁ "..lock_self..
+"\n".."⌔︙الالعاب ⌁ "..lock_geam..
+"\n".."⌔︙التكرار ⌁ "..flood..
+"\n".."⌔︙الترحيب ⌁ "..welcome..
+"\n".."⌔︙عدد التكرار ⌁ "..Num_Flood..
 "\n\n.*"
 send(msg.chat_id_, msg.id_,text)     
 end    
@@ -10593,9 +10590,9 @@ name = string.gsub(name,"👨‍⌔︙","👩‍⌔︙👩‍⌔︙👩‍⌔︙
 name = string.gsub(name,"👩‍🍳","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂🧚‍♂🧚‍♀🧚‍♂🧚‍♂")
 name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
-name = string.gsub(name,"🧝‍♂","🧝‍♀??‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♂🧝‍♀🧝‍♀🧝‍♀")
+name = string.gsub(name,"🧝‍♂","🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♂🧝‍♀🧝‍♀🧝‍♀")
 name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙍‍♂️🙎‍♂️🙎‍♂️🙎‍♂️")
-name = string.gsub(name,"🧖‍♂️","??‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
+name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
 name = string.gsub(name,"👬","👭👭👭👭👭👬👭👭👭")
 name = string.gsub(name,"👨‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦👨‍👨‍👦")
 name = string.gsub(name,"🕒","🕒🕒🕒🕒??🕒🕓🕒🕒🕒")
@@ -10726,7 +10723,7 @@ local Text =[[*
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙يمكنك اختيار مجموعة الالعاب .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -10945,9 +10942,9 @@ for i = 1, #pv do
 tdcli_function({ID='GetChat',chat_id_ = pv[i]},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = pv[i], action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,data) 
 if data.ID and data.ID == "Ok"  then
-print('\27[30;33m← THE USER IS SAVE ME ↓\n← '..pv[i]..'\n\27[1;37m')
+print('\27[30;33m⌁ THE USER IS SAVE ME ↓\n⌁ '..pv[i]..'\n\27[1;37m')
 else
-print('\27[30;31m← THE USER IS BLOCK ME ↓\n← '..pv[i]..'\n\27[1;37m')
+print('\27[30;31m⌁ THE USER IS BLOCK ME ↓\n⌁ '..pv[i]..'\n\27[1;37m')
 database:srem(bot_id..'Matrix:UsersBot',pv[i])  
 sendok = sendok + 1
 end
@@ -10972,19 +10969,19 @@ for i = 1, #group do
 tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
-print('\27[30;34m← THE BOT IS NOT ADMIN ↓\n← '..group[i]..'\n\27[1;37m')
+print('\27[30;34m⌁ THE BOT IS NOT ADMIN ↓\n⌁ '..group[i]..'\n\27[1;37m')
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;35m← THE BOT IS LEFT GROUP ↓\n← '..group[i]..'\n\27[1;37m')
+print('\27[30;35m⌁ THE BOT IS LEFT GROUP ↓\n⌁ '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;36m← THE BOT IS KICKED GROUP ↓\n← '..group[i]..'\n\27[1;37m')
+print('\27[30;36m⌁ THE BOT IS KICKED GROUP ↓\n⌁ '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
@@ -11563,7 +11560,7 @@ if Text_Dev then
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"\n*⌔︙𝖽𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 :*\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ["..data.first_name_.."](T.me/"..data.username_..") *←*")  
+send(msg.chat_id_, msg.id_,"\n*🕷꒐ 𝖽𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋*\n━═━═━═━\n ["..data.first_name_.."](T.me/"..data.username_..") *←*")  
 end,nil)   
 end
 end
@@ -11597,7 +11594,7 @@ else
 CeckFile = "(✖)"
 end
 NumFile = NumFile + 1
-TextS = TextS..'*'..NumFile.."←* {`"..name..'`} ← '..CeckFile..'\n[-  About to the file]('..Info..')\n'
+TextS = TextS..'*'..NumFile.."⌁* {`"..name..'`} ⌁ '..CeckFile..'\n[-  About to the file]('..Info..')\n'
 end
 send(msg.chat_id_, msg.id_,TextS..TextE) 
 end
@@ -11614,9 +11611,9 @@ local file = name_t[2]..'.lua'
 local file_bot = io.open("Matrix_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = "*⌔︙الملف ← {"..file.."}\n⌔︙تم تعطيله وحذفه بنجاح \n✓*"
+t = "*⌔︙الملف ⌁ {"..file.."}\n⌔︙تم تعطيله وحذفه بنجاح \n✓*"
 else
-t = "*⌔︙بالتاكيد تم تعطيل وحذف ملف ← {"..file.."} \n✓*"
+t = "*⌔︙بالتاكيد تم تعطيل وحذف ملف ⌁ {"..file.."} \n✓*"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
@@ -11634,9 +11631,9 @@ local file = name_t[2]..'.lua'
 local file_bot = io.open("Matrix_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = "*⌔︙بالتاكيد تم تنزيل وتفعيل ملف ← {"..file.."} \n✓*"
+t = "*⌔︙بالتاكيد تم تنزيل وتفعيل ملف ⌁ {"..file.."} \n✓*"
 else
-t = "*⌔︙الملف ← {"..file.."}\n⌔︙تم تنزيله وتفعيله بنجاح \n*"
+t = "*⌔︙الملف ⌁ {"..file.."}\n⌔︙تم تنزيله وتفعيله بنجاح \n*"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
@@ -11760,7 +11757,7 @@ end
 Text = [[*
 ⌔︙Welcome to Source
 ⌔︙TeAm - ”Matrix”
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11803,7 +11800,7 @@ local Text =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -11850,7 +11847,7 @@ Text = [[*
 ⌔︙اوامر البوت للمالك ،
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -11904,7 +11901,7 @@ Text = [[*
 ⌔︙الصوت
 ⌔︙الجهات
 ⌔︙الاشعارات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -11961,7 +11958,7 @@ Text = [[*
 ⌔︙المميزين ، المكتومين ، القوانين
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -12010,7 +12007,7 @@ Text = [[*
 ⌔︙ردود المدير ، مسح ردود المدير
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -12047,7 +12044,7 @@ Text = [[*
 ⌔︙اضف ، حذف ← { امر }
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -12083,7 +12080,7 @@ Text = [[*
 ⌔︙غادر ، غادر ← { والايدي }
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -12433,7 +12430,7 @@ if text == 'قناة السورس 📡 .' then
 Text = [[*
 ⌔︙Welcome to Source
 ⌔︙TeAm - ”Matrix”
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12509,7 +12506,7 @@ end
 if text and text:match("^/start msg(.*)$") then
 sl = text:match("^/start msg(.*)$")
 local list = database:smembers(bot_id.."Matrix:List:Filter:text"..sl)
-t = "\n⌔︙قائمة الكلمات الممنوعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n📋꒐ قائمة الكلمات الممنوعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 if v then
 t = t..""..k.."- ["..v.."]\n"
@@ -12580,12 +12577,12 @@ id_user = result.forward_info_.sender_user_id_
 end     
 tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 
 if text == 'حظر' then
-sendText(Id_Sudo,'⌔︙لشخص ← ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n⌔︙تم حظره من التواصل ',msg.id_/2097152/0.5,'md')
+sendText(Id_Sudo,'⌔︙لشخص ⌁ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n⌔︙تم حظره من التواصل ',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
 if text =='الغاء الحظر' then
-sendText(Id_Sudo,'⌔︙الشخص ← ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n⌔︙تم الغاء حظره من التواصل ',msg.id_/2097152/0.5,'md')
+sendText(Id_Sudo,'⌔︙الشخص ⌁ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n⌔︙تم الغاء حظره من التواصل ',msg.id_/2097152/0.5,'md')
 database:srem(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
@@ -15328,7 +15325,7 @@ local Teext =[[*
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙يمكنك اختيار مجموعة الالعاب .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15350,18 +15347,18 @@ if tonumber(Text:match('(.*)/gamesos')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔︙قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙لعبة البات ← بات
-⌔︙لعبة التخمين ← خمن
-⌔︙لعبه الاسرع ← الاسرع
-⌔︙لعبة السمايلات ← سمايلات
-⌔︙لعبة المختلف ← المختلف
-⌔︙لعبة الامثله ← امثله
-⌔︙لعبة العكس ← العكس 
-⌔︙لعبة الحزوره ← حزوره
-⌔︙لعبة المعاني ← معاني
+⌔︙لعبة البات ⌁ بات
+⌔︙لعبة التخمين ⌁ خمن
+⌔︙لعبه الاسرع ⌁ الاسرع
+⌔︙لعبة السمايلات ⌁ سمايلات
+⌔︙لعبة المختلف ⌁ المختلف
+⌔︙لعبة الامثله ⌁ امثله
+⌔︙لعبة العكس ⌁ العكس 
+⌔︙لعبة الحزوره ⌁ حزوره
+⌔︙لعبة المعاني ⌁ معاني
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙مجوهراتي ← لعرض عدد الارباح
-⌔︙بيع مجوهراتي + العدد ← لستبدال كل مجوهره ب50 رساله*
+⌔︙مجوهراتي ⌁ لعرض عدد الارباح
+⌔︙بيع مجوهراتي + العدد ⌁ لستبدال كل مجوهره ب50 رساله*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15385,7 +15382,7 @@ local Teext =[[*
 ⌔︙يمكنك الان اختيار لعبة .
 ⌔︙قم بارسال اللعبه في المجموعة .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15431,7 +15428,7 @@ local Teext =[[*
 ⌔︙اوامر البوت للمالك ،
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15488,7 +15485,7 @@ local Teext =[[*
 ⌔︙الصوت
 ⌔︙الجهات
 ⌔︙الاشعارات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15548,7 +15545,7 @@ local Teext =[[*
 ⌔︙المميزين ، المكتومين ، القوانين
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15600,7 +15597,7 @@ local Teext =[[*
 ⌔︙ردود المدير ، مسح ردود المدير
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15640,7 +15637,7 @@ local Teext =[[*
 ⌔︙اضف ، حذف ← { امر }
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15694,7 +15691,7 @@ local Teext =[[*
 ⌔︙غادر ، غادر ← { والايدي }
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15728,7 +15725,7 @@ local Teext =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 [⌔︙Ch Source](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -15767,7 +15764,7 @@ local idchci = database:get(bot_id.."Matrix:Filter:msg")
 local photo = DAata:match("^pito(.*)$")
 local Text ="⌔︙تم اللغاء منعها بنجاح"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋??𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
