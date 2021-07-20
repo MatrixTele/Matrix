@@ -10724,7 +10724,7 @@ local Text =[[*
 ⌔︙يمكنك اختيار مجموعة الالعاب .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ← [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11800,8 +11800,8 @@ local Text =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11847,8 +11847,8 @@ Text = [[*
 ⌔︙اوامر البوت للمالك ،
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -11901,8 +11901,8 @@ Text = [[*
 ⌔︙الصوت
 ⌔︙الجهات
 ⌔︙الاشعارات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -11958,8 +11958,8 @@ Text = [[*
 ⌔︙المميزين ، المكتومين ، القوانين
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12007,8 +12007,8 @@ Text = [[*
 ⌔︙ردود المدير ، مسح ردود المدير
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12044,8 +12044,8 @@ Text = [[*
 ⌔︙اضف ، حذف ← { امر }
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12080,8 +12080,8 @@ Text = [[*
 ⌔︙غادر ، غادر ← { والايدي }
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -15326,7 +15326,7 @@ local Teext =[[*
 ⌔︙يمكنك اختيار مجموعة الالعاب .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ← [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15383,7 +15383,7 @@ local Teext =[[*
 ⌔︙قم بارسال اللعبه في المجموعة .
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+⌔︙قناة البوت ← [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15428,8 +15428,8 @@ local Teext =[[*
 ⌔︙اوامر البوت للمالك ،
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15485,8 +15485,8 @@ local Teext =[[*
 ⌔︙الصوت
 ⌔︙الجهات
 ⌔︙الاشعارات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15545,8 +15545,8 @@ local Teext =[[*
 ⌔︙المميزين ، المكتومين ، القوانين
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15597,8 +15597,8 @@ local Teext =[[*
 ⌔︙ردود المدير ، مسح ردود المدير
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15637,8 +15637,8 @@ local Teext =[[*
 ⌔︙اضف ، حذف ← { امر }
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15691,8 +15691,8 @@ local Teext =[[*
 ⌔︙غادر ، غادر ← { والايدي }
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15725,8 +15725,8 @@ local Teext =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-*⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [Matrix](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
