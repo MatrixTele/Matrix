@@ -7677,7 +7677,7 @@ database:del(bot_id.."Matrix:List:Manager"..msg.chat_id_)
 end
 send(msg.chat_id_, msg.id_,"⌔︙تم ازالة الردود من المجموعة")
 end
-if text == ("ردود المدير") and Owner(msg) then
+if text == ("ترك ردود المدير") and Owner(msg) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..msg.chat_id_.."")
 text = "⌔︙قائمه ردود المدير \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
@@ -7908,7 +7908,7 @@ end
 end
 
 
-if text == 'الردود' and Owner(msg) then
+if text == 'الردود' or text == 'ردود المدير' and Owner(msg) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..msg.chat_id_)
 if #list == 0 then
 text = "⌔︙لا يوجد ردود للمدير"
@@ -15287,7 +15287,7 @@ print(msg.sender_user_id_,sudoo)
 print(msg.sender_user_id_== tonumber(sudoo))
 if msg.sender_user_id_ == tonumber(sudoo) then 
 --DeleteMessage(msg.chat_id_,{[0] = msg.message_id_})
-local Teext = "🚧 ⌔︙ تم الغاء الامر بنجاح ."
+local Teext = "⌔︙ تم الغاء الامر بنجاح ."
 database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
 https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
 return false
@@ -15297,7 +15297,7 @@ end
 if Text and Text:match('(.*)/yesS') then
 sudoo = Text:gsub("/yesS","")
 if msg.sender_user_id_ == tonumber(sudoo) then 
-local Texxt = "🚧 ⌔︙ حسننا الان يمكنك ارسال معرف المطور الاساسي الجديد ..."
+local Texxt = "⌔︙ حسننا الان يمكنك ارسال معرف المطور الاساسي الجديد ..."
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = 'إالـغـاء الأمـر', callback_data=msg.sender_user_id_.."/noS"}}}
 https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Texxt).."&message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
