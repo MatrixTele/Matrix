@@ -12733,7 +12733,7 @@ storm = ''
 else
 storm = '\n⌔︙تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*??⌔︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n⌔︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*⌔︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n⌔︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -13842,7 +13842,7 @@ end
 elseif Text and Text:match('(.*)/Matrix:brj_Bots') and Owner(data) then
 if tonumber(Text:match('(.*)/Matrix:brj_Bots')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."Matrix:brj_Bots"..data.chat_id_,"open")
-local Textedit = '??| تم تفعيب الابراج '
+local Textedit = '⌔︙تم تفعيل الابراج '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -14012,7 +14012,7 @@ end
 elseif Text and Text:match('(.*)/unMatrix:Status:Bc') and DevMatrix(data) then  
 if tonumber(Text:match('(.*)/unMatrix:Status:Bc')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."Matrix:Status:Bc",true) 
-local Textedit = '??| تم تعطيل الاذاعه '
+local Textedit = '⌔︙تم تعطيل الاذاعه '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15782,7 +15782,7 @@ if DAata and DAata:match("^delallSticker(.*)$") and Addictive(data) then
 local delallSticker = DAata:match("^delallSticker(.*)$")
 local Text ="⌔︙تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '⌔︙Matrix 𝖲??𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
