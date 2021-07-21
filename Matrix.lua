@@ -8898,7 +8898,7 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Kick:Me"..msg.chat_id_,true)  
-Text = "\n✅ تم تعطيل امر اطردني"
+Text = "\n⌔︙تم تعطيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
 
@@ -8967,8 +8967,8 @@ else
 database:srem(bot_id.."Matrix:Ban:User"..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_,result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = "\n?? العضو ← ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
-status  = "\n✅ تم الغاء القيود عنه"
+usertext = "\n⌔︙العضو ← ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
+status  = "\n⌔︙تم الغاء القيود عنه"
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -10015,11 +10015,11 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '⌔︙'..Description..'\n⌔︙ايديك : '..Id..'\n⌔︙يوزرك : '..UserName_User..'\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games
+local texte = '⌔︙'..Description..'\n*⌔︙ايديك :* '..Id..'\n*⌔︙يوزرك :* '..UserName_User..'\n*⌔︙موقعك :* '..Status_Gps..'\n*⌔︙رسائلك :* '..NumMsg..' \n*⌔︙تفاعلك :* '..TotalMsg..'\n*⌔︙الالعاب :* '..Num_Games
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n*⌔︙ايديك : '..Id..'\n⌔︙يوزرك : * ['..UserName_User..']*\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..'*'
+local texte = '\n*⌔︙ايديك :* '..Id..'\n*⌔︙يوزرك :* ['..UserName_User..']*\n*⌔︙موقعك :* '..Status_Gps..'\n*⌔︙رسائلك :* '..NumMsg..' \n*⌔︙تفاعلك :* '..TotalMsg..'\n*⌔︙الالعاب :* '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10868,14 +10868,20 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'??⌔︙عليك الاشتراك في قناة البوت\n⌔︙اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end    
+end  
 taha = text:match("^اضف رسائل (%d+)$")
 database:set(bot_id.."Matrix:id:user"..msg.chat_id_,taha)  
 database:setex(bot_id.."Matrix:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_, "✉︙ارسل لي عدد الرسائل الان") 
+send(msg.chat_id_, msg.id_, "⌔︙ارسل لي عدد الرسائل الان") 
 return false
 end
 if text and text:match("^اضف مجوهرات (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -11364,21 +11370,6 @@ send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل امر تنزيل اليوت�
 else
 database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل امر تنزيل اليوتيوب')
-end
-end
-if text == "غنيلي" then
-data,res = https.request('https://apiabs.ml/Audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='⌔︙تم اختيار المقطع الصوتي لك'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '- 𝚖??𝚝??𝚒𝚡 𝚝𝚎𝚊𝚖 .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
 end
 end
 if (msg.content_.sticker_)  and msg.reply_to_message_id_ == 0 and database:get(bot_id.."Matrix:Lock:Xn"..msg.chat_id_)=="del" then      
