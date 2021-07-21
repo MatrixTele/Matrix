@@ -7999,7 +7999,7 @@ end
 
 return false
 end
-send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد وضعة")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -8024,7 +8024,7 @@ end
 
 return false
 end
-send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد حذفة")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد حذفة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
@@ -8210,12 +8210,12 @@ end
 end
 
 if text == "اضف رد للكل" and DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد وضعة")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
 if text == "حذف رد للكل" and DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد حذفة")
+send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد حذفة")
 database:set(bot_id.."Matrix:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -8502,7 +8502,7 @@ end
 return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
-local t = "\n⌔︙𝐌𝐄𝐌𝐁𝐄𝐑 𝐋𝐈𝐒𝐓 :\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+local t = "\n 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗹𝗶𝘀𝘁 \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 x = 0
 local list = taha.members_
 for k, v in pairs(list) do
