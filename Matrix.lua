@@ -8502,7 +8502,7 @@ end
 return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
-local t = "\n*⌔︙𝐌𝐄𝐌𝐁𝐄𝐑 𝐋𝐈𝐒𝐓 :*\*n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
+local t = "\n⌔︙𝐌𝐄𝐌𝐁𝐄𝐑 𝐋𝐈𝐒𝐓 :\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 x = 0
 local list = taha.members_
 for k, v in pairs(list) do
