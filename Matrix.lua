@@ -411,7 +411,7 @@ if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المطورين : '..#listsudo, callback_data=user_id..""},
+{text = '👥꒐ عدد المطورين : '..#listsudo, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المطورين', callback_data=user_id.."/delsudos"},
@@ -422,7 +422,7 @@ elseif status == "listasa" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المنشئين الاساسيين : '..#listasa, callback_data=user_id..""},
+{text = '👥꒐ عدد المنشئين الاساسيين : '..#listasa, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المنشئين الاساسيين', callback_data=user_id.."/delassaseen"},
@@ -433,7 +433,7 @@ elseif status == "listmnsh" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المنشئين : '..#listmnsh, callback_data=user_id..""},
+{text = '👥꒐ عدد المنشئين : '..#listmnsh, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المنشئين', callback_data=user_id.."/delmnsh"},
@@ -444,7 +444,7 @@ elseif status == "listmder" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المدراء : '..#listmder, callback_data=user_id..""},
+{text = '👥꒐ عدد المدراء : '..#listmder, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المدراء', callback_data=user_id.."/delmoder"},
@@ -455,7 +455,7 @@ elseif status == "listadmin" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد الادمنيه : '..#listadmin, callback_data=user_id..""},
+{text = '👥꒐ عدد الادمنيه : '..#listadmin, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح الادمنيه', callback_data=user_id.."/deladmin"},
@@ -466,7 +466,7 @@ elseif status == "listvip" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المميزين : '..#listvip, callback_data=user_id..""},
+{text = '👥꒐ عدد المميزين : '..#listvip, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المميزين', callback_data=user_id.."/delvips"},
@@ -499,7 +499,7 @@ elseif status == "listktm" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المكتومين : '..#listktm, callback_data=user_id..""},
+{text = '🚷عدد المكتومين : '..#listktm, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المكتومين', callback_data=user_id.."/delktm"},
