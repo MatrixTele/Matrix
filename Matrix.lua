@@ -13109,7 +13109,7 @@ end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود المتحركه')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13127,7 +13127,7 @@ end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود الملصقات')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13145,7 +13145,7 @@ end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود النصيه')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13163,7 +13163,7 @@ end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود Mp3')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13181,7 +13181,7 @@ end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود البصمات')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13231,7 +13231,7 @@ keyboard.inline_keyboard = {
 {text = 'مسح ردود المتحركه', callback_data=data.sender_user_id_.."/del1gif"},
 },
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13258,7 +13258,7 @@ keyboard.inline_keyboard = {
 {text = 'مسح ردود النصيه', callback_data=data.sender_user_id_.."/del1text"},
 },
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13285,7 +13285,7 @@ keyboard.inline_keyboard = {
 {text = 'مسح ردود الملصقات', callback_data=data.sender_user_id_.."/del1stik"},
 },
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13312,7 +13312,7 @@ keyboard.inline_keyboard = {
 {text = 'مسح ردود البصمات', callback_data=data.sender_user_id_.."/del1ogg"},
 },
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13339,7 +13339,7 @@ keyboard.inline_keyboard = {
 {text = 'مسح ردود الMp3', callback_data=data.sender_user_id_.."/del1mp3"},
 },
 {
-{text = '⌔Exit⌔', callback_data=data.sender_user_id_.."/golistmderreply"},
+{text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
