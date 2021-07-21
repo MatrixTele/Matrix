@@ -11554,7 +11554,7 @@ if Text_Dev then
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"\n*🕷꒐ 𝖽𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋*\n━═━═━═━\n ["..data.first_name_.."](T.me/"..data.username_..") *←*")  
+send(msg.chat_id_, msg.id_,"\n*⌔︙ᗪEᐯEᒪOᑭEᖇ :*\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n ["..data.first_name_.."](T.me/"..data.username_..") *←*")  
 end,nil)   
 end
 end
