@@ -499,7 +499,7 @@ elseif status == "listktm" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '🚷عدد المكتومين : '..#listktm, callback_data=user_id..""},
+{text = '⌔︙عدد المكتومين : '..#listktm, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المكتومين', callback_data=user_id.."/delktm"},
