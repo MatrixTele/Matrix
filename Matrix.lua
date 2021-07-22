@@ -7764,6 +7764,30 @@ https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. ms
 end
 end
 end
+if text == "تفعيل متحركه" and Owner(msg) or text == "تفعيل المتحركه" and Owner(msg) then
+local t = ' \n⌔︙تم تفعيل المتحركه'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Rio:gif:Rio'..msg.chat_id_) 
+end
+if text == "تعطيل متحركه" and Owner(msg)  or text == "تعطيل المتحركه" and Owner(msg) then
+local t = '  \n⌔︙تم تعطيل متحركه'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Rio:gif:Rio'..msg.chat_id_,true)  
+end
+if text == "متحركه" and not database:get(bot_id..'Rio:gif:Rio'..msg.chat_id_) then
+data,res = https.request('https://ccccxcc.ml/David/animation.php')
+if res == 200 then
+animation = json:decode(data)
+if animation.Info == true then
+local Text ='*⌔︙تم اختيار المتحركه لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
 --     Source Matrix     --
 if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
 local t = ' \n⌔︙تم تفعيل الريمكس'
