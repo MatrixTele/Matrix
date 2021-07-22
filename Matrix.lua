@@ -12148,6 +12148,39 @@ end
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 
+function tdcli_update_callback(data)  -- clback
+if data.ID == "UpdateChannel" then 
+if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
+t = "قام احد المنشئين بطرد البوت من مجموعته\n\n"
+tdcli_function({ID ="GetChat",chat_id_="-100"..data.channel_.id_},function(arg,chat)  
+local NameChat = chat.title_
+t =t.."اسم المجموعه\n"..NameChat
+local IdChat = "-100"..data.channel_.id_
+t =t.."\n\nايدي المجموعه\n"..IdChat
+send(SUDO, msg.id_,t)
+database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
+end,nil)
+end
+end
+
+if DAata == 'OkKikedMe'..data.sender_user_id_ then  
+tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
+if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'sᴏᴜʀᴄʀ ʟᴀʀᴠɪɴ',url='http://t.me/i600ik'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *⌔︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == 'noKikedMe'..data.sender_user_id_ then  
+local Text ="*⌔ تم الغاء الطرد بنجاح .*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'sᴏᴜʀᴄʀ ʟᴀʀᴠɪɴ',url='http://t.me/i600ik'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+
 if text == 'تفعيل' and DevBot(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -15332,52 +15365,6 @@ sendin11(Chat_id,msg_idd,data.sender_user_id_,users[2])
 end
 end
 
-
-
-
-if Text and Text:match('(.*)/noS') then
-sudoo = Text:gsub("/noS","")
-print(msg.sender_user_id_,sudoo)
-print(msg.sender_user_id_== tonumber(sudoo))
-if msg.sender_user_id_ == tonumber(sudoo) then 
---DeleteMessage(msg.chat_id_,{[0] = msg.message_id_})
-local Teext = "⌔︙ تم الغاء الامر بنجاح ."
-database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
-return false
-end
-end
-
-if Text and Text:match('(.*)/yesS') then
-sudoo = Text:gsub("/yesS","")
-if msg.sender_user_id_ == tonumber(sudoo) then 
-local Texxt = "⌔︙ حسننا الان يمكنك ارسال معرف المطور الاساسي الجديد ..."
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = 'إالـغـاء الأمـر', callback_data=msg.sender_user_id_.."/noS"}}}
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Texxt).."&message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-database:set(bot_id..":usernewsudo:"..msg.sender_user_id_,data.message_id_)
-return false
-end
-end
-
-if DAata == 'OkKikedMe'..data.sender_user_id_ then  
-tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
-if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʟᴀʀᴠɪɴ',url='http://t.me/Matrix_Source'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *⌔︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if DAata == 'noKikedMe'..data.sender_user_id_ then  
-local Text ="*⌔ تم الغاء الطرد بنجاح .*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʟᴀʀᴠɪɴ',url='http://t.me/i600ik'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
 
 if Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
