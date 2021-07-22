@@ -7999,7 +7999,7 @@ end
 
 return false
 end
-send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد وضعة")
+send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -8019,7 +8019,7 @@ end
 
 return false
 end
-send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد حذفة")
+send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد حذفة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
@@ -8205,12 +8205,12 @@ end
 end
 
 if text == "اضف رد للكل" and DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد وضعة")
+send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
 if text == "حذف رد للكل" and DevMatrix(msg) then 
-send(msg.chat_id_, msg.id_,"↪️꒐ الان ارسل الرد الذي تريد حذفة")
+send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد حذفة")
 database:set(bot_id.."Matrix:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
