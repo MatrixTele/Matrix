@@ -7723,7 +7723,7 @@ local t = '  \n⌔︙تم تعطيل متحركه'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:gif:Rio'..msg.chat_id_,true)  
 end
-if text == "متحركه" and not database:get(bot_id..'Rio:animation:Rio'..msg.chat_id_) then
+if text == "متحركه" and not database:get(bot_id..'Rio:gif:Rio'..msg.chat_id_) then
 data,res = https.request('https://ccccxcc.ml/David/animation.php')
 if res == 200 then
 animation = json:decode(data)
