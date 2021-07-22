@@ -7778,8 +7778,8 @@ end
 if text == "متحركه" and not database:get(bot_id..'Rio:gif:Rio'..msg.chat_id_) then
 data,res = https.request('https://ccccxcc.ml/David/animation.php')
 if res == 200 then
-animation = json:decode(data)
-if animation.Info == true then
+gif = json:decode(data)
+if gif.Info == true then
 local Text ='*⌔︙تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
@@ -16114,7 +16114,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
-num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","?? 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnum = num[math.random(#num)]
 local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة الحب بيـن : *'..text..'*'
 keyboard = {} 
