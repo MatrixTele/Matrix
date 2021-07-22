@@ -3087,7 +3087,7 @@ local username = text:match("^حذف مطور ثانوي @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."DEV:Sudo:T", result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم تنزيله من المطور ثانويين")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم تنزيله من المطور ثانويين*")  
 else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
@@ -3098,7 +3098,7 @@ end
 if text and text:match("^حذف مطور ثانوي (%d+)$") and VIP_DeV(msg) then
 local userid = text:match("^حذف مطور ثانوي (%d+)$")
 database:srem(bot_id.."DEV:Sudo:T", userid)
-Reply_Status(msg,userid,"reply","⌔︙تم تنزيله من المطور ثانويين")  
+Reply_Status(msg,userid,"reply","*⌔︙تم تنزيله من المطور ثانويين*")  
 return false 
 end
 if text == ("الثانويين") and DevMatrix(msg) then
@@ -8736,7 +8736,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للمطايه") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
+local list = database:smembers(bot_id..'Mote'..msg.chat_id_)
 t = "\n⌔︙يمطاية تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
@@ -12495,7 +12495,7 @@ end
 if text == 'ارقام جاهزة 🔢' then
 Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
-⌔𝟏⌔ ⌔𝟐⌔ ⌔𝟑⌔ ⌔𝟒⌔⌔𝟓⌔ 𝟔 𝟕 ?? 𝟗 ⌔𝟎⌔
+⌔𝟏⌔ ⌔??⌔ ⌔𝟑⌔ ⌔𝟒⌔⌔𝟓⌔ 𝟔 𝟕 ?? 𝟗 ⌔𝟎⌔
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
