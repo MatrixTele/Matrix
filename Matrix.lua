@@ -1884,12 +1884,12 @@ Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل دخول الا
 return false
 end 
 if text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."BLACKBOTSS:Lock:Bot:kick"..msg.chat_id_,"del")  
+database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل البوتات")  
 return false
 end 
 if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."BLACKBOTSS:Lock:Bot:kick"..msg.chat_id_,"kick")  
+database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
 Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔︙تم قفـل البوتات")  
 return false
 end 
@@ -3986,7 +3986,7 @@ database:srem(bot_id.."creator"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*⌔︙تم تنزيله من المالكين*")  
 return false
 end
-if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creator(msg) then  
+if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4009,7 +4009,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي @(.*)$") and creator(msg) then  
+if text and text:match("^رفع منشئ اساسي @(.*)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4041,7 +4041,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي (%d+)$") and creator(msg) then  
+if text and text:match("^رفع منشئ اساسي (%d+)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4062,7 +4062,7 @@ database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته منشئ اساسي*")  
 return false
 end
-if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creator(msg) then  
+if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4085,7 +4085,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي @(.*)$") and creator(msg) then  
+if text and text:match("^تنزيل منشئ اساسي @(.*)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4114,7 +4114,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي (%d+)$") and creator(msg) then  
+if text and text:match("^تنزيل منشئ اساسي (%d+)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9124,7 +9124,7 @@ send(msg.chat_id_, msg.id_,"⌔︙تمت ترقية { "..num2.." } من ادمن
 end
 end,nil)   
 end
-if text ==("المنشئ") then
+if text ==("المالك") then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -9142,7 +9142,7 @@ end
 end
 end,nil)   
 end
-if text ==("رفع المنشئ") and DevBot(msg) then 
+if text ==("رفع المالك") and DevBot(msg) then 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
