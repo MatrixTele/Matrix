@@ -8815,21 +8815,6 @@ send(msg.chat_id_, msg.id_, taha)
 end,nil)
 end,nil)
 end 
-if text == 'اطردني' or text == 'طردني' and GetChannelMember(msg) then   
-if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-if Can_or_NotCan(msg.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, '\n *⌔︙عذرا لا استطيع طرد ( '..Rutba(msg.sender_user_id_,msg.chat_id_)..' )*')
-return false
-end
-_key = {
-{{text="تأكيد الامر",callback_data="OkKikedMe"..msg.sender_user_id_},{text="الغاء الامر",callback_data="noKikedMe"..msg.sender_user_id_}},
-}
-send_inlin_key(msg.chat_id_," *⌔︙قم بتأكيد العمليه الان*",_key,msg.id_)
-return false
-else
-send(msg.chat_id_, msg.id_,' *⌔︙تم تعطيل امر اطردني*') 
-end
-end
 if text and text:match("^صيح (.*)$") then
 local username = text:match("^صيح (.*)$") 
 if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
@@ -8916,24 +8901,6 @@ database:set(bot_id..'Seh:User'..msg.chat_id_,true)
 Text = '\n *⌔︙تم تعطيل امر صيح*'
 else
 Text = '\n *⌔︙بالتاكيد تم تعطيل امر صيح*'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تفعيل اطردني' and Owner(msg) then   
-if database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-Text = ' *⌔︙تم تفعيل امر اطردني*'
-database:del(bot_id..'Cick:Me'..msg.chat_id_)  
-else
-Text = ' *⌔︙بالتاكيد تم تفعيل امر اطردني*'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل اطردني' and Owner(msg) then  
-if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-database:set(bot_id..'Cick:Me'..msg.chat_id_,true)  
-Text = '\n *⌔︙تم تعطيل امر اطردني*'
-else
-Text = '\n *⌔︙بالتاكيد تم تعطيل امر اطردني*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -12161,24 +12128,6 @@ send(SUDO, msg.id_,t)
 database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
 end,nil)
 end
-end
-
-if DAata == 'OkKikedMe'..data.sender_user_id_ then  
-tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
-if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʟᴀʀᴠɪɴ',url='http://t.me/i600ik'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *⌔︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if DAata == 'noKikedMe'..data.sender_user_id_ then  
-local Text ="*⌔ تم الغاء الطرد بنجاح .*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'sᴏᴜʀᴄʀ ʟᴀʀᴠɪɴ',url='http://t.me/i600ik'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 
 if text == 'تفعيل' and DevBot(msg) then 
