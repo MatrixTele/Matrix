@@ -7726,8 +7726,8 @@ end
 if text == "متحركه" and not database:get(bot_id..'Rio:gif:Rio'..msg.chat_id_) then
 data,res = https.request('https://ccccxcc.ml/David/animation.php')
 if res == 200 then
-Gif = json:decode(data)
-if Gif.Info == true then
+Animation = json:decode(data)
+if Animation.Info == true then
 local Text ='*⌔︙تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
