@@ -7723,7 +7723,7 @@ local t = '  \n⌔︙تم تعطيل متحركه'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:gif:Rio'..msg.chat_id_,true)  
 end
-if text == "متحركه" and not database:get(bot_id..'Rio:gif:Rio'..msg.chat_id_) then
+if text == "متحركه" and not database:get(bot_id..'Rio:animation:Rio'..msg.chat_id_) then
 data,res = https.request('https://ccccxcc.ml/David/animation.php')
 if res == 200 then
 Animation = json:decode(data)
@@ -7734,7 +7734,7 @@ keyboard.inline_keyboard = {
 {{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendAnimation?chat_id=' .. msg.chat_id_ .. '&Animation='..URL.escape(Animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end
