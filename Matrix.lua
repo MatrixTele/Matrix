@@ -3899,7 +3899,7 @@ Textes = math.random(#texting)
 send(msg.chat_id_, msg.id_,texting[Textes])
 end
 end
-if text == "المالكين" and DevBot(msg) then
+if text == "المالكين" and creatorA(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
 t = "\n⌔︙قائمة مالكين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
@@ -3916,7 +3916,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == "مسح قائمه المالكين" and DevBot(msg) then
+if text == "مسح قائمه المالكين" and creatorA(msg) then
 database:del(bot_id.."creator"..msg.chat_id_)
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
@@ -3928,7 +3928,7 @@ end
 end,nil)
 send(msg.chat_id_, msg.id_, "*⌔︙تم مسح المالكين*")
 end
-if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
+if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مالك*")  
@@ -3936,7 +3936,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then  
+if text and text:match("^رفع مالك @(.*)$") and creatorA(msg) then  
 local username = text:match("^رفع مالك @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
@@ -3953,13 +3953,13 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
+if text and text:match("^رفع مالك (%d+)$") and creatorA(msg) then  
 local userid = text:match("^رفع مالك (%d+)$") 
 database:sadd(bot_id.."creator"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته مالك*")  
 return false
 end
-if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
+if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم تنزيله من المالكين*")  
@@ -3967,7 +3967,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^تنزيل مالك @(.*)$") and DevBot(msg) then  
+if text and text:match("^تنزيل مالك @(.*)$") and creatorA(msg) then  
 local username = text:match("^تنزيل مالك @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
@@ -3980,7 +3980,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^تنزيل مالك (%d+)$") and DevBot(msg) then  
+if text and text:match("^تنزيل مالك (%d+)$") and creatorA(msg) then  
 local userid = text:match("^تنزيل مالك (%d+)$") 
 database:srem(bot_id.."creator"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*⌔︙تم تنزيله من المالكين*")  
@@ -16081,7 +16081,7 @@ end
 end
 if text == "هينه" or text == "رزله" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"ولك هيو لتندك بسيادك لو بهاي 👞👈","ميستاهل اتعبي روحي ويا لانه عار","عوفه يروحي هاذا طيز يضل يمضرط🤣"}
+local texting = {"ولك هيو لتندك بسيادك لو بهاي 👞👈","ميستاهل اتعبي روحي ويا لانه عار"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
