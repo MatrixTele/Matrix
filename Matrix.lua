@@ -15885,11 +15885,6 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 end
 if Text == '/mute-name' then
-if not Constructor(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
 local Teext =[[*
 ⌔︙انت الان في قائمة كتم الأسماء
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
@@ -15920,11 +15915,6 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/Matrix' then
-if not Constructor(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
 local Teext =[[*
 ⌔︙انت الان في قائمة التوحيد
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
@@ -15955,11 +15945,6 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/change-names' then
-if not Constructor(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
 local Teext =[[*
 ⌔︙انت الان في قائمة تنبيه الاسماء
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
@@ -15987,11 +15972,6 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/change-id' then
-if not Constructor(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
 local Teext =[[*
 ⌔︙انت الان في قائمة تنبيه المعرف
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
@@ -16019,11 +15999,6 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/change-photo' then
-if not Constructor(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
 local Teext =[[*
 ⌔︙انت الان في قائمة تنبيه الصور
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
@@ -16052,11 +16027,6 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 --- callback added
 if Text == '/add' then
-if not Constructor(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
 local Teext =[[*
 ⌔︙اهلا انت في اضافات البوت
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
@@ -16139,7 +16109,7 @@ if DAata and DAata:match("^delallanimation(.*)$") and Addictive(data) then
 local delallmation = DAata:match("^delallanimation(.*)$")
 local Text ="⌔︙تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼??  .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
