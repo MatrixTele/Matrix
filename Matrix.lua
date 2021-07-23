@@ -1890,19 +1890,19 @@ return false
 end 
 if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔︙تم قفـل البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔︙تم قفـل البوتات*")  
 return false
 end 
 if text == "قفل الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 database:set(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_,true)  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الاشعارات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل الاشعارات*")  
 return false
 end 
 if text == "قفل التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."Matrix:lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id.."Matrix:Lock:pin",msg.chat_id_) 
 tdcli_function ({ ID = "GetChannelFull",  channel_id_ = msg.chat_id_:gsub("-100","") }, function(arg,data)  database:set(bot_id.."Matrix:Pin:Id:Msg"..msg.chat_id_,data.pinned_message_id_)  end,nil)
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل التثبيت هنا")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل التثبيت هنا*")  
 return false
 end 
 if text == "قفل التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1922,12 +1922,12 @@ end
 return false
 end 
 database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل تعديل*")  
 return false
 end 
 if text == "قفل تعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل تعديل*")  
 return false
 end 
 if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1951,7 +1951,7 @@ list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","L
 for i,lock in pairs(list) do 
 database:set(bot_id..'Matrix:'..lock..msg.chat_id_,"del")    
 end
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل جميع الاوامر")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل جميع الاوامر*")  
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
@@ -1972,7 +1972,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:AddMempar"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فتح اضافة الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فتح اضافة الاعضاء*")  
 return false
 end 
 if text == "فتح الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then  
@@ -1992,7 +1992,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:text"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فتح الدردشه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فتح الدردشه*")  
 return false
 end 
 if text == "فتح الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -2012,7 +2012,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:Join"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فتح دخول الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فتح دخول الاعضاء*")  
 return false
 end 
 if text == "فتح البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -2032,7 +2032,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فـتح البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فـتح البوتات*")  
 return false
 end 
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس'  or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'انصبلك'  or text == 'انصبلك بوت' then
@@ -2069,7 +2069,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙\n⌔︙تم فـتح البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙\n*⌔︙تم فـتح البوتات*")  
 return false
 end 
 if text == "فتح الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -2089,7 +2089,7 @@ end
 return false
 end  
 database:del(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فـتح الاشعارات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فـتح الاشعارات*")  
 return false
 end 
 if text == "فتح التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -2110,7 +2110,7 @@ return false
 end 
 database:del(bot_id.."Matrix:lockpin"..msg.chat_id_)  
 database:srem(bot_id.."Matrix:Lock:pin",msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فـتح التثبيت هنا")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فـتح التثبيت هنا*")  
 return false
 end 
 if text == "فتح التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -2130,12 +2130,12 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:edit"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فـتح تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فـتح تعديل*")  
 return false
 end 
 if text == "فتح التعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:del(bot_id.."Matrix:Lock:edit"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فـتح تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فـتح تعديل*")  
 return false
 end 
 if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -2159,7 +2159,7 @@ list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","L
 for i,lock in pairs(list) do 
 database:del(bot_id..'Matrix:'..lock..msg.chat_id_)    
 end
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فـتح جميع الاوامر")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فـتح جميع الاوامر*")  
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
@@ -16018,26 +16018,6 @@ end
 end
 end
 --------------------------------------------------------------------------------------------------------------
-if msg.content_.ID == "MessageChatAddMembers" then  
-local mem_id = msg.content_.members_  
-local Bots = database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) 
-for i=0,#mem_id do  
-if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Addictive(msg) and Bots == "del" then   
-Get_Info = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
-local Json_Info = JSON.decode(Get_Info)
-if Json_Info.ok == true and #mem_id == i then
-local Msgs = {}
-Msgs[0] = msg.id_
-msgs_id = msg.id_-1048576
-for i=1 ,(150) do 
-msgs_id = msgs_id+1048576
-table.insert(Msgs,msgs_id)
-end
-tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_}) tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_Addictive(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
-end
-end     
-end
-end
 ------------------------------------------------------------------------
 if text and database:get(bot_id.."Matrix:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
 local NewCmmd = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
