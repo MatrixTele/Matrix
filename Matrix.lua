@@ -11942,15 +11942,14 @@ end
 return false
 end
 local Text =[[*
-⌔︙اوامر البوت للمنظفين 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙الميديا - لعرض عدد الميديا المرسله
-⌔︙امسح - لمسح الميديا المرسله
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙اوامر البوت للمالك ،
-⌔︙رفع منظف - تنزيل منظف
-⌔︙المنظفين - مسح المنظفين
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙اهلا انت في اضافات البوت
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙يمكنك معرفة حاله تفعيل الاضافات 
+⌔︙من خلال ارسال الاضافات 
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙يمكنك تصفح الاضافات من خلال
+⌔︙الكيبورد الموجود في الأسفل
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
 ⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -11962,7 +11961,7 @@ keyboard.inline_keyboard = {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -15913,7 +15912,7 @@ keyboard.inline_keyboard = {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
-{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15946,7 +15945,7 @@ keyboard.inline_keyboard = {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
-{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15976,7 +15975,7 @@ keyboard.inline_keyboard = {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
-{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16006,7 +16005,7 @@ keyboard.inline_keyboard = {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
-{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16036,7 +16035,7 @@ keyboard.inline_keyboard = {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
-{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16048,16 +16047,16 @@ local notText = '🚫 عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
-local Teext =[[
-*اهلا انتツفي اضافات البوت*
-*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴٴ*
-* يمكنك معرفة حاله تفعيل الاضافات *
-* من خلال ارسال حاله الاضافات *
-*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
-*يمكنك تصفح الاضافات من خلال*
-*الكيبورد الموجود في الأسفل*
-*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 F𝙸𝙾𝙽𝙰. ](t.me/fiona_team)➤
+local Teext =[[*
+⌔︙اهلا انت في اضافات البوت
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙يمكنك معرفة حاله تفعيل الاضافات 
+⌔︙من خلال ارسال الاضافات 
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙يمكنك تصفح الاضافات من خلال
+⌔︙الكيبورد الموجود في الأسفل
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16068,7 +16067,7 @@ keyboard.inline_keyboard = {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
