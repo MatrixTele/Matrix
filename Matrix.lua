@@ -15841,6 +15841,198 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
+if Text == '/mute-name' then
+if not Constructor(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+انت الان في قائمة كتم الأسماء
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+الاوامر الخاصة فـي كتم الاسماء 
+تفعيل كتم الاسم
+تعطيل كتم الاسم
+الاسماء المكتومه
+كتم اسم + الاسم المراد كتمه
+الغاء كتم اسم + الاسم المراد الغاء كتمه
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/FiOnA' then
+if not Constructor(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+انت الان في قائمة التوحيد
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+الاوامر الخاصة فـي التوحيد 
+تفعيل التوحيد
+تعطيل التوحيد
+وضع توحيد + التوحيد
+تعين عدد الكتم + عدد
+التوحيد
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/change-names' then
+if not Constructor(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+انت الان في قائمة تنبيه الاسماء
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+الاوامر الخاصة فـي تنبيه الاسماء 
+تفعيل تنبيه الاسماء
+تعطيل تنبيه الاسماء
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/change-id' then
+if not Constructor(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+انت الان في قائمة تنبيه المعرف
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+الاوامر الخاصة فـي تنبيه المعرف
+تفعيل تنبيه المعرف
+تعطيل تنبيه المعرف
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/change-photo' then
+if not Constructor(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+انت الان في قائمة تنبيه الصور
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+الاوامر الخاصة فـي تنبيه الصور
+تفعيل تنبيه الصور
+تعطيل تنبيه الصور
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+--- callback added
+if Text == '/add' then
+if not Constructor(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+*اهلا انتツفي اضافات البوت*
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴٴ*
+* يمكنك معرفة حاله تفعيل الاضافات *
+* من خلال ارسال حاله الاضافات *
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+*يمكنك تصفح الاضافات من خلال*
+*الكيبورد الموجود في الأسفل*
+*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 F𝙸𝙾𝙽𝙰. ](t.me/fiona_team)➤
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = 'F𝙸𝙾𝙽𝙰 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/fiona_team"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end
+if data.ID == "UpdateNewMessage" then  -- new msg
+msg = data.message_
+text = msg.content_.text_
 
 if DAata and DAata:match("^animation(.*)$") and Addictive(data) then  
 idch = DAata:match("-100(%d+)")
@@ -15907,7 +16099,7 @@ if DAata and DAata:match("^delallph(.*)$") and Addictive(data) then
 local delallph = DAata:match("^delallph(.*)$")
 local Text ="⌔︙تم اللغاء منع كل الصور"
 inline = {
-{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎??𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16305,7 +16497,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️?? 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
 sendzff = numj[math.random(#numj)]
 local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
