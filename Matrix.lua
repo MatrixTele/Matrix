@@ -6607,12 +6607,12 @@ if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) o
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
 if text == "تفعيل امسح" and creatorA(msg) then
-local t = ' \n⌔︙تم تفعيل امسح'
+local t = ' \n*⌔︙تم تفعيل امسح*'
 send(msg.chat_id_, msg.id_,t)
 database:del(bot_id.."msg:media"..msg.chat_id_) 
 end
 if text == "تعطيل امسح" and creatorA(msg) then
-local t = '  \n⌔︙تم تعطيل امسح'
+local t = '*  \n⌔︙تم تعطيل امسح*'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id.."msg:media"..msg.chat_id_,true)  
 end
@@ -6621,13 +6621,13 @@ local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "⌔︙تم مسح "..k.." من الوسائط الموجوده"
+t = "*⌔︙تم مسح "..k.." من الوسائط الموجوده*"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."msg:media"..msg.chat_id_)
 end
 end
 if #list == 0 then
-t = "⌔︙لا يوجد ميديا في المجموعه"
+t = "*⌔︙لا يوجد ميديا في المجموعه*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -6653,7 +6653,7 @@ end
 end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
-send(msg.chat_id_, msg.id_,'⌔︙تم تنظيف الميديا المعدله')
+send(msg.chat_id_, msg.id_,'*⌔︙تم تنظيف الميديا المعدله*')
 end
 if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
@@ -11140,7 +11140,7 @@ if database:get(bot_id..'Cick:all'..msg.chat_id_) then
 Text = ' ⌔︙تم تفعيل امر @all'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
 else
-Text = ' ⌔︙بالتاكيد تم تفعيل امر @all'
+Text = '* ⌔︙بالتاكيد تم تفعيل امر @all*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -11149,7 +11149,7 @@ if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
 Text = '\n ⌔︙تم تعطيل امر @all'
 else
-Text = '\n ⌔︙بالتاكيد تم تعطيل امر @all'
+Text = '\n* ⌔︙بالتاكيد تم تعطيل امر @all*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
