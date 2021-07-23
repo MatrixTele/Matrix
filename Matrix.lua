@@ -3390,7 +3390,7 @@ database:del(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
 texts = "⌔︙تم تنزيل جميع الرتب "
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == "تنزيل جميع الرتب" and BasicConstructor(msg) then  
+if text == "تنزيل جميع الرتب" and BasicConstructor(msg) and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8401,8 +8401,21 @@ if DevMatrixe(result.sender_user_id_)  then
 send(msg.chat_id_, msg.id_,"⌔︙لا تستطيع تنزيل مطور البوت او السورس")
 return false 
 end
-if Rank_Checking(result.sender_user_id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"\n⌔︙تم تنزيل الشخص من جميع الرتب")
+if database:sismember(bot_id.."Matrix:Sudo:User",result.id_) then
+dev = "المطور ،" else dev = "" end
+if database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_) then
+crr = "منشئ اساسي ،" else crr = "" end
+if database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_) then
+cr = "منشئ ،" else cr = "" end
+if database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_) then
+own = "مدير ،" else own = "" end
+if database:sismember(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_) then
+mod = "ادمن ،" else mod = "" end
+if database:sismember(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_) then
+vip = "مميز ،" else vip = ""
+end
+if Rank_Checking(result.id_,msg.chat_id_) ~= false then
+send(msg.chat_id_, msg.id_,"\n⌔︙تم تنزيل الشخص من الرتب التاليه \n⌔︙{ "..dev..""..crr..""..cr..""..own..""..mod..""..vip.." } \n")
 else
 send(msg.chat_id_, msg.id_,"\n⌔︙ليس لديه رتب حتى استطيع تنزيله \n")
 end
@@ -8471,8 +8484,21 @@ if DevMatrixe(result.id_)  then
 send(msg.chat_id_, msg.id_,"⌔︙لا تستطيع تنزيل مطور البوت او السورس")
 return false 
 end
+if database:sismember(bot_id.."Matrix:Sudo:User",result.id_) then
+dev = "المطور ،" else dev = "" end
+if database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_) then
+crr = "منشئ اساسي ،" else crr = "" end
+if database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_) then
+cr = "منشئ ،" else cr = "" end
+if database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_) then
+own = "مدير ،" else own = "" end
+if database:sismember(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_) then
+mod = "ادمن ،" else mod = "" end
+if database:sismember(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_) then
+vip = "مميز ،" else vip = ""
+end
 if Rank_Checking(result.id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"\n⌔︙تم تنزيل الشخص من جميع الرتب")
+send(msg.chat_id_, msg.id_,"\n⌔︙تم تنزيل الشخص من الرتب التاليه \n⌔︙{ "..dev..""..crr..""..cr..""..own..""..mod..""..vip.." } \n")
 else
 send(msg.chat_id_, msg.id_,"\n⌔︙ليس لديه رتب حتى استطيع تنزيله \n")
 end
