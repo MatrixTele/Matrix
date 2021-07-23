@@ -11853,8 +11853,8 @@ send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل الاضافات')
 database:set(bot_id.."AL:AddS0FI:stats","✖")
 end
 if text == "حاله الاضافات" and Constructor(msg) then
-local MRMatrix = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
-send(msg.chat_id_, msg.id_,"حاله الاضافات هي : {"..MRMatrix.."}\nاذا كانت {✔} الاضافات مفعله\nاذا كانت {✖} الاضافات معطله")
+local MRFiOnA = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
+send(msg.chat_id_, msg.id_,"حاله الاضافات هي : {"..MRFiOnA.."}\nاذا كانت {✔} الاضافات مفعله\nاذا كانت {✖} الاضافات معطله")
 end
 function bnnaGet(user_id, cb)
 tdcli_function ({
@@ -11867,22 +11867,22 @@ if database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 if text and text:match("^كتم اسم (.*)$") and Manager(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 local BlNe = text:match("^كتم اسم (.*)$")
 send(msg.chat_id_, msg.id_, '⌔︙تم كتم الاسم '..BlNe)
-database:sadd(bot_id.."Matrix:blocname"..msg.chat_id_, BlNe)
+database:sadd(bot_id.."FiOnA:blocname"..msg.chat_id_, BlNe)
 end
 
 if text and text:match("^الغاء كتم اسم (.*)$") and Manager(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 local delBn = text:match("^الغاء كتم اسم (.*)$")
 send(msg.chat_id_, msg.id_, '⌔︙تم الغاء كتم الاسم '..delBn)
-database:srem(bot_id.."Matrix:blocname"..msg.chat_id_, delBn)
+database:srem(bot_id.."FiOnA:blocname"..msg.chat_id_, delBn)
 end
 
 if text == "مسح الاسماء المكتومه" and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
-database:del(bot_id.."Matrix:blocname"..msg.chat_id_)
+database:del(bot_id.."FiOnA:blocname"..msg.chat_id_)
 texts = "⌔︙تم مسح الاسماء المكتومه "
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "الاسماء المكتومه" and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
-local All_name = database:smembers(bot_id.."Matrix:blocname"..msg.chat_id_)
+local All_name = database:smembers(bot_id.."FiOnA:blocname"..msg.chat_id_)
 t = "\n⌔︙قائمة الاسماء المكتومه \nٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ \n"
 for k,v in pairs(All_name) do
 t = t..""..k.."- (["..v.."])\n"
@@ -11904,12 +11904,12 @@ end
 if not Manager(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 function abbas_name(t1,t2)
 if t2.id_ then 
-name_MRMatrix = ((t2.first_name_ or "") .. (t2.last_name_ or ""))
-if name_MRMatrix then 
-names_MRMatrix = database:smembers(bot_id.."Matrix:blocname"..msg.chat_id_) or ""
-if names_MRMatrix and names_MRMatrix[1] then 
-for i=1,#names_MRMatrix do 
-if name_MRMatrix:match("(.*)("..names_MRMatrix[i]..")(.*)") then 
+name_MRFiOnA = ((t2.first_name_ or "") .. (t2.last_name_ or ""))
+if name_MRFiOnA then 
+names_MRFiOnA = database:smembers(bot_id.."FiOnA:blocname"..msg.chat_id_) or ""
+if names_MRFiOnA and names_MRFiOnA[1] then 
+for i=1,#names_MRFiOnA do 
+if name_MRFiOnA:match("(.*)("..names_MRFiOnA[i]..")(.*)") then 
 DeleteMessage_(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
@@ -11923,16 +11923,16 @@ if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
 if text and text:match("^وضع توحيد (.*)$") and Manager(msg) and database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
 local teh = text:match("^وضع توحيد (.*)$")
 send(msg.chat_id_, msg.id_,'⌔︙تم تعيين '..teh..' كتوحيد للمجموعه')
-database:set(bot_id.."Matrix:teh"..msg.chat_id_,teh)
+database:set(bot_id.."FiOnA:teh"..msg.chat_id_,teh)
 end
 if text and text:match("^تعين عدد الكتم (.*)$") and Manager(msg) and database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
 local nump = text:match("^تعين عدد الكتم (.*)$")
 send(msg.chat_id_, msg.id_,'⌔︙تم تعين  '..nump..' عدد الكتم')
-database:set(bot_id.."Matrix:nump"..msg.chat_id_,nump)
+database:set(bot_id.."FiOnA:nump"..msg.chat_id_,nump)
 end
 if text == "التوحيد" then
-local s1 = database:get(bot_id.."Matrix:teh"..msg.chat_id_) or "لا يوجد توحيد"
-local s2 = database:get(bot_id.."Matrix:nump"..msg.chat_id_) or 5
+local s1 = database:get(bot_id.."FiOnA:teh"..msg.chat_id_) or "لا يوجد توحيد"
+local s2 = database:get(bot_id.."FiOnA:nump"..msg.chat_id_) or 5
 send(msg.chat_id_, msg.id_,'⌔︙التوحيد '..s1..'\n⌔︙عدد الكتم  : '..s2)
 end
 end
@@ -11945,25 +11945,25 @@ send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل التوحيد')
 database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"close")
 end
 if not Constructor(msg) then
-if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open"  and database:get(bot_id.."Matrix:teh"..msg.chat_id_) then 
+if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open"  and database:get(bot_id.."FiOnA:teh"..msg.chat_id_) then 
 id = msg.sender_user_id_
-function Matrix_mrMatrix_new(mrMatrix1,mrMatrix2)
-if mrMatrix2 and mrMatrix2.first_name_ then 
-if mrMatrix2.first_name_:match("(.*)"..database:get(bot_id.."Matrix:teh"..msg.chat_id_).."(.*)") then 
-database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, msg.sender_user_id_)
+function FiOnA_mrFiOnA_new(mrFiOnA1,mrFiOnA2)
+if mrFiOnA2 and mrFiOnA2.first_name_ then 
+if mrFiOnA2.first_name_:match("(.*)"..database:get(bot_id.."FiOnA:teh"..msg.chat_id_).."(.*)") then 
+database:srem(bot_id.."FiOnA:Muted:User"..msg.chat_id_, msg.sender_user_id_)
 else
-local mrMatrix_nnn = database:get(bot_id.."Matrix:nump"..msg.chat_id_) or 5
-local mrMatrix_nnn2 = database:get(bot_id.."Matrix:nump22"..msg.chat_id_..msg.sender_user_id_) or 0
-if (tonumber(mrMatrix_nnn2) == tonumber(mrMatrix_nnn) or tonumber(mrMatrix_nnn2) > tonumber(mrMatrix_nnn)) then 
+local mrFiOnA_nnn = database:get(bot_id.."FiOnA:nump"..msg.chat_id_) or 5
+local mrFiOnA_nnn2 = database:get(bot_id.."FiOnA:nump22"..msg.chat_id_..msg.sender_user_id_) or 0
+if (tonumber(mrFiOnA_nnn2) == tonumber(mrFiOnA_nnn) or tonumber(mrFiOnA_nnn2) > tonumber(mrFiOnA_nnn)) then 
 database:sadd(bot_id..'Muted:User'..msg.chat_id_, msg.sender_user_id_)
 else 
-database:incrby(bot_id.."Matrix:nump22"..msg.chat_id_..msg.sender_user_id_,1)
-send(msg.chat_id_, msg.id_, "⌔︙عزيزي >>["..mrMatrix2.username_.."](https://t.me/"..(mrMatrix2.username_ or "Matrix_team")..")\n⌔︙عليك وضع التوحيد ⪼ {"..database:get(bot_id.."Matrix:teh"..msg.chat_id_).."} بجانب اسمك\n⌔︙عدد المحاولات المتبقيه {"..(tonumber(mrMatrix_nnn) - tonumber(mrMatrix_nnn2)).."}")
+database:incrby(bot_id.."FiOnA:nump22"..msg.chat_id_..msg.sender_user_id_,1)
+send(msg.chat_id_, msg.id_, "⌔︙عزيزي >>["..mrFiOnA2.username_.."](https://t.me/"..(mrFiOnA2.username_ or "fiona_team")..")\n⌔︙عليك وضع التوحيد ⪼ {"..database:get(bot_id.."FiOnA:teh"..msg.chat_id_).."} بجانب اسمك\n⌔︙عدد المحاولات المتبقيه {"..(tonumber(mrFiOnA_nnn) - tonumber(mrFiOnA_nnn2)).."}")
 end
 end
 end
 end
-bnnaGet(id, Matrix_mrMatrix_new)
+bnnaGet(id, FiOnA_mrFiOnA_new)
 end
 end
 if text == "تفعيل تنبيه الاسماء" and Manager(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
@@ -11978,15 +11978,15 @@ if text and database:get(bot_id.."Ttn:DRG:stats"..msg.chat_id_) == "open" then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
-local MatrixChengName = database:get(bot_id.."Matrix:Cheng:Name"..data.id_)
+local FiOnAChengName = database:get(bot_id.."FiOnA:Cheng:Name"..data.id_)
 if not data.first_name_ then 
-if MatrixChengName then 
-send(msg.chat_id_, msg.id_, " خوش معرف جان ["..MatrixChengName..']')
-database:del(bot_id.."Matrix:Cheng:Name"..data.id_) 
+if FiOnAChengName then 
+send(msg.chat_id_, msg.id_, " خوش معرف جان ["..FiOnAChengName..']')
+database:del(bot_id.."FiOnA:Cheng:Name"..data.id_) 
 end
 end
 if data.first_name_ then 
-if MatrixChengName ~= data.first_name_ then 
+if FiOnAChengName ~= data.first_name_ then 
 local Text = {
   "جان خوش اسم يول",
 "ليش غيرته اسمك بس لا خانوك/ج",
@@ -11994,7 +11994,7 @@ local Text = {
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
-database:set(bot_id.."Matrix:Cheng:Name"..data.id_, data.first_name_) 
+database:set(bot_id.."FiOnA:Cheng:Name"..data.id_, data.first_name_) 
 end
 end
 end
@@ -12012,15 +12012,15 @@ if text and database:get(bot_id.."Ttn:Userr:stats"..msg.chat_id_) == "open" then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
-local MatrixChengUserName = database:get(bot_id.."Matrix:Cheng:UserName"..data.id_)
+local FiOnAChengUserName = database:get(bot_id.."FiOnA:Cheng:UserName"..data.id_)
 if not data.username_ then 
-if MatrixChengUserName then 
-send(msg.chat_id_, msg.id_, 1, "حذف معرفه خمطو بساع بساع  \n هاذه معرفه  : [@"..MatrixChengUserName..']')
-database:del(bot_id.."Matrix:Cheng:UserName"..data.id_) 
+if FiOnAChengUserName then 
+send(msg.chat_id_, msg.id_, 1, "حذف معرفه خمطو بساع بساع  \n هاذه معرفه  : [@"..FiOnAChengUserName..']')
+database:del(bot_id.."FiOnA:Cheng:UserName"..data.id_) 
 end
 end
 if data.username_ then 
-if MatrixChengUserName ~= data.username_ then 
+if FiOnAChengUserName ~= data.username_ then 
 local Text = {
 'شكو غيرت معرفك شنو نشروك بقنوات فضايح😂🥺',
 "هاها شو غيرت معرفك بس لا هددتك/ج الحب",
@@ -12032,7 +12032,7 @@ local Text = {
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
-database:set(bot_id.."Matrix:Cheng:UserName"..data.id_, data.username_) 
+database:set(bot_id.."FiOnA:Cheng:UserName"..data.id_, data.username_) 
 end
 end
 end
@@ -12050,15 +12050,15 @@ if text and database:get(bot_id.."Ttn:Ph:stats"..msg.chat_id_) == "open" then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then 
-local MatrixChengPhoto = database:get(bot_id.."Matrix:Cheng:Photo"..data.id_)
+local FiOnAChengPhoto = database:get(bot_id.."FiOnA:Cheng:Photo"..data.id_)
 if not data.profile_photo_ then 
-if MatrixChengPhoto then 
+if FiOnAChengPhoto then 
 send(msg.chat_id_, msg.id_, "حذف كل صور ابن الحلو شكد غبي لعد😂🥺")
-database:del(bot_id.."Matrix:Cheng:Photo"..data.id_) 
+database:del(bot_id.."FiOnA:Cheng:Photo"..data.id_) 
 end
 end
 if data.profile_photo_.big_.persistent_id_ then 
-if MatrixChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
+if FiOnAChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
 local Text = {
   "شكو غيرت صورتك يلصاك",
   "منور طالع حلو ع صوره جديده",
@@ -12069,7 +12069,7 @@ local Text = {
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
-database:set(bot_id.."Matrix:Cheng:Photo"..data.id_, data.profile_photo_.big_.persistent_id_) 
+database:set(bot_id.."FiOnA:Cheng:Photo"..data.id_, data.profile_photo_.big_.persistent_id_) 
 end
 end
 end
@@ -12186,7 +12186,7 @@ local Text =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
@@ -16136,7 +16136,7 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
@@ -16150,7 +16150,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == '/Matrix' then
+if Text == '/FiOnA' then
 if not Constructor(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
@@ -16171,7 +16171,7 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
@@ -16203,7 +16203,7 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
@@ -16235,7 +16235,7 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
@@ -16267,7 +16267,7 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
@@ -16302,7 +16302,7 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/FiOnA"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
