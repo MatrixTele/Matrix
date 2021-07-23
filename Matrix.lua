@@ -16000,7 +16000,7 @@ database:set(bot_id.."Matrix:Who:Added:Me"..msg.chat_id_..":"..msg.content_.memb
 local mem_id = msg.content_.members_  
 local Bots = database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) 
 for i=0,#mem_id do  
-if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Addictive(msg) and Bots == "kick" then   
+if msg.content_.members_[i].type_.ID == "UserTypeBot" and not BasicConstructor(msg) and Bots == "kick" then   
 https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
 Get_Info = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
 local Json_Info = JSON.decode(Get_Info)
