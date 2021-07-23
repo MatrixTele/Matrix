@@ -6606,13 +6606,13 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
 end
-if text == "تفعيل امسح" and Owner(msg) then
-local t = ' \n⌔︙تم تفعيل المتحركه'
+if text == "تفعيل امسح" and creatorA(msg) then
+local t = ' \n⌔︙تم تفعيل امسح'
 send(msg.chat_id_, msg.id_,t)
 database:del(bot_id.."msg:media"..msg.chat_id_) 
 end
-if text == "تعطيل امسح" and Owner(msg) then
-local t = '  \n⌔︙تم تعطيل متحركه'
+if text == "تعطيل امسح" and creatorA(msg) then
+local t = '  \n⌔︙تم تعطيل امسح'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id.."msg:media"..msg.chat_id_,true)  
 end
