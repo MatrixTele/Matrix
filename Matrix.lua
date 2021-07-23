@@ -6616,7 +6616,7 @@ local t = '  \n⌔︙تم تعطيل متحركه'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id.."msg:media"..msg.chat_id_,true)  
 end
-if text == ("امسح") and not database:get(bot_id.."msg:media"..msg.chat_id_) and cleaner(msg) then  
+if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
