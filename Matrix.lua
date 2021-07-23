@@ -11135,7 +11135,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text == 'تفعيل التاك' and Constructor(msg) then   
+if text == 'تفعيل التاك' and creatorA(msg) then   
 if database:get(bot_id..'Cick:all'..msg.chat_id_) then
 Text = ' ⌔︙تم تفعيل امر @all'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
@@ -11144,7 +11144,7 @@ Text = ' ⌔︙بالتاكيد تم تفعيل امر @all'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التاك' and Constructor(msg) then  
+if text == 'تعطيل التاك' and creatorA(msg) then  
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
 Text = '\n ⌔︙تم تعطيل امر @all'
