@@ -8380,22 +8380,8 @@ send(msg.chat_id_, msg.id_,"⌔︙تم تعطيل ردود المطور" )
 end
 
 
-if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
+if text and text:match("^تنزيل الكل @(.*)$") and Owner(msg) then 
+local username = text:match("^تنزيل الكل @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -8420,19 +8406,68 @@ if database:sismember(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_) t
 vip = "مميز ،" else vip = ""
 end
 if Rank_Checking(result.id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"\n⌔︙تم تنزيل الشخص من الرتب التاليه \n⌔︙{ "..dev..""..crr..""..cr..""..own..""..mod..""..vip.." } \n")
+send(msg.chat_id_, msg.id_,"\n🔖┇تم تنزيل الشخص من الرتب التاليه \n📥┇ { "..dev..""..crr..""..cr..""..own..""..mod..""..vip.." } \n")
 else
-send(msg.chat_id_, msg.id_,"\n⌔︙ليس لديه رتب حتى استطيع تنزيله \n")
+send(msg.chat_id_, msg.id_,"\n🚸┇ليس لديه رتب حتى استطيع تنزيله \n")
 end
-if DevMatrixe(msg.sender_user_id_)  then
-database:srem(bot_id.."DEV:Sudo:T",result.sender_user_id_)
-database:srem(bot_id.."Matrix:Sudo:User", result.sender_user_id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id.."DEV:Sudo:T",msg.sender_user_id_) then
+if tonumber(Id_Sudo) == tonumber(msg.sender_user_id_) then
+database:srem(bot_id.."Matrix:Sudo:User", result.id_)
+database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.id_)
+database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
+elseif database:sismember(bot_id.."Matrix:Sudo:User",msg.sender_user_id_) then
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.id_)
+elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
+elseif database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
+elseif database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, msg.sender_user_id_) then
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
+end
+else
+send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
+end
+
+if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Owner(msg) then
+function Function_Matrix(extra, result, success)
+if tonumber(SUDO) == tonumber(result.sender_user_id_) then
+send(msg.chat_id_, msg.id_,"💢┇ لا تستطيع تنزيل المطور الاساسي")
+return false 
+end
+if database:sismember(bot_id.."Matrix:Sudo:User",result.sender_user_id_) then
+dev = "المطور ،" else dev = "" end
+if database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_) then
+crr = "منشئ اساسي ،" else crr = "" end
+if database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_) then
+cr = "منشئ ،" else cr = "" end
+if database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_) then
+own = "مدير ،" else own = "" end
+if database:sismember(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_) then
+mod = "ادمن ،" else mod = "" end
+if database:sismember(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_) then
+vip = "مميز ،" else vip = ""
+end
+if Rank_Checking(result.sender_user_id_,msg.chat_id_) ~= false then
+send(msg.chat_id_, msg.id_,"\n🔖┇تم تنزيل الشخص من الرتب التاليه \n📥┇ { "..dev..""..crr..""..cr..""..own..""..mod..""..vip.." } \n")
+else
+send(msg.chat_id_, msg.id_,"\n🚸┇ليس لديه رتب حتى استطيع تنزيله \n")
+end
+if tonumber(Id_Sudo) == tonumber(msg.sender_user_id_) then
 database:srem(bot_id.."Matrix:Sudo:User", result.sender_user_id_)
 database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
@@ -8440,12 +8475,6 @@ database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
 elseif database:sismember(bot_id.."Matrix:Sudo:User",msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-elseif database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) then
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
@@ -8466,94 +8495,6 @@ database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id
 end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-end
-if text and text:match("^تنزيل الكل @(.*)$") and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-function Function_Matrix(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end      
-if tonumber(SUDO) == tonumber(result.id_) then
-send(msg.chat_id_, msg.id_,"💢┇ لا تستطيع تنزيل المطور الاساسي")
-return false 
-end
-if database:sismember(bot_id.."Matrix:Sudo:User",result.id_) then
-dev = "المطور ،" else dev = "" end
-if database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_) then
-crr = "منشئ اساسي ،" else crr = "" end
-if database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_) then
-cr = "منشئ ،" else cr = "" end
-if database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_) then
-own = "مدير ،" else own = "" end
-if database:sismember(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_) then
-mod = "ادمن ،" else mod = "" end
-if database:sismember(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_) then
-vip = "مميز ،" else vip = ""
-end
-if Rank_Checking(result.id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"\n⌔︙تم تنزيل الشخص من الرتب التاليه \n⌔︙{ "..dev..""..crr..""..cr..""..own..""..mod..""..vip.." } \n")
-else
-send(msg.chat_id_, msg.id_,"\n⌔︙ليس لديه رتب حتى استطيع تنزيله \n")
-end
-if DevMatrixe(msg.sender_user_id_)  then
-database:srem(bot_id.."DEV:Sudo:T",result.id_)
-database:srem(bot_id.."Matrix:Sudo:User", result.id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-elseif database:sismember(bot_id.."DEV:Sudo:T",msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Sudo:User", result.id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-elseif database:sismember(bot_id.."Matrix:Sudo:User",msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.id_)
-elseif database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,result.id_)
-elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
-elseif database:sismember(bot_id.."Matrix:Constructor"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
-elseif database:sismember(bot_id.."Matrix:Manager"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
-database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
-end
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, Function_Matrix, nil)
 end
 if text == "تاك للكل" and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -12569,7 +12510,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 𖥈 𖥅 𖥃 𖥂 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 𖤝 ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 ?? 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
