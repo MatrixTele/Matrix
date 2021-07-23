@@ -7712,7 +7712,32 @@ text = "⌔︙لا يوجد ردود للمدير"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
-
+if text == "نزلني" and ChCheck(msg) then
+if database:get(bot_id.."Rio:Del:Me"..msg.chat_id_) then
+local t = ' \n⌔︙عذرا هذه الميزه معطله'
+send(msg.chat_id_, msg.id_,t)
+return false
+end
+database:set(bot_id..'yesdel'..msg.sender_user_id_..'', 'delyes')
+database:set(bot_id..'nodel'..msg.sender_user_id_..'', 'delno')
+local Text = ' \n⌔︙هل انت متأكد من تنزيلك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text="نعم",callback_data="/yesdel"},{text="لا",callback_data="/nodel"}}} 
+local msg_id = msg.id_/2097152/0.5
+return https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+--     Source David     --
+if text == "تعطيل نزلني" and Owner(msg) then
+local t = ' \n⌔︙تم تعطيل نزلني'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id.."Rio:Del:Me"..msg.chat_id_, true)
+end
+if text == "تفعيل نزلني" and Owner(msg) then
+local t = ' \n⌔︙تم تفعيل نزلني'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id.."Rio:Del:Me"..msg.chat_id_)
+end
+--     Source Matrix     --
 if text == "تفعيل متحركه" and Owner(msg) then
 local t = ' \n⌔︙تم تفعيل المتحركه'
 send(msg.chat_id_, msg.id_,t)
