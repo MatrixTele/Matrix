@@ -7728,10 +7728,10 @@ data,res = https.request('https://ccccxcc.ml/David/animation.php')
 if res == 200 then
 animation = json:decode(data)
 if animation.Info == true then
-local Text ='*⌔︙تم اختيار المتحركه لك*'
+local Text ='*↯︙تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
+{{text = '↯ David Team .',url="t.me/L9L9L"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8736,7 +8736,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للمطايه") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Mote'..msg.chat_id_)
+local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
 t = "\n⌔︙يمطاية تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
@@ -12495,7 +12495,7 @@ end
 if text == 'ارقام جاهزة 🔢' then
 Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
-⌔𝟏⌔ ⌔??⌔ ⌔𝟑⌔ ⌔𝟒⌔⌔𝟓⌔ 𝟔 𝟕 ?? 𝟗 ⌔𝟎⌔
+⌔??⌔ ⌔𝟐⌔ ⌔𝟑⌔ ⌔𝟒⌔⌔𝟓⌔ 𝟔 𝟕 ?? 𝟗 ⌔𝟎⌔
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
