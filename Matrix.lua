@@ -8397,8 +8397,13 @@ end
 return false
 end
 function Function_Matrix(extra, result, success)
-if DevMatrixe(result.sender_user_id_)  then
-send(msg.chat_id_, msg.id_,"⌔︙لا تستطيع تنزيل مطور البوت او السورس")
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+if tonumber(SUDO) == tonumber(result.id_) then
+send(msg.chat_id_, msg.id_,"💢┇ لا تستطيع تنزيل المطور الاساسي")
 return false 
 end
 if database:sismember(bot_id.."Matrix:Sudo:User",result.id_) then
@@ -8479,9 +8484,13 @@ end
 return false
 end
 function Function_Matrix(extra, result, success)
-if (result.id_) then
-if DevMatrixe(result.id_)  then
-send(msg.chat_id_, msg.id_,"⌔︙لا تستطيع تنزيل مطور البوت او السورس")
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+if tonumber(SUDO) == tonumber(result.id_) then
+send(msg.chat_id_, msg.id_,"💢┇ لا تستطيع تنزيل المطور الاساسي")
 return false 
 end
 if database:sismember(bot_id.."Matrix:Sudo:User",result.id_) then
