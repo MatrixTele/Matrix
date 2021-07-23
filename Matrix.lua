@@ -11926,28 +11926,31 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 
 if text == 'الاضافات' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'⌔︙هاذا الامر خاص بالادمنيه\n⌔︙ارسل {م10} لعرض اوامر الاعضاء')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
-local MRFiOnA = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
+local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌔︙لا تستطيع استخدام البوت \n ⌔︙يرجى الاشتراك بالقناه اولا \n ⌔︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
-local Text =[[
-*اهلا انتツفي اضافات البوت*
-*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴٴ*
-* يمكنك معرفة حاله تفعيل الاضافات *
-* من خلال ارسال حاله الاضافات *
-*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
-*يمكنك تصفح الاضافات من خلال*
-*الكيبورد الموجود في الأسفل*
-*ٴ≪━━━━ F𝙸𝙾𝙽𝙰 ━━━━≫ٴ*
+local Text =[[*
+⌔︙توجد ← 5 اوامر في البوت
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙ارسل { م0 } ← اوامر المنظفين
+⌔︙ارسل { م1 } ← اوامر الحمايه
+⌔︙ارسل { م2 } ← اوامر الادمنيه
+⌔︙ارسل { م3 } ← اوامر المدراء
+⌔︙ارسل { م4 } ← اوامر المنشئين
+⌔︙ارسل { م5 } ← اوامر مطورين البوت
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 F𝙸𝙾𝙽𝙰. ](t.me/fiona_team)➤
 ]]
 keyboard = {} 
