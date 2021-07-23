@@ -1108,7 +1108,7 @@ return false
 end
 
 
-if not Vips(msg) and msg.content_.ID ~= "MessageChatAddMembers" and database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"flood") then 
+if not creatorA(msg) and msg.content_.ID ~= "MessageChatAddMembers" and database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"flood") then 
 floods = database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"flood") or "nil"
 Num_Msg_Max = database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"floodmax") or 5
 Time_Spam = database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"floodtime") or 5
