@@ -6656,13 +6656,10 @@ end,nil)
 send(msg.chat_id_, msg.id_,'*⌔︙تم تنظيف الميديا المعدله*')
 end
 if text and text:match("^تعين عدد المسح (%d+)$") and DevMatrix(msg) then
-local Num = text:match("تعين عدد المسح (%d+)$") or text:match("تعيين عدد المسح (%d+)$") or text:match("تعين عدد الحذف (%d+)$") or text:match("تعيين عدد الحذف (%d+)$")
-if tonumber(Num) < 50 or tonumber(Num) > 200 then
-send(msg.chat_id_, msg.id_, 1, '⌔︙قم بتحديد عدد اكبر من 50 واصغر من 200 للحذف التلقائي', 1, 'md')
-else
+local Num = text:match("تعين عدد المسح (%d+)$") 
+database:set(bot_id..'Matrix:Num:msg:media',Num) 
 send(msg.chat_id_, msg.id_,'⌔︙تم وضع عدد المسح *~'..Num..'* ميديا')
-database:set(bot_id..'Matrix:mediaNum'..msg.chat_id_,Num) 
-end end 
+end
 if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 if gmedia == 200 then
@@ -10435,7 +10432,7 @@ name = Maany_Rand[math.random(#Maany_Rand)]
 database:set(bot_id.."Matrix:Maany"..msg.chat_id_,name)
 name = string.gsub(name,"قرد","🐒")
 name = string.gsub(name,"دجاجه","🐔")
-name = string.gsub(name,"بطريق","🐧")
+name = string.gsub(name,"بطريق","??")
 name = string.gsub(name,"ضفدع","🐸")
 name = string.gsub(name,"بومه","🦉")
 name = string.gsub(name,"نحله","🐝")
