@@ -56,13 +56,13 @@ end
 function dl_cb(t,s)
 end
 function DevMatrixe(user)  
-local Taha_Sudo = false  
+local Matrixteam_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if user == v then  
-Taha_Sudo = true  
+Matrixteam_Sudo = true  
 end  
 end  
-return Taha_Sudo  
+return Matrixteam_Sudo  
 end 
 
 function VIP_DeV(msg)  
@@ -8536,10 +8536,10 @@ end
 
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,Matrixteam)
 local t = "\n 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗹𝗶𝘀𝘁 \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 x = 0
-local list = taha.members_
+local list = Matrixteam.members_
 for k, v in pairs(list) do
 x = x + 1
 if database:get(bot_id.."Matrix:User:Name"..v.user_id_) then
@@ -8846,12 +8846,12 @@ return false
 end 
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
-local taha = "⌔︙عدد الادمنيه : "..data.administrator_count_..
+local Matrixteam = "⌔︙عدد الادمنيه : "..data.administrator_count_..
 "\n\n⌔︙عدد المطرودين : "..data.kicked_count_..
 "\n\n⌔︙عدد الاعضاء : "..data.member_count_..
 "\n\n⌔︙عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
 "\n\n⌔︙اسم المجموعه : ["..ta.title_.."]"
-send(msg.chat_id_, msg.id_, taha) 
+send(msg.chat_id_, msg.id_, Matrixteam) 
 end,nil)
 end,nil)
 end 
@@ -9840,21 +9840,6 @@ end
 database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'⌔︙تم تعطيل الايدي بالصوره') 
 end
-if text == 'تفعيل التنزيل' and Owner(msg) then   
-database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
-Text = '\n تم تفعيل التنزيلات' 
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل التنزيل' and Owner(msg) then  
-database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
-Text = '\nتم تعطيل التنزيلات' 
-send(msg.chat_id_, msg.id_,Text) 
-end 
-if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
-local Ttext = text:match('^بحث (.*)$') 
-local msgin = msg.id_/2097152/0.5 
-http.request('http://devstorm.ml/Matrixe/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin)
-end
 if text == 'تعين الايدي عام' and DevMatrix(msg) then
 database:setex(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 send(msg.chat_id_, msg.id_,[[
@@ -10034,7 +10019,7 @@ return false
 end
 if not database:sismember(bot_id..'Matrix:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -10062,7 +10047,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
-local Total_Photp = (taha.total_count_ or 0)
+local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
 'طالع ححلو الوصخ 😂😔💘',
 "بشر لو كيك نتهه😹💘 ",
@@ -10074,7 +10059,7 @@ local Texting = {
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_) or database:get(bot_id.."Matrix:KleshIDALLBOT")
 if not database:get(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_) then
-if taha.photos_[0] then
+if Matrixteam.photos_[0] then
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
 local get_id = get_id:gsub('#id',Id) 
@@ -10087,7 +10072,7 @@ local get_id = get_id:gsub('#Description',Description)
 local get_id = get_id:gsub('#game',Num_Games) 
 local get_id = get_id:gsub('#photos',Total_Photp) 
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(get_id)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(get_id)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id) 
 else
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10097,7 +10082,7 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id_/2097152/0.5
 local texte = '⌔︙'..Description..'\n⌔︙ايديك : '..Id..'\n⌔︙يوزرك : '..UserName_User..'\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
 local texte = '\n*⌔︙ايديك : '..Id..'\n⌔︙يوزرك : * ['..UserName_User..']*\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..'*'
@@ -10959,8 +10944,8 @@ end
 
 return false
 end  
-taha = text:match("^اضف رسائل (%d+)$")
-database:set(bot_id.."Matrix:id:user"..msg.chat_id_,taha)  
+Matrixteam = text:match("^اضف رسائل (%d+)$")
+database:set(bot_id.."Matrix:id:user"..msg.chat_id_,Matrixteam)  
 database:setex(bot_id.."Matrix:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "⌔︙ارسل لي عدد الرسائل الان") 
 return false
@@ -10981,8 +10966,8 @@ end
 
 return false
 end  
-taha = text:match("^اضف مجوهرات (%d+)$")
-database:set(bot_id.."Matrix:idgem:user"..msg.chat_id_,taha)  
+Matrixteam = text:match("^اضف مجوهرات (%d+)$")
+database:set(bot_id.."Matrix:idgem:user"..msg.chat_id_,Matrixteam)  
 database:setex(bot_id.."Matrix:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "⌔︙ارسل لي عدد المجوهرات الان") 
 return false
@@ -11078,19 +11063,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'⌔︙لا توجد مجموعات وهميه ')   
 else
-local taha = (w + q)
-local sendok = #group - taha
+local Matrixteam = (w + q)
+local sendok = #group - Matrixteam
 if q == 0 then
-taha = ''
+Matrixteam = ''
 else
-taha = '\n⌔︙تم ازالة ~ '..q..' مجموعات من البوت'
+Matrixteam = '\n⌔︙تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 storm = ''
 else
 storm = '\n⌔︙تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*⌔︙عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n⌔︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*⌔︙عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..Matrixteam..'\n⌔︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -12863,19 +12848,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'⌔︙لا توجد مجموعات وهميه ')   
 else
-local taha = (w + q)
-local sendok = #group - taha
+local Matrixteam = (w + q)
+local sendok = #group - Matrixteam
 if q == 0 then
-taha = ''
+Matrixteam = ''
 else
-taha = '\n⌔︙تم ازالة ~ '..q..' مجموعات من البوت'
+Matrixteam = '\n⌔︙تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 storm = ''
 else
 storm = '\n⌔︙تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*⌔︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n⌔︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*⌔︙ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..Matrixteam..'\n⌔︙اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -14398,7 +14383,7 @@ end
 
 if Text and Text:match('(.*)/ideengphoto') then
 if tonumber(Text:match('(.*)/ideengphoto')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -14425,7 +14410,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (taha.total_count_ or 0)
+local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
 'طالع ححلو الوصخ 😂😔💘',
 "بشر لو كيك نتهه😹💘 ",
@@ -14450,7 +14435,7 @@ end
 end
 if Text and Text:match('(.*)/idearpphoto') then
 if tonumber(Text:match('(.*)/idearpphoto')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -14478,7 +14463,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (taha.total_count_ or 0)
+local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
 'طالع ححلو الوصخ 😂😔💘',
 "بشر لو كيك نتهه😹💘 ",
@@ -14504,7 +14489,7 @@ end
 
 if Text and Text:match('(.*)/ideeng') then
 if tonumber(Text:match('(.*)/ideeng')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -14532,7 +14517,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (taha.total_count_ or 0)
+local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
 'طالع ححلو الوصخ 😂😔💘',
 "بشر لو كيك نتهه😹💘 ",
@@ -14557,7 +14542,7 @@ end
 end
 if Text and Text:match('(.*)/idearp') then
 if tonumber(Text:match('(.*)/idearp')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -14585,7 +14570,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (taha.total_count_ or 0)
+local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
 'طالع ححلو الوصخ 😂😔💘',
 "بشر لو كيك نتهه😹💘 ",
