@@ -11575,7 +11575,7 @@ send(msg.chat_id_, msg.id_,'⌔︙تم وضع عدد الاعضاء *~'..Num..'*
 end
 if text and text:match("^تعين عدد المسح (%d+)$") and DevMatrix(msg) then
 local Num = text:match("تعين عدد المسح (%d+)$") 
-database:set(bot_id..'Matrix:Num:msg:media',Num) 
+database:set(bot_id..'Matrix:Num:media',Num) 
 send(msg.chat_id_, msg.id_,'⌔︙تم وضع عدد المسح *~'..Num..'* ميديا')
 end
 if text =='الاحصائيات' and DevBot(msg) then
