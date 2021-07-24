@@ -6670,8 +6670,6 @@ send(msg.chat_id_, msg.id_, t)
 database:del(bot_id.."msg:media"..msg.chat_id_)
 end
 end
-local function TagAd(msg)
-local text = msg.content_.text_
 if text and text == "تفعيل تاك الادمنيه" and Owner(msg) then 
 database:set(bot_id.."Matrix:Tag:Admins:"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,"⚠️┇تم تفعيل تاك الادمنيه")
