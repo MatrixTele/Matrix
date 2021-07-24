@@ -6655,11 +6655,6 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'*⌔︙تم تنظيف الميديا المعدله*')
 end
-if text and text:match("^تعين عدد المسح (%d+)$") and DevMatrix(msg) then
-local Num = text:match("تعين عدد المسح (%d+)$") 
-database:set(bot_id..'Matrix:Num:msg:media',Num) 
-send(msg.chat_id_, msg.id_,'⌔︙تم وضع عدد المسح *~'..Num..'* ميديا')
-end
 if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 if gmedia == 200 then
@@ -10432,7 +10427,7 @@ name = Maany_Rand[math.random(#Maany_Rand)]
 database:set(bot_id.."Matrix:Maany"..msg.chat_id_,name)
 name = string.gsub(name,"قرد","🐒")
 name = string.gsub(name,"دجاجه","🐔")
-name = string.gsub(name,"بطريق","??")
+name = string.gsub(name,"بطريق","🐧")
 name = string.gsub(name,"ضفدع","🐸")
 name = string.gsub(name,"بومه","🦉")
 name = string.gsub(name,"نحله","🐝")
@@ -11577,6 +11572,11 @@ if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevMatrix(m
 local Num = text:match("تعين عدد الاعضاء (%d+)$") 
 database:set(bot_id..'Matrix:Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,'⌔︙تم وضع عدد الاعضاء *~'..Num..'* عضو')
+end
+if text and text:match("^تعين عدد المسح (%d+)$") and DevMatrix(msg) then
+local Num = text:match("تعين عدد المسح (%d+)$") 
+database:set(bot_id..'Matrix:Num:msg:media',Num) 
+send(msg.chat_id_, msg.id_,'⌔︙تم وضع عدد المسح *~'..Num..'* ميديا')
 end
 if text =='الاحصائيات' and DevBot(msg) then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
