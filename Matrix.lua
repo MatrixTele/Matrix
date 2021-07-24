@@ -6655,6 +6655,14 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'*⌔︙تم تنظيف الميديا المعدله*')
 end
+if text and (text:match("^تعين عدد المسح (%d+)$") or text:match("^تعيين عدد المسح (%d+)$") or text:match("^تعين عدد الحذف (%d+)$") or text:match("^تعيين عدد الحذف (%d+)$")) and Constructor(msg) then   
+local Num = text:match("تعين عدد المسح (%d+)$") or text:match("تعيين عدد المسح (%d+)$") or text:match("تعين عدد الحذف (%d+)$") or text:match("تعيين عدد الحذف (%d+)$")
+if tonumber(Num) < 50 or tonumber(Num) > 200 then
+send(msg.chat_id_, msg.id_, 1, '⌁︙قم بتحديد عدد اكبر من 50 واصغر من 200 للحذف التلقائي', 1, 'md')
+else
+send(msg.chat_id_, msg.id_,"*⌔︙تم وضع العدد*") 
+database:set(bot_id..'Matrix:CleanNum'..msg.chat_id_,Num) 
+end end 
 if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 if gmedia == 200 then
