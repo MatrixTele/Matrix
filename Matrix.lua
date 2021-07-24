@@ -12953,6 +12953,10 @@ if text == 'تعطيل البوت الخدمي ⌔' then
 database:set(bot_id..'Matrix:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'\n⌔︙تم تعطيل البوت الخدمي') 
 end
+if text == 'تفعيل البوت الخدمي ⌔' then
+database:del(bot_id..'Matrix:Free:Add:Bots') 
+send(msg.chat_id_, msg.id_,'\n⌔︙تم تعطيل البوت الخدمي') 
+end
 if text=="اذاعه خاص ⌔" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
 send(msg.chat_id_, msg.id_,"⌔︙الاذاعه معطله من قبل المطور الاساسي")
