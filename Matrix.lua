@@ -1196,15 +1196,15 @@ end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.caption_ then 
 if msg.content_.caption_:match("@[%a%d_]+") or msg.content_.caption_:match("@(.+)") then  
-if database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "del" and not Owner(msg) then    
+if database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ked" and not Owner(msg) then    
+elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "kick" and not Owner(msg) then    
+elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ktm" and not Owner(msg) then    
+elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ktm" and not Vips(msg) then    
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
@@ -1212,15 +1212,15 @@ end
 end
 --------------------------------------------------------------------------------------------------------------
 if text and text:match("@[%a%d_]+") or text and text:match("@(.+)") then    
-if database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "del" and not Owner(msg) then    
+if database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ked" and not Owner(msg) then    
+elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "kick" and not Owner(msg) then    
+elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ktm" and not Owner(msg) then    
+elseif database:get(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_) == "ktm" and not Vips(msg) then    
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
@@ -1291,17 +1291,17 @@ end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.caption_ then 
-if not Owner(msg) then 
+if not Addictive(msg) then 
 if msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]://") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]://") or msg.content_.caption_:match("[Ww][Ww][Ww].") or msg.content_.caption_:match(".[Cc][Oo][Mm]") or msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Dd][Oo][Gg]/") or msg.content_.caption_:match(".[Pp][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.content_.caption_:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]/") or msg.content_.caption_:match("[Tt].[Mm][Ee]/") then 
-if database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "del" and not Owner(msg) then
+if database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "del" and not Addictive(msg) then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ked" and not Owner(msg) then
+elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ked" and not Addictive(msg) then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "kick" and not Owner(msg) then
+elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "kick" and not Addictive(msg) then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ktm" and not Owner(msg) then
+elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ktm" and not Addictive(msg) then
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
@@ -1310,15 +1310,15 @@ end
 end
 --------------------------------------------------------------------------------------------------------------
 if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or text and text:match("[Hh][Tt][Tt][Pp][Ss]://") or text and text:match("[Hh][Tt][Tt][Pp]://") or text and text:match("[Ww][Ww][Ww].") or text and text:match(".[Cc][Oo][Mm]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Dd][Oo][Gg]/") or text and text:match(".[Pp][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]/") or text and text:match("[Tt].[Mm][Ee]/") and not Vips(msg) then
-if database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "del" and not Owner(msg) then
+if database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "del" and not Addictive(msg) then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ked" and not Owner(msg) then 
+elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ked" and not Addictive(msg) then 
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "kick" and not Owner(msg) then
+elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "kick" and not Addictive(msg) then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ktm" and not Owner(msg) then
+elseif database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) == "ktm" and not Addictive(msg) then
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
@@ -1444,7 +1444,7 @@ DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 end
 end
 --------------------------------------------------------------------------------------------------------------
-if msg.forward_info_ and not Owner(msg) then     
+if msg.forward_info_ and not Addictive(msg) then     
 if database:get(bot_id.."Matrix:Lock:forward"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 return false
