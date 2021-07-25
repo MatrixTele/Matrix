@@ -6926,18 +6926,30 @@ end
 send(msg.chat_id_, msg.id_,"⌔︙تم مسح قائمه المنع")  
 end
 if text and text == "منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then       
-send(msg.chat_id_, msg.id_,"⌔︙الان ارسل { كلمه،صوره،ملصق،متحركه } لمنعه من المجموعه")  
+send(msg.chat_id_, msg.id_,"📛┇ارسل الكلمه لمنعها")  
 database:set(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
 if text then   
 local tsssst = database:get(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
-send(msg.chat_id_, msg.id_,"⌔︙تم منع الكلمه بنجاح")  
+send(msg.chat_id_, msg.id_,"📫┇ارسل التحذير عند ارسال الكلمه")  
+database:set(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
+database:set(bot_id.."Matrix:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
+database:sadd(bot_id.."Matrix:List:Filter"..msg.chat_id_,text)  
+return false  end  
+end
+if text then  
+local test = database:get(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+if test == "repp" then  
+send(msg.chat_id_, msg.id_,"🔖┇تم منع الكلمه مع التحذير")  
 database:del(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:sadd(bot_id.."Matrix:List:Filter:text"..msg.chat_id_,text)  
-return false 
+local test = database:get(bot_id.."Matrix:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+if text then   
+database:set(bot_id.."Matrix:Add:Filter:Rp2"..test..msg.chat_id_, text)  
 end  
+database:del(bot_id.."Matrix:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+return false  end  
 end
 if msg.content_.ID == 'MessageAnimation' then    
 local tsssst = database:get(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
