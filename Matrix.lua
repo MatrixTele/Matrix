@@ -1339,7 +1339,7 @@ DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 end
 end
 --------------------------------------------------------------------------------------------------------------
-if msg.content_.ID == "MessageVideo" and not Vips(msg) then     
+if msg.content_.ID == "MessageVideo" and not Addictive(msg) then     
 if database:get(bot_id.."Matrix:Lock:Video"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 elseif database:get(bot_id.."Matrix:Lock:Video"..msg.chat_id_) == "ked" then
@@ -2420,7 +2420,7 @@ return false
 end 
 if text == "فتح الفيديو" and Addictive(msg) then
 database:del(bot_id.."Matrix:Lock:Video"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فتح الفيديوو")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فتح الفيديو")  
 return false
 end 
 if text == "قفل المتحركه" and Addictive(msg) then  
@@ -6086,7 +6086,7 @@ database:set(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الفارسيه")  
 end
 if text and database:get(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
-list = {"كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك"}
+list = {"ڄ","که","پی","خسته","برم","راحتی","بیام","بپوشم","كرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن"}
 for k,v in pairs(list) do
 if string.find(text,v) ~= nil then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
@@ -6113,7 +6113,7 @@ database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الفشار")  
 end
 if text and database:get(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
-list = {"ڄ","که","پی","خسته","برم","راحتی","بیام","بپوشم","كرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن"}
+list = {"كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك"}
 for k,v in pairs(list) do
 if string.find(text,v) ~= nil then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
@@ -6141,7 +6141,7 @@ end
 
 return false
 end
-function Function_Tshake(extra, result, success)
+function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
@@ -6149,7 +6149,7 @@ https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_i
 Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم تقييده في المجموعه")  
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 ------------------------------------------------------------------------
@@ -6170,7 +6170,7 @@ end
 return false
 end
 local username = text:match("^تقيد @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -6186,7 +6186,7 @@ else
 send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 ------------------------------------------------------------------------
@@ -6217,7 +6217,7 @@ return false
 end
 if text and text:match('^تقيد (%d+) (.*)$') and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then
 local TextEnd = {string.match(text, "^(تقيد) (%d+) (.*)$")}
-function Function_Tshake(extra, result, success)
+function Function_Matrix(extra, result, success)
 if TextEnd[3] == 'يوم' then
 Time_Restrict = TextEnd[2]:match('(%d+)')
 Time = Time_Restrict * 86400
@@ -6240,7 +6240,7 @@ Reply_Status(msg,result.sender_user_id_,"reply", "⌔︙تم تقيده لمدة
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_..'&until_date='..tonumber(msg.date_+Time))
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 
@@ -6261,7 +6261,7 @@ end
 return false
 end
 local TextEnd = {string.match(text, "^(تقيد) (%d+) (.*) @(.*)$")}
-function Function_Tshake(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -6290,7 +6290,7 @@ https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_i
 end
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[4]}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[4]}, Function_Matrix, nil)
 return false
 end
 ------------------------------------------------------------------------
