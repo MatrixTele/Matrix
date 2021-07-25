@@ -4762,19 +4762,19 @@ function by_reply(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم رفعه "..RTPA.." هنا\n")   
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم رفعه "..RTPA.." هنا\n")   
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم رفعه "..RTPA.." هنا\n")   
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم رفعه "..RTPA.." هنا\n")   
 end
 end,nil)   
 end   
@@ -4803,19 +4803,19 @@ function by_reply(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم تنزيله من "..RTPA.." هنا\n")   
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم تنزيله من "..RTPA.." هنا\n")   
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_) 
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم تنزيله من "..RTPA.." هنا\n")   
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n⌔︙تم تنزيله من "..RTPA.." هنا\n")   
 end
 end,nil)   
 end   
@@ -4844,19 +4844,19 @@ function py_username(extra, result, success)
 if result.id_ then
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n⌔︙تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n⌔︙تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n⌔︙تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"\n⌔︙العضو » ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n⌔︙تم رفعه "..text1[2].." هنا")   
 end
 else
 info = "⌔︙المعرف غلط"
