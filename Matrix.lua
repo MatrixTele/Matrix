@@ -2400,27 +2400,27 @@ return false
 end 
 if text == "قفل الفيديو" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Video"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل الفيديو*")  
 return false
 end 
 if text == "قفل الفيديو بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Video"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔︙تم قفـل الفيديو*")  
 return false
 end 
 if text == "قفل الفيديو بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Video"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔︙تم قفـل الفيديو*")  
 return false
 end 
 if text == "قفل الفيديو بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Video"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔︙تم قفـل الفيديو*")  
 return false
 end 
 if text == "فتح الفيديو" and Addictive(msg) then
 database:del(bot_id.."Matrix:Lock:Video"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔︙تم فتح الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فتح الفيديو*")  
 return false
 end 
 if text == "قفل المتحركه" and Addictive(msg) then  
@@ -6110,7 +6110,7 @@ return false
 end 
 if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الفشار")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل الفشار*")  
 end
 if text and database:get(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
 list = {"كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك"}
@@ -6123,7 +6123,7 @@ end
 end
 if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:del(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تـم فـتح الفشار\n")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تـم فـتح الفشار*\n")  
 end
 if text == ("تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
