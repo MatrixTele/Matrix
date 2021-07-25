@@ -16332,11 +16332,11 @@ return false
 end
 if text == 'تعطيل تحقق' and Addictive(msg) then   
 database:del(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
+send(msg.chat_id_, msg.id_,'\n* تم تعطيل تحقق*' ) 
 end
 if text == 'تفعيل تحقق' and Addictive(msg) then  
 database:set(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_,'true') 
-send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
+send(msg.chat_id_, msg.id_,'\n*تم تفعيل تحقق*' ) 
 end 
 --======================================================================================================
 --======================================================================================================
