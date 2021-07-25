@@ -9718,115 +9718,6 @@ database:del(bot_id.."my_photo:status"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم تعطيل الصوره") 
 return false
 end
-if (text and text == "تفعيل" and is_sudo(msg) and database:get("Matrix:get_back_add_bot:"..bot_id)) then 
-if database:get("Matrix:link:auto:launch"..bot_id) then 
-database:set("lock_link:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_inline:Matrix"..msg.chat_id_..bot_id,"ok")
-end 
-if database:get("Matrix:fwd:auto:launch"..bot_id) then 
-database:set("lock_fwd:Matrix"..msg.chat_id_..bot_id,"ok")
-end 
-if database:get("Matrix:medea:auto:launch"..bot_id) then 
-database:set("lock_media:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_audeo:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_video:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_photo:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_stecker:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_voice:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_gif:Matrix"..msg.chat_id_..bot_id,"ok")
-database:set("lock_note:Matrix"..msg.chat_id_..bot_id,"ok")
-end 
-if database:get("Matrix:username:auto:launch"..bot_id) then 
-database:set("lock_username:Matrix"..msg.chat_id_..bot_id,"ok")
-end 
-if database:get("Matrix:spam:auto:launch"..bot_id) then 
-database:set("lock_lllll:Matrix"..msg.chat_id_..bot_id,"ok")
-end 
-
-if database:get("Matrix:auto:seva:admin:auto:launch"..bot_id) then 
-local function cb2(extra,result,success)
-for k,v in pairs(result.members_) do
-database:sadd('Matrix:'..bot_id..'mods:'..msg.chat_id_, v.user_id_)
-end
-end
-bot.channel_get_admins(msg.chat_id_,cb2)
-end
-
-if database:get("Matrix:spam:auto:launch"..bot_id) then 
-
-local function cb_ts(t1,t2)
-for k,v in pairs(t2.members_) do
-if v.status_.ID == "ChatMemberStatusCreator" then 
-database:sadd('Matrix:'..bot_id..'creator:'..msg.chat_id_, v.user_id_)
-end
-end
-end
-bot.channel_get_admins(msg.chat_id_,cb_ts)
-end 
-
-end
-
-if (text and text:match("(.*) (بعد التفعيل)") and tonumber(msg.sender_user_id_) == tonumber(sudo_add)) then 
-ts2 = {string.match(text, "^(.*) (بعد التفعيل)$")}
-ts = ts2[1]
-if ts then
-
-u = nil
-if ts == "قفل الروابط" then 
-u = "link"
-elseif ts == "قفل التوجيه" then
-u = "fwd"
-elseif ts == "قفل الميديا" then 
-u = "medea"
-elseif ts == "قفل المعرفات" then 
-u = "username"
-elseif ts == "قفل التكرار" then 
-u = "spam"
-elseif ts == "رفع الادمنيه" then 
-u = "auto:seva:admin"
-elseif ts == "رفع المنشئ" then
-u = "auto:save:crete"
-end
-
-a = nil
-if ts == "فتح الروابط" then 
-a = "link"
-elseif ts == "فتح التوجيه" then
-a = "fwd"
-elseif ts == "فتح الميديا" then 
-a = "medea"
-elseif ts == "فتح المعرفات" then 
-a = "username"
-elseif ts == "فتح التكرار" then 
-a = "spam"
-elseif ts == "الغاء رفع الادمنيه" then 
-a = "auto:seva:admin"
-elseif ts == "الغاء رفع المنشئ" then
-a = "auto:save:crete"
-end
-
-if u then 
-database:set("Matrix:"..u..":auto:launch"..bot_id,"ok")
-send(msg.chat_id_, msg.id_, 1, "✔┇تم الحفظ ", 1, 'html')
-elseif a then 
-database:del("Matrix:"..a..":auto:launch"..bot_id)
-send(msg.chat_id_, msg.id_, 1, "✔┇تم الحفظ ", 1, 'html')
-end
-
-end
-end
-
-if (text and text == "تفعيل الاعدادات المسبقه" and tonumber(msg.sender_user_id_) == tonumber(sudo_add)) then 
-send(msg.chat_id_, msg.id_, 1, "✔┇تم تفعيل عمليه الاعدادات المسبقه عند التفعيل ", 1, 'html')
-database:set("Matrix:get_back_add_bot:"..bot_id,"ok")
-end 
-
-if (text and text == "تعطيل الاعدادات المسبقه" and tonumber(msg.sender_user_id_) == tonumber(sudo_add)) then 
-send(msg.chat_id_, msg.id_, 1, "🔓┇تم تعطيل خاصيه الاعدادات المسبقه عند التفعيل", 1, 'html')
-database:del("Matrix:get_back_add_bot:"..bot_id)
-end 
-
-end
 if text == "صورتي"  then
 local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
 if not my_ph then
@@ -13056,10 +12947,6 @@ end
 if text == 'تعطيل البوت الخدمي ⌔' then
 database:set(bot_id..'Matrix:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'\n⌔︙تم تعطيل البوت الخدمي') 
-end
-if text == 'تفعيل البوت الخدمي ⌔' then
-database:del(bot_id..'Matrix:Free:Add:Bots') 
-send(msg.chat_id_, msg.id_,'\n⌔︙تم تفعيل البوت الخدمي') 
 end
 if text=="اذاعه خاص ⌔" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
