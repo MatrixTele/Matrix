@@ -6931,15 +6931,6 @@ database:set(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,
 return false  
 end    
 if text then   
-send(msg.chat_id_, msg.id_,"🔖┇تم منع الكلمه مع التحذير")  
-database:del(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-local test = database:get(bot_id.."Matrix:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
-if text then   
-database:set(bot_id.."Matrix:Add:Filter:Rp2"..test..msg.chat_id_, text)  
-end  
-database:del(bot_id.."Matrix:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
-return false  end  
-end
 local tsssst = database:get(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
 send(msg.chat_id_, msg.id_,"⌔︙تم منع الكلمه بنجاح")  
@@ -7478,27 +7469,12 @@ return false
 end
 
 if text == "الصلاحيات" and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
 local list = database:smembers(bot_id.."Matrix:Coomds"..msg.chat_id_)
 if #list == 0 then
-send(msg.chat_id_, msg.id_,"⌔︙لا توجد صلاحيات مضافه")
+send(msg.chat_id_, msg.id_,"🔖┇لا توجد صلاحيات مضافه")
 return false
 end
-t = "\n⌔︙قائمة الصلاحيات المضافه \n━━━━━━━━━━━━━\n"
+t = "\n⛔┇قائمة الصلاحيات المضافه \n━━━━━━━━━━━━━\n"
 for k,v in pairs(list) do
 var = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..v..msg.chat_id_)
 if var then
@@ -7508,6 +7484,58 @@ t = t..""..k.."- "..v.."\n"
 end
 end
 send(msg.chat_id_, msg.id_,t)
+end
+if text == "مسح الصلاحيات" then
+local list = database:smembers(bot_id.."Matrix:Coomds"..msg.chat_id_)
+for k,v in pairs(list) do
+database:del(bot_id.."Matrix:Comd:New:rt:bot:"..v..msg.chat_id_)
+database:del(bot_id.."Matrix:Coomds"..msg.chat_id_)
+end
+send(msg.chat_id_, msg.id_,"🔘┇تم مسح الصلاحيات")
+end
+if text and text:match("^اضف صلاحيه (.*)$") and Addictive(msg) then 
+ComdNew = text:match("^اضف صلاحيه (.*)$")
+database:set(bot_id.."Matrix:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_,ComdNew)  
+database:sadd(bot_id.."Matrix:Coomds"..msg.chat_id_,ComdNew)  
+database:setex(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_,200,true)  
+send(msg.chat_id_, msg.id_, "🎖┇ارسل نوع الصلاحيه ⚜️\n📊┇(عضو ~ مميز  ~ ادمن  ~ مدير )") 
+end
+if text and text:match("^مسح صلاحيه (.*)$") and Addictive(msg) or text and text:match("^حذف صلاحيه (.*)$") and Addictive(msg) then 
+ComdNew = text:match("^مسح صلاحيه (.*)$") or text:match("^حذف صلاحيه (.*)$")
+database:del(bot_id.."Matrix:Comd:New:rt:bot:"..ComdNew..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "☑┇تم مسح الصلاحيه ") 
+end
+if database:get(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) then 
+if text and text:match("^الغاء$") then 
+send(msg.chat_id_, msg.id_,"☑┇تم الغاء الامر ") 
+database:del(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
+return false  
+end 
+if text == "مدير" then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_"🎖┇ارسل نوع الصلاحيه مره اخر\n📊┇تستطيع اضافة صلاحيه (عضو ~ مميز  ~ ادمن )") 
+return false
+end
+end
+if text == "ادمن" then
+if not Owner(msg) then 
+send(msg.chat_id_, msg.id_"🎖┇ارسل نوع الصلاحيه مره اخر\n📊┇تستطيع اضافة صلاحيه ( عضو ~ مميز )") 
+return false
+end
+end
+if text == "مميز" then
+if not Addictive(msg) then
+send(msg.chat_id_, msg.id_"🎖┇ارسل نوع الصلاحيه مره اخر\n📊┇تستطيع اضافة صلاحيه ( عضو )") 
+return false
+end
+end
+if text == "مدير" or text == "ادمن" or text == "مميز" or text == "عضو" then
+local textn = database:get(bot_id.."Matrix:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_)  
+database:set(bot_id.."Matrix:Comd:New:rt:bot:"..textn..msg.chat_id_,text)
+send(msg.chat_id_, msg.id_, "📊┇تم اضافة صلاحية ") 
+database:del(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
+return false  
+end 
 end
 if text == "مسح المنظفين" and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -7559,89 +7587,6 @@ t = "⌔︙لا يوجد منظفين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "مسح الصلاحيات" then
-local list = database:smembers(bot_id.."Matrix:Coomds"..msg.chat_id_)
-for k,v in pairs(list) do
-database:del(bot_id.."Matrix:Comd:New:rt:bot:"..v..msg.chat_id_)
-database:del(bot_id.."Matrix:Coomds"..msg.chat_id_)
-end
-send(msg.chat_id_, msg.id_,"⌔︙تم مسح الصلاحيات")
-end
-if text and text:match("^اضف صلاحيه (.*)$") and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-ComdNew = text:match("^اضف صلاحيه (.*)$")
-database:set(bot_id.."Matrix:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_,ComdNew)  
-database:sadd(bot_id.."Matrix:Coomds"..msg.chat_id_,ComdNew)  
-database:setex(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_,200,true)  
-send(msg.chat_id_, msg.id_, "⌔︙ارسل نوع الصلاحيه ⌔︙\n⌔︙(عضو ~ مميز  ~ ادمن  ~ مدير )") 
-end
-if text and text:match("^مسح صلاحيه (.*)$") and Addictive(msg) or text and text:match("^حذف صلاحيه (.*)$") and Addictive(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-ComdNew = text:match("^مسح صلاحيه (.*)$") or text:match("^حذف صلاحيه (.*)$")
-database:del(bot_id.."Matrix:Comd:New:rt:bot:"..ComdNew..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "⌔︙تم مسح الصلاحيه ") 
-end
-if database:get(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_,"⌔︙تم الغاء الامر ") 
-database:del(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
-return false  
-end 
-if text == "مدير" then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_"⌔︙ارسل نوع الصلاحيه مره اخر\n⌔︙تستطيع اضافة صلاحيه (عضو ~ مميز  ~ ادمن )") 
-return false
-end
-end
-if text == "ادمن" then
-if not Owner(msg) then 
-send(msg.chat_id_, msg.id_"⌔︙ارسل نوع الصلاحيه مره اخر\n⌔︙تستطيع اضافة صلاحيه ( عضو ~ مميز )") 
-return false
-end
-end
-if text == "مميز" then
-if not Addictive(msg) then
-send(msg.chat_id_, msg.id_"⌔︙ارسل نوع الصلاحيه مره اخر\n⌔︙تستطيع اضافة صلاحيه ( عضو )") 
-return false
-end
-end
-if text == "مدير" or text == "ادمن" or text == "مميز" or text == "عضو" then
-local textn = database:get(bot_id.."Matrix:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_)  
-database:set(bot_id.."Matrix:Comd:New:rt:bot:"..textn..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_, "⌔︙تم اضافة صلاحية ") 
-database:del(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
-return false  
-end 
-end
-
 if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
 database:set(bot_id.."Matrix:Sudo:Rd"..msg.chat_id_,Teext)
@@ -10656,7 +10601,7 @@ name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
 name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟🌟🌟")
 name = string.gsub(name,"✨","??💫💫💫💫✨💫💫💫💫")
-name = string.gsub(name,"⛈","🌨🌨🌨🌨🌨⛈🌨🌨🌨🌨")
+name = string.gsub(name,"⛈","??🌨🌨🌨🌨⛈🌨🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
 name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍??👩‍🔬")
