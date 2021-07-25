@@ -1591,25 +1591,6 @@ PinMessage(msg.chat_id_,Msg_Pin)
 end
 end
 end
-___________
-if database:get(bot_id.."CAPTCHA"..msg.chat_id_) then
-if msg.content_.ID == "MessageChatJoinByLink" then
-https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
-captcha = math.random(4567,8907);
-cap = math.random(10,50);
-capt = math.random(60,90);
-capc = math.random(100,500);
-local Text ='• قم بختيار الرقم الصحيح الموجود في الصوره\n• ليتم الغاء تقييدك الان'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '9'..capt..'5', callback_data=capt..msg.sender_user_id_},{text =capc..'2', callback_data=capc..msg.sender_user_id_}},
-{{text = '4'..cap..'8', callback_data=cap},{text = captcha, callback_data='okCaptcha'..msg.sender_user_id_}},
-{{text = '1'..capt..'2', callback_data=capt},{text = '7'..capc, callback_data=capc}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://vvvzvv.ml/amir00/captcha.php?c='..captcha..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end 
-end 
 ------------------------------------------------------
 if msg.content_.photo_ then  
 if database:get(bot_id.."Matrix:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) then 
@@ -12804,7 +12785,7 @@ Text = [[
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
- 𝟶 ?? 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
+ 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
  ⌔𝟎⌔  ⌔𝟏⌔  ⌔𝟐⌔  ⌔𝟑⌔  ⌔𝟒⌔  ⌔𝟓⌔   𝟔  𝟕   𝟖   𝟗
@@ -15653,32 +15634,6 @@ database:set(bot_id..":usernewsudo:"..msg.sender_user_id_,data.message_id_)
 return false
 end
 end
-__________________
-function tdcli_update_callback(data)  -- clback
-if data.ID == "UpdateChannel" then 
-if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
-t = "قام احد المنشئين بطرد البوت من مجموعته\n\n"
-tdcli_function({ID ="GetChat",chat_id_="-100"..data.channel_.id_},function(arg,chat)  
-local NameChat = chat.title_
-t =t.."اسم المجموعه\n"..NameChat
-local IdChat = "-100"..data.channel_.id_
-t =t.."\n\nايدي المجموعه\n"..IdChat
-send(SUDO, msg.id_,t)
-database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
-end,nil)
-end
-end
-if data.ID == "UpdateNewCallbackQuery" then
-local Chat_id = data.chat_id_
-local From_id = data.id_
-local Msg_id = data.message_id_
-local msg_idd = Msg_id/2097152/0.5
-local DAata = data.payload_.data_
-Ok_id  = DAata:match("(%d+)")  
-if DAata == 'okCaptcha'..data.sender_user_id_ then  
-DeleteMessage(Chat_id, {[0] = Msg_id}) 
-return https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. Chat_id .. "&user_id="..Ok_id .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-end
 
 if Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
@@ -16375,27 +16330,14 @@ if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 return false  
 end
-if text == 'تفعيل التحقق' and Manager(msg) then   
-if database:get(bot_id.."Chek:Welcome"..msg.chat_id_) then
-database:del(bot_id.."Chek:Welcome"..msg.chat_id_)
+if text == 'تعطيل تحقق' and Addictive(msg) then   
+database:del(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
 end
-if not database:get(bot_id..'CAPTCHA'..msg.chat_id_) then
-database:set(bot_id.."CAPTCHA"..msg.chat_id_,true) 
-Text = ' *✬︙تم تفعيل التحقق عند دخول الاعضاء*'
-else
-Text = ' *✬︙بالتاكيد تم تفعيل التحقق*'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل التحقق' and Manager(msg) then  
-if not database:get(bot_id..'CAPTCHA'..msg.chat_id_) then
-Text = '\n *✬︙بالتاكيد تم تعطيل التحقق*'
-else
-database:del(bot_id.."CAPTCHA"..msg.chat_id_) 
-Text = '\n *✬︙تم تعطيل التحقق عند دخول الاعضاء*'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
+if text == 'تفعيل تحقق' and Addictive(msg) then  
+database:set(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_,'true') 
+send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
+end 
 --======================================================================================================
 --======================================================================================================
 if Addictive(msg) then 
@@ -16457,6 +16399,7 @@ if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 return false  
 end
+--------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 if tonumber(msg.sender_user_id_) ~= tonumber(bot_id) then  
 if msg.sender_user_id_ and Ban_Groups(msg.chat_id_,msg.sender_user_id_) then 
