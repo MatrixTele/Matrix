@@ -10997,10 +10997,10 @@ local Text =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• العاب السورس •', callback_data=msg.sender_user_id_.."/gamesos"},
+{text = '⌔ العاب السورس ⌔', callback_data=msg.sender_user_id_.."/gamesos"},
 },
 {
-{text = '• العاب متطورة •', callback_data=msg.sender_user_id_.."/gamemm"},
+{text = '⌔ العاب متطورة ⌔', callback_data=msg.sender_user_id_.."/gamemm"},
 },
 {
 {text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
@@ -12707,6 +12707,7 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ⌔'},
 {'تحديث السورس ⌔','تحديث ⌔'},
 {'لاصدار ⌔','معلومات السيرفر ⌔'},
+{'تفعيل النسخه التلقائيه ⌔','تعطيل النسخه التلقائيه ⌔'},
 {'جلب نسخه احتياطيه ⌔'},
 {'اعادة التشغيل ⌔'},
 {'الغاء ⌔'}
@@ -12936,6 +12937,16 @@ if text == 'تعطيل التواصل ⌔' then
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'⌔︙ تم تعطيل التواصل ') 
 end
+if text == 'تفعيل النسخه التلقائيه ⌔' then
+database:del(bot_id.."AutoFile")
+send(msg.chat_id_, msg.id_,"✫: تم تفعيل النسخه الاحتياطيه التلقائيه .") 
+return false
+end
+if text == "تعطيل النسخه التلقائيه ⌔" then  
+database:set(bot_id.."AutoFile",true) 
+send(msg.chat_id_, msg.id_,"✫: تم تعطيل النسخه الاحتياطيه التلقائيه .") 
+return false  
+end
 if text == 'معلومات السيرفر ⌔' then
 ioserver =  io.popen([[
 linux_version=`lsb_release -ds`
@@ -12953,6 +12964,93 @@ echo '*------------------------------\n*⌔︙⊱ { مـده تـشغيـل ال
 ]]):read('*all')
 send(msg.chat_id_, msg.id_,ioserver)
 return false
+end
+if text and not database:get(bot_id.."AutoFile") then
+Time = database:get(bot_id.."AutoFile:Time")
+if Time then 
+if Time ~= os.date("%x") then  
+local list = database:smembers(bot_id..'Chek:Groups')  
+local memo = database:smembers(bot_id..'UsersBot')  
+local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
+for k,v in pairs(list) do      
+NAME = 'Matrix Chat'
+ASAS = database:smembers(bot_id.."Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."Constructor"..v)
+MDER = database:smembers(bot_id.."Manager"..v)
+MOD = database:smembers(bot_id.."Mod:User"..v)
+link = database:get(bot_id.."Link_Group"..v) or ''
+if k == 1 then
+t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
+else
+t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
+end
+if #ASAS ~= 0 then 
+t = t..'"ASAS":['
+for k,v in pairs(ASAS) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MOD ~= 0 then
+t = t..'"MOD":['
+for k,v in pairs(MOD) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MDER ~= 0 then
+t = t..'"MDER":['
+for k,v in pairs(MDER) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MNSH ~= 0 then
+t = t..'"MNSH":['
+for k,v in pairs(MNSH) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'"linkgroup":"'..link..'"}' or ''
+end
+if #memo ~= 0 then 
+t = t..'"mem":['
+for k,v in pairs(memo) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'}}'
+local File = io.open('./File_Libs/'..bot_id..'.json', "w")
+File:write(t)
+File:close()
+sendDocument(Id_Sudo, msg.id_,'./File_Libs/'..bot_id..'.json', '⌔:  عدد مجموعات التي في البوت { '..#list..'} .\n⌔: عدد المشتركين { '..#memo..' } .')
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
+else 
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
 end
 if text =='⌔︙الثانويين .' and DevMatrix(msg) then
 local list = database:smembers(bot_id.."TSudo:User")
@@ -15648,10 +15746,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• العاب السورس •', callback_data=data.sender_user_id_.."/gamesos"},
+{text = '⌔ العاب السورس ⌔', callback_data=data.sender_user_id_.."/gamesos"},
 },
 {
-{text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
+{text = '⌔ العاب متطورة ⌔', callback_data=data.sender_user_id_.."/gamemm"},
 },
 {
 {text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
@@ -15680,7 +15778,7 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
+{text = '⌔ العاب متطورة ⌔', callback_data=data.sender_user_id_.."/gamemm"},
 },
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
@@ -16332,11 +16430,11 @@ return false
 end
 if text == 'تعطيل تحقق' and Addictive(msg) then   
 database:del(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'\n* تم تعطيل تحقق*' ) 
+send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
 end
 if text == 'تفعيل تحقق' and Addictive(msg) then  
 database:set(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_,'true') 
-send(msg.chat_id_, msg.id_,'\n*تم تفعيل تحقق*' ) 
+send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
 end 
 --======================================================================================================
 --======================================================================================================
@@ -16399,7 +16497,6 @@ if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 return false  
 end
---------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 if tonumber(msg.sender_user_id_) ~= tonumber(bot_id) then  
 if msg.sender_user_id_ and Ban_Groups(msg.chat_id_,msg.sender_user_id_) then 
