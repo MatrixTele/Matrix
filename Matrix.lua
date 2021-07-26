@@ -9949,17 +9949,15 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 
 return false
-end
-database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)   
-list ={"Y:Ban:User:Time","lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+end  
+database:set(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_,true)   
+list ={"Lock:Bot:kick","Matrix:Lock:edit","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:set(bot_id..lock..msg.chat_id_,'del')    
+database:set(bot_id..'Matrix:'..lock..msg.chat_id_,"del")    
 end
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل الحمايه بنجاح") 
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم تفعيل الحماية*")  
 return false
-end,nil)   
-end
+end 
 if text == 'تعطيل الحمايه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -9975,17 +9973,15 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 
 return false
-end
-database:del(bot_id..'lock:tagrvrbot'..msg.chat_id_)   
-list ={"Y:Ban:User:Time","lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+end 
+database:del(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_)   
+list ={"Lock:Bot:kick","Matrix:Lock:edit","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:del(bot_id..lock..msg.chat_id_)    
+database:del(bot_id..'Matrix:'..lock..msg.chat_id_)    
 end
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل الحمايه بنجاح") 
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم تعطيل الحماية*")  
 return false
-end,nil)   
-end
+end 
 
 if text == 'تفعيل الايدي' and Owner(msg) then 
   if AddChannel(msg.sender_user_id_) == false then
