@@ -495,6 +495,17 @@ keyboard.inline_keyboard = {
 },
 
 }
+elseif status == "listcleaner" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔︙عدد المنظفين : '..#listcleaner, callback_data=user_id..""},
+},
+{
+{text = '⌔︙مسح المنظفين', callback_data=user_id.."/delcleaner"},
+},
+
+}
 elseif status == "listktm" then
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -503,17 +514,6 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '⌔︙مسح المكتومين', callback_data=user_id.."/delktm"},
-},
-
-}
-elseif status == "listnewamr" then
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '⌔︙عدد الاوامر المضافه : '..#listnewamr, callback_data=user_id..""},
-},
-{
-{text = '⌔︙مسح الاوامر المضافه', callback_data=user_id.."/delnewamr"},
 },
 
 }
@@ -7469,9 +7469,8 @@ end
 end
 if #list == 0 then
 t = "⌔︙لا توجد اوامر اضافيه"
-return send(msg.chat_id_, msg.id_, t)
 end
-return SendMsg_Msgeeslist("listnewamr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
+send(msg.chat_id_, msg.id_,"["..t.."]")
 end
 if text == "حذف الاوامر المضافه" or text == "مسح الاوامر المضافه" then
 if AddChannel(msg.sender_user_id_) == false then
@@ -7833,7 +7832,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
-t = "\n⌔︙قائمة المنظفين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n*⌔︙قائمة المنظفين *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -7844,8 +7843,9 @@ end
 end
 if #list == 0 then
 t = "⌔︙لا يوجد منظفين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listcleaner",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
@@ -13844,17 +13844,16 @@ database:del(bot_id.."Matrix:Ban:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المحظورين في المجموعه")
 end
 end
+if Text and Text:match('(.*)/delcleaner') and Addictive(data) then
+if tonumber(Text:match('(.*)/delcleaner')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:MN:TF"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المنظفين في المجموعه")
+end
+end
 if Text and Text:match('(.*)/delktm') and Addictive(data) then
 if tonumber(Text:match('(.*)/delktm')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Muted:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المكتومين في المجموعه")
-end
-end
-if Text and Text:match('(.*)/delnewamr') and Addictive(data) then
-if tonumber(Text:match('(.*)/delnewamr')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
-database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح الاوامر المضافه في المجموعه")
 end
 end
 
