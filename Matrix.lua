@@ -15698,9 +15698,9 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {{text = 'sᴏᴜʀᴄʀ ʙᴏʏᴋᴀ',url='http://t.me/BOBBW'}},
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..msg.chat_id_..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
+return false
 end
-
 end
 
 if Text and Text:match('(.*)/noS') then
