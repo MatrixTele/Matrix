@@ -506,11 +506,11 @@ keyboard.inline_keyboard = {
 },
 
 }
-elseif status == "listCmds" then
+elseif status == "listnewamr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد الاوامر المضافه : '..#listCmds, callback_data=user_id..""},
+{text = '⌔︙عدد الاوامر المضافه : '..#listnewamr, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح الاوامر المضافه', callback_data=user_id.."/delnewamr"},
@@ -7458,7 +7458,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
-t = "*⌔︙قائمه الاوامر المضافه  *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
+t = "⌔︙قائمه الاوامر المضافه  \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 Cmds = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 if Cmds then 
@@ -7471,7 +7471,7 @@ if #list == 0 then
 t = "⌔︙لا توجد اوامر اضافيه"
 return send(msg.chat_id_, msg.id_, t)
 end
-return SendMsg_Msgeeslist("listCmds",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
+return SendMsg_Msgeeslist("listnewamr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == "حذف الاوامر المضافه" or text == "مسح الاوامر المضافه" then
 if AddChannel(msg.sender_user_id_) == false then
