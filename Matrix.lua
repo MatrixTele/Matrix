@@ -506,11 +506,11 @@ keyboard.inline_keyboard = {
 },
 
 }
-elseif status == "listnewamr" then
+elseif status == "listCmds" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد الاوامر المضافه : '..#listnewamr, callback_data=user_id..""},
+{text = '⌔︙عدد الاوامر المضافه : '..#listCmds, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح الاوامر المضافه', callback_data=user_id.."/delnewamr"},
@@ -7471,7 +7471,7 @@ if #list == 0 then
 t = "⌔︙لا توجد اوامر اضافيه"
 return send(msg.chat_id_, msg.id_, t)
 end
-return SendMsg_Msgeeslist("listnewamr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
+return SendMsg_Msgeeslist("listCmds",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == "حذف الاوامر المضافه" or text == "مسح الاوامر المضافه" then
 if AddChannel(msg.sender_user_id_) == false then
