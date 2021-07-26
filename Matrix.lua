@@ -9090,6 +9090,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Kick:Me"..msg.chat_id_)  
+Text = "\n⌔︙تم تفعيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == "تعطيل اطردني" and Owner(msg) then  
