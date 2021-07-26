@@ -1042,6 +1042,15 @@ database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 return false  
 end
 end  
+function getbio(User)
+local var = "لايوجد"
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat?chat_id="..User)
+data = json:decode(url)
+if data.result.bio then
+var = data.result.bio
+end
+return var
+end
 function Matrix_Files(msg)
 for v in io.popen('ls Matrix_Files'):lines() do
 if v:match(".lua$") then
@@ -1162,7 +1171,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = text},Function_Matrix,{msg=
 return false
 end
 if text == "تغير المطور الاساسي" and  msg.sender_user_id_ == tonumber(Id_Sudo) then 
-local Text = "🚧 ⌔︙سوف يتم تغير المطور الاساسي\n❗️ ⌔︙هل  انت  متأكد من هذا التغير ؟"
+local Text = "⌔︙سوف يتم تغير المطور الاساسي\n⌔︙هل  انت  متأكد من هذا التغير ؟"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = 'نعم', callback_data=msg.sender_user_id_.."/yesS"},{text = 'كلا , الغاء', callback_data=msg.sender_user_id_.."/noS"}}}
 local msg_id = msg.id_/2097152/0.5
@@ -6928,6 +6937,9 @@ end
 send(msg.chat_id_, msg.id_,one_nu) 
 end,nil)
 end 
+if text == 'بايو' then   
+send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end 
 if text == 'ايديي' then   
 send(msg.chat_id_, msg.id_,'⌔︙ايديك > '..msg.sender_user_id_)
 end
@@ -9467,10 +9479,6 @@ return false
 end
 
 if text == "بوت" then
-if userid == tonumber(114518657) then
-send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
-return false 
-end
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
 return false
