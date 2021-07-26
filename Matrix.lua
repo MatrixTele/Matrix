@@ -9066,10 +9066,10 @@ end
 _key = {
 {{text="تأكيد الامر",callback_data="OkKikedMe"..msg.sender_user_id_},{text="الغاء الامر",callback_data="noKikedMe"..msg.sender_user_id_}},
 }
-send_inlin_key(msg.chat_id_," *✬︙قم بتأكيد العمليه الان*",_key,msg.id_)
+send_inlin_key(msg.chat_id_," *⌔︙قم بتأكيد العمليه الان*",_key,msg.id_)
 return false
 else
-send(msg.chat_id_, msg.id_,' *✬︙تم تعطيل امر اطردني*') 
+send(msg.chat_id_, msg.id_,' *⌔︙تم تعطيل امر اطردني*') 
 end
 end
 
@@ -15693,7 +15693,7 @@ end
 
 if Text and Text:match('(.*)/noKikedMe') then
 if tonumber(Text:match('(.*)/noKikedMe')) == tonumber(data.sender_user_id_) then
-local Text ="*✬ تم الغاء الطرد بنجاح .*"
+local Text ="*⌔ تم الغاء الطرد بنجاح .*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'sᴏᴜʀᴄʀ ʙᴏʏᴋᴀ',url='http://t.me/BOBBW'}},
