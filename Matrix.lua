@@ -408,6 +408,7 @@ local listbans = database:smembers(bot_id.."Matrix:GBan:User")
 local listban = database:smembers(bot_id.."Matrix:Ban:User"..chat_id)
 local listktm = database:smembers(bot_id.."Matrix:Muted:User"..chat_id)
 local listcleanerr = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
+local listCmdd = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
 if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -504,6 +505,17 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '⌔︙مسح المنظفين', callback_data=user_id.."/delcleanerr"},
+},
+
+}
+elseif status == "listCmdd" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔︙عدد الاوامر المضافه : '..#listCmdd, callback_data=user_id..""},
+},
+{
+{text = '⌔︙مسح الاوامر المضافه', callback_data=user_id.."/delCmdd"},
 },
 
 }
@@ -7470,8 +7482,9 @@ end
 end
 if #list == 0 then
 t = "⌔︙لا توجد اوامر اضافيه"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_,"["..t.."]")
+return SendMsg_Msgeeslist("listCmdd",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == "حذف الاوامر المضافه" or text == "مسح الاوامر المضافه" then
 if AddChannel(msg.sender_user_id_) == false then
@@ -13848,6 +13861,13 @@ end
 if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
 if tonumber(Text:match('(.*)/delcleanerr')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:MN:TF"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المنظفين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
+if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
+database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المنظفين في المجموعه")
 end
 end
