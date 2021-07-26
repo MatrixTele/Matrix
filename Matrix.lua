@@ -9058,9 +9058,9 @@ end,nil)
 end,nil)
 end 
 if text == 'اطردني' or text == 'طردني' then   
-if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-if Can_or_NotCan(msg.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, '\n *✬︙عذرا لا استطيع طرد ( '..Rutba(msg.sender_user_id_,msg.chat_id_)..' )*')
+if not database:get(bot_id.."Matrix:Kick:Me"..msg.chat_id_) then
+if Rank_Checking(msg.sender_user_id_, msg.chat_id_) == true then
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا استطيع طرد ( "..Get_Rank(msg.sender_user_id_,msg.chat_id_).." )")
 return false
 end
 _key = {
