@@ -407,6 +407,7 @@ local listvip = database:smembers(bot_id.."Matrix:Special:User"..chat_id)
 local listbans = database:smembers(bot_id.."Matrix:GBan:User")
 local listban = database:smembers(bot_id.."Matrix:Ban:User"..chat_id)
 local listktm = database:smembers(bot_id.."Matrix:Muted:User"..chat_id)
+local listcleanerr = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
 if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
