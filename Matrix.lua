@@ -13866,9 +13866,8 @@ end
 end
 if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
 if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المنظفين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح الاوامر المضافه في المجموعه")
 end
 end
 if Text and Text:match('(.*)/delktm') and Addictive(data) then
