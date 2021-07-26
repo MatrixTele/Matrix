@@ -1017,12 +1017,12 @@ if v.linkgroup then
 if v.linkgroup ~= "" then
 database:set(bot_id.."Matrix:Private:Group:Link"..idg,v.linkgroup)   
 end;end;end
-send(chat,msg.id_,"⌔︙تم رفع الملف بنجاح وتفعيل المجموعات\n⌔︙ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادمنيه} بنجاح")   
+send(chat,msg.id_,"*⌔︙تم رفع الملف بنجاح وتفعيل المجموعات*\n*⌔︙ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادمنيه} بنجاح*")   
 end
 
 function Is_Not_Spam(msg,type)
 if type == "kick" then 
-Reply_Status(msg,msg.sender_user_id_,"reply","⌔︙قام بالتكرار هنا وتم طرده")  
+Reply_Status(msg,msg.sender_user_id_,"reply","*⌔︙قام بالتكرار هنا وتم طرده*")  
 Kick_Group(msg.chat_id_,msg.sender_user_id_) 
 return false  
 end 
@@ -1033,24 +1033,15 @@ end
 if type == "keed" then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..msg.sender_user_id_.."") 
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_) 
-Reply_Status(msg,msg.sender_user_id_,"reply","⌔︙قام بالتكرار هنا وتم تقييده")  
+Reply_Status(msg,msg.sender_user_id_,"reply","*⌔︙قام بالتكرار هنا وتم تقييده*")  
 return false  
 end  
 if type == "mute" then
-Reply_Status(msg,msg.sender_user_id_,"reply","⌔︙قام بالتكرار هنا وتم كتمه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","*⌔︙قام بالتكرار هنا وتم كتمه*")  
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_) 
 return false  
 end
 end  
-function getbio(User)
-local var = "لايوجد"
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat?chat_id="..User)
-data = json:decode(url)
-if data.result.bio then
-var = data.result.bio
-end
-return var
-end
 function Matrix_Files(msg)
 for v in io.popen('ls Matrix_Files'):lines() do
 if v:match(".lua$") then
@@ -6937,9 +6928,6 @@ end
 send(msg.chat_id_, msg.id_,one_nu) 
 end,nil)
 end 
-if text == 'بايو' then   
-send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
-end 
 if text == 'ايديي' then   
 send(msg.chat_id_, msg.id_,'⌔︙ايديك > '..msg.sender_user_id_)
 end
@@ -12814,7 +12802,7 @@ Text = [[
  𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
- ⌔𝟎⌔  ⌔𝟏⌔  ⌔𝟐⌔  ⌔𝟑⌔  ⌔𝟒⌔  ⌔𝟓⌔   𝟔  𝟕   𝟖   𝟗
+ ⌔𝟎⌔  ⌔??⌔  ⌔𝟐⌔  ⌔𝟑⌔  ⌔𝟒⌔  ⌔𝟓⌔   𝟔  𝟕   𝟖   𝟗
 ０ １ ２ ３ ４ ５ ６ ７８９
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 *]]
