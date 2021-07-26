@@ -495,11 +495,11 @@ keyboard.inline_keyboard = {
 },
 
 }
-elseif status == "listcleaner" then
+elseif status == "listMN:TF" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المنظفين : '..#listcleaner, callback_data=user_id..""},
+{text = '⌔︙عدد المنظفين : '..#listMN:TF, callback_data=user_id..""},
 },
 {
 {text = '⌔︙مسح المنظفين', callback_data=user_id.."/delcleaner"},
@@ -7845,7 +7845,7 @@ if #list == 0 then
 t = "⌔︙لا يوجد منظفين"
 return send(msg.chat_id_, msg.id_, t)
 end
-return SendMsg_Msgeeslist("listcleaner",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
+return SendMsg_Msgeeslist("listMN:TF",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
