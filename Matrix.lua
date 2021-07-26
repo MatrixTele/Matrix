@@ -495,14 +495,14 @@ keyboard.inline_keyboard = {
 },
 
 }
-elseif status == "listMN:TF" then
+elseif status == "listcleanerr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙عدد المنظفين : '..#listMN:TF, callback_data=user_id..""},
+{text = '⌔︙عدد المنظفين : '..#listcleanerr, callback_data=user_id..""},
 },
 {
-{text = '⌔︙مسح المنظفين', callback_data=user_id.."/delcleaner"},
+{text = '⌔︙مسح المنظفين', callback_data=user_id.."/delcleanerr"},
 },
 
 }
@@ -3658,7 +3658,7 @@ return SendMsg_Msgeeslist("listadmin",msg.chat_id_,msg.sender_user_id_,msg.id_, 
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."Matrix:Special:User"..msg.chat_id_)
-t = "\n⌔︙قائمة مميزين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n*⌔︙قائمة مميزين المجموعه *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -7845,7 +7845,7 @@ if #list == 0 then
 t = "⌔︙لا يوجد منظفين"
 return send(msg.chat_id_, msg.id_, t)
 end
-return SendMsg_Msgeeslist("listMN:TF",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
+return SendMsg_Msgeeslist("listcleanerr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
@@ -13844,8 +13844,8 @@ database:del(bot_id.."Matrix:Ban:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المحظورين في المجموعه")
 end
 end
-if Text and Text:match('(.*)/delcleaner') and Addictive(data) then
-if tonumber(Text:match('(.*)/delcleaner')) == tonumber(data.sender_user_id_) then
+if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
+if tonumber(Text:match('(.*)/delcleanerr')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:MN:TF"..msg.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المنظفين في المجموعه")
 end
