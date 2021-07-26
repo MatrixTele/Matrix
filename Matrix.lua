@@ -9951,7 +9951,7 @@ end
 return false
 end  
 database:set(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_,true)   
-list ={"Lock:Bot:kick","Matrix:Lock:edit","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
+list ={"Lock:Bot:kick","Lock:edit","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
 database:set(bot_id..'Matrix:'..lock..msg.chat_id_,"del")    
 end
@@ -9975,7 +9975,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:tagservrbot"..msg.chat_id_)   
-list ={"Lock:Bot:kick","Matrix:Lock:edit","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
+list ={"Lock:Bot:kick","Lock:edit","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
 database:del(bot_id..'Matrix:'..lock..msg.chat_id_)    
 end
