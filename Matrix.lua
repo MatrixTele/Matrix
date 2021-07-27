@@ -3162,8 +3162,9 @@ end
 end
 if #list == 0 then
 t = "*⌔︙لا يوجد مطورين ثانويين*"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listDevvrr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("مسح الثانويين") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
@@ -12801,33 +12802,6 @@ echo '*------------------------------\n*⌔︙⊱ { مـده تـشغيـل ال
 ]]):read('*all')
 send(msg.chat_id_, msg.id_,ioserver)
 return false
-end
-if text =='⌔︙الثانويين .' and DevMatrix(msg) then
-local list = database:smembers(bot_id.."TSudo:User")
-t = "\n⌔︙قائمة مطورين الثانويين للبوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."User:Name" .. v)
-if username then
-t = t..""..k.."⌔︙([@"..username.."])\n"
-else
-t = t..""..k.."⌔︙(`"..v.."`)\n"
-end
-end
-if #list == 0 then
-t = "⌔︙لا يوجد مطورين ثانويين"
-return send(msg.chat_id_, msg.id_, t)
-end
-return SendMsg_Msgeeslist("listDevvrr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
-end
-if text =='⌔︙الثانويين .' and not DevBotsIs(msg) then
-send(msg.chat_id_, msg.id_,'⌔︙تسرسح .')
-end
-if text =='⌔︙مسح الثانويين .' and DevBotsIs(msg) then
-send(msg.chat_id_, msg.id_,'⌔︙تم بالفعل مسح قائمه المطورين الثانوي .')
-database:del(bot_id.."TSudo:User")
-end
-if text =='⌔︙مسح الثانويين .' and not DevBotsIs(msg) then
-send(msg.chat_id_, msg.id_,'⌔︙تسرسح .')
 end
 if text =='الاحصائيات ⌔' then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
