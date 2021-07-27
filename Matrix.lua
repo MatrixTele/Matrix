@@ -13521,10 +13521,22 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 end
 
+if Text and Text:match('(.*)/delDevv') and VIP_DeV(data) then
+if tonumber(Text:match('(.*)/delDevv')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:TSudo:User")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح قائمة C من البوت  ")
+end
+end
 if Text and Text:match('(.*)/delsudos') and VIP_DeV(data) then
 if tonumber(Text:match('(.*)/delsudos')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Sudo:User")
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح قائمة C من البوت  ")
+end
+end
+if Text and Text:match('(.*)/deldelcreatorr') and DevBot(data) then
+if tonumber(Text:match('(.*)/delcreatorr')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."creator"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المنشئين الاساسيين في المجموعه")
 end
 end
 if Text and Text:match('(.*)/delassaseen') and DevBot(data) then
@@ -13555,6 +13567,18 @@ if Text and Text:match('(.*)/delvips') and Addictive(data) then
 if tonumber(Text:match('(.*)/delvips')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Special:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المميزين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
+if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح الاوامر المضافه في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
+if tonumber(Text:match('(.*)/delcleanerr')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:MN:TF"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔︙تم مسح المنظفين في المجموعه")
 end
 end
 if Text and Text:match('(.*)/delbanall') and DevBot(data) then
