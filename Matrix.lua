@@ -7881,7 +7881,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⌔︙لا يوجد منظفين"
+t = "*⌔︙لا يوجد منظفين*"
 return send(msg.chat_id_, msg.id_, t)
 end
 return SendMsg_Msgeeslist("listcleanerr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
