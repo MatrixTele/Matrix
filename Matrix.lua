@@ -2968,7 +2968,7 @@ return false
 end 
 if text == "قفل الانلاين" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Inlen"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الانلاين")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم قفـل الانلاين"*)  
 return false
 end 
 if text == "قفل الانلاين بالتقيد" and Addictive(msg) then
