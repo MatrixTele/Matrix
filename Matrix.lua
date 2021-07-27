@@ -9968,21 +9968,6 @@ database:del(bot_id.."my_photo:status"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم تعطيل الصوره") 
 return false
 end
-if text == 'اطردني' or text == 'طردني' and GetChannelMember(msg) then   
-if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-if Can_or_NotCan(msg.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, '\n *⌔︙عذرا لا استطيع طرد ( '..Rutba(msg.sender_user_id_,msg.chat_id_)..' )*')
-return false
-end
-_key = {
-{{text="تأكيد الامر",callback_data="OkKikedMe"..msg.sender_user_id_},{text="الغاء الامر",callback_data="noKikedMe"..msg.sender_user_id_}},
-}
-send_inlin_key(msg.chat_id_," *⌔︙قم بتأكيد العمليه الان*",_key,msg.id_)
-return false
-else
-send(msg.chat_id_, msg.id_,' *⌔︙تم تعطيل امر اطردني*') 
-end
-end
 if text == "صورتي"  then
 local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
 if not my_ph then
@@ -12234,7 +12219,6 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-
 if text == 'م0' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
