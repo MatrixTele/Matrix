@@ -12249,7 +12249,7 @@ Text = [[*
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-elseif text == 'م1' and Addictive(msg) then  
+if text == 'م1' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12303,7 +12303,7 @@ Text = [[*
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-elseif text == 'م2' and Addictive(msg) then  
+if text == 'م2' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12360,7 +12360,7 @@ Text = [[*
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-elseif text == 'م3' and Owner(msg) then  
+if text == 'م3' and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12409,7 +12409,7 @@ Text = [[*
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-elseif text == 'م4 ' and Constructor(msg) then  
+if text == 'م4 ' and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12446,7 +12446,7 @@ Text = [[*
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-elseif text == 'م5' and DevBot(msg) then
+if text == 'م5' and DevBot(msg) then
 Text = [[*
 ⌔︙اوامر المطور الاساسي  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -12514,7 +12514,7 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'*⌔︙المجموعه مفعله سابقا *')
+send(msg.chat_id_, msg.id_,'⌔︙المجموعه مفعله سابقا ')
 else
 local Text = '⌔︙تم تفعيل البوت في المجموعة'
 keyboard = {} 
