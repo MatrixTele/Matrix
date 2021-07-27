@@ -9173,6 +9173,7 @@ database:del(bot_id.."Matrix:Kick:Me"..msg.chat_id_)
 Text = "\n⌔︙تم تفعيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
+
 if text == "تعطيل اطردني" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -9446,7 +9447,7 @@ end
 end
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_,"⌔︙حساب المنشئ محذوف")
+send(msg.chat_id_, msg.id_,"*⌔︙حساب المنشئ محذوف*")
 return false  
 end
 local UserName = (b.username_ or "Matrix_Source")
