@@ -3151,7 +3151,7 @@ return false
 end
 if text == ("الثانويين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
-t = "\n⌔︙قائمة مطورين الثانويين للبوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+t = "\n*⌔︙قائمة مطورين الثانويين للبوت *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
