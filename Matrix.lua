@@ -11136,9 +11136,13 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-download_to_file('https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua') 
---download_to_file('https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua') 
-send(msg.chat_id_, msg.id_, "🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات")
+send(msg.chat_id_,msg.id_,'*🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات*')
+os.execute('rm -rf Matrix.lua')
+os.execute('rm -rf start.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
+os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
+dofile('Matrix.lua')  
+return false
 end
 if text == "راسلني" then
 rpl = {"ها هلاو","انطق","كول"};
@@ -16147,7 +16151,7 @@ keyboard.inline_keyboard = {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '?? القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
