@@ -3194,7 +3194,7 @@ end
 if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
 if General_ban(result, result.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
@@ -3258,7 +3258,7 @@ end
 if text == ("كتم عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
 if General_ban(result, result.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
@@ -5523,7 +5523,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -5612,7 +5612,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -5674,7 +5674,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -5812,7 +5812,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 return false 
 end     
 if msg.can_be_deleted_ == false then 
@@ -5823,20 +5823,7 @@ database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم كتمه من هنا")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'المتحركه', callback_data=msg.sender_user_id_.."/delereplygif"},{text = 'الكلمات', callback_data=msg.sender_user_id_.."/delereplytext"},
-},
-{
-{text = 'الملصقات', callback_data=msg.sender_user_id_.."/delereplystickar"},{text = 'الصوت', callback_data=msg.sender_user_id_.."/delereplyogg"},
-},
-{
-{text = 'MP3', callback_data=msg.sender_user_id_.."/delereplymp3"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 if text and text:match("^كتم @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -5866,7 +5853,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end     
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -5904,7 +5891,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,"⌔︙البوت ليس ادمن يرجى ترقيتي !") 
@@ -6035,7 +6022,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم تقييده في المجموعه")  
@@ -6069,7 +6056,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 if Rank_Checking(result.id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end      
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
@@ -6100,7 +6087,7 @@ return false
 end
 local userid = text:match("^تقيد (%d+)$")
 if Rank_Checking(userid, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
 Reply_Status(msg,userid,"reply","⌔︙تم تقييده في المجموعه")  
@@ -6204,7 +6191,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -6247,7 +6234,7 @@ end
 function Function_Matrix(extra, result, success)
 if result.id_ then
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -6296,7 +6283,7 @@ send(msg.chat_id_, msg.id_,'⌔︙لقد تم تعطيل الحظر و الطر�
 return false
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع (طرد ⌔ حظر ⌔ كتم ⌔ تقييد) ← ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
