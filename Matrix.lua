@@ -11139,6 +11139,7 @@ if text == ("تحديث السورس") and DevMatrix(msg) then
 download_to_file('https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua') 
 --download_to_file('https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua') 
 send(msg.chat_id_, msg.id_, "🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات")
+end
 if text == "راسلني" then
 rpl = {"ها هلاو","انطق","كول"};
 sender = rpl[math.random(#rpl)]
