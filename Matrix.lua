@@ -8588,7 +8588,7 @@ end
 return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,Matrixteam)
-local t = "\n 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗹𝗶𝘀𝘁 \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+local t = ""
 x = 0
 local list = Matrixteam.members_
 for k, v in pairs(list) do
