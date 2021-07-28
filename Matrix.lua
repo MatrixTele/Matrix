@@ -11851,7 +11851,7 @@ end
 
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "*⌔︙تم التحديث*")
+send(msg.chat_id_, msg.id_, "*🔂┇تم تحديث ملفات البوت*")
 end
 
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
@@ -16151,7 +16151,7 @@ keyboard.inline_keyboard = {
 {text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '?? القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
