@@ -5527,11 +5527,11 @@ send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ ك�
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"⌔︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"*⌔︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"⌔︙البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"*⌔︙البوت ليس ادمن يرجى ترقيتي !*") 
 return false  
 end
 database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, result.sender_user_id_)
@@ -11236,7 +11236,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'*⌔︙تم التحديث*')
+send(msg.chat_id_,msg.id_,'*🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
@@ -11951,7 +11951,7 @@ end
 
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "*⌔︙تم التحديث*")
+send(msg.chat_id_, msg.id_, "*🔂┇تم تحديث ملفات البوت*")
 end
 
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
@@ -13350,21 +13350,21 @@ if Text and Text:match('(.*)/unktm(.*)') then
 local Userid = {Text:match('(.*)/unktm(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
 database:srem(bot_id.."Matrix:Muted:User"..data.chat_id_, Userid[2])
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم الغاء الكتم عنه')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الكتم عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
 if Text and Text:match('(.*)/unban(.*)') then
 local Userid = {Text:match('(.*)/unban(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
 database:srem(bot_id.."Matrix:Ban:User"..data.chat_id_, Userid[2])
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم الغاء الحظر عنه')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الحظر عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
 if Text and Text:match('(.*)/unkkid(.*)') then
 local Userid = {Text:match('(.*)/unkkid(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. Userid[2] .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم الغاء التقييد عنه')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء التقييد عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
 
