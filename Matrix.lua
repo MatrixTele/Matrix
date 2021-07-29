@@ -9383,37 +9383,19 @@ database:set(bot_id.."Matrix:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "⌔︙تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس") then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
+elseif text == (redis:get(bot_id.."Matrix:Redis:Name:Bot") or "ماتركس") then
 local namebot = {
 "عمر "..(redis:get(bot_id.."Matrix:Redis:Name:Bot") or "ماتركس").. " شتريد؟",
 "أჂ̤ أჂ̤ هياتني اني",
 "موجود بس لتصيح",
-"لتــلح دا احجي ويه بنات سكر بعدين اجاوبك",
+"لتــلح دا احجي ويه بنات ماتركس بعدين اجاوبك",
 "راح نموت بكورونا ونته بعدك تصيح "..(redis:get(bot_id.."Matrix:Redis:Name:Bot") or "ماتركس"),
 'يمعود والله نعسان'
 }
 name = math.random(#namebot)
 send(msg.chat_id_, msg.id_, namebot[name]) 
-return false 
-end
-
-if text == "بوت" then
+elseif text == "بوت" then
+print('&&&')
 local BotName = {
 "باوع لك خليني احبك وصيحلي باسمي "..(redis:get(bot_id.."Matrix:Redis:Name:Bot") or "ماتركس").. "",
 "لتخليني ارجع لحركاتي لقديمه وردا ترا اسمي "..(redis:get(bot_id.."Matrix:Redis:Name:Bot") or "ماتركس").. "",
@@ -16249,7 +16231,7 @@ if DAata and DAata:match("^delallSticker(.*)$") and Addictive(data) then
 local delallSticker = DAata:match("^delallSticker(.*)$")
 local Text ="⌔︙تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '⌔︙Matrix 𝖲??𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
+{{text = '⌔︙Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16652,7 +16634,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","?? 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","?? 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","?? 6","🤯 0",};
 sendnnk = numj[math.random(#numj)]
 local Text = '⌔︙اليك النتائج الخـاصة :\n\n⌔︙نسبة الغباء لـ : *'..text..'*'
 keyboard = {} 
