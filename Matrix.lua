@@ -2226,21 +2226,11 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 
 return false
-end 
+end
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"del")  
-local keyboard = {}
-keyboard.inline_keyboard = {
-{
-{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unlock_link'..result.sender_user_id_}
-}
-}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔︙تم قفل الروابط*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end,nil)   
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
+Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الروابط")  
 return false
-end
+end 
 if text == "قفل الروابط بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ked")  
 Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔︙تم قفـل الروابط")  
@@ -8697,7 +8687,7 @@ end
 
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,Matrixteam)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 500},function(ta,Matrixteam)
 local t = ""
 x = 0
 local list = Matrixteam.members_
