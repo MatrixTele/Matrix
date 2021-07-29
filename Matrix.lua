@@ -9355,23 +9355,13 @@ end,nil)
 end,nil)   
 end
 
-if text == 'الكروبات' then
-if Sudo(msg) then 
+if text =='الكروبات' and DevBot(msg) then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
+send(msg.chat_id_, msg.id_,'⌔︙احصائيات البوت \n\n⌔︙عدد المجموعات *~ '..Groups..'*')
+end
+if text =='المشتركين' and DevBot(msg) then
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
-Text = ' *✬︙عدد الكروبات »* {`'..Groups..'`}'
-send(msg.chat_id_, msg.id_,Text) 
-end
-return false
-end
-if text == 'المشتركين' then
-if Sudo(msg) then 
-local Groups = database:scard(bot_id..'Matrix:Chek:Groups')
-local Users = database:scard(bot_id..'Matrix:UsersBot')  
-Text = ' *✬︙عدد المشتركين »* {`'..Users..'`}'
-send(msg.chat_id_, msg.id_,Text) 
-end
-return false
+send(msg.chat_id_, msg.id_,'⌔︙احصائيات البوت \n\n⌔︙عدد المشتركين ~ '..Users..'*')
 end
 if text == "غادر" then 
 if DevBot(msg) and not database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
