@@ -2229,8 +2229,13 @@ return false
 end
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الروابط")  
-return false
-end 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر', callback_data="/unlock_link"},
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 if text == "قفل الروابط بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ked")  
 Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔︙تم قفـل الروابط")  
@@ -6829,34 +6834,6 @@ end
 send(msg.chat_id_, msg.id_,one_nu) 
 end,nil)
 end 
-if text == 'الرتبه' and tonumber(msg.reply_to_message_id_) > 0 then
-function start_function(extra, result, success)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(extra,data) 
-local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
-local username = ' ['..data.first_name_..'](t.me/'..(data.username_ or 'pvv_v')..')'
-local iduser = result.sender_user_id_
-send(msg.chat_id_, msg.id_,'*✬︙اسم المستخدم » (*'..username..'*)\n✬︙الرتبه » ('..rtp..')*\n')
-end,nil)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-end
----------
-if text and text:match("^الرتبه @(.*)$") then
-local username = text:match("^الرتبه @(.*)$")
-function start_function(extra, result, success)
-if result.id_ then
-tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(extra,data) 
-local rtp = Rutba(result.id_,msg.chat_id_)
-local username = ('[@'..data.username_..']' or 'لا يوجد')
-local iduser = result.id_
-send(msg.chat_id_, msg.id_,'*✬︙اسم المستخدم » (*'..username..'*)\n✬︙الرتبه » ('..rtp..')*\n')
-end,nil)
-else
-send(msg.chat_id_, msg.id_,'*- المعرف غير صحيح* ')
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
-end
 if text == 'ايديي' then   
 send(msg.chat_id_, msg.id_,'⌔︙ايديك > '..msg.sender_user_id_)
 end
@@ -9028,10 +9005,10 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
 local Matrixteam = "⌔︙عدد الادمنيه : "..data.administrator_count_..
-"\n\n⌔︙عدد المطرودين : "..data.kicked_count_..
-"\n\n⌔︙عدد الاعضاء : "..data.member_count_..
-"\n\n⌔︙عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
-"\n\n⌔︙اسم المجموعه : ["..ta.title_.."]"
+"\n⌔︙عدد المطرودين : "..data.kicked_count_..
+"\n⌔︙عدد الاعضاء : "..data.member_count_..
+"\n⌔︙عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
+"\n⌔︙اسم المجموعه : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, Matrixteam) 
 end,nil)
 end,nil)
