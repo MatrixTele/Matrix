@@ -5546,7 +5546,7 @@ keyboard.inline_keyboard = {
 }
 }   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔︙تم حظره من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔︙تم حظره من المجموعه*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)   
 end,nil)   
 end
@@ -5863,7 +5863,7 @@ keyboard.inline_keyboard = {
 }
 }   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔︙تم كتمه من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔︙تم كتمه من المجموعه*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
@@ -5986,7 +5986,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم الغاء كتمه من هنا*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -5996,9 +5996,9 @@ local username = text:match("^الغاء كتم @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم الغاء كتمه من هن*ا")  
 else
-send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⌔︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
@@ -6023,7 +6023,7 @@ return false
 end
 local userid = text:match("^الغاء كتم (%d+)$") 
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم الغاء كتمه من هنا")  
+Reply_Status(msg,userid,"reply","*⌔︙تم الغاء كتمه من هنا*")  
 return false
 end
 if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -6303,7 +6303,7 @@ send(msg.chat_id_, msg.id_,"⌔︙البوت ليس ادمن يرجى ترقيت
 return false  
 end
 Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم طرده من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم طرده من هنا*")  
 end,nil)
 end
 end
