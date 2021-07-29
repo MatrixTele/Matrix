@@ -9355,6 +9355,24 @@ end,nil)
 end,nil)   
 end
 
+if text == 'الكروبات' then
+if Sudo(msg) then 
+local Groups = database:scard(bot_id..'Chek:Groups')  
+local Users = database:scard(bot_id..'User_Bot')  
+Text = ' *✬︙عدد الكروبات »* {`'..Groups..'`}'
+send(msg.chat_id_, msg.id_,Text) 
+end
+return false
+end
+if text == 'المشتركين' then
+if Sudo(msg) then 
+local Groups = database:scard(bot_id..'Chek:Groups')  
+local Users = database:scard(bot_id..'User_Bot')  
+Text = ' *✬︙عدد المشتركين »* {`'..Users..'`}'
+send(msg.chat_id_, msg.id_,Text) 
+end
+return false
+end
 if text == "غادر" then 
 if DevBot(msg) and not database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
@@ -9418,9 +9436,8 @@ return false
 end
 
 if text == "بوت" then
-local NameBot = {
-"باوع لك خليني احبك وصيحلي باسمي "..(database:get(bot_id.."Matrix:Name:Bot") or "ماتركس").. "",
-send(msg.chat_id_, msg.id_,BotName[BotNameText]) 
+Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
+send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
 return false
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
