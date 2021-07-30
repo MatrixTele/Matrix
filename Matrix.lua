@@ -9420,7 +9420,7 @@ end
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 local texting = {
-'اسمي  ["..Namebot.."] يا قلبي 🤤💚',
+"راح نموت بكورونا ونته بعدك تصيح بوت"
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
