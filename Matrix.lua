@@ -1008,10 +1008,10 @@ end
 function Addvoi(msg,chat,vi,ty)
 local eq = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..vi)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..eq.result.file_path,ty) 
-sendVoice(msg.chat_id_, msg.id_,'./'..ty,"تم تحويل ال a الى بصمه")
+sendVoice(msg.chat_id_, msg.id_,'./'..ty,"تم تحويل ال mp3 الى بصمه")
 os.execute('rm -rf ./'..ty) 
 end
-function Adda(msg,chat,kkl,ffrr)
+function Addmp3(msg,chat,kkl,ffrr)
 local eer = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..kkl)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..eer.result.file_path,ffrr) 
 sendAudio(msg.chat_id_,msg.id_,'./'..ffrr)  
@@ -8098,9 +8098,9 @@ if text and text:match("^انطق (.*)$") and not database:get(bot_id..'Rio:Antk
 local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(text:match("^انطق (.*)$")))
 Antk = JSON.decode(UrlAntk)
 if UrlAntk.ok ~= false then
-download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.a') 
-sendAudio(msg.chat_id_,msg.id_,'./'..Antk.result.translate..'.a')  
-os.execute('rm -rf ./'..Antk.result.translate..'.a')
+download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.mp3') 
+sendAudio(msg.chat_id_,msg.id_,'./'..Antk.result.translate..'.mp3')  
+os.execute('rm -rf ./'..Antk.result.translate..'.mp3')
 
 end
 end
@@ -8119,10 +8119,10 @@ keyboard.inline_keyboard = {
 {text = 'المتحركه', callback_data=msg.sender_user_id_.."/delereplygif"},{text = 'الكلمات', callback_data=msg.sender_user_id_.."/delereplytext"},
 },
 {
-{text = 'الملصقات', callback_data=msg.sender_user_id_.."/delereplystickar"},{text = 'الصوت', callback_data=msg.sender_user_id_.."/delereplyakt"},
+{text = 'الملصقات', callback_data=msg.sender_user_id_.."/delereplystickar"},{text = 'الصوت', callback_data=msg.sender_user_id_.."/delereplyogg"},
 },
 {
-{text = 'a', callback_data=msg.sender_user_id_.."/delereplya"},
+{text = 'MP3', callback_data=msg.sender_user_id_.."/delereplymp3"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11620,7 +11620,7 @@ end
 if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^بحث (.*)$') 
 local msgin = msg.id_/2097152/0.5 
-https.request('https://evzxar.ml/YouTube.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin..'&user='..msg.sender_user_id_)
+https.request('https://devstorm.ml/IZlZ7I/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin..'&user='..msg.sender_user_id_)
 end
 if text == 'تفعيل اليوتيوب' and Owner(msg) then   
 if not database:get(bot_id..'dw:bot:api'..msg.chat_id_)  then
@@ -11698,7 +11698,7 @@ if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.voice_ then 
 local mr = result.content_.voice_.voice_.persistent_id_ 
-Adda(msg,msg.chat_id_,mr,msg.sender_user_id_..'.a')
+Addmp3(msg,msg.chat_id_,mr,msg.sender_user_id_..'.mp3')
 end   
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -11709,7 +11709,7 @@ if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.audio_ then 
 local mr = result.content_.audio_.audio_.persistent_id_
-Addvoi(msg,msg.chat_id_,mr,msg.sender_user_id_..'.akt')
+Addvoi(msg,msg.chat_id_,mr,msg.sender_user_id_..'.ogg')
 end   
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -13567,8 +13567,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود النصيه')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
-if Text and Text:match('(.*)/del1a') then
-if tonumber(Text:match('(.*)/del1a')) == tonumber(data.sender_user_id_) then
+if Text and Text:match('(.*)/del1mp3') then
+if tonumber(Text:match('(.*)/del1mp3')) == tonumber(data.sender_user_id_) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..data.chat_id_)
 for k,v in pairs(list) do
 if database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..data.chat_id_) then
@@ -13582,11 +13582,11 @@ keyboard.inline_keyboard = {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود a')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود Mp3')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
-if Text and Text:match('(.*)/del1akt') then
-if tonumber(Text:match('(.*)/del1akt')) == tonumber(data.sender_user_id_) then
+if Text and Text:match('(.*)/del1ogg') then
+if tonumber(Text:match('(.*)/del1ogg')) == tonumber(data.sender_user_id_) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..data.chat_id_)
 for k,v in pairs(list) do
 if database:get(bot_id.."Matrix:Add:Rd:Manager:Vico"..v..data.chat_id_) then
@@ -13617,10 +13617,10 @@ keyboard.inline_keyboard = {
 {text = 'المتحركه', callback_data=data.sender_user_id_.."/delereplygif"},{text = 'النصيه', callback_data=data.sender_user_id_.."/delereplytext"},
 },
 {
-{text = 'الملصقات', callback_data=data.sender_user_id_.."/delereplystickar"},{text = 'الصوتيات', callback_data=data.sender_user_id_.."/delereplyakt"},
+{text = 'الملصقات', callback_data=data.sender_user_id_.."/delereplystickar"},{text = 'الصوتيات', callback_data=data.sender_user_id_.."/delereplyogg"},
 },
 {
-{text = 'ال a', callback_data=data.sender_user_id_.."/delereplya"},
+{text = 'ال mp3', callback_data=data.sender_user_id_.."/delereplymp3"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(texte)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -13707,8 +13707,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
-if Text and Text:match('(.*)/delereplyakt') then
-if tonumber(Text:match('(.*)/delereplyakt')) == tonumber(data.sender_user_id_) then
+if Text and Text:match('(.*)/delereplyogg') then
+if tonumber(Text:match('(.*)/delereplyogg')) == tonumber(data.sender_user_id_) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..data.chat_id_)
 if #list == 0 then
 text = "⌔︙لا يوجد ردود للمدير"
@@ -13725,7 +13725,7 @@ end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'مسح ردود البصمات', callback_data=data.sender_user_id_.."/del1akt"},
+{text = 'مسح ردود البصمات', callback_data=data.sender_user_id_.."/del1ogg"},
 },
 {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
@@ -13734,8 +13734,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
-if Text and Text:match('(.*)/delereplya') then
-if tonumber(Text:match('(.*)/delereplya')) == tonumber(data.sender_user_id_) then
+if Text and Text:match('(.*)/delereplymp3') then
+if tonumber(Text:match('(.*)/delereplymp3')) == tonumber(data.sender_user_id_) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..data.chat_id_)
 if #list == 0 then
 text = "⌔︙لا يوجد ردود للمدير"
@@ -13746,13 +13746,13 @@ for k,v in pairs(list) do
 if database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..data.chat_id_) then
 text = text..""..k.." - "..v.." \n"
 else
-text = text.."⌔︙لا يوجد ردود a"
+text = text.."⌔︙لا يوجد ردود Mp3"
 end
 end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'مسح ردود الa', callback_data=data.sender_user_id_.."/del1a"},
+{text = 'مسح ردود الMp3', callback_data=data.sender_user_id_.."/del1mp3"},
 },
 {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
@@ -13849,26 +13849,26 @@ local textt = '- من فضلك اختر نوع التنزيل'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'تنزيل ملف 🔊', callback_data="/a"..Id_Link[2]},{text = 'تنزيل بصمه 🎙️', callback_data="akt/"..Id_Link[2]},
+{text = 'تنزيل ملف 🔊', callback_data="mp3/"..Id_Link[2]},{text = 'تنزيل بصمه 🎙️', callback_data="ogg/"..Id_Link[2]},
 },
 {
-{text = 'تنزيل فيديو 🎼', callback_data="/v"..Id_Link[2]},
+{text = 'تنزيل فيديو 🎼', callback_data="mp4/"..Id_Link[2]},
 },
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..Chat_id..'&photo='..'https://youtu.be/'..Id_Link[2]..'&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('a/(.*)') then
-local Id_Link = Text:match('a/(.*)') 
+elseif Text and Text:match('mp3/(.*)') then
+local Id_Link = Text:match('mp3/(.*)') 
 DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
-https.request('https://dddggfg.ml/T/Y.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=a&msg=0')
-elseif Text and Text:match('akt/(.*)') then
-local Id_Link = Text:match('akt/(.*)') 
+https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp3&msg=0')
+elseif Text and Text:match('ogg/(.*)') then
+local Id_Link = Text:match('ogg/(.*)') 
 DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
-https.request('https://dddggfg.ml/T/Y.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=akt&msg=0')
-elseif Text and Text:match('v/(.*)') then
-local Id_Link = Text:match('v/(.*)') 
+https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=ogg&msg=0')
+elseif Text and Text:match('mp4/(.*)') then
+local Id_Link = Text:match('mp4/(.*)') 
 DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
-https.request('https://dddggfg.ml/T/Y.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=v&msg=0')
+https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
 end
 
 
