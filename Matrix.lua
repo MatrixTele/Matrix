@@ -11253,12 +11253,6 @@ os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/star
 dofile('Matrix.lua')  
 return false
 end
-if text == "راسلني" then
-rpl = {"ها هلاو","انطق","كول"};
-sender = rpl[math.random(#rpl)]
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
-end
 if text == ("رفع مشرف") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
 function Function_Matrix(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_invite_users=True")
@@ -11553,6 +11547,12 @@ local Textbrj = text:match("^برج (.*)$")
 gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_, br.ok.hso)
+end
+if text == "راسلني" or text =="خاص" or text =="خا"or text =="خ" or text =="خاصك" then
+rpl = {"نعم ﺣحب 💓"," ﮪݪـﯛ عمري تفضل💕","ها حبب كول؟ ","زحفتلك كول شتريد 😂🙂","هها موكلت 💓🥺","راسلتك 👋🏼😂"};
+sender = rpl[math.random(#rpl)]
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
 end
 if text == "تعطيل حساب العمر" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل حساب العمر')
