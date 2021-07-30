@@ -16652,7 +16652,7 @@ local texting = {"مووووووووواححح????","مابوس ولي😌😹",
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
-if text == "صراحه" or text == "الصراحه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if text == "صراحه" or text == "الصراحه" then
 if not database:get(bot_id..'Cick:rkko'..msg.chat_id_) then
 local LEADER_Msg = {
 "صراحه  |  صوتك حلوة؟",
@@ -16714,7 +16714,7 @@ local LEADER_Msg = {
 "‏صراحه  |  ما هو عمرك الحقيقي؟",
 "‏صراحه  |  ما اكثر شي ندمن عليه؟",
 "صراحه  |  ما هي أمنياتك المُستقبلية؟‏",
-"صراحه  | هل قبلت فتاه؟"
+"صراحه  | هل قبلت فتاه؟",
 }
 send(msg.chat_id_, msg.id_,'['..LEADER_Msg[math.random(#LEADER_Msg)]..']') 
 return false
