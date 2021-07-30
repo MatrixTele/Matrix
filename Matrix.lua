@@ -16652,9 +16652,19 @@ local texting = {"مووووووووواححح????","مابوس ولي😌😹",
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
+if text == "تفعيل الصراحه" and Owner(msg) then
+local t = ' \n⌔︙تم تفعيل كت'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'lock:ssrr'..msg.chat_id_) 
+end
+if text == "تعطيل الصراحه" and Owner(msg) then
+local t = '  \n⌔︙تم تعطيل كت'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'lock:ssrr'..msg.chat_id_,true)  
+end
 if text == "صراحه" or text == "الصراحه" then
 if not database:get(bot_id..'lock:ssrr'..msg.chat_id_) then
-local LEADER_Msg = {
+local SRAHA_Msg = {
 "صراحه  |  صوتك حلوة؟",
 "صراحه  |  التقيت الناس مع وجوهين؟",
 "صراحه  |  شيء وكنت تحقق اللسان؟",
@@ -16716,18 +16726,8 @@ local LEADER_Msg = {
 "صراحه  |  ما هي أمنياتك المُستقبلية؟‏",
 "صراحه  | هل قبلت فتاه؟",
 }
-send(msg.chat_id_, msg.id_,'['..LEADER_Msg[math.random(#LEADER_Msg)]..']') 
+send(msg.chat_id_, msg.id_,'['..SRAHA_Msg[math.random(#SRAHA_Msg)]..']') 
 return false
-end
-if text == "تفعيل الصراحه" and Owner(msg) then
-local t = ' \n⌔︙تم تفعيل كت'
-send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'lock:ssrr'..msg.chat_id_) 
-end
-if text == "تعطيل الصراحه" and Owner(msg) then
-local t = '  \n⌔︙تم تعطيل كت'
-send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'lock:ssrr'..msg.chat_id_,true)  
 end
 if text == "تفعيل كت" and Owner(msg) then
 local t = ' \n⌔︙تم تفعيل كت'
