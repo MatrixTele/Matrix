@@ -16545,7 +16545,7 @@ local t = '  \n⌔︙تم تعطيل الصراحه'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'lock:sraha'..msg.chat_id_,true)  
 end
-if text == "صراحه" or text == "الصراحه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if text == "صراحه" or text == "الصراحه" then
 if not database:get(bot_id..'lock:sraha'..msg.chat_id_) then
 local texting = {
 "صراحه  |  صوتك حلوة؟",
