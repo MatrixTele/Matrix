@@ -16956,7 +16956,6 @@ database:del(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_)
 end
 if text == "صراحه" or text == "الصراحه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:rkko'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":rkko_Bots"..msg.chat_id_,"sendrkkoe")
 local LEADER_Msg = {
 "صراحه  |  صوتك حلوة؟",
 "صراحه  |  التقيت الناس مع وجوهين؟",
@@ -17022,13 +17021,15 @@ local LEADER_Msg = {
 send(msg.chat_id_, msg.id_,'['..LEADER_Msg[math.random(#LEADER_Msg)]..']') 
 return false
 end
+if text == "تفعيل الصراحه" and Owner(msg) then
+local t = ' \n⌔︙تم تفعيل كت'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Cick:rkko'..msg.chat_id_) 
 end
-if text and text ~="صراحه" and database:get(bot_id..":"..msg.sender_user_id_..":rkko_Bots"..msg.chat_id_) == "sendrkkoe" then
-numj = {"اي الكدب دا 😒","فعلا بتتكلم صح🤗","يجدع قول كلام غير دا😹","حصل اوماال😹💔","طب عيني ف عينك كدا 👀","انت صح🙂♥",};
-sendnuj = numj[math.random(#numj)]
-xl = ' ※ '..text..' ★ \n '..sendnuj..'.'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":rkko_Bots"..msg.chat_id_)
+if text == "تعطيل الصراحه" and Owner(msg) then
+local t = '  \n⌔︙تم تعطيل كت'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Cick:rkko'..msg.chat_id_,true)  
 end
 ------------------------------------------------------------------------
 Matrix_Started_Bot(msg,data)
