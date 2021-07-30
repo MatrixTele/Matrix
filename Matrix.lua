@@ -9424,7 +9424,6 @@ name = math.random(#namebot)
 send(msg.chat_id_, msg.id_, namebot[name]) 
 return false 
 end
-
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
@@ -16653,6 +16652,11 @@ local texting = {"مووووووووواححح????","مابوس ولي😌😹",
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
+if text == "تفعيل الصراحه" and Owner(msg) then
+local t = ' \n⌔︙تم تفعيل كت'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'lock:ssrr'..msg.chat_id_) 
+end
 if text == "تفعيل كت" and Owner(msg) then
 local t = ' \n⌔︙تم تفعيل كت'
 send(msg.chat_id_, msg.id_,t)
@@ -16665,7 +16669,7 @@ database:set(bot_id..'lock:kktt'..msg.chat_id_,true)
 end
 if text == "تويت" or text == "كت تويت" or text == "كت" then 
 if not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
-local TWEET_Msg = { 
+local texting = {
 "اخر افلام شاهدتها", 
 "ما هي وظفتك الحياه", 
 "اعز اصدقائك ?", 
@@ -16763,8 +16767,8 @@ local TWEET_Msg = {
 "اشياء تفتخر انك م سويتها ؟ ", 
 " لو بكيفي كان ؟ ", 
 } 
-send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
-return false 
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+return false
 end
 if text == "نسبة الحب" or text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
