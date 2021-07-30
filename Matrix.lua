@@ -16653,7 +16653,7 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 if text == "صراحه" or text == "الصراحه" then
-if not database:get(bot_id..'Cick:rkko'..msg.chat_id_) then
+if not database:get(bot_id..'lock:ssrr'..msg.chat_id_) then
 local LEADER_Msg = {
 "صراحه  |  صوتك حلوة؟",
 "صراحه  |  التقيت الناس مع وجوهين؟",
@@ -16722,12 +16722,12 @@ end
 if text == "تفعيل الصراحه" and Owner(msg) then
 local t = ' \n⌔︙تم تفعيل كت'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Cick:rkko'..msg.chat_id_) 
+database:del(bot_id..'lock:ssrr'..msg.chat_id_) 
 end
 if text == "تعطيل الصراحه" and Owner(msg) then
 local t = '  \n⌔︙تم تعطيل كت'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Cick:rkko'..msg.chat_id_,true)  
+database:set(bot_id..'lock:ssrr'..msg.chat_id_,true)  
 end
 if text == "تفعيل كت" and Owner(msg) then
 local t = ' \n⌔︙تم تفعيل كت'
