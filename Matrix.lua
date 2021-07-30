@@ -8687,7 +8687,7 @@ end
 
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 500},function(ta,Matrixteam)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,Matrixteam)
 local t = ""
 x = 0
 local list = Matrixteam.members_
@@ -9000,10 +9000,10 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
 local Matrixteam = "⌔︙عدد الادمنيه : "..data.administrator_count_..
-"\n⌔︙عدد المطرودين : "..data.kicked_count_..
-"\n⌔︙عدد الاعضاء : "..data.member_count_..
-"\n⌔︙عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
-"\n⌔︙اسم المجموعه : ["..ta.title_.."]"
+"\n\n⌔︙عدد المطرودين : "..data.kicked_count_..
+"\n\n⌔︙عدد الاعضاء : "..data.member_count_..
+"\n\n⌔︙عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
+"\n\n⌔︙اسم المجموعه : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, Matrixteam) 
 end,nil)
 end,nil)
@@ -9355,14 +9355,6 @@ end,nil)
 end,nil)   
 end
 
-if text =='الكروبات' and DevBot(msg) then
-local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
-send(msg.chat_id_, msg.id_,'*⌔︙مجموعات البوت*\n\n⌔︙عدد المجموعات *~ '..Groups..'*')
-end
-if text =='المشتركين' and DevBot(msg) then
-local Users = database:scard(bot_id..'Matrix:UsersBot')  
-send(msg.chat_id_, msg.id_,'*⌔︙مشتركين البوت*\n\n⌔︙عدد المشتركين *~ '..Users..'*')
-end
 if text == "غادر" then 
 if DevBot(msg) and not database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
@@ -9424,7 +9416,12 @@ name = math.random(#namebot)
 send(msg.chat_id_, msg.id_, namebot[name]) 
 return false 
 end
+
 if text == "بوت" then
+if userid == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
 return false
@@ -10205,19 +10202,12 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sende
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
- " اروح فـدوه للـحلوين",
-" حلوة حبيبي معليك بالمضغوطين",
-" جهرتك منورة ",
-" هاي شكد حلو انتة",
-"ااصلا حسوني احلا",
-"ااصلا حسوني احلا",
-" فديت الصاك محح",
-" فـدشـي عمـي",
-" دغـيرهـا شبـي هـاذ",
-" شهل الگيمر ",
-" شهل الصوره تخمبش ",
-" فديت الحلو ",
-" بـبكن حـلك ",
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب 💘",
+"بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_) or database:get(bot_id.."Matrix:KleshIDALLBOT")
@@ -11579,7 +11569,7 @@ database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
 if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
+data,res = https.request('https://Matrix-source.tk/MatrixTeAM/infoInstagram.php?username='..URL.escape(Textni)..'')
 if res == 200 then
 muaed = json:decode(data)
 if muaed.Info == true then
@@ -12661,7 +12651,6 @@ local keyboard = {
 {'تغير اسم البوت ⌔','الاحصائيات ⌔'},
 {'تعطيل التواصل ⌔','تفعيل التواصل ⌔'},
 {'مسح قائمه العام ⌔','قائمة العام ⌔','مسح المطورين ⌔'},
-{'الثانويين ⌔','مسح الثانويين ⌔'},
 {'تنظيف الكروبات ⌔','تنظيف المشتركين ⌔'},
 {'كيبورد اوامر الاذاعة ⌔'},
 {'تفعيل البوت الخدمي ⌔','تعطيل البوت الخدمي ⌔'},
@@ -12669,8 +12658,7 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ⌔'},
 {'تحديث السورس ⌔','تحديث ⌔'},
 {'لاصدار ⌔','معلومات السيرفر ⌔'},
-{'نسخه احتياطيه ⌔','رفع نسخه احتياطيه ⌔'},
-{'تفعيل النسخه التلقائيه ⌔','تعطيل النسخه التلقائيه ⌔'},
+{'جلب نسخه احتياطيه ⌔'},
 {'اعادة التشغيل ⌔'},
 {'الغاء ⌔'}
 }
@@ -12899,16 +12887,6 @@ if text == 'تعطيل التواصل ⌔' then
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'⌔︙ تم تعطيل التواصل ') 
 end
-if text == 'تفعيل النسخه التلقائيه ⌔' then
-database:del(bot_id.."AutoFile")
-send(msg.chat_id_, msg.id_,"⌔︙تم تفعيل النسخه الاحتياطيه التلقائيه .") 
-return false
-end
-if text == "تعطيل النسخه التلقائيه ⌔" then  
-database:set(bot_id.."AutoFile",true) 
-send(msg.chat_id_, msg.id_,"⌔︙تم تعطيل النسخه الاحتياطيه التلقائيه .") 
-return false  
-end
 if text == 'معلومات السيرفر ⌔' then
 ioserver =  io.popen([[
 linux_version=`lsb_release -ds`
@@ -12926,93 +12904,6 @@ echo '*------------------------------\n*⌔︙⊱ { مـده تـشغيـل ال
 ]]):read('*all')
 send(msg.chat_id_, msg.id_,ioserver)
 return false
-end
-if text and not database:get(bot_id.."AutoFile") then
-Time = database:get(bot_id.."AutoFile:Time")
-if Time then 
-if Time ~= os.date("%x") then  
-local list = database:smembers(bot_id..'Chek:Groups')  
-local memo = database:smembers(bot_id..'UsersBot')  
-local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
-for k,v in pairs(list) do      
-NAME = 'Matrix Chat'
-ASAS = database:smembers(bot_id.."Basic:Constructor"..v)
-MNSH = database:smembers(bot_id.."Constructor"..v)
-MDER = database:smembers(bot_id.."Manager"..v)
-MOD = database:smembers(bot_id.."Mod:User"..v)
-link = database:get(bot_id.."Link_Group"..v) or ''
-if k == 1 then
-t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
-else
-t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
-end
-if #ASAS ~= 0 then 
-t = t..'"ASAS":['
-for k,v in pairs(ASAS) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MOD ~= 0 then
-t = t..'"MOD":['
-for k,v in pairs(MOD) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MDER ~= 0 then
-t = t..'"MDER":['
-for k,v in pairs(MDER) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MNSH ~= 0 then
-t = t..'"MNSH":['
-for k,v in pairs(MNSH) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-t = t..'"linkgroup":"'..link..'"}' or ''
-end
-if #memo ~= 0 then 
-t = t..'"mem":['
-for k,v in pairs(memo) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-t = t..'}}'
-local File = io.open('./File_Libs/'..bot_id..'.json', "w")
-File:write(t)
-File:close()
-sendDocument(Id_Sudo, msg.id_,'./File_Libs/'..bot_id..'.json', '⌔:  عدد مجموعات التي في البوت { '..#list..'} .\n⌔: عدد المشتركين { '..#memo..' } .')
-database:set(bot_id.."AutoFile:Time",os.date("%x"))
-end
-else 
-database:set(bot_id.."AutoFile:Time",os.date("%x"))
-end
 end
 if text =='الاحصائيات ⌔' then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
@@ -13358,17 +13249,7 @@ t = "⌔︙لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'رفع نسخه احتياطيه ⌔' then
-database:set(bot_id..'docu:Bots',true) 
-send(msg.chat_id_, msg.id_, "⌔︙ قم الان بارسال ملف النسخه الاحتياطيه")
-end
-if msg.content_.ID == "MessageDocument" and database:get(bot_id..'docu:Bots') then    
-local ID_FILE = msg.content_.document_.document_.persistent_id_ 
-local File_Name = msg.content_.document_.file_name_
-add_file(msg,msg.chat_id_,ID_FILE,File_Name)
-database:del(bot_id..'docu:Bots') 
-end
-if text == 'نسخه احتياطيه ⌔' then
+if text == 'جلب نسخه احتياطيه ⌔' then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -14702,19 +14583,12 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
- " اروح فـدوه للـحلوين",
-" حلوة حبيبي معليك بالمضغوطين",
-" جهرتك منورة ",
-" هاي شكد حلو انتة",
-"ااصلا حسوني احلا",
-"ااصلا حسوني احلا",
-" فديت الصاك محح",
-" فـدشـي عمـي",
-" دغـيرهـا شبـي هـاذ",
-" شهل الگيمر ",
-" شهل الصوره تخمبش ",
-" فديت الحلو ",
-" بـبكن حـلك ",
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب 💘",
+"بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌔︙Id : '..Id..'\n⌔︙UsErNaMe : '..UserName_User..'\n⌔︙StAsT : '..Status_Gps..'\n⌔︙MsGs : '..NumMsg..' \n⌔︙Activity : '..TotalMsg..'\n⌔︙GaMeS : '..Num_Games..''
@@ -14762,19 +14636,12 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
- " اروح فـدوه للـحلوين",
-" حلوة حبيبي معليك بالمضغوطين",
-" جهرتك منورة ",
-" هاي شكد حلو انتة",
-"ااصلا حسوني احلا",
-"ااصلا حسوني احلا",
-" فديت الصاك محح",
-" فـدشـي عمـي",
-" دغـيرهـا شبـي هـاذ",
-" شهل الگيمر ",
-" شهل الصوره تخمبش ",
-" فديت الحلو ",
-" بـبكن حـلك ",
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب 💘",
+"بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌔︙ايديك : '..Id..'\n⌔︙يوزرك : '..UserName_User..'\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..''
@@ -14823,19 +14690,12 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
- " اروح فـدوه للـحلوين",
-" حلوة حبيبي معليك بالمضغوطين",
-" جهرتك منورة ",
-" هاي شكد حلو انتة",
-"ااصلا حسوني احلا",
-"ااصلا حسوني احلا",
-" فديت الصاك محح",
-" فـدشـي عمـي",
-" دغـيرهـا شبـي هـاذ",
-" شهل الگيمر ",
-" شهل الصوره تخمبش ",
-" فديت الحلو ",
-" بـبكن حـلك ",
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب ??",
+"بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌔︙Id : '..Id..'\n⌔︙UsErNaMe : * ['..UserName_User..']*\n⌔︙StAsT : '..Status_Gps..'\n⌔︙MsGs : '..NumMsg..' \n⌔︙Activity : '..TotalMsg..'\n⌔︙GaMeS : '..Num_Games..'*'
@@ -14883,19 +14743,12 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
- " اروح فـدوه للـحلوين",
-" حلوة حبيبي معليك بالمضغوطين",
-" جهرتك منورة ",
-" هاي شكد حلو انتة",
-"ااصلا حسوني احلا",
-"ااصلا حسوني احلا",
-" فديت الصاك محح",
-" فـدشـي عمـي",
-" دغـيرهـا شبـي هـاذ",
-" شهل الگيمر ",
-" شهل الصوره تخمبش ",
-" فديت الحلو ",
-" بـبكن حـلك ",
+'طالع ححلو الوصخ 😂😔💘',
+"بشر لو كيك نتهه😹💘 ",
+"وفالله 😔💘",
+"متحس روحك لحيت بيه؟😹💘",
+"موبشر ضيم برب 💘",
+"بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌔︙ايديك : '..Id..'\n⌔︙يوزرك : * ['..UserName_User..']*\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..'*'
@@ -16652,11 +16505,6 @@ local texting = {"مووووووووواححح????","مابوس ولي😌😹",
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
-if text == "تفعيل الصراحه" and Owner(msg) then
-local t = ' \n⌔︙تم تفعيل كت'
-send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'lock:ssrr'..msg.chat_id_) 
-end
 if text == "تفعيل كت" and Owner(msg) then
 local t = ' \n⌔︙تم تفعيل كت'
 send(msg.chat_id_, msg.id_,t)
@@ -16667,10 +16515,8 @@ local t = '  \n⌔︙تم تعطيل كت'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'lock:kktt'..msg.chat_id_,true)  
 end
-if text == "تويت" or text == "كت تويت" or text == "كت" then 
-if not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
-local texting = {
-"اخر افلام شاهدتها", 
+if text == "كت" or text == "كت تويت" then
+local texting = {"اخر افلام شاهدتها", 
 "ما هي وظفتك الحياه", 
 "اعز اصدقائك ?", 
 "اخر اغنية سمعتها ?", 
@@ -16681,7 +16527,7 @@ local texting = {
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
 "اخر كتاب قرآته", 
-"ليه ديشا جدع؟ ", 
+"ليه ديفيد جدع؟ ", 
 "افضل يوم ف حياتك", 
 "ليه مضيفتش كل جهاتك", 
 "حكمتك ف الحياه", 
