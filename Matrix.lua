@@ -9424,6 +9424,7 @@ name = math.random(#namebot)
 send(msg.chat_id_, msg.id_, namebot[name]) 
 return false 
 end
+
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
@@ -16651,11 +16652,6 @@ if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"مووووووووواححح????","مابوس ولي😌😹","خدك/ج نضيف 😂","البوسه بالف حمبي 🌝💋","خلي يزحفلي وابوسه 🙊😻","كل شويه ابوسه كافي 😏","ماابوسه والله هذا زاحف🦎","محح هاي لحاته صاكه??"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
-end
-if text == "تفعيل الصراحه" and Owner(msg) then
-local t = ' \n⌔︙تم تفعيل كت'
-send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'lock:ssrr'..msg.chat_id_) 
 end
 if text == "تفعيل كت" and Owner(msg) then
 local t = ' \n⌔︙تم تفعيل كت'
