@@ -210,31 +210,31 @@ return var
 end 
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(114518657) then  
-var = 'مطور السورس'
+var = '*مطور السورس*'
 elseif tonumber(user_id) == tonumber(11110) then  
-var = "مبرمج السورس"  
+var = "*مبرمج السورس*"  
 elseif DevMatrixe(user_id) == true then
-var = "المطور الاساسي"  
+var = "*المطور الاساسي*"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
-var = "البوت"
-elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "المطور الاساسي²"  
+var = "*البوت*"
+elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "*المطور الاساسي²*"  
 elseif database:sismember(bot_id.."Matrix:Sudo:User", user_id) then
-var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "المالك"
+var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "*المطور*"  
+elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "*المالك*"
 elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
+var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "*المنشئ اساسي*"
 elseif database:sismember(bot_id.."Matrix:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "المنشئ"  
+var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "*المنشئ*"  
 elseif database:sismember(bot_id.."Matrix:Manager"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Manager:Rd"..chat_id) or "المدير"  
+var = database:get(bot_id.."Matrix:Manager:Rd"..chat_id) or "*المدير*"  
 elseif database:sismember(bot_id.."Matrix:Mod:User"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Mod:Rd"..chat_id) or "الادمن"  
+var = database:get(bot_id.."Matrix:Mod:Rd"..chat_id) or "*الادمن*"  
 elseif database:sismember(bot_id.."Matrix:MN:TF"..chat_id, user_id) then
 var =  "منظف"  
 elseif database:sismember(bot_id.."Matrix:Special:User"..chat_id, user_id) then  
-var = database:get(bot_id.."Matrix:Special:Rd"..chat_id) or "المميز"  
+var = database:get(bot_id.."Matrix:Special:Rd"..chat_id) or "*المميز*"  
 else  
-var = database:get(bot_id.."Matrix:Memp:Rd"..chat_id) or "العضو"
+var = database:get(bot_id.."Matrix:Memp:Rd"..chat_id) or "*العضو*"
 end  
 return var
 end 
@@ -3194,7 +3194,7 @@ end
 if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
 if General_ban(result, result.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
@@ -3258,7 +3258,7 @@ end
 if text == ("كتم عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
 if General_ban(result, result.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 database:sadd(bot_id.."Matrix:GBan:User", result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
@@ -5523,15 +5523,15 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"⌔︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"*⌔︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"⌔︙البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"*⌔︙البوت ليس ادمن يرجى ترقيتي !*") 
 return false  
 end
 database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, result.sender_user_id_)
@@ -5546,7 +5546,7 @@ keyboard.inline_keyboard = {
 }
 }   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔︙تم حظره من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔︙تم حظره من المجموعه*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)   
 end,nil)   
 end
@@ -5623,7 +5623,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -5696,7 +5696,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -5845,7 +5845,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 return false 
 end     
 if msg.can_be_deleted_ == false then 
@@ -5863,7 +5863,7 @@ keyboard.inline_keyboard = {
 }
 }   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔︙تم كتمه من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔︙تم كتمه من المجموعه*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
@@ -5897,7 +5897,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end     
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -5946,7 +5946,7 @@ send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,"⌔︙البوت ليس ادمن يرجى ترقيتي !") 
@@ -5986,7 +5986,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم الغاء كتمه من هنا*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -5996,9 +5996,9 @@ local username = text:match("^الغاء كتم @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⌔︙تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم الغاء كتمه من هن*ا")  
 else
-send(msg.chat_id_, msg.id_,"⌔︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⌔︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
@@ -6023,7 +6023,7 @@ return false
 end
 local userid = text:match("^الغاء كتم (%d+)$") 
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⌔︙تم الغاء كتمه من هنا")  
+Reply_Status(msg,userid,"reply","*⌔︙تم الغاء كتمه من هنا*")  
 return false
 end
 if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -6088,7 +6088,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -6133,7 +6133,7 @@ send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 if Rank_Checking(result.id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end      
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
@@ -6175,7 +6175,7 @@ return false
 end
 local userid = text:match("^تقيد (%d+)$")
 if Rank_Checking(userid, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
@@ -6291,7 +6291,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -6303,7 +6303,7 @@ send(msg.chat_id_, msg.id_,"⌔︙البوت ليس ادمن يرجى ترقيت
 return false  
 end
 Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔︙تم طرده من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم طرده من هنا*")  
 end,nil)
 end
 end
@@ -6334,7 +6334,7 @@ end
 function Function_Matrix(extra, result, success)
 if result.id_ then
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -6383,7 +6383,7 @@ send(msg.chat_id_, msg.id_,'⌔︙لقد تم تعطيل الحظر و الطر�
 return false
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n⌔︙عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔︙لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -8671,7 +8671,7 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, Function_Matrix, nil)
 end
-if text == "تاك للكل" and Addictive(msg) then
+if text == "تاك للكل" or text == "تاك" and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8687,14 +8687,16 @@ end
 
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,Matrixteam)
-local t = "\n 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗹𝗶𝘀𝘁 \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 500},function(ta,Matrixteam)
+local t = ""
 x = 0
 local list = Matrixteam.members_
 for k, v in pairs(list) do
 x = x + 1
 if database:get(bot_id.."Matrix:User:Name"..v.user_id_) then
-t = t.."⌔︙┆"..x.."︙[@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
+t = t..""..x.." - [@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
+else
+t = t..""..x.." - "..v.user_id_.."\n"
 end
 end
 send(msg.chat_id_,msg.id_,t)
@@ -8998,10 +9000,10 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
 local Matrixteam = "⌔︙عدد الادمنيه : "..data.administrator_count_..
-"\n\n⌔︙عدد المطرودين : "..data.kicked_count_..
-"\n\n⌔︙عدد الاعضاء : "..data.member_count_..
-"\n\n⌔︙عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
-"\n\n⌔︙اسم المجموعه : ["..ta.title_.."]"
+"\n⌔︙عدد المطرودين : "..data.kicked_count_..
+"\n⌔︙عدد الاعضاء : "..data.member_count_..
+"\n⌔︙عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
+"\n⌔︙اسم المجموعه : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, Matrixteam) 
 end,nil)
 end,nil)
@@ -9353,6 +9355,14 @@ end,nil)
 end,nil)   
 end
 
+if text =='الكروبات' and DevBot(msg) then
+local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
+send(msg.chat_id_, msg.id_,'*⌔︙مجموعات البوت*\n\n⌔︙عدد المجموعات *~ '..Groups..'*')
+end
+if text =='المشتركين' and DevBot(msg) then
+local Users = database:scard(bot_id..'Matrix:UsersBot')  
+send(msg.chat_id_, msg.id_,'*⌔︙مشتركين البوت*\n\n⌔︙عدد المشتركين *~ '..Users..'*')
+end
 if text == "غادر" then 
 if DevBot(msg) and not database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
@@ -9416,10 +9426,6 @@ return false
 end
 
 if text == "بوت" then
-if userid == tonumber(114518657) then
-send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
-return false 
-end
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
 return false
@@ -10200,12 +10206,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sende
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
+"ااصلا حسوني احلا",
+"ااصلا حسوني احلا",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_) or database:get(bot_id.."Matrix:KleshIDALLBOT")
@@ -11234,7 +11247,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'*⌔︙تم التحديث*')
+send(msg.chat_id_,msg.id_,'*🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
@@ -11567,7 +11580,7 @@ database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
 if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://Matrix-source.tk/MatrixTeAM/infoInstagram.php?username='..URL.escape(Textni)..'')
+data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
 if res == 200 then
 muaed = json:decode(data)
 if muaed.Info == true then
@@ -11949,7 +11962,7 @@ end
 
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "*⌔︙تم التحديث*")
+send(msg.chat_id_, msg.id_, "*🔂┇تم تحديث ملفات البوت*")
 end
 
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
@@ -12649,6 +12662,7 @@ local keyboard = {
 {'تغير اسم البوت ⌔','الاحصائيات ⌔'},
 {'تعطيل التواصل ⌔','تفعيل التواصل ⌔'},
 {'مسح قائمه العام ⌔','قائمة العام ⌔','مسح المطورين ⌔'},
+{'الثانويين ⌔','مسح الثانويين ⌔'},
 {'تنظيف الكروبات ⌔','تنظيف المشتركين ⌔'},
 {'كيبورد اوامر الاذاعة ⌔'},
 {'تفعيل البوت الخدمي ⌔','تعطيل البوت الخدمي ⌔'},
@@ -12656,7 +12670,8 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ⌔'},
 {'تحديث السورس ⌔','تحديث ⌔'},
 {'لاصدار ⌔','معلومات السيرفر ⌔'},
-{'جلب نسخه احتياطيه ⌔'},
+{'نسخه احتياطيه ⌔','رفع نسخه احتياطيه ⌔'},
+{'تفعيل النسخه التلقائيه ⌔','تعطيل النسخه التلقائيه ⌔'},
 {'اعادة التشغيل ⌔'},
 {'الغاء ⌔'}
 }
@@ -12885,6 +12900,16 @@ if text == 'تعطيل التواصل ⌔' then
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'⌔︙ تم تعطيل التواصل ') 
 end
+if text == 'تفعيل النسخه التلقائيه ⌔' then
+database:del(bot_id.."AutoFile")
+send(msg.chat_id_, msg.id_,"⌔︙تم تفعيل النسخه الاحتياطيه التلقائيه .") 
+return false
+end
+if text == "تعطيل النسخه التلقائيه ⌔" then  
+database:set(bot_id.."AutoFile",true) 
+send(msg.chat_id_, msg.id_,"⌔︙تم تعطيل النسخه الاحتياطيه التلقائيه .") 
+return false  
+end
 if text == 'معلومات السيرفر ⌔' then
 ioserver =  io.popen([[
 linux_version=`lsb_release -ds`
@@ -12902,6 +12927,93 @@ echo '*------------------------------\n*⌔︙⊱ { مـده تـشغيـل ال
 ]]):read('*all')
 send(msg.chat_id_, msg.id_,ioserver)
 return false
+end
+if text and not database:get(bot_id.."AutoFile") then
+Time = database:get(bot_id.."AutoFile:Time")
+if Time then 
+if Time ~= os.date("%x") then  
+local list = database:smembers(bot_id..'Chek:Groups')  
+local memo = database:smembers(bot_id..'UsersBot')  
+local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
+for k,v in pairs(list) do      
+NAME = 'Matrix Chat'
+ASAS = database:smembers(bot_id.."Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."Constructor"..v)
+MDER = database:smembers(bot_id.."Manager"..v)
+MOD = database:smembers(bot_id.."Mod:User"..v)
+link = database:get(bot_id.."Link_Group"..v) or ''
+if k == 1 then
+t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
+else
+t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
+end
+if #ASAS ~= 0 then 
+t = t..'"ASAS":['
+for k,v in pairs(ASAS) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MOD ~= 0 then
+t = t..'"MOD":['
+for k,v in pairs(MOD) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MDER ~= 0 then
+t = t..'"MDER":['
+for k,v in pairs(MDER) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MNSH ~= 0 then
+t = t..'"MNSH":['
+for k,v in pairs(MNSH) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'"linkgroup":"'..link..'"}' or ''
+end
+if #memo ~= 0 then 
+t = t..'"mem":['
+for k,v in pairs(memo) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'}}'
+local File = io.open('./File_Libs/'..bot_id..'.json', "w")
+File:write(t)
+File:close()
+sendDocument(Id_Sudo, msg.id_,'./File_Libs/'..bot_id..'.json', '⌔:  عدد مجموعات التي في البوت { '..#list..'} .\n⌔: عدد المشتركين { '..#memo..' } .')
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
+else 
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
 end
 if text =='الاحصائيات ⌔' then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
@@ -13247,7 +13359,17 @@ t = "⌔︙لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'جلب نسخه احتياطيه ⌔' then
+if text == 'رفع نسخه احتياطيه ⌔' then
+database:set(bot_id..'docu:Bots',true) 
+send(msg.chat_id_, msg.id_, "⌔︙ قم الان بارسال ملف النسخه الاحتياطيه")
+end
+if msg.content_.ID == "MessageDocument" and database:get(bot_id..'docu:Bots') then    
+local ID_FILE = msg.content_.document_.document_.persistent_id_ 
+local File_Name = msg.content_.document_.file_name_
+add_file(msg,msg.chat_id_,ID_FILE,File_Name)
+database:del(bot_id..'docu:Bots') 
+end
+if text == 'نسخه احتياطيه ⌔' then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -13348,21 +13470,21 @@ if Text and Text:match('(.*)/unktm(.*)') then
 local Userid = {Text:match('(.*)/unktm(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
 database:srem(bot_id.."Matrix:Muted:User"..data.chat_id_, Userid[2])
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم الغاء الكتم عنه')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الكتم عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
 if Text and Text:match('(.*)/unban(.*)') then
 local Userid = {Text:match('(.*)/unban(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
 database:srem(bot_id.."Matrix:Ban:User"..data.chat_id_, Userid[2])
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم الغاء الحظر عنه')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الحظر عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
 if Text and Text:match('(.*)/unkkid(.*)') then
 local Userid = {Text:match('(.*)/unkkid(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. Userid[2] .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم الغاء التقييد عنه')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء التقييد عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
 
@@ -14581,12 +14703,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
+"ااصلا حسوني احلا",
+"ااصلا حسوني احلا",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌔︙Id : '..Id..'\n⌔︙UsErNaMe : '..UserName_User..'\n⌔︙StAsT : '..Status_Gps..'\n⌔︙MsGs : '..NumMsg..' \n⌔︙Activity : '..TotalMsg..'\n⌔︙GaMeS : '..Num_Games..''
@@ -14634,12 +14763,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
+"ااصلا حسوني احلا",
+"ااصلا حسوني احلا",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌔︙ايديك : '..Id..'\n⌔︙يوزرك : '..UserName_User..'\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..''
@@ -14688,12 +14824,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب ??",
-"بدله لتلح عاد دبسزز 😔💘",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
+"ااصلا حسوني احلا",
+"ااصلا حسوني احلا",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌔︙Id : '..Id..'\n⌔︙UsErNaMe : * ['..UserName_User..']*\n⌔︙StAsT : '..Status_Gps..'\n⌔︙MsGs : '..NumMsg..' \n⌔︙Activity : '..TotalMsg..'\n⌔︙GaMeS : '..Num_Games..'*'
@@ -14741,12 +14884,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
+"ااصلا حسوني احلا",
+"ااصلا حسوني احلا",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌔︙ايديك : '..Id..'\n⌔︙يوزرك : * ['..UserName_User..']*\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..'*'
@@ -16513,11 +16663,108 @@ local t = '  \n⌔︙تم تعطيل كت'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'lock:kktt'..msg.chat_id_,true)  
 end
-if text == "كت تويت" or text == "كت" then
+if text == "تويت" or text == "كت تويت" or text == "كت" then 
 if not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
-local texting = {"آخر مرة زرت مدينة الملاهي؟","آخر مرة أكلت أكلتك المفضّلة؟","الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل","آخر شيء ضاع منك؟","كلمة أخيرة لشاغل البال؟","طريقتك المعتادة في التخلّص من الطاقة السلبية؟","شهر من أشهر العام له ذكرى جميلة معك؟","كلمة غريبة من لهجتك ومعناها؟🤓","‏- شيء سمعته عالق في ذهنك هاليومين؟","متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟","‏- أبرز صفة حسنة في صديقك المقرب؟","هل تشعر أن هنالك مَن يُحبك؟","اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟","أجمل شيء حصل معك خلال هاليوم؟","صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔","كلمة لشخص غالي اشتقت إليه؟💕","آخر خبر سعيد، متى وصلك؟","أنا آسف على ....؟","أوصف نفسك بكلمة؟","صريح، مشتاق؟","‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟","‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭","‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤","‏- تخيّل شيء قد يحدث في المستقبل؟","‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚","شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟","اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟."," فنانك المُفضل؟","لو خيروك تصاحب الناس الاذكياء او الناس المرحين","اسم معلم ترك اثراً جميل عليك رغم قسوتة.؟","وش الحب بنظرك؟","لو خيروك جاي او قهوه","لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟","شاركنا أقوى بيت شِعر من تأليفك؟","نصيحه تبدا ب -لا- ؟","كل شيء يهون الا ؟","عندك الشخص الي مستعد يوقف ضد العالم عشانك.؟","العلاقة السرية دائماً تكون حلوة؟","منشن شخص واعترف له بشي","منشن لصديقك المُقرب؟.","اخر خيانه؟.","أول حرف من اسم الحب؟","تشارك كل شي لاهلك ولا فيه أشياء ما تتشارك؟","أكثر شيء تغيّر في أسلوب حياتك بعد كورونا ؟","هات شعورك بسطر اغُنيه؟","شيء مهما حطيت فيه مصاري بتكون مبسوط؟","اغرب شي سويته ؟","كيف تشوف الجيل هذا؟","اخر همك في الحياة ؟","انت من الناس الكتومة ولا تفضفض؟","اكثر مكان تروحه لحالك ؟","قوة الصداقة بشو بتتكون؟","تطبيق تبي تحذفه من جهازك بس مضطر تستخدمه ؟","كم أعلى مبلغ جمعته؟","اخر شي شريته ؟","كلمة للشخص اللي يسب ويسكر؟","لعبة بجوالك تلعبها دايم ؟","مر عليك موقف محرج؟","علمنا عن تجربه خلت شخصيتك اقوى ؟","يوم من أيام الأسبوع روتينه ممل عندك ؟","عندك شخص تسميه ثالث والديك؟","شو هو طعامك المفضل؟","اخر همك في الحياة ؟","شو حابب تقول للاشخاص اللي بتدخل حياتك؟","عبر عن حبك او كرهك لشخص ما تقدر توصل له مشاعرك","موهبتك المكبوتة ؟","انت من الناس اللي تتغزل بالكل ولا بالشخص اللي تحبه بس؟","عبر عن حبك او كرهك لشخص ما تقدر توصل له مشاعرك","ماذا يعني لك حرف A","ماذا يعني لك حرحرM","نسبة رضاك عن نفسك من 10 ؟","عندكم شخص بالبيت بصلح اي شي بيخرب؟","تحس نفسك هطف ؟","تدوس على قلبك او كرامتك؟","  تحس حياتك فاشله ولا ناجحه؟","لو الشخص اللي تحبه قال بدخل حساباتك بتعطيه ولا بترفض؟","ميزة وعيب فيك ؟","وش ينادونك في البيت ؟", }  
-send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
-end
+local TWEET_Msg = { 
+"اخر افلام شاهدتها", 
+"ما هي وظفتك الحياه", 
+"اعز اصدقائك ?", 
+"اخر اغنية سمعتها ?", 
+"تكلم عن نفسك", 
+"ليه انت مش سالك", 
+"ما هيا عيوب سورس ماتركس؟ ", 
+"اخر كتاب قرآته", 
+"روايتك المفضله ?", 
+"اخر اكله اكلتها", 
+"اخر كتاب قرآته", 
+"ليه ديشا جدع؟ ", 
+"افضل يوم ف حياتك", 
+"ليه مضيفتش كل جهاتك", 
+"حكمتك ف الحياه", 
+"لون عيونك", 
+"كتابك المفضل", 
+"هوايتك المفضله", 
+"علاقتك مع اهلك", 
+" ما السيء في هذه الحياة ؟ ", 
+"أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
+"سؤال ينرفزك ؟ ", 
+" هل يعجبك سورس ماتركس ؟؟ ", 
+" اكثر ممثل تحبه ؟ ", 
+"قد تخيلت شي في بالك وصار ؟ ", 
+"شيء عندك اهم من الناس ؟ ", 
+"تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
+"وش أخر شي ضيعته؟ ", 
+"اي رايك في سورس ماتركس ؟ ", 
+"كم مره حبيت؟ ", 
+" اكثر المتابعين عندك باي برنامج؟", 
+" آخر مره ضربت عشره كانت متى ؟", 
+" نسبه الندم عندك للي وثقت فيهم ؟", 
+"تحب ترتبط بكيرفي ولا فلات؟", 
+" جربت شعور احد يحبك بس انت مو قادر تحبه؟", 
+" تجامل الناس ولا اللي بقلبك على لسانك؟", 
+" عمرك ضحيت باشياء لاجل شخص م يسوى ؟", 
+"مغني تلاحظ أن صوته يعجب الجميع إلا أنت؟ ", 
+" آخر غلطات عمرك؟ ", 
+" مسلسل كرتوني له ذكريات جميلة عندك؟ ", 
+" ما أكثر تطبيق تقضي وقتك عليه؟ ", 
+" أول شيء يخطر في بالك إذا سمعت كلمة نجوم ؟ ", 
+" قدوتك من الأجيال السابقة؟ ", 
+" أكثر طبع تهتم بأن يتواجد في شريك/ة حياتك؟ ", 
+"أكثر حيوان تخاف منه؟ ", 
+" ما هي طريقتك في الحصول على الراحة النفسية؟ ", 
+" إيموجي يعبّر عن مزاجك الحالي؟ ", 
+" أكثر تغيير ترغب أن تغيّره في نفسك؟ ", 
+"أكثر شيء أسعدك اليوم؟ ", 
+"اي رايك في الدنيا دي ؟ ", 
+"ما هو أفضل حافز للشخص؟ ", 
+"ما الذي يشغل بالك في الفترة الحالية؟", 
+"آخر شيء ندمت عليه؟ ", 
+"شاركنا صورة احترافية من تصويرك؟ ", 
+"تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته ", 
+"يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟ ", 
+"نصيحه تبدا ب -لا- ؟ ", 
+"كتاب أو رواية تقرأها هذه الأيام؟ ", 
+"فيلم عالق في ذهنك لا تنساه مِن روعته؟ ", 
+"يوم لا يمكنك نسيانه؟ ", 
+"شعورك الحالي في جملة؟ ", 
+"كلمة لشخص بعيد؟ ", 
+"صفة يطلقها عليك الشخص المفضّل؟ ", 
+"أغنية عالقة في ذهنك هاليومين؟ ", 
+"أكلة مستحيل أن تأكلها؟ ", 
+"كيف قضيت نهارك؟ ", 
+"تصرُّف ماتتحمله؟ ", 
+"موقف غير حياتك؟ ", 
+"اكثر مشروب تحبه؟ ", 
+"القصيدة اللي تأثر فيك؟ ", 
+"متى يصبح الصديق غريب ", 
+"وين نلقى السعاده برايك؟ ", 
+"تاريخ ميلادك؟ ", 
+"قهوه و لا شاي؟ ", 
+"من محبّين الليل أو الصبح؟ ", 
+"حيوانك المفضل؟ ", 
+"كلمة غريبة ومعناها؟ ", 
+"كم تحتاج من وقت لتثق بشخص؟ ", 
+"اشياء نفسك تجربها؟ ", 
+"يومك ضاع على؟ ", 
+"كل شيء يهون الا ؟ ", 
+"اسم ماتحبه ؟ ", 
+"وقفة إحترام للي إخترع ؟ ", 
+"أقدم شيء محتفظ فيه من صغرك؟ ", 
+"كلمات ماتستغني عنها بسوالفك؟ ", 
+"وش الحب بنظرك؟ ", 
+"حب التملك في شخصِيـتك ولا ؟ ", 
+"تخطط للمستقبل ولا ؟ ", 
+"موقف محرج ماتنساه ؟ ", 
+"من طلاسم لهجتكم ؟ ", 
+"اعترف باي حاجه ؟ ", 
+"عبّر عن مودك بصوره ؟ ",
+"آخر مره ضربت عشره كانت متى ؟", 
+"اسم دايم ع بالك ؟ ", 
+"اشياء تفتخر انك م سويتها ؟ ", 
+" لو بكيفي كان ؟ ", 
+} 
+send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
+return false 
 end
 if text == "نسبة الحب" or text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
