@@ -16545,8 +16545,7 @@ local t = '  \n⌔︙تم تعطيل الصراحه'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'lock:sraha'..msg.chat_id_,true)  
 end
-if text == "صراحه" or text == "الصراحه" then
-if not database:get(bot_id..'lock:sraha'..msg.chat_id_) then
+if text == "صراحه" or text == "الصراحه" and not database:get(bot_id..'lock:sraha'..msg.chat_id_) then
 local texting = {
 "صراحه  |  صوتك حلوة؟",
 "صراحه  |  التقيت الناس مع وجوهين؟",
@@ -16612,8 +16611,7 @@ local texting = {
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
-if text == "لو خيروك" or text == "خيروك" then
-if not database:get(bot_id..'lock:low'..msg.chat_id_) then
+if text == "لو خيروك" or text == "خيروك" and not database:get(bot_id..'lock:low'..msg.chat_id_) then
 local texting = {"لو خيروك |  بين الإبحار لمدة أسبوع كامل أو السفر على متن طائرة لـ 3 أيام متواصلة؟ ",
 "لو خيروك |  بين شراء منزل صغير أو استئجار فيلا كبيرة بمبلغ معقول؟ ",
 "لو خيروك |  أن تعيش قصة فيلم هل تختار الأكشن أو الكوميديا؟ ",
@@ -16714,8 +16712,7 @@ local texting = {"لو خيروك |  بين الإبحار لمدة أسبوع �
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
-if text == "احرف" or text == "حروف" then
-if not database:get(bot_id..'lock:hrof'..msg.chat_id_) then
+if text == "احرف" or text == "حروف" and not database:get(bot_id..'lock:hrof'..msg.chat_id_) then
 local texting = {
 "ماد بحرف -› ر  ", 
 " مدينة بحرف -› ع  ",
@@ -16771,8 +16768,7 @@ local texting = {
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
-if text == "كت" or text == "كت تويت" then
-if not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
+if text == "كت" or text == "كت تويت" and not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
 local texting = {"اخر افلام شاهدتها", 
 "ما هي وظفتك الحياه", 
 "اعز اصدقائك ?", 
