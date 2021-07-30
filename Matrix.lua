@@ -1492,7 +1492,7 @@ DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 end
 end
 --------------------------------------------------------------------------------------------------------------
-if msg.forward_info_ and not Addictive(msg) then     
+if msg.forward_info_ and not Owner(msg) then     
 if database:get(bot_id.."Matrix:Lock:forward"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 return false
@@ -2211,7 +2211,7 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔︙تم فـتح جميع ا�
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
-if text == "قفل الروابط" and Addictive(msg) then  
+if text == "قفل الروابط" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2231,22 +2231,22 @@ database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"del")
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الروابط")  
 return false
 end 
-if text == "قفل الروابط بالتقيد" and Addictive(msg) then
+if text == "قفل الروابط بالتقيد" and Owner(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ked")  
 Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔︙تم قفـل الروابط")  
 return false
 end 
-if text == "قفل الروابط بالكتم" and Addictive(msg) then
+if text == "قفل الروابط بالكتم" and Owner(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ktm")  
 Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔︙تم قفـل الروابط")  
 return false
 end 
-if text == "قفل الروابط بالطرد" and Addictive(msg) then
+if text == "قفل الروابط بالطرد" and Owner(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"kick")  
 Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔︙تم قفـل الروابط")  
 return false
 end 
-if text == "فتح الروابط" and Addictive(msg) then  
+if text == "فتح الروابط" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6031,7 +6031,11 @@ database:set(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الفارسيه")  
 end
 if text and database:get(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
-list = {"كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك"}
+database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفل الفارسيه")  
+end
+if text and database:get(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
+list = {"ڄ","که","پی","خسته","برم","راحتی","بیام","بپوشم","كرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن"}
 for k,v in pairs(list) do
 if string.find(text,v) ~= nil then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
@@ -6053,12 +6057,12 @@ database:del(bot_id.."y:Matrix:msg:media"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"lock",'⌔︙تم تفعيل المسح التلقائي للميديا')
 return false
 end 
-if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفـل الفشار")  
+if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+database:set(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم قفل الفشار")  
 end
-if text and database:get(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
-list = {"ڄ","که","پی","خسته","برم","راحتی","بیام","بپوشم","كرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن"}
+if text and database:get(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) and not Constructor(msg) then 
+list = {"كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك"}
 for k,v in pairs(list) do
 if string.find(text,v) ~= nil then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
@@ -6066,7 +6070,7 @@ return false
 end
 end
 end
-if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:del(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تـم فـتح الفشار\n")  
 end
