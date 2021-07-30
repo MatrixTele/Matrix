@@ -9418,12 +9418,10 @@ return false
 end
 
 if text == "بوت" then
-if userid == tonumber(114518657) then
-send(msg.chat_id_, msg.id_, "⌔︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
-return false 
-end
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
+local texting = {
+'اسمي  '..Namebot..' يا قلبي 🤤💚',
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
