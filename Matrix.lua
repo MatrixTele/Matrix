@@ -10206,19 +10206,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sende
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-"⌔︙اروح فـدوه للـحلوين",
-"⌔︙حلوة حبيبي معليك بالمضغوطين",
-"⌔︙جهرتك منورة ",
-"⌔︙هاي شكد حلو انتة",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
 "ااصلا حسوني احلا",
 "ااصلا حسوني احلا",
-"⌔︙فديت الصاك محح",
-"⌔︙فـدشـي عمـي",
-"⌔︙دغـيرهـا شبـي هـاذ",
-"⌔︙شهل الگيمر ",
-"⌔︙شهل الصوره تخمبش ",
-"⌔︙فديت الحلو ",
-"⌔︙بـبكن حـلك ",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_) or database:get(bot_id.."Matrix:KleshIDALLBOT")
@@ -14703,19 +14703,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-"⌔︙اروح فـدوه للـحلوين",
-"⌔︙حلوة حبيبي معليك بالمضغوطين",
-"⌔︙جهرتك منورة ",
-"⌔︙هاي شكد حلو انتة",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
 "ااصلا حسوني احلا",
 "ااصلا حسوني احلا",
-"⌔︙فديت الصاك محح",
-"⌔︙فـدشـي عمـي",
-"⌔︙دغـيرهـا شبـي هـاذ",
-"⌔︙شهل الگيمر ",
-"⌔︙شهل الصوره تخمبش ",
-"⌔︙فديت الحلو ",
-"⌔︙بـبكن حـلك ",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌔︙Id : '..Id..'\n⌔︙UsErNaMe : '..UserName_User..'\n⌔︙StAsT : '..Status_Gps..'\n⌔︙MsGs : '..NumMsg..' \n⌔︙Activity : '..TotalMsg..'\n⌔︙GaMeS : '..Num_Games..''
@@ -14763,19 +14763,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-"⌔︙اروح فـدوه للـحلوين",
-"⌔︙حلوة حبيبي معليك بالمضغوطين",
-"⌔︙جهرتك منورة ",
-"⌔︙هاي شكد حلو انتة",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
 "ااصلا حسوني احلا",
 "ااصلا حسوني احلا",
-"⌔︙فديت الصاك محح",
-"⌔︙فـدشـي عمـي",
-"⌔︙دغـيرهـا شبـي هـاذ",
-"⌔︙شهل الگيمر ",
-"⌔︙شهل الصوره تخمبش ",
-"⌔︙فديت الحلو ",
-"⌔︙بـبكن حـلك ",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌔︙ايديك : '..Id..'\n⌔︙يوزرك : '..UserName_User..'\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..''
@@ -14824,19 +14824,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-"⌔︙اروح فـدوه للـحلوين",
-"⌔︙حلوة حبيبي معليك بالمضغوطين",
-"⌔︙جهرتك منورة ",
-"⌔︙هاي شكد حلو انتة",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
 "ااصلا حسوني احلا",
 "ااصلا حسوني احلا",
-"⌔︙فديت الصاك محح",
-"⌔︙فـدشـي عمـي",
-"⌔︙دغـيرهـا شبـي هـاذ",
-"⌔︙شهل الگيمر ",
-"⌔︙شهل الصوره تخمبش ",
-"⌔︙فديت الحلو ",
-"⌔︙بـبكن حـلك ",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌔︙Id : '..Id..'\n⌔︙UsErNaMe : * ['..UserName_User..']*\n⌔︙StAsT : '..Status_Gps..'\n⌔︙MsGs : '..NumMsg..' \n⌔︙Activity : '..TotalMsg..'\n⌔︙GaMeS : '..Num_Games..'*'
@@ -14884,19 +14884,19 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-"⌔︙اروح فـدوه للـحلوين",
-"⌔︙حلوة حبيبي معليك بالمضغوطين",
-"⌔︙جهرتك منورة ",
-"⌔︙هاي شكد حلو انتة",
+ " اروح فـدوه للـحلوين",
+" حلوة حبيبي معليك بالمضغوطين",
+" جهرتك منورة ",
+" هاي شكد حلو انتة",
 "ااصلا حسوني احلا",
 "ااصلا حسوني احلا",
-"⌔︙فديت الصاك محح",
-"⌔︙فـدشـي عمـي",
-"⌔︙دغـيرهـا شبـي هـاذ",
-"⌔︙شهل الگيمر ",
-"⌔︙شهل الصوره تخمبش ",
-"⌔︙فديت الحلو ",
-"⌔︙بـبكن حـلك ",
+" فديت الصاك محح",
+" فـدشـي عمـي",
+" دغـيرهـا شبـي هـاذ",
+" شهل الگيمر ",
+" شهل الصوره تخمبش ",
+" فديت الحلو ",
+" بـبكن حـلك ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌔︙ايديك : '..Id..'\n⌔︙يوزرك : * ['..UserName_User..']*\n⌔︙موقعك : '..Status_Gps..'\n⌔︙رسائلك : '..NumMsg..' \n⌔︙تفاعلك : '..TotalMsg..'\n⌔︙الالعاب : '..Num_Games..'*'
