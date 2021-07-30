@@ -9426,9 +9426,7 @@ return false
 end
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local Matrix_Msg = {
-'اسمي  '..Namebot..' ععمريي',
-send(msg.chat_id_, msg.id_,'['..Matrix_Msg[math.random(#Matrix_Msg)]..']') 
+send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
 return false
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
