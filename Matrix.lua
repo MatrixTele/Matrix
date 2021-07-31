@@ -12200,8 +12200,8 @@ Text = [[*
 ⌔︙الصوت
 ⌔︙الجهات
 ⌔︙الاشعارات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-["..data.first_name_.."](T.me/"..data.username_..")
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+| ["..data.first_name_.."](T.me/"..data.username_..")
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
