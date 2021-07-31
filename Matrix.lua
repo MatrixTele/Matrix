@@ -11746,6 +11746,39 @@ local Groups = database:scard(bot_id..'Matrix:Chek:Groups')
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'⌔︙احصائيات البوت \n\n⌔︙عدد المجموعات *~ '..Groups..'\n⌔︙عدد المشتركين ~ '..Users..'*')
 end
+if text == 'رفع المشتركين' and DevBot(msg) then
+function by_reply(extra, result, success)   
+if result.content_.document_ then 
+local ID_FILE = result.content_.document_.document_.persistent_id_ 
+local File_Name = result.content_.document_.file_name_
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
+download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
+local info_file = io.open('./users.json', "r"):read('*a')
+local users = JSON.decode(info_file)
+for k,v in pairs(users.users) do
+redis:sadd(bot_id..'Matrix:UsersBot',v) 
+end
+send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+if text == 'جلب المشتركين' and DevBot(msg) then
+local list = redis:smembers(bot_id..'Matrix:UsersBot')  
+local t = '{"users":['  
+for k,v in pairs(list) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end
+t = t..']}'
+local File = io.open('./users.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
+end 
 if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
