@@ -12201,7 +12201,7 @@ Text = [[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-Carbon - ]].. UserName_Dev..[[
+["..data.first_name_.."](T.me/"..data.username_..")
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
