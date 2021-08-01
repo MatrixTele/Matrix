@@ -15713,7 +15713,30 @@ return false
 end
 end
 
-if Text and Text:match('(.*)/gamehome') then
+if Text and Text:match('(.*)/Source') then
+if tonumber(Text:match('(.*)/Source')) == tonumber(data.sender_user_id_) then
+local Teext = [[
+⌔︙Welcome to Source
+⌔︙TeAm - ”Matrix”
+ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+},
+{
+{text = '⌔︙Matrix Files .',url="https://t.me/infoo_Matrix"},
+},
+{
+{text = '⌔︙Bot TwisL',url="t.me/U41bot"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
+elseif Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔︙اهلا بك في قائمة الالعاب .
