@@ -12052,23 +12052,27 @@ end
 return false
 end
 local Text =[[*
-- مرحبا .
-- في اوامر الازرار للتحكم في المجموعه .
-- يمكنك التحكم عن طريق المس على الزر .
-*]]
+⌔︙توجد ← 5 اوامر في البوت
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙ارسل { م0 } ← اوامر المنظفين
+⌔︙ارسل { م1 } ← اوامر الحمايه
+⌔︙ارسل { م2 } ← اوامر الادمنيه
+⌔︙ارسل { م3 } ← اوامر المدراء
+⌔︙ارسل { م4 } ← اوامر المنشئين
+⌔︙ارسل { م5 } ← اوامر مطورين البوت
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'الاوامر, callback_data=msg.sender_user_id_.."/help"},
+{text = '⌔𝟐⌔', callback_data=msg.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=msg.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=msg.sender_user_id_.."/help0"},
 },
 {
-{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},
+{text = '⌔𝟓⌔', callback_data=msg.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=msg.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = 'اوامر المطور', callback_data=msg.sender_user_id_.."/help5"},{text = 'العاب السورس', callback_data=msg.sender_user_id_.."/gamehome"},
-},
-{
-{text = 'السورس', callback_data=msg.sender_user_id_.."/Source"},
+{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = '🎧YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
