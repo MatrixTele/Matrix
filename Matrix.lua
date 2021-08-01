@@ -12034,6 +12034,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
+
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -12051,70 +12052,23 @@ end
 return false
 end
 local Text =[[*
-⌔︙توجد ← 5 اوامر في البوت
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙ارسل { م0 } ← اوامر المنظفين
-⌔︙ارسل { م1 } ← اوامر الحمايه
-⌔︙ارسل { م2 } ← اوامر الادمنيه
-⌔︙ارسل { م3 } ← اوامر المدراء
-⌔︙ارسل { م4 } ← اوامر المنشئين
-⌔︙ارسل { م5 } ← اوامر مطورين البوت
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
+- مرحبا .
+- في اوامر الازرار للتحكم في المجموعه .
+- يمكنك التحكم عن طريق المس على الزر .
+*]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=msg.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=msg.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=msg.sender_user_id_.."/help0"},
+{text = 'الاوامر, callback_data=msg.sender_user_id_.."/help"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=msg.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=msg.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=msg.sender_user_id_.."/help3"},
+{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if text == 'الاضافات' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-local Text =[[*
-⌔︙اهلا انت في اضافات البوت
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙يمكنك معرفة حاله تفعيل الاضافات 
-⌔︙من خلال ارسال الاضافات 
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙يمكنك تصفح الاضافات من خلال
-⌔︙الكيبورد الموجود في الأسفل
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'اوامر المطور', callback_data=msg.sender_user_id_.."/help5"},{text = 'العاب السورس', callback_data=msg.sender_user_id_.."/gamehome"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
+{text = 'السورس', callback_data=msg.sender_user_id_.."/homeaddwd"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12200,8 +12154,8 @@ Text = [[*
 ⌔︙الصوت
 ⌔︙الجهات
 ⌔︙الاشعارات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-| ["..data.first_name_.."](T.me/"..data.username_..")
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -16195,175 +16149,7 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
-if Text == '/mute-name' then
-local Teext =[[*
-⌔︙انت الان في قائمة كتم الأسماء
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙الاوامر الخاصة فـي كتم الاسماء 
-⌔︙تفعيل ملف MutedName.lua
-⌔︙تعطيل ملف MutedName.lua
-⌔︙الاسماء المكتومه
-⌔︙كتم اسم + الاسم المراد كتمه
-⌔︙الغاء كتم اسم + الاسم المراد الغاء كتمه
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
-},
-{
-{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == '/Matrix' then
-local Teext =[[*
-⌔︙انت الان في قائمة التوحيد
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙الاوامر الخاصة فـي التوحيد 
-⌔︙تفعيل التوحيد
-⌔︙تعطيل التوحيد
-⌔︙وضع توحيد + التوحيد
-⌔︙تعين عدد الكتم + عدد
-⌔︙التوحيد
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
-},
-{
-{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == '/change-names' then
-local Teext =[[*
-⌔︙انت الان في قائمة تنبيه الاسماء
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙الاوامر الخاصة فـي تنبيه الاسماء 
-⌔︙تفعيل تنبيه الاسماء
-⌔︙تعطيل تنبيه الاسماء
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
-},
-{
-{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == '/change-id' then
-local Teext =[[*
-⌔︙انت الان في قائمة تنبيه المعرف
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙الاوامر الخاصة فـي تنبيه المعرف
-⌔︙تفعيل تنبيه المعرف
-⌔︙تعطيل تنبيه المعرف
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
-},
-{
-{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == '/change-photo' then
-local Teext =[[*
-⌔︙انت الان في قائمة تنبيه الصور
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙الاوامر الخاصة فـي تنبيه الصور
-⌔︙تفعيل تنبيه الصور
-⌔︙تعطيل تنبيه الصور
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
-},
-{
-{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
---- callback added
-if Text == '/add' then
-local Teext =[[*
-⌔︙اهلا انت في اضافات البوت
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙يمكنك معرفة حاله تفعيل الاضافات 
-⌔︙من خلال ارسال الاضافات 
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙يمكنك تصفح الاضافات من خلال
-⌔︙الكيبورد الموجود في الأسفل
- ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-end
+
 if data.ID == "UpdateNewMessage" then  -- new msg
 msg = data.message_
 text = msg.content_.text_
