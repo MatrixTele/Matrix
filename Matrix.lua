@@ -11588,8 +11588,9 @@ data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.e
 if res == 200 then
 Matrix = json:decode(data)
 if Matrix.Info == true then
-local msg_id = msg.id_/2097152/0.5
-SendP(msg.chat_id_, msg_id,Matrix.ph, Matrix.info) 
+local filee = download_to_file(Matrix.ph,msg.sender_user_id_..'.jpg')
+sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',Matrix.info)     
+os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
 end
 end
 end
