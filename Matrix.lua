@@ -12068,7 +12068,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المطور', callback_data=msg.sender_user_id_.."/help5"},{text = 'العاب السورس', callback_data=msg.sender_user_id_.."/gamehome"},
 },
 {
-{text = 'السورس', callback_data=msg.sender_user_id_.."/homeaddwd"},
+{text = 'السورس', callback_data=msg.sender_user_id_.."/Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
