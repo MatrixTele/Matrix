@@ -11584,12 +11584,12 @@ database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
 if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://boyka-api.ml/infoInstagram.php?username='..URL.escape(Textni)..'')
+data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
 if res == 200 then
-muaed = json:decode(data)
-if muaed.Info == true then
+Matrix = json:decode(data)
+if Matrix.Info == true then
 local msg_id = msg.id_/2097152/0.5
-SendP(msg.chat_id_, msg_id,muaed.ph, muaed.info) 
+SendP(msg.chat_id_, msg_id,Matrix.ph, Matrix.info) 
 end
 end
 end
