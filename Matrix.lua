@@ -12034,7 +12034,6 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -12072,7 +12071,7 @@ keyboard.inline_keyboard = {
 {text = '⌔𝟓⌔', callback_data=msg.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=msg.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = '🎧YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -15717,30 +15716,7 @@ return false
 end
 end
 
-if Text and Text:match('(.*)/Source') then
-if tonumber(Text:match('(.*)/Source')) == tonumber(data.sender_user_id_) then
-local Teext = [[
-⌔︙Welcome to Source
-⌔︙TeAm - ”Matrix”
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
-},
-{
-{text = '⌔︙Matrix Files .',url="https://t.me/infoo_Matrix"},
-},
-{
-{text = '⌔︙Bot TwisL',url="t.me/U41bot"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
-elseif Text and Text:match('(.*)/gamehome') then
+if Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔︙اهلا بك في قائمة الالعاب .
@@ -16176,7 +16152,175 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
-
+if Text == '/mute-name' then
+local Teext =[[*
+⌔︙انت الان في قائمة كتم الأسماء
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙الاوامر الخاصة فـي كتم الاسماء 
+⌔︙تفعيل ملف MutedName.lua
+⌔︙تعطيل ملف MutedName.lua
+⌔︙الاسماء المكتومه
+⌔︙كتم اسم + الاسم المراد كتمه
+⌔︙الغاء كتم اسم + الاسم المراد الغاء كتمه
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/Matrix' then
+local Teext =[[*
+⌔︙انت الان في قائمة التوحيد
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙الاوامر الخاصة فـي التوحيد 
+⌔︙تفعيل التوحيد
+⌔︙تعطيل التوحيد
+⌔︙وضع توحيد + التوحيد
+⌔︙تعين عدد الكتم + عدد
+⌔︙التوحيد
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/change-names' then
+local Teext =[[*
+⌔︙انت الان في قائمة تنبيه الاسماء
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙الاوامر الخاصة فـي تنبيه الاسماء 
+⌔︙تفعيل تنبيه الاسماء
+⌔︙تعطيل تنبيه الاسماء
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/change-id' then
+local Teext =[[*
+⌔︙انت الان في قائمة تنبيه المعرف
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙الاوامر الخاصة فـي تنبيه المعرف
+⌔︙تفعيل تنبيه المعرف
+⌔︙تعطيل تنبيه المعرف
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/change-photo' then
+local Teext =[[*
+⌔︙انت الان في قائمة تنبيه الصور
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙الاوامر الخاصة فـي تنبيه الصور
+⌔︙تفعيل تنبيه الصور
+⌔︙تعطيل تنبيه الصور
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+{
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+--- callback added
+if Text == '/add' then
+local Teext =[[*
+⌔︙اهلا انت في اضافات البوت
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙يمكنك معرفة حاله تفعيل الاضافات 
+⌔︙من خلال ارسال الاضافات 
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙يمكنك تصفح الاضافات من خلال
+⌔︙الكيبورد الموجود في الأسفل
+ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
+⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/Matrix"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '⌔︙Matrix Team .', url="t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end
 if data.ID == "UpdateNewMessage" then  -- new msg
 msg = data.message_
 text = msg.content_.text_
