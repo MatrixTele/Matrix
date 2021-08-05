@@ -9429,8 +9429,8 @@ end
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 local namebot = {
-"باوع لك خليني احبك وصيحلي باسمي "..Name_Bot.. "",
-"لتخليني ارجع لحركاتي لقديمه وردا ترا اسمي "..Name_Bot.. "",
+"لتخليني ارجع لحركاتي لقديمه وردا ترا اسمي "..Namebot,
+"باوع لك خليني احبك وصيحلي باسمي "..Namebot,
 "راح نموت بكورونا ونته بعدك تصيح بوت"
 }
 name = math.random(#namebot)
