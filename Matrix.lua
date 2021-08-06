@@ -9855,7 +9855,7 @@ end
 return false
 end      
 database:set(bot_id.."my_photo:status"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم تفعيل الصوره") 
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم تفعيل الصوره*") 
 return false
 end
 if text == "تعطيل الصوره" or text == 'تعطيل صورتي' and Addictive(msg) then
@@ -9869,18 +9869,18 @@ end
 return false
 end        
 database:del(bot_id.."my_photo:status"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تم تعطيل الصوره") 
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔︙تم تعطيل الصوره*") 
 return false
 end
 if text == "صورتي"  then
 local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
 if not my_ph then
-send(msg.chat_id_, msg.id_,"⌔︙الصوره معطله") 
+send(msg.chat_id_, msg.id_,"*⌔︙الصوره معطله*") 
 return false  
 end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"*⌔︙عدد صورك   ←  *|"..result.total_count_.."|* صوره‌‏ *")
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"*⌔︙عدد صورك   ←  *| "..result.total_count_.." |* صوره‌‏ *")
 else
 send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
 end end
