@@ -1868,7 +1868,7 @@ if text and database:get(bot_id.."Matrix:Set:Cmd:Group1"..msg.chat_id_..":"..msg
 local NewCmd = database:get(bot_id.."Matrix:Set:Cmd:Group:New"..msg.chat_id_)
 database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..text,NewCmd)
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"⌔︙تم حفظ الامر")  
+send(msg.chat_id_, msg.id_,"⌔︙تم حفظ الامر باسم ← { "..text..' }')  
 database:del(bot_id.."Matrix:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_)
 return false
 end
@@ -13544,7 +13544,7 @@ keyboard.inline_keyboard = {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود المتحركه')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم مسح ردود المتحركه*')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
 if Text and Text:match('(.*)/del1stik') then
@@ -13562,7 +13562,7 @@ keyboard.inline_keyboard = {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود الملصقات')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم مسح ردود الملصقات*')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
 if Text and Text:match('(.*)/del1text') then
@@ -13580,7 +13580,7 @@ keyboard.inline_keyboard = {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود النصيه')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم مسح ردود النصيه*')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
 if Text and Text:match('(.*)/del1mp3') then
@@ -13598,7 +13598,7 @@ keyboard.inline_keyboard = {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود Mp3')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم مسح ردود Mp3*')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
 if Text and Text:match('(.*)/del1ogg') then
@@ -13616,7 +13616,7 @@ keyboard.inline_keyboard = {
 {text = 'العوده', callback_data=data.sender_user_id_.."/golistmderreply"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('- تم مسح ردود البصمات')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم مسح ردود البصمات*')..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
 if Text and Text:match('(.*)/golistmderreply') then
