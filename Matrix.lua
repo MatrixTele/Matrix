@@ -9098,6 +9098,88 @@ database:set(bot_id.."Matrix:Kick:Me"..msg.chat_id_,true)
 Text = "\n⌔︙تم تعطيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
+if text and text:match("^صيح (.*)$") then
+local username = text:match("^صيح (.*)$") 
+if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
+function start_function(extra, result, success)
+if result and result.message_ and result.message_ == "USERNAME_NOT_OCCUPIED" then 
+send(msg.chat_id_, msg.id_,'⌔︙المعرف غلط ') 
+return false  
+end
+if result and result.type_ and result.type_.channel_ and result.type_.channel_.ID == "Channel" then
+send(msg.chat_id_, msg.id_,'⌔︙لا استطيع اصيح معرف قنوات') 
+return false  
+end
+if result.type_.user_.type_.ID == "UserTypeBot" then
+send(msg.chat_id_, msg.id_,'⌔︙لا استطيع اصيح معرف بوتات') 
+return false  
+end
+if result and result.type_ and result.type_.channel_ and result.type_.channel_.is_supergroup_ == true then
+send(msg.chat_id_, msg.id_,'⚠| لا اسطيع صيح معرفات المجموعات') 
+return false  
+end
+if result.id_ then
+send(msg.chat_id_, msg.id_,'⌔︙تعال حبي يصيحونك بل كروب [@'..username..']') 
+return false
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+else
+send(msg.chat_id_, msg.id_,'⌔︙تم تعطيل امر صيح') 
+end
+return false
+end
+
+if text == 'منو ضافني' then
+if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusCreator" then
+send(msg.chat_id_, msg.id_,'⌔︙انت منشئ المجموعه') 
+return false
+end
+local Added_Me = database:get(bot_id.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
+if Added_Me then 
+tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+Text = '⌔︙الشخص الذي قام باضافتك هو » '..Name
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end,nil)
+else
+send(msg.chat_id_, msg.id_,'⌔︙انت دخلت عبر الرابط لتلح') 
+end
+end,nil)
+else
+send(msg.chat_id_, msg.id_,'⌔︙تم تعطيل امر منو ضافني') 
+end
+end
+
+if text == 'تفعيل ضافني' and Manager(msg) then   
+if database:get(bot_id..'Added:Me'..msg.chat_id_) then
+Text = '⌔︙تم تفعيل امر منو ضافني'
+database:del(bot_id..'Added:Me'..msg.chat_id_)  
+else
+Text = '⌔︙بالتاكيد تم تفعيل امر منو ضافني'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل ضافني' and Manager(msg) then  
+if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
+database:set(bot_id..'Added:Me'..msg.chat_id_,true)  
+Text = '\n⌔︙تم تعطيل امر منو ضافني'
+else
+Text = '\n⌔︙بالتاكيد تم تعطيل امر منو ضافني'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تفعيل صيح' and Manager(msg) then   
+if database:get(bot_id..'Seh:User'..msg.chat_id_) then
+Text = '⌔︙تم تفعيل امر صيح'
+database:del(bot_id..'Seh:User'..msg.chat_id_)  
+else
+Text = '⌔︙بالتاكيد تم تفعيل امر صيح'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
 
 if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
