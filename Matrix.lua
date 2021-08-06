@@ -10026,7 +10026,7 @@ end
          end
          local Id = data.id_
          local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
-         send(msg.chat_id_, msg.id_,'*⌔︙ايديه - '..Id..'\n⌔︙معرفه - ['..UserName_User..']\n⌔︙رتبته - '..Status_Gps..'\n⌔︙نوع الكشف : بالرد - *') 
+         send(msg.chat_id_, msg.id_,'*⌔︙ايديه ← *'..Id..'\n*⌔︙معرفه ←* ['..UserName_User..']\n*⌔︙رتبته ←* '..Status_Gps..'\n*⌔︙نوع الكشف ← بالرد*') 
       end,nil)
    end
    tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
@@ -10045,7 +10045,7 @@ end
    end
    local Id = data.id_
    local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
-   send(msg.chat_id_, msg.id_,'*⌔︙ايديه - '..Id..'\n⌔︙معرفه - ['..UserName_User..']\n⌔︙رتبته - '..Status_Gps..'\n⌔︙نوع الكشف : بالمعرف - *') 
+   send(msg.chat_id_, msg.id_,'*⌔︙ايديه ←* '..Id..'\n*⌔︙معرفه ←* ['..UserName_User..']\n*⌔︙رتبته ←* '..Status_Gps..'\n*⌔︙نوع الكشف ← بالرد*') 
    end,nil)   
    else
    send(msg.chat_id_, msg.id_,'⌔︙لا يوجد حساب بهاذا المعرف')
