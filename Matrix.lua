@@ -11767,7 +11767,7 @@ end
 end
 if (msg.content_.photo_) and msg.reply_to_message_id_ == 0 and database:get(bot_id.."Matrix:Lock:Xn"..msg.chat_id_)=="del" then
 photo_id = msg.content_.photo_.sizes_[1].photo_.persistent_id_  
-Srrt = https.request('https://Matrix-source.tk/MatrixTeAM/ImageInfo.php?token='..token..'&url='..photo_id.."&type=photo")
+Srrt = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..token..'&url='..photo_id.."&type=photo")
 Sto = JSON.decode(Srrt)
 if Sto.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
@@ -17353,30 +17353,29 @@ end
 ------------------------------------------------------------------------
 Matrix_Started_Bot(msg,data)
 Matrix_Files(msg)
-elseif (data.ID == "UpdateMessageEdited") then
-local msg = data
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
-database:incr(bot_id..'Matrix:message_edit'..result.chat_id_..result.sender_user_id_)
-local Text = result.content_.text_
-if database:get(bot_id.."Matrix:Lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
-local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "⌔︙المنشئين الاساسين تعالو مخرب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."Matrix:User:Name" .. v)
-if username then
-t = t..""..k.."- ([@"..username.."])\n"
-else
-t = t..""..k.."- (`"..v.."`)\n"
-end
-end
+elseif data.ID == ("UpdateMessageEdited") then
+tdcli_function ({ID = "GetMessage",chat_id_ = data.chat_id_,message_id_ = tonumber(data.message_id_)},function(extra, result, success)
+local textedit = result.content_.text_
+redis:incr(bot_id..'Num:Message:Edit'..result.chat_id_..result.sender_user_id_)
+if redis:get(bot_id.."Status:Lock:edit"..result.chat_id_) and not textedit and not PresidentGroup(result) then
+Delete_Message(result.chat_id_,{[0] = data.message_id_}) 
+local list = redis:smembers(bot_id.."Basic:User"..result.chat_id_)
 if #list == 0 then
-t = "⌔︙ماكو منششئين يشوفولك جاره"
+Send_Options(result,result.sender_user_id_,"reply","⌔︙قام بالتعديل على الميديا")  
+else
+tt = "\n⌔︙يا منشئين\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+for k,v in pairs(list) do
+local username = redis:get(bot_id.."Save:Username" .. v)
+if username then
+tt = tt..""..k.."- ([@"..username.."])\n"
+else
+tt = tt..""..k.."- (`"..v.."`)\n"
 end
-Reply_Status(result,result.sender_user_id_,"reply","\n… … … … … … … … … … …\n⌔︙تم التعديل على الميديا\n⌔︙الشخص الي قام بالتعديل\n⌔︙ايدي الشخص ← `'..result.sender_user_id_..'`\n⌔︙معرف الشخص←{ '..users..' }"..t)  
-DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 end
-local text = result.content_.text_
-if not Addictive(result) then
+Send_Options(result,result.sender_user_id_,"reply",tt.."\n⌔︙قام بالتعديل على الميديا")  
+end
+end
+if not Vips(result) then
 ------------------------------------------------------------------------
 if text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
 if database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) then
