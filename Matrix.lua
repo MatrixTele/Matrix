@@ -10012,7 +10012,7 @@ send(msg.chat_id_, msg.id_,[[
    ]])
 return false  
 end 
-if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not redis:get(bot_id..'Status:Lock:Id:Photo'..msg.chat_id_) then
+if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 then
 function Function_Status(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.first_name_ == false then
@@ -10032,7 +10032,7 @@ end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Status, nil)
 return false
-elseif text and text:match("^كشف @(.*)$") and not redis:get(bot_id..'Status:Lock:Id:Photo'..msg.chat_id_) then
+if text and text:match("^كشف @(.*)$")  then
 local username = text:match("^كشف @(.*)$")
 function Function_Status(extra, result, success)
 if result.id_ then
