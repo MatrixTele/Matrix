@@ -17353,29 +17353,30 @@ end
 ------------------------------------------------------------------------
 Matrix_Started_Bot(msg,data)
 Matrix_Files(msg)
-elseif data.ID == ("UpdateMessageEdited") then
-tdcli_function ({ID = "GetMessage",chat_id_ = data.chat_id_,message_id_ = tonumber(data.message_id_)},function(extra, result, success)
-local textedit = result.content_.text_
-redis:incr(bot_id..'Num:Message:Edit'..result.chat_id_..result.sender_user_id_)
-if redis:get(bot_id.."Status:Lock:edit"..result.chat_id_) and not textedit and not PresidentGroup(result) then
-Delete_Message(result.chat_id_,{[0] = data.message_id_}) 
-local list = redis:smembers(bot_id.."Basic:User"..result.chat_id_)
-if #list == 0 then
-Send_Options(result,result.sender_user_id_,"reply","⌔︙قام بالتعديل على الميديا")  
-else
-tt = "\n⌔︙يا منشئين\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+elseif (data.ID == "UpdateMessageEdited") then
+local msg = data
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
+database:incr(bot_id..'Matrix:message_edit'..result.chat_id_..result.sender_user_id_)
+local Text = result.content_.text_
+if database:get(bot_id.."Matrix:Lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
+local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
+t = "⌔︙ المنشئين الاساسين تعالو مخرب \n — — — — — — — — — \n"
 for k,v in pairs(list) do
-local username = redis:get(bot_id.."Save:Username" .. v)
+local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
-tt = tt..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."- ([@"..username.."])\n"
 else
-tt = tt..""..k.."- (`"..v.."`)\n"
+t = t..""..k.."- (`"..v.."`)\n"
 end
 end
-Send_Options(result,result.sender_user_id_,"reply",tt.."\n⌔︙قام بالتعديل على الميديا")  
+if #list == 0 then
+t = "⌔︙ماكو منششئين يشوفولك جاره"
 end
+Reply_Status(result,result.sender_user_id_,"reply","⌔︙قام بالتعديل على الميديا"..t)  
+DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 end
-if not Vips(result) then
+local text = result.content_.text_
+if not Addictive(result) then
 ------------------------------------------------------------------------
 if text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
 if database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) then
