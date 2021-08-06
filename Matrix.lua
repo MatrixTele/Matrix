@@ -9880,7 +9880,7 @@ return false
 end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"⌔︙عدد صورك   >  "..result.total_count_.." صوره‌‏ ⌔︙")
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"*⌔︙عدد صورك   ←  *|"..result.total_count_.."|* صوره‌‏ *")
 else
 send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
 end end
@@ -12715,7 +12715,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Texti = "\n⌔︙أهلآ بك في بوت "..Namebot.." \n⌔︙اختصاص البوت حماية المجموعات\n⌔︙لتفعيل البوت عليك اتباع مايلي\n⌔︙اضف البوت الى مجموعتك\n⌔︙ارفعه ادمن {مشرف}\n⌔︙ارسل كلمة { تفعيل } ليتم تفعيل المجموعه\n⌔︙سيتم ترقيتك منشئ اساسي في البوت\n⌔︙للعب داخل البوت ارسل  : /play .\n⌔︙مطور البوت ← @["..data.username_.."]"
+Texti = "\n⌔︙أهلآ بك في بوت "..Namebot.." \n⌔︙اختصاص البوت حماية المجموعات\n⌔︙لتفعيل البوت عليك اتباع مايلي\n⌔︙اضف البوت الى مجموعتك\n⌔︙ارفعه ادمن {مشرف}\n⌔︙ارسل كلمة { تفعيل } ليتم تفعيل المجموعه\n⌔︙سيتم ترقيتك منشئ اساسي في البوت\n⌔︙للعب داخل البوت ارسل  : /play ."
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
