@@ -13053,6 +13053,16 @@ database:set(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_,true)
 send(msg.chat_id_,msg.id_,'⌔︙ارسل الكليشه الان')
 return false
 end
+if text == 'الغاء ⌔' then 
+database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
+send(msg.chat_id_,msg.id_,'⌔︙تم الغاء حفظ كليشة المطور')
+return false
+end
+database:set(bot_id..'Matrix:Text_Dev',text)
+database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
+send(msg.chat_id_,msg.id_,'⌔︙تم حفظ كليشة المطور')
+return false
+end
 if text == 'ازالة كليشة المطور ⌔' then
 database:del(bot_id..'Matrix:Text_Dev')
 send(msg.chat_id_, msg.id_,'⌔︙تم حذف كليشه المطور')
