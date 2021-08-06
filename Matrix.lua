@@ -12673,6 +12673,21 @@ return false
 end end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'رجوع 🔚' then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+return false
+end
 if DevMatrix(msg) then
 local Text = '*⌔︙اهلا بك عزيزي .*\n*⌔︙في لوحه الاوامر ألخاصه بالمطور الاساسي .*'
 local keyboard = {
@@ -12688,7 +12703,6 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ⌔'},
 {'تحديث السورس ⌔','تحديث ⌔'},
 {'لاصدار ⌔','معلومات السيرفر ⌔'},
-{'تغير كليشة المطور ⌔','ازالة كليشة المطور ⌔'},
 {'نسخه احتياطيه ⌔','رفع نسخه احتياطيه ⌔'},
 {'تفعيل النسخه التلقائيه ⌔','تعطيل النسخه التلقائيه ⌔'},
 {'اعادة التشغيل ⌔'},
@@ -12713,6 +12727,21 @@ database:setex(bot_id..'Matrix:Start:Time'..msg.sender_user_id_,60,true)
 return false
 end
 if text == '/play' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+return false
+end
 local Text = '*مرحبا بك في العاب البوت اختر ما تريد *'
 local keyboard = {
 {'نسبة الخيانة','نسبة الزحف'},
@@ -13047,25 +13076,6 @@ if text == "اعادة التشغيل ⌔" then
 dofile("Matrix.lua") 
 dofile("sudo.lua")  
 send(msg.chat_id_, msg.id_,"*⌔︙Ok Done rested bot my dev ..*")
-end
-if text == 'تغير كليشة المطور ⌔' then
-database:set(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_,true)
-send(msg.chat_id_,msg.id_,'⌔︙ارسل الكليشه الان')
-return false
-end
-if text == 'الغاء ⌔' then 
-database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'⌔︙تم الغاء حفظ كليشة المطور')
-return false
-end
-database:set(bot_id..'Matrix:Text_Dev',text)
-database:del(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'⌔︙تم حفظ كليشة المطور')
-return false
-end
-if text == 'ازالة كليشة المطور ⌔' then
-database:del(bot_id..'Matrix:Text_Dev')
-send(msg.chat_id_, msg.id_,'⌔︙تم حذف كليشه المطور')
 end
 if text == "تنظيف المشتركين ⌔" then
 local pv = database:smembers(bot_id..'Matrix:UsersBot')  
