@@ -1859,7 +1859,7 @@ return false
 end 
 if text and database:get(bot_id.."Matrix:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
 database:set(bot_id.."Matrix:Set:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"⌔︙ارسل الامر الجديد")  
+send(msg.chat_id_, msg.id_,"⌔︙ارسل الامر الجديد ليتم وضعه مكان القديم")  
 database:del(bot_id.."Matrix:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
 database:set(bot_id.."Matrix:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_,"true1") 
 return false
@@ -12688,6 +12688,7 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ⌔'},
 {'تحديث السورس ⌔','تحديث ⌔'},
 {'لاصدار ⌔','معلومات السيرفر ⌔'},
+{'تغير كليشة المطور ⌔','ازالة كليشة المطور ⌔'},
 {'نسخه احتياطيه ⌔','رفع نسخه احتياطيه ⌔'},
 {'تفعيل النسخه التلقائيه ⌔','تعطيل النسخه التلقائيه ⌔'},
 {'اعادة التشغيل ⌔'},
@@ -13046,6 +13047,15 @@ if text == "اعادة التشغيل ⌔" then
 dofile("Matrix.lua") 
 dofile("sudo.lua")  
 send(msg.chat_id_, msg.id_,"*⌔︙Ok Done rested bot my dev ..*")
+end
+if text == 'تغير كليشة المطور ⌔' then
+database:set(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_,true)
+send(msg.chat_id_,msg.id_,'⌔︙ارسل الكليشه الان')
+return false
+end
+if text == 'ازالة كليشة المطور ⌔' then
+database:del(bot_id..'Matrix:Text_Dev')
+send(msg.chat_id_, msg.id_,'⌔︙تم حذف كليشه المطور')
 end
 if text == "تنظيف المشتركين ⌔" then
 local pv = database:smembers(bot_id..'Matrix:UsersBot')  
@@ -15865,7 +15875,7 @@ keyboard.inline_keyboard = {
 {text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
 },
 {
-{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
+{text = '?? Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
 {text = '⌔︙TeAM Matrix .', url="https://t.me/Matrix_Source"},
