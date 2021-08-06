@@ -10012,49 +10012,48 @@ send(msg.chat_id_, msg.id_,[[
    ]])
 return false  
 end 
-   if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 then
-   function Function_Matrix(extra, result, success)
-      tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-         if data.first_name_ == false then
-         send(msg.chat_id_, msg.id_,'⌔︙ الحساب محذوف لا توجد معلوماته ')
-         return false
-         end
-         if data.username_ then
-         UserName_User = '@'..data.username_
-         else
-         UserName_User = 'لا يوجد'
-         end
-         local Id = data.id_
-         local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
-         send(msg.chat_id_, msg.id_,'⌔︙ايديه - '..Id..'\n⌔︙معرفه - ['..UserName_User..']\n⌔︙رتبته - '..Status_Gps..'\n⌔︙نوع الكشف : بالرد - ') 
-      end,nil)
-   end
-   tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-   return false
-   end
-   
-   if text and text:match("^كشف @(.*)$")  then
-   local username = text:match("^كشف @(.*)$")
-   function Function_Matrix(extra, result, success)
-   if result.id_ then
-   tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
-   if data.username_ then
-   UserName_User = '@'..data.username_
-   else
-   UserName_User = 'لا يوجد'
-   end
-   local Id = data.id_
-   local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
-   send(msg.chat_id_, msg.id_,'⌔︙ايديه - '..Id..'\n⌔︙معرفه - ['..UserName_User..']\n⌔︙رتبته - '..Status_Gps..'\n⌔︙نوع الكشف : بالمعرف - ') 
-   end,nil)   
-   else
-   send(msg.chat_id_, msg.id_,'⌔︙لا يوجد حساب بهاذا المعرف')
-   end
-   end
-   tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
-   return false
-   end
-   
+if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not redis:get(bot_id..'Status:Lock:Id:Photo'..msg.chat_id_) then
+function Function_Status(extra, result, success)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+if data.first_name_ == false then
+send(msg.chat_id_, msg.id_,'⌔︙ الحساب محذوف لا توجد معلوماته ')
+return false
+end
+if data.username_ then
+UserName_User = '@'..data.username_
+else
+UserName_User = 'لا يوجد'
+end
+local Id = data.id_
+local DevZain = data.first_name_..' '..(data.last_name_ or "")
+local Status_Gps = Get_Rank(Id,msg.chat_id_)
+send(msg.chat_id_, msg.id_,'\n*⌔︙الاسم ← ('..DevZain..')\n⌔︙الايدي ← '..Id..'\n⌔︙المعرف ← *['..UserName_User..']*\n⌔︙الرتبة ← '..Status_Gps..'\n⌔︙نوع الكشف ←بالرد*') 
+end,nil)   
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Status, nil)
+return false
+elseif text and text:match("^كشف @(.*)$") and not redis:get(bot_id..'Status:Lock:Id:Photo'..msg.chat_id_) then
+local username = text:match("^كشف @(.*)$")
+function Function_Status(extra, result, success)
+if result.id_ then
+tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
+if data.username_ then
+UserName_User = '@'..data.username_
+else
+UserName_User = 'لا يوجد'
+end
+local Id = data.id_
+local DevZain = data.first_name_..' '..(data.last_name_ or "")
+local Status_Gps = Get_Rank(Id,msg.chat_id_)
+send(msg.chat_id_, msg.id_,'\n*⌔︙الاسم ← ('..DevZain..')\n⌔︙الايدي ← '..Id..'\n⌔︙المعرف ← *['..UserName_User..']*\n⌔︙الرتبة ← '..Status_Gps..'\n⌔︙نوع الكشف ←بالمعرف*') 
+end,nil)   
+else
+send(msg.chat_id_, msg.id_,'⌔︙لا يوجد حساب بهاذا المعرف')
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Status, nil)
+return false
+end
 if text == 'تعين الايدي' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -10075,16 +10074,16 @@ database:setex(bot_id.."Matrix:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_
 local Text= [[
 ⌔︙ارسل الان النص
 ⌔︙يمكنك اضافه :
-- `#username` > اسم المستخدم
-- `#msgs` > عدد رسائل المستخدم
-- `#photos` > عدد صور المستخدم
-- `#id` > ايدي المستخدم
-- `#auto` > تفاعل المستخدم
-- `#stast` > موقع المستخدم 
-- `#edit` > عدد السحكات
-- `#game` > المجوهرات
-- `#AddMem` > عدد الجهات
-- `#Description` > تعليق الصوره
+⌔︙`#username` » اسم المستخدم
+⌔︙`#msgs` » عدد الرسائل
+⌔︙`#photos` » عدد الصور
+⌔︙`#id` » ايدي المستخدم
+⌔︙`#auto` » نسبة التفاعل
+⌔︙`#stast` » رتبة المستخدم 
+⌔︙`#edit` » عدد السحكات
+⌔︙`#game` » عدد المجوهرات
+⌔︙`#AddMem` » عدد الجهات
+⌔︙`#Description` » تعليق الصوره
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
@@ -10109,6 +10108,32 @@ local List = {
 ⌔︙ID : #id.
 ⌔︙Stast : #stast.
 ⌔︙UserName : #username.
+]],
+[[
+ᯓ 𝟔𝟔𝟔𖡋 #username 
+ᯓ 𝟔𝟔𝟔𖡋 #stast  
+ᯓ 𝟔𝟔𝟔𖡋 #id  
+ᯓ 𝟔𝟔𝟔𖡋 #msgs  
+ᯓ 𝟔𝟔𝟔𖡋 #game
+]],
+[[
+☆•𝐮𝐬𝐞𝐫 : #username 𖣬  
+☆•𝐦𝐬𝐠  : #msgs 𖣬 
+☆•𝐬𝐭𝐚 : #stast 𖣬 
+☆•𝐢𝐝  : #id 𖣬
+]],
+[[
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : #id 𓂅 .
+]],
+[[
+.𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  
+.𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  
+.𖣂 𝙡𝘿 , #id  
+.𖣂 𝙂𝙖𝙢𝙨 , #game 
+.𖣂 𝙢𝙨𝙂𝙨 , #msgs
 ]],
 [[
 - 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
