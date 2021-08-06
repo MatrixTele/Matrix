@@ -17356,18 +17356,13 @@ Matrix_Files(msg)
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
-database:incr(bot_id..'edits'..result.chat_id_..result.sender_user_id_)
+database:incr(bot_id..'Matrix:message_edit'..result.chat_id_..result.sender_user_id_)
 local Text = result.content_.text_
-if database:get(bot_id.."lock_edit_med"..msg.chat_id_) and not Text and not BasicConstructor(result) then
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local username = data.username_
-local name = data.first_name_
-local iduser = data.id_
-local users = ('[@'..data.username_..']' or iduser)
-local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
-t = "\n⌔︙شخص ما يحاول تعديل الميديا \n"
+if database:get(bot_id.."Matrix:Lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
+local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
+t = "⌔︙المنشئين الاساسين تعالو مخرب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
+local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -17375,14 +17370,13 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⌔︙لا يوجد ادمن"
+t = "⌔︙ماكو منششئين يشوفولك جاره"
 end
-send(msg.chat_id_,0,''..t..'\n… … … … … … … … … … …\n⌔︙تم التعديل على الميديا\n⌔︙الشخص الي قام بالتعديل\n⌔︙ايدي الشخص ← `'..result.sender_user_id_..'`\n⌔︙معرف الشخص←{ '..users..' }') 
-end,nil)
-DeleteMessage(msg.chat_id_,{[0] = msg.message_id_}) 
+Reply_Status(result,result.sender_user_id_,"reply","\n… … … … … … … … … … …\n⌔︙تم التعديل على الميديا\n⌔︙الشخص الي قام بالتعديل\n⌔︙ايدي الشخص ← `'..result.sender_user_id_..'`\n⌔︙معرف الشخص←{ '..users..' }"..t)  
+DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 end
 local text = result.content_.text_
-if not Mod(result) then
+if not Addictive(result) then
 ------------------------------------------------------------------------
 if text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
 if database:get(bot_id.."Matrix:Lock:Link"..msg.chat_id_) then
