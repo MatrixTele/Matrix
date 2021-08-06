@@ -7421,7 +7421,9 @@ database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":رس","مسح 
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"رس")
 database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":سح","مسح سحكاتي")
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"سح")
-send(msg.chat_id_, msg.id_,"*⌔︙تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .\n- اضف رد - رد . \n- حذف رد - حذ . \n- تنزيل الكل - تك . \n- تثبيت - ت .\n- مسح رسائلي - رس . \n- مسح سحكاتي - سح . *")  
+database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":ر","الرابط")
+database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"ر")
+send(msg.chat_id_, msg.id_,"*⌔︙تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .\n- اضف رد - رد . \n- حذف رد - حذ . \n- تنزيل الكل - تك . \n- تثبيت - ت .\n- مسح رسائلي - رس . \n- مسح سحكاتي - سح .\n- الرابط - ر . *")  
 end
 if text == "اضف امر" or text == "امر" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -9880,7 +9882,7 @@ return false
 end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"*⌔︙عدد صورك   ←* | "..result.total_count_.." |")
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"⌔︙عدد صورك ← | "..result.total_count_.." |")
 else
 send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
 end end
