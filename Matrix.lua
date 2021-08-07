@@ -7932,32 +7932,6 @@ end
 end
 end
 --     Source Matrix     --
-if text == "تفعيل اغنيه" and Owner(msg)  then
-local t = ' \n⌔︙تم تفعيل غنيلي'
-send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Rio:mp3:Rio'..msg.chat_id_) 
-end
-if text == "تعطيل اغنيه" and Owner(msg)  then
-local t = ' \n⌔︙تم تعطيل غنيلي'
-send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Rio:mp3:Rio'..msg.chat_id_,true)  
-end
-if text == "اغنيه" and not database:get(bot_id..'Rio:mp3:Rio'..msg.chat_id_)  then
-data,res = https.request('https://ccccxcc.ml/David/mp3.php')
-if res == 200 then
-Audios = json:decode(data)
-if Audios.Info == true then
-local Text ='*⌔︙تم اختيار الاغنيه لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⌔︙Matrix Team .',url="t.me/Matrix_Source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
---     Source Matrix     --
 if text == "تفعيل غنيلي" and Owner(msg)  then
 local t = ' \n⌔︙تم تفعيل غنيلي'
 send(msg.chat_id_, msg.id_,t)
