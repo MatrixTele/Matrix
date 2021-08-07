@@ -7942,7 +7942,7 @@ local t = ' \n⌔︙تم تعطيل غنيلي'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:mp3:Rio'..msg.chat_id_,true)  
 end
-if text == "غنيلي" and not database:get(bot_id..'Rio:mp3:Rio'..msg.chat_id_)  then
+if text == "اغنيه" and not database:get(bot_id..'Rio:mp3:Rio'..msg.chat_id_)  then
 data,res = https.request('https://ccccxcc.ml/David/mp3.php')
 if res == 200 then
 Audios = json:decode(data)
