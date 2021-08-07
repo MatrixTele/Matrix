@@ -11098,7 +11098,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب متطورة •', callback_data=msg.sender_user_id_.."/gamemm"},
 },
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11641,7 +11641,7 @@ _key = {
 {{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
-{{text = '⌔︙TeAM Matrix .', url="t.me/Matrix_Source"}},
+{{text = '⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾', url="t.me/Matrix_Source"}},
 {{text = '⌔مطور السورس⌔', url="t.me/IZlZ7I"}},
 }
 send_inlin_key(msg.chat_id_," *⌔︙قائمه الالعاب الاحترافيه اضغط للعب*",_key,msg.id_)
@@ -12880,7 +12880,7 @@ Text = [[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾',url="https://t.me/Matrix_Source"},
 },
 {
 {text = '⌔︙Bot TwisL',url="t.me/U41bot"},
@@ -15938,7 +15938,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
 },
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+{text = '⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾',url="https://t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16008,10 +16008,10 @@ keyboard.inline_keyboard = {
 {text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
 },
 {
-{text = '?? Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
+{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
-{text = '⌔︙TeAM Matrix .', url="https://t.me/Matrix_Source"},
+{text = '⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾', url="https://t.me/Matrix_Source"},
 },
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
