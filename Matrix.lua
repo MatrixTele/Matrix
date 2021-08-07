@@ -12190,7 +12190,7 @@ local Text =[[*
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12233,7 +12233,7 @@ local Text =[[*
 ⌔︙يمكنك تصفح الاضافات من خلال
 ⌔︙الكيبورد الموجود في الأسفل
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12277,7 +12277,7 @@ Text = [[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12331,7 +12331,7 @@ Text = [[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12388,7 +12388,7 @@ Text = [[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12437,7 +12437,7 @@ Text = [[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12474,7 +12474,7 @@ Text = [[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -12510,7 +12510,7 @@ Text = [[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -16031,7 +16031,7 @@ local Teext =[[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16085,7 +16085,7 @@ local Teext =[[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16142,7 +16142,7 @@ local Teext =[[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16191,7 +16191,7 @@ local Teext =[[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16228,7 +16228,7 @@ local Teext =[[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16279,7 +16279,7 @@ local Teext =[[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16308,7 +16308,7 @@ local Teext =[[*
 ⌔︙البـحث عن اغنية ↓
 ⌔︙بحث ← اسم الاغنية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16339,7 +16339,7 @@ local Teext =[[*
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16367,7 +16367,7 @@ local Teext =[[*
 ⌔︙كتم اسم + الاسم المراد كتمه
 ⌔︙الغاء كتم اسم + الاسم المراد الغاء كتمه
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16397,7 +16397,7 @@ local Teext =[[*
 ⌔︙تعين عدد الكتم + عدد
 ⌔︙التوحيد
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16424,7 +16424,7 @@ local Teext =[[*
 ⌔︙تفعيل تنبيه الاسماء
 ⌔︙تعطيل تنبيه الاسماء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16451,7 +16451,7 @@ local Teext =[[*
 ⌔︙تفعيل تنبيه المعرف
 ⌔︙تعطيل تنبيه المعرف
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16478,7 +16478,7 @@ local Teext =[[*
 ⌔︙تفعيل تنبيه الصور
 ⌔︙تعطيل تنبيه الصور
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16508,7 +16508,7 @@ local Teext =[[*
 ⌔︙يمكنك تصفح الاضافات من خلال
 ⌔︙الكيبورد الموجود في الأسفل
  ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ 
-⌔︙قناة البوت ←* [Source Channel](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17553,7 +17553,7 @@ if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
 print("\27[34m"..[[
 >> The Bot is Running
 >> Bot source > Matrix
->>Source channel > @Matrix_Source
+>>⤹Matrix 𝖲𝗈𝗎𝗋𝖼𝖾⤾ > @Matrix_Source
 >>Source developer > @IZlZ7I
 ███╗░░░███╗░█████╗░████████╗██████╗░██╗██╗░░██╗
 ████╗░████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝
