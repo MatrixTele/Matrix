@@ -11380,7 +11380,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'*🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات*')
+send(msg.chat_id_,msg.id_,'*Ok Im Reload ...*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
@@ -12095,7 +12095,7 @@ end
 
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "*🔂┇تم تحديث ملفات البوت*")
+send(msg.chat_id_, msg.id_, "*Ok Im Reload ...*")
 end
 
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
