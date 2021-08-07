@@ -11380,7 +11380,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'*Ok Im Reload ...*')
+send(msg.chat_id_,msg.id_,'*Updated latest version ...*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
