@@ -12150,7 +12150,7 @@ Text = [[*
 ⌔︙[Source Info ](t.me/infoo_Matrix)     
 ⌔︙[Developer](t.me/IZlZ7I)     
 * ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ *
-⌔︙[TWS TeKToK](t.me/U41bot)
+⌔︙[TWS MATRIX](t.me/U41bot)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
