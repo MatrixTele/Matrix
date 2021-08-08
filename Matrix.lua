@@ -12178,7 +12178,7 @@ end
 return false
 end
 local Text =[[*
-⌔︙توجد ← 5 اوامر في البوت
+⌔︙توجد ← 6 اوامر في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙ارسل { م0 } ← اوامر المنظفين
 ⌔︙ارسل { م1 } ← اوامر الحمايه
@@ -12186,19 +12186,20 @@ local Text =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
+⌔︙ارسل { م6 } ← اوامر الاعضاء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=msg.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=msg.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=msg.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=msg.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=msg.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12903,7 +12904,7 @@ end
 if text == 'ارقام جاهزة 🔢' then
 Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
-⌔??⌔ ⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾ ⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾ ⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾ 𝟔 𝟕 ?? 𝟗 ⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾
+⌔??⌔ • ❷ • • ❸ • • ❹ •• ❺ • 𝟔 𝟕 ?? 𝟗 • ⓿ •
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
@@ -12913,7 +12914,7 @@ Text = [[
  𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
- ⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾  ⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾  ⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾  ⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾  ⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾  ⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾   𝟔  𝟕   𝟖   𝟗
+ • ⓿ •  • ❶ •  • ❷ •  • ❸ •  • ❹ •  • ❺ •   𝟔  𝟕   𝟖   𝟗
 ０ １ ２ ３ ４ ５ ６ ７８９
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 *]]
@@ -16033,13 +16034,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -16087,13 +16088,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -16144,13 +16145,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -16193,13 +16194,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -16230,13 +16231,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -16281,13 +16282,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -16310,13 +16311,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -16327,7 +16328,7 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-⌔︙توجد ← 5 اوامر في البوت
+⌔︙توجد ← 6 اوامر في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙ارسل { م0 } ← اوامر المنظفين
 ⌔︙ارسل { م1 } ← اوامر الحمايه
@@ -16335,19 +16336,20 @@ local Teext =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
+⌔︙ارسل { م6 } ← اوامر الاعضاء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/YouTube"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
