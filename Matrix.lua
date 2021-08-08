@@ -811,7 +811,7 @@ keyboard.inline_keyboard = {
 {text = 'رجوع ...', callback_data=user.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=user.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat..'&text='..URL.escape(Texti)..'&message_id='..msgid..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -874,7 +874,7 @@ keyboard.inline_keyboard = {
 {text = 'التالي ...', callback_data=user.."/homelocks1"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=user.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat..'&text='..URL.escape(Texti)..'&message_id='..msgid..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -12192,13 +12192,13 @@ local Text =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=msg.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=msg.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=msg.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=msg.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=msg.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=msg.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=msg.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=msg.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12903,7 +12903,7 @@ end
 if text == 'ارقام جاهزة 🔢' then
 Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
-⌔??⌔ ⌔𝟐⌔ ⌔𝟑⌔ ⌔𝟒⌔⌔𝟓⌔ 𝟔 𝟕 ?? 𝟗 ⌔𝟎⌔
+⌔??⌔ ⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾ ⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾ ⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾ 𝟔 𝟕 ?? 𝟗 ⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
@@ -12913,7 +12913,7 @@ Text = [[
  𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
- ⌔𝟎⌔  𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻  ⌔𝟐⌔  ⌔𝟑⌔  ⌔𝟒⌔  ⌔𝟓⌔   𝟔  𝟕   𝟖   𝟗
+ ⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾  ⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾  ⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾  ⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾  ⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾  ⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾   𝟔  𝟕   𝟖   𝟗
 ０ １ ２ ３ ４ ５ ６ ７８９
 ⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
 *]]
@@ -14849,7 +14849,7 @@ keyboard.inline_keyboard = {
 {text = 'تفعيل الانستا', callback_data=data.sender_user_id_.."/Matrix:insta_bot"},{text = 'تعطيل الانستا', callback_data=data.sender_user_id_.."/unMatrix:insta_bot"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -16033,16 +16033,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16087,16 +16087,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16144,16 +16144,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16193,16 +16193,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16230,16 +16230,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16281,16 +16281,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16310,16 +16310,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16341,13 +16341,13 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '⤹𝗮𝗱𝗱𝗶𝗰𝘁𝗶𝘃𝗲⤾', callback_data=data.sender_user_id_.."/help2"},{text = '⤹𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻⤾', callback_data=data.sender_user_id_.."/help1"},{text = '⤹𝗰𝗹𝗲𝗮𝗻𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '⤹𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help5"},{text = '⤹𝗼𝗿𝗶𝗴𝗶𝗻𝗮𝘁𝗼𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help4"},{text = '⤹𝗺𝗮𝗻𝗮𝗴𝗲𝗿𝘀⤾', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '⤹𝗮𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻⚙⤾', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⤹𝘆𝗼𝘂 𝘁𝘂𝗯𝗲▶️⤾', callback_data=data.sender_user_id_.."/YouTube"},{text = '⤹𝗹𝗼𝗰𝗸🔒⤾', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
