@@ -7957,6 +7957,21 @@ https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. ms
 end
 end
 end
+if text == "حسينيات" and not database:get(bot_id..'Rio:hssea:Rio'..msg.chat_id_)  then
+data,res = https.request('https://evzxar.ml/co/bm.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*⌔︙تم اختيار الاغنيه لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
 --     Source Matrix     --
 if text == "تفعيل غنيلي" and Owner(msg)  then
 local t = ' \n⌔︙تم تفعيل غنيلي'
@@ -12865,7 +12880,7 @@ local keyboard = {
 {'نسبة الغباء','كشف الحيوان','كشف الارتباط'},
 {'رموز مزخرفة 🏷️','ارقام جاهزة 🔢'},
 {'زخرفه'},
-{'قناة السورس 📡 .'},
+{'قناة السورس ?? .'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 return false
