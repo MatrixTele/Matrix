@@ -12057,7 +12057,7 @@ send(msg.chat_id_, msg.id_,'⌔︙تم حذف كليشه المطور')
 end
 if text == 'وضع كليشه المطور' and DevMatrix(msg) then
 database:set(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_,true)
-send(msg.chat_id_,msg.id_,'⌔︙ارسل الكليشه الان')
+send(msg.chat_id_,msg.id_,'*⌔︙ارسل الكليشه الان*')
 return false
 end
 if text and database:get(bot_id..'Matrix:Set:Text_Dev'..msg.chat_id_) then
