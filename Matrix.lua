@@ -12178,8 +12178,22 @@ end
 
 return false
 end
-Text = [[⌔︙@F89Fbot   ]]
-send(msg.chat_id_, msg.id_,Text)
+Text = [[*
+- اهلا بك عزيزي ؛
+- في بوت حذف حسابات التليجرام -
+• وضيفة البوت مساعدتك في حذف حسابك 💌 •
+- دون الذهاب الى موقع الحذف ☑️ •
+- لحذف حسابك اضغط على زر حذف الحساب ؛*
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '𝗱𝗲𝗹𝗲𝘁𝗲 𝗯𝗼𝘁',url="https://t.me/F89Fbot"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
