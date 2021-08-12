@@ -11637,8 +11637,7 @@ if text == 'تفعيل الالعاب الاحترافيه' and Owner(msg) and m
 database:del(bot_id..'lockGeamVip'..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,'*⌔︙تم تفعيل الالعاب الاحترافيه*')
 end
-if text == 'الالعاب الاحترافيه' and Owner(msg) then  
-if not database:get(bot_id..'lockGeamVip'..msg.chat_id_) then
+if text == 'الالعاب الاحترافيه' or text == 'العاب ماتركس' then
 local Text = [[  *
  ⌔︙قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
