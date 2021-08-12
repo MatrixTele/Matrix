@@ -16031,7 +16031,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/gamemm') then
 if tonumber(Text:match('(.*)/gamemm')) == tonumber(data.sender_user_id_) then
-local Text = [[  *
+local Teext =[[*
  ⌔︙قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]  
@@ -16064,8 +16064,7 @@ keyboard.inline_keyboard = {
 {{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
 {{text = '  MatRix Team  ', url="t.me/Matrix_Source"}},
 }  
-local msg_id = msg.id_/2097152/0.5  
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 elseif Text and Text:match('(.*)/help0') then
 if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
