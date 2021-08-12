@@ -3980,7 +3980,21 @@ end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مالك*")  
+Kick_Group(result.chat_id_, result.sender_user_id_) 
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+local UserName = (data.username_ or "Matrix_Source")
+local NameUserr = "\n*⌔︙المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unban'..result.sender_user_id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔︙تم الغاء رفع المالك*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
+end,nil)   
+end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -13692,6 +13706,13 @@ database:srem(bot_id.."Matrix:Muted:User"..data.chat_id_, Userid[2])
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الكتم عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
+if Text and Text:match('(.*)/unmalk(.*)') then
+local Userid = {Text:match('(.*)/unmalk(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+database:srem(bot_id.."creator"..data.chat_id_, Userid[2])
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء رفع المالك*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
 if Text and Text:match('(.*)/unban(.*)') then
 local Userid = {Text:match('(.*)/unban(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
@@ -16010,46 +16031,41 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/gamemm') then
 if tonumber(Text:match('(.*)/gamemm')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-⌔︙اهلا بك في قائمة الالعاب المحترفة .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙يمكنك الان اختيار لعبة .
-⌔︙قم بارسال اللعبه في المجموعة .
-⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
+local Text = [[  *
+ ⌔︙قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-⌔︙قناة البوت ← [Matrix](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
-},
-{
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
-},
-{
-{text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
-},
-{
-{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
-},
-{
-{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
-},
-{
-{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
-},
-{
-{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
-},
-{
-{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹', url="https://t.me/Matrix_Source"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+]]  
+keyboard = {}   
+keyboard.inline_keyboard = {  
+{{text = 'فلابي بيرد', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات',url="https://t.me/gamebot?game=MathBattle"}},   
+{{text = 'لعبه دراجات', url="https://t.me/gamee?game=MotoFX"},{text = 'سباق سيارات', url="https://t.me/gamee?game=F1Racer"}}, 
+{{text = 'تشابه', url="https://t.me/gamee?game=DiamondRows"},{text = 'كره القدم', url="https://t.me/gamee?game=FootballStar"}}, 
+{{text = 'ورق', url="https://t.me/gamee?game=Hexonix"},{text = 'لعبه 2048', url="https://t.me/awesomebot?game=g2048"}}, 
+{{text = 'SQUARES', url="https://t.me/gamee?game=Squares"},{text = 'ATOMIC', url="https://t.me/gamee?game=AtomicDrop1"}}, 
+{{text = 'CORSAIRS', url="https://t.me/gamebot?game=Corsairs"},{text = 'LumberJack', url="https://t.me/gamebot?game=LumberJack"}}, 
+{{text = 'LittlePlane', url="https://t.me/gamee?game=LittlePlane"},{text = 'RollerDisco', url="https://t.me/gamee?game=RollerDisco"}},  
+{{text = 'كره القدم 2', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'جمع المياه', url="https://t.me/gamee?game=BlockBuster"}},  
+{{text = 'لا تجعلها تسقط', url="https://t.me/gamee?game=Touchdown"},{text = 'GravityNinja', url="https://t.me/gamee?game=GravityNinjaEmeraldCity"}},  
+{{text = 'Astrocat', url="https://t.me/gamee?game=Astrocat"},{text = 'Skipper', url="https://t.me/gamee?game=Skipper"}},  
+{{text = 'WorldCup', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'GeometryRun', url="https://t.me/gamee?game=GeometryRun"}},  
+{{text = 'Ten2One', url="https://t.me/gamee?game=Ten2One"},{text = 'NeonBlast2', url="https://t.me/gamee?game=NeonBlast2"}},  
+{{text = 'Paintio', url="https://t.me/gamee?game=Paintio"},{text = 'onetwothree', url="https://t.me/gamee?game=onetwothree"}},  
+{{text = 'BrickStacker', url="https://t.me/gamee?game=BrickStacker"},{text = 'StairMaster3D', url="https://t.me/gamee?game=StairMaster3D"}},  
+{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'BasketBoyRush', url="https://t.me/gamee?game=BasketBoyRush"}},  
+{{text = 'GravityNinja21', url="https://t.me/gamee?game=GravityNinja21"},{text = 'MarsRover', url="https://t.me/gamee?game=MarsRover"}},  
+{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"}},  
+{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'KeepItUp', url="https://t.me/gamee?game=KeepItUp"}},  
+{{text = 'SunshineSolitaire', url="https://t.me/gamee?game=SunshineSolitaire"},{text = 'Qubo', url="https://t.me/gamee?game=Qubo"}},  
+{{text = 'PenaltyShooter2', url="https://t.me/gamee?game=PenaltyShooter2"},{text = 'Getaway', url="https://t.me/gamee?game=Getaway"}},  
+{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'SpikyFish2', url="https://t.me/gamee?game=SpikyFish2"}},  
+{{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"},{text = 'KungFuInc', url="https://t.me/gamee?game=KungFuInc"}},  
+{{text = 'SpaceTraveler', url="https://t.me/gamee?game=SpaceTraveler"},{text = 'RedAndBlue', url="https://t.me/gamee?game=RedAndBlue"}},  
+{{text = 'SkodaHockey1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
+{{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
+{{text = '  MatRix Team  ', url="t.me/Matrix_Source"}},
+}  
+local msg_id = msg.id_/2097152/0.5  
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
 end
 elseif Text and Text:match('(.*)/help0') then
 if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
