@@ -9357,7 +9357,7 @@ send(msg.chat_id_, msg.id_,"⌔︙حساب المنشئ محذوف")
 return false  
 end
 local UserName = (b.username_ or "Matrix_Source")
-send(msg.chat_id_, msg.id_,"⌔︙منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+send(msg.chat_id_, msg.id_,"*⌔︙مالك المجموعه ~* ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
 end
@@ -11264,7 +11264,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'*🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات*')
+send(msg.chat_id_,msg.id_,'*Updated latest version ...*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
@@ -11979,7 +11979,7 @@ end
 
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "*🔂┇تم تحديث ملفات البوت*")
+send(msg.chat_id_, msg.id_, "*Ok Im Reload ...*")
 end
 
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
@@ -12697,7 +12697,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Texti = "*↞* أهلـين انا بوت آسمي "..Namebot.."* . 🐉*\n\n*↞* اختصاصي ادارة المجموعات من السبام والخ ..\n\n*↞* للتفعيل ارفعني مشرف وارسل تفعيل في المجموعة .\n\n*↞* للعب داخل البوت ارسل  : /play ."
+Texti = "\n⌔︙أهلآ بك في بوت "..Namebot.." \n⌔︙اختصاص البوت حماية المجموعات\n⌔︙لتفعيل البوت عليك اتباع مايلي\n⌔︙اضف البوت الى مجموعتك\n⌔︙ارفعه ادمن {مشرف}\n⌔︙ارسل كلمة { تفعيل } ليتم تفعيل المجموعه\n⌔︙سيتم ترقيتك منشئ اساسي في البوت\n⌔︙للعب داخل البوت ارسل  : /play ."
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
