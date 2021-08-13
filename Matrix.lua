@@ -13743,15 +13743,15 @@ end
 elseif Text and Text:match('mp3/(.*)') then
 local Id_Link = Text:match('mp3/(.*)') 
 DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
-https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp3&msg=0')
+https.request('https://evzxar.ml/Youtube/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp3&msg=0')
 elseif Text and Text:match('ogg/(.*)') then
 local Id_Link = Text:match('ogg/(.*)') 
 DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
-https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=ogg&msg=0')
+https.request('https://evzxar.ml/Youtube/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=ogg&msg=0')
 elseif Text and Text:match('mp4/(.*)') then
 local Id_Link = Text:match('mp4/(.*)') 
 DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
-https.request('https://devstorm.ml/IZlZ7I/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
+https.request('https://evzxar.ml/Youtube/yt2.php?url='..Id_Link..'&token='..token..'&chat='..data.chat_id_..'&type=mp4&msg=0')
 end
 
 
