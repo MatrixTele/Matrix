@@ -11999,20 +11999,19 @@ end
 return false
 end
 Text = [[*
-⌔︙Welcome to Source
-⌔︙TeAm - ”Matrix”
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+⦑ Welcome to Source ⦒
+⦑ MATRIX TEAM ⦒
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+⌔︙[Source Channel](t.me/Matrix_Source)
+⌔︙[Source Info ](t.me/infoo_Matrix)     
+⌔︙[Developer](t.me/IZlZ7I)     
+* ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ *
+⌔︙[TWS MATRIX](t.me/U41bot)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
-},
-{
-{text = '⌔︙Matrix Files .',url="https://t.me/infoo_Matrix"},
-},
-{
-{text = '⌔︙Bot TwisL',url="t.me/U41bot"},
+{text = '𝗺𝗮𝘁𝗿𝗶𝘅 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
