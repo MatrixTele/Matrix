@@ -7995,6 +7995,12 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Audios:Rio'..msg.chat_id_,true)  
 end
 if text == "غنيلي" and not database:get(bot_id..'Rio:Audios:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
+return false 
+end
 data,res = https.request('https://ccccxcc.ml/David/Audios.php')
 if res == 200 then
 Audios = json:decode(data)
@@ -8021,6 +8027,12 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Remix:Rio'..msg.chat_id_,true)  
 end
 if text == "ريمكس" and not database:get(bot_id..'Rio:Remix:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
+return false 
+end
 data,res = https.request('https://ccccxcc.ml/David/Remix.php')
 if res == 200 then
 Audios = json:decode(data)
@@ -8046,6 +8058,12 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Photo:Rio'..msg.chat_id_,true)  
 end
 if text == "صوره" and not database:get(bot_id..'Rio:Photo:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
+return false 
+end
 data,res = https.request('https://ccccxcc.ml/David/Photo.php')
 if res == 200 then
 photo = json:decode(data)
@@ -8072,6 +8090,12 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Anime:Rio'..msg.chat_id_,true)  
 end
 if text == "انمي" and not database:get(bot_id..'Rio:Anime:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
+return false 
+end
 data,res = https.request('https://ccccxcc.ml/David/Anime.php')
 if res == 200 then
 photo = json:decode(data)
@@ -8098,6 +8122,12 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Movies:Rio'..msg.chat_id_,true)  
 end
 if text == "فلم" and not database:get(bot_id..'Rio:Movies:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
+return false 
+end
 data,res = https.request('https://ccccxcc.ml/David/Movies.php')
 if res == 200 then
 photo = json:decode(data)
@@ -8124,6 +8154,12 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Series:Rio'..msg.chat_id_,true)  
 end
 if text == "مسلسل" and not database:get(bot_id..'Rio:Series:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
+return false 
+end
 data,res = https.request('https://ccccxcc.ml/David/Series.php')
 if res == 200 then
 photo = json:decode(data)
@@ -8149,6 +8185,12 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Antk:Rio'..msg.chat_id_,true)  
 end
 if text and text:match("^انطق (.*)$") and not database:get(bot_id..'Rio:Antk:Rio'..msg.chat_id_) then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
+return false 
+end
 local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(text:match("^انطق (.*)$")))
 Antk = JSON.decode(UrlAntk)
 if UrlAntk.ok ~= false then
@@ -11775,13 +11817,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 end
 end
-if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then 
-local url,res = https.request('https://evzxar.ml/matrixapi.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
-end
+if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^بحث (.*)$') 
 local msgin = msg.id_/2097152/0.5 
 https.request('https://evzxar.ml/Youtube/IZlZ7I.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin..'&user='..msg.sender_user_id_)
@@ -12160,7 +12196,7 @@ end
 end
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://evzxar.ml/matrixapi.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
 send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
@@ -12173,7 +12209,7 @@ Text = [[*
 ⌔︙[Source Channel](t.me/Matrix_Source)
 ⌔︙[Source Info ](t.me/infoo_Matrix)     
 ⌔︙[Developer](t.me/IZlZ7I)     
-* ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ *
+* 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 *
 ⌔︙[TWS MATRIX](t.me/U41bot)
 ]]
 keyboard = {} 
@@ -12187,7 +12223,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 return false
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
-local url,res = https.request('https://evzxar.ml/matrixapi.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
 send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
@@ -12956,17 +12992,17 @@ Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
 ⌔??⌔ • ❷ • • ❸ • • ❹ •• ❺ • 𝟔 𝟕 ?? 𝟗 • ⓿ •
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
-⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
-⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
  𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
  • ⓿ •  • ❶ •  • ❷ •  • ❸ •  • ❹ •  • ❺ •   𝟔  𝟕   𝟖   𝟗
 ０ １ ２ ３ ４ ５ ６ ７８９
-⌔︙⌔︙┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉⌔︙⌔︙
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 *]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16329,7 +16365,7 @@ local Teext =[[*
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔︙مسح جميع الملفات 
 ⌔︙المتجر ، الملفات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔︙اوامر المطور في البوت
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔︙تفعيل ، تعطيل ، الاحصائيات
