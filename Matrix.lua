@@ -11739,12 +11739,13 @@ database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
 if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://Matrix-source.tk/MatrixTeAM/infoInstagram.php?username='..URL.escape(Textni)..'')
+data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
 if res == 200 then
 muaed = json:decode(data)
 if muaed.Info == true then
-local msg_id = msg.id_/2097152/0.5
-SendP(msg.chat_id_, msg_id,muaed.ph, muaed.info) 
+local filee = download_to_file(muaed.ph,msg.sender_user_id_..'.jpg')
+sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',muaed.info)     
+os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
 end
 end
 end
@@ -12865,8 +12866,8 @@ end
 if DevMatrix(msg) then
 local Text = '*⌔︙اهلا بك عزيزي .*\n*⌔︙في لوحه الاوامر ألخاصه بالمطور الاساسي .*'
 local keyboard = {
-{'تغيير المطور الاساسي ⌔','قناه تحديثات السورس⌔'},
-{'المطور⌔'},
+{'تغيير المطور الاساسي ⌔','قناه تحديثات السورس ⌔'},
+{'المطور ⌔'},
 {'تغير اسم البوت ⌔','الاحصائيات ⌔'},
 {'تعطيل التواصل ⌔','تفعيل التواصل ⌔'},
 {'مسح قائمه العام ⌔','قائمة العام ⌔','مسح المطورين ⌔'},
@@ -13133,15 +13134,15 @@ database:set(bot_id.."AutoFile",true)
 send(msg.chat_id_, msg.id_,"⌔︙تم تعطيل النسخه الاحتياطيه التلقائيه .") 
 return false  
 end
-if text == '⌔قناه تحديثات السورس' then 
+if text == '⌔ قناه تحديثات السورس' then 
 send(msg.chat_id_, msg.id_,' ⌔︙[تحديثات ﭑݪسورس](https://t.me/infoo_Matrix) \n ⌔︙[قناه ﭑݪسورس](https://t.me/Matrix_Source)')
 end
-if text == '⌔المطور' or text == 'مطور' or text == 'المطورين' then
-local Text_Dev = database:get(bot_id..'SourceMatrix:Text_Dev')
+if text == '⌔ المطور' or text == 'مطور' or text == 'المطورين' then
+local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
 if Text_Dev then 
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
-local Name = '⌔︙مطور البوت  : [ '..UserName..' ]'
+local Name = '*⌔︙مطور البوت :* [ '..UserName..' ]'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end
 end
