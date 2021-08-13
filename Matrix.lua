@@ -3980,7 +3980,21 @@ end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مالك*")  
+Kick_Group(result.chat_id_, result.sender_user_id_) 
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+local UserName = (data.username_ or "Matrix_Source")
+local NameUserr = "\n*⌔︙المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unban'..result.sender_user_id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔︙تم الغاء رفع المالك*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
+end,nil)   
+end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
@@ -13690,6 +13704,13 @@ local Userid = {Text:match('(.*)/unktm(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
 database:srem(bot_id.."Matrix:Muted:User"..data.chat_id_, Userid[2])
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الكتم عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
+if Text and Text:match('(.*)/unmalk(.*)') then
+local Userid = {Text:match('(.*)/unmalk(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+database:srem(bot_id.."creator"..data.chat_id_, Userid[2])
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء رفع المالك*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
 end
 end
 if Text and Text:match('(.*)/unban(.*)') then
