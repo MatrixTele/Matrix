@@ -13134,10 +13134,10 @@ database:set(bot_id.."AutoFile",true)
 send(msg.chat_id_, msg.id_,"⌔︙تم تعطيل النسخه الاحتياطيه التلقائيه .") 
 return false  
 end
-if text == '⌔ قناه تحديثات السورس' then 
+if text == 'قناه تحديثات السورس ⌔' then 
 send(msg.chat_id_, msg.id_,' ⌔︙[تحديثات ﭑݪسورس](https://t.me/infoo_Matrix) \n ⌔︙[قناه ﭑݪسورس](https://t.me/Matrix_Source)')
 end
-if text == '⌔ المطور' or text == 'مطور' or text == 'المطورين' then
+if text == 'المطور ⌔' or text == 'مطور' or text == 'المطورين' then
 local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
 if Text_Dev then 
 send(msg.chat_id_, msg.id_,Text_Dev)
