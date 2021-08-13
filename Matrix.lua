@@ -11485,7 +11485,7 @@ if text == 'تفعيل الالعاب الاحترافيه' and Owner(msg) and m
 database:del(bot_id..'lockGeamVip'..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,'*⌔︙تم تفعيل الالعاب الاحترافيه*')
 end
-if text == 'العاب ماتركس' or text == 'العاب متطوره' or text == 'الالعاب الاحترافيه' then  
+if text == 'العاب لاريكا' or text == 'العاب متطوره' or text == 'العاب متطوره' then  
 local Text = [[  
  𝗐𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝗈 𝗍𝗁𝖾 𝗅𝗂𝗌𝗍 𝗈𝖿 𝖺𝖽𝗏𝖺𝗇𝖼𝖾𝖽 𝗀𝖺𝗆𝖾𝗌 𝗌𝗈𝗎𝗋𝖼𝖾 𝗅𝖺𝗋𝗂𝖼𝖺 𝗉𝗋𝖾𝖿𝖾𝗋 𝗍𝗈 𝖼𝗁𝗈𝗈𝗌𝖾 𝖺 𝗀𝖺𝗆𝖾 𝖿𝗋𝗈𝗆 𝗍𝗁𝖾 𝗅𝗂𝗌𝗍 🦇. 
 ]]  
