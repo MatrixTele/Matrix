@@ -11635,7 +11635,7 @@ end
 if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^بحث (.*)$') 
 local msgin = msg.id_/2097152/0.5 
-https.request('https://evzxar.ml/Youtube/IZlZ7I.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin..'&user='..msg.sender_user_id_)
+https.request('https://evzxar.ml/Youtube/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin..'&user='..msg.sender_user_id_)
 end
 if text == 'تفعيل اليوتيوب' and Owner(msg) then   
 if not database:get(bot_id..'dw:bot:api'..msg.chat_id_)  then
