@@ -13724,8 +13724,8 @@ Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔�
 end
 end
 
-if Text and Text:match('(%d+)@id/(.*)') then
-local Id_Link = {string.match(Text,"^(%d+)@id/(.*)$")}
+if Text and Text:match('(%d+)@id@/(.*)') then
+local Id_Link = {string.match(Text,"^(%d+)@id@/(.*)$")}
 if tonumber(Id_Link[1]) == tonumber(data.sender_user_id_) then
 DeleteMessage(data.chat_id_, {[0] = Msg_id}) 
 local textt = '- من فضلك اختر نوع التنزيل'
