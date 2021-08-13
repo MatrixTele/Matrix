@@ -11485,7 +11485,8 @@ if text == 'تفعيل الالعاب الاحترافيه' and Owner(msg) and m
 database:del(bot_id..'lockGeamVip'..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,'*⌔︙تم تفعيل الالعاب الاحترافيه*')
 end
-if text == 'العاب لاريكا' or text == 'العاب متطوره' or text == 'العاب متطوره' then  
+if text == 'العاب ماتركس' or text == 'العاب متطوره' or text == 'الالعاب الاحترافيه' then  
+if not database:del(bot_id..'lockGeamVip'..msg.chat_id_)  
 local Text = [[  
  𝗐𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝗈 𝗍𝗁𝖾 𝗅𝗂𝗌𝗍 𝗈𝖿 𝖺𝖽𝗏𝖺𝗇𝖼𝖾𝖽 𝗀𝖺𝗆𝖾𝗌 𝗌𝗈𝗎𝗋𝖼𝖾 𝗅𝖺𝗋𝗂𝖼𝖺 𝗉𝗋𝖾𝖿𝖾𝗋 𝗍𝗈 𝖼𝗁𝗈𝗈𝗌𝖾 𝖺 𝗀𝖺𝗆𝖾 𝖿𝗋𝗈𝗆 𝗍𝗁𝖾 𝗅𝗂𝗌𝗍 🦇. 
 ]]  
@@ -15632,9 +15633,6 @@ keyboard.inline_keyboard = {
 {
 {text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
 },
-{
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
-},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -15664,9 +15662,6 @@ keyboard.inline_keyboard = {
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
 },
-{
-{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
-},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -15680,38 +15675,37 @@ local Teext =[[*
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ⌔︙قناة البوت ← [Matrix](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
-},
-{
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
-},
-{
-{text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
-},
-{
-{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
-},
-{
-{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
-},
-{
-{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
-},
-{
-{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
-},
-{
-{text = '⌔︙TeAM Matrix .', url="https://t.me/Matrix_Source"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+]]  
+keyboard = {}   
+keyboard.inline_keyboard = {  
+{{text = 'فلابي بيرد', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات',url="https://t.me/gamebot?game=MathBattle"}},   
+{{text = 'لعبه دراجات', url="https://t.me/gamee?game=MotoFX"},{text = 'سباق سيارات', url="https://t.me/gamee?game=F1Racer"}}, 
+{{text = 'تشابه', url="https://t.me/gamee?game=DiamondRows"},{text = 'كره القدم', url="https://t.me/gamee?game=FootballStar"}}, 
+{{text = 'ورق', url="https://t.me/gamee?game=Hexonix"},{text = 'لعبه 2048', url="https://t.me/awesomebot?game=g2048"}}, 
+{{text = 'SQUARES', url="https://t.me/gamee?game=Squares"},{text = 'ATOMIC', url="https://t.me/gamee?game=AtomicDrop1"}}, 
+{{text = 'CORSAIRS', url="https://t.me/gamebot?game=Corsairs"},{text = 'LumberJack', url="https://t.me/gamebot?game=LumberJack"}}, 
+{{text = 'LittlePlane', url="https://t.me/gamee?game=LittlePlane"},{text = 'RollerDisco', url="https://t.me/gamee?game=RollerDisco"}},  
+{{text = 'كره القدم 2', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'جمع المياه', url="https://t.me/gamee?game=BlockBuster"}},  
+{{text = 'لا تجعلها تسقط', url="https://t.me/gamee?game=Touchdown"},{text = 'GravityNinja', url="https://t.me/gamee?game=GravityNinjaEmeraldCity"}},  
+{{text = 'Astrocat', url="https://t.me/gamee?game=Astrocat"},{text = 'Skipper', url="https://t.me/gamee?game=Skipper"}},  
+{{text = 'WorldCup', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'GeometryRun', url="https://t.me/gamee?game=GeometryRun"}},  
+{{text = 'Ten2One', url="https://t.me/gamee?game=Ten2One"},{text = 'NeonBlast2', url="https://t.me/gamee?game=NeonBlast2"}},  
+{{text = 'Paintio', url="https://t.me/gamee?game=Paintio"},{text = 'onetwothree', url="https://t.me/gamee?game=onetwothree"}},  
+{{text = 'BrickStacker', url="https://t.me/gamee?game=BrickStacker"},{text = 'StairMaster3D', url="https://t.me/gamee?game=StairMaster3D"}},  
+{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'BasketBoyRush', url="https://t.me/gamee?game=BasketBoyRush"}},  
+{{text = 'GravityNinja21', url="https://t.me/gamee?game=GravityNinja21"},{text = 'MarsRover', url="https://t.me/gamee?game=MarsRover"}},  
+{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"}},  
+{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'KeepItUp', url="https://t.me/gamee?game=KeepItUp"}},  
+{{text = 'SunshineSolitaire', url="https://t.me/gamee?game=SunshineSolitaire"},{text = 'Qubo', url="https://t.me/gamee?game=Qubo"}},  
+{{text = 'PenaltyShooter2', url="https://t.me/gamee?game=PenaltyShooter2"},{text = 'Getaway', url="https://t.me/gamee?game=Getaway"}},  
+{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'SpikyFish2', url="https://t.me/gamee?game=SpikyFish2"}},  
+{{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"},{text = 'KungFuInc', url="https://t.me/gamee?game=KungFuInc"}},  
+{{text = 'SpaceTraveler', url="https://t.me/gamee?game=SpaceTraveler"},{text = 'RedAndBlue', url="https://t.me/gamee?game=RedAndBlue"}},  
+{{text = 'SkodaHockey1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
+{{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
+{{text = '  LaRiCa Team  ', url="t.me/LaRiCaTeam"}},
+} 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
 end
 elseif Text and Text:match('(.*)/help0') then
 if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
