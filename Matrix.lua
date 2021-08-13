@@ -12036,7 +12036,7 @@ end
 return false
 end
 local Text =[[*
-⌔︙توجد ← 5 اوامر في البوت
+⌔︙توجد ← 6 اوامر في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙ارسل { م0 } ← اوامر المنظفين
 ⌔︙ارسل { م1 } ← اوامر الحمايه
@@ -12044,19 +12044,20 @@ local Text =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
+⌔︙ارسل { م6 } ← اوامر الاعضاء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=msg.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=msg.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=msg.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=msg.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=msg.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=msg.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=msg.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=msg.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=msg.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -15715,21 +15716,21 @@ local Teext =[[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15769,21 +15770,21 @@ local Teext =[[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15826,21 +15827,21 @@ local Teext =[[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15875,21 +15876,21 @@ local Teext =[[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15912,21 +15913,21 @@ local Teext =[[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15963,50 +15964,78 @@ local Teext =[[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/YouTube') and DevBot(data) then
-if tonumber(Text:match('(.*)/YouTube')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/Services') and DevBot(data) then
+if tonumber(Text:match('(.*)/Services')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
+⌔︙اوامر الاعضاء ← ↓
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙اليـوتيوب ..
 ⌔︙امر التشغيل ← ❨ تفعيل اليوتيوب ❩
 ⌔︙امر التعطيل ← ❨ تعطيل اليوتيوب ❩
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙البـحث عن اغنية ↓
 ⌔︙بحث ← اسم الاغنية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙السورس • موقعي • رتبتي • معلوماتي 
+⌔︙رقمي • لقبي • اغنيه • صلاحياتي • غنيلي
+⌔︙ميمز • متحركه • صوره • ريمكس • فلم • مسلسل • انمي
+⌔︙رسائلي • حذف رسائلي • اسمي • معرفي 
+⌔︙ايدي •ايديي • جهاتي • راسلني • الالعاب 
+⌔︙نقاطي • بيع نقاطي • القوانين • زخرفه 
+⌔︙رابط الحذف • نزلني • اطردني • المطور 
+⌔︙منو ضافني • مشاهدات المنشور • الرابط 
+⌔︙ايدي المجموعه • معلومات المجموعه 
+⌔︙نسبه الحب • نسبه الكره • نسبه الغباء 
+⌔︙نسبه الرجوله • نسبه الانوثه • التفاعل
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙لقبه + بالرد
+⌔︙كول + الكلمه
+⌔︙زخرفه + اسمك
+⌔︙برج + نوع البرج
+⌔︙معنى اسم + الاسم
+⌔︙بوسه • بوسها ← بالرد
+⌔︙احسب + تاريخ ميلادك
+⌔︙رفع مطي • تنزيل مطي • المطايه
+⌔︙هينه • هينها ← بالرد • بالمعرف
+⌔︙صيحه • صيحها ← بالرد • بالمعرف
+⌔︙صلاحياته ← بالرد • بالمعرف • بالايدي
+⌔︙ايدي • كشف  ← بالرد • بالمعرف • بالايدي
+⌔︙تحويل + بالرد ← صوره • ملصق • صوت • بصمه
+⌔︙انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16014,7 +16043,7 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-⌔︙توجد ← 5 اوامر في البوت
+⌔︙توجد ← 6 اوامر في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙ارسل { م0 } ← اوامر المنظفين
 ⌔︙ارسل { م1 } ← اوامر الحمايه
@@ -16022,19 +16051,20 @@ local Teext =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
+⌔︙ارسل { م6 } ← اوامر الاعضاء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
