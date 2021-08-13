@@ -12029,7 +12029,6 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12046,7 +12045,7 @@ end
 return false
 end
 local Text =[[*
-⌔︙توجد ← 5 اوامر في البوت
+⌔︙توجد ← 6 اوامر في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙ارسل { م0 } ← اوامر المنظفين
 ⌔︙ارسل { م1 } ← اوامر الحمايه
@@ -12054,19 +12053,20 @@ local Text =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
+⌔︙ارسل { م6 } ← اوامر الاعضاء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=msg.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=msg.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=msg.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=msg.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=msg.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=msg.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=msg.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=msg.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=msg.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = 'YouTube', callback_data=msg.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
