@@ -5564,6 +5564,264 @@ local texting = {" يبدأ الإنسان طريق المعرفة بقراءة 
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
+if text == "لو خيروك" or text == "خيروك" then
+local texting = {"لو خيروك |  بين الإبحار لمدة أسبوع كامل أو السفر على متن طائرة لـ 3 أيام متواصلة؟ ",
+"لو خيروك |  بين شراء منزل صغير أو استئجار فيلا كبيرة بمبلغ معقول؟ ",
+"لو خيروك |  أن تعيش قصة فيلم هل تختار الأكشن أو الكوميديا؟ ",
+"لو خيروك |  بين تناول البيتزا وبين الآيس كريم وذلك بشكل دائم؟ ",
+"لو خيروك |  بين إمكانية تواجدك في الفضاء وبين إمكانية تواجدك في البحر؟ ",
+"لو خيروك |  بين تغيير وظيفتك كل سنة أو البقاء بوظيفة واحدة طوال حياتك؟ ",
+"لو خيروك |  أسئلة محرجة أسئلة صراحة ماذا ستختار؟ ",
+"لو خيروك |  بين الذهاب إلى الماضي والعيش مع جدك أو بين الذهاب إلى المستقبل والعيش مع أحفادك؟ ",
+"لو كنت شخص آخر هل تفضل البقاء معك أم أنك ستبتعد عن نفسك؟ ",
+"لو خيروك |  بين الحصول على الأموال في عيد ميلادك أو على الهدايا؟ ",
+"لو خيروك |  بين القفز بمظلة من طائرة أو الغوص في أعماق البحر؟ ",
+"لو خيروك |  بين الاستماع إلى الأخبار الجيدة أولًا أو الاستماع إلى الأخبار السيئة أولًا؟ ",
+"لو خيروك |  بين أن تكون رئيس لشركة فاشلة أو أن تكون موظف في شركة ناجحة؟ ",
+"لو خيروك |  بين أن يكون لديك جيران صاخبون أو أن يكون لديك جيران فضوليون؟ ",
+"لو خيروك |  بين أن تكون شخص مشغول دائمًا أو أن تكون شخص يشعر بالملل دائمًا؟ ",
+"لو خيروك |  بين قضاء يوم كامل مع الرياضي الذي تشجعه أو نجم السينما الذي تحبه؟ ",
+"لو خيروك |  بين استمرار فصل الشتاء دائمًا أو بقاء فصل الصيف؟ ",
+"لو خيروك |  بين العيش في القارة القطبية أو العيش في الصحراء؟ ",
+"لو خيروك |  بين أن تكون لديك القدرة على حفظ كل ما تسمع أو تقوله وبين القدرة على حفظ كل ما تراه أمامك؟ ",
+"لو خيروك |  بين أن يكون طولك 150 سنتي متر أو أن يكون 190 سنتي متر؟ ",
+"لو خيروك |  بين إلغاء رحلتك تمامًا أو بقائها ولكن فقدان الأمتعة والأشياء الخاص بك خلالها؟ ",
+"لو خيروك |  بين أن تكون اللاعب الأفضل في فريق كرة فاشل أو أن تكون لاعب عادي في فريق كرة ناجح؟ ",
+"لو خيروك |  بين ارتداء ملابس البيت لمدة أسبوع كامل أو ارتداء البدلة الرسمية لنفس المدة؟ ",
+"لو خيروك |  بين امتلاك أفضل وأجمل منزل ولكن في حي سيء أو امتلاك أسوأ منزل ولكن في حي جيد وجميل؟ ",
+"لو خيروك |  بين أن تكون غني وتعيش قبل 500 سنة، أو أن تكون فقير وتعيش في عصرنا الحالي؟ ",
+"لو خيروك |  بين ارتداء ملابس الغوص ليوم كامل والذهاب إلى العمل أو ارتداء ملابس جدك/جدتك؟ ",
+"لو خيروك |  بين قص شعرك بشكل قصير جدًا أو صبغه باللون الوردي؟ ",
+"لو خيروك |  بين أن تضع الكثير من الملح على كل الطعام بدون علم أحد، أو أن تقوم بتناول شطيرة معجون أسنان؟ ",
+"لو خيروك |  بين قول الحقيقة والصراحة الكاملة مدة 24 ساعة أو الكذب بشكل كامل مدة 3 أيام؟ ",
+"لو خيروك |  بين تناول الشوكولا التي تفضلها لكن مع إضافة رشة من الملح والقليل من عصير الليمون إليها أو تناول ليمونة كاملة كبيرة الحجم؟ ",
+"لو خيروك |  بين وضع أحمر الشفاه على وجهك ما عدا شفتين أو وضع ماسكارا على شفتين فقط؟ ",
+"لو خيروك |  بين الرقص على سطح منزلك أو الغناء على نافذتك؟ ",
+"لو خيروك |  بين تلوين شعرك كل خصلة بلون وبين ارتداء ملابس غير متناسقة لمدة أسبوع؟ ",
+"لو خيروك |  بين تناول مياه غازية مجمدة وبين تناولها ساخنة؟ ",
+"لو خيروك |  بين تنظيف شعرك بسائل غسيل الأطباق وبين استخدام كريم الأساس لغسيل الأطباق؟ ",
+"لو خيروك |  بين تزيين طبق السلطة بالبرتقال وبين إضافة البطاطا لطبق الفاكهة؟ ",
+"لو خيروك |  بين اللعب مع الأطفال لمدة 7 ساعات أو الجلوس دون فعل أي شيء لمدة 24 ساعة؟ ",
+"لو خيروك |  بين شرب كوب من الحليب أو شرب كوب من شراب عرق السوس؟ ",
+"لو خيروك |  بين الشخص الذي تحبه وصديق الطفولة؟ ",
+"لو خيروك |  بين أمك وأبيك؟ ",
+"لو خيروك |  بين أختك وأخيك؟ ",
+"لو خيروك |  بين نفسك وأمك؟ ",
+"لو خيروك |  بين صديق قام بغدرك وعدوك؟ ",
+"لو خيروك |  بين خسارة حبيبك/حبيبتك أو خسارة أخيك/أختك؟ ",
+"لو خيروك |  بإنقاذ شخص واحد مع نفسك بين أمك أو ابنك؟ ",
+"لو خيروك |  بين ابنك وابنتك؟ ",
+"لو خيروك |  بين زوجتك وابنك/ابنتك؟ ",
+"لو خيروك |  بين جدك أو جدتك؟ ",
+"لو خيروك |  بين زميل ناجح وحده أو زميل يعمل كفريق؟ ",
+"لو خيروك |  بين لاعب كرة قدم مشهور أو موسيقي مفضل بالنسبة لك؟ ",
+"لو خيروك |  بين مصور فوتوغرافي جيد وبين مصور سيء ولكنه عبقري فوتوشوب؟ ",
+"لو خيروك |  بين سائق سيارة يقودها ببطء وبين سائق يقودها بسرعة كبيرة؟ ",
+"لو خيروك |  بين أستاذ اللغة العربية أو أستاذ الرياضيات؟ ",
+"لو خيروك |  بين أخيك البعيد أو جارك القريب؟ ",
+"لو خيروك |  يبن صديقك البعيد وبين زميلك القريب؟ ",
+"لو خيروك |  بين رجل أعمال أو أمير؟ ",
+"لو خيروك |  بين نجار أو حداد؟ ",
+"لو خيروك |  بين طباخ أو خياط؟ ",
+"لو خيروك |  بين أن تكون كل ملابس بمقاس واحد كبير الحجم أو أن تكون جميعها باللون الأصفر؟ ",
+"لو خيروك |  بين أن تتكلم بالهمس فقط طوال الوقت أو أن تصرخ فقط طوال الوقت؟ ",
+"لو خيروك |  بين أن تمتلك زر إيقاف موقت للوقت أو أن تمتلك أزرار للعودة والذهاب عبر الوقت؟ ",
+"لو خيروك |  بين أن تعيش بدون موسيقى أبدًا أو أن تعيش بدون تلفاز أبدًا؟ ",
+"لو خيروك |  بين أن تعرف متى سوف تموت أو أن تعرف كيف سوف تموت؟ ",
+"لو خيروك |  بين العمل الذي تحلم به أو بين إيجاد شريك حياتك وحبك الحقيقي؟ ",
+"لو خيروك |  بين معاركة دب أو بين مصارعة تمساح؟ ",
+"لو خيروك |  بين إما الحصول على المال أو على المزيد من الوقت؟ ",
+"لو خيروك |  بين امتلاك قدرة التحدث بكل لغات العالم أو التحدث إلى الحيوانات؟ ",
+"لو خيروك |  بين أن تفوز في اليانصيب وبين أن تعيش مرة ثانية؟ ",
+"لو خيروك |  بأن لا يحضر أحد إما لحفل زفافك أو إلى جنازتك؟ ",
+"لو خيروك |  بين البقاء بدون هاتف لمدة شهر أو بدون إنترنت لمدة أسبوع؟ ",
+"لو خيروك |  بين العمل لأيام أقل في الأسبوع مع زيادة ساعات العمل أو العمل لساعات أقل في اليوم مع أيام أكثر؟ ",
+"لو خيروك |  بين مشاهدة الدراما في أيام السبعينيات أو مشاهدة الأعمال الدرامية للوقت الحالي؟ ",
+"لو خيروك |  بين التحدث عن كل شيء يدور في عقلك وبين عدم التحدث إطلاقًا؟ ",
+"لو خيروك |  بين مشاهدة فيلم بمفردك أو الذهاب إلى مطعم وتناول العشاء بمفردك؟ ",
+"لو خيروك |  بين قراءة رواية مميزة فقط أو مشاهدتها بشكل فيلم بدون القدرة على قراءتها؟ ",
+"لو خيروك |  بين أن تكون الشخص الأكثر شعبية في العمل أو المدرسة وبين أن تكون الشخص الأكثر ذكاءً؟ ",
+"لو خيروك |  بين إجراء المكالمات الهاتفية فقط أو إرسال الرسائل النصية فقط؟ ",
+"لو خيروك |  بين إنهاء الحروب في العالم أو إنهاء الجوع في العالم؟ ",
+"لو خيروك |  بين تغيير لون عينيك أو لون شعرك؟ ",
+"لو خيروك |  بين امتلاك كل عين لون وبين امتلاك نمش على خديك؟ ",
+"لو خيروك |  بين الخروج بالمكياج بشكل مستمر وبين الحصول على بشرة صحية ولكن لا يمكن لك تطبيق أي نوع من المكياج؟ ",
+"لو خيروك |  بين أن تصبحي عارضة أزياء وبين ميك آب أرتيست؟ ",
+"لو خيروك |  بين مشاهدة كرة القدم أو متابعة الأخبار؟ ",
+"لو خيروك |  بين موت شخصية بطل الدراما التي تتابعينها أو أن يبقى ولكن يكون العمل الدرامي سيء جدًا؟ ",
+"لو خيروك |  بين العيش في دراما قد سبق وشاهدتها ماذا تختارين بين الكوميديا والتاريخي؟ ",
+"لو خيروك |  بين امتلاك القدرة على تغيير لون شعرك متى تريدين وبين الحصول على مكياج من قبل خبير تجميل وذلك بشكل يومي؟ ",
+"لو خيروك |  بين نشر تفاصيل حياتك المالية وبين نشر تفاصيل حياتك العاطفية؟ ",
+"لو خيروك |  بين البكاء والحزن وبين اكتساب الوزن؟ ",
+"لو خيروك |  بين تنظيف الأطباق كل يوم وبين تحضير الطعام؟ ",
+"لو خيروك |  بين أن تتعطل سيارتك في نصف الطريق أو ألا تتمكنين من ركنها بطريقة صحيحة؟ ",
+"لو خيروك |  بين إعادة كل الحقائب التي تملكينها أو إعادة الأحذية الجميلة الخاصة بك؟ ",
+"لو خيروك |  بين قتل حشرة أو متابعة فيلم رعب؟ ",
+"لو خيروك |  بين امتلاك قطة أو كلب؟ ",
+"لو خيروك |  بين الصداقة والحب ",
+"لو خيروك |  بين تناول الشوكولا التي تحبين طوال حياتك ولكن لا يمكنك الاستماع إلى الموسيقى وبين الاستماع إلى الموسيقى ولكن لا يمكن لك تناول الشوكولا أبدًا؟ ",
+"لو خيروك |  بين مشاركة المنزل مع عائلة من الفئران أو عائلة من الأشخاص المزعجين الفضوليين الذين يتدخلون في كل كبيرة وصغيرة؟ ",
+} 
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+return false
+end
+if text == "احرف" or text == "حروف" then
+local texting = {
+"ماد بحرف ↺ ر  ", 
+" مدينة بحرف ↺ ع  ",
+" حيوان ونبات بحرف ↺ خ  ", 
+" اسم بحرف ↺ ح  ", 
+" اسم ونبات بحرف ↺ م  ", 
+" دولة عربية بحرف ↺ ق  ", 
+" جماد بحرف ↺ ي  ", 
+" نبات بحرف ↺ ج  ", 
+" اسم بنت بحرف ↺ ع  ", 
+" اسم ولد بحرف ↺ ع  ", 
+" اسم بنت وولد بحرف ↺ ث  ", 
+" جماد بحرف ↺ ج  ",
+" حيوان بحرف ↺ ص  ",
+" دولة بحرف ↺ س  ",
+" نبات بحرف ↺ ج  ",
+" مدينة بحرف ↺ ب  ",
+" نبات بحرف ↺ ر  ",
+" اسم بحرف ↺ ك  ",
+" حيوان بحرف ↺ ظ  ",
+" جماد بحرف ↺ ذ  ",
+" مدينة بحرف ↺ و  ",
+" اسم بحرف ↺ م  ",
+" اسم بنت بحرف ↺ خ  ",
+" اسم و نبات بحرف ↺ ر  ",
+" نبات بحرف ↺ و  ",
+" حيوان بحرف ↺ س  ",
+" مدينة بحرف ↺ ك  ",
+" اسم بنت بحرف ↺ ص  ",
+" اسم ولد بحرف ↺ ق  ",
+" نبات بحرف ↺ ز  ",
+"  جماد بحرف ↺ ز  ",
+"  مدينة بحرف ↺ ط  ",
+"  جماد بحرف ↺ ن  ",
+"  مدينة بحرف ↺ ف  ",
+"  حيوان بحرف ↺ ض  ",
+"  اسم بحرف ↺ ك  ",
+"  نبات و حيوان و مدينة بحرف ↺ س  ", 
+"  اسم بنت بحرف ↺ ج  ", 
+"  مدينة بحرف ↺ ت  ", 
+"  جماد بحرف ↺ ه  ", 
+"  اسم بنت بحرف ↺ ر  ", 
+" اسم ولد بحرف ↺ خ  ", 
+" جماد بحرف ↺ ع  ",
+" حيوان بحرف ↺ ح  ",
+" نبات بحرف ↺ ف  ",
+" اسم بنت بحرف ↺ غ  ",
+" اسم ولد بحرف ↺ و  ",
+" نبات بحرف ↺ ل  ",
+"مدينة بحرف ↺ ع  ",
+"دولة واسم بحرف ↺ ب  ",
+} 
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+return false
+end
+if text == "كت" or text == "كت تويت" then
+local texting = {"اخر افلام شاهدتها", 
+"ما هي وظفتك الحياه", 
+"اعز اصدقائك ?", 
+"اخر اغنية سمعتها ?", 
+"تكلم عن نفسك", 
+"ليه انت مش سالك", 
+"ما هيا عيوب سورس لاريكا؟ ", 
+"اخر كتاب قرآته", 
+"روايتك المفضله ?", 
+"اخر اكله اكلتها", 
+"اخر كتاب قرآته", 
+"ليه ديفيد جدع؟ ", 
+"افضل يوم ف حياتك", 
+"ليه مضيفتش كل جهاتك", 
+"حكمتك ف الحياه", 
+"لون عيونك", 
+"كتابك المفضل", 
+"هوايتك المفضله", 
+"علاقتك مع اهلك", 
+" ما السيء في هذه الحياة ؟ ", 
+"أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
+"سؤال ينرفزك ؟ ", 
+" هل يعجبك سورس لاريكا ؟؟ ", 
+" اكثر ممثل تحبه ؟ ", 
+"قد تخيلت شي في بالك وصار ؟ ", 
+"شيء عندك اهم من الناس ؟ ", 
+"تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
+"وش أخر شي ضيعته؟ ", 
+"اي رايك في سورس لاريكا ؟ ", 
+"كم مره حبيت؟ ", 
+" اكثر المتابعين عندك باي برنامج؟", 
+" آخر مره ضربت عشره كانت متى ؟", 
+" نسبه الندم عندك للي وثقت فيهم ؟", 
+"تحب ترتبط بكيرفي ولا فلات؟", 
+" جربت شعور احد يحبك بس انت مو قادر تحبه؟", 
+" تجامل الناس ولا اللي بقلبك على لسانك؟", 
+" عمرك ضحيت باشياء لاجل شخص م يسوى ؟", 
+"مغني تلاحظ أن صوته يعجب الجميع إلا أنت؟ ", 
+" آخر غلطات عمرك؟ ", 
+" مسلسل كرتوني له ذكريات جميلة عندك؟ ", 
+" ما أكثر تطبيق تقضي وقتك عليه؟ ", 
+" أول شيء يخطر في بالك إذا سمعت كلمة نجوم ؟ ", 
+" قدوتك من الأجيال السابقة؟ ", 
+" أكثر طبع تهتم بأن يتواجد في شريك/ة حياتك؟ ", 
+"أكثر حيوان تخاف منه؟ ", 
+" ما هي طريقتك في الحصول على الراحة النفسية؟ ", 
+" إيموجي يعبّر عن مزاجك الحالي؟ ", 
+" أكثر تغيير ترغب أن تغيّره في نفسك؟ ", 
+"أكثر شيء أسعدك اليوم؟ ", 
+"اي رايك في الدنيا دي ؟ ", 
+"ما هو أفضل حافز للشخص؟ ", 
+"ما الذي يشغل بالك في الفترة الحالية؟", 
+"آخر شيء ندمت عليه؟ ", 
+"شاركنا صورة احترافية من تصويرك؟ ", 
+"تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته ", 
+"يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟ ", 
+"نصيحه تبدا ب -لا- ؟ ", 
+"كتاب أو رواية تقرأها هذه الأيام؟ ", 
+"فيلم عالق في ذهنك لا تنساه مِن روعته؟ ", 
+"يوم لا يمكنك نسيانه؟ ", 
+"شعورك الحالي في جملة؟ ", 
+"كلمة لشخص بعيد؟ ", 
+"صفة يطلقها عليك الشخص المفضّل؟ ", 
+"أغنية عالقة في ذهنك هاليومين؟ ", 
+"أكلة مستحيل أن تأكلها؟ ", 
+"كيف قضيت نهارك؟ ", 
+"تصرُّف ماتتحمله؟ ", 
+"موقف غير حياتك؟ ", 
+"اكثر مشروب تحبه؟ ", 
+"القصيدة اللي تأثر فيك؟ ", 
+"متى يصبح الصديق غريب ", 
+"وين نلقى السعاده برايك؟ ", 
+"تاريخ ميلادك؟ ", 
+"قهوه و لا شاي؟ ", 
+"من محبّين الليل أو الصبح؟ ", 
+"حيوانك المفضل؟ ", 
+"كلمة غريبة ومعناها؟ ", 
+"كم تحتاج من وقت لتثق بشخص؟ ", 
+"اشياء نفسك تجربها؟ ", 
+"يومك ضاع على؟ ", 
+"كل شيء يهون الا ؟ ", 
+"اسم ماتحبه ؟ ", 
+"وقفة إحترام للي إخترع ؟ ", 
+"أقدم شيء محتفظ فيه من صغرك؟ ", 
+"كلمات ماتستغني عنها بسوالفك؟ ", 
+"وش الحب بنظرك؟ ", 
+"حب التملك في شخصِيـتك ولا ؟ ", 
+"تخطط للمستقبل ولا ؟ ", 
+"موقف محرج ماتنساه ؟ ", 
+"من طلاسم لهجتكم ؟ ", 
+"اعترف باي حاجه ؟ ", 
+"عبّر عن مودك بصوره ؟ ",
+"آخر مره ضربت عشره كانت متى ؟", 
+"اسم دايم ع بالك ؟ ", 
+"اشياء تفتخر انك م سويتها ؟ ", 
+" لو بكيفي كان ؟ ", 
+} 
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+return false
+end
 if text == "هينه" or text == "هينها" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
@@ -11236,7 +11494,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'*🔂┇تم تحديث السورس وتنزيل اخر تحديث للملفات*')
+send(msg.chat_id_,msg.id_,'*Updated latest version ...*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
@@ -11962,7 +12220,7 @@ end
 
 if text == "تحديث" and DevMatrix(msg) then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "*🔂┇تم تحديث ملفات البوت*")
+send(msg.chat_id_, msg.id_, "*Ok Im Reload ...*")
 end
 
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
@@ -12027,6 +12285,39 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
+if text == 'رابط الحذف' or text == 'بوت الحذف' then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔︙عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+return false
+end
+Text = [[*
+- اهلا بك عزيزي ؛
+- في بوت حذف حسابات التليجرام -
+• وضيفة البوت مساعدتك في حذف حسابك 💌 •
+- دون الذهاب الى موقع الحذف ☑️ •
+- لحذف حسابك اضغط على زر حذف الحساب ؛*
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '𝗱𝗲𝗹𝗲𝘁𝗲 𝗯𝗼𝘁',url="https://t.me/F89Fbot"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/F89Fbot&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if text == 'الاوامر' and Addictive(msg) then  
@@ -15633,6 +15924,9 @@ keyboard.inline_keyboard = {
 {
 {text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
 },
+{
+{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -15662,6 +15956,9 @@ keyboard.inline_keyboard = {
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
 },
+{
+{text = '⌔︙TeAM Matrix .',url="https://t.me/Matrix_Source"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -15675,37 +15972,38 @@ local Teext =[[*
 ⌔︙ملاحظة العاب السورس تعطي نقاط فقط .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ⌔︙قناة البوت ← [Matrix](t.me/Matrix_Source)
-]]  
-keyboard = {}   
-keyboard.inline_keyboard = {  
-{{text = 'فلابي بيرد', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات',url="https://t.me/gamebot?game=MathBattle"}},   
-{{text = 'لعبه دراجات', url="https://t.me/gamee?game=MotoFX"},{text = 'سباق سيارات', url="https://t.me/gamee?game=F1Racer"}}, 
-{{text = 'تشابه', url="https://t.me/gamee?game=DiamondRows"},{text = 'كره القدم', url="https://t.me/gamee?game=FootballStar"}}, 
-{{text = 'ورق', url="https://t.me/gamee?game=Hexonix"},{text = 'لعبه 2048', url="https://t.me/awesomebot?game=g2048"}}, 
-{{text = 'SQUARES', url="https://t.me/gamee?game=Squares"},{text = 'ATOMIC', url="https://t.me/gamee?game=AtomicDrop1"}}, 
-{{text = 'CORSAIRS', url="https://t.me/gamebot?game=Corsairs"},{text = 'LumberJack', url="https://t.me/gamebot?game=LumberJack"}}, 
-{{text = 'LittlePlane', url="https://t.me/gamee?game=LittlePlane"},{text = 'RollerDisco', url="https://t.me/gamee?game=RollerDisco"}},  
-{{text = 'كره القدم 2', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'جمع المياه', url="https://t.me/gamee?game=BlockBuster"}},  
-{{text = 'لا تجعلها تسقط', url="https://t.me/gamee?game=Touchdown"},{text = 'GravityNinja', url="https://t.me/gamee?game=GravityNinjaEmeraldCity"}},  
-{{text = 'Astrocat', url="https://t.me/gamee?game=Astrocat"},{text = 'Skipper', url="https://t.me/gamee?game=Skipper"}},  
-{{text = 'WorldCup', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'GeometryRun', url="https://t.me/gamee?game=GeometryRun"}},  
-{{text = 'Ten2One', url="https://t.me/gamee?game=Ten2One"},{text = 'NeonBlast2', url="https://t.me/gamee?game=NeonBlast2"}},  
-{{text = 'Paintio', url="https://t.me/gamee?game=Paintio"},{text = 'onetwothree', url="https://t.me/gamee?game=onetwothree"}},  
-{{text = 'BrickStacker', url="https://t.me/gamee?game=BrickStacker"},{text = 'StairMaster3D', url="https://t.me/gamee?game=StairMaster3D"}},  
-{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'BasketBoyRush', url="https://t.me/gamee?game=BasketBoyRush"}},  
-{{text = 'GravityNinja21', url="https://t.me/gamee?game=GravityNinja21"},{text = 'MarsRover', url="https://t.me/gamee?game=MarsRover"}},  
-{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"}},  
-{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'KeepItUp', url="https://t.me/gamee?game=KeepItUp"}},  
-{{text = 'SunshineSolitaire', url="https://t.me/gamee?game=SunshineSolitaire"},{text = 'Qubo', url="https://t.me/gamee?game=Qubo"}},  
-{{text = 'PenaltyShooter2', url="https://t.me/gamee?game=PenaltyShooter2"},{text = 'Getaway', url="https://t.me/gamee?game=Getaway"}},  
-{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'SpikyFish2', url="https://t.me/gamee?game=SpikyFish2"}},  
-{{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"},{text = 'KungFuInc', url="https://t.me/gamee?game=KungFuInc"}},  
-{{text = 'SpaceTraveler', url="https://t.me/gamee?game=SpaceTraveler"},{text = 'RedAndBlue', url="https://t.me/gamee?game=RedAndBlue"}},  
-{{text = 'SkodaHockey1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
-{{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
-{{text = '  LaRiCa Team  ', url="t.me/LaRiCaTeam"}},
-} 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
+},
+{
+{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
+},
+{
+{text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
+},
+{
+{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
+},
+{
+{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
+},
+{
+{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
+},
+{
+{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
+},
+{
+{text = '⌔︙TeAM Matrix .', url="https://t.me/Matrix_Source"},
+},
+{
+{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 elseif Text and Text:match('(.*)/help0') then
 if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
@@ -15719,21 +16017,21 @@ local Teext =[[*
 ⌔︙رفع منظف - تنزيل منظف
 ⌔︙المنظفين - مسح المنظفين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15773,21 +16071,21 @@ local Teext =[[*
 ⌔︙الجهات
 ⌔︙الاشعارات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15830,21 +16128,21 @@ local Teext =[[*
 ⌔︙المطرودين ، البوتات ، الصوره
 ⌔︙الصلاحيات ، الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15879,21 +16177,21 @@ local Teext =[[*
 ⌔︙اضف ، حذف ← { رد }
 ⌔︙تنظيف ← { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15916,21 +16214,21 @@ local Teext =[[*
 ⌔︙الاوامر المضافه ، مسح الاوامر المضافه
 ⌔︙تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15967,50 +16265,78 @@ local Teext =[[*
 ⌔︙اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ⌔︙اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/YouTube') and DevBot(data) then
-if tonumber(Text:match('(.*)/YouTube')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/Services') and DevBot(data) then
+if tonumber(Text:match('(.*)/Services')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
+⌔︙اوامر الاعضاء ← ↓
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙اليـوتيوب ..
 ⌔︙امر التشغيل ← ❨ تفعيل اليوتيوب ❩
 ⌔︙امر التعطيل ← ❨ تعطيل اليوتيوب ❩
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙البـحث عن اغنية ↓
 ⌔︙بحث ← اسم الاغنية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙السورس • موقعي • رتبتي • معلوماتي 
+⌔︙رقمي • لقبي • اغنيه • صلاحياتي • غنيلي
+⌔︙ميمز • متحركه • صوره • ريمكس • فلم • مسلسل • انمي
+⌔︙رسائلي • حذف رسائلي • اسمي • معرفي 
+⌔︙ايدي •ايديي • جهاتي • راسلني • الالعاب 
+⌔︙نقاطي • بيع نقاطي • القوانين • زخرفه 
+⌔︙رابط الحذف • نزلني • اطردني • المطور 
+⌔︙منو ضافني • مشاهدات المنشور • الرابط 
+⌔︙ايدي المجموعه • معلومات المجموعه 
+⌔︙نسبه الحب • نسبه الكره • نسبه الغباء 
+⌔︙نسبه الرجوله • نسبه الانوثه • التفاعل
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙لقبه + بالرد
+⌔︙كول + الكلمه
+⌔︙زخرفه + اسمك
+⌔︙برج + نوع البرج
+⌔︙معنى اسم + الاسم
+⌔︙بوسه • بوسها ← بالرد
+⌔︙احسب + تاريخ ميلادك
+⌔︙رفع مطي • تنزيل مطي • المطايه
+⌔︙هينه • هينها ← بالرد • بالمعرف
+⌔︙صيحه • صيحها ← بالرد • بالمعرف
+⌔︙صلاحياته ← بالرد • بالمعرف • بالايدي
+⌔︙ايدي • كشف  ← بالرد • بالمعرف • بالايدي
+⌔︙تحويل + بالرد ← صوره • ملصق • صوت • بصمه
+⌔︙انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 {
-{text = '⌔ Exit ⌔', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16018,7 +16344,7 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-⌔︙توجد ← 5 اوامر في البوت
+⌔︙توجد ← 6 اوامر في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⌔︙ارسل { م0 } ← اوامر المنظفين
 ⌔︙ارسل { م1 } ← اوامر الحمايه
@@ -16026,19 +16352,20 @@ local Teext =[[*
 ⌔︙ارسل { م3 } ← اوامر المدراء
 ⌔︙ارسل { م4 } ← اوامر المنشئين
 ⌔︙ارسل { م5 } ← اوامر مطورين البوت
+⌔︙ارسل { م6 } ← اوامر الاعضاء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⌔︙قناة البوت ←* [ᴍᴀᴛʀɪх ᴛᴇᴀᴍ](t.me/Matrix_Source)
+⌔︙قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔𝟐⌔', callback_data=data.sender_user_id_.."/help2"},{text = '⌔𝟏⌔', callback_data=data.sender_user_id_.."/help1"},{text = '⌔𝟎⌔', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
 },
 {
-{text = '⌔𝟓⌔', callback_data=data.sender_user_id_.."/help5"},{text = '⌔𝟒⌔', callback_data=data.sender_user_id_.."/help4"},{text = '⌔𝟑⌔', callback_data=data.sender_user_id_.."/help3"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '⌔ disable ⌔', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '⌔ You Tube ⌔', callback_data=data.sender_user_id_.."/YouTube"},{text = '⌔ lock ⌔', callback_data=data.sender_user_id_.."/homelocks"},
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
