@@ -11436,11 +11436,11 @@ else
 Matrixteam = '\n⌔┆تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
-storm = ''
+Matrix = ''
 else
-storm = '\n⌔┆تم ازالة ~'..w..' مجموعه لان البوت عضو'
+Matrix = '\n⌔┆تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*⌔┆عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..Matrixteam..'\n⌔┆اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*⌔┆عدد المجموعات الان ~ '..#group..' مجموعه '..Matrix..''..Matrixteam..'\n⌔┆اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -13353,11 +13353,11 @@ else
 Matrixteam = '\n⌔┆تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
-storm = ''
+Matrix = ''
 else
-storm = '\n⌔┆تم ازالة ~'..w..' مجموعه لان البوت عضو'
+Matrix = '\n⌔┆تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*⌔┆ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..Matrixteam..'\n⌔┆اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*⌔┆ عدد المجموعات الان ~ '..#group..' مجموعه '..Matrix..''..Matrixteam..'\n⌔┆اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -16365,7 +16365,7 @@ local Teext =[[*
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆مسح جميع الملفات 
 ⌔┆المتجر ، الملفات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆اوامر المطور في البوت
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆تفعيل ، تعطيل ، الاحصائيات
@@ -16563,7 +16563,7 @@ keyboard.inline_keyboard = {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
-{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹', url="t.me/Matrix_Source"},
+{text = '𝘀𝗼𝘂𝗿𝗰?? 𝗰𝗵𝗮𝗻𝗻𝗲𝗹', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16851,6 +16851,21 @@ database:set(bot_id..'Matrix:User:Name'..msg.sender_user_id_,data.username_)
 end;end,nil)   
 ------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
+
+   ---==========================================
+   ---==========================================
+if msg.content_.members_[0].id_ == tonumber(bot_id) then 
+print("it is Bot")
+Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
+local Texti = "↞ اهلين انا + "..Namebot.." 🦇\n\n↞ اختصاصي ادارة المجموعات من السبام والخ..\n↞ للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."
+keyboard = {} 
+keyboard.inline_keyboard ={{{text = "اضفني", switch_inline_query="أنا بوت حمايه اضيفوني في مجموعتكم لزيادة الامان ."}}}
+local msg_id = msg.id_/2097152/0.5
+local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+   ---==========================================
+   ---==========================================
 database:set(bot_id.."Matrix:Who:Added:Me"..msg.chat_id_..":"..msg.content_.members_[0].id_,msg.sender_user_id_)
 local mem_id = msg.content_.members_  
 local Bots = database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) 
