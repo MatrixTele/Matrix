@@ -12959,7 +12959,8 @@ Test = start
 else
 Texti = "\n⌔┆أهلآ بك في بوت "..Namebot.." \n⌔┆اختصاص البوت حماية المجموعات\n⌔┆لتفعيل البوت عليك اتباع مايلي\n⌔┆اضف البوت الى مجموعتك\n⌔┆ارفعه ادمن {مشرف}\n⌔┆ارسل كلمة { تفعيل } ليتم تفعيل المجموعه\n⌔┆سيتم ترقيتك منشئ اساسي في البوت\n⌔┆للعب داخل البوت ارسل  : /play ."
 keyboard = {} 
-keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
+keyboard.inline_keyboard ={{{text = "اضـــــڣــטּـي 🦇 ،",url="t.me/"..dp.username_.."?startgroup=botstart"}}},
+{{text="اݪہَِ سسـۅࢪس ،",url="https://t.me/Matrix_Source"},{text="ݪتــــنصــيب بـــۅټ",url="https://t.me/IZlZ7I"}},{{text="اݪــــمطۅࢪ",url="t.me/"..UserName.."}}
 local msg_id = msg.id_/2097152/0.5
 local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
@@ -16901,7 +16902,7 @@ print("it is Bot")
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 local Texti = "*اٰهــݪين اטּـــِٲ *"..Namebot.." 🦇 ،\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n*اٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ*\n*للټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه*\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
 keyboard = {} 
-keyboard.inline_keyboard ={{{text = "اضـــــڣــטּـي 🦇", switch_inline_query="أنا بوت حمايه اضيفوني في مجموعتكم لزيادة الامان ."}}}
+keyboard.inline_keyboard ={{{text = "اضـــــڣــטּـي 🦇",url="t.me/"..dp.username_.."?startgroup=botstart"}}},
 local msg_id = msg.id_/2097152/0.5
 local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
