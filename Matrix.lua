@@ -12678,10 +12678,11 @@ local Text = '⌔┆تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'رفع المالك والادمنيه ', callback_data=msg.sender_user_id_.."/Mod:User:Cheking"},
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -12815,10 +12816,11 @@ local Text = '⌔┆تم تفعيل البوت في المجموعة'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'رفع المالك والادمنيه ', callback_data=msg.sender_user_id_.."/Mod:User:Cheking"},
+{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
 },
 }
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -14389,19 +14391,6 @@ elseif Text and Text:match('(.*)/Add:Group:Cheking') and Constructor(data) then
 if tonumber(Text:match('(.*)/Add:Group:Cheking')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Add:Group:Cheking"..data.chat_id_)
 local Textedit = '⌔┆تم تفعيل الرفع '
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'القائمة الرئيسيه', callback_data=data.sender_user_id_.."/homeaddwd"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
-
-end
-elseif Text and Text:match('(.*)/Mod:User:Cheking') and Constructor(data) then
-if tonumber(Text:match('(.*)/Mod:User:Cheking')) == tonumber(data.sender_user_id_) then
-database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, admins[i].user_id_)
-local Textedit = '⌔┆تم رفع الادمنية '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
