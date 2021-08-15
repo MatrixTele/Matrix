@@ -12918,11 +12918,14 @@ Test = start
 else
 Texti = "\n⌔┆أهلآ بك في بوت "..Namebot.." \n⌔┆اختصاص البوت حماية المجموعات\n⌔┆لتفعيل البوت عليك اتباع مايلي\n⌔┆اضف البوت الى مجموعتك\n⌔┆ارفعه ادمن {مشرف}\n⌔┆ارسل كلمة { تفعيل } ليتم تفعيل المجموعه\n⌔┆سيتم ترقيتك منشئ اساسي في البوت\n⌔┆للعب داخل البوت ارسل  : /play ."
 keyboard = {} 
-keyboard.inline_keyboard ={{{text = "اضـــــڣــטּـي 🦇 ،", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."},{text = 'اݪہَِ سسـۅࢪس 🦇 ،',url="https://t.me/Matrix_Source"}}}
+keyboard.inline_keyboard = {
+{
+{text = '𝗺𝗮𝘁𝗿𝗶𝘅 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
+},
+}
 local msg_id = msg.id_/2097152/0.5
-local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 database:setex(bot_id..'Matrix:Start:Time'..msg.sender_user_id_,60,true)
 return false
