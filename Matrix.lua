@@ -479,7 +479,7 @@ elseif status == "listcleanerr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المنظفين', callback_data=user_id.."/delcleanerr"},
+{text = '⌔┆مـسح اݪــمـטּــظفيــטּ', callback_data=user_id.."/delcleanerr"},
 },
 
 }
@@ -881,19 +881,19 @@ local UserName = (data.username_ or "Matrix_Source")
 local NameUser = "\n*⌔┆بواسطه -›* ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( المسح )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( اݪمــسسح )*\n")
 return false
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( الكتم )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( اݪڪتم )*\n")
 return false
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( الطرد )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( اݪــطࢪد )*\n")
 return false
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( التقييد )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( اݪتـــقييــد )*\n")
 return false
 end
 if status == "unlock" then
@@ -12167,7 +12167,7 @@ end
 Text = [[*
 ⦑ Welcome to Source ⦒
 ⦑ MATRIX TEAM ⦒
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄*
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
 ⌔┆[Source Channel](t.me/Matrix_Source)
 ⌔┆[Source Info ](t.me/infoo_Matrix)     
 ⌔┆[Developer](t.me/IZlZ7I)     
@@ -16531,7 +16531,7 @@ local Teext =[[*
 ⌔┆الاوامر الخاصة فـي تنبيه الاسماء 
 ⌔┆تفعيل تنبيه الاسماء
 ⌔┆تعطيل تنبيه الاسماء
-𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
