@@ -1878,17 +1878,17 @@ if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
 if text == "تعطيل المسح التلقائي" and Owner(msg) then        
 database:del(bot_id.."y:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'⌔┆تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'*⌔┆تم تعطيل المسح التلقائي للميديا*')
 return false
 end 
 if text == "تفعيل المسح التلقائي" and Owner(msg) then        
 database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'⌔┆تم تفعيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'*⌔┆تم تفعيل المسح التلقائي للميديا*')
 return false
 end 
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."Matrix:Lock:text"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل الدردشه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل الدردشه*")  
 return false
 end 
 if text == 'فتح السوبر' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -1898,7 +1898,7 @@ for i,lock in pairs(list) do
 database:del(bot_id..lock..msg.chat_id_)    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم فتح السوبر")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم فتح السوبر*")  
 return false
 end,nil)   
 end
@@ -1918,23 +1918,23 @@ for i,lock in pairs(list) do
 database:set(bot_id..lock..msg.chat_id_,'del')    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل السوبر")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل السوبر*")  
 return false
 end,nil)   
 end
 if text == "قفل الاضافه" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:Lock:AddMempar"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل اضافة الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل اضافة الاعضاء*")  
 return false
 end 
 if text == "قفل الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:Lock:Join"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل دخول الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل دخول الاعضاء*")  
 return false
 end 
 if text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل البوتات*")  
 return false
 end 
 if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -2086,10 +2086,10 @@ return false
 end 
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس'  or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'انصبلك'  or text == 'انصبلك بوت' then
 Text = [[
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-⌔┆Dev Name : 𝗛ٍَ𝗮َ!َِ𝗦َِ𝗼
-⌔┆Dev User : @IZlZ7I
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
+*⌔┆Dev Name :* 𝗛ٍَ𝗮َ!َِ𝗦َِ𝗼
+*⌔┆Dev User :* @IZlZ7I
+*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -2118,7 +2118,7 @@ end
 return false
 end 
 database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆\n*⌔┆تم فـتح البوتات*")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","\n*⌔┆تم فـتح البوتات*")  
 return false
 end 
 if text == "فتح الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -2229,22 +2229,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل الروابط*")  
 return false
 end 
 if text == "قفل الروابط بالتقيد" and Owner(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفـل الروابط*")  
 return false
 end 
 if text == "قفل الروابط بالكتم" and Owner(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفـل الروابط*")  
 return false
 end 
 if text == "قفل الروابط بالطرد" and Owner(msg) then
 database:set(bot_id.."Matrix:Lock:Link"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔┆تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔┆تم قفـل الروابط*")  
 return false
 end 
 if text == "فتح الروابط" and Owner(msg) then  
@@ -2264,7 +2264,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Lock:Link"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح الروابط*")  
 return false
 end 
 if text == "قفل المعرفات" and Addictive(msg) then  
@@ -2284,22 +2284,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل المعرفات*")  
 return false
 end 
 if text == "قفل المعرفات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفـل المعرفات*")  
 return false
 end 
 if text == "قفل المعرفات بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفـل المعرفات*")  
 return false
 end 
 if text == "قفل المعرفات بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔┆تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔┆تم قفـل المعرفات*")  
 return false
 end 
 if text == "فتح المعرفات" and Addictive(msg) then  
@@ -2319,7 +2319,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Lock:User:Name"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح المعرفات*")  
 return false
 end 
 if text == "قفل التاك" and Addictive(msg) then  
@@ -2339,22 +2339,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:hashtak"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل التاك*")  
 return false
 end 
 if text == "قفل التاك بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:hashtak"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفـل التاك*")  
 return false
 end 
 if text == "قفل التاك بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:hashtak"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفـل التاك*")  
 return false
 end 
 if text == "قفل التاك بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:hashtak"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔┆تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔┆تم قفـل التاك*")  
 return false
 end 
 if text == "فتح التاك" and Addictive(msg) then  
@@ -2374,42 +2374,42 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Lock:hashtak"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح التاك")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح التاك*")  
 return false
 end 
 if text == "قفل الشارحه" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Cmd"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل الشارحه*")  
 return false
 end 
 if text == "قفل الشارحه بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Cmd"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفـل الشارحه*")  
 return false
 end 
 if text == "قفل الشارحه بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Cmd"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفـل الشارحه*")  
 return false
 end 
 if text == "قفل الشارحه بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Cmd"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔┆تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔┆تم قفـل الشارحه*")  
 return false
 end 
 if text == "فتح الشارحه" and Addictive(msg) then
 database:del(bot_id.."Matrix:Lock:Cmd"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح الشارحه*")  
 return false
 end 
 if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
 database:set(bot_id.."y:Matrix:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'⌔┆تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'*⌔┆تم تعطيل المسح التلقائي للميديا*')
 return false
 end 
 if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
 database:del(bot_id.."y:Matrix:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'⌔┆تم تفعيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'*⌔┆تم تفعيل المسح التلقائي للميديا*')
 return false
 end 
 if text == "قفل الصور"and Addictive(msg) then
@@ -2489,22 +2489,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:Animation"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل المتحركه*")  
 return false
 end
 if text == "قفل المتحركه بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Animation"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفـل المتحركه*")  
 return false
 end 
 if text == "قفل المتحركه بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Animation"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفـل المتحركه*")  
 return false
 end 
 if text == "قفل المتحركه بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Animation"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔┆تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔┆تم قفـل المتحركه*")  
 return false
 end 
 if text == "فتح المتحركه" and Addictive(msg) then  
@@ -2524,7 +2524,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Lock:Animation"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح المتحركه*")  
 return false
 end 
 if text == "قفل الالعاب" and Addictive(msg) then  
@@ -2674,22 +2674,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:Sticker"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل الملصقات*")  
 return false
 end 
 if text == "قفل الملصقات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Sticker"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفـل الملصقات*")  
 return false
 end 
 if text == "قفل الملصقات بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Sticker"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفـل الملصقات*")  
 return false
 end 
 if text == "قفل الملصقات بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:Sticker"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔┆تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔┆تم قفـل الملصقات*")  
 return false
 end 
 if text == "فتح الملصقات" and Addictive(msg) then  
@@ -2709,7 +2709,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Lock:Sticker"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح الملصقات*")  
 return false
 end 
 if text == "قفل التوجيه" and Addictive(msg) then  
@@ -2729,22 +2729,22 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Lock:forward"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفـل التوجيه*")  
 return false
 end 
 if text == "قفل التوجيه بالتقيد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:forward"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفـل التوجيه*")  
 return false
 end 
 if text == "قفل التوجيه بالكتم" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:forward"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفـل التوجيه*")  
 return false
 end 
 if text == "قفل التوجيه بالطرد" and Addictive(msg) then
 database:set(bot_id.."Matrix:Lock:forward"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔┆تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","*⌔┆تم قفـل التوجيه*")  
 return false
 end 
 if text == "فتح التوجيه" and Addictive(msg) then  
@@ -2764,7 +2764,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Lock:forward"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح التوجيه*")  
 return false
 end 
 if text == "قفل الملفات" and Addictive(msg) then
@@ -2789,7 +2789,7 @@ return false
 end 
 if text == "فتح الملفات" and Addictive(msg) then
 database:del(bot_id.."Matrix:Lock:Document"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆✅تم فتح الملفات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح الملفات")  
 return false
 end 
 if text == "قفل السيلفي" and Addictive(msg) then  
@@ -3049,7 +3049,7 @@ end
 return false
 end 
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","keed")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","⌔┆تم قفل التكرار")
+Reply_Status(msg,msg.sender_user_id_,"lockkid","*⌔┆تم قفل التكرار*")
 return false
 end 
 if text == "قفل التكرار بالكتم" and Addictive(msg) then  
@@ -3069,7 +3069,7 @@ end
 return false
 end 
 database:hset(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood","mute")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","⌔┆تم قفل التكرار")
+Reply_Status(msg,msg.sender_user_id_,"lockktm","*⌔┆تم قفل التكرار*")
 return false
 end 
 if text == "فتح التكرار" and Addictive(msg) then  
@@ -3089,7 +3089,7 @@ end
 return false
 end 
 database:hdel(bot_id.."Matrix:flooding:settings:"..msg.chat_id_ ,"flood")  
-Reply_Status(msg,msg.sender_user_id_,"unlock","⌔┆تم فتح التكرار")
+Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فتح التكرار*")
 return false
 end 
 if text == ("اضف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
@@ -4484,7 +4484,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4512,7 +4512,7 @@ return false
 end
 local username = text:match("^رفع ادمن @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4548,7 +4548,7 @@ return false
 end
 local userid = text:match("^رفع ادمن (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
@@ -4645,7 +4645,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4673,7 +4673,7 @@ return false
 end
 local username = text:match("^رفع مميز @(.*)$") 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -4710,7 +4710,7 @@ return false
 end
 local userid = text:match("^رفع مميز (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
@@ -4993,7 +4993,7 @@ end
 return false
 end
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ⌔┆تم تعطيل الرفع') 
+send(msg.chat_id_, msg.id_,' *⌔┆تم تعطيل الرفع*') 
 return false
 end
 function start_function(extra, result, success)
@@ -5062,7 +5062,7 @@ end
 return false
 end
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ⌔┆تم تعطيل الرفع') 
+send(msg.chat_id_, msg.id_,' *⌔┆تم تعطيل الرفع*') 
 return false
 end
 function start_function(extra, result, success)
@@ -5180,7 +5180,7 @@ end
 return false
 end
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ⌔┆تم تعطيل الرفع') 
+send(msg.chat_id_, msg.id_,' *⌔┆تم تعطيل الرفع*') 
 return false
 end
 function start_function(extra, result, success)
@@ -5249,7 +5249,7 @@ end
 return false
 end
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ⌔┆تم تعطيل الرفع') 
+send(msg.chat_id_, msg.id_,' *⌔┆تم تعطيل الرفع*') 
 return false
 end
 function start_function(extra, result, success)
@@ -5318,7 +5318,7 @@ end
 return false
 end
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ⌔┆تم تعطيل الرفع') 
+send(msg.chat_id_, msg.id_,' *⌔┆تم تعطيل الرفع*') 
 return false
 end
 function start_function(extra, result, success)
@@ -5387,7 +5387,7 @@ end
 return false
 end
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ⌔┆تم تعطيل الرفع') 
+send(msg.chat_id_, msg.id_,' *⌔┆تم تعطيل الرفع*') 
 return false
 end
 function start_function(extra, result, success)
@@ -5456,7 +5456,7 @@ end
 return false
 end
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ⌔┆تم تعطيل الرفع') 
+send(msg.chat_id_, msg.id_,' *⌔┆تم تعطيل الرفع*') 
 return false
 end
 function start_function(extra, result, success)
@@ -6835,7 +6835,7 @@ send(msg.chat_id_, msg.id_,one_nu)
 end,nil)
 end 
 if text == 'ايديي' then   
-send(msg.chat_id_, msg.id_,'⌔┆ايديك > '..msg.sender_user_id_)
+send(msg.chat_id_, msg.id_,'*⌔┆ايديك >* '..msg.sender_user_id_)
 end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
@@ -6881,7 +6881,7 @@ return false
 end
 if Addictive(msg) then
 https.request("https://api.telegram.org/bot"..token.."/deleteChatPhoto?chat_id="..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⌔┆تم ازالة صورة المجموعه") 
+send(msg.chat_id_, msg.id_,"*⌔┆تم ازالة صورة المجموعه*") 
 end
 return false  
 end
@@ -6903,7 +6903,7 @@ return false
 end
 if Addictive(msg) then
 database:setex(bot_id.."Matrix:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_,"⌔┆ارسل الان الوصف")
+send(msg.chat_id_, msg.id_,"*⌔┆ارسل الان الوصف*")
 end
 return false  
 end
@@ -6950,7 +6950,7 @@ end
 if database:get(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_)   then 
 Welcome = database:get(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_)  
 else 
-Welcome = "⌔┆لم يتم تعيين ترحيب للمجموعه"
+Welcome = "*⌔┆لم يتم تعيين ترحيب للمجموعه*"
 end 
 send(msg.chat_id_, msg.id_,"["..Welcome.."]") 
 return false  
@@ -6972,7 +6972,7 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"⌔┆تم تفعيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"*⌔┆تم تفعيل ترحيب المجموعه*") 
 return false  
 end
 if text == "تعطيل الترحيب" and Addictive(msg) then  
@@ -6992,7 +6992,7 @@ end
 return false
 end
 database:del(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⌔┆تم تعطيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"*⌔┆تم تعطيل ترحيب المجموعه*") 
 return false  
 end
 if text == "مسح الترحيب" or text == "حذف الترحيب" then 
@@ -7013,7 +7013,7 @@ return false
 end
 if Addictive(msg) then
 database:del(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⌔┆تم ازالة ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"*⌔┆تم ازالة ترحيب المجموعه*") 
 end
 return false  
 end
@@ -7035,7 +7035,7 @@ return false
 end
 database:set(bot_id.."Matrix:Filter:msg",msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = bot_id},function(arg,data) 
-local Text ='⌔┆قائمه الممنوعات'
+local Text ='*⌔┆قائمه الممنوعات*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'صور', url="https://t.me/"..data.username_.."?start=ph"..msg.chat_id_},{text = 'كلمات', url="https://t.me/"..data.username_.."?start=msg"..msg.chat_id_}},
@@ -7087,7 +7087,7 @@ end
 if text then   
 local tsssst = database:get(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
-send(msg.chat_id_, msg.id_,"⌔┆تم منع الكلمه بنجاح")  
+send(msg.chat_id_, msg.id_,"*⌔┆تم منع الكلمه بنجاح*")  
 database:del(bot_id.."Matrix:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 database:sadd(bot_id.."Matrix:List:Filter:text"..msg.chat_id_,text)  
 return false 
@@ -7231,7 +7231,7 @@ return false
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
-text = "\n⌔┆قائمة البوتات الموجوده \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+text = "\n*⌔┆قائمة البوتات الموجوده *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 local n = 0
 local t = 0
 for i=0 , #admins do 
@@ -7246,12 +7246,12 @@ tr = " {✯}"
 end
 text = text..">> [@"..ta.username_.."]"..tr.."\n"
 if #admins == 0 then
-send(msg.chat_id_, msg.id_, "⌔┆لا توجد بوتات في المجموعه")
+send(msg.chat_id_, msg.id_, "*⌔┆لا توجد بوتات في المجموعه*")
 return false 
 end
 if #admins == i then 
-local a = "\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n⌔┆عدد البوتات التي هنا >> {"..n.."} بوت\n"
-local f = "⌔┆عدد البوتات التي هي ادمن >> {"..t.."}\n⌔┆ملاحضه علامة ال (✯) تعني ان البوت ادمن \n⌔┆"
+local a = "\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n*⌔┆عدد البوتات التي هنا >> {"..n.."} بوت*\n"
+local f = "*⌔┆عدد البوتات التي هي ادمن >> {"..t.."}*\n*⌔┆ملاحضه علامة ال (✯) تعني ان البوت ادمن *"
 send(msg.chat_id_, msg.id_, text..a..f)
 end
 end,nil)
@@ -7353,7 +7353,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
-t = "⌔┆قائمه الاوامر المضافه  \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "*⌔┆قائمه الاوامر المضافه  *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 Cmds = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 if Cmds then 
@@ -7363,7 +7363,7 @@ t = t..""..k.."- ("..v..") \n"
 end
 end
 if #list == 0 then
-t = "⌔┆لا توجد اوامر اضافيه"
+t = "*⌔┆لا توجد اوامر اضافيه*"
 return send(msg.chat_id_, msg.id_, t)
 end
 return SendMsg_Msgeeslist("listCmdd",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
@@ -7390,7 +7390,7 @@ for k,v in pairs(list) do
 database:del(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
 end
-send(msg.chat_id_, msg.id_,"⌔┆تم مسح جميع الاوامر التي تم اضافتها")  
+send(msg.chat_id_, msg.id_,"*⌔┆تم مسح جميع الاوامر التي تم اضافتها*")  
 end
 end
 if text == "ترتيب الاوامر" and Constructor(msg) then
@@ -7443,7 +7443,7 @@ end
 return false
 end
 database:set(bot_id.."Matrix:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
-send(msg.chat_id_, msg.id_,"⌔┆الان ارسل لي الامر القديم ..")  
+send(msg.chat_id_, msg.id_,"*⌔┆الان ارسل لي الامر القديم ..*")  
 return false
 end
 if text == "حذف امر" or text == "مسح امر" then 
@@ -7464,7 +7464,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Matrix:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
-send(msg.chat_id_, msg.id_,"⌔┆ارسل الامر الجديد")  
+send(msg.chat_id_, msg.id_,"*⌔┆ارسل الامر الجديد*")  
 return false
 end
 end
@@ -7485,7 +7485,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 function Function_Matrix(extra, result, success)
@@ -7545,7 +7545,7 @@ return false
 end
 local userid = text:match("^رفع منظف (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الرفع')
+send(msg.chat_id_, msg.id_,'*⌔┆تم تعطيل الرفع*')
 return false
 end
 database:sadd(bot_id.."Matrix:MN:TF"..msg.chat_id_, userid)
@@ -13638,14 +13638,14 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("مسح الثانويين ⌔") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
-send(msg.chat_id_, msg.id_, "⌔┆ تم مسح قائمة المطورين الثانويين")
+send(msg.chat_id_, msg.id_, "*⌔┆ تم مسح قائمة المطورين الثانويين*")
 end
 if text == ("مسح الثانويين ⌔") and not VIP_DeV(msg) then
-send(msg.chat_id_, msg.id_,'⌔┆عذا الامر للمطور الاساسي فقط .')
+send(msg.chat_id_, msg.id_,'*⌔┆عذا الامر للمطور الاساسي فقط .*')
 end
 if text == 'رفع نسخه احتياطيه ⌔' then
 database:set(bot_id..'docu:Bots',true) 
-send(msg.chat_id_, msg.id_, "⌔┆ قم الان بارسال ملف النسخه الاحتياطيه")
+send(msg.chat_id_, msg.id_, "*⌔┆ قم الان بارسال ملف النسخه الاحتياطيه*")
 end
 if msg.content_.ID == "MessageDocument" and database:get(bot_id..'docu:Bots') then    
 local ID_FILE = msg.content_.document_.document_.persistent_id_ 
@@ -13721,7 +13721,7 @@ File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '⌔┆عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == "تحديث السورس ⌔" then
-send(msg.chat_id_,msg.id_,'⌔┆تم التحديث')
+send(msg.chat_id_,msg.id_,'*⌔┆تم التحديث*')
 os.execute('rm -rf Matrix.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
@@ -13731,7 +13731,7 @@ return false
 end
 if text == "تحديث ⌔" then
 dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "⌔┆تم التحديث")
+send(msg.chat_id_, msg.id_, "*⌔┆تم التحديث*")
 end
 end
 end --- Chat_Type = 'UserBot' 
@@ -14631,7 +14631,7 @@ end
 if Text and Text:match('(.*)/unBan:Cheking') and Constructor(data) then
 if tonumber(Text:match('(.*)/unBan:Cheking')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."Ban:Cheking"..data.chat_id_,"true")
-local Textedit = '⌔┆تم تعطيل الطرد '
+local Textedit = '*⌔┆تم تعطيل الطرد*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -14644,7 +14644,7 @@ end
 elseif Text and Text:match('(.*)/unAdd:Group:Cheking') and Constructor(data) then
 if tonumber(Text:match('(.*)/unAdd:Group:Cheking')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."Add:Group:Cheking"..data.chat_id_,"true")
-local Textedit = '⌔┆تم تعطيل الرفع '
+local Textedit = '*⌔┆تم تعطيل الرفع* '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -16148,7 +16148,7 @@ local Teext =[[*
 ⌔┆اوامر البوت للمالك ،
 ⌔┆رفع منظف - تنزيل منظف
 ⌔┆المنظفين - مسح المنظفين
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄
 ⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
