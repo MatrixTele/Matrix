@@ -415,9 +415,6 @@ if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆عدد المطورين : '..#listsudo, callback_data=user_id..""},
-},
-{
 {text = '⌔┆مسح المطورين', callback_data=user_id.."/delsudos"},
 },
 
@@ -425,9 +422,6 @@ keyboard.inline_keyboard = {
 elseif status == "listDevvrr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '⌔┆عدد الثانويين : '..#listDevvrr, callback_data=user_id..""},
-},
 {
 {text = '⌔┆مسح الثانويين', callback_data=user_id.."/delDevv"},
 },
@@ -437,9 +431,6 @@ elseif status == "listcreatorr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆عدد المالكين : '..#listcreatorr, callback_data=user_id..""},
-},
-{
 {text = '⌔┆مسح المالكين', callback_data=user_id.."/delcreatorr"},
 },
 
@@ -447,9 +438,6 @@ keyboard.inline_keyboard = {
 elseif status == "listasa" then
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '⌔┆عدد المنشئين الاساسيين : '..#listasa, callback_data=user_id..""},
-},
 {
 {text = '⌔┆مسح المنشئين الاساسيين', callback_data=user_id.."/delassaseen"},
 },
@@ -459,9 +447,6 @@ elseif status == "listmnsh" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆عدد المنشئين : '..#listmnsh, callback_data=user_id..""},
-},
-{
 {text = '⌔┆مسح المنشئين', callback_data=user_id.."/delmnsh"},
 },
 
@@ -470,9 +455,6 @@ elseif status == "listmder" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆عدد المدراء : '..#listmder, callback_data=user_id..""},
-},
-{
 {text = '⌔┆مسح المدراء', callback_data=user_id.."/delmoder"},
 },
 
@@ -480,9 +462,6 @@ keyboard.inline_keyboard = {
 elseif status == "listadmin" then
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '⌔┆عدد الادمنيه : '..#listadmin, callback_data=user_id..""},
-},
 {
 {text = '⌔┆مسح الادمنيه', callback_data=user_id.."/deladmin"},
 },
@@ -500,9 +479,6 @@ elseif status == "listcleanerr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆عدد المنظفين : '..#listcleanerr, callback_data=user_id..""},
-},
-{
 {text = '⌔┆مسح المنظفين', callback_data=user_id.."/delcleanerr"},
 },
 
@@ -510,9 +486,6 @@ keyboard.inline_keyboard = {
 elseif status == "listCmdd" then
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '⌔┆عدد الاوامر المضافه : '..#listCmdd, callback_data=user_id..""},
-},
 {
 {text = '⌔┆مسح الاوامر المضافه', callback_data=user_id.."/delCmdd"},
 },
@@ -522,9 +495,6 @@ elseif status == "listbans" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆عدد المحظورين عام : '..#listbans, callback_data=user_id..""},
-},
-{
 {text = '⌔┆مسح المحظورين عام', callback_data=user_id.."/delbanall"},
 },
 
@@ -533,9 +503,6 @@ elseif status == "listban" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆عدد المحظورين : '..#listban, callback_data=user_id..""},
-},
-{
 {text = '⌔┆مسح المحظورين', callback_data=user_id.."/delban"},
 },
 
@@ -543,9 +510,6 @@ keyboard.inline_keyboard = {
 elseif status == "listktm" then
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '⌔┆عدد المكتومين : '..#listktm, callback_data=user_id..""},
-},
 {
 {text = '⌔┆مسح المكتومين', callback_data=user_id.."/delktm"},
 },
@@ -12203,7 +12167,7 @@ end
 Text = [[*
 ⦑ Welcome to Source ⦒
 ⦑ MATRIX TEAM ⦒
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄*
 ⌔┆[Source Channel](t.me/Matrix_Source)
 ⌔┆[Source Info ](t.me/infoo_Matrix)     
 ⌔┆[Developer](t.me/IZlZ7I)     
@@ -16567,7 +16531,7 @@ local Teext =[[*
 ⌔┆الاوامر الخاصة فـي تنبيه الاسماء 
 ⌔┆تفعيل تنبيه الاسماء
 ⌔┆تعطيل تنبيه الاسماء
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
