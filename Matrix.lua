@@ -10365,7 +10365,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '*⌔┆'..Description..'\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : '..UserName_User..'\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
+local texte = '*⌔┆'..Description..'*\n⌔┆ايديك : '..Id..'*\n*⌔┆يوزرك : '..UserName_User..'*\n*⌔┆موقعك : '..Status_Gps..'*\n*⌔┆رسائلك : '..NumMsg..' *\n*⌔┆تفاعلك : '..TotalMsg..'*\n*⌔┆الالعاب : '..Num_Games..'*'
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
