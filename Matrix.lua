@@ -920,19 +920,19 @@ local UserName = (data.username_ or "Matrix_Source")
 local NameUser = "\n*⌔┆بواسطه -›* ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆تم تنفيذ الامر بخاصيه ( المسح )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( المسح )*\n")
 return false
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆تم تنفيذ الامر بخاصيه ( الكتم )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( الكتم )*\n")
 return false
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆تم تنفيذ الامر بخاصيه ( الطرد )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( الطرد )*\n")
 return false
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆تم تنفيذ الامر بخاصيه ( التقييد )*\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*⌔┆بخاصيه ( التقييد )*\n")
 return false
 end
 if status == "unlock" then
@@ -1026,12 +1026,12 @@ end
 function add_file(msg,chat,ID_FILE,File_Name)
 if File_Name:match('.json') then
 if tonumber(File_Name:match('(%d+)')) ~= tonumber(bot_id) then 
-sendtext(chat,msg.id_,"⌔┆ملف النسخه الاحتياطيه ليس لهاذا البوت")   
+sendtext(chat,msg.id_,"*⌔┆ملف النسخه الاحتياطيه ليس لهاذا البوت*")   
 return false 
 end      
 local File = json:decode(https.request('https://api.telegram.org/bot' .. token .. '/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-send(chat,msg.id_,"⌔┆جاري ...\n⌔┆رفع الملف الان")   
+send(chat,msg.id_,"*⌔┆جاري ...\n⌔┆رفع الملف الان*")   
 else
 sendtext(chat,msg.id_,"*⌔┆عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")   
 end      
@@ -1065,7 +1065,7 @@ if v.linkgroup then
 if v.linkgroup ~= "" then
 database:set(bot_id.."Matrix:Private:Group:Link"..idg,v.linkgroup)   
 end;end;end
-send(chat,msg.id_,"⌔┆تم رفع الملف بنجاح وتفعيل المجموعات\n⌔┆ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادمنيه} بنجاح")   
+send(chat,msg.id_,"*⌔┆تم رفع الملف بنجاح وتفعيل المجموعات*\n*⌔┆ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادمنيه} بنجاح*")   
 end
 
 function Is_Not_Spam(msg,type)
@@ -1137,7 +1137,7 @@ Sudo = ]]..data.id_..[[
 UserName = "]]..msg.content_.text_..[[" ;
 ]])
 Matrix_Info_Sudo:close()
-send(msg.chat_id_,msg.id_,"⌔┆تم تغيير المطور الاساسي للبوت بنجاح .")
+send(msg.chat_id_,msg.id_,"*⌔┆تم تغيير المطور الاساسي للبوت بنجاح .*")
 database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
 dofile('Matrix.lua')  
 else
@@ -6424,7 +6424,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '⌔┆تم تعطيل ← الحظر ~ والطرد ')
+send(msg.chat_id_, msg.id_, '*⌔┆تم تعطيل ← الحظر ~ والطرد *')
 return false
 end
 end
@@ -6468,7 +6468,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '⌔┆تم تعطيل رفع ← الادمن ~ المميز ')
+send(msg.chat_id_, msg.id_, '*⌔┆تم تعطيل رفع ← الادمن ~ المميز *')
 return false
 end
 end
@@ -6500,7 +6500,7 @@ function start_function(extra, result, success)
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⌔┆لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه') 
+send(msg.chat_id_, msg.id_,'*⌔┆لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه*') 
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -6594,12 +6594,12 @@ return false
 end
 tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub("-100",""),message_id_ = msg.reply_to_message_id_,disable_notification_ = 1},function(arg,data) 
 if data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"⌔┆تم تثبيت الرساله")   
+send(msg.chat_id_, msg.id_,"*⌔┆تم تثبيت الرساله*")   
 database:set(bot_id.."Matrix:Pin:Id:Msg"..msg.chat_id_,msg.reply_to_message_id_)
 elseif data.code_ == 6 then
-send(msg.chat_id_,msg.id_,"⌔┆انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله")  
+send(msg.chat_id_,msg.id_,"*⌔┆انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله*")  
 elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"⌔┆ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات")  
+send(msg.chat_id_,msg.id_,"*⌔┆ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات*")  
 end
 end,nil) 
 end
@@ -6816,7 +6816,7 @@ local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(liste) do
 local Mesge = v
 if Mesge then
-t = "⌔┆تم مسح "..k.." من الوسائط تلقائيا\n⌔┆يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
+t = "*⌔┆تم مسح "..k.." من الوسائط تلقائيا*\n*⌔┆يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )*"
 DeleteMessage(msg.chat_id_,{[0]=Mesge})
 end
 end
@@ -10299,7 +10299,7 @@ local List = {
 ᯓ 𝟔𝟔𝟔𖡋 #stast  
 ᯓ 𝟔𝟔𝟔?? #id  
 ᯓ 𝟔𝟔𝟔𖡋 #msgs  
-ᯓ 𝟔𝟔𝟔𖡋 #game
+ᯓ 𝟔𝟔??𖡋 #game
 ]],
 [[
 ☆•𝐮𝐬𝐞𝐫 : #username 𖣬  
