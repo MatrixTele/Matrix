@@ -10408,11 +10408,11 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '⌔┆'..Description..'\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : '..UserName_User..'\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games
+local texte = '*⌔┆'..Description..'\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : '..UserName_User..'\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n*⌔┆ايديك : '..Id..'\n⌔┆يوزرك : * ['..UserName_User..']*\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
+local texte = '\n*⌔┆ايديك : '..Id..'\n⌔┆يوزرك : ['..UserName_User..']\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10438,7 +10438,7 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = '\n*⌔┆ايديك : '..Id..'\n⌔┆يوزرك : * ['..UserName_User..']*\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
+local texte = '\n*⌔┆ايديك : '..Id..'\n⌔┆يوزرك : ['..UserName_User..']\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10492,7 +10492,7 @@ end
 end
 
 
-if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10526,14 +10526,14 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*⌔┆ايديه - '..Id..'\n⌔┆رسائله - '..NumMsg..'\n⌔┆معرفه - *['..UserName_User..']*\n⌔┆تفاعله - '..TotalMsg..'\n⌔┆رتبته - '..Status_Gps..'\n⌔┆تعديلاته - '..message_edit..'\n⌔┆جهاته - '..Add_Mem..'\n⌔┆نوع الكشف - بالرد \n*') 
+send(msg.chat_id_, msg.id_,'*⌔┆ايديه - '..Id..'\n⌔┆رسائله - '..NumMsg..'\n⌔┆معرفه - ['..UserName_User..']\n⌔┆تفاعله - '..TotalMsg..'\n⌔┆رتبته - '..Status_Gps..'\n⌔┆تعديلاته - '..message_edit..'\n⌔┆جهاته - '..Add_Mem..'\n⌔┆نوع الكشف - بالرد \n*') 
 end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 
-if text and text:match("^ايدي @(.*)$")  and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text and text:match("^كشف @(.*)$")  and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10549,7 +10549,7 @@ end
 
 return false
 end
-local username = text:match("^ايدي @(.*)$") 
+local username = text:match("^كشف @(.*)$") 
 function Function_Matrix(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
@@ -10565,7 +10565,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*⌔┆ايديه - '..Id..'\n⌔┆رسائله - '..NumMsg..'\n⌔┆معرفه - *['..UserName_User..']*\n⌔┆تفاعله - '..TotalMsg..'\n⌔┆رتبته - '..Status_Gps..'\n⌔┆تعديلاته - '..message_edit..'\n⌔┆جهاته - '..Add_Mem..'\n⌔┆نوع الكشف - بالمعرف \n*') 
+send(msg.chat_id_, msg.id_,'*⌔┆ايديه - '..Id..'\n⌔┆رسائله - '..NumMsg..'\n⌔┆معرفه - ['..UserName_User..']\n⌔┆تفاعله - '..TotalMsg..'\n⌔┆رتبته - '..Status_Gps..'\n⌔┆تعديلاته - '..message_edit..'\n⌔┆جهاته - '..Add_Mem..'\n⌔┆نوع الكشف - بالمعرف \n*') 
 end,nil)   
 else
 send(msg.chat_id_, msg.id_,'⌔┆لا يوجد حساب بهاذا المعرف')
@@ -16527,7 +16527,7 @@ end
 if Text == '/change-names' then
 local Teext =[[*
 ⌔┆انت الان في قائمة تنبيه الاسماء
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆الاوامر الخاصة فـي تنبيه الاسماء 
 ⌔┆تفعيل تنبيه الاسماء
 ⌔┆تعطيل تنبيه الاسماء
