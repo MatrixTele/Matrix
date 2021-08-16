@@ -10157,49 +10157,6 @@ send(msg.chat_id_, msg.id_,[[
    ]])
 return false  
 end 
-   if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 then
-   function Function_Matrix(extra, result, success)
-      tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-         if data.first_name_ == false then
-         send(msg.chat_id_, msg.id_,'⌔┆ الحساب محذوف لا توجد معلوماته ')
-         return false
-         end
-         if data.username_ then
-         UserName_User = '@'..data.username_
-         else
-         UserName_User = 'لا يوجد'
-         end
-         local Id = data.id_
-         local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
-         send(msg.chat_id_, msg.id_,'*⌔┆ايديه ← *'..Id..'\n*⌔┆معرفه ←* ['..UserName_User..']\n*⌔┆رتبته ←* '..Status_Gps..'\n*⌔┆نوع الكشف ← بالرد*') 
-      end,nil)
-   end
-   tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-   return false
-   end
-   
-   if text and text:match("^كشف @(.*)$")  then
-   local username = text:match("^كشف @(.*)$")
-   function Function_Matrix(extra, result, success)
-   if result.id_ then
-   tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
-   if data.username_ then
-   UserName_User = '@'..data.username_
-   else
-   UserName_User = 'لا يوجد'
-   end
-   local Id = data.id_
-   local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
-   send(msg.chat_id_, msg.id_,'*⌔┆ايديه ←* '..Id..'\n*⌔┆معرفه ←* ['..UserName_User..']\n*⌔┆رتبته ←* '..Status_Gps..'\n*⌔┆نوع الكشف ← بالرد*') 
-   end,nil)   
-   else
-   send(msg.chat_id_, msg.id_,'⌔┆لا يوجد حساب بهاذا المعرف')
-   end
-   end
-   tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
-   return false
-   end
-   
 if text == 'تعين الايدي' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -16527,7 +16484,7 @@ end
 if Text == '/change-names' then
 local Teext =[[*
 ⌔┆انت الان في قائمة تنبيه الاسماء
-𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆الاوامر الخاصة فـي تنبيه الاسماء 
 ⌔┆تفعيل تنبيه الاسماء
 ⌔┆تعطيل تنبيه الاسماء
