@@ -415,6 +415,9 @@ if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
+{text = '⌔┆عدد المطورين : '..#listsudo, callback_data=user_id..""},
+},
+{
 {text = '⌔┆مــسسح اݪمطۅࢪيــטּ', callback_data=user_id.."/delsudos"},
 },
 
@@ -3545,7 +3548,7 @@ return SendMsg_Msgeeslist("listsudo",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == "المنشئين الاساسين" and DevBot(msg) then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "\n*⌔┆قائمة المنشئين الاساسين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
+t = "\n*⌔┆قائمة المنشئين الاساسين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3690,7 +3693,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Muted:User"..msg.chat_id_)
-t = "\n⌔┆قائمة المكتومين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "*\n⌔┆قائمة المكتومين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3700,7 +3703,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⌔┆لا يوجد مكتومين"
+t = "*⌔┆لا يوجد مكتومين*"
 return send(msg.chat_id_, msg.id_, t)
 end
 return SendMsg_Msgeeslist("listktm",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
@@ -10926,7 +10929,7 @@ database:set(bot_id.."Matrix::Set:Moktlf"..msg.chat_id_,name)
 name = string.gsub(name,"😸","😹😹😹😹😹😹😹😹😸😹😹😹😹")
 name = string.gsub(name,"☠","💀💀💀💀💀💀💀☠💀💀💀💀💀")
 name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻👻")
-name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊??")
+name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
 name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟🌟🌟")
@@ -12369,7 +12372,7 @@ Text = [[*
 ⌔┆المميزين 
 ⌔┆قائمه المنع
 ⌔┆الصلاحيات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆تثبيت ، الغاء تثبيت
 ⌔┆الرابط ، الاعدادات
 ⌔┆الترحيب ، القوانين
@@ -16530,7 +16533,7 @@ keyboard.inline_keyboard = {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
-{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹', url="t.me/Matrix_Source"},
+{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵??𝗻𝗻𝗲𝗹', url="t.me/Matrix_Source"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
