@@ -210,31 +210,31 @@ return var
 end 
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(114518657) then  
-var = '*مطور السورس*'
+var = 'مـــطۅࢪ اݪـــسسۅࢪس'
 elseif tonumber(user_id) == tonumber(11110) then  
-var = "*مبرمج السورس*"  
+var = "مـــبࢪمج اݪسسۅࢪس"  
 elseif DevMatrixe(user_id) == true then
-var = "*المطور الاساسي*"  
+var = "اݪمطـــۅࢪ اݪاســـاســي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
-var = "*البوت*"
+var = "اݪبـــۅت"
 elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "*المطور الاساسي²*"  
 elseif database:sismember(bot_id.."Matrix:Sudo:User", user_id) then
-var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "*المطور*"  
-elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "*المالك*"
+var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "اݪمــطۅࢪ"  
+elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "اݪـــمــالك"
 elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "*المنشئ اساسي*"
 elseif database:sismember(bot_id.."Matrix:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "*المنشئ*"  
+var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "اݪمنشــــئ"  
 elseif database:sismember(bot_id.."Matrix:Manager"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Manager:Rd"..chat_id) or "*المدير*"  
+var = database:get(bot_id.."Matrix:Manager:Rd"..chat_id) or "اݪـــمديࢪ"  
 elseif database:sismember(bot_id.."Matrix:Mod:User"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Mod:Rd"..chat_id) or "*الادمن*"  
+var = database:get(bot_id.."Matrix:Mod:Rd"..chat_id) or "اݪادمــن"  
 elseif database:sismember(bot_id.."Matrix:MN:TF"..chat_id, user_id) then
-var =  "منظف"  
+var =  "منـــظــف"  
 elseif database:sismember(bot_id.."Matrix:Special:User"..chat_id, user_id) then  
-var = database:get(bot_id.."Matrix:Special:Rd"..chat_id) or "*المميز*"  
+var = database:get(bot_id.."Matrix:Special:Rd"..chat_id) or "اݪممـــيز"  
 else  
-var = database:get(bot_id.."Matrix:Memp:Rd"..chat_id) or "*العضو*"
+var = database:get(bot_id.."Matrix:Memp:Rd"..chat_id) or "الـــ؏ــضو"
 end  
 return var
 end 
@@ -415,7 +415,7 @@ if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المطورين', callback_data=user_id.."/delsudos"},
+{text = '⌔┆مــسسح اݪمطۅࢪيــטּ', callback_data=user_id.."/delsudos"},
 },
 
 }
@@ -423,7 +423,7 @@ elseif status == "listDevvrr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح الثانويين', callback_data=user_id.."/delDevv"},
+{text = '⌔┆مــسح اݪثاטּــۅييـטּ', callback_data=user_id.."/delDevv"},
 },
 
 }
@@ -431,7 +431,7 @@ elseif status == "listcreatorr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المالكين', callback_data=user_id.."/delcreatorr"},
+{text = '⌔┆مــسح اݪمــاݪڪين', callback_data=user_id.."/delcreatorr"},
 },
 
 }
@@ -439,7 +439,7 @@ elseif status == "listasa" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المنشئين الاساسيين', callback_data=user_id.."/delassaseen"},
+{text = '⌔┆مــسسح اݪمنشــئيــטּ اݪاسســـاســـيـטּ', callback_data=user_id.."/delassaseen"},
 },
 
 }
@@ -447,7 +447,7 @@ elseif status == "listmnsh" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المنشئين', callback_data=user_id.."/delmnsh"},
+{text = '⌔┆مـــسسح اݪمنشئــيـטּ', callback_data=user_id.."/delmnsh"},
 },
 
 }
@@ -455,7 +455,7 @@ elseif status == "listmder" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المدراء', callback_data=user_id.."/delmoder"},
+{text = '⌔┆مــســح اݪـــمدࢪاء', callback_data=user_id.."/delmoder"},
 },
 
 }
@@ -463,7 +463,7 @@ elseif status == "listadmin" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح الادمنيه', callback_data=user_id.."/deladmin"},
+{text = '⌔┆مـــسح اݪاډمــטּــيه', callback_data=user_id.."/deladmin"},
 },
 
 }
@@ -471,7 +471,7 @@ elseif status == "listvip" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المميزين', callback_data=user_id.."/delvips"},
+{text = '⌔┆مـــسح اݪمـمــيــزيـטּ', callback_data=user_id.."/delvips"},
 },
 
 }
@@ -487,7 +487,7 @@ elseif status == "listCmdd" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح الاوامر المضافه', callback_data=user_id.."/delCmdd"},
+{text = '⌔┆مــسح اݪاۅامـــࢪ اݪمــضــافــه', callback_data=user_id.."/delCmdd"},
 },
 
 }
@@ -495,7 +495,7 @@ elseif status == "listbans" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المحظورين عام', callback_data=user_id.."/delbanall"},
+{text = '⌔┆مــسسح اݪمحظــۅࢪين ؏ـــام', callback_data=user_id.."/delbanall"},
 },
 
 }
@@ -503,7 +503,7 @@ elseif status == "listban" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المحظورين', callback_data=user_id.."/delban"},
+{text = '⌔┆مــسسح  اݪمحظــۅࢪيـטּ', callback_data=user_id.."/delban"},
 },
 
 }
@@ -511,7 +511,7 @@ elseif status == "listktm" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌔┆مسح المكتومين', callback_data=user_id.."/delktm"},
+{text = '⌔┆مــسح  اݪمــڪتــۅمين', callback_data=user_id.."/delktm"},
 },
 
 }
@@ -12167,7 +12167,7 @@ end
 Text = [[*
 ⦑ Welcome to Source ⦒
 ⦑ MATRIX TEAM ⦒
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
 ⌔┆[Source Channel](t.me/Matrix_Source)
 ⌔┆[Source Info ](t.me/infoo_Matrix)     
 ⌔┆[Developer](t.me/IZlZ7I)     
