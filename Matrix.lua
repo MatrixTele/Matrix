@@ -217,12 +217,12 @@ elseif DevMatrixe(user_id) == true then
 var = "اݪمطـــۅࢪ اݪاســـاســي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = "اݪبـــۅت"
-elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "*المطور الاساسي²*"  
+elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "اݪمطـــۅࢪ اݪاســـاســي²"  
 elseif database:sismember(bot_id.."Matrix:Sudo:User", user_id) then
 var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "اݪمــطۅࢪ"  
 elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "اݪـــمــالك"
 elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "*المنشئ اساسي*"
+var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "اݪمنـــشئ اݪاسســـاسســـي"
 elseif database:sismember(bot_id.."Matrix:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "اݪمنشــــئ"  
 elseif database:sismember(bot_id.."Matrix:Manager"..chat_id, user_id) then
@@ -3658,7 +3658,7 @@ return SendMsg_Msgeeslist("listadmin",msg.chat_id_,msg.sender_user_id_,msg.id_, 
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."Matrix:Special:User"..msg.chat_id_)
-t = "\n⌔┆قائمة مميزين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "*\n⌔┆قائمة مميزين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3668,7 +3668,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⌔┆لا يوجد مميزين"
+t = "*⌔┆لا يوجد مميزين*"
 return send(msg.chat_id_, msg.id_, t)
 end
 return SendMsg_Msgeeslist("listvip",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
