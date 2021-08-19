@@ -41,7 +41,7 @@ port :: ]]..port..[[
 time ::]]..Rtime.."\27[m")
 
 io.popen("mkdir Matrix_Files")
-t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
+t = "\27[35m".."\nAll Files Started : \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"..'\27[m'
 i = 0
 for v in io.popen('ls Matrix_Files'):lines() do
 if v:match(".lua$") then
@@ -9062,10 +9062,10 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
 local Matrixteam = "⌔┆عدد الادمنيه : "..data.administrator_count_..
-"\n\n⌔┆عدد المطرودين : "..data.kicked_count_..
-"\n\n⌔┆عدد الاعضاء : "..data.member_count_..
-"\n\n⌔┆عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
-"\n\n⌔┆اسم المجموعه : ["..ta.title_.."]"
+"\n⌔┆عدد المطرودين : "..data.kicked_count_..
+"\n⌔┆عدد الاعضاء : "..data.member_count_..
+"\n⌔┆عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
+"\n⌔┆اسم المجموعه : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, Matrixteam) 
 end,nil)
 end,nil)
@@ -9171,7 +9171,7 @@ send(msg.chat_id_, msg.id_,'⌔┆لا استطيع اصيح معرف بوتات
 return false  
 end
 if result and result.type_ and result.type_.channel_ and result.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'⚠| لا اسطيع صيح معرفات المجموعات') 
+send(msg.chat_id_, msg.id_,'⌔┆لا اسطيع صيح معرفات المجموعات') 
 return false  
 end
 if result.id_ then
@@ -9474,11 +9474,11 @@ if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_,"⌔┆حساب المنشئ محذوف")
+send(msg.chat_id_, msg.id_,"⌔┆حساب المالك محذوف")
 return false  
 end
 local UserName = (b.username_ or "Matrix_Source")
-send(msg.chat_id_, msg.id_,"⌔┆منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+send(msg.chat_id_, msg.id_,"⌔┆مالك المجموعة ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
 end
@@ -9494,11 +9494,11 @@ end
 end
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_,"⌔┆حساب المنشئ محذوف")
+send(msg.chat_id_, msg.id_,"⌔┆حساب المالك محذوف")
 return false  
 end
 local UserName = (b.username_ or "Matrix_Source")
-send(msg.chat_id_, msg.id_,"⌔┆تم ترقية منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+send(msg.chat_id_, msg.id_,"⌔┆تم ترقية مالك المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_,b.id_)
 end,nil)   
 end,nil)   
@@ -10215,7 +10215,7 @@ local List = {
 [[
 ᯓ 𝟔𝟔𝟔𖡋 #username 
 ᯓ 𝟔𝟔𝟔𖡋 #stast  
-ᯓ 𝟔𝟔𝟔?? #id  
+ᯓ 𝟔𝟔𝟔𖡋 #id  
 ᯓ 𝟔𝟔𝟔𖡋 #msgs  
 ᯓ 𝟔𝟔??𖡋 #game
 ]],
@@ -10927,7 +10927,7 @@ name = string.gsub(name,"😸","😹😹😹😹😹😹😹😹😸😹😹😹
 name = string.gsub(name,"☠","💀💀💀💀💀💀💀☠💀💀💀💀💀")
 name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻👻")
 name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
-name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
+name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑??🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
 name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟🌟🌟")
 name = string.gsub(name,"✨","??💫💫💫💫✨💫💫💫💫")
@@ -11443,7 +11443,7 @@ return false
 end
 if text == 'تفعيل التاك' and creatorA(msg) then   
 if database:get(bot_id..'Cick:all'..msg.chat_id_) then
-Text = ' ⌔┆تم تفعيل امر @all'
+Text = '*⌔┆تم تفعيل امر @all*'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
 else
 Text = '* ⌔┆بالتاكيد تم تفعيل امر @all*'
@@ -11453,14 +11453,14 @@ end
 if text == 'تعطيل التاك' and creatorA(msg) then  
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
-Text = '\n ⌔┆تم تعطيل امر @all'
+Text = '\n*⌔┆تم تعطيل امر @all*'
 else
 Text = '\n* ⌔┆بالتاكيد تم تعطيل امر @all*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == '/lock' and Addictive(msg) then  
-local Texti = 'تستطيع قفل وفتح عبر الازرار'
+local Texti = '*تستطيع قفل وفتح عبر الازرار*'
 local mute_text = (database:get(bot_id.."Matrix:Lock:text"..msg.chat_id_)  or '❌')
 local mute_text1 = mute_text:gsub('del', '❬ ✅ ❭')
 local lock_bots = (database:get(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_) or '❌')
@@ -13074,7 +13074,7 @@ local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
 if Text_Dev then 
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
-local Name = '*⌔┆مطور البوت :* [ '..UserName..' ]'
+local Name = '*⌔┆مطور البوت :[ '..UserName..' ]*'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end
 end
@@ -13409,7 +13409,7 @@ return false
 end
 if text == ("مسح المطورين ⌔") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:Sudo:User")
-send(msg.chat_id_, msg.id_, "\n⌔┆ تم مسح قائمة المطورين  ")
+send(msg.chat_id_, msg.id_, "\n⌔┆تم مسح قائمة المطورين  ")
 end
 if text == ("قائمة العام ⌔") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
@@ -16299,6 +16299,11 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
+if not Mod(data) then
+local notText = '⌔ عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
 local Teext =[[*
 ⌔┆توجد ← 6 اوامر في البوت
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
