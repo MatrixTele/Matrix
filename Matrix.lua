@@ -16375,6 +16375,26 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+elseif Text and Text:match('(.*)/alsors') then
+if tonumber(Text:match('(.*)/alsors')) == tonumber(data.sender_user_id_) then
+local Teext =[[
+⦑ Welcome to Source ⦒
+⦑ MATRIX TEAM ⦒
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
+⌔┆[Source Channel](t.me/Matrix_Source)
+⌔┆[Source Info ](t.me/infoo_Matrix)     
+⌔┆[Developer](t.me/IZlZ7I)     
+* 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 *
+⌔┆[TWS MATRIX](t.me/U41bot)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '𝗺𝗮𝘁𝗿𝗶𝘅 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
 elseif Text and Text:match('(.*)/helpm') then
 if tonumber(Text:match('(.*)/helpm')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
@@ -16394,10 +16414,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر المجموعة .', callback_data=data.sender_user_id_.."/homeaddwd"},
 },
 {
-{text = 'السورس .', callback_data=data.sender_user_id_.."/homeaddwd"},
-},
-{
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = 'السورس .', callback_data=data.sender_user_id_.."/alsors"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16427,6 +16444,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+},
+{
+{text = 'للقائمة الرئيسية .', callback_data=data.sender_user_id_.."/helpm"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16473,7 +16493,7 @@ local Teext =[[*
 ⌔┆تعين عدد الكتم + عدد
 ⌔┆التوحيد
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰??𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
+⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
