@@ -13989,6 +13989,20 @@ database:del(bot_id.."Matrix:Muted:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المكتومين في المجموعه")
 end
 end
+if Text and Text:match('(.*)/delrdod') and Addictive(data) then
+if tonumber(Text:match('(.*)/delrdod')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:List:Manager"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح الردود في المجموعة")
+end
+end
+if Text and Text:match('(.*)/delrdod') and Addictive(data) then
+if tonumber(Text:match('(.*)/delrdod')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:List:Filter:text"..data.chat_id_)
+database:del(bot_id.."Matrix:List:Filter:Sticker
+database:del(bot_id.."Matrix:List:Filter:Photo"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح قائمة المنع في المجموعة")
+end
+end
 
 if Text and Text:match('(%d+)@id/(.*)') then
 local Id_Link = {string.match(Text,"^(%d+)@id/(.*)$")}
@@ -15906,6 +15920,35 @@ return false
 end
 end
 
+elseif Text and Text:match('(.*)/rtpm') and Admin(data) then
+if tonumber(Text:match('(.*)/rtpm')) == tonumber(data.sender_user_id_) then
+local Texti = 'أهلا بك عزيزي . 
+ في اوامر الرتب  . 
+ يمكنك استخدام الازرار عبر ضغط عليهم .'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'مسح المميزين', callback_data=data.sender_user_id_.."/delvips"},{text = 'مسح الادمنية', callback_data=data.sender_user_id_.."/deladmin"},
+},
+{
+{text = 'مسح المدراء', callback_data=data.sender_user_id_.."/delmoder"},{text = 'مسح المنشئين', callback_data=data.sender_user_id_.."/delmnsh"},
+},
+{
+{text = 'مسح المنشئين الاساسيين', callback_data=data.sender_user_id_.."/delassaseen"},{text = 'مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/delCmdd"},
+},
+{
+{text = 'مسح المكتومين', callback_data=data.sender_user_id_.."/delktm"},{text = 'مسح المحظورين', callback_data=data.sender_user_id_.."/delban"},
+},
+{
+{text = 'مسح الردود', callback_data=data.sender_user_id_.."/delrdod"},
+},
+{
+{text = 'العوده', callback_data=data.sender_user_id_.."/helpm"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Texti)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end
 if Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
@@ -16342,8 +16385,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/alsors') then
-if tonumber(Text:match('(.*)/alsors')) == tonumber(data.sender_user_id_) then
+if Text == '/sorce' then
 local Teext =[[
 ⦑ Welcome to Source ⦒
 ⦑ MATRIX TEAM ⦒
@@ -16357,7 +16399,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝗺𝗮𝘁𝗿𝗶𝘅 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
+{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹', url="t.me/Matrix_Source"},
+},
+{
+{text = 'العوده', callback_data=data.sender_user_id_.."/helpm"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16381,10 +16426,10 @@ keyboard.inline_keyboard = {
 {text = 'اوامر القفل .', callback_data=data.sender_user_id_.."/homelocks"},{text = 'اوامر التعطيل .', callback_data=data.sender_user_id_.."/homeaddwd"},
 },
 {
-{text = 'اوامر المجموعة .', callback_data=data.sender_user_id_.."/homeaddwd"},
+{text = 'اوامر الرتب .', callback_data=data.sender_user_id_.."/rtpm"},{text = 'السورس .', callback_data=data.sender_user_id_.."/sorce"},
 },
 {
-{text = 'السورس .', callback_data=data.sender_user_id_.."/alsors"},
+{text = 'المطور .', url="t.me/IZlZ7I"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
