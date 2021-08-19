@@ -10139,24 +10139,6 @@ end
 database:set(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'⌔┆تم تعطيل الايدي بالصوره') 
 end
-if text == 'تعين الايدي عام' and DevMatrix(msg) then
-database:setex(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
-send(msg.chat_id_, msg.id_,[[
-   ⌔┆ارسل الان النص
-   ⌔┆يمكنك اضافه :
-   - `#username` > اسم المستخدم
-   - `#msgs` > عدد رسائل المستخدم
-   - `#photos` > عدد صور المستخدم
-   - `#id` > ايدي المستخدم
-   - `#auto` > تفاعل المستخدم
-   - `#stast` > موقع المستخدم 
-   - `#edit` > عدد السحكات
-   - `#game` > المجوهرات
-   - `#AddMem` > عدد الجهات
-   - `#Description` > تعليق الصوره
-   ]])
-return false  
-end 
 if text == 'تعين الايدي' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -10248,22 +10230,75 @@ local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'⌔┆تم تغير الايدي ارسل ايدي لرؤيته')
 end
-if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' and DevMatrix(msg) then
-database:del(bot_id.."Matrix:KleshIDALLBOT")
-send(msg.chat_id_, msg.id_, '⌔┆تم ازالة كليشة الايدي ')
-return false  
-end 
-
-if database:get(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) then 
-database:del(bot_id.."Matrix:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) 
-if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_,"⌔┆تم الغاء تعين الايدي عام") 
-return false  
-end 
-database:set(bot_id.."Matrix:KleshIDALLBOT",text:match("(.*)"))
-send(msg.chat_id_, msg.id_,'⌔┆تم تعين الايدي عام')   
-return false 
+if text == 'تعيين الايدي عام' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
+return false
+end
+if not Dev_Bots(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص المطور فقط')
+return false
+end
+redis:setex(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
+local Text= [[
+܁يمكنك اضافة ܊
+▹ `#username` - ܁ اسم المستخدم
+▹ `#msgs` - ܁ عدد رسائل المستخدم
+▹ `#photos` - ܁ عدد صور المستخدم
+▹ `#id` - ܁ ايدي المستخدم
+▹ `#stast` - ܁ رتبة المستخدم
+▹ `#edit` - ܁ عدد تعديلات 
+▹ `#game` - ܁ نقاط
+]]
+send(msg.chat_id_, msg.id_,Text)
+return false  
+end
+if redis:get(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) then 
+if text == 'الغاء' then 
+send(msg.chat_id_, msg.id_,"܁تم الغاء تعيين الايدي") 
+redis:del(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) 
+return false  
+end 
+redis:del(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) 
+local CHENGER_ID = text:match("(.*)")  
+redis:set(bot_id.."KLISH:ID:bot",CHENGER_ID)
+send(msg.chat_id_, msg.id_,'܁تم تعيين الايدي بنجاح')    
+end
+if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+return false
+end
+if not Dev_Bots(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص المطور فقط')
+return false
+end
+redis:del(bot_id.."KLISH:ID:bot")
+send(msg.chat_id_, msg.id_, '܁ تم ازالة كليشة الايدي ')
+return false  
+end 
 if text == 'حذف الايدي' or text == 'مسح الايدي' then
 if Owner(msg) then
 database:del(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_)
@@ -12254,6 +12289,10 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
+return false
+end
+if not Addictive(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص للادمنية فقط')
 return false
 end
 local Text =[[*
