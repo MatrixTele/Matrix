@@ -11904,6 +11904,39 @@ local Groups = database:scard(bot_id..'Matrix:Chek:Groups')
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'⌔┆احصائيات البوت \n\n⌔┆عدد المجموعات *~ '..Groups..'\n⌔┆عدد المشتركين ~ '..Users..'*')
 end
+if text == 'رفع المشتركين' then
+function by_reply(extra, result, success)   
+if result.content_.document_ then 
+local ID_FILE = result.content_.document_.document_.persistent_id_ 
+local File_Name = result.content_.document_.file_name_
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
+download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
+local info_file = io.open('./users.json', "r"):read('*a')
+local users = JSON.decode(info_file)
+for k,v in pairs(users.users) do
+redis:sadd(bot_id..'Matrix:Num:User:Pv',v) 
+end
+send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+if text == 'جلب المشتركين' then
+local list = redis:smembers(bot_id..'Matrix:Num:User:Pv')  
+local t = '{"users":['  
+for k,v in pairs(list) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end
+t = t..']}'
+local File = io.open('./users.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
+end 
 if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
@@ -16342,6 +16375,33 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+elseif Text and Text:match('(.*)/helpm') then
+if tonumber(Text:match('(.*)/helpm')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+أهلا بك عزيزي . 
+ في اعدادات المجموعه . 
+ يمكنك استخدام الازرار عبر ضغط عليهم .
+ ]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'الاوامر .', callback_data=data.sender_user_id_.."/help"},
+},
+{
+{text = 'اوامر القفل .', callback_data=data.sender_user_id_.."/homelocks"},{text = 'اوامر التعطيل .', callback_data=data.sender_user_id_.."/homeaddwd"},
+},
+{
+{text = 'اوامر المجموعة .', callback_data=data.sender_user_id_.."/homeaddwd"},
+},
+{
+{text = 'السورس .', callback_data=data.sender_user_id_.."/homeaddwd"},
+},
+{
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
@@ -16413,7 +16473,7 @@ local Teext =[[*
 ⌔┆تعين عدد الكتم + عدد
 ⌔┆التوحيد
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
+⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰??𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
