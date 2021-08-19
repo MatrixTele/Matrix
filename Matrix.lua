@@ -10288,6 +10288,12 @@ UserName_User = '@'..data.username_
 else
 UserName_User = 'لا يوجد'
 end
+local Ctitle = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_))
+if Ctitle.result.status == "administrator" and Ctitle.result.custom_title or Ctitle.result.status == "creator" and Ctitle.result.custom_title then
+lakbk = Ctitle.result.custom_title
+else
+lakbk = 'لا يوجد'
+end
 local Id = msg.sender_user_id_
 local NumMsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
@@ -10331,11 +10337,11 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '⌔┆'..Description..'\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : '..UserName_User..'\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..''
+local texte = '⌔┆'..Description..'\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : '..UserName_User..'\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆لقبك '..lakbk\n⌔┆الالعاب : '..Num_Games..''
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : ['..UserName_User..']\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..''
+local texte = '\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : ['..UserName_User..']\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆لقبك '..lakbk\n⌔┆الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10415,7 +10421,7 @@ end
 end
 
 
-if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text == 'ايدي' or text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -14868,6 +14874,12 @@ UserName_User = '@'..date.username_
 else
 UserName_User = 'لا يوجد'
 end
+local Ctitle = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_))
+if Ctitle.result.status == "administrator" and Ctitle.result.custom_title or Ctitle.result.status == "creator" and Ctitle.result.custom_title then
+lakbk = Ctitle.result.custom_title
+else
+lakbk = 'لا يوجد'
+end
 local Id = data.sender_user_id_
 local NumMsg = database:get(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
@@ -14887,7 +14899,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n⌔┆Id : '..Id..'\n⌔┆UsErNaMe : '..UserName_User..'\n⌔┆StAsT : '..Status_Gps..'\n⌔┆MsGs : '..NumMsg..' \n⌔┆Activity : '..TotalMsg..'\n⌔┆GaMeS : '..Num_Games..''
+local texte = '\n⌔┆Id : '..Id..'\n⌔┆UsErNaMe : '..UserName_User..'\n⌔┆StAsT : '..Status_Gps..'\n⌔┆MsGs : '..NumMsg..' \n⌔┆Activity : '..TotalMsg..'\n⌔┆Title'..lakbk\n⌔┆GaMeS : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -14922,6 +14934,12 @@ UserName_User = '@'..date.username_
 else
 UserName_User = 'لا يوجد'
 end
+local Ctitle = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_))
+if Ctitle.result.status == "administrator" and Ctitle.result.custom_title or Ctitle.result.status == "creator" and Ctitle.result.custom_title then
+lakbk = Ctitle.result.custom_title
+else
+lakbk = 'لا يوجد'
+end
 
 local Id = data.sender_user_id_
 local NumMsg = database:get(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
@@ -14942,7 +14960,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : '..UserName_User..'\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..''
+local texte = '\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : '..UserName_User..'\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆لقبك '..lakbk\n⌔┆الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -14978,6 +14996,12 @@ UserName_User = '@'..date.username_
 else
 UserName_User = 'لا يوجد'
 end
+local Ctitle = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_))
+if Ctitle.result.status == "administrator" and Ctitle.result.custom_title or Ctitle.result.status == "creator" and Ctitle.result.custom_title then
+lakbk = Ctitle.result.custom_title
+else
+lakbk = 'لا يوجد'
+end
 
 local Id = data.sender_user_id_
 local NumMsg = database:get(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_) or 0
@@ -14998,7 +15022,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n*⌔┆Id : '..Id..'\n⌔┆UsErNaMe : * ['..UserName_User..']*\n⌔┆StAsT : '..Status_Gps..'\n⌔┆MsGs : '..NumMsg..' \n⌔┆Activity : '..TotalMsg..'\n⌔┆GaMeS : '..Num_Games..'*'
+local texte = '\n*⌔┆Id : '..Id..'\n⌔┆UsErNaMe : * ['..UserName_User..']*\n⌔┆StAsT : '..Status_Gps..'\n⌔┆MsGs : '..NumMsg..' \n⌔┆Activity : '..TotalMsg..'\n⌔┆Title '..lakbk\n⌔┆GaMeS : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15053,7 +15077,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n*⌔┆ايديك : '..Id..'\n⌔┆يوزرك : * ['..UserName_User..']*\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
+local texte = '\n*⌔┆ايديك : '..Id..'\n⌔┆يوزرك : * ['..UserName_User..']*\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆لقبك '..lakbk\n⌔┆الالعاب : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
