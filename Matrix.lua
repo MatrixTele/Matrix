@@ -1051,130 +1051,6 @@ database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 return false  
 end
 end  
-------------------------------------------------------------------------------------------------------------
-function GetFile_Bot(msg)
-local list = redis:smembers(bot_id..'Matrix:ChekBotAdd') 
-local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
-for k,v in pairs(list) do   
-NAME = 'Matrix Chat'
-link = redis:get(bot_id.."Matrix:link:set:Group"..msg.chat_id_) or ''
-ASAS = redis:smembers(bot_id..'Matrix:President:Group'..v)
-MNSH = redis:smembers(bot_id..'Matrix:Constructor:Group'..v)
-MDER = redis:smembers(bot_id..'Matrix:Manager:Group'..v)
-MOD = redis:smembers(bot_id..'Matrix:Admin:Group'..v)
-if k == 1 then
-t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
-else
-t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
-end
-if #ASAS ~= 0 then 
-t = t..'"ASAS":['
-for k,v in pairs(ASAS) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MOD ~= 0 then
-t = t..'"MOD":['
-for k,v in pairs(MOD) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MDER ~= 0 then
-t = t..'"MDER":['
-for k,v in pairs(MDER) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MNSH ~= 0 then
-t = t..'"MNSH":['
-for k,v in pairs(MNSH) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-t = t..'"linkgroup":"'..link..'"}' or ''
-end
-t = t..'}}'
-local File = io.open('./'..bot_id..'.json', "w")
-File:write(t)
-File:close()
-sendDocument(msg.chat_id_, msg.id_, './'..bot_id..'.json','• عدد مجموعات التي في البوت { '..#list..'}')  
-end
-function AddFile_Bot(msg,chat,ID_FILE,File_Name)
-if File_Name:match('.json') then
-if tonumber(File_Name:match('(%d+)')) ~= tonumber(bot_id) then 
-send(chat,msg.id_,"• ملف نسخه ليس لهذا البوت")   
-return false 
-end      
-local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
-download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-send(chat,msg.id_," جاري ...\n رفع الملف الان")
-else
-send(chat,msg.id_,"*• عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")   
-end      
-local info_file = io.open('./'..bot_id..'.json', "r"):read('*a')
-local groups = JSON.decode(info_file)
-for idg,v in pairs(groups.GP_BOT) do
-redis:sadd(bot_id..'Matrix:ChekBotAdd',idg)  
-redis:set(bot_id..'lock:tagservrbot'..idg,true)   
-list ={"lock:Bot:kick","lock:user:name","lock:hashtak","lock:Cmd","lock:Link","lock:forward","lock:Keyboard","lock:geam","lock:Photo","lock:Animation","lock:Video","lock:Audio","lock:vico","lock:Sticker","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
-for i,lock in pairs(list) do 
-redis:set(bot_id..lock..idg,'del')    
-end
-if v.MNSH then
-for k,idmsh in pairs(v.MNSH) do
-redis:sadd(bot_id..'Matrix:Constructor:Group'..idg,idmsh)
-end
-end
-if v.MDER then
-for k,idmder in pairs(v.MDER) do
-redis:sadd(bot_id..'Matrix:Manager:Group'..idg,idmder)  
-end
-end
-if v.MOD then
-for k,idmod in pairs(v.MOD) do
-redis:sadd(bot_id..'Matrix:Admin:Group'..idg,idmod)  
-end
-end
-if v.ASAS then
-for k,idASAS in pairs(v.ASAS) do
-redis:sadd(bot_id..'Matrix:President:Group'..idg,idASAS)  
-end
-end
-end
-send(chat,msg.id_,"\n•تم رفع الملف بنجاح وتفعيل المجموعات\n• ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادمنيه} بنجاح")   
-end
-function AddChannel(User)
-local var = true
-if redis:get(bot_id..'add:ch:id') then
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..redis:get(bot_id..'add:ch:id').."&user_id="..User);
-data = json:decode(url)
-if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
-var = false
-end
-end
-return var
-end
-==================
 function Matrix_Files(msg)
 for v in io.popen('ls Matrix_Files'):lines() do
 if v:match(".lua$") then
@@ -12028,41 +11904,72 @@ local Groups = database:scard(bot_id..'Matrix:Chek:Groups')
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'⌔┆احصائيات البوت \n\n⌔┆عدد المجموعات *~ '..Groups..'\n⌔┆عدد المشتركين ~ '..Users..'*')
 end
-if text == 'رفع المشتركين' then
-function by_reply(extra, result, success)   
-if result.content_.document_ then 
-local ID_FILE = result.content_.document_.document_.persistent_id_ 
-local File_Name = result.content_.document_.file_name_
-local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
-download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-local info_file = io.open('./users.json', "r"):read('*a')
-local users = JSON.decode(info_file)
-for k,v in pairs(users.users) do
-redis:sadd(bot_id..'Matrix:Num:User:Pv',v) 
+if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
+local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
+local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
+for k,v in pairs(list) do   
+NAME = 'Matrix Chat'
+ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
+MDER = database:smembers(bot_id.."Matrix:Manager"..v)
+MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
+link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
+if k == 1 then
+t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
+else
+t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
 end
-send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-if text == 'جلب المشتركين' then
-local list = redis:smembers(bot_id..'Matrix:Num:User:Pv')  
-local t = '{"users":['  
-for k,v in pairs(list) do
+if #ASAS ~= 0 then 
+t = t..'"ASAS":['
+for k,v in pairs(ASAS) do
 if k == 1 then
 t =  t..'"'..v..'"'
 else
 t =  t..',"'..v..'"'
 end
+end   
+t = t..'],'
 end
-t = t..']}'
-local File = io.open('./users.json', "w")
+if #MOD ~= 0 then
+t = t..'"MOD":['
+for k,v in pairs(MOD) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MDER ~= 0 then
+t = t..'"MDER":['
+for k,v in pairs(MDER) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MNSH ~= 0 then
+t = t..'"MNSH":['
+for k,v in pairs(MNSH) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'"linkgroup":"'..link..'"}' or ''
+end
+t = t..'}}'
+local File = io.open('./File_Libs/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
-end 
-if text == 'جلب نسخه الاحتياطيه' then
-GetFile_Bot(msg)
+sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '⌔┆عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
@@ -16241,7 +16148,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help3') and Owner(data) then  
+elseif Text and Text:match('(.*)/help3') then  
 if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔┆اوامر المدراء في المجموعه
@@ -16290,7 +16197,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help4') and Constructor(data) then  
+elseif Text and Text:match('(.*)/help4') then  
 if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔┆اوامر المنشئ الاساسي
@@ -16327,7 +16234,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help5') and DevBot(data) then
+elseif Text and Text:match('(.*)/help5') then
 if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔┆اوامر المطور الاساسي  
@@ -16378,7 +16285,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/Services') and DevBot(data) then
+elseif Text and Text:match('(.*)/Services') then
 if tonumber(Text:match('(.*)/Services')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔┆اوامر الاعضاء ← ↓
@@ -16458,9 +16365,12 @@ end
 elseif Text and Text:match('(.*)/helpm') then
 if tonumber(Text:match('(.*)/helpm')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 أهلا بك عزيزي . 
  في اعدادات المجموعه . 
  يمكنك استخدام الازرار عبر ضغط عليهم .
+ 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
  ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
