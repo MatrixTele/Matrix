@@ -11519,7 +11519,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username[2]}, Function_Matr
 return false
 end
 if text == ("تعديل الصلاحيات") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
-function Function_Tshake(extra, result, success)
+function Function_Matrix(extra, result, success)
 local Text = "⌔┆اختر تعديل الصلاحيات"
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11530,12 +11530,12 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تعديل الصلاحيات @(.*)$") and Constructor(msg) then
 local username = text:match("^تعديل الصلاحيات @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"⌔┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -11554,7 +11554,7 @@ else
 send(msg.chat_id_, msg.id_,"⌔┆لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text == ("رفع مشرف") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
