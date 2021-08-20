@@ -10473,7 +10473,7 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = '\n- ايـــديك'..Id..' 🍇.\n- يــوزرك : ['..UserName_User..'] 🍇.\n- مــوقعــك : '..Status_Gps..' 🍇.\n- رســائــلك : '..NumMsg..' 🍇.\n- تفــاعــلك : '..TotalMsg..' 🍇.\n- الالعـــاب : '..Num_Games..' 🍇.'
+local texte = '\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : ['..UserName_User..']\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -16679,7 +16679,7 @@ local idchci = "-100"..idch
 local animation = DAata:match("^animation(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="⌔┆تم اللغاء منعها بنجاح"
 inline = {
-{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url='http://t.me/Matrix_Source'}},
+{{text = '𝘀??𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
