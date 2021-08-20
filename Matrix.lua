@@ -6438,35 +6438,6 @@ send(msg.chat_id_, msg.id_, '⌔┆تم تفعيل رفع ← الادمن ~ ا�
 return false
 end
 end
-if text and text:match("ضع لقب (.*)") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructoryyu(msg) then
-local namess = text:match("ضع لقب (.*)")
-function Function_Matrix(extra, result, success)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔┆تم تععين لقب")  
-https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_invite_users=True")
-https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&custom_title="..namess)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-return false
-end
-if text and text:match("^(ضع لقب) @(.*) (.*)$") and Addictive(msg) then
-local username = {string.match(text, "^(ضع لقب) @(.*) (.*)$")}
-function Function_Matrix(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"⌔┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end
-Reply_Status(msg,result.id_,"reply","⌔┆تم تعيين لقب")  
-https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_invite_users=True")
-https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&custom_title="..username[3])
-else
-send(msg.chat_id_, msg.id_,"⌔┆لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username[2]}, Function_Matrix, nil)
-return false
-end
-
 if text == 'لقبه' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
 Gee = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_)
@@ -11517,6 +11488,34 @@ send(msg.chat_id_, msg.id_, '⌔┆لا يوجد حساب بهذا المعرف'
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[2]}, start_function, nil)
+return false
+end
+if text and text:match("ضع لقب (.*)") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
+local namess = text:match("ضع لقب (.*)")
+function Function_Matrix(extra, result, success)
+Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم تععين لقب")  
+https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_invite_users=True")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&custom_title="..namess)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
+return false
+end
+if text and text:match("^(ضع لقب) @(.*) (.*)$") and Constructor(msg) then
+local username = {string.match(text, "^(ضع لقب) @(.*) (.*)$")}
+function Function_Matrix(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end
+Reply_Status(msg,result.id_,"reply","💢┇تم تعيين لقب")  
+https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_invite_users=True")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&custom_title="..username[3])
+else
+send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username[2]}, Function_Matrix, nil)
 return false
 end
 if text == ("رفع مشرف") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
