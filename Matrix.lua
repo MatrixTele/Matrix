@@ -13989,20 +13989,6 @@ database:del(bot_id.."Matrix:Muted:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المكتومين في المجموعه")
 end
 end
-if Text and Text:match('(.*)/delrdod') and Addictive(data) then
-if tonumber(Text:match('(.*)/delrdod')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:List:Manager"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح الردود في المجموعة")
-end
-end
-if Text and Text:match('(.*)/delrdod') and Addictive(data) then
-if tonumber(Text:match('(.*)/delrdod')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:List:Filter:text"..data.chat_id_)
-database:del(bot_id.."Matrix:List:Filter:Sticker
-database:del(bot_id.."Matrix:List:Filter:Photo"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح قائمة المنع في المجموعة")
-end
-end
 
 if Text and Text:match('(%d+)@id/(.*)') then
 local Id_Link = {string.match(Text,"^(%d+)@id/(.*)$")}
