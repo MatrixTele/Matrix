@@ -1084,7 +1084,7 @@ function Function_Matrix(arg, data)
 msg = arg.msg
 if data.id_ then
 if (data and data.type_ and data.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"💢┇ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"⌔┆ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end
 idmsgq = database:get(bot_id..":usernewsudo:"..msg.sender_user_id_)
@@ -1102,7 +1102,7 @@ send(msg.chat_id_,msg.id_,"🚧┇ تم تغيير المطور الاساسي �
 database:del(bot_id..":usernewsudo:"..msg.sender_user_id_)
 dofile('Matrix.lua')  
 else
-send(msg.chat_id_, msg.id_,"💢┇ لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"⌔┆ لا يوجد حساب بهاذا المعرف")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text},Function_Matrix,{msg=msg})
@@ -6438,24 +6438,32 @@ send(msg.chat_id_, msg.id_, '⌔┆تم تفعيل رفع ← الادمن ~ ا�
 return false
 end
 end
-if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
-local timsh = text:match("^وضع لقب (.*)$")
-function start_function(extra, result, success)
-local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
-local getInfo = JSON.decode(chek)
-if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'*⌔┆لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه*') 
-return false  
+if text and text:match("ضع لقب (.*)") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructoryyu(msg) then
+local namess = text:match("ضع لقب (.*)")
+function Function_Twix(extra, result, success)
+Reply_Status(msg,result.sender_user_id_,"reply","⌔┆تم تععين لقب")  
+https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_invite_users=True")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&custom_title="..namess)
 end
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n⌔┆العضو ← ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..') '
-status  = '\n⌔┆الايدي ← '..result.sender_user_id_..'\n⌔┆تم ضافه {'..timsh..'} كلقب له'
-send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
-https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&custom_title="..timsh)
-end,nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Twix, nil)
+return false
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+if text and text:match("^(ضع لقب) @(.*) (.*)$") and Constructoryyu(msg) then
+local username = {string.match(text, "^(ضع لقب) @(.*) (.*)$")}
+function Function_Twix(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"⌔┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end
+Reply_Status(msg,result.id_,"reply","⌔┆تم تعيين لقب")  
+https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_invite_users=True")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&custom_title="..username[3])
+else
+send(msg.chat_id_, msg.id_,"⌔┆لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username[2]}, Function_Twix, nil)
 return false
 end
 
@@ -11899,7 +11907,7 @@ st = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..tok
 eker = JSON.decode(st)
 if eker.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "⌔┆المنشئين الاساسين تعالو مخرب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "⌔┆المنشئين الاساسين تعالو مخرب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -16456,7 +16464,7 @@ local Teext =[[*
 ⌔┆ايدي • كشف  ← بالرد • بالمعرف • بالايدي
 ⌔┆تحويل + بالرد ← صوره • ملصق • صوت • بصمه
 ⌔┆انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄
 ⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
