@@ -7853,6 +7853,20 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:gif:Rio'..msg.chat_id_,true)  
 end
 if text == "متحركه" and not database:get(bot_id..'Rio:gif:Rio'..msg.chat_id_) then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 data,res = https.request('https://ccccxcc.ml/David/animation.php')
 if res == 200 then
 animation = json:decode(data)
@@ -7879,6 +7893,20 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:memz:Rio'..msg.chat_id_,true)  
 end
 if text == "ميمز" and not database:get(bot_id..'Rio:memz:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 data,res = https.request('https://ccccxcc.ml/David/memz.php')
 if res == 200 then
 Audios = json:decode(data)
@@ -7905,6 +7933,20 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:aaqq:Rio'..msg.chat_id_,true)  
 end
 if text == "اغنيه" and not database:get(bot_id..'Rio:aaqq:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 data,res = https.request('https://ccccxcc.ml/David/mp3.php')
 if res == 200 then
 Audios = json:decode(data)
@@ -7931,6 +7973,20 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:sher:Rio'..msg.chat_id_,true)  
 end
 if text == "شعر" and not database:get(bot_id..'Rio:sher:Rio'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.Matrix ~= true then
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 data,res = https.request('https://uussuu.ml/audioss/shaer.php')
 if res == 200 then
 audios = json:decode(data)
@@ -7960,8 +8016,16 @@ if text == "غنيلي" and not database:get(bot_id..'Rio:Audios:Rio'..msg.chat_
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 data,res = https.request('https://ccccxcc.ml/David/Audios.php')
 if res == 200 then
@@ -7992,8 +8056,16 @@ if text == "ريمكس" and not database:get(bot_id..'Rio:Remix:Rio'..msg.chat_i
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 data,res = https.request('https://ccccxcc.ml/David/Remix.php')
 if res == 200 then
@@ -8023,8 +8095,16 @@ if text == "صوره" and not database:get(bot_id..'Rio:Photo:Rio'..msg.chat_id_
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 data,res = https.request('https://ccccxcc.ml/David/Photo.php')
 if res == 200 then
@@ -8055,8 +8135,16 @@ if text == "انمي" and not database:get(bot_id..'Rio:Anime:Rio'..msg.chat_id_
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 data,res = https.request('https://ccccxcc.ml/David/Anime.php')
 if res == 200 then
@@ -8087,8 +8175,16 @@ if text == "فلم" and not database:get(bot_id..'Rio:Movies:Rio'..msg.chat_id_)
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 data,res = https.request('https://ccccxcc.ml/David/Movies.php')
 if res == 200 then
@@ -8119,8 +8215,16 @@ if text == "مسلسل" and not database:get(bot_id..'Rio:Series:Rio'..msg.chat_
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 data,res = https.request('https://ccccxcc.ml/David/Series.php')
 if res == 200 then
@@ -8150,8 +8254,16 @@ if text and text:match("^انطق (.*)$") and not database:get(bot_id..'Rio:Antk
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(text:match("^انطق (.*)$")))
 Antk = JSON.decode(UrlAntk)
@@ -12159,8 +12271,16 @@ if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or tex
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 Text = [[*
 ⦑ Welcome to Source ⦒
@@ -12186,8 +12306,16 @@ if text == 'رابط الحذف' or text == 'بوت الحذف' then
 local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Matrix ~= true then
-send(msg.chat_id_,msg.id_,'• لا يمكنك استخدام البوت\n• عليك الاشتراك في قناة السورس\n• لتتمكن من استخدام الاوامر \n• CH ~ [@Matrix_Source]')   
-return false 
+Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 Text = [[*
 - اهلا بك عزيزي ؛
