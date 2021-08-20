@@ -6448,7 +6448,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^(ضع لقب) @(.*) (.*)$") and Constructoryyu(msg) then
+if text and text:match("^(ضع لقب) @(.*) (.*)$") and Addictive(msg) then
 local username = {string.match(text, "^(ضع لقب) @(.*) (.*)$")}
 function Function_Matrix(extra, result, success)
 if result.id_ then
@@ -11907,7 +11907,7 @@ st = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..tok
 eker = JSON.decode(st)
 if eker.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "⌔┆المنشئين الاساسين تعالو مخرب \n𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "⌔┆المنشئين الاساسين تعالو مخرب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -16464,7 +16464,7 @@ local Teext =[[*
 ⌔┆ايدي • كشف  ← بالرد • بالمعرف • بالايدي
 ⌔┆تحويل + بالرد ← صوره • ملصق • صوت • بصمه
 ⌔┆انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -16666,7 +16666,7 @@ local Teext =[[*
 ⌔┆يمكنك تصفح الاضافات من خلال
 ⌔┆الكيبورد الموجود في الأسفل
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿??𝗲 𝗰𝗵??𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
+⌔┆قناة البوت ←* [𝘀𝗼𝘂𝗿𝗰𝗲 ??𝗵??𝗻𝗻𝗲𝗹](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
