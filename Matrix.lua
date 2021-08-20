@@ -12679,9 +12679,9 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'⌔┆المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'*⌔┆المجموعه مفعله سابقا *')
 else
-local Text = '⌔┆تم تفعيل البوت في المجموعة'
+local Text = '*⌔┆تم تفعيل البوت في المجموعة*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -12814,12 +12814,12 @@ else
 var= 'عضو'
 end
 if database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'⌔┆المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'*⌔┆المجموعه مفعله سابقا *')
 end
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,'⌔┆عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 else
-local Text = '⌔┆تم تفعيل البوت في المجموعة'
+local Text = '*⌔┆تم تفعيل البوت في المجموعة*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
