@@ -14075,15 +14075,6 @@ Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "âŒ”â”
 end
 end
 
-if Text and Text:match('(%d+)/UnKed@(%d+):(%d+)') then
-local ramsesadd = {string.match(Text,"^(%d+)/UnKed@(%d+):(%d+)$")}
-if tonumber(ramsesadd[2]) == tonumber(ramsesadd[3]) then
-if tonumber(ramsesadd[1]) == tonumber(data.sender_user_id_) then
-DeleteMessage(data.chat_id_, {[0] = Msg_id})  
-https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. data.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-end
-end
-end
 if Text and Text:match('(%d+)@id/(.*)') then
 local Id_Link = {string.match(Text,"^(%d+)@id/(.*)$")}
 if tonumber(Id_Link[1]) == tonumber(data.sender_user_id_) then
