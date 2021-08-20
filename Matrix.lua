@@ -5977,7 +5977,7 @@ Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفـل الفارسي�
 end
 if text and database:get(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
 database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تم قفل الفارسيه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","*⌔┆تم قفل الفارسيه*")  
 end
 if text and database:get(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
 list = {"ڄ","که","پی","خسته","برم","راحتی","بیام","بپوشم","كرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن"}
@@ -5994,7 +5994,7 @@ Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تـم فـتح الفارس�
 end
 if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
 database:set(bot_id.."y:Matrix:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'⌔┆تم تعطيل المسح التلقائي للميديا')
+Reply_Status(msg,msg.sender_user_id_,"lock",'*⌔┆تم تعطيل المسح التلقائي للميديا*')
 return false
 end 
 if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
@@ -8162,7 +8162,7 @@ Text = "\n*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮?? .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -17529,7 +17529,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","?? 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","?? 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","?? 6","🤯 0",};
 sendnnk = numj[math.random(#numj)]
 local Text = '⌔┆اليك النتائج الخـاصة :\n\n⌔┆نسبة الغباء لـ : *'..text..'*'
 keyboard = {} 
