@@ -16806,6 +16806,27 @@ print("MSG List CLEANER : "..v.." : Lodding ...")
 end
 end
 end
+---------------------------------------------------------------------------------------------------------
+if text then
+Replay = database:hget(bot_id..':Replay:Source:',text)
+if Replay then
+tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
+local NumMsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
+local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Text = arg.Replay
+local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
+local Text = Text:gsub('#name',data.first_name_)
+local Text = Text:gsub('#id',msg.sender_user_id_)
+local Text = Text:gsub('#edit',message_edit)
+local Text = Text:gsub('#msgs',NumMsg)
+local Text = Text:gsub('#stast',Status_Gps)
+send(msg.chat_id_, msg.id_, Text)
+end,{Replay=Replay})
+return false
+end
+end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'Matrix:nwe:mem:group'..msg.chat_id_) == 'true'then
 numphoto = {'3','8','9','6'}
