@@ -10447,7 +10447,7 @@ local texte = '⌔┆'..Description..'\n⌔┆ايديك : '..Id..'\n⌔┆يو�
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n- ايـــديك'..Id..' 🍇.\n- يــوزرك : ['..UserName_User..'] 🍇.\n- مــوقعــك : '..Status_Gps..' 🍇.\n- رســائــلك : '..NumMsg..' 🍇.\n- تفــاعــلك : '..TotalMsg..' 🍇.\n- الالعـــاب : '..Num_Games..' 🍇.'
+local texte = '\n⌔┆ايديك : '..Id..'\n⌔┆يوزرك : ['..UserName_User..']\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15015,7 +15015,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n. WaLcOm gRoUb 🦇.\n. Id : '..Id..' 🦇.\n. UsErNaMe : '..UserName_User..' 🦇.\n. StAsT : '..Status_Gps..' 🦇.\n. MsGs : '..NumMsg..' 🦇.\n. Activity : '..TotalMsg..' 🦇.''
+local texte = '\n⌔┆Id : '..Id..' 🦇.\n⌔┆UsErNaMe : '..UserName_User..' 🦇.\n⌔┆StAsT : '..Status_Gps..' 🦇.\n⌔┆MsGs : '..NumMsg..' 🦇.\n⌔┆Activity : '..TotalMsg..' 🦇.\n⌔┆GaMeS : '..Num_Games..' 🦇.'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15126,7 +15126,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n*⌔┆Id : '..Id..' 🦇.\n⌔┆UsErNaMe : * ['..UserName_User..'] 🦇.*\n⌔┆StAsT : '..Status_Gps..' 🦇.\n⌔┆MsGs : '..NumMsg..' 🦇.\n⌔┆Activity : '..TotalMsg..' 🦇.\n⌔┆GaMeS : '..Num_Games..'*🦇.'
+local texte = '\n*⌔┆Id : '..Id..'\n⌔┆UsErNaMe : * ['..UserName_User..']*\n⌔┆StAsT : '..Status_Gps..'\n⌔┆MsGs : '..NumMsg..' \n⌔┆Activity : '..TotalMsg..'\n⌔┆GaMeS : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15181,7 +15181,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n*- ايـــديك '..Id..' 🍇.\n- يــوزرك : ['..UserName_User..'] 🍇.\n- مــوقعــك : '..Status_Gps..' 🍇.\n- رســائــلك :'..NumMsg..' 🍇.\n- تفــاعــلك :'..TotalMsg..' 🍇.\n- الالعـــاب : '..Num_Games..'*🍇.'
+local texte = '\n*⌔┆ايديك : '..Id..'\n⌔┆يوزرك : * ['..UserName_User..']*\n⌔┆موقعك : '..Status_Gps..'\n⌔┆رسائلك : '..NumMsg..' \n⌔┆تفاعلك : '..TotalMsg..'\n⌔┆الالعاب : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -16679,7 +16679,7 @@ local idchci = "-100"..idch
 local animation = DAata:match("^animation(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="⌔┆تم اللغاء منعها بنجاح"
 inline = {
-{{text = '𝘀??𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url='http://t.me/Matrix_Source'}},
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -17740,7 +17740,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","?? 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","?? 79","🤣 100","😣 8","🙄 3","?? 6","🤯 0",};
 sendnnk = numj[math.random(#numj)]
 local Text = '⌔┆اليك النتائج الخـاصة :\n\n⌔┆نسبة الغباء لـ : *'..text..'*'
 keyboard = {} 
