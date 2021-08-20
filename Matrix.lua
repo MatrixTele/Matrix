@@ -2045,7 +2045,7 @@ database:del(bot_id.."Matrix:Lock:Bot:kick"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","*⌔┆تم فـتح البوتات*")  
 return false
 end 
-if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس'  or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس'  or text == 'انصبلك بوت' then
+if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
 Text = [[
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆Dev Name : - 𝗛𝗮!𝗦𝘀𝗢 .
@@ -16280,7 +16280,7 @@ elseif Text and Text:match('(.*)/help3') then
 if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ⌔┆اوامر المدراء في المجموعه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆رفع ، تنزيل ← ادمن
 ⌔┆الادمنيه 
 ⌔┆رفع، كشف ← القيود
@@ -16679,7 +16679,7 @@ local idchci = "-100"..idch
 local animation = DAata:match("^animation(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="⌔┆تم اللغاء منعها بنجاح"
 inline = {
-{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 ??𝗵𝗮𝗻𝗻𝗲𝗹',url='http://t.me/Matrix_Source'}},
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰??𝗮𝗻𝗻𝗲𝗹',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
