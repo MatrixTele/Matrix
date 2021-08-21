@@ -407,9 +407,9 @@ local listvip = database:smembers(bot_id.."Matrix:Special:User"..chat_id)
 local listbans = database:smembers(bot_id.."Matrix:GBan:User")
 local listban = database:smembers(bot_id.."Matrix:Ban:User"..chat_id)
 local listktm = database:smembers(bot_id.."Matrix:Muted:User"..chat_id)
-local listcleanerr = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
-local listCmdd = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
-local listcreatorr = database:smembers(bot_id.."creator"..msg.chat_id_)
+local listcleanerr = database:smembers(bot_id.."Matrix:MN:TF"..chat_id)
+local listCmdd = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..chat_id.."")
+local listcreatorr = database:smembers(bot_id.."creator"..chat_id)
 local listDevvrr = database:smembers(bot_id.."TSudo:User")
 if status == "listsudo" then
 keyboard = {} 
@@ -12428,7 +12428,35 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-
+if text == 'التسليه' and Addictive(msg) then  
+if not Addictive(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص للادمنية فقط')
+return false
+end
+local Text =[[*
+عدلها انته
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• اغنيه •', callback_data=msg.sender_user_id_.."/aknia"},{text = '• ريمكس •', callback_data=msg.sender_user_id_.."/remex"},
+},
+{
+{text = '• غنيلي •', callback_data=msg.sender_user_id_.."/knelee"},{text = '• انمي •', callback_data=msg.sender_user_id_.."/anematin"},
+},
+{
+{text = '• صوره •', callback_data=msg.sender_user_id_.."/sphoto"},{text = '• ميمز •', callback_data=msg.sender_user_id_.."/memz"},
+},
+{
+{text = '• متحركه •', callback_data=msg.sender_user_id_.."/sgifs"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 if text == 'الاضافات' then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -12774,7 +12802,10 @@ local Text = '*⌔┆تم تفعيل البوت في المجموعة*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = 'رفع الادمنيه',callback_data="/addadmin@"..IdChat..':'..msg.sender_user_id_},
+},
+{
+{text = 'قفل الكل',callback_data="/locall@"..IdChat..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12807,11 +12838,19 @@ end
 Text = '⌔┆تم تفعيل مجموعه جديده\n'..
 '\n⌔┆بواسطة ~ '..Name..''..
 '\n⌔┆ايدي المجموعه ~ `'..IdChat..'`'..
-'\n⌔┆عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n⌔┆اسم المجموعه ~ ['..NameChat..']'..
-'\n⌔┆الرابط ~ ['..LinkGp..']'
+'\n⌔┆عدد اعضاء المجموعه *~ '..NumMember..'*'
 if not DevMatrix(msg) then
-sendText(Id_Sudo,Text,0,'md')
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'مغادرة البوت',callback_data="/leftbot@"..IdChat},
+},
+{
+{text = URL.escape(NameChat),url=LinkGp},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end,nil) 
@@ -12912,7 +12951,10 @@ local Text = '*⌔┆تم تفعيل البوت في المجموعة*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '  معرفة المزيد ؟',url="https://t.me/Matrix_Source"},
+{text = 'رفع الادمنيه',callback_data="/addadmin@"..IdChat..':'..msg.sender_user_id_},
+},
+{
+{text = 'قفل الكل',callback_data="/locall@"..IdChat..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12946,13 +12988,20 @@ LinkGp = 'لا يوجد'
 end
 Text = '⌔┆تم تفعيل مجموعه جديده\n'..
 '\n⌔┆بواسطة ~ '..Name..''..
-'\n⌔┆موقعه في المجموعه ~ '..AddPy..'' ..
 '\n⌔┆ايدي المجموعه ~ `'..IdChat..'`'..
-'\n⌔┆عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n⌔┆اسم المجموعه ~ ['..NameChat..']'..
-'\n⌔┆الرابط ~ ['..LinkGp..']'
+'\n⌔┆عدد اعضاء المجموعه *~ '..NumMember..'*'
 if not DevMatrix(msg) then
-sendText(Id_Sudo,Text,0,'md')
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'مغادرة البوت',callback_data="/leftbot@"..IdChat},
+},
+{
+{text = URL.escape(NameChat),url=LinkGp},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end
@@ -13793,6 +13842,197 @@ local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
 local Text = data.payload_.data_
+
+if Text and Text:match('(.*)/aknia') then
+local Userid = Text:match('(.*)/aknia')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/mp3.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*⌔┆تم اختيار الاغنيه لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = data.message_id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. Chat_id .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/memz') then
+local Userid = Text:match('(.*)/memz')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/memz.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*⌔┆تم اختيار مقطع الميمز لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = data.message_id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. Chat_id .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/sgifs') then
+local Userid = Text:match('(.*)/sgifs')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/animation.php')
+if res == 200 then
+animation = json:decode(data)
+if animation.Info == true then
+local Text ='*⌔┆تم اختيار المتحركه لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = data.message_id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. Chat_id .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/knelee') then
+local Userid = Text:match('(.*)/knelee')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/Audios.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*⌔┆تم اختيار المقطع الصوتي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = data.message_id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. Chat_id .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/remex') then
+local Userid = Text:match('(.*)/remex')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/Remix.php')
+if res == 200 then
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='*⌔┆تم اختيار الريمكس لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = data.message_id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. Chat_id .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/sphoto') then
+local Userid = Text:match('(.*)/sphoto')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/Photo.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*⌔┆تم اختيار الصوره لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = data.message_id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. Chat_id .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/anematin') then
+local Userid = Text:match('(.*)/anematin')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/Anime.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*⌔┆تم اختيار صورة الانمي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝘀𝗼𝘂𝗿𝗰𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="t.me/Matrix_Source"}},
+}
+local msg_id = data.message_id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. Chat_id .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+
+if Text and Text:match('/locall@(.*):(.*)') then
+local Userid = {Text:match('/locall@(.*):(.*)')}
+if tonumber(Userid[2]) == tonumber(data.sender_user_id_) then
+database:set(bot_id.."Matrix:Lock:tagservrbot"..Userid[1],true)   
+list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
+for i,lock in pairs(list) do 
+database:set(bot_id..'Matrix:'..lock..Userid[1],"del")    
+end
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('تم قفل الكل')..'&show_alert=true')
+end
+end
+
+if Text and Text:match('/addadmin@(.*):(.*)') then
+local Userid = {Text:match('/addadmin@(.*):(.*)')}
+if tonumber(Userid[2]) == tonumber(data.sender_user_id_) then
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = Userid[1]:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local num2 = 0
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].bot_info_ == false and data.members_[i].status_.ID == "ChatMemberStatusEditor" then
+database:sadd(bot_id.."Matrix:Mod:User"..Userid[1], admins[i].user_id_)
+num2 = num2 + 1
+tdcli_function ({ID = "GetUser",user_id_ = admins[i].user_id_},function(arg,b) 
+if b.username_ == true then
+end
+if b.first_name_ == false then
+database:srem(bot_id.."Matrix:Mod:User"..Userid[1], admins[i].user_id_)
+end
+end,nil)   
+else
+database:srem(bot_id.."Matrix:Mod:User"..Userid[1], admins[i].user_id_)
+end
+end
+end,nil)   
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = Userid[1]:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+end
+end
+tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
+if b.first_name_ == false then
+return false  
+end
+local UserName = (b.username_ or "Matrix_Source")
+database:sadd(bot_id.."Matrix:Basic:Constructor"..Userid[1],b.id_)
+end,nil)   
+end,nil)   
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('تم رفع الادمنيه والمالك')..'&show_alert=true')
+end
+end
+if Text and Text:match('/leftbot@(.*)') then
+local Userid = Text:match('/leftbot@(.*)')
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=Userid,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('تم مغادرة البوت')..'&show_alert=true')
+end
 if Text and Text:match('(.*)/unktm(.*)') then
 local Userid = {Text:match('(.*)/unktm(.*)')}
 if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
