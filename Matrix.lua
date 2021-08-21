@@ -12326,6 +12326,9 @@ keyboard.inline_keyboard = {
 {
 {text = '𝗺𝗮𝘁𝗿𝗶𝘅 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
 },
+{
+{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -12342,6 +12345,9 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {
 {text = '- 𝗛𝗮!𝗦𝘀𝗢 . ',url="https://t.me/IZlZ7I"},
+},
+{
+{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -17016,7 +17022,7 @@ end
 if Text == '/change-names' then
 local Teext =[[*
 ⌔┆انت الان في قائمة تنبيه الاسماء
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??
 ⌔┆الاوامر الخاصة فـي تنبيه الاسماء 
 ⌔┆تفعيل تنبيه الاسماء
 ⌔┆تعطيل تنبيه الاسماء
