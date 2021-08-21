@@ -12437,6 +12437,38 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+if text == 'اوامر الرتب' then  
+local Text =[[*
+⌔┆اهلا بك في قائمة اوامر الرتب
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+⌔┆يمكنك مسح رتب المجموعة من خلال الازرار في الاسفل
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+⌔┆قناة البوت ←* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'مسح المميزين', callback_data=msg.sender_user_id_.."/delvips"},{text = 'مسح الادمنية', callback_data=msg.sender_user_id_.."/deladmin"},
+},
+{
+{text = 'مسح المدراء', callback_data=msg.sender_user_id_.."/delmoder"},{text = 'مسح المنشئين', callback_data=msg.sender_user_id_.."/delmnsh"},
+},
+{
+{text = 'مسح المنشئين الاساسيين', callback_data=msg.sender_user_id_.."/delassaseen"},{text = 'مسح المالكين', callback_data=msg.sender_user_id_.."/deldelcreatorr"},
+},
+{
+{text = 'مسح المكتومين', callback_data=msg.sender_user_id_.."/delktm"},{text = 'مسح المحظورين', callback_data=msg.sender_user_id_.."/delban"},
+},
+{
+{text = 'مسح الاوامر المضافه', callback_data=msg.sender_user_id_.."/delCmdd"},{text = 'مسح المنظفين', callback_data=msg.sender_user_id_.."/delcleanerr"},
+},
+{
+{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 if text == 'التسليه' and Addictive(msg) then  
 if not Addictive(msg) then
 send(msg.chat_id_,msg.id_,' هذا الامر خاص للادمنية فقط')
@@ -13717,7 +13749,7 @@ return false
 end
 if text == ("المطورين ⌔") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:Sudo:User")
-t = "\n⌔┆قائمة مطورين البوت \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n⌔┆قائمة مطورين البوت \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -13868,7 +13900,7 @@ if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
 print('&&&&&*')
-local Tuuuuext ='حسوني يوجعك '
+local Tuuuuext ='@Matrix_Source'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -14504,7 +14536,7 @@ end
 if Text and Text:match('(.*)/deldelcreatorr') and DevBot(data) then
 if tonumber(Text:match('(.*)/delcreatorr')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."creator"..msg.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنشئين الاساسيين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المالكين في المجموعة")
 end
 end
 if Text and Text:match('(.*)/delassaseen') and DevBot(data) then
