@@ -398,19 +398,19 @@ end
 
 function SendMsg_Msgeeslist(status,chat_id,user_id,msg_id,text)
 local msg_idd = msg_id/2097152/0.5
-local listsudo = database:smembers(bot_id.."Matrix:Sudo:User")
+local listsudo = database:smembers(bot_id.."Matrix:Sudo:User"..chat_id)
 local listasa = database:smembers(bot_id.."Matrix:Basic:Constructor"..chat_id)
 local listmnsh = database:smembers(bot_id.."Matrix:Constructor"..chat_id)
 local listmder = database:smembers(bot_id.."Matrix:Manager"..chat_id)
 local listadmin = database:smembers(bot_id.."Matrix:Mod:User"..chat_id)
 local listvip = database:smembers(bot_id.."Matrix:Special:User"..chat_id)
-local listbans = database:smembers(bot_id.."Matrix:GBan:User")
+local listbans = database:smembers(bot_id.."Matrix:GBan:User"..chat_id)
 local listban = database:smembers(bot_id.."Matrix:Ban:User"..chat_id)
 local listktm = database:smembers(bot_id.."Matrix:Muted:User"..chat_id)
 local listcleanerr = database:smembers(bot_id.."Matrix:MN:TF"..chat_id)
-local listCmdd = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..chat_id.."")
+local listCmdd = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..chat_id)
 local listcreatorr = database:smembers(bot_id.."creator"..chat_id)
-local listDevvrr = database:smembers(bot_id.."TSudo:User")
+local listDevvrr = database:smembers(bot_id.."TSudo:User"..chat_id)
 if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -3113,7 +3113,7 @@ return SendMsg_Msgeeslist("listDevvrr",msg.chat_id_,msg.sender_user_id_,msg.id_,
 end
 if text == ("مسح الثانويين") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
-send(msg.chat_id_, msg.id_, "\n⌔┆تم مسح قائمة المطورين الثانويين  ")
+send(msg.chat_id_, msg.id_, "\n*⌔┆تم مسح قائمة المطورين الثانويين  *")
 end
 if text == ("مسح قائمه العام") and DevMatrix(msg) then
 database:del(bot_id.."Matrix:GBan:User")
@@ -3512,7 +3512,7 @@ return SendMsg_Msgeeslist("listbans",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == ("المطورين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:Sudo:User")
-t = "\n⌔┆قائمة مطورين البوت \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n*⌔┆قائمة مطورين البوت \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3522,13 +3522,14 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-send(msg.chat_id_, msg.id_,"⌔┆لا يوجد مطورين")
+t = "*⌔┆لا يوجد مطورين*"
+return send(msg.chat_id_, msg.id_, t)
 end
 return SendMsg_Msgeeslist("listsudo",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == "المنشئين الاساسين" and DevBot(msg) then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "\n⌔┆قائمة المنشئين الاساسين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n*⌔┆قائمة المنشئين الاساسين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3538,7 +3539,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⌔┆لا يوجد منشئين اساسيين"
+t = "*⌔┆لا يوجد منشئين اساسيين*"
 return send(msg.chat_id_, msg.id_, t)
 end
 return SendMsg_Msgeeslist("listasa",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
@@ -3560,7 +3561,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Constructor"..msg.chat_id_)
-t = "\n⌔┆قائمة المنشئين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n*⌔┆قائمة المنشئين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3592,7 +3593,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Manager"..msg.chat_id_)
-t = "\n⌔┆قائمة المدراء \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n*⌔┆قائمة المدراء \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3624,7 +3625,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Mod:User"..msg.chat_id_)
-t = "\n⌔┆قائمة الادمنيه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n*⌔┆قائمة الادمنيه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3673,7 +3674,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Muted:User"..msg.chat_id_)
-t = "\n⌔┆قائمة المكتومين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n*⌔┆قائمة المكتومين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3706,7 +3707,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Ban:User"..msg.chat_id_)
-t = "\n⌔┆قائمة محظورين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n*⌔┆قائمة محظورين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3725,7 +3726,7 @@ end
 if text == ("اضف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."Matrix:Sudo:User", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⌔┆تم ترقيته مطور في البوت")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔┆تم ترقيته مطور في البوت*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false 
@@ -10489,7 +10490,7 @@ end
 end
 
 
-if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text == 'كشف' or text == 'ايدي'and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -14524,79 +14525,79 @@ end
 if Text and Text:match('(.*)/delDevv') and VIP_DeV(data) then
 if tonumber(Text:match('(.*)/delDevv')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:TSudo:User")
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح قائمة C من البوت  ")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح قائمة الثانويين*")
 end
 end
 if Text and Text:match('(.*)/delsudos') and VIP_DeV(data) then
 if tonumber(Text:match('(.*)/delsudos')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Sudo:User")
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح قائمة C من البوت  ")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح قائمة المطورين*")
 end
 end
 if Text and Text:match('(.*)/deldelcreatorr') and DevBot(data) then
 if tonumber(Text:match('(.*)/delcreatorr')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."creator"..msg.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المالكين في المجموعة")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المالكين في المجموعة*")
 end
 end
 if Text and Text:match('(.*)/delassaseen') and DevBot(data) then
 if tonumber(Text:match('(.*)/delassaseen')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Basic:Constructor"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنشئين الاساسيين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المنشئين الاساسيين في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delmnsh') and BasicConstructor(data) then
 if tonumber(Text:match('(.*)/delmnsh')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Constructor"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنشئين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المنشئين في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delmoder') and Constructor(data) then
 if tonumber(Text:match('(.*)/delmoder')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Manager"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المدراء في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المدراء في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/deladmin') and Owner(data) then
 if tonumber(Text:match('(.*)/deladmin')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Mod:User"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح الادمنيه في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح الادمنيه في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delvips') and Addictive(data) then
 if tonumber(Text:match('(.*)/delvips')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Special:User"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المميزين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المميزين في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
 if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح الاوامر المضافه في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح الاوامر المضافه في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
 if tonumber(Text:match('(.*)/delcleanerr')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:MN:TF"..msg.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنظفين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المنظفين في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delbanall') and DevBot(data) then
 if tonumber(Text:match('(.*)/delbanall')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:GBan:User")
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المحظورين عام من البوت")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المحظورين عام من البوت*")
 end
 end
 if Text and Text:match('(.*)/delban') and Addictive(data) then
 if tonumber(Text:match('(.*)/delban')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Ban:User"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المحظورين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المحظورين في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delktm') and Addictive(data) then
 if tonumber(Text:match('(.*)/delktm')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."Matrix:Muted:User"..data.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المكتومين في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*⌔┆تم مسح المكتومين في المجموعه*")
 end
 end
 
@@ -16822,7 +16823,7 @@ local Teext =[[*
 ⌔┆المنشئين ، مسح المنشئين
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆اوامر المنشئ المجموعه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⌔┆رفع ، تنزيل ← { مدير }
 ⌔┆المدراء ، مسح المدراء
 ⌔┆اضف رسائل ← { بالرد او الايدي }
@@ -17388,7 +17389,7 @@ if msg.content_.ID == "MessageChatAddMembers" then
 if msg.content_.members_[0].id_ == tonumber(bot_id) then 
 print("it is Bot")
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
+local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
@@ -18273,7 +18274,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹?? 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
 sendzff = numj[math.random(#numj)]
 local Text = '⌔┆اليك النتائج الخـاصة :\n\n⌔┆نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
