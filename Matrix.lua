@@ -7834,7 +7834,7 @@ ComdNew = text:match("^اضف صلاحيه (.*)$")
 database:set(bot_id.."Matrix:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_,ComdNew)  
 database:sadd(bot_id.."Matrix:Coomds"..msg.chat_id_,ComdNew)  
 database:setex(bot_id.."Matrix:Comd:New"..msg.chat_id_..""..msg.sender_user_id_,200,true)  
-send(msg.chat_id_, msg.id_, "⌔┆ارسل نوع الصلاحيه ⌔┆\n⌔┆(عضو ~ مميز  ~ ادمن  ~ مدير )") 
+send(msg.chat_id_, msg.id_, "⌔┆ارسل نوع الصلاحيه \n⌔┆(عضو ~ مميز  ~ ادمن  ~ مدير )") 
 end
 if text and text:match("^مسح صلاحيه (.*)$") and Addictive(msg) or text and text:match("^حذف صلاحيه (.*)$") and Addictive(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
@@ -11798,7 +11798,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text == 'تفعيل التاك' and creatorA(msg) then   
+if text == 'تفعيل التاك' or text == 'تفعيل @all' and creatorA(msg) then   
 if database:get(bot_id..'Cick:all'..msg.chat_id_) then
 Text = '*⌔┆تم تفعيل امر @all*'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
@@ -11807,7 +11807,7 @@ Text = '* ⌔┆بالتاكيد تم تفعيل امر @all*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التاك' and creatorA(msg) then  
+if text == 'تعطيل التاك' or text == 'تعطيل @all' and creatorA(msg) then  
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
 Text = '\n*⌔┆تم تعطيل امر @all*'
@@ -12028,7 +12028,7 @@ br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_, br.ok.hso)
 end
 if text == "راسلني" or text =="خاص" or text =="خا"or text =="خ" or text =="خاصك" then
-rpl = {"نعم ﺣحب 💓"," ﮪݪـﯛ عمري تفضل💕","ها حبب كول؟ ","زحفتلك كول شتريد 😂🙂","هها موكلت 💓🥺","راسلتك 👋🏼😂"};
+rpl = {"نعم ﺣحب 💓"," ﮪݪـﯛ عمري تفضل💕","ها حبب كول؟ ","زحفتلك كول شتريد 😂🙂","هها موكلت ??🥺","راسلتك 👋🏼😂"};
 sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
