@@ -12449,7 +12449,6 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-
 if text == "الساعه" then
 local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
 send(msg.chat_id_, msg.id_,yytesj20)
@@ -13326,7 +13325,7 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ܁༯'},
 {'تحديث السورس ܁༯','تحديث ܁༯'},
 {'لاصدار ܁༯','معلومات السيرفر ܁༯'},
-{'انسخه احتياطيه ܁༯},
+{'نسخه احتياطيه ܁༯','رفع نسخه احتياطيه ܁༯'},
 {'اعادة التشغيل ܁༯'},
 {'الغاء ܁༯'}
 }
@@ -13969,6 +13968,16 @@ send(msg.chat_id_, msg.id_, "*܁༯┆ تم مسح قائمة المطورين �
 end
 if text == ("مسح الثانويين ܁༯") and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'*܁༯┆عذا الامر للمطور الاساسي فقط .*')
+end
+if text == 'رفع نسخه احتياطيه ܁༯' then
+database:set(bot_id..'docu:Bots',true) 
+send(msg.chat_id_, msg.id_, "*܁༯┆ قم الان بارسال ملف النسخه الاحتياطيه*")
+end
+if msg.content_.ID == "MessageDocument" and database:get(bot_id..'docu:Bots') then    
+local ID_FILE = msg.content_.document_.document_.persistent_id_ 
+local File_Name = msg.content_.document_.file_name_
+add_file(msg,msg.chat_id_,ID_FILE,File_Name)
+database:del(bot_id..'docu:Bots') 
 end
 if text == 'نسخه احتياطيه ܁༯' then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
@@ -17255,7 +17264,7 @@ end
 if Text == '/change-id' then
 local Teext =[[*
 ܁༯┆انت الان في قائمة تنبيه المعرف
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الاوامر الخاصة فـي تنبيه المعرف
 ܁༯┆تفعيل تنبيه المعرف
 ܁༯┆تعطيل تنبيه المعرف
