@@ -878,8 +878,8 @@ function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
 local UserName = (data.username_ or "Matrix_Source")
-local NameUser = "\n*܁༯┆بواسطه -›* ["..data.first_name_.."](T.me/"..UserName..")"
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUser = "\n*܁༯┆بواسطه ↺* ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
 send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*܁༯┆بخاصيه ( اݪمــسسح )*\n")
 return false
@@ -5654,7 +5654,7 @@ database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5758,7 +5758,7 @@ database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, result.id_)
 Kick_Group(msg.chat_id_, result.id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5827,7 +5827,7 @@ database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, userid)
 Kick_Group(msg.chat_id_, userid)  
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5971,7 +5971,7 @@ end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -6023,7 +6023,7 @@ end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -6071,7 +6071,7 @@ end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -6233,7 +6233,7 @@ else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -6279,7 +6279,7 @@ end
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -6320,7 +6320,7 @@ else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*܁༯┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -13698,7 +13698,7 @@ if VIP_DeV(msg) then
 if text == "الاشتراك الاجباري ܁༯"  then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "܁༯┆تم تفعيل الاشتراك الاجباري \n܁༯┆على القناة -› ["..addchusername.."]")
+send(msg.chat_id_, msg.id_, "܁༯┆تم تفعيل الاشتراك الاجباري \n܁༯┆على القناة ↺ ["..addchusername.."]")
 else
 send(msg.chat_id_, msg.id_, "܁༯┆لا يوجد قناة في الاشتراك الاجباري ")
 end
@@ -13707,7 +13707,7 @@ end
 if text == "تفعيل الاشتراك الاجباري ܁༯"  then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"܁༯┆الاشتراك الاجباري مفعل \n܁༯┆على القناة -› ["..addchusername.."]")
+send(msg.chat_id_, msg.id_,"܁༯┆الاشتراك الاجباري مفعل \n܁༯┆على القناة ↺ ["..addchusername.."]")
 else
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_,"܁༯┆اهلا عزيزي المطور \n܁༯┆ارسل الان معرف قناتك")
@@ -17264,7 +17264,7 @@ end
 if Text == '/change-id' then
 local Teext =[[*
 ܁༯┆انت الان في قائمة تنبيه المعرف
-𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الاوامر الخاصة فـي تنبيه المعرف
 ܁༯┆تفعيل تنبيه المعرف
 ܁༯┆تعطيل تنبيه المعرف
@@ -17917,56 +17917,56 @@ return false
 end
 if text == "احرف" or text == "حروف" and not database:get(bot_id..'lock:hrof'..msg.chat_id_) then
 local texting = {
-"ماد بحرف -› ر  ", 
-" مدينة بحرف -› ع  ",
-" حيوان ونبات بحرف -› خ  ", 
-" اسم بحرف -› ح  ", 
-" اسم ونبات بحرف -› م  ", 
-" دولة عربية بحرف -› ق  ", 
-" جماد بحرف -› ي  ", 
-" نبات بحرف -› ج  ", 
-" اسم بنت بحرف -› ع  ", 
-" اسم ولد بحرف -› ع  ", 
-" اسم بنت وولد بحرف -› ث  ", 
-" جماد بحرف -› ج  ",
-" حيوان بحرف -› ص  ",
-" دولة بحرف -› س  ",
-" نبات بحرف -› ج  ",
-" مدينة بحرف -› ب  ",
-" نبات بحرف -› ر  ",
-" اسم بحرف -› ك  ",
-" حيوان بحرف -› ظ  ",
-" جماد بحرف -› ذ  ",
-" مدينة بحرف -› و  ",
-" اسم بحرف -› م  ",
-" اسم بنت بحرف -› خ  ",
-" اسم و نبات بحرف -› ر  ",
-" نبات بحرف -› و  ",
-" حيوان بحرف -› س  ",
-" مدينة بحرف -› ك  ",
-" اسم بنت بحرف -› ص  ",
-" اسم ولد بحرف -› ق  ",
-" نبات بحرف -› ز  ",
-"  جماد بحرف -› ز  ",
-"  مدينة بحرف -› ط  ",
-"  جماد بحرف -› ن  ",
-"  مدينة بحرف -› ف  ",
-"  حيوان بحرف -› ض  ",
-"  اسم بحرف -› ك  ",
-"  نبات و حيوان و مدينة بحرف -› س  ", 
-"  اسم بنت بحرف -› ج  ", 
-"  مدينة بحرف -› ت  ", 
-"  جماد بحرف -› ه  ", 
-"  اسم بنت بحرف -› ر  ", 
-" اسم ولد بحرف -› خ  ", 
-" جماد بحرف -› ع  ",
-" حيوان بحرف -› ح  ",
-" نبات بحرف -› ف  ",
-" اسم بنت بحرف -› غ  ",
-" اسم ولد بحرف -› و  ",
-" نبات بحرف -› ل  ",
-"مدينة بحرف -› ع  ",
-"دولة واسم بحرف -› ب  ",
+"ماد بحرف ↺ ر  ", 
+" مدينة بحرف ↺ ع  ",
+" حيوان ونبات بحرف ↺ خ  ", 
+" اسم بحرف ↺ ح  ", 
+" اسم ونبات بحرف ↺ م  ", 
+" دولة عربية بحرف ↺ ق  ", 
+" جماد بحرف ↺ ي  ", 
+" نبات بحرف ↺ ج  ", 
+" اسم بنت بحرف ↺ ع  ", 
+" اسم ولد بحرف ↺ ع  ", 
+" اسم بنت وولد بحرف ↺ ث  ", 
+" جماد بحرف ↺ ج  ",
+" حيوان بحرف ↺ ص  ",
+" دولة بحرف ↺ س  ",
+" نبات بحرف ↺ ج  ",
+" مدينة بحرف ↺ ب  ",
+" نبات بحرف ↺ ر  ",
+" اسم بحرف ↺ ك  ",
+" حيوان بحرف ↺ ظ  ",
+" جماد بحرف ↺ ذ  ",
+" مدينة بحرف ↺ و  ",
+" اسم بحرف ↺ م  ",
+" اسم بنت بحرف ↺ خ  ",
+" اسم و نبات بحرف ↺ ر  ",
+" نبات بحرف ↺ و  ",
+" حيوان بحرف ↺ س  ",
+" مدينة بحرف ↺ ك  ",
+" اسم بنت بحرف ↺ ص  ",
+" اسم ولد بحرف ↺ ق  ",
+" نبات بحرف ↺ ز  ",
+"  جماد بحرف ↺ ز  ",
+"  مدينة بحرف ↺ ط  ",
+"  جماد بحرف ↺ ن  ",
+"  مدينة بحرف ↺ ف  ",
+"  حيوان بحرف ↺ ض  ",
+"  اسم بحرف ↺ ك  ",
+"  نبات و حيوان و مدينة بحرف ↺ س  ", 
+"  اسم بنت بحرف ↺ ج  ", 
+"  مدينة بحرف ↺ ت  ", 
+"  جماد بحرف ↺ ه  ", 
+"  اسم بنت بحرف ↺ ر  ", 
+" اسم ولد بحرف ↺ خ  ", 
+" جماد بحرف ↺ ع  ",
+" حيوان بحرف ↺ ح  ",
+" نبات بحرف ↺ ف  ",
+" اسم بنت بحرف ↺ غ  ",
+" اسم ولد بحرف ↺ و  ",
+" نبات بحرف ↺ ل  ",
+"مدينة بحرف ↺ ع  ",
+"دولة واسم بحرف ↺ ب  ",
 } 
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
