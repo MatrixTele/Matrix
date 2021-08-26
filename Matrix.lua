@@ -11343,7 +11343,7 @@ local Text = '܁༯┆عدد التعديلات هنا *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
-database:del(bot_id..'Matrix:message_edit'..msg.chat_id_..':'..msg.sender_user_id_)
+database:del(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_)
 local Text = '܁༯┆تم مسح جميع تعديلاتك '
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -13325,7 +13325,7 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ܁༯'},
 {'تحديث السورس ܁༯','تحديث ܁༯'},
 {'لاصدار ܁༯','معلومات السيرفر ܁༯'},
-{'نسخه احتياطيه ܁༯','رفع نسخه احتياطيه ܁༯'},
+{'انسخه احتياطيه ܁༯},
 {'اعادة التشغيل ܁༯'},
 {'الغاء ܁༯'}
 }
@@ -13968,16 +13968,6 @@ send(msg.chat_id_, msg.id_, "*܁༯┆ تم مسح قائمة المطورين �
 end
 if text == ("مسح الثانويين ܁༯") and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'*܁༯┆عذا الامر للمطور الاساسي فقط .*')
-end
-if text == 'رفع نسخه احتياطيه ܁༯' then
-database:set(bot_id..'docu:Bots',true) 
-send(msg.chat_id_, msg.id_, "*܁༯┆ قم الان بارسال ملف النسخه الاحتياطيه*")
-end
-if msg.content_.ID == "MessageDocument" and database:get(bot_id..'docu:Bots') then    
-local ID_FILE = msg.content_.document_.document_.persistent_id_ 
-local File_Name = msg.content_.document_.file_name_
-add_file(msg,msg.chat_id_,ID_FILE,File_Name)
-database:del(bot_id..'docu:Bots') 
 end
 if text == 'نسخه احتياطيه ܁༯' then
 local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
@@ -14778,7 +14768,7 @@ end
 end
 if Text and Text:match('(.*)/delktm') and Addictive(data) then
 if tonumber(Text:match('(.*)/delktm')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:Muted:User"..data.chat_id_)
+database:del(bot_id..'Matrix:Muted:User'..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*܁༯┆تم مسح المكتومين في المجموعه*")
 end
 end
@@ -17000,7 +16990,7 @@ elseif Text and Text:match('(.*)/help4') then
 if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ܁༯┆اوامر المنشئ الاساسي
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆رفع ، تنزيل ↺{ منشئ }
 ܁༯┆المنشئين ، مسح المنشئين
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
