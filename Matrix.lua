@@ -3740,7 +3740,7 @@ send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا
 return false 
 end      
 database:sadd(bot_id.."Matrix:Sudo:User", result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم ترقيته مطور في البوت")  
+Reply_Status(msg,result.id_,"reply","*܁༯┆تم ترقيته مطور في البوت*")  
 else
 send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
 end
@@ -3751,13 +3751,13 @@ end
 if text and text:match("^اضف مطور (%d+)$") and DevMatrix(msg) then
 local userid = text:match("^اضف مطور (%d+)$")
 database:sadd(bot_id.."Matrix:Sudo:User", userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته مطور في البوت")  
+Reply_Status(msg,userid,"reply","*܁༯┆تم ترقيته مطور في البوت*")  
 return false 
 end
 if text == ("حذف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then
 function Function_Matrix(extra, result, success)
 database:srem(bot_id.."Matrix:Sudo:User", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تنزيله من المطورين")  
+Reply_Status(msg,result.sender_user_id_,"reply","*܁༯┆تم تنزيله من المطورين*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false 
@@ -3767,7 +3767,7 @@ local username = text:match("^حذف مطور @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Matrix:Sudo:User", result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تنزيله من المطورين")  
+Reply_Status(msg,result.id_,"reply","*܁༯┆تم تنزيله من المطورين*")  
 else
 send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
 end
@@ -3778,7 +3778,7 @@ end
 if text and text:match("^حذف مطور (%d+)$") and DevMatrix(msg) then
 local userid = text:match("^حذف مطور (%d+)$")
 database:srem(bot_id.."Matrix:Sudo:User", userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المطورين")  
+Reply_Status(msg,userid,"reply","*܁༯┆تم تنزيله من المطورين*")  
 return false 
 end
 
@@ -13110,9 +13110,9 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Matrix:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'܁༯┆المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'*܁༯┆المجموعه معطله سابقا *')
 else
-Reply_Status(msg,result.id_,'reply_Add','܁༯┆تم تعطيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','*܁༯┆تم تعطيل المجموعه ~* '..chat.title_..'')
 database:srem(bot_id..'Matrix:Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
