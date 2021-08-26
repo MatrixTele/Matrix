@@ -12449,6 +12449,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
+
 if text == "الساعه" then
 local yytesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
 send(msg.chat_id_, msg.id_,yytesj20)
