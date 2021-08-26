@@ -5086,9 +5086,9 @@ t = "\n ܁༯┆قائمه حاتات الكروب \n𓐄𓐄𓐄𓐄𓐄𓐄�
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الحاته [@"..username.."]\n"
+t = t..""..k.."↺ الحاته [@"..username.."]\n"
 else
-t = t..""..k.."» الحاته `"..v.."`\n"
+t = t..""..k.."↺ الحاته `"..v.."`\n"
 end
 end
 if #list == 0 then
@@ -5114,7 +5114,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Ownere:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DEVBESSO')..')'
+usertext = '\n ܁༯┆العضــو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'DEVBESSO')..')'
 local  statuss  = '\n ܁༯┆تم رفع العضــو الحاته في الكروب \n ܁༯┆تعال يحاته ممكن نتعرف'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5136,7 +5136,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Ownere:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضــو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n ܁༯┆تم تنزيل العضــو الحاته من الكروب\n ܁༯┆مشيي مو خوش حاتهه'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5155,9 +5155,9 @@ t = "\n ܁༯┆قائمه حات الكروب \nٴ𓐄𓐄𓐄𓐄𓐄𓐄𓐄�
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الحات [@"..username.."]\n"
+t = t..""..k.."↺ الحات [@"..username.."]\n"
 else
-t = t..""..k.."» الحات `"..v.."`\n"
+t = t..""..k.."↺ الحات `"..v.."`\n"
 end
 end
 if #list == 0 then
@@ -5183,7 +5183,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Ownerde:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DEVBESSO')..')'
+usertext = '\n ܁༯┆العضــو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'DEVBESSO')..')'
 local  statuss  = '\n ܁༯┆تم رفع العضــو الحات في الكروب \n ܁༯┆تعال حبي الحات نطيني بوسه'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5205,7 +5205,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Ownerde:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضــو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n ܁༯┆تم تنزيل العضــو الحات من الكروب\n ܁༯┆مشيي مو خوش حات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5273,9 +5273,9 @@ t = "\n ܁༯┆قائمة القروده الكروب \n𓐄𓐄𓐄𓐄𓐄�
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» القرد [@"..username.."]\n"
+t = t..""..k.."↺ القرد [@"..username.."]\n"
 else
-t = t..""..k.."» القرد `"..v.."`\n"
+t = t..""..k.."↺ القرد `"..v.."`\n"
 end
 end
 if #list == 0 then
@@ -5301,7 +5301,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n ܁༯┆تم رفع قرد في الكروب\n ܁༯┆تعال حبي استلم موزه'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5323,7 +5323,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n ܁༯┆تم تنزيل قرد من الكروب\n ܁༯┆رجع موزه حبي'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5342,9 +5342,9 @@ t = "\n ܁༯┆قائمة الحصونه الكروب \n𓐄𓐄𓐄𓐄𓐄�
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الحصان [@"..username.."]\n"
+t = t..""..k.."↺ الحصان [@"..username.."]\n"
 else
-t = t..""..k.."» الحصان `"..v.."`\n"
+t = t..""..k.."↺ الحصان `"..v.."`\n"
 end
 end
 if #list == 0 then
@@ -5370,7 +5370,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Hors:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n ܁༯┆تم رفع حصان في الكروب\n ܁༯┆تعال حبي احطلك سرج وركبك فرني فره حلوه'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5392,7 +5392,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Hors:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n ܁༯┆تم تنزيل حصان من الكروب\n ܁༯┆رجع السرج حبي'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5411,9 +5411,9 @@ t = "\n ܁༯┆قائمة البقرات الكروب \n𓐄𓐄𓐄𓐄𓐄�
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» البقره [@"..username.."]\n"
+t = t..""..k.."↺ البقره [@"..username.."]\n"
 else
-t = t..""..k.."» البقره "..v.."\n"
+t = t..""..k.."↺ البقره "..v.."\n"
 end
 end
 if #list == 0 then
@@ -5439,7 +5439,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Bakra:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n ܁༯┆تم رفع بقره في الكروب\n ܁༯┆ها يالهايشه تع احلبك'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5461,7 +5461,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Bakra:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n ܁༯┆تم تنزيل بقره من الكروب\n ܁༯┆تعال هاك حليب مالتك'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5480,9 +5480,9 @@ t = "\n ܁༯┆قائمة الطليان الكروب \n𓐄𓐄𓐄𓐄𓐄�
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الطلي[@"..username.."]\n"
+t = t..""..k.."↺ الطلي[@"..username.."]\n"
 else
-t = t..""..k.."» الطلي "..v.."\n"
+t = t..""..k.."↺ الطلي "..v.."\n"
 end
 end
 if #list == 0 then
@@ -5508,7 +5508,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Tele:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n ܁༯┆تم رفع الطلي في الكروب\n ܁༯┆طلع برا ابو البعرور الوصخ'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5530,7 +5530,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Tele:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n ܁༯┆تم تنزيل الطلي من الكروب\n ܁༯┆هاك اخذ بعرور'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -5549,9 +5549,9 @@ t = "\n ܁༯┆قائمة الجريذيه الكروب \n𓐄𓐄𓐄𓐄𓐄�
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الجريذي [@"..username.."]\n"
+t = t..""..k.."↺ الجريذي [@"..username.."]\n"
 else
-t = t..""..k.."» الجريذي "..v.."\n"
+t = t..""..k.."↺ الجريذي "..v.."\n"
 end
 end
 if #list == 0 then
@@ -5577,7 +5577,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 local  statuss  = '\n ܁༯┆تم رفع جريذي في الكروب\n ܁༯┆خايس ريحتك موتتنه روح سبح يع'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
@@ -5599,7 +5599,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
+usertext = '\n ܁༯┆العضو ↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..')'
 status  = '\n ܁༯┆تم تنزيل جريذي من الكروب\n ܁༯┆هاك ليفه اسبح'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -6170,7 +6170,7 @@ for i,lock in pairs(list) do
 database:set(bot_id..lock..msg.chat_id_,'del')    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,' ✸∫ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'fandam0')..') \n ✸∫ تـم قفـل التفليش ')  
+send(msg.chat_id_, msg.id_,' ✸∫ بواسطه ↺ ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'fandam0')..') \n ✸∫ تـم قفـل التفليش ')  
 end,nil)   
 end
 if text == 'فتح التفليش' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
@@ -6180,7 +6180,7 @@ for i,lock in pairs(list) do
 database:del(bot_id..lock..msg.chat_id_)    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,' ✸∫ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'fandam0')..') \n ✸∫ تـم فـتح التفليش ')  
+send(msg.chat_id_, msg.id_,' ✸∫ بواسطه ↺ ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'fandam0')..') \n ✸∫ تـم فـتح التفليش ')  
 end,nil)   
 end
 if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
@@ -9466,7 +9466,7 @@ local Added_Me = database:get(bot_id.."Who:Added:Me"..msg.chat_id_..':'..msg.sen
 if Added_Me then 
 tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = '܁༯┆الشخص الذي قام باضافتك هو » '..Name
+Text = '܁༯┆الشخص الذي قام باضافتك هو ↺ '..Name
 sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
 end,nil)
 else
@@ -10429,16 +10429,16 @@ database:setex(bot_id.."Matrix:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_
 local Text= [[
 ܁༯┆ارسل الان النص
 ܁༯┆يمكنك اضافه :
-܁༯┆`#username` » اسم المستخدم
-܁༯┆`#msgs` » عدد الرسائل
-܁༯┆`#photos` » عدد الصور
-܁༯┆`#id` » ايدي المستخدم
-܁༯┆`#auto` » نسبة التفاعل
-܁༯┆`#stast` » رتبة المستخدم 
-܁༯┆`#edit` » عدد السحكات
-܁༯┆`#game` » عدد المجوهرات
-܁༯┆`#AddMem` » عدد الجهات
-܁༯┆`#Description` » تعليق الصوره
+܁༯┆`#username` ↺ اسم المستخدم
+܁༯┆`#msgs` ↺ عدد الرسائل
+܁༯┆`#photos` ↺ عدد الصور
+܁༯┆`#id` ↺ ايدي المستخدم
+܁༯┆`#auto` ↺ نسبة التفاعل
+܁༯┆`#stast` ↺ رتبة المستخدم 
+܁༯┆`#edit` ↺ عدد السحكات
+܁༯┆`#game` ↺ عدد المجوهرات
+܁༯┆`#AddMem` ↺ عدد الجهات
+܁༯┆`#Description` ↺ تعليق الصوره
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
@@ -13587,13 +13587,13 @@ memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '܁༯┆⊱ { نظام التشغيل } ⊰܁༯┆\n*»» '"$linux_version"'*' 
-echo '*------------------------------\n*܁༯┆⊱ { الذاكره العشوائيه } ⊰܁༯┆\n*»» '"$memUsedPrc"'*'
-echo '*------------------------------\n*܁༯┆⊱ { وحـده الـتـخـزيـن } ⊰܁༯┆\n*»» '"$HardDisk"'*'
-echo '*------------------------------\n*܁༯┆⊱ { الـمــعــالــج } ⊰܁༯┆\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*------------------------------\n*܁༯┆⊱ { موقـع الـسـيـرفـر } ⊰܁༯┆\n*»» '`curl http://th3boss.com/ip/location`'*'
-echo '*------------------------------\n*܁༯┆⊱ { الــدخــول } ⊰܁༯┆\n*»» '`whoami`'*'
-echo '*------------------------------\n*܁༯┆⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰܁༯┆\n*»» '"$uptime"'*'
+echo '܁༯┆⊱ { نظام التشغيل } ⊰܁༯┆\n*↺ '"$linux_version"'*' 
+echo '*------------------------------\n*܁༯┆⊱ { الذاكره العشوائيه } ⊰܁༯┆\n*↺ '"$memUsedPrc"'*'
+echo '*------------------------------\n*܁༯┆⊱ { وحـده الـتـخـزيـن } ⊰܁༯┆\n*↺ '"$HardDisk"'*'
+echo '*------------------------------\n*܁༯┆⊱ { الـمــعــالــج } ⊰܁༯┆\n*↺ '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*------------------------------\n*܁༯┆⊱ { موقـع الـسـيـرفـر } ⊰܁༯┆\n*↺ '`curl http://th3boss.com/ip/location`'*'
+echo '*------------------------------\n*܁༯┆⊱ { الــدخــول } ⊰܁༯┆\n*↺ '`whoami`'*'
+echo '*------------------------------\n*܁༯┆⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰܁༯┆\n*↺ '"$uptime"'*'
 ]]):read('*all')
 send(msg.chat_id_, msg.id_,ioserver)
 return false
@@ -13619,9 +13619,9 @@ for i = 1, #pv do
 tdcli_function({ID='GetChat',chat_id_ = pv[i]},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = pv[i], action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,data) 
 if data.ID and data.ID == "Ok"  then
-print('\27[30;33m»» THE USER IS SAVE ME ↓\n»» '..pv[i]..'\n\27[1;37m')
+print('\27[30;33m↺ THE USER IS SAVE ME ↓\n↺ '..pv[i]..'\n\27[1;37m')
 else
-print('\27[30;31m»» THE USER IS BLOCK ME ↓\n»» '..pv[i]..'\n\27[1;37m')
+print('\27[30;31m↺ THE USER IS BLOCK ME ↓\n↺ '..pv[i]..'\n\27[1;37m')
 database:srem(bot_id..'Matrix:UsersBot',pv[i])  
 sendok = sendok + 1
 end
@@ -13646,19 +13646,19 @@ for i = 1, #group do
 tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
-print('\27[30;34m»» THE BOT IS NOT ADMIN ↓\n»» '..group[i]..'\n\27[1;37m')
+print('\27[30;34m↺ THE BOT IS NOT ADMIN ↓\n↺ '..group[i]..'\n\27[1;37m')
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;35m»» THE BOT IS LEFT GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
+print('\27[30;35m↺ THE BOT IS LEFT GROUP ↓\n↺ '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;36m»» THE BOT IS KICKED GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
+print('\27[30;36m↺ THE BOT IS KICKED GROUP ↓\n↺ '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
 database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
@@ -17264,7 +17264,7 @@ end
 if Text == '/change-id' then
 local Teext =[[*
 ܁༯┆انت الان في قائمة تنبيه المعرف
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الاوامر الخاصة فـي تنبيه المعرف
 ܁༯┆تفعيل تنبيه المعرف
 ܁༯┆تعطيل تنبيه المعرف
