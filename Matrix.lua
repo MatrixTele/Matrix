@@ -9341,51 +9341,21 @@ send(msg.chat_id_, msg.id_, Matrixteam)
 end,nil)
 end,nil)
 end 
-if text == "اطردني" or text == "طردني" then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
+if text == 'اطردني' or text == 'طردني' then   
 if not database:get(bot_id.."Matrix:Kick:Me"..msg.chat_id_) then
 if Rank_Checking(msg.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا استطيع طرد ( "..Get_Rank(msg.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, '\n *܁༯┆عذرا لا استطيع طرد ( '..Get_Rank(msg.sender_user_id_,msg.chat_id_)..' )*')
 return false
 end
-tdcli_function({ID="ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=msg.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
-if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
-return false  
-end
-if (data and data.code_ and data.code_ == 3) then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
-return false  
-end
-if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
-send(msg.chat_id_, msg.id_,"܁༯┆عذرا لا استطيع طرد ادمنية المجموعه") 
-return false  
-end
-if data and data.ID and data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"܁༯┆تم طردك من المجموعه ") 
-tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
+_key = {
+{{text="تأكيد الامر",callback_data="OkKikedMe"..msg.sender_user_id_},{text="الغاء الامر",callback_data="noKikedMe"..msg.sender_user_id_}},
+}
+send_inlin_key(msg.chat_id_," *܁༯┆قم بتأكيد العمليه الان*",_key,msg.id_)
 return false
-end
-end,nil)   
 else
-send(msg.chat_id_, msg.id_,"܁༯┆امر اطردني تم تعطيله من قبل المدراء ") 
+send(msg.chat_id_, msg.id_,' *܁༯┆تم تعطيل امر اطردني*') 
 end
 end
-
 if text == "تفعيل اطردني" and Owner(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -17017,7 +16987,7 @@ local Teext =[[*
 ܁༯┆المنشئين ، مسح المنشئين
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆اوامر المنشئ المجموعه
-𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆رفع ، تنزيل ↺ { مدير }
 ܁༯┆المدراء ، مسح المدراء
 ܁༯┆اضف رسائل ↺ { بالرد او الايدي }
@@ -17187,6 +17157,52 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 end
 
+if DAata == 'OkKikedMe'..data.sender_user_id_ then  
+tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
+if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if (data and data.code_ and data.code_ == 3) then 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *܁༯┆البوت ليس ادمن يرجى ترقيتي !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *܁༯┆عذرا لا استطيع طرد ادمنية الكروب*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if data and data.ID and data.ID == 'Ok' then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *܁༯┆تم الطرد بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end,nil)   
+end
+if DAata == 'noKikedMe'..data.sender_user_id_ then  
+local Text ="*⌁ تم الغاء الطرد بنجاح .*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+
+end
+if data.ID == "UpdateNewMessage" then  -- new msg
+msg = data.message_
+text = msg.content_.text_
+--------
 if DAata and DAata:match("^animation(.*)$") and Addictive(data) then  
 idch = DAata:match("-100(%d+)")
 local idchci = "-100"..idch
@@ -18166,7 +18182,7 @@ end
 if text and text ~="نسبة الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
 num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnum = num[math.random(#num)]
-local Text = '⌯ اليك النتائج الخـاصة :\n\n⌯ نسبه الكرة : *'..text..'*'
+local Text = '⌁ اليك النتائج الخـاصة :\n\n⌁ نسبه الكرة : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
