@@ -3371,7 +3371,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3395,7 +3395,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3467,7 +3467,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3486,7 +3486,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3992,7 +3992,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4142,7 +4142,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4273,7 +4273,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4423,7 +4423,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4584,7 +4584,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -9013,7 +9013,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -10532,7 +10532,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -10698,7 +10698,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12596,7 +12596,7 @@ Text = "\n*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮?? .',url="t.me/Matrix_Source"},
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12631,7 +12631,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12741,7 +12741,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12772,7 +12772,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12826,7 +12826,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12883,7 +12883,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12932,7 +12932,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12959,6 +12959,21 @@ send(msg.chat_id_, msg.id_,Text)
 return false
 end
 if text == 'م5' and DevBot(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+return false
+end
 Text = [[*
 ܁༯┆اوامر المطور الاساسي  
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
@@ -13009,7 +13024,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13098,7 +13113,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13149,7 +13164,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13288,7 +13303,7 @@ send_inline_key(msg.chat_id_,Text,keyboard)
 return false
 end end
 if Chat_Type == 'UserBot' then
-if text == '/start' or text == 'رجوع 🔚' then  
+if text == '/start' or text == 'رجوع 🔚' or text == '/start ܁༯' then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -13299,7 +13314,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13307,6 +13322,7 @@ end
 if DevMatrix(msg) then
 local Text = '*܁༯┆اهلا بك عزيزي .*\n*܁༯┆في لوحه الاوامر ألخاصه بالمطور الاساسي .*'
 local keyboard = {
+{'/start ܁༯'},
 {'تغيير المطور الاساسي ܁༯','قناه تحديثات السورس ܁༯'},
 {'المطور ܁༯'},
 {'تغير اسم البوت ܁༯','الاحصائيات ܁༯'},
@@ -13354,7 +13370,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13392,7 +13408,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 ?? 𖥅 𖥃 ?? 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 ?? ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 ?? 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16866,7 +16882,7 @@ local Teext =[[*
 ܁༯┆الصوت
 ܁༯┆الجهات
 ܁༯┆الاشعارات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆قناة البوت ↺* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
 ]]
 keyboard = {} 
@@ -17001,7 +17017,7 @@ local Teext =[[*
 ܁༯┆المنشئين ، مسح المنشئين
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆اوامر المنشئ المجموعه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆رفع ، تنزيل ↺ { مدير }
 ܁༯┆المدراء ، مسح المدراء
 ܁༯┆اضف رسائل ↺ { بالرد او الايدي }
