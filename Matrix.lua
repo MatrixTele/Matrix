@@ -270,6 +270,15 @@ Var = false
 end
 return Var
 end
+function getbio(User)
+local var = "لايوجد"
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat?chat_id="..User)
+data = json:decode(url)
+if data.result.bio then
+var = data.result.bio
+end
+return var
+end
 function send(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
 tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil)
@@ -6936,6 +6945,9 @@ end
 send(msg.chat_id_, msg.id_,one_nu) 
 end,nil)
 end 
+if text == 'بايو' then   
+send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end 
 if text == 'ايديي' then   
 send(msg.chat_id_, msg.id_,'*܁༯┆ايديك >* '..msg.sender_user_id_)
 end
@@ -10387,18 +10399,19 @@ return false
 end
 database:setex(bot_id.."Matrix:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
-܁༯┆ارسل الان النص
-܁༯┆يمكنك اضافه :
-܁༯┆`#username` ↺ اسم المستخدم
-܁༯┆`#msgs` ↺ عدد الرسائل
-܁༯┆`#photos` ↺ عدد الصور
-܁༯┆`#id` ↺ ايدي المستخدم
-܁༯┆`#auto` ↺ نسبة التفاعل
-܁༯┆`#stast` ↺ رتبة المستخدم 
-܁༯┆`#edit` ↺ عدد السحكات
-܁༯┆`#game` ↺ عدد المجوهرات
-܁༯┆`#AddMem` ↺ عدد الجهات
-܁༯┆`#Description` ↺ تعليق الصوره
+⌁ ارسل الان النص
+⌁ يمكنك اضافه :
+⌁ #username ↺ اسم المستخدم
+⌁ #msgs ↺ عدد الرسائل
+⌁ #photos ↺ عدد الصور
+⌁ #id ↺ ايدي المستخدم
+⌁ #auto ↺ نسبة التفاعل
+⌁ #stast ↺ رتبة المستخدم 
+⌁ #edit ↺ عدد السحكات
+⌁ #game ↺ عدد المجوهرات
+⌁ #AddMem ↺ عدد الجهات
+⌁ #Description ↺ تعليق الصوره
+⌁ #bio ↺ البايو
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
@@ -10519,6 +10532,7 @@ else
 UserName_User = 'لا يوجد'
 end
 local Id = msg.sender_user_id_
+local getbioY = getbio(msg.sender_user_id_)
 local NumMsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
@@ -10543,6 +10557,7 @@ if Matrixteam.photos_[0] then
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
 local get_id = get_id:gsub('#id',Id) 
+local get_id  = get_id:gsub('#bio',getbioY) 
 local get_id = get_id:gsub('#username',UserName_User) 
 local get_id = get_id:gsub('#msgs',NumMsg) 
 local get_id = get_id:gsub('#edit',message_edit) 
@@ -10561,11 +10576,11 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '⌁ '..Description..'\n⌁ ايـــديك : '..Id..' .\n⌁ يــوزرك : '..UserName_User..' .\n⌁ مــوقعــك : '..Status_Gps..' .\n⌁ رســائــلك : '..NumMsg..' .\n⌁ تفــاعــلك : '..TotalMsg..' .\n⌁ الالعـــاب : '..Num_Games..' .'
+local texte = '⌁ '..Description..'\n⌁ ايـــديك : '..Id..' .\n⌁ يــوزرك : '..UserName_User..' .\n⌁ مــوقعــك : '..Status_Gps..' .\n⌁ رســائــلك : '..NumMsg..' .\n⌁ تفــاعــلك : '..TotalMsg..' .\n⌁ البايو : '..getbioY..' \n⌁ الالعـــاب : '..Num_Games..' .'
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n܁༯┆ايديك : '..Id..'\n܁༯┆يوزرك : ['..UserName_User..']\n܁༯┆موقعك : '..Status_Gps..'\n܁༯┆رسائلك : '..NumMsg..' \n܁༯┆تفاعلك : '..TotalMsg..'\n܁༯┆الالعاب : '..Num_Games..''
+local texte = '\n܁༯┆ايديك : '..Id..'\n܁༯┆يوزرك : ['..UserName_User..']\n܁༯┆موقعك : '..Status_Gps..'\n܁༯┆رسائلك : '..NumMsg..' \n܁༯┆تفاعلك : '..TotalMsg..'\n܁༯┆البايو : '..getbioY..' \n܁༯┆الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10579,6 +10594,7 @@ else
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
 local get_id = get_id:gsub('#id',Id) 
+local get_id  = get_id:gsub('#bio',getbioY) 
 local get_id = get_id:gsub('#username',UserName_User) 
 local get_id = get_id:gsub('#msgs',NumMsg) 
 local get_id = get_id:gsub('#edit',message_edit) 
@@ -10591,7 +10607,7 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = '\n܁༯┆ايديك : '..Id..'\n܁༯┆يوزرك : ['..UserName_User..']\n܁༯┆موقعك : '..Status_Gps..'\n܁༯┆رسائلك : '..NumMsg..' \n܁༯┆تفاعلك : '..TotalMsg..'\n܁༯┆الالعاب : '..Num_Games..''
+local texte = '\n܁༯┆ايديك : '..Id..'\n܁༯┆يوزرك : ['..UserName_User..']\n܁༯┆موقعك : '..Status_Gps..'\n܁༯┆رسائلك : '..NumMsg..' \n܁༯┆تفاعلك : '..TotalMsg..'\n܁༯┆البايو : '..getbioY..' \n܁༯┆الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -12751,7 +12767,7 @@ Text = [[*
 ܁༯┆المتحركه
 ܁༯┆الملفات
 ܁༯┆الصور
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الماركداون
 ܁༯┆البوتات
 ܁༯┆التكرار
