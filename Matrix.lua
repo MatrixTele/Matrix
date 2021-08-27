@@ -15689,7 +15689,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n܁༯┆Id : '..Id..' 🦇.\n܁༯┆UsErNaMe : '..UserName_User..' 🦇.\n܁༯┆StAsT : '..Status_Gps..' 🦇.\n܁༯┆MsGs : '..NumMsg..' 🦇.\n܁༯┆Activity : '..TotalMsg..' 🦇.\n܁༯┆GaMeS : '..Num_Games..' 🦇.'
+local texte = '\n⌁ Id : '..Id..' .\n⌁ UsErNaMe : '..UserName_User..' .\n⌁ StAsT : '..Status_Gps..' .\n⌁ MsGs : '..NumMsg..' .\n⌁ Activity : '..TotalMsg..' .\n⌁ GaMeS : '..Num_Games..' .'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15800,7 +15800,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n*܁༯┆Id : '..Id..'\n܁༯┆UsErNaMe : * ['..UserName_User..']*\n܁༯┆StAsT : '..Status_Gps..'\n܁༯┆MsGs : '..NumMsg..' \n܁༯┆Activity : '..TotalMsg..'\n܁༯┆GaMeS : '..Num_Games..'*'
+local texte = '\n*⌁ Id : '..Id..'\n⌁ UsErNaMe : * ['..UserName_User..']*\n⌁ StAsT : '..Status_Gps..'\n⌁ MsGs : '..NumMsg..' \n⌁ Activity : '..TotalMsg..'\n⌁ GaMeS : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -17264,7 +17264,7 @@ end
 if Text == '/change-id' then
 local Teext =[[*
 ܁༯┆انت الان في قائمة تنبيه المعرف
-𓐄𓐄𓐄𓐄𓐄??𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄??𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الاوامر الخاصة فـي تنبيه المعرف
 ܁༯┆تفعيل تنبيه المعرف
 ܁༯┆تعطيل تنبيه المعرف
