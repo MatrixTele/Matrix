@@ -14046,6 +14046,18 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '܁༯┆عدد مجموعات التي في البوت { '..#list..'}')
 end
+if text == 'رفع النسخه الاحتياطيه' and DevMatrix(msg) then   
+if tonumber(msg.reply_to_message_id_) > 0 then
+function by_reply(extra, result, success)   
+if result.content_.document_ then 
+local ID_FILE = result.content_.document_.document_.persistent_id_ 
+local File_Name = result.content_.document_.file_name_
+add_file(msg,msg.chat_id_,ID_FILE,File_Name)
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+end
 if text == "تحديث السورس ܁༯" then
 send(msg.chat_id_,msg.id_,'*܁༯┆تم التحديث*')
 os.execute('rm -rf Matrix.lua')
@@ -16854,7 +16866,7 @@ local Teext =[[*
 ܁༯┆المتحركه
 ܁༯┆الملفات
 ܁༯┆الصور
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الماركداون
 ܁༯┆البوتات
 ܁༯┆التكرار
@@ -17571,7 +17583,7 @@ if msg.content_.ID == "MessageChatAddMembers" then
 if msg.content_.members_[0].id_ == tonumber(bot_id) then 
 print("it is Bot")
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
+local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
@@ -18533,7 +18545,7 @@ database:incr(bot_id..'Matrix:message_edit'..result.chat_id_..result.sender_user
 local Text = result.content_.text_
 if database:get(bot_id.."Matrix:Lock:edit"..msg.chat_id_) and not Text and not creatorA(result) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "المالكين مخرب تعالو وينكم ؟\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "*المالكين مخرب تعالو وينكم ؟ *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -18545,7 +18557,7 @@ end
 if #list == 0 then
 t = "ماكو منششئين يشوفولك جاره"
 end
-Reply_Status(result,result.sender_user_id_,"reply","܁༯┆قام بالتعديل على الميديا"..t)  
+Reply_Status(result,result.sender_user_id_,"reply","*܁༯┆قام بالتعديل على الميديا*"..t)  
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 end
 local text = result.content_.text_
