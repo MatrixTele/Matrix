@@ -12476,11 +12476,11 @@ dofile("Matrix.lua")
 send(msg.chat_id_, msg.id_, "*Ok Im Reload ...*")
 end
 
-if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
+if text == "تفعيل تفاعلي " and Owner(msg) then
 send(msg.chat_id_, msg.id_, '*܁༯┆تم تفعيل الرسائل اليوميه*')
 database:set(bot_id.."msg:match:"..msg.chat_id_,true)
 end
-if text == "تعطيل الرسائل اليوميه" and Owner(msg) then
+if text == "تعطيل تفاعلي" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'*܁༯┆تم تعطيل الرسائل اليوميه*')
 database:del(bot_id.." msg:match:"..msg.chat_id_)
 end
@@ -12490,11 +12490,11 @@ get_msg = database:get(bot_id.."msg:match:"..msg.sender_user_id_..":"..msg.chat_
 gms = get_msg + 1
 database:setex(bot_id..'msg:match:'..msg.sender_user_id_..":"..msg.chat_id_,86400,gms)
 end
-if text == "تفاعلي اليوم" and tonumber(msg.reply_to_message_id_) == 0 then    
+if text == "تفاعلي" and tonumber(msg.reply_to_message_id_) == 0 then    
 get_msg = database:get(bot_id.."msg:match:"..msg.sender_user_id_..":"..msg.chat_id_) or 0
 send(msg.chat_id_, msg.id_,"*܁༯┆عدد رسائلك الكلي هو :-*\n"..get_msg.." *من الرسائل*")
 end  
-if text == "تفاعله اليوم" and tonumber(msg.reply_to_message_id_) > 0 then    
+if text == "تفاعله" and tonumber(msg.reply_to_message_id_) > 0 then    
 if tonumber(msg.reply_to_message_id_) ~= 0 then 
 function prom_reply(extra, result, success) 
 get_msg = database:get(bot_id.."msg:match:"..result.sender_user_id_..":"..msg.chat_id_) or 0
@@ -12767,7 +12767,7 @@ Text = [[*
 ܁༯┆المتحركه
 ܁༯┆الملفات
 ܁༯┆الصور
-𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الماركداون
 ܁༯┆البوتات
 ܁༯┆التكرار
@@ -13365,7 +13365,7 @@ if text == 'قناة السورس 📡 .' then
 Text = [[*
 ܁༯┆Welcome to Source
 ܁༯┆TeAm - ”Matrix”
- 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
+ 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17676,7 +17676,7 @@ local texting = {
 "- 𝒉𝒊 : 𝘢 𝘮𝘪𝘴𝘦𝘳𝘢𝘣𝘭𝘦 𝘸𝘰𝘳𝘭𝘥 𝘭𝘪𝘬𝘦 𝘺𝘰𝘶 .",
 "- 𝒉𝒊 : 𝘱𝘭𝘦𝘢𝘴𝘦 𝘨𝘰 𝘰𝘶𝘵. 𝘮𝘺 𝘧𝘢𝘤𝘦 .",
 "*- اريـد البد بسدك واشبـع فيـاي 🥺💚 *",
-"- 𝒉𝒊 : 𝘪 𝘥𝘰𝘯 𝘵 𝘢𝘥𝘮𝘪𝘵 𝘵𝘰 𝘢𝘯𝘺𝘰𝘯𝘦 .",
+"- 𝒉𝒊 : 𝘪 𝘥𝘰𝘯 𝘵 𝘢𝘥𝘮𝘪?? 𝘵𝘰 𝘢𝘯𝘺𝘰𝘯𝘦 .",
 "- 𝒉𝒊 : 𝘨𝘦𝘵 𝘰𝘶𝘵 𝘰𝘧 𝘮𝘺 𝘸𝘰𝘳𝘭𝘥 .",
 "*- ڪٰٖݪشيَ ۅٛ ﭑنتهہٰ ويايَ يح٘لۿہ‌َٖ حٖ٘تىَ حٖ٘زنيَ 🤍. *",
 "⁃ ڪَاטּ ليَ أصدقآء چَيدين، ثم آلودا؏ .",
