@@ -10601,7 +10601,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '܁༯┆'..Description..'\n܁༯┆ايـــديك : '..Id..' 🍇.\n܁༯┆يــوزرك : '..UserName_User..' 🍇.\n܁༯┆مــوقعــك : '..Status_Gps..' 🍇.\n܁༯┆رســائــلك : '..NumMsg..' 🍇.\n܁༯┆تفــاعــلك : '..TotalMsg..' 🍇.\n܁༯┆الالعـــاب : '..Num_Games..' 🍇.'
+local texte = '⌁ '..Description..'\n⌁ ايـــديك : '..Id..' .\n⌁ يــوزرك : '..UserName_User..' .\n⌁ مــوقعــك : '..Status_Gps..' .\n⌁ رســائــلك : '..NumMsg..' .\n⌁ تفــاعــلك : '..TotalMsg..' .\n⌁ الالعـــاب : '..Num_Games..' .'
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
@@ -11998,7 +11998,7 @@ _key = {
 {{text="كرة قدم ⚽",url='https://t.me/gamee?game=FootballStar'}},
 {{text="دومنا🥇",url='https://vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby'},{text="❕ليدو",url='https://vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby'}},
 {{text="ورق🤹‍♂",url='https://t.me/gamee?game=Hexonix'},{text="Hexonix❌",url='https://t.me/gamee?game=Hexonix'}},
-{{text="MotoFx🏍️",url='https://t.me/gamee?game=MotoFx'}},
+{{text="MotoFx??️",url='https://t.me/gamee?game=MotoFx'}},
 {{text="لعبة 2048 🎰",url='https://t.me/awesomebot?game=g2048'},{text="Squares🏁",url='https://t.me/gamee?game=Squares'}},
 {{text="Atomic 1▶️",url='https://t.me/gamee?game=AtomicDrop1'},{text="Corsairs",url='https://t.me/gamebot?game=Corsairs'}},
 {{text="LumberJack",url='https://t.me/gamebot?game=LumberJack'}},
@@ -12163,7 +12163,7 @@ Srrt = https.request('https://vvvzvv.ml/Imagelnfo.php?token='..token..'&url='..p
 Sto = JSON.decode(Srrt)
 if Sto.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_)
-t = "܁༯┆المنشئين الاساسين تعالو مخرب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "܁༯┆المنشئين الاساسين تعالو مخرب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -15744,7 +15744,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n܁༯┆ايـــديك : '..Id..' .✨\n܁༯┆يــوزرك : '..UserName_User..' .✨\n܁༯┆مــوقعــك : '..Status_Gps..' .✨\n܁༯┆رســائــلك : '..NumMsg..' .✨\n܁༯┆تفــاعــلك : '..TotalMsg..' .✨\n܁༯┆الالعـــاب : '..Num_Games..' .✨'
+local texte = '\n⌁ ايـــديك : '..Id..' .\n⌁ يــوزرك : '..UserName_User..' .\n⌁ مــوقعــك : '..Status_Gps..' .\n⌁ رســائــلك : '..NumMsg..' .\n⌁ تفــاعــلك : '..TotalMsg..' .\n⌁ الالعـــاب : '..Num_Games..' .'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15855,7 +15855,7 @@ local Texting = {
 "بدله لتلح عاد دبسزز 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
-local texte = '\n*܁༯┆ايديك : '..Id..'\n܁༯┆يوزرك : * ['..UserName_User..']*\n܁༯┆موقعك : '..Status_Gps..'\n܁༯┆رسائلك : '..NumMsg..' \n܁༯┆تفاعلك : '..TotalMsg..'\n܁༯┆الالعاب : '..Num_Games..'*'
+local texte = '\n*⌁ ايديك : '..Id..'\n⌁ يوزرك : * ['..UserName_User..']*\n⌁ موقعك : '..Status_Gps..'\n⌁ رسائلك : '..NumMsg..' \n⌁ تفاعلك : '..TotalMsg..'\n⌁ الالعاب : '..Num_Games..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -17264,7 +17264,7 @@ end
 if Text == '/change-id' then
 local Teext =[[*
 ܁༯┆انت الان في قائمة تنبيه المعرف
-𓐄𓐄𓐄𓐄𓐄??𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄??𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الاوامر الخاصة فـي تنبيه المعرف
 ܁༯┆تفعيل تنبيه المعرف
 ܁༯┆تعطيل تنبيه المعرف
@@ -17571,7 +17571,7 @@ if msg.content_.ID == "MessageChatAddMembers" then
 if msg.content_.members_[0].id_ == tonumber(bot_id) then 
 print("it is Bot")
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
+local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
@@ -18533,7 +18533,7 @@ database:incr(bot_id..'Matrix:message_edit'..result.chat_id_..result.sender_user
 local Text = result.content_.text_
 if database:get(bot_id.."Matrix:Lock:edit"..msg.chat_id_) and not Text and not creatorA(result) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "*المالكين مخرب تعالو وينكم ؟ *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "المالكين مخرب تعالو وينكم ؟\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -18545,7 +18545,7 @@ end
 if #list == 0 then
 t = "ماكو منششئين يشوفولك جاره"
 end
-Reply_Status(result,result.sender_user_id_,"reply","*܁༯┆قام بالتعديل على الميديا*"..t)  
+Reply_Status(result,result.sender_user_id_,"reply","܁༯┆قام بالتعديل على الميديا"..t)  
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 end
 local text = result.content_.text_
