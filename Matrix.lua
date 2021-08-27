@@ -6889,7 +6889,7 @@ local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "*܁༯┆تم مسح "..k.." من الوسائط الموجوده*"
+t = "*܁༯┆تم مسح "..k.." من الوسائط الموجوده 🛡*"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."msg:media"..msg.chat_id_)
 end
@@ -6903,26 +6903,26 @@ if text == ("الميديا") and cleaner(msg) then
 local gmria = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"܁༯┆عدد الميديا الموجود هو (* "..gmria.." *)")
 end
-if text == "امسح" and cleaner(msg) then   
-Msgs = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,200 do
-Message = Message - 1048576
-Msgs[i] = Message
-end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
-new = 0
-Msgs2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
-Msgs2[new] = data.messages_[i].id_
-new = new + 1
-end
-end
-DeleteMessage(msg.chat_id_,Msgs2)
-end,nil)  
-send(msg.chat_id_, msg.id_,'*܁༯┆تم تنظيف الميديا المعدله*')
-end
+if text == ("امسح") and cleaner(msg) then  
+    Msgs = {[0]=msg.id_}
+    local Message = msg.id_
+    for i=1,100 do
+    Message = Message - 1048576
+    Msgs[i] = Message
+    end
+    tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+        new = 0
+        Msgs2 = {}
+        for i=0 ,data.total_count_ do
+            if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
+                Msgs2[new] = data.messages_[i].id_
+                new = new + 1
+            end
+        end
+        Delete_Message(msg.chat_id_,Msgs2)
+    end,nil)  
+    send(msg.chat_id_, msg.id_,'*܁༯┆تم ازالة 100 رساله معدلة 🛡*') 
+    end
 if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 if gmedia == 200 then
@@ -9062,7 +9062,7 @@ end,nil)
 end
 end,nil)
 end
-if text == "@all" or text == "all" and Owner(msg) then
+if text == "@all" or text == "all" and DevBot(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."cccbcc:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
@@ -11689,7 +11689,7 @@ end
 if text and text:match("ضع لقب (.*)") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
 local namess = text:match("ضع لقب (.*)")
 function Function_Matrix(extra, result, success)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تععين لقب")  
+Reply_Status(msg,result.sender_user_id_,"reply","*܁༯┆تم تععين لقب*")  
 https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_invite_users=True")
 https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&custom_title="..namess)
 end
@@ -11704,7 +11704,7 @@ if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تعيين لقب")  
+Reply_Status(msg,result.id_,"reply","*܁༯┆تم تعيين لقب*")  
 https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_invite_users=True")
 https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&custom_title="..username[3])
 else
@@ -11712,6 +11712,46 @@ send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعر
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username[2]}, Function_Matrix, nil)
+return false
+end
+if text == ("حذف لقب") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,'܁༯┆البوت ليس مشرف يرجى ترقيتي !') 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix_Source')..')'
+status  = '\n܁༯┆الايدي » `'..result.sender_user_id_..'`\n܁༯┆تم حذف لقبه من الكروب'
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text and text:match("^حذف لقب @(.*)$") and Constructor(msg) then
+local username = text:match("^حذف لقب @(.*)$")
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,'܁༯┆البوت ليس مشرف يرجى ترقيتي !') 
+return false  
+end
+function start_function(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_," ܁༯┆عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+usertext = '\n܁༯┆العضو » ['..result.title_..'](t.me/'..(username or 'Matrix_Source')..')'
+status  = '\n܁༯┆تم حذف لقبه من الكروب'
+texts = usertext..status
+send(msg.chat_id_, msg.id_, texts)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+else
+send(msg.chat_id_, msg.id_, '܁༯┆لا يوجد حساب بهذا المعرف')
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
 if text == ("تعديل الصلاحيات") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
@@ -11819,7 +11859,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text == 'تفعيل التاك' or text == 'تفعيل @all' and creatorA(msg) then   
+if text == 'تفعيل التاك' or text == 'تفعيل @all' and DevBot(msg) then   
 if database:get(bot_id..'Cick:all'..msg.chat_id_) then
 Text = '*܁༯┆تم تفعيل امر @all*'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
@@ -11828,7 +11868,7 @@ Text = '* ܁༯┆بالتاكيد تم تفعيل امر @all*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التاك' or text == 'تعطيل @all' and creatorA(msg) then  
+if text == 'تعطيل التاك' or text == 'تعطيل @all' and DevBot(msg) then  
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
 Text = '\n*܁༯┆تم تعطيل امر @all*'
@@ -12976,7 +13016,7 @@ Text = [[*
 ܁༯┆مسح ردود المطور ، ردود المطور 
 ܁༯┆تحديث ،  تحديث السورس 
 ܁༯┆تعين عدد الاعضاء ↺ { العدد }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆تفعيل ، تعطيل ↺ { الاوامر التاليه ↓}
 ܁༯┆البوت الخدمي ، المغادرة ، الاذاعه
 ܁༯┆ملف ↺ { اسم الملف }
@@ -17005,7 +17045,7 @@ local Teext =[[*
 ܁༯┆المنشئين ، مسح المنشئين
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆اوامر المنشئ المجموعه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆رفع ، تنزيل ↺ { مدير }
 ܁༯┆المدراء ، مسح المدراء
 ܁༯┆اضف رسائل ↺ { بالرد او الايدي }
@@ -17042,17 +17082,17 @@ local Teext =[[*
 ܁༯┆اضف ، حذف ↺ { مطور } 
 ܁༯┆قائمه العام ، مسح قائمه العام
 ܁༯┆المطورين ، مسح المطورين
-𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆اضف ، حذف ↺ { رد للكل }
 ܁༯┆وضع ، حذف ↺ { كليشه المطور } 
 ܁༯┆مسح ردود المطور ، ردود المطور 
 ܁༯┆تحديث ،  تحديث السورس 
 ܁༯┆تعين عدد الاعضاء ↺ { العدد }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆تفعيل ، تعطيل ↺ { الاوامر التاليه ↓}
 ܁༯┆البوت الخدمي ، المغادرة ، الاذاعه
 ܁༯┆ملف ↺ { اسم الملف }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄??𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆مسح جميع الملفات 
 ܁༯┆المتجر ، الملفات
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
