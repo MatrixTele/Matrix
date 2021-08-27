@@ -14046,18 +14046,6 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '܁༯┆عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == 'رفع النسخه الاحتياطيه' and DevMatrix(msg) then   
-if tonumber(msg.reply_to_message_id_) > 0 then
-function by_reply(extra, result, success)   
-if result.content_.document_ then 
-local ID_FILE = result.content_.document_.document_.persistent_id_ 
-local File_Name = result.content_.document_.file_name_
-add_file(msg,msg.chat_id_,ID_FILE,File_Name)
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
 if text == "تحديث السورس ܁༯" then
 send(msg.chat_id_,msg.id_,'*܁༯┆تم التحديث*')
 os.execute('rm -rf Matrix.lua')
@@ -16866,7 +16854,7 @@ local Teext =[[*
 ܁༯┆المتحركه
 ܁༯┆الملفات
 ܁༯┆الصور
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الماركداون
 ܁༯┆البوتات
 ܁༯┆التكرار
