@@ -3782,117 +3782,105 @@ Reply_Status(msg,userid,"reply","*܁༯┆تم تنزيله من المطوري�
 return false 
 end
 
+if text then   
+if database:get(bot_id..'Set:array'..msg.sender_user_id_..':'..msg.chat_id_) == 'true1' then
+local test = database:get(bot_id..'Text:array'..msg.sender_user_id_..':'..msg.chat_id_..'')
+text = text:gsub('"','') 
+text = text:gsub("'",'') 
+text = text:gsub('`','') 
+text = text:gsub('*','') 
+database:sadd(bot_id.."Add:Rd:array:Text"..test..msg.chat_id_,text)  
+_key = {
+{{text="اضغط هنا لانهاء الاضافه",callback_data="EndAddarray"..msg.sender_user_id_}},
+}
+send_inlin_key(msg.chat_id_,' *܁༯┆تم حفظ الرد يمكنك ارسال اخر او اكمال العمليه من خلال الزر اسفل ⤵️*',_key,msg.id_)
+return false  
+end
+end    
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nارسل لي الكلمه الان ')
-database:set(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
-database:set(bot_id.."botss:Matrix:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
-database:sadd(bot_id.."botss:Matrix:List:Rd:Sudo", text)
-return false end
+if database:get(bot_id.."Set:array:Ssd"..msg.sender_user_id_..":"..msg.chat_id_) == 'dttd' then
+database:del(bot_id.."Set:array:Ssd"..msg.sender_user_id_..":"..msg.chat_id_)
+gery = database:get(bot_id.."Set:array:addpu"..msg.sender_user_id_..":"..msg.chat_id_)
+if not database:sismember(bot_id.."Add:Rd:array:Text"..gery..msg.chat_id_,text) then
+send(msg.chat_id_, msg.id_,' *܁༯┆لا يوجد رد متعدد * ')
+return false
+end
+send(msg.chat_id_, msg.id_,' *܁༯┆تم حذفه بنجاح .* ')
+database:srem(bot_id.."Add:Rd:array:Text"..gery..msg.chat_id_,text)
+end
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."botss:Matrix:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_,"تم حذف الرد من ردود المتعدده")
-database:del(bot_id..'botss:Matrix:Add:Rd:Sudo:Text'..text)
-database:del(bot_id..'botss:Matrix:Add:Rd:Sudo:Text1'..text)
-database:del(bot_id..'botss:Matrix:Add:Rd:Sudo:Text2'..text)
-database:del(bot_id.."botss:Matrix:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
-database:srem(bot_id.."botss:Matrix:List:Rd:Sudo", text)
+if database:get(bot_id.."Set:array:Ssd"..msg.sender_user_id_..":"..msg.chat_id_) == 'delrd' then
+database:del(bot_id.."Set:array:Ssd"..msg.sender_user_id_..":"..msg.chat_id_)
+if not database:sismember(bot_id..'List:array'..msg.chat_id_,text) then
+send(msg.chat_id_, msg.id_,' *܁༯┆لا يوجد رد متعدد * ')
+return false
+end
+send(msg.chat_id_, msg.id_,' *܁༯┆قم بارسال الرد الذي تريد حذفه منه* ')
+database:set(bot_id.."Set:array:addpu"..msg.sender_user_id_..":"..msg.chat_id_,text)
+database:set(bot_id.."Set:array:Ssd"..msg.sender_user_id_..":"..msg.chat_id_,"dttd")
 return false
 end
 end
-if text == ("مسح الردود المتعدده") and DevMatrix(msg) then
- 
-local list = database:smembers(bot_id.."botss:Matrix:List:Rd:Sudo")
-for k,v in pairs(list) do  
-database:del(bot_id.."botss:Matrix:Add:Rd:Sudo:Text"..v) 
-database:del(bot_id.."botss:Matrix:Add:Rd:Sudo:Text1"..v) 
-database:del(bot_id.."botss:Matrix:Add:Rd:Sudo:Text2"..v)   
-database:del(bot_id.."botss:Matrix:List:Rd:Sudo")
+if text == "حذف رد من متعدد" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"*܁༯┆ارسل الكلمه الرد الاصليه*")
+database:set(bot_id.."Set:array:Ssd"..msg.sender_user_id_..":"..msg.chat_id_,"delrd")
+return false 
 end
-send(msg.chat_id_, msg.id_,"تم حذف ردود المتعدده")
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."Set:array"..msg.sender_user_id_..":"..msg.chat_id_) == 'true' then
+send(msg.chat_id_, msg.id_,' *܁༯┆ارسل الرد الذي تريد اضافته*')
+database:set(bot_id..'Set:array'..msg.sender_user_id_..':'..msg.chat_id_,'true1')
+database:set(bot_id..'Text:array'..msg.sender_user_id_..':'..msg.chat_id_, text)
+database:del(bot_id.."Add:Rd:array:Text"..text..msg.chat_id_)   
+database:sadd(bot_id..'List:array'..msg.chat_id_..'', text)
+return false
 end
-if text == ("الردود المتعدده") and DevMatrix(msg) then
- 
-local list = database:smembers(bot_id.."botss:Matrix:List:Rd:Sudo")
-text = "\nقائمة ردود المتعدده \n━━━━━━━━\n"
-for k,v in pairs(list) do
-db = "رساله "
-text = text..""..k.." => {"..v.."} => {"..db.."}\n"
 end
-if #list == 0 then
-text = "لا توجد ردود متعدده"
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."Set:array:rd"..msg.sender_user_id_..":"..msg.chat_id_) == 'delrd' then
+database:del(bot_id.."Set:array:rd"..msg.sender_user_id_..":"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,' *܁༯┆تم ازالة الرد المتعدد بنجاح* ')
+database:del(bot_id.."Add:Rd:array:Text"..text..msg.chat_id_)
+database:srem(bot_id..'List:array'..msg.chat_id_, text)
+return false
 end
-send(msg.chat_id_, msg.id_,"["..text.."]")
 end
-if text == "اضف رد متعدد" and DevMatrix(msg) then
- 
-database:set(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل الرد الذي اريد اضافته")
-end
-if text == "حذف رد متعدد" and DevMatrix(msg) then
- 
-database:set(bot_id.."botss:Matrix:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل الان الكلمه لحذفها ")
-end
-if text then  
-local test = database:get(bot_id.."botss:Matrix:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
-database:set(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd1')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:Matrix:Add:Rd:Sudo:Text"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
-return false  
-end  
-end
-if text then  
-local test = database:get(bot_id.."botss:Matrix:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
-database:set(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:Matrix:Add:Rd:Sudo:Text1"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
-return false  
-end  
-end
-if text then  
-local test = database:get(bot_id.."botss:Matrix:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
-database:set(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd3')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:Matrix:Add:Rd:Sudo:Text2"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد")
-return false  
-end  
+if text == "حذف رد متعدد" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"*܁༯┆ارسل الكلمه التي تريد حذفها*")
+database:set(bot_id.."Set:array:rd"..msg.sender_user_id_..":"..msg.chat_id_,"delrd")
+return false 
 end
 if text then
-local Text = database:get(bot_id.."botss:Matrix:Add:Rd:Sudo:Text"..text)   
-local Text1 = database:get(bot_id.."botss:Matrix:Add:Rd:Sudo:Text1"..text)   
-local Text2 = database:get(bot_id.."botss:Matrix:Add:Rd:Sudo:Text2"..text)   
-if Text or Text1 or Text2 then 
-local texting = {
-Text,
-Text1,
-Text2
-}
-Textes = math.random(#texting)
-send(msg.chat_id_, msg.id_,texting[Textes])
+if  database:sismember(bot_id..'List:array'..msg.chat_id_,text) then
+local list = database:smembers(bot_id.."Add:Rd:array:Text"..text..msg.chat_id_)
+quschen = list[math.random(#list)]
+send(msg.chat_id_, msg.id_,quschen)
 end
+end
+if text == ("الردود المتعدده") and Addictive(msg) then
+local list = database:smembers(bot_id..'List:array'..msg.chat_id_..'')
+text = " ܁༯┆قائمه الردود المتعدده \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+for k,v in pairs(list) do
+text = text..""..k..">> ("..v..") » {رساله}\n"
+end
+if #list == 0 then
+text = " ܁༯┆لا يوجد ردود متعدده"
+end
+send(msg.chat_id_, msg.id_,'['..text..']')
+end
+if text == ("مسح الردود المتعدده") and BasicConstructor(msg) then   
+local list = database:smembers(bot_id..'List:array'..msg.chat_id_)
+for k,v in pairs(list) do
+database:del(bot_id.."Add:Rd:array:Text"..v..msg.chat_id_)   
+database:del(bot_id..'List:array'..msg.chat_id_)
+end
+send(msg.chat_id_, msg.id_," *܁༯┆تم مسح الردود المتعدده*")
+end
+if text == "اضف رد متعدد" and Addictive(msg) then   
+send(msg.chat_id_, msg.id_,"*܁༯┆ارسل الكلمه التي تريد اضافتها*")
+database:set(bot_id.."Set:array"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return false 
 end
 if text == "المالكين" and creatorA(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
@@ -17157,6 +17145,22 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 end
 
+if DAata == 'EndAddarray'..data.sender_user_id_ then  
+if database:get(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id) == 'true1' then
+database:del(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *܁༯┆تم حفظ الردود بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+else
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *܁༯┆تم تنفيذ الامر سابقا*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end
 if DAata == 'OkKikedMe'..data.sender_user_id_ then  
 tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
