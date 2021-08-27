@@ -9062,11 +9062,13 @@ end,nil)
 end
 end,nil)
 end
-if text == "@all" or text == "all" and DevBot(msg) then
+if text == 'all' or text == '@all' then   
+if DevBot(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
-if database:get(bot_id.."cccbcc:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
-return 
+if database:get(bot_id.."cccbcc:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then   
 send(msg.chat_id_, msg.id_,"܁༯┆انتظر دقيقه من فضلك")
+return false
+end
 end
 database:setex(bot_id..'cccbcc:all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
@@ -11859,23 +11861,19 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text == 'تفعيل التاك' or text == 'تفعيل @all' and DevBot(msg) then   
-if database:get(bot_id..'Cick:all'..msg.chat_id_) then
-Text = '*܁༯┆تم تفعيل امر @all*'
-database:del(bot_id..'Cick:all'..msg.chat_id_)  
-else
-Text = '* ܁༯┆بالتاكيد تم تفعيل امر @all*'
+if text == 'تفعيل التاك' or text == 'تفعيل @all' then   
+if DevBot(msg) then
+database:del(bot_id.."Cick:all"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, '܁༯┆تم تفعيل @all')
+return false
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل التاك' or text == 'تعطيل @all' and DevBot(msg) then  
-if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
-database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
-Text = '\n*܁༯┆تم تعطيل امر @all*'
-else
-Text = '\n* ܁༯┆بالتاكيد تم تعطيل امر @all*'
+if DevBot(msg) then
+database:set(bot_id.."Cick:all"..msg.chat_id_,"true")
+send(msg.chat_id_, msg.id_, '*܁༯┆تم تعطيل @all *')
+return false
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == '/lock' and Addictive(msg) then  
 local Texti = '*تستطيع قفل وفتح عبر الازرار*'
@@ -12598,7 +12596,7 @@ Text = "\n*܁༯┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮?? .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -13016,7 +13014,7 @@ Text = [[*
 ܁༯┆مسح ردود المطور ، ردود المطور 
 ܁༯┆تحديث ،  تحديث السورس 
 ܁༯┆تعين عدد الاعضاء ↺ { العدد }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆تفعيل ، تعطيل ↺ { الاوامر التاليه ↓}
 ܁༯┆البوت الخدمي ، المغادرة ، الاذاعه
 ܁༯┆ملف ↺ { اسم الملف }
@@ -16856,7 +16854,7 @@ local Teext =[[*
 ܁༯┆اوامر البوت للمالك ،
 ܁༯┆رفع منظف - تنزيل منظف
 ܁༯┆المنظفين - مسح المنظفين
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆قناة البوت ↺* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
 ]]
 keyboard = {} 
