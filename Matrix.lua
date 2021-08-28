@@ -12190,81 +12190,6 @@ echo '*•━━━━━━━━━•*\n•{ الــدخــول }•\n*>> '
 echo '*•━━━━━━━━━•*\n•{ مـده تـشغيـل الـسـيـرفـر }\n*>> '"$uptime"'*'
 ]]):read('*all'))  
 end
-if text and not database:get(bot_id.."AutoFile") then
-Time = database:get(bot_id.."AutoFile:Time")
-if Time then 
-if Time ~= os.date("%x") then  
-local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
-local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
-for k,v in pairs(list) do   
-NAME = 'Matrix Chat'
-ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
-MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
-MDER = database:smembers(bot_id.."Matrix:Manager"..v)
-MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
-link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
-if k == 1 then
-t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
-else
-t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
-end
-if #ASAS ~= 0 then 
-t = t..'"ASAS":['
-for k,v in pairs(ASAS) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MOD ~= 0 then
-t = t..'"MOD":['
-for k,v in pairs(MOD) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MDER ~= 0 then
-t = t..'"MDER":['
-for k,v in pairs(MDER) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MNSH ~= 0 then
-t = t..'"MNSH":['
-for k,v in pairs(MNSH) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-t = t..'"linkgroup":"'..link..'"}' or ''
-end
-t = t..'}}'
-local File = io.open('./File_Libs/'..bot_id..'.json', "w")
-File:write(t)
-File:close()
-sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '܁༯┆عدد مجموعات التي في البوت { '..#list..'}')
-database:set(bot_id.."AutoFile:Time",os.date("%x"))
-end
-else 
-database:set(bot_id.."AutoFile:Time",os.date("%x"))
-end
-end
 if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
 data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
@@ -13488,7 +13413,6 @@ local keyboard = {
 {'تحديث السورس ܁༯','تحديث ܁༯'},
 {'لاصدار ܁༯','معلومات السيرفر ܁༯'},
 {'نسخه احتياطيه ܁༯','رفع نسخه احتياطيه ܁༯'},
-{'تفعيل النسخه التلقائيه ܁༯','تعطيل النسخه التلقائيه ܁༯'},
 {'اعادة التشغيل ܁༯'},
 {'الغاء ܁༯'}
 }
@@ -13575,7 +13499,7 @@ Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
 ܁༯??܁༯ • ❷ • • ❸ • • ❹ •• ❺ • 𝟔 𝟕 ?? 𝟗 • ⓿ •
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
-𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
