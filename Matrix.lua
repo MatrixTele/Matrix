@@ -210,31 +210,31 @@ return var
 end 
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(114518657) then  
-var = 'مـــطۅࢪ اݪـــسسۅࢪس'
+var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(11110) then  
-var = "مـــبࢪمج اݪسسۅࢪس"  
+var = "مبرمج السورس"  
 elseif DevMatrixe(user_id) == true then
-var = "اݪمطـــۅࢪ اݪاســـاســي"  
+var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
-var = "اݪبـــۅت"
-elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "اݪمطـــۅࢪ اݪاســـاســي²"  
+var = "البوت"
+elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "المطور الاساسي²"  
 elseif database:sismember(bot_id.."Matrix:Sudo:User", user_id) then
-var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "اݪمــطۅࢪ"  
-elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "اݪـــمــالك"
+var = database:get(bot_id.."Matrix:Sudo:Rd"..chat_id) or "المطور"  
+elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "المالك"
 elseif database:sismember(bot_id.."Matrix:Basic:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "اݪمنـــشئ اݪاسســـاسســـي"
+var = database:get(bot_id.."Matrix:BasicConstructor:Rd"..chat_id) or "المنشئ الاساسي"
 elseif database:sismember(bot_id.."Matrix:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "اݪمنشــــئ"  
+var = database:get(bot_id.."Matrix:Constructor:Rd"..chat_id) or "المنشئ"  
 elseif database:sismember(bot_id.."Matrix:Manager"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Manager:Rd"..chat_id) or "اݪـــمديࢪ"  
+var = database:get(bot_id.."Matrix:Manager:Rd"..chat_id) or "المدير"  
 elseif database:sismember(bot_id.."Matrix:Mod:User"..chat_id, user_id) then
-var = database:get(bot_id.."Matrix:Mod:Rd"..chat_id) or "اݪادمــن"  
+var = database:get(bot_id.."Matrix:Mod:Rd"..chat_id) or "الادمن"  
 elseif database:sismember(bot_id.."Matrix:MN:TF"..chat_id, user_id) then
-var =  "منـــظــف"  
+var =  "منظف"  
 elseif database:sismember(bot_id.."Matrix:Special:User"..chat_id, user_id) then  
-var = database:get(bot_id.."Matrix:Special:Rd"..chat_id) or "اݪممـــيز"  
+var = database:get(bot_id.."Matrix:Special:Rd"..chat_id) or "المميز"  
 else  
-var = database:get(bot_id.."Matrix:Memp:Rd"..chat_id) or "الـــ؏ــضو"
+var = database:get(bot_id.."Matrix:Memp:Rd"..chat_id) or "العضو"
 end  
 return var
 end 
@@ -13575,7 +13575,7 @@ Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
 ܁༯??܁༯ • ❷ • • ❸ • • ❹ •• ❺ • 𝟔 𝟕 ?? 𝟗 • ⓿ •
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
