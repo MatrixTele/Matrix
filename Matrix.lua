@@ -270,6 +270,15 @@ Var = false
 end
 return Var
 end
+function getcustom(msg,scc)
+local var = "لايوجد"
+Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..scc.sender_user_id_)
+GeId = JSON.decode(Ge)
+if GeId.result.custom_title then
+var = GeId.result.custom_title
+end
+return var
+end
 function getbio(User)
 local var = "لايوجد"
 local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat?chat_id="..User)
@@ -10411,6 +10420,7 @@ local Text= [[
 ⌁ #game ↺ عدد المجوهرات
 ⌁ #AddMem ↺ عدد الجهات
 ⌁ #Description ↺ تعليق الصوره
+⌁ #custom ↺ اللقب
 ⌁ #bio ↺ البايو
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -10532,6 +10542,7 @@ else
 UserName_User = 'لا يوجد'
 end
 local Id = msg.sender_user_id_
+local getcustomY = getcustom(msg,msg)
 local getbioY = getbio(msg.sender_user_id_)
 local NumMsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
@@ -10556,6 +10567,7 @@ if not database:get(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_) then
 if Matrixteam.photos_[0] then
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
+local get_id = get_id:gsub('#custom',getcustomY) 
 local get_id = get_id:gsub('#id',Id) 
 local get_id  = get_id:gsub('#bio',getbioY) 
 local get_id = get_id:gsub('#username',UserName_User) 
@@ -12977,7 +12989,7 @@ Text = [[*
 ܁༯┆غادر ، غادر ↺ { والايدي }
 ܁༯┆اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ܁༯┆اذاعه خاص ، اذاعه خاص بالتوجيه 
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄
 ܁༯┆قناة البوت ↺* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
