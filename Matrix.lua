@@ -9011,37 +9011,6 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, Function_Matrix, nil)
 end
-if text == "تاك للكل" or text == "تاك" and Addictive(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,Matrixteam)
-local t = ""
-x = 0
-local list = Matrixteam.members_
-for k, v in pairs(list) do
-x = x + 1
-if database:get(bot_id.."Matrix:User:Name"..v.user_id_) then
-t = t..""..x.." - [@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
-else
-t = t..""..x.." - "..v.user_id_.."\n"
-end
-end
-send(msg.chat_id_,msg.id_,t)
-end,nil)
-end
 if text == "تاك للمشرفين" or text == "admin" and DevBot(msg) and not database:get(bot_id..'tgg:bot:api'..msg.chat_id_) then            
 if database:get(bot_id.."Matrix:admin:Time"..msg.chat_id_) then 
 return
@@ -9071,17 +9040,12 @@ end,nil)
 end
 end,nil)
 end
-if text == 'all' or text == '@all' then   
-if DevBot(msg) then
-if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
-if database:get(bot_id.."cccbcc:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then   
-send(msg.chat_id_, msg.id_,"܁༯┆انتظر دقيقه من فضلك")
-return false
-end
-end
-database:setex(bot_id..'cccbcc:all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+if text == ("@all") and DevBot(msg) then   
+if database:get(bot_id.."chat:tagall"..msg.chat_id_) then  return send(msg.chat_id_, msg.id_,"يمكنك عمل تاك للكل كل *10 دقائق* فقط") end
+database:setex(bot_id..'chat:tagall'..msg.chat_id_,600,true)
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,Matrix)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_
+},function(ta,Matrix)
 x = 0
 tags = 0
 local list = Matrix.members_
@@ -9098,14 +9062,47 @@ tagname = tagname:gsub("[[]","")
 t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
 if x == 5 or x == tags or k == 0 then
 local Text = t:gsub('#all,','#all\n')
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end
+end,nil)
+end
+end,nil)
+end,nil)
+end
+if text == ("تاك للكل") and Addictive(msg) then   
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+return false
+end
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
+},function(ta,Matrix)
+local t = "\n*• قائمة الاعضاء \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
+x = 0
+local list = Matrix.members_
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+x = x + 1
+if data.username_ then
+t = t.."*︙"..x.."︙>* {[@"..data.username_.."]} \n"
+end
+if k == 0 then
+t = t.."*يمكنك عمل تاك  + العدد مثال تاك ل 5*"
+send(msg.chat_id_,msg.id_,t)
 end
 end,nil)
 end
 end,nil)
-end,nil)
-end
 end
 if text and text:match("^تاك ل (%d+)$") and Addictive(msg) then   
 taglimit = text:match("^تاك ل (%d+)$"):gsub('تاك ل ','')
@@ -9123,7 +9120,7 @@ else
 tagname = data.first_name_
 tagname = tagname:gsub("]","")
 tagname = tagname:gsub("[[]","")
-t = t.."܁༯┆┆"..x.."︙[@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
+t = t.."*︙"..x.."︙l>* [@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
 end
 if k == 0 then
 send(msg.chat_id_,msg.id_,t)
@@ -9804,6 +9801,13 @@ local namebot = {
 'لاتوصخ اسمي',
 'هاقلبي؟ كول',
 'دعبل يمعود',
+'ۿۧهلا ؏ـمࢪي .',
+'اكلك تحبني ؟ وتصيحني هلكد',
+'ۿۧاا ڪـلبي .',
+'انا '..Namebot..' موو بوت ɵ̷̥̥᷄ˬɵ̷̥̥᷅',
+'مو كافي تصيح بوت ترا ورب اغادر',
+'عيونه',
+'ۿۧها ححب  .',
 'اهو شتريد ؟'
 }
 name = math.random(#namebot)
@@ -9817,6 +9821,14 @@ local namebot = {
 "لتخليني ارجع لحركاتي لقديمه وردا ترا اسمي "..Namebot,
 "باوع لك خليني احبك وصيحلي باسمي "..Namebot,
 "اسممممممممممييي "..Namebot,
+'ۿۧهلا ؏ـمࢪي .',
+'اكلك تحبني ؟ وتصيحني هلكد',
+'ۿۧاا ڪـلبي .',
+'انا '..Namebot..' موو بوت ɵ̷̥̥᷄ˬɵ̷̥̥᷅',
+'صيحلي بأسمي '..Namebot..' وأرد عليك',
+'مو كافي تصيح بوت ترا ورب اغادر',
+'عيونه',
+'ۿۧها ححب  .',
 'راح نموت بكورونا ونته بعدك تصيح بوت'
 }
 name = math.random(#namebot)
@@ -10552,14 +10564,14 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sende
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"ااصلا حسوني احلا 🙈💞",
-"ااصلا حسوني احلا 🙈💞",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+'مو بشر حلغوم🍼🎀. ',
+"فديت الصاك محح💞🍇 . ",
+"فـدشـي عمـي💞🍇. ",
+"دغـيرهـا شبـي هـاذ 💞🍇. ",
+"شهل الگيمر 💞🍇. ",
+"شهل الصوره تخمبش 💞🍇. ",
+"فديت الحلو 💞 🍇. ",
+"بـبكن حـلك 💞🍇. ",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_) or database:get(bot_id.."Matrix:KleshIDALLBOT")
@@ -11238,6 +11250,69 @@ database:incrby(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)
 end
 database:set(bot_id.."Matrix:Set:Amth:Bot"..msg.chat_id_,true)
 end
+if text == "رياضيات" then
+if database:get(bot_id.."Matrix:Lock:Games"..msg.chat_id_) then
+Hussein = {"9","2","60","9","5","4","25","10","17","15","39","5","16",};
+name = Hussein[math.random(#Hussein)]
+database:set(bot_id.."Matrix:Set:Ryadeat"..msg.chat_id_,name)
+database:del(bot_id.."Matrix:Set:Ryadeat:Bot"..msg.chat_id_)
+name = string.gsub(name,"9","2+7=")
+name = string.gsub(name,"2","5-3=")
+name = string.gsub(name,"60","(30)² =")
+name = string.gsub(name,"9","2+2+5=")
+name = string.gsub(name,"5","8-3=?")
+name = string.gsub(name,"4","40÷10=")
+name = string.gsub(name,"25","30-5=")
+name = string.gsub(name,"10","100÷10=")
+name = string.gsub(name,"17","10+5+2=")
+name = string.gsub(name,"15","25-10=")
+name = string.gsub(name,"39","44-5=")
+name = string.gsub(name,"5","12+1-8=")
+name = string.gsub(name,"16","16+16-16=")
+send(msg.chat_id_, msg.id_,"اجب عن التالي ~ {"..name.."}")
+return false
+end
+end
+if text == ""..(database:get(bot_id.."Matrix:Set:Ryadeat"..msg.chat_id_) or "").."" then 
+if not database:get(bot_id.."Matrix:Set:Ryadeat:Bot"..msg.chat_id_) then 
+database:del(bot_id..":Set:Ryadeat"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,"•┇ الف مبروك لقد فزت \n•┇ للعب مره اخره ارسل ←{ رياضيات }")
+database:incrby(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+end
+database:set(bot_id.."Matrix:Set:Ryadeat:Bot"..msg.chat_id_,true)
+end
+if text == "انكليزي" then
+if database:get(bot_id.."Matrix:Lock:Games"..msg.chat_id_) then
+Hussein = {"معلومات","قنوات","مجموعات","كتاب","تفاحه","مختلف","سدني","نقود","اعلم","ذئب","تمساح","ذكي",};
+name = Hussein[math.random(#Hussein)]
+database:set(bot_id.."Matrix:Set:English"..msg.chat_id_,name)
+database:del(bot_id.."Matrix:Set:English:Bot"..msg.chat_id_)
+name = string.gsub(name,"ذئب","Wolf")
+name = string.gsub(name,"معلومات","Information")
+name = string.gsub(name,"قنوات","Channels")
+name = string.gsub(name,"مجموعات","Groups")
+name = string.gsub(name,"كتاب","Book")
+name = string.gsub(name,"تفاحه","Apple")
+name = string.gsub(name,"سدني","Sydney")
+name = string.gsub(name,"نقود","money")
+name = string.gsub(name,"اعلم","I know")
+name = string.gsub(name,"تمساح","crocodile")
+name = string.gsub(name,"مختلف","Different")
+name = string.gsub(name,"ذكي","Intelligent")
+send(msg.chat_id_, msg.id_,"اجب عن التالي ~ { "..name.." }")
+return false
+end
+end
+------------------------------------------------------------------------
+if text == ""..(database:get(bot_id.."Matrix:Set:English"..msg.chat_id_) or "").."" then 
+if not database:get(bot_id.."Matrix:Set:English:Bot"..msg.chat_id_) then 
+database:del(bot_id.."Matrix:Set:English"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,"•┇ الف مبروك لقد فزت \n•┇ للعب مره اخره ارسل ←{ `انكليزي` }")
+database:incrby(bot_id.."NUM:GAMES"..msg.chat_id_..msg.sender_user_id_, 1)  
+end
+database:set(bot_id.."Matrix:Set:English:Bot"..msg.chat_id_,true)
+end
+------------------------------------------------------------------------
 if text == "تعطيل الالعاب" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -12100,6 +12175,96 @@ if text == "تفعيل الانستا" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل الانستا')
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
+if text == 'السيرفر' and DevMatrix(msg) then 
+send(msg.chat_id_, msg.id_, io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
+echo '• { نظام التشغيل } •\n*>> '"$linux_version"'*' 
+echo '*•━━━━━━━━━•*\n•{ الذاكره العشوائيه }•\n*>> '"$memUsedPrc"'*'
+echo '*•━━━━━━━━━•*\n•{ وحـده الـتـخـزيـن }•\n*>> '"$HardDisk"'*'
+echo '*•━━━━━━━━━•*\n•{ الـمــعــالــج }•\n*>> '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*•━━━━━━━━━•*\n•{ الــدخــول }•\n*>> '`whoami`'*'
+echo '*•━━━━━━━━━•*\n•{ مـده تـشغيـل الـسـيـرفـر }\n*>> '"$uptime"'*'
+]]):read('*all'))  
+end
+if text and not database:get(bot_id.."AutoFile") then
+Time = database:get(bot_id.."AutoFile:Time")
+if Time then 
+if Time ~= os.date("%x") then  
+local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
+local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
+for k,v in pairs(list) do   
+NAME = 'Matrix Chat'
+ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
+MDER = database:smembers(bot_id.."Matrix:Manager"..v)
+MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
+link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
+if k == 1 then
+t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
+else
+t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
+end
+if #ASAS ~= 0 then 
+t = t..'"ASAS":['
+for k,v in pairs(ASAS) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MOD ~= 0 then
+t = t..'"MOD":['
+for k,v in pairs(MOD) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MDER ~= 0 then
+t = t..'"MDER":['
+for k,v in pairs(MDER) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MNSH ~= 0 then
+t = t..'"MNSH":['
+for k,v in pairs(MNSH) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'"linkgroup":"'..link..'"}' or ''
+end
+t = t..'}}'
+local File = io.open('./File_Libs/'..bot_id..'.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '܁༯┆عدد مجموعات التي في البوت { '..#list..'}')
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
+else 
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
+end
 if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
 data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
@@ -12120,7 +12285,6 @@ if text == "تفعيل الافلام" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل الافلام')
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
 end
-
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
@@ -13324,6 +13488,7 @@ local keyboard = {
 {'تحديث السورس ܁༯','تحديث ܁༯'},
 {'لاصدار ܁༯','معلومات السيرفر ܁༯'},
 {'نسخه احتياطيه ܁༯','رفع نسخه احتياطيه ܁༯'},
+{'تفعيل النسخه التلقائيه ܁༯','تعطيل النسخه التلقائيه ܁༯'},
 {'اعادة التشغيل ܁༯'},
 {'الغاء ܁༯'}
 }
@@ -13578,23 +13743,20 @@ local Name = '*܁༯┆مطور البوت :[ '..UserName..' ]*'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end
 end
-if text == 'معلومات السيرفر ܁༯' then
-ioserver =  io.popen([[
+if text == 'معلومات السيرفر ܁༯' then 
+send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '܁༯┆⊱ { نظام التشغيل } ⊰܁༯┆\n*↺ '"$linux_version"'*' 
-echo '*------------------------------\n*܁༯┆⊱ { الذاكره العشوائيه } ⊰܁༯┆\n*↺ '"$memUsedPrc"'*'
-echo '*------------------------------\n*܁༯┆⊱ { وحـده الـتـخـزيـن } ⊰܁༯┆\n*↺ '"$HardDisk"'*'
-echo '*------------------------------\n*܁༯┆⊱ { الـمــعــالــج } ⊰܁༯┆\n*↺ '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*------------------------------\n*܁༯┆⊱ { موقـع الـسـيـرفـر } ⊰܁༯┆\n*↺ '`curl http://th3boss.com/ip/location`'*'
-echo '*------------------------------\n*܁༯┆⊱ { الــدخــول } ⊰܁༯┆\n*↺ '`whoami`'*'
-echo '*------------------------------\n*܁༯┆⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰܁༯┆\n*↺ '"$uptime"'*'
-]]):read('*all')
-send(msg.chat_id_, msg.id_,ioserver)
-return false
+echo '• { نظام التشغيل } •\n*>> '"$linux_version"'*' 
+echo '*•━━━━━━━━━•*\n•{ الذاكره العشوائيه }•\n*>> '"$memUsedPrc"'*'
+echo '*•━━━━━━━━━•*\n•{ وحـده الـتـخـزيـن }•\n*>> '"$HardDisk"'*'
+echo '*•━━━━━━━━━•*\n•{ الـمــعــالــج }•\n*>> '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*•━━━━━━━━━•*\n•{ الــدخــول }•\n*>> '`whoami`'*'
+echo '*•━━━━━━━━━•*\n•{ مـده تـشغيـل الـسـيـرفـر }\n*>> '"$uptime"'*'
+]]):read('*all'))  
 end
 if text =='الاحصائيات ܁༯' then
 local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
@@ -13769,6 +13931,16 @@ end
 if text == 'تعطيل البوت الخدمي ܁༯' then
 database:set(bot_id..'Matrix:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'\n܁༯┆تم تعطيل البوت الخدمي') 
+end
+if text == 'تفعيل النسخه التلقائيه ܁༯' then
+database:del(bot_id.."AutoFile")
+send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل النسخه الاحتياطيه التلقائيه .") 
+return false
+end
+if text == "تعطيل النسخه التلقائيه ܁༯" then  
+database:set(bot_id.."AutoFile",true) 
+send(msg.chat_id_, msg.id_,"܁༯┆تم تعطيل النسخه الاحتياطيه التلقائيه .") 
+return false  
 end
 if text=="اذاعه خاص ܁༯" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
@@ -15677,14 +15849,14 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"ااصلا حسوني احلا 🙈💞",
-"ااصلا حسوني احلا 🙈💞",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+'مو بشر حلغوم🍼🎀. ',
+"فديت الصاك محح💞🍇 . ",
+"فـدشـي عمـي💞🍇. ",
+"دغـيرهـا شبـي هـاذ 💞🍇. ",
+"شهل الگيمر 💞🍇. ",
+"شهل الصوره تخمبش 💞🍇. ",
+"فديت الحلو 💞 🍇. ",
+"بـبكن حـلك 💞🍇. ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌁ Id : '..Id..' .\n⌁ UsErNaMe : '..UserName_User..' .\n⌁ StAsT : '..Status_Gps..' .\n⌁ MsGs : '..NumMsg..' .\n⌁ Activity : '..TotalMsg..' .\n⌁ GaMeS : '..Num_Games..' .'
@@ -15732,14 +15904,14 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"ااصلا حسوني احلا 🙈💞",
-"ااصلا حسوني احلا 🙈💞",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+'مو بشر حلغوم🍼🎀. ',
+"فديت الصاك محح💞🍇 . ",
+"فـدشـي عمـي💞🍇. ",
+"دغـيرهـا شبـي هـاذ 💞🍇. ",
+"شهل الگيمر 💞🍇. ",
+"شهل الصوره تخمبش 💞🍇. ",
+"فديت الحلو 💞 🍇. ",
+"بـبكن حـلك 💞🍇. ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n⌁ ايـــديك : '..Id..' .\n⌁ يــوزرك : '..UserName_User..' .\n⌁ مــوقعــك : '..Status_Gps..' .\n⌁ رســائــلك : '..NumMsg..' .\n⌁ تفــاعــلك : '..TotalMsg..' .\n⌁ الالعـــاب : '..Num_Games..' .'
@@ -15788,14 +15960,14 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"ااصلا حسوني احلا 🙈💞",
-"ااصلا حسوني احلا 🙈💞",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب ??",
-"بدله لتلح عاد دبسزز 😔💘",
+'مو بشر حلغوم🍼🎀. ',
+"فديت الصاك محح💞🍇 . ",
+"فـدشـي عمـي💞🍇. ",
+"دغـيرهـا شبـي هـاذ 💞🍇. ",
+"شهل الگيمر 💞🍇. ",
+"شهل الصوره تخمبش 💞🍇. ",
+"فديت الحلو 💞 🍇. ",
+"بـبكن حـلك 💞🍇. ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌁ Id : '..Id..'\n⌁ UsErNaMe : * ['..UserName_User..']*\n⌁ StAsT : '..Status_Gps..'\n⌁ MsGs : '..NumMsg..' \n⌁ Activity : '..TotalMsg..'\n⌁ GaMeS : '..Num_Games..'*'
@@ -15843,14 +16015,14 @@ local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sen
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
 local Total_Photp = (Matrixteam.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"ااصلا حسوني احلا 🙈💞",
-"ااصلا حسوني احلا 🙈💞",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+'مو بشر حلغوم🍼🎀. ',
+"فديت الصاك محح💞🍇 . ",
+"فـدشـي عمـي💞🍇. ",
+"دغـيرهـا شبـي هـاذ 💞🍇. ",
+"شهل الگيمر 💞🍇. ",
+"شهل الصوره تخمبش 💞🍇. ",
+"فديت الحلو 💞 🍇. ",
+"بـبكن حـلك 💞🍇. ",
 }
 local Description = Texting[math.random(#Texting)]
 local texte = '\n*⌁ ايديك : '..Id..'\n⌁ يوزرك : * ['..UserName_User..']*\n⌁ موقعك : '..Status_Gps..'\n⌁ رسائلك : '..NumMsg..' \n⌁ تفاعلك : '..TotalMsg..'\n⌁ الالعاب : '..Num_Games..'*'
