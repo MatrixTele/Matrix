@@ -898,24 +898,33 @@ if data.first_name_ ~= false then
 local UserName = (data.username_ or "Matrix_Source")
 local NameUser = "\n*܁༯┆بواسطه ↺* ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "\n*܁༯┆المستخدم ↺* ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserre = "\n*܁༯┆الرتبه ↺* ["..Get_Rank(user_id,msg.chat_id_).."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*܁༯┆بخاصيه ( اݪمــسسح )*\n")
+send(msg.chat_id_, msg.id_,NameUserre.."\n"..text.."\n*܁༯┆بخاصيه ( اݪمــسسح )*\n")
 return false
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*܁༯┆بخاصيه ( اݪڪتم )*\n")
+send(msg.chat_id_, msg.id_,NameUserre.."\n"..text.."\n*܁༯┆بخاصيه ( اݪڪتم )*\n")
 return false
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*܁༯┆بخاصيه ( اݪــطࢪد )*\n")
+send(msg.chat_id_, msg.id_,NameUserre.."\n"..text.."\n*܁༯┆بخاصيه ( اݪــطࢪد )*\n")
 return false
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*܁༯┆بخاصيه ( اݪتـــقييــد )*\n")
+send(msg.chat_id_, msg.id_,NameUserre.."\n"..text.."\n*܁༯┆بخاصيه ( اݪتـــقييــد )*\n")
+return false
+end
+if status == "true" then
+send(msg.chat_id_, msg.id_,NameUserre.."\n"..text)
+return false
+end
+if status == "open" then
+send(msg.chat_id_, msg.id_,NameUserre.."\n"..text)
 return false
 end
 if status == "unlock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text)
+send(msg.chat_id_, msg.id_,NameUserre.."\n"..text)
 return false
 end
 if status == "reply" then
@@ -961,6 +970,103 @@ elseif tonumber(msgs) < 10000000000 then
 message = 'رب التفاعل'  
 end 
 return message 
+end
+function Get_Info(msg,chat,user)
+local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='..user..'')
+local Json_Info = JSON.decode(Chek_Info)
+if Json_Info.ok == true then
+if Json_Info.result.status == "creator" then
+send(msg.chat_id_,msg.id_,'\n- المالك')   
+return false  end 
+if Json_Info.result.status == "member" then
+send(msg.chat_id_,msg.id_,'\n- مجرد عضو هنا ')   
+return false  end
+if Json_Info.result.status == 'left' then
+send(msg.chat_id_,msg.id_,'\n- الشخص غير موجود هنا ')   
+return false  end
+if Json_Info.result.status == "administrator" then
+if Json_Info.result.can_change_info == true then
+info = 'ꪜ'
+else
+info = '✘'
+end
+if Json_Info.result.can_delete_messages == true then
+delete = 'ꪜ'
+else
+delete = '✘'
+end
+if Json_Info.result.can_invite_users == true then
+invite = 'ꪜ'
+else
+invite = '✘'
+end
+if Json_Info.result.can_pin_messages == true then
+pin = 'ꪜ'
+else
+pin = '✘'
+end
+if Json_Info.result.can_restrict_members == true then
+restrict = 'ꪜ'
+else
+restrict = '✘'
+end
+if Json_Info.result.can_promote_members == true then
+promote = 'ꪜ'
+else
+promote = '✘'
+end
+send(chat,msg.id_,'\n- الرتبة : مشرف  '..'\n- والصلاحيات هي ↓ \nٴ━━━━━━━━━━'..'\n- تغير معلومات المجموعه ↞ ❴ '..info..' ❵'..'\n- حذف الرسائل ↞ ❴ '..delete..' ❵'..'\n- حظر المستخدمين ↞ ❴ '..restrict..' ❵'..'\n- دعوة مستخدمين ↞ ❴ '..invite..' ❵'..'\n- تثبيت الرسائل ↞ ❴ '..pin..' ❵'..'\n- اضافة مشرفين جدد ↞ ❴ '..promote..' ❵')   
+end
+end
+end
+function sendVoicebot(chat_id,reply_id,voice,caption,func)
+pcall(tdcli_function({
+ID="SendMessage",
+chat_id_ = chat_id,
+reply_to_message_id_ = reply_id,
+disable_notification_ = 0,
+from_background_ = 1,
+reply_markup_ = nil,
+input_message_content_ = {
+ID="InputMessageVoice",
+voice_ = GetInputFile(voice),
+duration_ = "",
+waveform_ = "",
+caption_ = caption or ""
+}},func or dl_cb,nil))
+end
+function sendAudiobot(chat_id,reply_id,audio,title,caption,performer,func)
+pcall(tdcli_function({
+ID="SendMessage",
+chat_id_ = chat_id,
+reply_to_message_id_ = reply_id,
+disable_notification_ = 0,
+from_background_ = 1,
+reply_markup_ = nil,
+input_message_content_ = {
+ID="InputMessageAudio",
+audio_ = GetInputFile(audio),
+duration_ = "",
+title_ = title or "",
+performer_ = performer or "",
+caption_ = caption or ""
+}},func or dl_cb,nil))
+end
+function download(url, file_path) 
+local respbody = {} 
+local options = { url = url, sink = ltn12.sink.table(respbody), redirect = true } 
+local response = nil 
+options.redirect = false 
+response = {http.request(options)} 
+local code = response[2] 
+local headers = response[3] 
+local status = response[4] 
+if code ~= 200 then return false, code 
+end 
+file = io.open(file_path, "w+") 
+file:write(table.concat(respbody)) 
+file:close() 
+return './'..file_path 
 end
 function download_to_file(url, file_path) 
 local respbody = {} 
@@ -3880,7 +3986,7 @@ if text == ("الردود المتعدده") and Addictive(msg) then
 local list = database:smembers(bot_id..'List:array'..msg.chat_id_..'')
 text = " ܁༯┆قائمه الردود المتعدده \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
-text = text..""..k..">> ("..v..") » {رساله}\n"
+text = text..""..k..">> ("..v..") > {رساله}\n"
 end
 if #list == 0 then
 text = " ܁༯┆لا يوجد ردود متعدده"
@@ -10434,6 +10540,8 @@ local Text= [[
 ⌁ #Description ↺ تعليق الصوره
 ⌁ #custom ↺ اللقب
 ⌁ #bio ↺ البايو
+⌁ قناة تعين الايدي @GKK_KK
+
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
@@ -11749,32 +11857,24 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[2]}, start_function, nil)
 return false
 end
-if text and text:match("ضع لقب (.*)") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
-local namess = text:match("ضع لقب (.*)")
-function Function_Matrix(extra, result, success)
-Reply_Status(msg,result.sender_user_id_,"reply","*܁༯┆تم تععين لقب*")  
-https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_invite_users=True")
-https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&custom_title="..namess)
+if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+local timsh = text:match("^وضع لقب (.*)$")
+function start_function(extra, result, success)
+local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
+local getInfo = JSON.decode(chek)
+if getInfo.result.can_promote_members == false then
+send(msg.chat_id_, msg.id_,'• لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه') 
+return false  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
-return false
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n܁༯┆العضو > ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix_Source')..') '
+status  = '\n܁༯┆الايدي > '..result.sender_user_id_..'\n• تم ضافه {'..timsh..'} كلقب له'
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&custom_title="..timsh)
+end,nil)
 end
-if text and text:match("^(ضع لقب) @(.*) (.*)$") and Constructor(msg) then
-local username = {string.match(text, "^(ضع لقب) @(.*) (.*)$")}
-function Function_Matrix(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end
-Reply_Status(msg,result.id_,"reply","*܁༯┆تم تعيين لقب*")  
-https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_invite_users=True")
-https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&custom_title="..username[3])
-else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username[2]}, Function_Matrix, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
 if text == ("حذف لقب") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
@@ -11784,8 +11884,8 @@ send(msg.chat_id_, msg.id_,'܁༯┆البوت ليس مشرف يرجى ترقي
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n܁༯┆العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix_Source')..')'
-status  = '\n܁༯┆الايدي » `'..result.sender_user_id_..'`\n܁༯┆تم حذف لقبه من الكروب'
+usertext = '\n܁༯┆العضو > ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix_Source')..')'
+status  = '\n܁༯┆الايدي > `'..result.sender_user_id_..'`\n܁༯┆تم حذف لقبه من الكروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 end,nil)
@@ -11805,7 +11905,7 @@ if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_," ܁༯┆عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-usertext = '\n܁༯┆العضو » ['..result.title_..'](t.me/'..(username or 'Matrix_Source')..')'
+usertext = '\n܁༯┆العضو > ['..result.title_..'](t.me/'..(username or 'Matrix_Source')..')'
 status  = '\n܁༯┆تم حذف لقبه من الكروب'
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
@@ -12133,14 +12233,16 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n܁༯┆اضغط على الاسم ليتم نسخه')
 end
-if text == "تعطيل الابراج" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '܁༯┆تم تعطيل الابراج')
+if text == "تعطيل الابراج" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل الابراج" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل الابراج')
+Reply_Status(msg,msg.sender_user_id_,"lock","*܁༯┆تم تعطيل الابراج*")  
+return false
+end 
+if text == "تفعيل الابراج" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"open")
-end
+Reply_Status(msg,msg.sender_user_id_,"lock","*܁༯┆تم تفعيل الابراج*")  
+return false
+end 
 if text and text:match("^برج (.*)$") and database:get(bot_id.."Matrix:brj_Bots"..msg.chat_id_) == "open" then
 local Textbrj = text:match("^برج (.*)$")
 gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
@@ -12153,28 +12255,32 @@ sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
 end
-if text == "تعطيل حساب العمر" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '܁༯┆تم تعطيل حساب العمر')
+if text == "تعطيل حساب العمر" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل حساب العمر" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل حساب العمر')
+Reply_Status(msg,msg.sender_user_id_,"lock","*܁༯┆تم تعطيل حساب العمر*")  
+return false
+end 
+if text == "تفعيل حساب العمر" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"open")
-end
+Reply_Status(msg,msg.sender_user_id_,"lock","*܁༯┆تم تفعيل حساب العمر*")  
+return false
+end 
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
 ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
-if text == "تعطيل الانستا" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '܁༯┆تم تعطيل الانستا')
+if text == "تعطيل الانستا" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"close")
-end
-if text == "تفعيل الانستا" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل الانستا')
-database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
-end
+Reply_Status(msg,msg.sender_user_id_,"lock","*܁༯┆تم تعطيل الانستا*")  
+return false
+end 
+if text == "تفعيل الانستا" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+database:set(bot_id.."Matrix:Lock:Join"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","*܁༯┆تم تفعيل الانستا*")  
+return false
+end 
 if text == 'السيرفر' and DevMatrix(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
@@ -12202,14 +12308,16 @@ os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg')
 end
 end
 end
-if text == "تعطيل الافلام" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '܁༯┆تم تعطيل الافلام')
+if text == "تعطيل الافلام" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"close")
-end
-if text == "تفعيل الافلام" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل الافلام')
+Reply_Status(msg,msg.sender_user_id_,"lock","*܁༯┆تم تعطيل الابراج*")  
+return false
+end 
+if text == "تفعيل الافلام" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"open")
-end
+Reply_Status(msg,msg.sender_user_id_,"lock","*܁༯┆تم تفعيل الابراج*")  
+return false
+end 
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
@@ -12643,7 +12751,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Matrix_Source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
+if text == 'اريد بوت' or text == 'اريد مطور' or text == '@IZlZ7I' or text == '@Matrix_Source' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
 Text = [[
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 - Dev Name : [ᯓ 𝗄ٰ𝖾ُ𝖺ٰ𝗍ٰ𝗈ٰ𝗇 .](t.me/IZlZ7I)
@@ -12696,21 +12804,6 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 return false
 end
 if text == 'الاوامر' and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n܁༯┆عذࢪاَ يڪلبي\n܁༯┆عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
 if not Addictive(msg) then
 send(msg.chat_id_,msg.id_,' هذا الامر خاص للادمنية فقط')
 return false
@@ -12746,7 +12839,11 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == 'اوامر الرتب' then  
+if text == 'اوامر الرتب' and Addictive(msg) then  
+if not Addictive(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص للادمنية فقط')
+return false
+end
 local Text =[[*
 ܁༯┆يمكنك مسح رتب المجموعة من خلال الازرار في الاسفل*
 ]]
@@ -12774,11 +12871,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == 'التسليه' and Addictive(msg) then  
-if not Addictive(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص للادمنية فقط')
-return false
-end
+if text == 'التسليه' then 
 local Text =[[*
 ܁༯┆اهلا بك في اوامر التسليه .
 *
@@ -16950,7 +17043,7 @@ local Teext =[[*
 ܁༯┆المتحركه
 ܁༯┆الملفات
 ܁༯┆الصور
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆الماركداون
 ܁༯┆البوتات
 ܁༯┆التكرار
