@@ -12682,11 +12682,11 @@ dofile("Matrix.lua")
 send(msg.chat_id_, msg.id_, "*Ok Im Reload ...*")
 end
 
-if text == "تفعيل تفاعلي " and Owner(msg) then
+if text == "تفعيل الرسائل اليوميه" and Addictive(msg) then
 send(msg.chat_id_, msg.id_, '*܁༯┆تم تفعيل الرسائل اليوميه*')
 database:set(bot_id.."msg:match:"..msg.chat_id_,true)
 end
-if text == "تعطيل تفاعلي" and Owner(msg) then
+if text == "تعطيل الرسائل اليوميه" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,'*܁༯┆تم تعطيل الرسائل اليوميه*')
 database:del(bot_id.." msg:match:"..msg.chat_id_)
 end
@@ -12696,11 +12696,11 @@ get_msg = database:get(bot_id.."msg:match:"..msg.sender_user_id_..":"..msg.chat_
 gms = get_msg + 1
 database:setex(bot_id..'msg:match:'..msg.sender_user_id_..":"..msg.chat_id_,86400,gms)
 end
-if text == "تفاعلي" and tonumber(msg.reply_to_message_id_) == 0 then    
+if text == "تفاعلي اليوم" and tonumber(msg.reply_to_message_id_) == 0 then    
 get_msg = database:get(bot_id.."msg:match:"..msg.sender_user_id_..":"..msg.chat_id_) or 0
 send(msg.chat_id_, msg.id_,"*܁༯┆عدد رسائلك الكلي هو :-*\n"..get_msg.." *من الرسائل*")
 end  
-if text == "تفاعله" and tonumber(msg.reply_to_message_id_) > 0 then    
+if text == "تفاعله اليوم" and tonumber(msg.reply_to_message_id_) > 0 then    
 if tonumber(msg.reply_to_message_id_) ~= 0 then 
 function prom_reply(extra, result, success) 
 get_msg = database:get(bot_id.."msg:match:"..result.sender_user_id_..":"..msg.chat_id_) or 0
@@ -12974,7 +12974,7 @@ Text = [[*
 ܁༯┆الصوت
 ܁༯┆الجهات
 ܁༯┆الاشعارات
-𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ܁༯┆قناة البوت ↺* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
 ]]
 send(msg.chat_id_, msg.id_,Text)
