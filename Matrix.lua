@@ -13447,7 +13447,7 @@ if DevMatrix(msg) then
 local Text = '*܁༯┆مرحبا بك في كيبورد اوامر الاذاعة*'
 local keyboard = {
 {'اذاعه خاص ܁༯','المطورين ܁༯','اذاعه ܁༯'},
-{'تفعيل الاذاعه ܁༯','تعطيل الاذاعه ܁༯'},
+{'تفعيل الاذاعه ܁༯','اذاعه بالتثبيت ܁༯','تعطيل الاذاعه ܁༯'},
 {'اذاعه بالتوجيه ܁༯','اذاعه بالتوجيه خاص ܁༯'},
 {'رجوع 🔚'},
 }
@@ -13946,16 +13946,6 @@ if text == 'تعطيل البوت الخدمي ܁༯' then
 database:set(bot_id..'Matrix:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'\n܁༯┆تم تعطيل البوت الخدمي') 
 end
-if text == 'تفعيل النسخه التلقائيه ܁༯' then
-database:del(bot_id.."AutoFile")
-send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل النسخه الاحتياطيه التلقائيه .") 
-return false
-end
-if text == "تعطيل النسخه التلقائيه ܁༯" then  
-database:set(bot_id.."AutoFile",true) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم تعطيل النسخه الاحتياطيه التلقائيه .") 
-return false  
-end
 if text=="اذاعه خاص ܁༯" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
 send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
@@ -13971,6 +13961,15 @@ send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل الم
 return false
 end
 database:setex(bot_id.."Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
+return false
+end  
+if text=="اذاعه بالتثبيت ܁༯" and msg.reply_to_message_id_ == 0  then
+if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then 
+send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+return false
+end
+database:setex(bot_id.."Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
 return false
 end  
