@@ -942,31 +942,31 @@ end,nil)
 end -- end
 function Total_message(msgs)  
 local message = ''  
-if tonumber(msgs) > 100 then 
+if tonumber(msgs) < 100 then 
 message = 'غير متفاعل' 
-elseif tonumber(msgs) > 200 then 
+elseif tonumber(msgs) < 200 then 
 message = 'بده يتحسن' 
-elseif tonumber(msgs) > 400 then 
+elseif tonumber(msgs) < 400 then 
 message = 'شبه متفاعل' 
-elseif tonumber(msgs) > 700 then 
+elseif tonumber(msgs) < 700 then 
 message = 'متفاعل' 
-elseif tonumber(msgs) > 1200 then 
+elseif tonumber(msgs) < 1200 then 
 message = 'متفاعل قوي' 
-elseif tonumber(msgs) > 2000 then 
+elseif tonumber(msgs) < 2000 then 
 message = 'متفاعل جدا' 
-elseif tonumber(msgs) > 3500 then 
+elseif tonumber(msgs) < 3500 then 
 message = 'اقوى تفاعل'  
-elseif tonumber(msgs) > 4000 then 
+elseif tonumber(msgs) < 4000 then 
 message = 'متفاعل نار' 
-elseif tonumber(msgs) > 4500 then 
+elseif tonumber(msgs) < 4500 then 
 message = 'قمة التفاعل' 
-elseif tonumber(msgs) > 5500 then 
+elseif tonumber(msgs) < 5500 then 
 message = 'اقوى متفاعل' 
-elseif tonumber(msgs) > 7000 then 
+elseif tonumber(msgs) < 7000 then 
 message = 'ملك التفاعل' 
-elseif tonumber(msgs) > 9500 then 
+elseif tonumber(msgs) < 9500 then 
 message = 'امبروطور التفاعل' 
-elseif tonumber(msgs) > 10000000000 then 
+elseif tonumber(msgs) < 10000000000 then 
 message = 'رب التفاعل'  
 end 
 return message 
@@ -13153,7 +13153,7 @@ send(msg.chat_id_, msg.id_,'> البوت ليس ادمن يرجى ترقيتي !
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
-if tonumber(data.member_count_) > tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,'> عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
@@ -13293,7 +13293,7 @@ end
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'*> المجموعه مفعله سابقا *')
 end
-if tonumber(data.member_count_) > tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,'> عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 else
 local Text = '*> تم تفعيل البوت في المجموعة*'
@@ -17440,7 +17440,7 @@ end
 if (data.ID == "UpdateNewMessage") then
 local msg = data.message_
 local text = msg.content_.text_
-if msg.date_ and msg.date_ > tonumber(os.time() - 30) then
+if msg.date_ and msg.date_ < tonumber(os.time() - 30) then
 print("OLD MESSAGE")
 return false
 end
