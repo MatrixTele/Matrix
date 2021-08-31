@@ -853,7 +853,7 @@ keyboard.inline_keyboard = {
 {text = 'التالي ...', callback_data=user.."/homelocks1"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/helps"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat..'&text='..URL.escape(Texti)..'&message_id='..msgid..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -12782,7 +12782,10 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=msg.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},
+},
+{
+{text = 'Carbon', callback_data=msg.sender_user_id_.."/helps"},
 },
 {
 {text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
@@ -13119,7 +13122,7 @@ Text = [[*
 > المتجر ، الملفات
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > اوامر المطور في البوت
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄??
 > تفعيل ، تعطيل ، الاحصائيات
 > رفع، تنزيل > { منشئ اساسي }
 > مسح الاساسين ، المنشئين الاساسين 
@@ -13806,7 +13809,7 @@ return false
 end
 if text =='تغيير المطور الاساسي ܁༯' and VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'> ارسل ايدي المطور الاساسي الجديد')
-database:set(bot_id..'Matrix:Ed:DevBots',true) 
+database:set(bot_id..'Ed:DevBots',true) 
 end
 if text =='تغيير المطور الاساسي ܁༯' and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'> تسرسح')
@@ -13863,7 +13866,7 @@ if text == "الاشتراك الاجباري ܁༯"  or text == "تفعيل ا�
 send(msg.chat_id_, msg.id_,'> عذا الامر للمطور الاساسي فقط .')
 end
 end
-if database:get(bot_id.."Matrix:Ed:DevBots") then
+if database:get(bot_id.."Ed:DevBots") then
 if text and text:match("^(%d+)$") then
 local IdDe = text:match("^(%d+)$")
 send(msg.chat_id_,msg.id_, "> تم تحفظ المعلومات اضغط ( تحديث الملفات > ) للتنفيذ")
@@ -13878,7 +13881,7 @@ token = "]]..token..[["
 Sudo = ]]..IdDe..[[  
 ]])
 A:close()
-database:del(bot_id.."Matrix:Ed:DevBots")
+database:del(bot_id.."Ed:DevBots")
 end
 end
 if text == 'تفعيل البوت الخدمي ܁༯' then
@@ -14228,7 +14231,7 @@ keyboard.inline_keyboard = {
 {text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/helps"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageCaption?chat_id='..Chat_id..'&caption='..URL.escape(Tuuuuext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -15860,7 +15863,7 @@ keyboard.inline_keyboard = {
 {text = 'تفعيل الانستا', callback_data=data.sender_user_id_.."/Matrix:insta_bot"},{text = 'تعطيل الانستا', callback_data=data.sender_user_id_.."/unMatrix:insta_bot"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/helps"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -16932,8 +16935,8 @@ local Teext =[[*
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > يمكنك اختيار مجموعة الالعاب .
 > ملاحظة العاب السورس تعطي نقاط فقط .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
-> قناة البوت > [Matrix](t.me/Matrix_Source)
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16944,7 +16947,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
 },
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="https://t.me/Matrix_Source"},
+{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16992,8 +16995,8 @@ local Teext =[[*
 > يمكنك الان اختيار لعبة .
 > قم بارسال اللعبه في المجموعة .
 > ملاحظة العاب السورس تعطي نقاط فقط .
-𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
-> قناة البوت > [Matrix](t.me/Matrix_Source)
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17050,10 +17053,109 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/helps') then
+if tonumber(Text:match('(.*)/helps')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+> أهلا بك عزيزي . 
+> في اعدادات المجموعه . 
+> يمكنك استخدام الازرار عبر ضغط عليهم .
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'الاوامر', callback_data=data.sender_user_id_.."/help"},
+},
+{
+{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+},
+{
+{text = 'الالعاب', callback_data=data.sender_user_id_.."/gamehome"},{text = 'التسليه', callback_data=data.sender_user_id_.."/tslea0"},
+},
+{
+{text = 'اوامر الرتب', callback_data=data.sender_user_id_.."/rtp0"},
+},
+{
+{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/tslea0') then
+if tonumber(Text:match('(.*)/tslea0')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+> أهلا بك عزيزي . 
+> في اوامر التسليه للمجموعه . 
+> يمكنك استخدام الازرار عبر ضغط عليهم .
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'اغنية', callback_data=data.sender_user_id_.."/aknia"},{text = 'ريمكس', callback_data=data.sender_user_id_.."/remex"},
+},
+{
+{text = 'غنيلي', callback_data=data.sender_user_id_.."/knelee"},{text = 'انمي', callback_data=data.sender_user_id_.."/anematin"},
+},
+{
+{text = 'صوره', callback_data=data.sender_user_id_.."/sphoto"},{text = 'ميمز', callback_data=data.sender_user_id_.."/memz"},
+},
+{
+{text = 'متحركه', callback_data=data.sender_user_id_.."/sgifs"},{text = 'شعر', callback_data=data.sender_user_id_.."/shhar"},
+},
+{
+{text = 'فلم', callback_data=data.sender_user_id_.."/sflm"},{text = 'مسلسل', callback_data=data.sender_user_id_.."/smslsl"},
+},
+{
+{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
+},
+{
+{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/rtp0') then
+if tonumber(Text:match('(.*)/rtp0')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+> أهلا بك عزيزي . 
+> في اوامر الرتب للمجموعه . 
+> يمكنك استخدام الازرار عبر ضغط عليهم .
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'مسح المميزين', callback_data=data.sender_user_id_.."/delvips"},{text = 'مسح الادمنيه', callback_data=data.sender_user_id_.."/deladmin"},
+},
+{
+{text = 'مسح المدراء', callback_data=data.sender_user_id_.."/delmoder"},{text = 'مسح المنشئين', callback_data=data.sender_user_id_.."/delmnsh"},
+},
+{
+{text = 'مسح المنشئين الاساسين', callback_data=data.sender_user_id_.."/delassaseen"},{text = 'مسح المالكين', callback_data=data.sender_user_id_.."/deldelcreatorr"},
+},
+{
+{text = 'مسح المكتومين', callback_data=data.sender_user_id_.."/delktm"},{text = 'مسح المحظورين', callback_data=data.sender_user_id_.."/delban"},
+},
+{
+{text = 'مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/delCmdd"},{text = 'مسح المنظفين', callback_data=data.sender_user_id_.."/delcleanerr"},
+},
+{
+{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
+},
+{
+{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -17062,7 +17164,7 @@ elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر الحمايه اتبع مايلي ...
-𓐄????𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > قفل ، فتح > الامر 
 > تستطيع قفل حمايه كما يلي ...
 > > { بالتقيد ، بالطرد ، بالكتم }
@@ -17086,7 +17188,7 @@ local Teext =[[*
 > الفيديو
 > الانلاين
 > الدردشه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > التوجيه
 > الاغاني
 > الصوت
@@ -17104,7 +17206,7 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17161,7 +17263,7 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17210,7 +17312,7 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17247,7 +17349,7 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17298,7 +17400,7 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17355,7 +17457,7 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17387,7 +17489,10 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+},
+{
+{text = 'Carbon', callback_data=data.sender_user_id_.."/helps"},
 },
 {
 {text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
