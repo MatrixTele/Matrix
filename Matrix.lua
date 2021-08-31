@@ -1244,6 +1244,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
+
 if database:get(bot_id.."Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء > " then   
 send(msg.chat_id_, msg.id_,"> تم الغاء الاذاعه") 
@@ -3220,7 +3221,7 @@ return false
 end
 if text == ("الثانويين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
-t = "\n*> قائمة مطورين الثانويين للبوت *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة مطورين الثانويين للبوت *\n*𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -12486,7 +12487,7 @@ if Text_Dev then
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"\n*- ᗪEᐯEᒪOᑭEᖇ :*\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n ["..data.first_name_.."](T.me/"..data.username_..") *>*")  
+send(msg.chat_id_, msg.id_,"\n*- ᗪEᐯEᒪOᑭEᖇ :*\n*𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n ["..data.first_name_.."](T.me/"..data.username_..") *>*")  
 end,nil)   
 end
 end
@@ -12840,6 +12841,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '• متحركه •', callback_data=msg.sender_user_id_.."/sgifs"},{text = '• شعر •', callback_data=msg.sender_user_id_.."/shhar"},
+},
+{
+{text = '• فلم •', callback_data=msg.sender_user_id_.."/sflm"},{text = '• مسلسل •', callback_data=msg.sender_user_id_.."/smslsl"},
 },
 {
 {text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
@@ -14221,6 +14225,9 @@ keyboard.inline_keyboard = {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
 },
 {
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
+},
+{
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 }
@@ -14257,6 +14264,9 @@ keyboard.inline_keyboard = {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
 },
 {
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
+},
+{
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
 },
 }
@@ -14285,6 +14295,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
+},
+{
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
 },
 {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
@@ -14317,6 +14330,9 @@ keyboard.inline_keyboard = {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
 },
 {
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
+},
+{
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
 },
 }
@@ -14345,6 +14361,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
+},
+{
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
 },
 {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
@@ -14377,6 +14396,9 @@ keyboard.inline_keyboard = {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
 },
 {
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
+},
+{
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
 },
 }
@@ -14405,6 +14427,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
+},
+{
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
 },
 {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
@@ -14437,6 +14462,75 @@ keyboard.inline_keyboard = {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
 },
 {
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+},
+}
+local msg_id = msg_idd
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. Chat_id .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/smslsl') then
+local Userid = Text:match('(.*)/smslsl')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/Series.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*> تم اختيار مسلسل لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+},
+{
+{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
+},
+{
+{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
+},
+{
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
+},
+{
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+},
+}
+local msg_id = msg_idd
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. Chat_id .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text and Text:match('(.*)/sflm') then
+local Userid = Text:match('(.*)/sflm')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+data,res = https.request('https://ccccxcc.ml/David/Movies.php')
+if res == 200 then
+photo = json:decode(data)
+if photo.Info == true then
+local Text ='*> تم اختيار فلم لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+},
+{
+{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
+},
+{
+{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
+},
+{
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
+},
+{
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
 },
 }
@@ -14465,6 +14559,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
+},
+{
+{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
 },
 {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
@@ -16827,6 +16924,7 @@ return false
 end
 end
 ---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 if Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
@@ -17166,7 +17264,7 @@ local Teext =[[*
 > اضف ، حذف > { مطور } 
 > قائمه العام ، مسح قائمه العام
 > المطورين ، مسح المطورين
-𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > اضف ، حذف > { رد للكل }
 > وضع ، حذف > { كليشه المطور } 
 > مسح ردود المطور ، ردود المطور 
