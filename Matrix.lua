@@ -5738,7 +5738,7 @@ end
 
 return false
 end
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+if not creatorA(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'> لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
@@ -5833,7 +5833,7 @@ end
 return false
 end
 local username = text:match("^حظر @(.*)$")
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+if not creatorA(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'> لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
@@ -5908,7 +5908,7 @@ end
 return false
 end
 local userid = text:match("^حظر (%d+)$") 
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+if not creatorA(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'> لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
@@ -6504,7 +6504,7 @@ end
 
 return false
 end
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+if not creatorA(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'> لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
@@ -6546,7 +6546,7 @@ end
 return false
 end 
 local username = text:match("^طرد @(.*)$")
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+if not creatorA(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'> لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
@@ -6597,7 +6597,7 @@ end
 return false
 end 
 local userid = text:match("^طرد (%d+)$") 
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+if not creatorA(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'> لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
@@ -6636,7 +6636,7 @@ end
 
 return false
 end
-if Constructor(msg) then
+if creatorA(msg) then
 database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
 send(msg.chat_id_, msg.id_, '*> تم تعطيل > الحظر ~ والطرد *')
 return false
@@ -6658,9 +6658,9 @@ end
 
 return false
 end
-if Constructor(msg) then
+if creatorA(msg) then
 database:del(bot_id.."Ban:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '> تم تفعيل > الحظر ~ والطرد ')
+send(msg.chat_id_, msg.id_, '*> تم تفعيل > الحظر ~ والطرد *')
 return false
 end
 end
@@ -11448,7 +11448,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب السورس •', callback_data=msg.sender_user_id_.."/gamesos"},
 },
 {
-{text = '• العاب متطورة •', callback_data=msg.sender_user_id_.."/gamemm"},
+{text = '• الالعاب الاحترافية •', callback_data=msg.sender_user_id_.."/gamemm"},
 },
 {
 {text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="https://t.me/Matrix_Source"},
@@ -16940,7 +16940,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب السورس •', callback_data=data.sender_user_id_.."/gamesos"},
 },
 {
-{text = '• العاب متطورة •', callback_data=data.sender_user_id_.."/gamemm"},
+{text = '• الالعاب الاحترافية •', callback_data=data.sender_user_id_.."/gamemm"},
 },
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
@@ -17160,7 +17160,7 @@ elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر الحمايه اتبع مايلي ...
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > قفل ، فتح > الامر 
 > تستطيع قفل حمايه كما يلي ...
 > > { بالتقيد ، بالطرد ، بالكتم }
