@@ -6255,10 +6255,6 @@ database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*> تم الغاء كتمه من هنا*")  
 return false
 end
-if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","> تم قفـل الفارسيه")  
-end
 if text and database:get(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
 database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","*> تم قفل الفارسيه*")  
@@ -17164,7 +17160,7 @@ elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر الحمايه اتبع مايلي ...
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > قفل ، فتح > الامر 
 > تستطيع قفل حمايه كما يلي ...
 > > { بالتقيد ، بالطرد ، بالكتم }
