@@ -9781,7 +9781,7 @@ send(msg.chat_id_, msg.id_,"> تمت ترقية { "..num2.." } من ادمنية
 end
 end,nil)   
 end
-if text ==("المالك") then
+if text == "المالك" or text == "المنشئ" then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -9793,13 +9793,17 @@ send(msg.chat_id_, msg.id_,"> حساب المالك محذوف")
 return false  
 end
 local UserName = (b.username_ or "Matrix_Source")
-send(msg.chat_id_, msg.id_,"> مالك المجموعة ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+Text = "*> Dev Name ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*> Dev User ↬* [@"..UserName.."]"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = ''..b.first_name_..' ',url="t.me/"..UserName or RR17D}}}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..UserName..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)   
 end
 end
 end,nil)   
 end
-if text ==("رفع المالك") and DevBot(msg) then 
+if text == "رفع المالك" or text == "رفع المنشئ" and DevBot(msg) then 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -10274,7 +10278,7 @@ end
 Num_Flood = database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"floodmax") or 0
 local text = 
 "*\n> ااعدادات المجموعه "..
-"\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄"..
+"\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄"..
 "\n> علامة ال {✓} تعني مفعل"..
 "\n> علامة ال {✘} تعني معطل"..
 "\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄"..
@@ -12689,7 +12693,7 @@ Text = [[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝗺𝗮𝘁𝗿𝗶𝘅 𝗰𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
+{text = '𝗺𝗮𝘁𝗿𝗶𝘅 ??𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
 },
 {
 {text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
@@ -13118,7 +13122,7 @@ Text = [[*
 > المتجر ، الملفات
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > اوامر المطور في البوت
-𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄??
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄??
 > تفعيل ، تعطيل ، الاحصائيات
 > رفع، تنزيل > { منشئ اساسي }
 > مسح الاساسين ، المنشئين الاساسين 
