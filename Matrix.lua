@@ -10668,11 +10668,11 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '⌁ '..Description..'\n⌁ ايـــديك : '..Id..' .\n⌁ يــوزرك : '..UserName_User..' .\n⌁ مــوقعــك : '..Status_Gps..' .\n⌁ رســائــلك : '..NumMsg..' .\n⌁ تفــاعــلك : '..TotalMsg..' .\n⌁ البايو : '..getbioY..' \n⌁ الالعـــاب : '..Num_Games..' .'
+local texte = '⌁ '..Description..'\n⌁ ايـــديك : '..Id..' .\n⌁ يــوزرك : '..UserName_User..' .\n⌁ مــوقعــك : '..Status_Gps..' .\n⌁ رســائــلك : '..NumMsg..' .\n⌁ تفــاعــلك : '..TotalMsg..' .\n⌁ الالعـــاب : '..Num_Games..' .'
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n> ايديك : '..Id..'\n> يوزرك : ['..UserName_User..']\n> موقعك : '..Status_Gps..'\n> رسائلك : '..NumMsg..' \n> تفاعلك : '..TotalMsg..'\n> البايو : '..getbioY..' \n> الالعاب : '..Num_Games..''
+local texte = '\n> ايديك : '..Id..'\n> يوزرك : ['..UserName_User..']\n> موقعك : '..Status_Gps..'\n> رسائلك : '..NumMsg..' \n> تفاعلك : '..TotalMsg..'\n> الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10699,7 +10699,7 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = '\n> ايديك : '..Id..'\n> يوزرك : ['..UserName_User..']\n> موقعك : '..Status_Gps..'\n> رسائلك : '..NumMsg..' \n> تفاعلك : '..TotalMsg..'\n> البايو : '..getbioY..' \n> الالعاب : '..Num_Games..''
+local texte = '\n> ايديك : '..Id..'\n> يوزرك : ['..UserName_User..']\n> موقعك : '..Status_Gps..'\n> رسائلك : '..NumMsg..' \n> تفاعلك : '..TotalMsg..'\n> الالعاب : '..Num_Games..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -12479,14 +12479,13 @@ File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '> عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
-if Text_Dev then 
-send(msg.chat_id_, msg.id_,Text_Dev)
-else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"\n*- ᗪEᐯEᒪOᑭEᖇ :*\n*𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n ["..data.first_name_.."](T.me/"..data.username_..") *>*")  
-end,nil)   
-end
+Text = "*> Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*> Dev User ↬* [@"..data.username_.."]"
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or RR17D}}}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..data.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)
 end
 if text == 'الملفات' and DevMatrix(msg) then
 t = '> جميع الملفات : \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n'
@@ -12782,7 +12781,7 @@ keyboard.inline_keyboard = {
 {text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},
 },
 {
-{text = 'Carbon', callback_data=msg.sender_user_id_.."/helps"},
+{text = '• اعدادات المجموعة •', callback_data=msg.sender_user_id_.."/helps"},
 },
 {
 {text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
@@ -13119,7 +13118,7 @@ Text = [[*
 > المتجر ، الملفات
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > اوامر المطور في البوت
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄??
+𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄??
 > تفعيل ، تعطيل ، الاحصائيات
 > رفع، تنزيل > { منشئ اساسي }
 > مسح الاساسين ، المنشئين الاساسين 
@@ -17005,7 +17004,11 @@ if tonumber(Text:match('(.*)/sors0')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > Source Matrix 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+- [Source Channel](t.me/Matrix_Source)
+- [Source Info ](t.me/infoo_Matrix)     
+- [Developer](t.me/IZlZ7I)     
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+- [Tws Matrix](t.me/U41bot)*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17429,7 +17432,7 @@ keyboard.inline_keyboard = {
 {text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
 },
 {
-{text = 'Carbon', callback_data=data.sender_user_id_.."/helps"},
+{text = '• اعدادات المجموعة •', callback_data=data.sender_user_id_.."/helps"},
 },
 {
 {text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
