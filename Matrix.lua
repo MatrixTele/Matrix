@@ -8107,7 +8107,7 @@ if animation.Info == true then
 local Text ='*> تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/sgifs"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8147,7 +8147,7 @@ if Audios.Info == true then
 local Text ='*> تم اختيار مقطع الميمز لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/memz"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8187,7 +8187,7 @@ if Audios.Info == true then
 local Text ='*> تم اختيار الاغنيه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/aknia"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8227,7 +8227,7 @@ if audios.Info == true then
 local Text ='> تم اختيار الشعر لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/shhar"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8267,7 +8267,7 @@ if Audios.Info == true then
 local Text ='*> تم اختيار المقطع الصوتي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/knelee"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8306,7 +8306,8 @@ Audios = json:decode(data)
 if Audios.Info == true then
 local Text ='*> تم اختيار الريمكس لك*'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+keyboard.inline_keyboard = {
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/remex"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8346,7 +8347,7 @@ if photo.Info == true then
 local Text ='*> تم اختيار الصوره لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/sphoto"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8386,7 +8387,7 @@ if photo.Info == true then
 local Text ='*> تم اختيار صورة الانمي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/anematin"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8426,7 +8427,7 @@ if photo.Info == true then
 local Text ='*> تم اختيار فلم لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/sflm"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8466,7 +8467,7 @@ if photo.Info == true then
 local Text ='*> تم اختيار مسلسل لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = '• مرة اخرى •', callback_data=msg.sender_user_id_.."/smslsl"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -14227,7 +14228,7 @@ keyboard.inline_keyboard = {
 {text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/helps"},
+{text = '• اخفاء الامر •', callback_data=Userid.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageCaption?chat_id='..Chat_id..'&caption='..URL.escape(Tuuuuext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -14254,19 +14255,10 @@ local Text ='*> تم اختيار الاغنيه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/aknia"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14287,19 +14279,10 @@ local Text ='*> تم اختيار مقطع الميمز لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/memz"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14320,19 +14303,10 @@ local Text ='*> تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/sgifs"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14353,19 +14327,10 @@ local Text ='> تم اختيار الشعر لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/shhar"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14386,19 +14351,10 @@ local Text ='*> تم اختيار المقطع الصوتي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/knelee"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14419,19 +14375,10 @@ local Text ='*> تم اختيار الريمكس لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/remex"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14452,19 +14399,10 @@ local Text ='*> تم اختيار الصوره لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/sphoto"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14485,19 +14423,10 @@ local Text ='*> تم اختيار مسلسل لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/smslsl"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14518,19 +14447,10 @@ local Text ='*> تم اختيار فلم لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/sflm"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -14551,19 +14471,10 @@ local Text ='*> تم اختيار صورة الانمي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• اغنيه •', callback_data=Userid.."/aknia"},{text = '• ريمكس •', callback_data=Userid.."/remex"},{text = '• انمي •', callback_data=Userid.."/anematin"},
+{text = '• مرة اخرى •', callback_data=Userid.."/anematin"},
 },
 {
-{text = '• صوره •', callback_data=Userid.."/sphoto"},{text = '• ميمز •', callback_data=Userid.."/memz"},{text = '• غنيلي •', callback_data=Userid.."/knelee"},
-},
-{
-{text = '• متحركه •', callback_data=Userid.."/sgifs"},{text = '• شعر •', callback_data=Userid.."/shhar"},
-},
-{
-{text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=Userid.."/addtslbackk"},
+{text = 'العوده', callback_data=Userid.."/addtslbackk"},
 },
 }
 local msg_id = msg_idd
@@ -17081,7 +16992,37 @@ keyboard.inline_keyboard = {
 {text = 'اوامر الرتب', callback_data=data.sender_user_id_.."/rtp0"},
 },
 {
+{text = 'السورس', callback_data=data.sender_user_id_.."/sors0"},
+},
+{
 {text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(.*)/sors0') then
+if tonumber(Text:match('(.*)/sors0')) == tonumber(data.sender_user_id_) then
+local Teext =[[*
+> Source Matrix 
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'Channel Source ،', url="https://t.me/Matrix_Source"},
+},
+{
+{text = 'Annotations Source', url="https://t.me/infoo_Matrix"},
+},
+{
+{text = 'Communication Source', url="https://t.me/U41bot"},
+},
+{
+{text = 'Developer Source !', url="https://t.me/IZlZ7I"},
+},
+{
+{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -17160,7 +17101,7 @@ elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر الحمايه اتبع مايلي ...
-𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > قفل ، فتح > الامر 
 > تستطيع قفل حمايه كما يلي ...
 > > { بالتقيد ، بالطرد ، بالكتم }
@@ -17283,7 +17224,7 @@ local Teext =[[*
 > المطور ، المنشئ الاساسي
 > المنشئ ، المدير ، الادمن
 > المميز ، العضو
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > تفعيل ، تعطيل > الاوامر التاليه ↓
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > الايدي ، الايدي بالصوره
