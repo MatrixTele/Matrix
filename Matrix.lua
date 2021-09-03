@@ -433,7 +433,7 @@ if status == "listsudo" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسسح اݪمطۅࢪيــטּ', callback_data=user_id.."/delsudos"},
+{text = '> مسح المطورين', callback_data=user_id.."/delsudos"},
 },
 
 }
@@ -441,7 +441,7 @@ elseif status == "listDevvrr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسح اݪثاטּــۅييـטּ', callback_data=user_id.."/delDevv"},
+{text = '> مسح الثانويين', callback_data=user_id.."/delDevv"},
 },
 
 }
@@ -449,7 +449,7 @@ elseif status == "listcreatorr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسح اݪمــاݪڪين', callback_data=user_id.."/delcreatorr"},
+{text = '> مسح المالكين', callback_data=user_id.."/delcreatorr"},
 },
 
 }
@@ -457,7 +457,7 @@ elseif status == "listasa" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسسح اݪمنشــئيــטּ اݪاسســـاســـيـטּ', callback_data=user_id.."/delassaseen"},
+{text = '> مسح المنشئين الاساسين', callback_data=user_id.."/delassaseen"},
 },
 
 }
@@ -465,7 +465,7 @@ elseif status == "listmnsh" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مـــسسح اݪمنشئــيـטּ', callback_data=user_id.."/delmnsh"},
+{text = '> مسح المنشئين', callback_data=user_id.."/delmnsh"},
 },
 
 }
@@ -473,7 +473,7 @@ elseif status == "listmder" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــســح اݪـــمدࢪاء', callback_data=user_id.."/delmoder"},
+{text = '> مسح المدراء', callback_data=user_id.."/delmoder"},
 },
 
 }
@@ -481,7 +481,7 @@ elseif status == "listadmin" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مـــسح اݪاډمــטּــيه', callback_data=user_id.."/deladmin"},
+{text = '> مسح الادمنيه', callback_data=user_id.."/deladmin"},
 },
 
 }
@@ -489,7 +489,7 @@ elseif status == "listvip" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مـــسح اݪمـمــيــزيـטּ', callback_data=user_id.."/delvips"},
+{text = '> مسح المميزين', callback_data=user_id.."/delvips"},
 },
 
 }
@@ -497,7 +497,7 @@ elseif status == "listcleanerr" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مـسح اݪــمـטּــظفيــטּ', callback_data=user_id.."/delcleanerr"},
+{text = '> مسح المنظفين', callback_data=user_id.."/delcleanerr"},
 },
 
 }
@@ -505,7 +505,7 @@ elseif status == "listCmdd" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسح اݪاۅامـــࢪ اݪمــضــافــه', callback_data=user_id.."/delCmdd"},
+{text = '> مسح الاوامر المضافه', callback_data=user_id.."/delCmdd"},
 },
 
 }
@@ -513,7 +513,7 @@ elseif status == "listbans" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسسح اݪمحظــۅࢪين ؏ـــام', callback_data=user_id.."/delbanall"},
+{text = '> مسح المحظورين عام', callback_data=user_id.."/delbanall"},
 },
 
 }
@@ -521,7 +521,7 @@ elseif status == "listban" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسسح  اݪمحظــۅࢪيـטּ', callback_data=user_id.."/delban"},
+{text = '> مسح المحظورين', callback_data=user_id.."/delban"},
 },
 
 }
@@ -529,7 +529,7 @@ elseif status == "listktm" then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '> مــسح  اݪمــڪتــۅمين', callback_data=user_id.."/delktm"},
+{text = '> مسح المكتومين', callback_data=user_id.."/delktm"},
 },
 
 }
@@ -9233,7 +9233,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للي بكلبي") and Addictive(msg) then   
 local list = database:smembers(bot_id..'Galby:User'..msg.chat_id_)
-t = "\n> ياكلوب تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> ياكلوب تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -11417,12 +11417,12 @@ end
 return false
 end
 local Text =[[*
-> اهلا بك في قائمة الالعاب .
+> #;ُِ 𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚐𝚊𝚖𝚎 𝚕𝚒𝚜𝚝 .
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> يمكنك اختيار مجموعة الالعاب .
-> ملاحظة العاب السورس تعطي نقاط فقط .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
-> قناة البوت > [Matrix](t.me/Matrix_Source)
+> .َ ‹ 𝘠𝘰𝘶 𝘤𝘢𝘯 𝘤𝘩𝘰𝘰𝘴𝘦 𝘢 𝘨𝘳𝘰𝘶𝘱 𝘰𝘧 𝘨𝘢𝘮𝘦𝘴 .
+> .َ ‹ 𝘕𝘰𝘵𝘦: 𝘛𝘩𝘦 𝘴𝘰𝘶𝘳𝘤𝘦 𝘨𝘢𝘮𝘦𝘴 𝘰𝘯𝘭𝘺 𝘨𝘪𝘷𝘦 𝘱𝘰𝘪𝘯𝘵𝘴 .
+𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16782,12 +16782,12 @@ end
 if Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-> اهلا بك في قائمة الالعاب .
+> #;ُِ 𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚐𝚊𝚖𝚎 𝚕𝚒𝚜𝚝 .
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> يمكنك اختيار مجموعة الالعاب .
-> ملاحظة العاب السورس تعطي نقاط فقط .
+> .َ ‹ 𝘠𝘰𝘶 𝘤𝘢𝘯 𝘤𝘩𝘰𝘰𝘴𝘦 𝘢 𝘨𝘳𝘰𝘶𝘱 𝘰𝘧 𝘨𝘢𝘮𝘦𝘴 .
+> .َ ‹ 𝘕𝘰𝘵𝘦: 𝘛𝘩𝘦 𝘴𝘰𝘶𝘳𝘤𝘦 𝘨𝘢𝘮𝘦𝘴 𝘰𝘯𝘭𝘺 𝘨𝘪𝘷𝘦 𝘱𝘰𝘪𝘯𝘵𝘴 .
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16847,7 +16847,7 @@ local Teext =[[*
 > قم بارسال اللعبه في المجموعة .
 > ملاحظة العاب السورس تعطي نقاط فقط .
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16888,7 +16888,7 @@ local Teext =[[*
 > في اعدادات المجموعه . 
 > يمكنك استخدام الازرار عبر ضغط عليهم .
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16947,7 +16947,7 @@ local Teext =[[*
 > في اوامر التسليه للمجموعه . 
 > يمكنك استخدام الازرار عبر ضغط عليهم .
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16982,7 +16982,7 @@ local Teext =[[*
 > في اوامر الرتب للمجموعه . 
 > يمكنك استخدام الازرار عبر ضغط عليهم .
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
