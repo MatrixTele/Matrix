@@ -9824,21 +9824,12 @@ end,nil)
 end
 
 if text == "غادر" then 
-if DevBot(msg) and not database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
-tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,"> تم مغادرة المجموعه") 
-database:srem(bot_id.."Chek:Groups",msg.chat_id_)  
-end
-return false  
-end
-if text and text:match("^غادر (-%d+)$") then
-local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
-if DevBot(msg) and not database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
-tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,"> تم مغادرة المجموعه") 
-send(GP_ID[2], 0,"> تم مغادرة المجموعه بامر من مطور البوت") 
-database:srem(bot_id.."Chek:Groups",GP_ID[2])  
-return false 
+if DevBot(msg) then 
+_key = {
+{{text="تأكيد الامر",callback_data="OKKADR"..msg.sender_user_id_},{text="الغاء الامر",callback_data="noKikedMe"..msg.sender_user_id_}},
+}
+send_inlin_key(msg.chat_id_," *> قم بتأكيد العمليه الان*",_key,msg.id_)
+return false
 end
 end
 if text == "تفعيل المغادره" and DevMatrix(msg) then   
@@ -10857,7 +10848,7 @@ return false
 end
 if database:get(bot_id.."Matrix:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Matrix:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","> ","🎗","🏵","> ","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","> ","📍","📓","📗","> ","📅","📪","> ","> ","📭","⏰","📺","🎚","☎️","> "}
+Random = {"🍏","🍎","🍐","🍊","🍋","??","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","> ","🎗","🏵","> ","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","> ","📍","📓","📗","> ","📅","📪","> ","> ","📭","⏰","📺","🎚","☎️","> "}
 SM = Random[math.random(#Random)]
 database:set(bot_id.."Matrix:Random:Sm"..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,"> اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
@@ -17458,6 +17449,16 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> تم تنفيذ الامر سابقا*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
+if DAata == 'OKKADR'..data.sender_user_id_ then  
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+if database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> تم المغادرة بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end
 if DAata == 'OkKikedMe'..data.sender_user_id_ then  
 tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -17491,7 +17492,7 @@ end
 end,nil)   
 end
 if DAata == 'noKikedMe'..data.sender_user_id_ then  
-local Text ="*⌁ تم الغاء الطرد بنجاح .*"
+local Text ="*⌁ تم الغاء الامر بنجاح .*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
