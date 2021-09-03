@@ -13666,7 +13666,7 @@ send(msg.chat_id_, msg.id_,'*> احصائيات البوت* \n\n> عدد الم�
 end
 if text == 'لاصدار ܁༯' then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'> اصدار سورس* ماتركس* لديك (*v1.0*) ܁༯')
+send(msg.chat_id_, msg.id_,'> اصدار سورس* ماتركس* لديك (*v1.1*) ܁༯')
 end
 if text == "اعادة التشغيل ܁༯" then  
 dofile("Matrix.lua") 
