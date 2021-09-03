@@ -6270,7 +6270,7 @@ end
 end
 if text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:del(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"lock","⌔︙تـم فـتح الفارسيه\n")  
+Reply_Status(msg,msg.sender_user_id_,"lock","> تـم فـتح الفارسيه\n")  
 end
 if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
@@ -11454,24 +11454,23 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'رسائلي' then
-local nummsg = database:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
-local Text = '• عدد رسائلك هنا *~ '..nummsg..'*'
+local nummsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
+local Text = '> عدد رسائلك هنا *~ '..nummsg..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح رسائلي' then
-database:del(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_)
-local Text = '• تم مسح جميع رسائلك '
+database:del(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_)
+local Text = '> تم مسح جميع رسائلك '
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'سحكاتي' or text == 'تعديلاتي' then
-local edit = database:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = '• عدد التعديلات هنا *~ '..edit..'*'
+local edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Text = '> عدد التعديلات هنا *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
-database:del(bot_id..'message_edit'..msg.chat_id_..':'..msg.sender_user_id_)
-local Text = '• تم مسح جميع تعديلاتك '
-send(msg.chat_id_, msg.id_,Text) 
+database:del(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_)
+send(msg.chat_id_, msg.id_, '> تم مسح جميع تعديلاتك ') 
 end
 if text == 'جهاتي' then
 local addmem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
@@ -12754,7 +12753,6 @@ end
 local Text =[[*
 > توجد > 6 اوامر في البوت
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> ارسل { م0 } > اوامر المنظفين
 > ارسل { م1 } > اوامر الحمايه
 > ارسل { م2 } > اوامر الادمنيه
 > ارسل { م3 } > اوامر المدراء
@@ -12767,13 +12765,10 @@ local Text =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=msg.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=msg.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=msg.sender_user_id_.."/help0"},
+{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=msg.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=msg.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},
+{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
 {text = '• اعدادات المجموعة •', callback_data=msg.sender_user_id_.."/helps"},
@@ -12847,37 +12842,6 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'م0' and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-Text = [[*
-> اوامر البوت للمنظفين 
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> الميديا - لعرض عدد الميديا المرسله
-> امسح - لمسح الميديا المرسله
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> اوامر البوت للمالك ،
-> رفع منظف - تنزيل منظف
-> المنظفين - مسح المنظفين
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
-]]
-send(msg.chat_id_, msg.id_,Text)
-return false
-end
 if text == 'م1' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -14841,7 +14805,7 @@ end
 end
 if Text and Text:match('(.*)/deldelcreatorr') and DevBot(data) then
 if tonumber(Text:match('(.*)/delcreatorr')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."creator"..msg.chat_id_)
+database:del(bot_id.."creator"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*> تم مسح المالكين في المجموعة*")
 end
 end
@@ -14877,13 +14841,13 @@ end
 end
 if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
 if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_)
+database:del(bot_id.."Matrix:List:Cmd:Group:New"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*> تم مسح الاوامر المضافه في المجموعه*")
 end
 end
 if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
 if tonumber(Text:match('(.*)/delcleanerr')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."Matrix:MN:TF"..msg.chat_id_)
+database:del(bot_id.."Matrix:MN:TF"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "*> تم مسح المنظفين في المجموعه*")
 end
 end
@@ -16931,37 +16895,6 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/help0') then
-if tonumber(Text:match('(.*)/help0')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-> اوامر البوت للمنظفين
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> الميديا - لعرض عدد الميديا المرسله
-> امسح - لمسح الميديا المرسله
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> اوامر البوت للمالك ،
-> رفع منظف - تنزيل منظف
-> المنظفين - مسح المنظفين
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
-},
-{
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
-},
-{
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
 elseif Text and Text:match('(.*)/helps') then
 if tonumber(Text:match('(.*)/helps')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
@@ -17131,13 +17064,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17188,13 +17118,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17237,13 +17164,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17274,13 +17198,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17325,13 +17246,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17382,13 +17300,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
@@ -17414,13 +17329,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help0"},
+{text = '• ❷ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},
-},
-{
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},
+{text = '• ❺ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
 {text = '• اعدادات المجموعة •', callback_data=data.sender_user_id_.."/helps"},
