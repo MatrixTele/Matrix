@@ -8485,20 +8485,6 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'Rio:Antk:Rio'..msg.chat_id_,true)  
 end
 if text and text:match("^انطق (.*)$") and not database:get(bot_id..'Rio:Antk:Rio'..msg.chat_id_) then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*> عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(text:match("^انطق (.*)$")))
 Antk = JSON.decode(UrlAntk)
 if UrlAntk.ok ~= false then
@@ -12914,7 +12900,7 @@ return false
 end
 Text = [[*
 > اوامر ادمنية المجموعه ...
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 > رفع، تنزيل > مميز
 > تاك للكل ، عدد الكروب
 > كتم ، حظر ، طرد ، تقيد
