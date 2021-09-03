@@ -17007,12 +17007,8 @@ elseif Text and Text:match('(.*)/sors0') then
 if tonumber(Text:match('(.*)/sors0')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > Source Matrix 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-- [Source Channel](t.me/Matrix_Source)
-- [Source Info ](t.me/infoo_Matrix)     
-- [Developer](t.me/IZlZ7I)     
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-- [Tws Matrix](t.me/U41bot)*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
