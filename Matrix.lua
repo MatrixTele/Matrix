@@ -13108,16 +13108,16 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'*> المجموعه مفعله سابقا *')
+send(msg.chat_id_, msg.id_,'\n*> المجموعة : {'..chat.title_..'}*\n*> تم تفعيلها مسبقا*')
 else
-local Text = '*> تم تفعيل البوت في المجموعة*'
+local Text = '\n*> المجموعة : {'..chat.title_..'}*\n*> تم تفعيلها بنجاح*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'رفع الادمنيه',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '- رفع المالك والادمنية',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 {
-{text = 'قفل الكل',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '- قفل جميع الاوامر',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -13147,10 +13147,12 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '> تم تفعيل مجموعه جديده\n'..
+Text = '> تم تفعيل مجموعه جديده'..
 '\n> بواسطة ~ '..Name..''..
 '\n> ايدي المجموعه ~ `'..IdChat..'`'..
-'\n> عدد اعضاء المجموعه *~ '..NumMember..'*'
+'\n> عدد اعضاء المجموعه *~ '..NumMember..'*'..
+'\n> اسم المجموعه ~ ['..NameChat..']'..
+'\n> الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13173,9 +13175,9 @@ if text == 'تعطيل' and DevBot(msg) then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'• المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'*> تم تعطيلها مسبقا >* {'..chat.title_..'}')
 else
-Reply_Status(msg,result.id_,'reply_Add','• تم تعطيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','*> تم تعطيل المجموعه >* {'..chat.title_..'}')
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -13239,19 +13241,19 @@ else
 var= 'عضو'
 end
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'*> المجموعه مفعله سابقا *')
+send(msg.chat_id_, msg.id_,'\n*> المجموعة : {'..chat.title_..'}*\n*> تم تفعيلها مسبقا*')
 end
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,'> عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
 else
-local Text = '*> تم تفعيل البوت في المجموعة*'
+local Text = '\n*> المجموعة : {'..chat.title_..'}*\n*> تم تفعيلها بنجاح*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'رفع الادمنيه',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '- رفع المالك والادمنية',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 {
-{text = 'قفل الكل',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '- قفل جميع الاوامر',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -13283,10 +13285,12 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '> تم تفعيل مجموعه جديده\n'..
-'\n> بواسطة ~ '..Name..''..
+Text = '> تم تفعيل مجموعه جديده'..
+'\n> من قام بتفعيلها ~ '..Name..''..
 '\n> ايدي المجموعه ~ `'..IdChat..'`'..
-'\n> عدد اعضاء المجموعه *~ '..NumMember..'*'
+'\n> عدد اعضاء المجموعه *~ '..NumMember..'*'..
+'\n> اسم المجموعه ~ ['..NameChat..']'..
+'\n> الرابط ~ ['..LinkGp..']'
 if not DevMatrix(msg) then
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13331,7 +13335,7 @@ database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
 end
 if text == 'كيبورد اوامر الاذاعة ܁༯' then  
 if DevMatrix(msg) then
-local Text = '*> مرحبا بك في كيبورد اوامر الاذاعة*'
+local Text = '*keyboard*'
 local keyboard = {
 {'اذاعه خاص ܁༯','المطورين ܁༯','اذاعه ܁༯'},
 {'تفعيل الاذاعه ܁༯','اذاعه بالتثبيت ܁༯','تعطيل الاذاعه ܁༯'},
@@ -13343,7 +13347,7 @@ return false
 end end
 if text == 'كيبورد الاشتراك الاجباري ܁༯' then  
 if DevMatrix(msg) then
-local Text = '*> مرحبا بك في كيبورد اوامر الاشتراك*'
+local Text = '*keyboard*'
 local keyboard = {
 {'تفعيل الاشتراك الاجباري ܁༯','تعطيل الاشتراك الاجباري ܁༯'},
 {'تغير رساله الاشتراك ܁༯','حذف رساله الاشتراك ܁༯'},
@@ -13372,7 +13376,7 @@ end
 return false
 end
 if DevMatrix(msg) then
-local Text = '*> اهلا بك عزيزي .*\n*> في لوحه الاوامر ألخاصه بالمطور الاساسي .*'
+local Text = '*keyboard*'
 local keyboard = {
 {'start'},
 {'تغيير المطور الاساسي ܁༯','قناه تحديثات السورس ܁༯'},
@@ -13400,9 +13404,9 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Texti = "\n*> أهلآ بك في بوت "..Namebot.." *\n*> اختصاص البوت حماية المجموعات*\n*> لتفعيل البوت عليك اتباع مايلي*\n*> اضف البوت الى مجموعتك*\n*> ارفعه ادمن {مشرف}*\n*> ارسل كلمة { تفعيل } ليتم تفعيل المجموعه*\n*> سيتم ترقيتك منشئ اساسي في البوت*\n*> للعب داخل البوت ارسل  : /play .*"
+Texti = "\n*> أهلآ بك في بوت "..Namebot.." *\n*> اختصاص البوت حماية المجموعات*\n*> لتفعيل البوت عليك اتباع مايلي*\n*> اضف البوت الى مجموعتك*\n*> ارفعه ادمن {مشرف}*\n*> ارسل كلمة { تفعيل } ليتم تفعيل المجموعه*\n*> سيتم ترقيتك منشئ اساسي في البوت*\n*> للعب داخل البوت ارسل  : /play .*\n*> مطور البوت ← {"..UserName.."}*"
 keyboard = {} 
-keyboard.inline_keyboard ={{{text = "اضـــــڣــטּـي 🦇 ،", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
+keyboard.inline_keyboard ={{{text = "- اضفني الى المجموعة", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
 local res = https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
@@ -13427,7 +13431,7 @@ end
 
 return false
 end
-local Text = '*مرحبا بك في العاب البوت اختر ما تريد *'
+local Text = '*keyboard*'
 local keyboard = {
 {'نسبة الخيانة','نسبة الزحف'},
 {'نسبة الكره','نسبة الرجوله','نسبة الحب'},
@@ -13572,8 +13576,8 @@ Zs = {
 }
 send_inlin_key(msg.chat_id_,ZsText,Zs,msg.id_)
 end
-if not DevMatrix(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') and not database:get(bot_id.."Matrix:Filter"..msg.sender_user_id_) then
-send(msg.sender_user_id_,msg.id_,'> تمت ارسال رسالتك الى المطور')    
+if not DevMatrix(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') then
+send(msg.sender_user_id_,msg.id_,'> تمت ارسال رسالتك الى ~ ['..UserName..']')    
 tdcli_function({ID ="GetChat",chat_id_=Id_Sudo},function(arg,chat)  
 tdcli_function({ID ="GetChat",chat_id_=msg.sender_user_id_},function(arg,chat)  
 tdcli_function({ID="ForwardMessages",chat_id_=Id_Sudo,from_chat_id_= msg.sender_user_id_,message_ids_={[0]=msg.id_},disable_notification_=1,from_background_=1},function(arg,data) 
@@ -13640,7 +13644,7 @@ local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
 if Text_Dev then 
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
-local Name = '*> مطور البوت :[ '..UserName..' ]*'
+local Name = '*> مطور البوت :['..UserName..']*'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end
 end
