@@ -41,7 +41,7 @@ port :: ]]..port..[[
 time ::]]..Rtime.."\27[m")
 
 io.popen("mkdir Matrix_Files")
-t = "\27[35m".."\nAll Files Started : \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"..'\27[m'
+t = "\27[35m".."\nAll Files Started : \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"..'\27[m'
 i = 0
 for v in io.popen('ls Matrix_Files'):lines() do
 if v:match(".lua$") then
@@ -3247,7 +3247,7 @@ return false
 end
 if text == ("قائمه العام") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n> قائمة المحظورين عام \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3496,7 +3496,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3520,7 +3520,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3592,7 +3592,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3611,7 +3611,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -3621,7 +3621,7 @@ send(msg.chat_id_, msg.id_, "\n> تم مسح المحظورين")
 end
 if text == ("قائمه العام") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n> قائمة المحظورين عام \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3637,7 +3637,7 @@ return SendMsg_Msgeeslist("listbans",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == ("المطورين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Sudo:User")
-t = "\n*> قائمة مطورين البوت \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3654,7 +3654,7 @@ return SendMsg_Msgeeslist("listsudo",msg.chat_id_,msg.sender_user_id_,msg.id_, t
 end
 if text == "المنشئين الاساسين" and DevBot(msg) then
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
-t = "\n*> قائمة المنشئين الاساسين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة المنشئين الاساسين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3686,7 +3686,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Constructor"..msg.chat_id_)
-t = "\n*> قائمة المنشئين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة المنشئين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3718,7 +3718,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Manager"..msg.chat_id_)
-t = "\n*> قائمة المدراء \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة المدراء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3750,7 +3750,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Mod:User"..msg.chat_id_)
-t = "\n*> قائمة الادمنيه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة الادمنيه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3767,7 +3767,7 @@ return SendMsg_Msgeeslist("listadmin",msg.chat_id_,msg.sender_user_id_,msg.id_, 
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."Special:User"..msg.chat_id_)
-t = "*\n> قائمة مميزين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
+t = "*\n> قائمة مميزين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3799,7 +3799,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Muted:User"..msg.chat_id_)
-t = "\n*> قائمة المكتومين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة المكتومين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3832,7 +3832,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:Ban:User"..msg.chat_id_)
-t = "\n*> قائمة محظورين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة محظورين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -3985,7 +3985,7 @@ end
 end
 if text == ("الردود المتعدده") and Addictive(msg) then
 local list = database:smembers(bot_id..'List:array'..msg.chat_id_..'')
-text = " > قائمه الردود المتعدده \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+text = " > قائمه الردود المتعدده \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 text = text..""..k..">> ("..v..") > {رساله}\n"
 end
@@ -4009,7 +4009,7 @@ return false
 end
 if text == "المالكين" and creatorA(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "\n> قائمة المالكين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة المالكين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -4105,7 +4105,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4255,7 +4255,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4386,7 +4386,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4536,7 +4536,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -4697,7 +4697,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -5195,7 +5195,7 @@ send(msg.chat_id_, msg.id_, ' > تم مسح جميع المطايه')
 end
 if text == ("تاك للحاتات") and Owner(msg) then
 local list = database:smembers(bot_id..'Ownere:User'..msg.chat_id_)
-t = "\n > قائمه حاتات الكروب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n > قائمه حاتات الكروب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5264,7 +5264,7 @@ send(msg.chat_id_, msg.id_, ' > تم مسح جميع المطايه')
 end
 if text == ("تاك للحات") and Owner(msg) then
 local list = database:smembers(bot_id..'Ownerde:User'..msg.chat_id_)
-t = "\n > قائمه حات الكروب \nٴ𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄ٴ\n"
+t = "\n > قائمه حات الكروب \nٴ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ٴ\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5382,7 +5382,7 @@ send(msg.chat_id_, msg.id_, ' > تم تنزيل جميع القروده بالك
 end
 if text == ("تاك للقروده") and Owner(msg) then
 local list = database:smembers(bot_id..'Motee:User'..msg.chat_id_)
-t = "\n > قائمة القروده الكروب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n > قائمة القروده الكروب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5451,7 +5451,7 @@ send(msg.chat_id_, msg.id_, ' > تم تنزيل جميع الحصونه بالك
 end
 if text == ("تاك للحصونه") and Owner(msg) then
 local list = database:smembers(bot_id..'Hors:User'..msg.chat_id_)
-t = "\n > قائمة الحصونه الكروب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n > قائمة الحصونه الكروب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5520,7 +5520,7 @@ send(msg.chat_id_, msg.id_, ' > تم تنزيل جميع البقرات بالك
 end
 if text == ("تاك للبقرات") and Owner(msg) then
 local list = database:smembers(bot_id..'Bakra:User'..msg.chat_id_)
-t = "\n > قائمة البقرات الكروب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n > قائمة البقرات الكروب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5589,7 +5589,7 @@ send(msg.chat_id_, msg.id_, ' > تم تنزيل جميع طليان بالكرو
 end
 if text == ("تاك للطليان") and Owner(msg) then
 local list = database:smembers(bot_id..'Tele:User'..msg.chat_id_)
-t = "\n > قائمة الطليان الكروب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n > قائمة الطليان الكروب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5658,7 +5658,7 @@ send(msg.chat_id_, msg.id_, ' > تم تنزيل جميع جريزي')
 end
 if text == ("تاك للجريذيه") and Owner(msg) then
 local list = database:smembers(bot_id..'Jred:User'..msg.chat_id_)
-t = "\n > قائمة الجريذيه الكروب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n > قائمة الجريذيه الكروب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -6907,7 +6907,7 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-linkgp = '\n> ['..ta.title_..']('..link..') \n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n- ['..link..'] '
+linkgp = '\n> ['..ta.title_..']('..link..') \n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n- ['..link..'] '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -6919,7 +6919,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '\n> ['..ta.title_..']('..linkgpp.result..') \n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n- ['..linkgpp.result..'] '
+linkgp = '\n> ['..ta.title_..']('..linkgpp.result..') \n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n- ['..linkgpp.result..'] '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -7421,7 +7421,7 @@ return false
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
-text = "\n*> قائمة البوتات الموجوده *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+text = "\n*> قائمة البوتات الموجوده *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 local n = 0
 local t = 0
 for i=0 , #admins do 
@@ -7440,7 +7440,7 @@ send(msg.chat_id_, msg.id_, "*> لا توجد بوتات في المجموعه*"
 return false 
 end
 if #admins == i then 
-local a = "\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n*> عدد البوتات التي هنا >> {"..n.."} بوت*\n"
+local a = "\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n*> عدد البوتات التي هنا >> {"..n.."} بوت*\n"
 local f = "*> عدد البوتات التي هي ادمن >> {"..t.."}*\n*> ملاحضه علامة ال (✯) تعني ان البوت ادمن *"
 send(msg.chat_id_, msg.id_, text..a..f)
 end
@@ -7543,7 +7543,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
-t = "*> قائمه الاوامر المضافه  *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "*> قائمه الاوامر المضافه  *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 Cmds = database:get(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 if Cmds then 
@@ -7840,7 +7840,7 @@ if #list == 0 then
 send(msg.chat_id_, msg.id_,"> لا توجد صلاحيات مضافه")
 return false
 end
-t = "\n> قائمة الصلاحيات المضافه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة الصلاحيات المضافه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 var = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..v..msg.chat_id_)
 if var then
@@ -7887,7 +7887,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
-t = "\n> قائمة المنظفين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة المنظفين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -8048,7 +8048,7 @@ send(msg.chat_id_, msg.id_,"> تم ازالة الردود من المجموعة
 end
 if text == ("ترك ردود المدير") and Owner(msg) then
 local list = database:smembers(bot_id.."Matrix:List:Manager"..msg.chat_id_.."")
-text = "> قائمه ردود المدير \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+text = "> قائمه ردود المدير \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 if database:get(bot_id.."Matrix:Add:Rd:Manager:Gif"..v..msg.chat_id_) then
 db = "متحركه 🎭"
@@ -8714,7 +8714,7 @@ send(msg.chat_id_, msg.id_,"> تم ازالة ردود المطور")
 end
 if text == ("ردود المطور") and DevMatrix(msg) then 
 local list = database:smembers(bot_id.."Matrix:List:Rd:Sudo")
-text = "\n> قائمة ردود المطور \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+text = "\n> قائمة ردود المطور \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 if database:get(bot_id.."Matrix:Add:Rd:Sudo:Gif"..v) then
 db = "متحركه 🎭"
@@ -9134,14 +9134,14 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
 },function(ta,Matrix)
-local t = "\n*• قائمة الاعضاء \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
+local t = "\n*• قائمة الاعضاء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*"
 x = 0
 local list = Matrix.members_
 for k, v in pairs(list) do
@@ -9162,7 +9162,7 @@ if text and text:match("^تاك ل (%d+)$") and Addictive(msg) then
 taglimit = text:match("^تاك ل (%d+)$"):gsub('تاك ل ','')
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = taglimit
 },function(ta,Matrix)
-local t = "\n*> قائمة الاعضاء \n 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
+local t = "\n*> قائمة الاعضاء \n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*"
 x = 0
 local list = Matrix.members_
 for k, v in pairs(list) do
@@ -9194,7 +9194,7 @@ end
 return false
 end   
 local list = database:smembers(bot_id..'Zgal:User'..msg.chat_id_)
-t = "\n> ياصخول تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> ياصخول تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -9218,7 +9218,7 @@ end
 return false
 end   
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
-t = "\n> يازواحيف تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> يازواحيف تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -9248,7 +9248,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للتوج") and Addictive(msg) then   
 local list = database:smembers(bot_id..'Tag:User'..msg.chat_id_)
-t = "\n> ياتوج تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> ياتوج تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -9263,7 +9263,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للجلاب") and Addictive(msg) then   
 local list = database:smembers(bot_id..'Glb:User'..msg.chat_id_)
-t = "\n> ياجلاب تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> ياجلاب تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -9278,7 +9278,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للانبياء") and Addictive(msg) then   
 local list = database:smembers(bot_id..'Naby:User'..msg.chat_id_)
-t = "\n> يا انبياء تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> يا انبياء تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -9293,7 +9293,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للمطايه") and Addictive(msg) then   
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
-t = "\n> يمطاية تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> يمطاية تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -9308,7 +9308,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للثولان") and Addictive(msg) then   
 local list = database:smembers(bot_id..'Athol:User'..msg.chat_id_)
-t = "\n> ياثولان تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> ياثولان تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -10258,7 +10258,7 @@ local text =
 "\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄"..
 "\n> علامة ال {✓} تعني مفعل"..
 "\n> علامة ال {✘} تعني معطل"..
-"\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄"..
+"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
 "\n> الروابط > "..lock_links..
 "\n".."> المعرفات > "..lock_user..
 "\n".."> التاك > "..lock_hash..
@@ -10268,7 +10268,7 @@ local text =
 "\n".."> الاشعارات > "..lock_tagservr..
 "\n".."> الماركدون > "..lock_mark..
 "\n".."> التعديل > "..lock_edit..
-"\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄"..
+"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
 "\n".."> الكلايش > "..lock_spam..
 "\n".."> الكيبورد > "..lock_inlin..
 "\n".."> الاغاني > "..lock_vico..
@@ -10277,7 +10277,7 @@ local text =
 "\n".."> الدردشه > "..lock_text..
 "\n".."> الفيديو > "..lock_ved..
 "\n".."> الصور > "..lock_photo..
-"\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄"..
+"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
 "\n".."> الصوت > "..lock_muse..
 "\n".."> الملصقات > "..lock_ste..
 "\n".."> الجهات > "..lock_phon..
@@ -10574,7 +10574,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -10745,7 +10745,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -11418,10 +11418,10 @@ return false
 end
 local Text =[[*
 > #;ُِ 𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚐𝚊𝚖𝚎 𝚕𝚒𝚜𝚝 .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > .َ ‹ 𝘠𝘰𝘶 𝘤𝘢𝘯 𝘤𝘩𝘰𝘰𝘴𝘦 𝘢 𝘨𝘳𝘰𝘶𝘱 𝘰𝘧 𝘨𝘢𝘮𝘦𝘴 .
 > .َ ‹ 𝘕𝘰𝘵𝘦: 𝘛𝘩𝘦 𝘴𝘰𝘶𝘳𝘤𝘦 𝘨𝘢𝘮𝘦𝘴 𝘰𝘯𝘭𝘺 𝘨𝘪𝘷𝘦 𝘱𝘰𝘪𝘯𝘵𝘴 .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 *
 ]]
 keyboard = {} 
@@ -12155,13 +12155,13 @@ if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."Matrix:zhr
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://black-source.tk/BlackTeAM/frills.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n> قائمه الزخرفه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمه الزخرفه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
-send(msg.chat_id_, msg.id_, t..'𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n> اضغط على الاسم ليتم نسخه')
+send(msg.chat_id_, msg.id_, t..'┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n> اضغط على الاسم ليتم نسخه')
 end
 if text == "تعطيل الابراج" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."Matrix:brj_Bots"..msg.chat_id_,"close")
@@ -12291,7 +12291,7 @@ st = https.request('https://vvvzvv.ml/Imagelnfo.php?token='..token..'&url='..sti
 eker = JSON.decode(st)
 if eker.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
-t = "> المنشئين الاساسين تعالو مخرب \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "> المنشئين الاساسين تعالو مخرب \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -12468,7 +12468,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 end,nil)
 end
 if text == 'الملفات' and DevMatrix(msg) then
-t = '> جميع الملفات : \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n'
+t = '> جميع الملفات : \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n'
 i = 0
 for v in io.popen('ls Matrix_Files'):lines() do
 if v:match(".lua$") then
@@ -12485,8 +12485,8 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n> اهلا بك في متجر ملفات ماتركس\n> يوجد في المتجر ملف الردود\n> يتم ادراج الملفات في التحديثات القادمه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
-local TextE = "\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n> تدل علامة (✔) الملف مفعل\n".."> تدل علامة (✖) الملف معطل\n"
+local TextS = "\n> اهلا بك في متجر ملفات ماتركس\n> يوجد في المتجر ملف الردود\n> يتم ادراج الملفات في التحديثات القادمه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+local TextE = "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n> تدل علامة (✔) الملف مفعل\n".."> تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
 local Check_File_is_Found = io.open("Matrix_Files/"..name,"r")
@@ -12657,22 +12657,23 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 Text = [[*
-⦑ Welcome to Source ⦒
-⦑ MATRIX TEAM ⦒
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*
-- [Source Channel](t.me/Matrix_Source)
-- [Source Info ](t.me/infoo_Matrix)     
-- [Developer](t.me/IZlZ7I)     
-* 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 *
-- [TWS MATRIX](t.me/U41bot)
+> Source Matrix 
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝗺𝗮𝘁𝗿𝗶𝘅 ??𝗵𝗮𝗻𝗻𝗲𝗹',url="https://t.me/Matrix_Source"},
+{text = 'Channel Source ،', url="https://t.me/Matrix_Source"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = 'Annotations Source', url="https://t.me/infoo_Matrix"},
+},
+{
+{text = 'Communication Source', url="https://t.me/U41bot"},
+},
+{
+{text = 'Developer Source !', url="https://t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12681,18 +12682,18 @@ return false
 end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == '@IZlZ7I' or text == '@Matrix_Source' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
 Text = [[
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-- Dev Name : [ᯓ 𝗄ٰ𝖾ُ𝖺ٰ𝗍ٰ𝗈ٰ𝗇 .](t.me/IZlZ7I)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+- Dev Name : [ᯓ ُ𝑪ٰ𝒚ُ𝒃ٰ𝒆ٰ𝒓 .](t.me/IZlZ7I)
 - Dev User : @IZlZ7I
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᯓ 𝗄ٰ𝖾ُ𝖺ٰ𝗍ٰ𝗈ٰ𝗇 .',url="https://t.me/IZlZ7I"},
+{text = 'ᯓ ُ𝑪ٰ𝒚ُ𝒃ٰ𝒆ٰ𝒓 .',url="https://t.me/IZlZ7I"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12737,16 +12738,16 @@ send(msg.chat_id_,msg.id_,' هذا الامر خاص للادمنية فقط')
 return false
 end
 local Text =[[*
-> توجد > 6 اوامر في البوت
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> ارسل { م1 } > اوامر الحمايه
-> ارسل { م2 } > اوامر الادمنيه
-> ارسل { م3 } > اوامر المدراء
-> ارسل { م4 } > اوامر المنشئين
-> ارسل { م5 } > اوامر مطورين البوت
-> ارسل { م6 } > اوامر الاعضاء
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+> توجد ↫ 6 اوامر في البوت
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+> ارسل { م1 } ↫ اوامر الحمايه
+> ارسل { م2 } ↫ اوامر الادمنيه
+> ارسل { م3 } ↫ اوامر المدراء
+> ارسل { م4 } ↫ اوامر المنشئين
+> ارسل { م5 } ↫ اوامر مطورين البوت
+> ارسل { م6 } ↫ اوامر الاعضاء
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12757,10 +12758,10 @@ keyboard.inline_keyboard = {
 {text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
-{text = '• اعدادات المجموعة •', callback_data=msg.sender_user_id_.."/helps"},
+{text = '↫ اعدادات المجموعة ', callback_data=msg.sender_user_id_.."/helps"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12792,7 +12793,7 @@ keyboard.inline_keyboard = {
 {text = 'مسح الاوامر المضافه', callback_data=msg.sender_user_id_.."/delCmdd"},{text = 'مسح المنظفين', callback_data=msg.sender_user_id_.."/delcleanerr"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12821,7 +12822,7 @@ keyboard.inline_keyboard = {
 {text = '• فلم •', callback_data=msg.sender_user_id_.."/sflm"},{text = '• مسلسل •', callback_data=msg.sender_user_id_.."/smslsl"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12839,7 +12840,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -12854,7 +12855,7 @@ keyboard.inline_keyboard = {
 {text = '{ قائمة الاوامر }', callback_data=msg.sender_user_id_.."/help"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12876,7 +12877,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13003,7 +13004,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13155,7 +13156,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13211,7 +13212,7 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
@@ -13265,17 +13266,17 @@ Text = [[
 *₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
 ܁༯??܁༯ • ❷ • • ❸ • • ❹ •• ❺ • 𝟔 𝟕 ?? 𝟗 • ⓿ •
 𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
 ⓵⓶⓷⓸⓹❻❼❽❾⓿
 ⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
  𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
  ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
  𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
  • ⓿ •  • ❶ •  • ❷ •  • ❸ •  • ❹ •  • ❺ •   𝟔  𝟕   𝟖   𝟗
 ０ １ ２ ３ ４ ５ ６ ７８９
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 *]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13308,7 +13309,7 @@ end
 if text and text:match("^/start msg(.*)$") then
 sl = text:match("^/start msg(.*)$")
 local list = database:smembers(bot_id.."Matrix:List:Filter:text"..sl)
-t = "\n> قائمة الكلمات الممنوعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة الكلمات الممنوعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 if v then
 t = t..""..k.."- ["..v.."]\n"
@@ -13774,7 +13775,7 @@ send(msg.chat_id_, msg.id_, "\n> تم مسح قائمة المطورين  ")
 end
 if text == ("قائمة العام ܁༯") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."Matrix:GBan:User")
-t = "\n> قائمة المحظورين عام \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -13807,7 +13808,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("الثانويين ܁༯") then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
-t = "\n> قائمة مطورين الثانويين للبوت \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "\n> قائمة مطورين الثانويين للبوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -13961,7 +13962,7 @@ keyboard.inline_keyboard = {
 {text = '• فلم •', callback_data=Userid.."/sflm"},{text = '• مسلسل •', callback_data=Userid.."/smslsl"},
 },
 {
-{text = '• اخفاء الامر •', callback_data=Userid.."/delamr"},
+{text = '• ↫ اخفاء الامر •', callback_data=Userid.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageCaption?chat_id='..Chat_id..'&caption='..URL.escape(Tuuuuext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -16572,10 +16573,10 @@ if Text and Text:match('(.*)/gamehome') then
 if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > #;ُِ 𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚐𝚊𝚖𝚎 𝚕𝚒𝚜𝚝 .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > .َ ‹ 𝘠𝘰𝘶 𝘤𝘢𝘯 𝘤𝘩𝘰𝘰𝘴𝘦 𝘢 𝘨𝘳𝘰𝘶𝘱 𝘰𝘧 𝘨𝘢𝘮𝘦𝘴 .
 > .َ ‹ 𝘕𝘰𝘵𝘦: 𝘛𝘩𝘦 𝘴𝘰𝘶𝘳𝘤𝘦 𝘨𝘢𝘮𝘦𝘴 𝘰𝘯𝘭𝘺 𝘨𝘪𝘷𝘦 𝘱𝘰𝘪𝘯𝘵𝘴 .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 *
 ]]
 keyboard = {} 
@@ -16596,7 +16597,7 @@ elseif Text and Text:match('(.*)/gamesos') then
 if tonumber(Text:match('(.*)/gamesos')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > قائمه الالعاب الموجوده
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > لعبة البات > بات
 > لعبة التخمين > خمن
 > لعبه الاسرع > الاسرع
@@ -16612,7 +16613,7 @@ local Teext =[[*
 > لعبة لو خيروك > لو خيروك
 > لعبة الرياضيات > رياضيات
 > لعبة الانكليزي > انكليزي
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > مجوهراتي > لعرض عدد الارباح
 > بيع مجوهراتي + العدد > لستبدال كل مجوهره ب50 رساله*
 ]]
@@ -16631,11 +16632,11 @@ elseif Text and Text:match('(.*)/gamemm') then
 if tonumber(Text:match('(.*)/gamemm')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اهلا بك في قائمة الالعاب المحترفة .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > يمكنك الان اختيار لعبة .
 > قم بارسال اللعبه في المجموعة .
 > ملاحظة العاب السورس تعطي نقاط فقط .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 *
 ]]
 keyboard = {} 
@@ -16676,7 +16677,7 @@ local Teext =[[*
 > أهلا بك عزيزي . 
 > في اعدادات المجموعه . 
 > يمكنك استخدام الازرار عبر ضغط عليهم .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 *
 ]]
 keyboard = {} 
@@ -16697,7 +16698,7 @@ keyboard.inline_keyboard = {
 {text = 'السورس', callback_data=data.sender_user_id_.."/sors0"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16735,7 +16736,7 @@ local Teext =[[*
 > أهلا بك عزيزي . 
 > في اوامر التسليه للمجموعه . 
 > يمكنك استخدام الازرار عبر ضغط عليهم .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 *
 ]]
 keyboard = {} 
@@ -16759,7 +16760,7 @@ keyboard.inline_keyboard = {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16770,7 +16771,7 @@ local Teext =[[*
 > أهلا بك عزيزي . 
 > في اوامر الرتب للمجموعه . 
 > يمكنك استخدام الازرار عبر ضغط عليهم .
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 *
 ]]
 keyboard = {} 
@@ -16794,7 +16795,7 @@ keyboard.inline_keyboard = {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16803,11 +16804,11 @@ elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر الحمايه اتبع مايلي ...
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > قفل ، فتح > الامر 
 > تستطيع قفل حمايه كما يلي ...
 > > { بالتقيد ، بالطرد ، بالكتم }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > الروابط
 > المعرف
 > التاك
@@ -16817,7 +16818,7 @@ local Teext =[[*
 > المتحركه
 > الملفات
 > الصور
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > الماركداون
 > البوتات
 > التكرار
@@ -16827,14 +16828,14 @@ local Teext =[[*
 > الفيديو
 > الانلاين
 > الدردشه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > التوجيه
 > الاغاني
 > الصوت
 > الجهات
 > الاشعارات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16854,20 +16855,20 @@ elseif Text and Text:match('(.*)/help2') then
 if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر ادمنية المجموعه ...
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > رفع، تنزيل > مميز
 > تاك للكل ، عدد الكروب
 > كتم ، حظر ، طرد ، تقيد
 > الغاء كتم ، الغاء حظر ، الغاء تقيد
 > منع ، الغاء منع 
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > عرض القوائم كما يلي ...
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > المكتومين
 > المميزين 
 > قائمه المنع
 > الصلاحيات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > تثبيت ، الغاء تثبيت
 > الرابط ، الاعدادات
 > الترحيب ، القوانين
@@ -16877,18 +16878,18 @@ local Teext =[[*
 > جهاتي ،ايدي ، رسائلي
 > سحكاتي ، مجوهراتي
 > كشف البوتات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > وضع ، ضع > الاوامر التاليه 
 > اسم ، رابط ، صوره
 > قوانين ، وصف ، ترحيب
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > حذف ، مسح > الاوامر التاليه
 > قائمه المنع ، المحظورين 
 > المميزين ، المكتومين ، القوانين
 > المطرودين ، البوتات ، الصوره
 > الصلاحيات ، الرابط
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16908,33 +16909,33 @@ elseif Text and Text:match('(.*)/help3') then
 if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر المدراء في المجموعه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > رفع ، تنزيل > ادمن
 > الادمنيه 
 > رفع، كشف > القيود
 > تنزيل الكل > { بالرد ، بالمعرف }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > لتغيير رد الرتب في البوت
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > تغير رد > {اسم الرتبه والنص} 
 > المطور ، المنشئ الاساسي
 > المنشئ ، المدير ، الادمن
 > المميز ، العضو
-𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > تفعيل ، تعطيل > الاوامر التاليه ↓
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > الايدي ، الايدي بالصوره
 > ردود المطور ، ردود المدير
 > اطردني ، الالعاب ، الرفع
 > الحظر ، الرابط ، اوامر التحشيش
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > تعين ، مسح >{ الايدي }
 > رفع الادمنيه ، مسح الادمنيه
 > ردود المدير ، مسح ردود المدير
 > اضف ، حذف > { رد }
 > تنظيف > { عدد }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16954,12 +16955,12 @@ elseif Text and Text:match('(.*)/help4') then
 if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر المنشئ الاساسي
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > رفع ، تنزيل >{ منشئ }
 > المنشئين ، مسح المنشئين
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > اوامر المنشئ المجموعه
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > رفع ، تنزيل > { مدير }
 > المدراء ، مسح المدراء
 > اضف رسائل > { بالرد او الايدي }
@@ -16967,8 +16968,8 @@ local Teext =[[*
 > اضف ، حذف > { امر }
 > الاوامر المضافه ، مسح الاوامر المضافه
 > تنزيل جميع الرتب
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16988,35 +16989,35 @@ elseif Text and Text:match('(.*)/help5') then
 if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر المطور الاساسي  
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > حظر عام ، الغاء العام
 > اضف ، حذف > { مطور } 
 > قائمه العام ، مسح قائمه العام
 > المطورين ، مسح المطورين
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > اضف ، حذف > { رد للكل }
 > وضع ، حذف > { كليشه المطور } 
 > مسح ردود المطور ، ردود المطور 
 > تحديث ،  تحديث السورس 
 > تعين عدد الاعضاء > { العدد }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > تفعيل ، تعطيل > { الاوامر التاليه ↓}
 > البوت الخدمي ، المغادرة ، الاذاعه
 > ملف > { اسم الملف }
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > مسح جميع الملفات 
 > المتجر ، الملفات
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > اوامر المطور في البوت
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > تفعيل ، تعطيل ، الاحصائيات
 > رفع، تنزيل > { منشئ اساسي }
 > مسح الاساسين ، المنشئين الاساسين 
 > غادر ، غادر > { والايدي }
 > اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 > اذاعه خاص ، اذاعه خاص بالتوجيه 
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17036,13 +17037,13 @@ elseif Text and Text:match('(.*)/Services') then
 if tonumber(Text:match('(.*)/Services')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 > اوامر الاعضاء > ↓
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > اليـوتيوب ..
 > امر التشغيل > ❨ تفعيل اليوتيوب ❩
 > امر التعطيل > ❨ تعطيل اليوتيوب ❩
 > البـحث عن اغنية ↓
 > بحث > اسم الاغنية
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > السورس • موقعي • رتبتي • معلوماتي 
 > رقمي • لقبي • اغنيه • صلاحياتي • غنيلي
 > ميمز • متحركه • صوره • ريمكس • فلم • مسلسل • انمي
@@ -17054,7 +17055,7 @@ local Teext =[[*
 > ايدي المجموعه • معلومات المجموعه 
 > نسبه الحب • نسبه الكره • نسبه الغباء 
 > نسبه الرجوله • نسبه الانوثه • التفاعل
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 > لقبه + بالرد
 > كول + الكلمه
 > زخرفه + اسمك
@@ -17069,8 +17070,8 @@ local Teext =[[*
 > ايدي • كشف  > بالرد • بالمعرف • بالايدي
 > تحويل + بالرد > صوره • ملصق • صوت • بصمه
 > انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17089,17 +17090,16 @@ end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-> توجد > 6 اوامر في البوت
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> ارسل { م0 } > اوامر المنظفين
-> ارسل { م1 } > اوامر الحمايه
-> ارسل { م2 } > اوامر الادمنيه
-> ارسل { م3 } > اوامر المدراء
-> ارسل { م4 } > اوامر المنشئين
-> ارسل { م5 } > اوامر مطورين البوت
-> ارسل { م6 } > اوامر الاعضاء
-𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-> قناة البوت >* [- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .](t.me/Matrix_Source)
+> توجد ↫ 6 اوامر في البوت
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+> ارسل { م1 } ↫ اوامر الحمايه
+> ارسل { م2 } ↫ اوامر الادمنيه
+> ارسل { م3 } ↫ اوامر المدراء
+> ارسل { م4 } ↫ اوامر المنشئين
+> ارسل { م5 } ↫ اوامر مطورين البوت
+> ارسل { م6 } ↫ اوامر الاعضاء
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17110,10 +17110,10 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = '• اعدادات المجموعة •', callback_data=data.sender_user_id_.."/helps"},
+{text = '↫ اعدادات المجموعة ', callback_data=data.sender_user_id_.."/helps"},
 },
 {
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -17416,7 +17416,7 @@ if msg.content_.ID == "MessageChatAddMembers" then
 if msg.content_.members_[0].id_ == tonumber(bot_id) then 
 print("it is Bot")
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*"
+local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
@@ -18378,7 +18378,7 @@ database:incr(bot_id..'Matrix:message_edit'..result.chat_id_..result.sender_user
 local Text = result.content_.text_
 if database:get(bot_id.."Matrix:Lock:edit"..msg.chat_id_) and not Text and not creatorA(result) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "المالكين مخرب تعالو وينكم ؟\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
+t = "المالكين مخرب تعالو وينكم ؟\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
