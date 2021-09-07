@@ -9779,8 +9779,7 @@ send(msg.chat_id_, msg.id_,"> حساب المالك محذوف")
 return false  
 end
 local UserName = (b.username_ or "Matrix_Source")
-local getbioY = getbio(msg.sender_user_id_)
-Text = "*> مالك المجموعة ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*> بايو ↬* ["..getbioY.."]"
+Text = "*> مالك المجموعة ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*> يوزر ↬* [@"..UserName.."]"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = ''..b.first_name_..' ',url="t.me/"..UserName or RR17D}}}
 local msg_id = msg.id_/2097152/0.5
@@ -12136,7 +12135,7 @@ _key = {
 {{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .', url="t.me/Matrix_Source"}},
+{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧??𝗮𝗠 .', url="t.me/Matrix_Source"}},
 {{text = '܁༯مطور السورس܁༯', url="t.me/IZlZ7I"}},
 }
 send_inlin_key(msg.chat_id_," *> قائمه الالعاب الاحترافيه اضغط للعب*",_key,msg.id_)
@@ -12461,8 +12460,7 @@ sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '> عدد م
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-local getbioY = getbio(msg.sender_user_id_)
-Text = "*> Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*> Dev bio ↬* ["..getbioY.."]"
+Text = "*> Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*> Dev user ↬* [@"..data.username_.."]"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or RR17D}}}
 local msg_id = msg.id_/2097152/0.5
@@ -18315,7 +18313,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الخيانة" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
+numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","??💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
 sendhen = numj[math.random(#numj)]
 local Text = '> اليك النتائج الخـاصة :\n\n> نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
