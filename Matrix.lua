@@ -3221,7 +3221,7 @@ return false
 end
 if text == ("الثانويين") and DevMatrix(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
-t = "\n*> قائمة مطورين الثانويين للبوت *\n*𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
+t = "\n*> قائمة مطورين الثانويين للبوت *\n*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."Matrix:User:Name" .. v)
 if username then
@@ -7366,7 +7366,7 @@ database:srem(bot_id.."Matrix:List:Filter:Photo"..msg.content_.photo_.sizes_[1].
 return false
 end  
 end
-if text == "مسح البوتات" and Addictive(msg) then 
+if text == "مسح البوتات" or text == "طرد البوتات" and Addictive(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9233,7 +9233,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("تاك للي بكلبي") and Addictive(msg) then   
 local list = database:smembers(bot_id..'Galby:User'..msg.chat_id_)
-t = "\n> ياكلوب تعالو يردونكم 😹😭💞 . \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄\n"
+t = "\n> ياكلوب تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -9779,7 +9779,8 @@ send(msg.chat_id_, msg.id_,"> حساب المالك محذوف")
 return false  
 end
 local UserName = (b.username_ or "Matrix_Source")
-Text = "*> Dev Name ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*> Dev User ↬* [@"..UserName.."]"
+local getbioY = getbio(msg.sender_user_id_)
+Text = "*> مالك المجموعة ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*> بايو ↬* ["..getbioY.."]"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = ''..b.first_name_..' ',url="t.me/"..UserName or RR17D}}}
 local msg_id = msg.id_/2097152/0.5
@@ -10255,7 +10256,7 @@ end
 Num_Flood = database:hget(bot_id.."Matrix:flooding:settings:"..msg.chat_id_,"floodmax") or 0
 local text = 
 "*\n> ااعدادات المجموعه "..
-"\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄"..
+"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
 "\n> علامة ال {✓} تعني مفعل"..
 "\n> علامة ال {✘} تعني معطل"..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
@@ -12460,7 +12461,8 @@ sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '> عدد م
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-Text = "*> Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*> Dev User ↬* [@"..data.username_.."]"
+local getbioY = getbio(msg.sender_user_id_)
+Text = "*> Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*> Dev bio ↬* ["..getbioY.."]"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or RR17D}}}
 local msg_id = msg.id_/2097152/0.5
@@ -12681,19 +12683,16 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 return false
 end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == '@IZlZ7I' or text == '@Matrix_Source' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
-Text = [[
+Text = [[*
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-- Dev Name : [ᯓ ُ𝑪ٰ𝒚ُ𝒃ٰ𝒆ٰ𝒓 .](t.me/IZlZ7I)
-- Dev User : @IZlZ7I
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+- Dev Name :* [.  !َََََِِِ𝙃َََََِِ!𝙪𝙨ِِ𝙎𝙚 𝙞𝙣َِِ!َََََ𝙈ََََِِ!َََِِ𝙖َ𝙩𝙧َ𝙞𝙓 .](t.me/IZlZ7I)
+*- Dev User :* @IZlZ7I
+*┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᯓ ُ𝑪ٰ𝒚ُ𝒃ٰ𝒆ٰ𝒓 .',url="https://t.me/IZlZ7I"},
-},
-{
-{text = '↫ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '.  !َََََِِِ𝙃َََََِِ!𝙪𝙨ِِ𝙎𝙚 𝙞𝙣َِِ!َََََ𝙈ََََِِ!َََِِ𝙖َ𝙩𝙧َ𝙞𝙓 .',url="https://t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -13233,7 +13232,7 @@ if text == 'قناة السورس 📡 .' then
 Text = [[*
 > Welcome to Source
 > TeAm - ”Matrix”
- 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄*
+ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17416,7 +17415,7 @@ if msg.content_.ID == "MessageChatAddMembers" then
 if msg.content_.members_[0].id_ == tonumber(bot_id) then 
 print("it is Bot")
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
-local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄??𓐄𓐄𓐄𓐄𓐄𓐄\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*"
+local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
