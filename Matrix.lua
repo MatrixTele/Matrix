@@ -7840,7 +7840,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -7854,7 +7854,7 @@ if animation.Info == true then
 local Text ='*• تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape(animation.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7880,7 +7880,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -7894,7 +7894,7 @@ if Audios.Info == true then
 local Text ='*• تم اختيار مقطع الميمز لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7920,7 +7920,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -7934,7 +7934,7 @@ if Audios.Info == true then
 local Text ='*• تم اختيار الاغنيه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7960,7 +7960,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -7974,7 +7974,7 @@ if audios.Info == true then
 local Text ='• تم اختيار الشعر لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8000,7 +8000,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -8014,7 +8014,7 @@ if Audios.Info == true then
 local Text ='*• تم اختيار المقطع الصوتي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8040,7 +8040,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -8053,7 +8053,7 @@ Audios = json:decode(data)
 if Audios.Info == true then
 local Text ='*• تم اختيار الريمكس لك*'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+keyboard.inline_keyboard = {{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8079,7 +8079,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -8093,7 +8093,7 @@ if photo.Info == true then
 local Text ='*• تم اختيار الصوره لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8119,7 +8119,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -8133,7 +8133,7 @@ if photo.Info == true then
 local Text ='*• تم اختيار صورة الانمي لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8173,7 +8173,7 @@ if photo.Info == true then
 local Text ='*• تم اختيار فلم لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8199,7 +8199,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -8213,7 +8213,7 @@ if photo.Info == true then
 local Text ='*• تم اختيار مسلسل لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape(photo.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -8238,7 +8238,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11144,7 +11144,7 @@ keyboard.inline_keyboard = {
 {text = '• العاب متطورة •', callback_data=msg.sender_user_id_.."/gamemm"},
 },
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="https://t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11825,7 +11825,7 @@ _key = {
 {{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .', url="t.me/Matrix_Source"}},
+{{text = 'MαTRιX TEαM .', url="t.me/Matrix_Source"}},
 {{text = '⌔مطور السورس⌔', url="t.me/IZlZ7I"}},
 }
 send_inlin_key(msg.chat_id_," *• قائمه الالعاب الاحترافيه اضغط للعب*",_key,msg.id_)
@@ -12318,7 +12318,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12352,17 +12352,14 @@ end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
 Text = [[
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
-• Dev Name : [- 𝗛𝗮!𝗦𝘀𝗢 .](t.me/IZlZ7I)
+• Dev Name : [˛ HυSsαιN .](t.me/IZlZ7I)
 • Dev User : @IZlZ7I
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗛𝗮!𝗦𝘀𝗢 . ',url="https://t.me/IZlZ7I"},
-},
-{
-{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '˛ HυSsαιN .',url="https://t.me/IZlZ7I"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12377,7 +12374,7 @@ Text = "\n*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -12926,7 +12923,7 @@ Text = [[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url="https://t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .',url="https://t.me/Matrix_Source"},
 },
 {
 {text = '𝗯𝗼𝘁 𝘁𝘄𝗶𝘀𝗹',url="t.me/U41bot"},
@@ -16344,7 +16341,7 @@ keyboard.inline_keyboard = {
 {text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
 },
 {
-{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .', url="https://t.me/Matrix_Source"},
+{text = 'MαTRιX TEαM .', url="https://t.me/Matrix_Source"},
 },
 {
 {text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
@@ -16799,13 +16796,13 @@ if database:get(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id) == 'tru
 database:del(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id)
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> تم حفظ الردود بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 else
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> تم تنفيذ الامر سابقا*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16815,7 +16812,7 @@ tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bo
 if database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> تم المغادرة بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16825,28 +16822,28 @@ tdcli_function({ID="ChangeChatMemberStatus",chat_id_=Chat_id,user_id_=data.sende
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if (data and data.code_ and data.code_ == 3) then 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> البوت ليس ادمن يرجى ترقيتي !*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> عذرا لا استطيع طرد ادمنية الكروب*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if data and data.ID and data.ID == 'Ok' then
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> تم الطرد بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16856,7 +16853,7 @@ if DAata == 'noKikedMe'..data.sender_user_id_ then
 local Text ="*← تم الغاء الامر بنجاح .*"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16872,7 +16869,7 @@ local idchci = "-100"..idch
 local animation = DAata:match("^animation(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="• تم اللغاء منعها بنجاح"
 inline = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16883,7 +16880,7 @@ local idchci = database:get(bot_id.."Matrix:Filter:msg")
 local photo = DAata:match("^pito(.*)$")
 local Text ="• تم اللغاء منعها بنجاح"
 inline = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16895,7 +16892,7 @@ local idchci = "-100"..idch
 local Sticker = DAata:match("^Sticker(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="• تم اللغاء منعه بنجاح"
 inline = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16905,7 +16902,7 @@ if DAata and DAata:match("^delallSticker(.*)$") and Addictive(data) then
 local delallSticker = DAata:match("^delallSticker(.*)$")
 local Text ="• تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16918,7 +16915,7 @@ if DAata and DAata:match("^delallanimation(.*)$") and Addictive(data) then
 local delallmation = DAata:match("^delallanimation(.*)$")
 local Text ="• تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -16931,7 +16928,7 @@ if DAata and DAata:match("^delallph(.*)$") and Addictive(data) then
 local delallph = DAata:match("^delallph(.*)$")
 local Text ="• تم اللغاء منع كل الصور"
 inline = {
-{{text = '- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 .',url='http://t.me/Matrix_Source'}},
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -18188,7 +18185,7 @@ if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
 print("\27[34m"..[[
 >> The Bot is Running
 >> Bot source > Matrix
->>- 𝗠𝗮𝗧𝗿𝗶𝗫 𝗧𝗲𝗮𝗠 . > @Matrix_Source
+>>MαTRιX TEαM . > @Matrix_Source
 >>Source developer > @IZlZ7I
 ███╗░░░███╗░█████╗░████████╗██████╗░██╗██╗░░██╗
 ████╗░████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝
