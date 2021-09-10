@@ -239,7 +239,7 @@ end
 return var
 end 
 function ChekAdd(chat_id)
-if database:sismember(bot_id.."Matrix:Chek:Groups",chat_id) then
+if database:sismember(bot_id.."Chek:Groups",chat_id) then
 var = true
 else 
 var = false
@@ -1018,7 +1018,7 @@ local info_file = io.open('./'..bot_id..'.json', "r"):read('*a')
 local groups = JSON.decode(info_file)
 vardump(groups)  
 for idg,v in pairs(groups.GP_BOT) do
-database:sadd(bot_id..'Matrix:Chek:Groups',idg) 
+database:sadd(bot_id..'Chek:Groups',idg) 
 database:set(bot_id.."Matrix:Lock:tagservrbot"..idg,true)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
@@ -1144,7 +1144,7 @@ send(msg.chat_id_, msg.id_,"• تم الغاء الاذاعه")
 database:del(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
-local list = database:smembers(bot_id.."Matrix:Chek:Groups") 
+local list = database:smembers(bot_id.."Chek:Groups") 
 if msg.content_.text_ then
 for k,v in pairs(list) do 
 send(v, 0,"["..msg.content_.text_.."]")  
@@ -1722,7 +1722,7 @@ send(msg.chat_id_, msg.id_,"• تم الغاء الاذاعه")
 database:del(bot_id.."Matrix:Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
-local list = database:smembers(bot_id.."Matrix:Chek:Groups") 
+local list = database:smembers(bot_id.."Chek:Groups") 
 if msg.content_.text_ then
 for k,v in pairs(list) do 
 send(v, 0,"["..msg.content_.text_.."]")  
@@ -1757,7 +1757,7 @@ database:del(bot_id.."Matrix:Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sen
 return false  
 end 
 if msg.forward_info_ then 
-local list = database:smembers(bot_id.."Matrix:Chek:Groups")   
+local list = database:smembers(bot_id.."Chek:Groups")   
 for k,v in pairs(list) do  
 tdcli_function({ID="ForwardMessages",
 chat_id_ = v,
@@ -11377,7 +11377,7 @@ end
 return false
 end
 if text == "تنظيف الكروبات" and DevMatrix(msg) then
-local group = database:smembers(bot_id..'Matrix:Chek:Groups')  
+local group = database:smembers(bot_id..'Chek:Groups')  
 local w = 0
 local q = 0
 for i = 1, #group do
@@ -11385,21 +11385,21 @@ tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
 print('\27[30;34m← THE BOT IS NOT ADMIN ↓\n← '..group[i]..'\n\27[1;37m')
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
 print('\27[30;35m← THE BOT IS LEFT GROUP ↓\n← '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
 print('\27[30;36m← THE BOT IS KICKED GROUP ↓\n← '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if #group == i then 
@@ -12056,12 +12056,12 @@ database:set(bot_id..'Matrix:Num:Add:Bot',Num)
 send(msg.chat_id_, msg.id_,'• تم وضع عدد الاعضاء *~'..Num..'* عضو')
 end
 if text =='الاحصائيات' and DevBot(msg) then
-local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
+local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'• احصائيات البوت \n\n• عدد المجموعات *~ '..Groups..'\n• عدد المشتركين ~ '..Users..'*')
 end
 if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
-local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
+local list = database:smembers(bot_id..'Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
 NAME = 'Matrix Chat'
@@ -12228,7 +12228,7 @@ if text == 'نقل الاحصائيات' and DevMatrix(msg) then
 local Users = database:smembers('Matrix:'..bot_id.."userss")
 local Groups = database:smembers('Matrix:'..bot_id..'groups') 
 for i = 1, #Groups do
-database:sadd(bot_id..'Matrix:Chek:Groups',Groups[i])  
+database:sadd(bot_id..'Chek:Groups',Groups[i])  
 end
 for i = 1, #Users do
 database:sadd(bot_id..'Matrix:UsersBot',Users[i])  
@@ -12938,7 +12938,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 ?? 𖥅 𖥃 ?? 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 ?? ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 ?? 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 𖣆 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13141,7 +13141,7 @@ send(msg.chat_id_, msg.id_,ioserver)
 return false
 end
 if text =='الاحصائيات ⌔' then
-local Groups = database:scard(bot_id..'Matrix:Chek:Groups')  
+local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'*• احصائيات البوت* \n\n• عدد المجموعات *~ '..Groups..'*\n• عدد المشتركين ~* '..Users..'*')
 end
@@ -13181,7 +13181,7 @@ end
 return false
 end
 if text == "تنظيف الكروبات ⌔" then
-local group = database:smembers(bot_id..'Matrix:Chek:Groups')  
+local group = database:smembers(bot_id..'Chek:Groups')  
 local w = 0
 local q = 0
 for i = 1, #group do
@@ -13189,21 +13189,21 @@ tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
 print('\27[30;34m»» THE BOT IS NOT ADMIN ↓\n»» '..group[i]..'\n\27[1;37m')
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
 print('\27[30;35m»» THE BOT IS LEFT GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
 print('\27[30;36m»» THE BOT IS KICKED GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
-database:srem(bot_id..'Matrix:Chek:Groups',group[i])  
+database:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if #group == i then 
@@ -13522,7 +13522,7 @@ add_file(msg,msg.chat_id_,ID_FILE,File_Name)
 database:del(bot_id..'docu:Bots') 
 end
 if text == 'نسخه احتياطيه ⌔' then
-local list = database:smembers(bot_id..'Matrix:Chek:Groups')  
+local list = database:smembers(bot_id..'Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
 NAME = 'Matrix Chat'
@@ -13608,7 +13608,7 @@ end
 function tdcli_update_callback(data)
 if data.ID == "UpdateChannel" then 
 if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
-database:srem(bot_id..'Matrix:Chek:Groups','-100'..data.channel_.id_)  
+database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
 end
 end
 if data.ID == "UpdateNewCallbackQuery" then
@@ -17326,7 +17326,7 @@ local texting = {
 "- 𝒉𝒊 : 𝘱𝘭𝘦𝘢𝘴𝘦 𝘨𝘰 𝘰𝘶𝘵. 𝘮𝘺 𝘧𝘢𝘤𝘦 .",
 "*- اريـد البد بسدك واشبـع فيـاي 🥺💚 *",
 "- 𝒉𝒊 : 𝘪 𝘥𝘰𝘯 𝘵 𝘢𝘥𝘮𝘪𝘵 𝘵𝘰 𝘢𝘯𝘺𝘰𝘯𝘦 .",
-"- ??𝒊 : 𝘨𝘦𝘵 𝘰𝘶𝘵 𝘰𝘧 𝘮𝘺 𝘸𝘰𝘳𝘭𝘥 .",
+"- 𝒉𝒊 : 𝘨𝘦𝘵 𝘰𝘶𝘵 𝘰𝘧 𝘮𝘺 𝘸𝘰𝘳𝘭𝘥 .",
 "*- ڪٰٖݪشيَ ۅٛ ﭑنتهہٰ ويايَ يح٘لۿہ‌َٖ حٖ٘تىَ حٖ٘زنيَ 🤍. *",
 "⁃ ڪَاטּ ليَ أصدقآء چَيدين، ثم آلودا؏ .",
 "مــأ ۿـداڪ اللـۃ وتحـن؟",
@@ -18202,23 +18202,23 @@ local list = database:smembers(bot_id..'Matrix:UsersBot')
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
 end 
-local list = database:smembers(bot_id..'Matrix:Chek:Groups') 
+local list = database:smembers(bot_id..'Chek:Groups') 
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=v,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-database:srem(bot_id..'Matrix:Chek:Groups',v)  
+database:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
-database:srem(bot_id..'Matrix:Chek:Groups',v)  
+database:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
-database:srem(bot_id..'Matrix:Chek:Groups',v)  
+database:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.code_ and data.code_ == 400 then
-database:srem(bot_id..'Matrix:Chek:Groups',v)  
+database:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
-database:sadd(bot_id..'Matrix:Chek:Groups',v)  
+database:sadd(bot_id..'Chek:Groups',v)  
 end end,nil)
 end;end;end
