@@ -3819,7 +3819,7 @@ database:srem(bot_id.."botss:Matrix:List:Rd:Sudo", text)
 return false
 end
 end
-if text == ("مسح الردود المتعدده") and DevMatrix(msg) then
+if text == ("مسح الردود المتعدده") and creatorA(msg) then
  
 local list = database:smembers(bot_id.."botss:Matrix:List:Rd:Sudo")
 for k,v in pairs(list) do  
@@ -3830,7 +3830,7 @@ database:del(bot_id.."botss:Matrix:List:Rd:Sudo")
 end
 send(msg.chat_id_, msg.id_,"تم حذف ردود المتعدده")
 end
-if text == ("الردود المتعدده") and DevMatrix(msg) then
+if text == ("الردود المتعدده") and creatorA(msg) then
  
 local list = database:smembers(bot_id.."botss:Matrix:List:Rd:Sudo")
 text = "\nقائمة ردود المتعدده \n━━━━━━━━\n"
@@ -3843,12 +3843,12 @@ text = "لا توجد ردود متعدده"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
-if text == "اضف رد متعدد" and DevMatrix(msg) then
+if text == "اضف رد متعدد" and creatorA(msg) then
  
 database:set(bot_id.."botss:Matrix:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"ارسل الرد الذي اريد اضافته")
 end
-if text == "حذف رد متعدد" and DevMatrix(msg) then
+if text == "حذف رد متعدد" and creatorA(msg) then
  
 database:set(bot_id.."botss:Matrix:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"ارسل الان الكلمه لحذفها ")
@@ -3941,7 +3941,7 @@ end
 end,nil)
 send(msg.chat_id_, msg.id_, "*• تم مسح المالكين*")
 end
-if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
+if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMatrix(msg) then  
 function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","*• تم ترقيته مالك*")  
@@ -3949,7 +3949,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^رفع مالك @(.*)$") and creatorA(msg) then  
+if text and text:match("^رفع مالك @(.*)$") and DevMatrix(msg) then  
 local username = text:match("^رفع مالك @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
@@ -3966,7 +3966,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^رفع مالك (%d+)$") and creatorA(msg) then  
+if text and text:match("^رفع مالك (%d+)$") and DevMatrix(msg) then  
 local userid = text:match("^رفع مالك (%d+)$") 
 database:sadd(bot_id.."creator"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*• تم ترقيته مالك*")  
@@ -3980,7 +3980,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^تنزيل مالك @(.*)$") and creatorA(msg) then  
+if text and text:match("^تنزيل مالك @(.*)$") and DevMatrix(msg) then  
 local username = text:match("^تنزيل مالك @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
@@ -3993,7 +3993,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^تنزيل مالك (%d+)$") and creatorA(msg) then  
+if text and text:match("^تنزيل مالك (%d+)$") and DevMatrix(msg) then  
 local userid = text:match("^تنزيل مالك (%d+)$") 
 database:srem(bot_id.."creator"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*• تم تنزيله من المالكين*")  
@@ -8825,7 +8825,36 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, Function_Matrix, nil)
 end
-if text == "تاك للكل" or text == "تاك" and Addictive(msg) then
+if text == ("@all") and creatorA(msg) then   
+if database:get(bot_id.."chat:tagall"..msg.chat_id_) then  return send(msg.chat_id_, msg.id_,"يمكنك عمل تاك للكل كل *10 دقائق* فقط") end
+database:setex(bot_id..'chat:tagall'..msg.chat_id_,600,true)
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_
+},function(ta,Matrix)
+x = 0
+tags = 0
+local list = Matrix.members_
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if x == 5 or x == tags or k == 0 then
+tags = x + 5
+t = "#all"
+end
+x = x + 1
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
+if x == 5 or x == tags or k == 0 then
+local Text = t:gsub('#all,','#all\n')
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end
+end,nil)
+end
+end,nil)
+end,nil)
+end
+if text == ("تاك للكل") and Addictive(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8836,24 +8865,53 @@ local keyboard = {}
 keyboard.inline_keyboard = {{
 {text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*\n> عذࢪاَ يڪلبي\n> عليڪ الاشتࢪاڪ في قناه البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,Matrixteam)
-local t = ""
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
+},function(ta,Matrix)
+local t = "\n*• قائمة الاعضاء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*"
 x = 0
-local list = Matrixteam.members_
+local list = Matrix.members_
 for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
 x = x + 1
-if database:get(bot_id.."Matrix:User:Name"..v.user_id_) then
-t = t..""..x.." - [@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
-else
-t = t..""..x.." - "..v.user_id_.."\n"
+if data.username_ then
+t = t.."*︙"..x.."︙>* {[@"..data.username_.."]} \n"
 end
-end
+if k == 0 then
+t = t.."*يمكنك عمل تاك  + العدد مثال تاك ل 5*"
 send(msg.chat_id_,msg.id_,t)
+end
+end,nil)
+end
+end,nil)
+end
+if text and text:match("^تاك ل (%d+)$") and Addictive(msg) then   
+taglimit = text:match("^تاك ل (%d+)$"):gsub('تاك ل ','')
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = taglimit
+},function(ta,Matrix)
+local t = "\n*> قائمة الاعضاء \n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*"
+x = 0
+local list = Matrix.members_
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+x = x + 1
+if data.username_ then
+t = t.."*︙"..x.."︙l>* {[@"..data.username_.."]} \n"
+else
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t.."*︙"..x.."︙l>* [@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
+end
+if k == 0 then
+send(msg.chat_id_,msg.id_,t)
+end
+end,nil)
+end
 end,nil)
 end
 if text == "تاك للمشرفين" or text == "admin" and DevBot(msg) and not database:get(bot_id..'tgg:bot:api'..msg.chat_id_) then            
@@ -8880,65 +8938,6 @@ t = t..", ["..Adminame.."](tg://user?id="..v.user_id_..")"
 if m == 1 or m == tgad or k == 0 then
 local Text = t:gsub('#Admin,','#Admin\n')
 sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
-end
-end,nil)
-end
-end,nil)
-end
-if text == "@all" or text == "all" and Owner(msg) then
-if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
-if database:get(bot_id.."cccbcc:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
-return 
-send(msg.chat_id_, msg.id_,"• انتظر دقيقه من فضلك")
-end
-database:setex(bot_id..'cccbcc:all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
-tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,amir)
-x = 0
-tags = 0
-local list = amir.members_
-for k, v in pairs(list) do
-tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
-if x == 5 or x == tags or k == 0 then
-tags = x + 5
-t = "#all"
-end
-x = x + 1
-tagname = data.first_name_
-tagname = tagname:gsub("]","")
-tagname = tagname:gsub("[[]","")
-t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
-if x == 5 or x == tags or k == 0 then
-local Text = t:gsub('#all,','#all\n')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
-end
-end,nil)
-end
-end,nil)
-end,nil)
-end
-end
-if text and text:match("^تاك ل (%d+)$") and Addictive(msg) then   
-taglimit = text:match("^تاك ل (%d+)$"):gsub('تاك ل ','')
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = taglimit
-},function(ta,Matrix)
-local t = "\n*• قائمة الاعضاء \n 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n*"
-x = 0
-local list = Matrix.members_
-for k, v in pairs(list) do
-tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
-x = x + 1
-if data.username_ then
-t = t.."*︙"..x.."︙l>* {[@"..data.username_.."]} \n"
-else
-tagname = data.first_name_
-tagname = tagname:gsub("]","")
-tagname = tagname:gsub("[[]","")
-t = t.."• ┆"..x.."︙[@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
-end
-if k == 0 then
-send(msg.chat_id_,msg.id_,t)
 end
 end,nil)
 end
@@ -11630,23 +11629,19 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text == 'تفعيل التاك' and creatorA(msg) then   
-if database:get(bot_id..'Cick:all'..msg.chat_id_) then
-Text = '*• تم تفعيل امر @all*'
-database:del(bot_id..'Cick:all'..msg.chat_id_)  
-else
-Text = '* • بالتاكيد تم تفعيل امر @all*'
+if text == 'تفعيل التاك' or text == 'تفعيل @all' then   
+if creatorA(msg) then
+database:del(bot_id.."Cick:all"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, '*• تم تفعيل @all*')
+return false
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التاك' and creatorA(msg) then  
-if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
-database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
-Text = '\n*• تم تعطيل امر @all*'
-else
-Text = '\n* • بالتاكيد تم تعطيل امر @all*'
+if text == 'تعطيل التاك' or text == 'تعطيل @all' and DevBot(msg) then  
+if creatorA(msg) then
+database:set(bot_id.."Cick:all"..msg.chat_id_,"true")
+send(msg.chat_id_, msg.id_, '*• تم تعطيل @all *')
+return false
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == '/lock' and Addictive(msg) then  
 local Texti = '*تستطيع قفل وفتح عبر الازرار*'
