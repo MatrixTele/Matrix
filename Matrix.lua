@@ -7875,7 +7875,7 @@ local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/sgifs"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sgifs"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5
@@ -7912,7 +7912,7 @@ local Text ='*◊￤تم اختيار الميمز لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/memz"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/memz"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5
@@ -7949,7 +7949,7 @@ local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/aknia"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/aknia"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -7986,7 +7986,7 @@ local Text ='*◊￤تم اختيار مقطع الشعر لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/shhar"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/shhar"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -8023,7 +8023,7 @@ local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/knelee"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/knelee"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -8060,7 +8060,7 @@ local Text ='*◊￤تم اختيار الريمكس لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/remex"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/remex"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -8097,7 +8097,7 @@ local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/sphoto"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sphoto"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -8134,7 +8134,7 @@ local Text ='*◊￤تم اختيار صورة الانمي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/anematin"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/anematin"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -8171,7 +8171,7 @@ local Text ='*◊￤تم اختيار الفلم لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/sflm"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sflm"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -8208,7 +8208,7 @@ local Text ='*◊￤تم اختيار المسلسل لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/smslsl"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/smslsl"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12290,16 +12290,16 @@ local Text =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤اغنيه ◊￤', callback_data=msg.sender_user_id_.."/aknia"},{text = '◊￤ريمكس ◊￤', callback_data=msg.sender_user_id_.."/remex"},
+{text = '◊ اغنيه ◊', callback_data=msg.sender_user_id_.."/aknia"},{text = '◊ ريمكس ◊', callback_data=msg.sender_user_id_.."/remex"},
 },
 {
-{text = '◊￤غنيلي ◊￤', callback_data=msg.sender_user_id_.."/knelee"},{text = '◊￤انمي ◊￤', callback_data=msg.sender_user_id_.."/anematin"},
+{text = '◊ غنيلي ◊', callback_data=msg.sender_user_id_.."/knelee"},{text = '◊ انمي ◊', callback_data=msg.sender_user_id_.."/anematin"},
 },
 {
-{text = '◊￤صوره ◊￤', callback_data=msg.sender_user_id_.."/sphoto"},{text = '◊￤ميمز ◊￤', callback_data=msg.sender_user_id_.."/memz"},
+{text = '◊ صوره ◊', callback_data=msg.sender_user_id_.."/sphoto"},{text = '◊ ميمز ◊', callback_data=msg.sender_user_id_.."/memz"},
 },
 {
-{text = '◊￤متحركه ◊￤', callback_data=msg.sender_user_id_.."/sgifs"},{text = '◊￤شعر ◊￤', callback_data=msg.sender_user_id_.."/shhar"},
+{text = '◊ متحركه ◊', callback_data=msg.sender_user_id_.."/sgifs"},{text = '◊ شعر ◊', callback_data=msg.sender_user_id_.."/shhar"},
 },
 {
 {text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
@@ -12710,7 +12710,7 @@ local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/sgifs"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sgifs"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5
@@ -12737,7 +12737,7 @@ local Text ='*◊￤تم اختيار الميمز لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/memz"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/memz"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5
@@ -12764,7 +12764,7 @@ local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/aknia"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/aknia"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12791,7 +12791,7 @@ local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/knelee"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/knelee"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12818,7 +12818,7 @@ local Text ='*◊￤تم اختيار الريمكس لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/remex"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/remex"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12845,7 +12845,7 @@ local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/sphoto"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sphoto"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12872,7 +12872,7 @@ local Text ='*◊￤تم اختيار صورة الانمي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/anematin"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/anematin"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12899,7 +12899,7 @@ local Text ='*◊￤تم اختيار الفلم لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/sflm"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sflm"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12926,7 +12926,7 @@ local Text ='*◊￤تم اختيار المسلسل لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=msg.sender_user_id_.."/smslsl"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/smslsl"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12942,19 +12942,19 @@ local Tuuuuext ='@Matrix_Source'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤اغنيه ◊￤', callback_data=Userid.."/aknia"},{text = '◊￤ريمكس ◊￤', callback_data=Userid.."/remex"},
+{text = '◊ اغنيه ◊', callback_data=Userid.."/aknia"},{text = '◊ ريمكس ◊', callback_data=Userid.."/remex"},
 },
 {
-{text = '◊￤غنيلي ◊￤', callback_data=Userid.."/knelee"},{text = '◊￤انمي ◊￤', callback_data=Userid.."/anematin"},
+{text = '◊ غنيلي ◊', callback_data=Userid.."/knelee"},{text = '◊ انمي ◊', callback_data=Userid.."/anematin"},
 },
 {
-{text = '◊￤صوره ◊￤', callback_data=Userid.."/sphoto"},{text = '◊￤ميمز ◊￤', callback_data=Userid.."/memz"},
+{text = '◊ صوره ◊', callback_data=Userid.."/sphoto"},{text = '◊ ميمز ◊', callback_data=Userid.."/memz"},
 },
 {
-{text = '◊￤متحركه ◊￤', callback_data=Userid.."/sgifs"},{text = '◊￤شعر ◊￤', callback_data=Userid.."/shhar"},
+{text = '◊ متحركه ◊', callback_data=Userid.."/sgifs"},{text = '◊ شعر ◊', callback_data=Userid.."/shhar"},
 },
 {
-{text = '◊￤فلم ◊￤', callback_data=Userid.."/sflm"},{text = '◊￤مسلسل ◊￤', callback_data=Userid.."/smslsl"},
+{text = '◊ فلم ◊', callback_data=Userid.."/sflm"},{text = '◊ مسلسل ◊', callback_data=Userid.."/smslsl"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageCaption?chat_id='..Chat_id..'&caption='..URL.escape(Tuuuuext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -12969,10 +12969,10 @@ local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/aknia"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/aknia"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -12988,10 +12988,10 @@ local Text ='*◊￤تم اختيار مقطع الميمز لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/memz"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/memz"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13007,10 +13007,10 @@ local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/sgifs"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sgifs"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13026,10 +13026,10 @@ local Text ='*◊￤تم اختيار مقطع الشعر لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/shhar"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/shhar"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13045,10 +13045,10 @@ local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/knelee"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/knelee"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13064,10 +13064,10 @@ local Text ='*◊￤تم اختيار الريمكس لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/remex"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/remex"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13083,10 +13083,10 @@ local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/sphoto"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sphoto"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13102,10 +13102,10 @@ local Text ='*◊￤تم اختيار المسلسل لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/smslsl"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/smslsl"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13121,10 +13121,10 @@ local Text ='*◊￤تم اختيار الفلم لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/sflm"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sflm"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -13140,10 +13140,10 @@ local Text ='*◊￤تم اختيار صورة الانمي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/anematin"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/anematin"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14065,22 +14065,22 @@ local Tuuuuext ='@Matrix_Source'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤اغنيه ◊￤', callback_data=Userid.."/aknia"},{text = '◊￤ريمكس ◊￤', callback_data=Userid.."/remex"},
+{text = '◊ اغنيه ◊', callback_data=Userid.."/aknia"},{text = '◊ ريمكس ◊', callback_data=Userid.."/remex"},
 },
 {
-{text = '◊￤غنيلي ◊￤', callback_data=Userid.."/knelee"},{text = '◊￤انمي ◊￤', callback_data=Userid.."/anematin"},
+{text = '◊ غنيلي ◊', callback_data=Userid.."/knelee"},{text = '◊ انمي ◊', callback_data=Userid.."/anematin"},
 },
 {
-{text = '◊￤صوره ◊￤', callback_data=Userid.."/sphoto"},{text = '◊￤ميمز ◊￤', callback_data=Userid.."/memz"},
+{text = '◊ صوره ◊', callback_data=Userid.."/sphoto"},{text = '◊ ميمز ◊', callback_data=Userid.."/memz"},
 },
 {
-{text = '◊￤متحركه ◊￤', callback_data=Userid.."/sgifs"},{text = '◊￤شعر ◊￤', callback_data=Userid.."/shhar"},
+{text = '◊ متحركه ◊', callback_data=Userid.."/sgifs"},{text = '◊ شعر ◊', callback_data=Userid.."/shhar"},
 },
 {
-{text = '◊￤فلم ◊￤', callback_data=Userid.."/sflm"},{text = '◊￤مسلسل ◊￤', callback_data=Userid.."/smslsl"},
+{text = '◊ فلم ◊', callback_data=Userid.."/sflm"},{text = '◊ مسلسل ◊', callback_data=Userid.."/smslsl"},
 },
 {
-{text = '◊￤↜ اخفاء الامر ◊￤', callback_data=Userid.."/delamr"},
+{text = '◊ اخفاء الامر ◊', callback_data=Userid.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageCaption?chat_id='..Chat_id..'&caption='..URL.escape(Tuuuuext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -14104,10 +14104,10 @@ local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/aknia"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/aknia"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14123,10 +14123,10 @@ local Text ='*◊￤تم اختيار مقطع الميمز لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/memz"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/memz"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14142,10 +14142,10 @@ local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/sgifs"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sgifs"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14161,10 +14161,10 @@ local Text ='*◊￤تم اختيار مقطع الشعر لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/shhar"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/shhar"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14180,10 +14180,10 @@ local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/knelee"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/knelee"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14199,10 +14199,10 @@ local Text ='*◊￤تم اختيار الريمكس لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/remex"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/remex"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14218,10 +14218,10 @@ local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/sphoto"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sphoto"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14237,10 +14237,10 @@ local Text ='*◊￤تم اختيار المسلسل لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/smslsl"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/smslsl"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14256,10 +14256,10 @@ local Text ='*◊￤تم اختيار الفلم لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/sflm"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sflm"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14275,10 +14275,10 @@ local Text ='*◊￤تم اختيار صورة الانمي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊￤مرة اخرى ◊￤', callback_data=Userid.."/anematin"},
+{text = '◊ مرة اخرى ◊', callback_data=Userid.."/anematin"},
 },
 {
-{text = '◊￤رجوع ◊￤', callback_data=Userid.."/addtslbackk"}
+{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -17102,9 +17102,9 @@ local Teext =[[*
 ◊￤بحث ↜ اسم الاغنية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤السورس ◊￤موقعي ◊￤رتبتي ◊￤معلوماتي 
-◊￤رقمي ◊￤لقبي ◊￤اغنيه ◊￤صلاحياتي ◊￤غنيلي
-◊￤ميمز ◊￤متحركه ◊￤صوره ◊￤ريمكس ◊￤فلم ◊￤مسلسل ◊￤انمي
-◊￤رسائلي ◊￤حذف رسائلي ◊￤اسمي ◊￤معرفي 
+◊￤رقمي ◊￤لقبي ◊ اغنيه ◊صلاحياتي ◊￤غنيلي
+◊￤رقمي ◊￤لقبي ◊￤ اغنيه ◊￤صلاحياتي ◊￤غنيلي
+◊￤ميمز ◊￤ متحركه ◊￤صوره ◊￤ ريمكس ◊￤فلم ◊￤ مسلسل ◊￤انمي
 ◊￤ايدي ◊￤ايديي ◊￤جهاتي ◊￤راسلني ◊￤الالعاب 
 ◊￤نقاطي ◊￤بيع نقاطي ◊￤القوانين ◊￤زخرفه 
 ◊￤رابط الحذف ◊￤نزلني ◊￤اطردني ◊￤المطور 
