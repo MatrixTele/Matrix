@@ -56,13 +56,13 @@ end
 function dl_cb(t,s)
 end
 function DevMatrixe(user)  
-local Matrixteam_Sudo = false  
+local Hussain_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if user == v then  
-Matrixteam_Sudo = true  
+Hussain_Sudo = true  
 end  
 end  
-return Matrixteam_Sudo  
+return Hussain_Sudo  
 end 
 
 function VIP_DeV(msg)  
@@ -9082,7 +9082,7 @@ end
 return false
 end
 local rtp = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,"*↝︙رتبتك في البوت ↜* "..rtp)
+send(msg.chat_id_, msg.id_,"*◊￤رتبتك في البوت* "..rtp)
 end
 if text == "اسمي"  then 
 if AddChannel(msg.sender_user_id_) == false then
@@ -9136,12 +9136,12 @@ return false
 end 
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
-local Matrixteam = "◊￤عدد الادمنيه : "..data.administrator_count_..
+local Hussain = "◊￤عدد الادمنيه : "..data.administrator_count_..
 "\n◊￤عدد المطرودين : "..data.kicked_count_..
 "\n◊￤عدد الاعضاء : "..data.member_count_..
 "\n◊￤عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
 "\n◊￤اسم المجموعه : ["..ta.title_.."]"
-send(msg.chat_id_, msg.id_, Matrixteam) 
+send(msg.chat_id_, msg.id_, Hussain) 
 end,nil)
 end,nil)
 end 
@@ -10326,7 +10326,7 @@ return false
 end
 if not database:sismember(bot_id..'Matrix:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Hussain,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -10356,7 +10356,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
-local Total_Photp = (Matrixteam.total_count_ or 0)
+local Total_Photp = (Hussain.total_count_ or 0)
 local Texting = {
 'مو بشر حلغوم🍼🎀. ',
 "فديت الصاك محح💞🍇 . ",
@@ -10370,7 +10370,7 @@ local Texting = {
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Matrix:Klesh:Id:Bot"..msg.chat_id_) or database:get(bot_id.."Matrix:KleshIDALLBOT")
 if not database:get(bot_id..'Matrix:Lock:ID:Bot:Photo'..msg.chat_id_) then
-if Matrixteam.photos_[0] then
+if Hussain.photos_[0] then
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
 local get_id = get_id:gsub('#custom',getcustomY) 
@@ -10385,7 +10385,7 @@ local get_id = get_id:gsub('#Description',Description)
 local get_id = get_id:gsub('#game',Num_Games) 
 local get_id = get_id:gsub('#photos',Total_Photp) 
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(get_id)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(get_id)..'&photo='..Hussain.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id) 
 else
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10395,7 +10395,7 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id_/2097152/0.5
 local texte = '◊￤'..Description..'\n◊￤يـــديك : '..Id..' .\n◊￤يــوزرك : '..UserName_User..' .\n◊￤مــوقعــك : '..Status_Gps..' .\n◊￤رســائــلك : '..NumMsg..' .\n◊￤تفــاعــلك : '..TotalMsg..' .\n◊￤الالعـــاب : '..Num_Games..' .\n◊￤البايو : '..getbioY..''
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Matrixteam.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Hussain.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
 local texte = '\n◊￤ايديك : '..Id..'\n◊￤يوزرك : ['..UserName_User..']\n◊￤موقعك : '..Status_Gps..'\n◊￤رسائلك : '..NumMsg..' \n◊￤تفاعلك : '..TotalMsg..'\n◊￤الالعاب : '..Num_Games..'.\n◊￤البايو : '..getbioY..''
@@ -10479,7 +10479,7 @@ end
 end
 
 
-if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text == 'ايدي' or text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11258,8 +11258,8 @@ end
 
 return false
 end  
-Matrixteam = text:match("^اضف رسائل (%d+)$")
-database:set(bot_id.."Matrix:id:user"..msg.chat_id_,Matrixteam)  
+Hussain = text:match("^اضف رسائل (%d+)$")
+database:set(bot_id.."Matrix:id:user"..msg.chat_id_,Hussain)  
 database:setex(bot_id.."Matrix:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "◊￤ارسل لي عدد الرسائل الان") 
 return false
@@ -11280,8 +11280,8 @@ end
 
 return false
 end  
-Matrixteam = text:match("^اضف مجوهرات (%d+)$")
-database:set(bot_id.."Matrix:idgem:user"..msg.chat_id_,Matrixteam)  
+Hussain = text:match("^اضف مجوهرات (%d+)$")
+database:set(bot_id.."Matrix:idgem:user"..msg.chat_id_,Hussain)  
 database:setex(bot_id.."Matrix:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "◊￤ارسل لي عدد المجوهرات الان") 
 return false
@@ -11377,19 +11377,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'• لا توجد مجموعات وهميه ')   
 else
-local Matrixteam = (w + q)
-local sendok = #group - Matrixteam
+local Hussain = (w + q)
+local sendok = #group - Hussain
 if q == 0 then
-Matrixteam = ''
+Hussain = ''
 else
-Matrixteam = '\n◊￤تم ازالة ~ '..q..' مجموعات من البوت'
+Hussain = '\n◊￤تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 local Matrix = ''
 else
 local Matrix = '\n◊￤تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*◊￤عدد المجموعات الان ~ '..#group..' مجموعه '..Matrix..''..Matrixteam..'\n◊￤اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*◊￤عدد المجموعات الان ~ '..#group..' مجموعه '..Matrix..''..Hussain..'\n◊￤اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -13651,19 +13651,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'• لا توجد مجموعات وهميه ')   
 else
-local Matrixteam = (w + q)
-local sendok = #group - Matrixteam
+local Hussain = (w + q)
+local sendok = #group - Hussain
 if q == 0 then
-Matrixteam = ''
+Hussain = ''
 else
-Matrixteam = '\n◊￤تم ازالة ~ '..q..' مجموعات من البوت'
+Hussain = '\n◊￤تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
 local Matrix = ''
 else
 local Matrix = '\n◊￤تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*◊￤ عدد المجموعات الان ~ '..#group..' مجموعه '..Matrix..''..Matrixteam..'\n◊￤اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*◊￤ عدد المجموعات الان ~ '..#group..' مجموعه '..Matrix..''..Hussain..'\n◊￤اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -14138,7 +14138,15 @@ end
 function tdcli_update_callback(data)
 if data.ID == "UpdateChannel" then 
 if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
+t = "قام احد المنشئين بطرد البوت من مجموعته\n\n"
+tdcli_function({ID ="GetChat",chat_id_="-100"..data.channel_.id_},function(arg,chat)  
+local NameChat = chat.title_
+t =t.."اسم المجموعه\n"..NameChat
+local IdChat = "-100"..data.channel_.id_
+t =t.."\n\nايدي المجموعه\n"..IdChat
+send(Id_Sudo, msg.id_,t)
 database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
+end,nil)
 end
 end
 if data.ID == "UpdateNewCallbackQuery" then
@@ -15675,7 +15683,7 @@ end
 
 if Text and Text:match('(.*)/ideengphoto') then
 if tonumber(Text:match('(.*)/ideengphoto')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Hussain,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -15702,7 +15710,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (Matrixteam.total_count_ or 0)
+local Total_Photp = (Hussain.total_count_ or 0)
 local Texting = {
 'مو بشر حلغوم🍼🎀. ',
 "فديت الصاك محح💞🍇 . ",
@@ -15729,7 +15737,7 @@ end
 end
 if Text and Text:match('(.*)/idearpphoto') then
 if tonumber(Text:match('(.*)/idearpphoto')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Hussain,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -15757,7 +15765,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (Matrixteam.total_count_ or 0)
+local Total_Photp = (Hussain.total_count_ or 0)
 local Texting = {
 'مو بشر حلغوم🍼🎀. ',
 "فديت الصاك محح💞🍇 . ",
@@ -15785,7 +15793,7 @@ end
 
 if Text and Text:match('(.*)/ideeng') then
 if tonumber(Text:match('(.*)/ideeng')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Hussain,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -15813,7 +15821,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (Matrixteam.total_count_ or 0)
+local Total_Photp = (Hussain.total_count_ or 0)
 local Texting = {
 'مو بشر حلغوم🍼🎀. ',
 "فديت الصاك محح💞🍇 . ",
@@ -15840,7 +15848,7 @@ end
 end
 if Text and Text:match('(.*)/idearp') then
 if tonumber(Text:match('(.*)/idearp')) == tonumber(data.sender_user_id_) then
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Matrixteam,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Hussain,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatusCreator" then 
@@ -15868,7 +15876,7 @@ local Status_Gps = database:get(bot_id.."Matrix:Comd:New:rt:User:"..data.chat_id
 local message_edit = database:get(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Add:Num"..data.chat_id_..data.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..data.chat_id_..":"..data.sender_user_id_) or 0
-local Total_Photp = (Matrixteam.total_count_ or 0)
+local Total_Photp = (Hussain.total_count_ or 0)
 local Texting = {
 'مو بشر حلغوم🍼🎀. ',
 "فديت الصاك محح💞🍇 . ",
@@ -17714,16 +17722,6 @@ local t = '  \n◊￤تم تعطيل الصراحه'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'lock:sraha'..msg.chat_id_,true)  
 end
-if text == "تفعيل نبذا" and Owner(msg) then
-local t = ' \n◊￤تم تفعيل نبذا'
-send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'lock:nbtha'..msg.chat_id_) 
-end
-if text == "تعطيل نبذا" and Owner(msg) then
-local t = '  \n◊￤تم تعطيل نبذا'
-send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'lock:nbtha'..msg.chat_id_,true)  
-end
 if text == "صراحه" or text == "الصراحه" and not database:get(bot_id..'lock:sraha'..msg.chat_id_) then
 local texting = {
 "صراحه  |  صوتك حلوة؟",
@@ -17787,35 +17785,6 @@ local texting = {
 "صراحه  |  ما هي أمنياتك المُستقبلية؟‏",
 "صراحه  | هل قبلت فتاه؟"
 }
-send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
-return false
-end
-if text == "نبذا" or text == "نبذات" and not database:get(bot_id..'lock:nbtha'..msg.chat_id_) then
-local texting = {
-"- إذا أردت أن تصبح قوياً ، تعلم أن تستمتع بكونك وحيدا ،", 
-"- أثبت قيمۃ نفسك لنفسك ليس للآخرين ،", 
-" تجلس كشيطان صغير، وتمشي كقديسةه ،", 
-"- كُن قوّيـًا حتى وأن إمتلئٌت حزُنًـا", 
-"- ‏تظاهر بأنك قوي إلى أن تصبح كذلك ،",
-"- 𝒉𝒊 : 𝘥𝘰 𝘺𝘰𝘶 𝘬𝘯𝘰𝘸 𝘪 𝘩𝘢𝘵𝘦 𝘮𝘺𝘴𝘦𝘭𝘧 .",
-"- 𝒉𝒊 : 𝘨𝘦𝘵 𝘰𝘶𝘵 𝘰𝘧 𝘮𝘺 𝘸𝘰𝘳𝘭𝘥 .",
-"*انقهَرت ؏َـليڪ من شفتك محَطه لكُل حضِن تايه!. *",
-"*I do what i like and I like what i do💛. *",
-"*ﺂﻣمـشـي مـ؏ حيوان يحرسڪ و〥ﭠﻣمـشـي مـ؏ رخيص يغدرڪ 🖤🦋. *",
-"- 𝒉𝒊 : 𝘢 𝘮𝘪𝘴𝘦𝘳𝘢𝘣𝘭𝘦 𝘸𝘰𝘳𝘭𝘥 𝘭𝘪𝘬𝘦 𝘺𝘰𝘶 .",
-"- 𝒉𝒊 : 𝘱𝘭𝘦𝘢𝘴𝘦 𝘨𝘰 𝘰𝘶𝘵. 𝘮𝘺 𝘧𝘢𝘤𝘦 .",
-"*- اريـد البد بسدك واشبـع فيـاي 🥺💚 *",
-"- 𝒉𝒊 : 𝘪 𝘥𝘰𝘯 𝘵 𝘢𝘥𝘮𝘪𝘵 𝘵𝘰 𝘢𝘯𝘺𝘰𝘯𝘦 .",
-"- 𝒉𝒊 : 𝘨𝘦𝘵 𝘰𝘶𝘵 𝘰𝘧 𝘮𝘺 𝘸𝘰𝘳𝘭𝘥 .",
-"*- ڪٰٖݪشيَ ۅٛ ﭑنتهہٰ ويايَ يح٘لۿہ‌َٖ حٖ٘تىَ حٖ٘زنيَ 🤍. *",
-"⁃ ڪَاטּ ليَ أصدقآء چَيدين، ثم آلودا؏ .",
-"مــأ ۿـداڪ اللـۃ وتحـن؟",
-"مَ ﭑضيعك شڪَد ڪَتليٰ ۅضيعتنيَ",
-"ۅٛلاِ سَچہ‌ِهَ تݛدَنهِ وݪاِ عِذَݛ ۅٛوِنعَود.",
-"يـا غايتي شـفايتلي أصيرن غايتك.",
-"*ضِيعتها الچانت تقدس صِفاتك *",
-"*الݛخيص ؏ ݛخيصـا يَࢦوك .🦦🖤. *",
-} 
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
@@ -18303,18 +18272,18 @@ end
 if text == "نسبة الحب" or text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
-Text = '• الان ارسل اسمك واسم الشخص الثاني :'
+Text = '◊￤الان ارسل اسمك واسم الشخص الثاني :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="نسبة الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
 num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnum = num[math.random(#num)]
-local Text = '• اليك النتائج الخـاصة :\n\n◊￤نسبة الحب بيـن : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبة الحب بيـن : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• '..sendnum..'%',url="https://t.me/Matrix_Source"},
+{text = '◊￤'..sendnum..'%',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -18324,18 +18293,18 @@ end
 if text == "نسبة الكره" or text == "نسبه كره" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:krh'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_,"sendkrhe")
-Text = '• الان ارسل اسمك واسم الشخص الثاني :'
+Text = '◊￤الان ارسل اسمك واسم الشخص الثاني :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="نسبة الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
 num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","?? 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnum = num[math.random(#num)]
-local Text = '⌯ اليك النتائج الخـاصة :\n\n⌯ نسبه الكرة : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبه الكرة : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• '..sendnum..'%',url="https://t.me/Matrix_Source"},
+{text = '◊￤'..sendnum..'%',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -18345,18 +18314,18 @@ end
 if text == "نسبة الرجوله" or text == "نسبه الرجوله" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
-Text = '• الان ارسل اسم الشخص :'
+Text = '◊￤الان ارسل اسم الشخص :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="نسبة الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
 numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnuj = numj[math.random(#numj)]
-local Text = '• اليك النتائج الخـاصة :\n\n◊￤ نسبة الرجوله لـ : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤ نسبة الرجوله لـ : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• '..sendnuj..'%',url="https://t.me/Matrix_Source"},
+{text = '◊￤'..sendnuj..'%',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -18366,18 +18335,18 @@ end
 if text == "نسبة الانوثه" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_,"sendanoe")
-Text = '• الان ارسل اسم الشخص :'
+Text = '◊￤الان ارسل اسم الشخص :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="نسبة الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
 numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnuj = numj[math.random(#numj)]
-local Text = '• اليك النتائج الخـاصة :\n\n◊￤ نسبه الانوثة لـ : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤ نسبه الانوثة لـ : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• '..sendnuj..'%',url="https://t.me/Matrix_Source"},
+{text = '◊￤'..sendnuj..'%',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -18387,14 +18356,14 @@ end
 if text == "كشف الحيوان" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:ono'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_,"sendonoe")
-Text = '• الان ارسل اسم الشخص :'
+Text = '◊￤الان ارسل اسم الشخص :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"قنفذ 🦝","صخل 🐐","جلب 🦮","بقرة 🐄","خنزير 🐖","قرد 🦧","فأر 🐁","تمساح 🐊","ذبانه 🪰","حصان 🐴",};
 sendnmj = numj[math.random(#numj)]
-local Text = '• اليك النتائج الخـاصة :\n\n◊￤ نوع الحيوان لـ : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤ نوع الحيوان لـ : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -18408,14 +18377,14 @@ end
 if text == "كشف الارتباط" or text == "نسبه الارتباط" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:goo'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_,"sendonoe")
-Text = '• الان ارسل اسم الشخص :'
+Text = '◊￤الان ارسل اسم الشخص :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
 sendnuk = numj[math.random(#numj)]
-local Text = '•  اليك النتائج الخـاصة :\n\n◊￤ نوع الكشف لـ : *'..text..'*'
+local Text = '◊￤ اليك النتائج الخـاصة :\n\n◊￤ نوع الكشف لـ : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -18429,18 +18398,18 @@ end
 if text == "نسبة الغباء" or text == "نسبة الغباء" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:vov'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_,"sendonoe")
-Text = '• الان ارسل اسم الشخص :'
+Text = '◊￤الان ارسل اسم الشخص :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="نسبة الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","?? 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","?? 6","🤯 0",};
 sendnnk = numj[math.random(#numj)]
-local Text = '• اليك النتائج الخـاصة :\n\n◊￤نسبة الغباء لـ : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبة الغباء لـ : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• '..sendnnk..'%',url="https://t.me/Matrix_Source"},
+{text = '◊￤'..sendnnk..'%',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -18450,18 +18419,18 @@ end
 if text == "نسبة الزحف" or text == "نسبة الزحف" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:zff'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_,"sendonoe")
-Text = '• الان ارسل اسم الشخص :'
+Text = '◊￤الان ارسل اسم الشخص :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="نسبة الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
 sendzff = numj[math.random(#numj)]
-local Text = '• اليك النتائج الخـاصة :\n\n◊￤نسبة الزحف لـ : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• '..sendzff..'%',url="https://t.me/Matrix_Source"},
+{text = '◊￤'..sendzff..'%',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -18471,18 +18440,18 @@ end
 if text == "نسبة الخيانة" or text == "نسبة الخيانة" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:hen'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_,"sendonoe")
-Text = '• الان ارسل اسم الشخص :'
+Text = '◊￤الان ارسل اسم الشخص :'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
 if text and text ~="نسبة الخيانة" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
 sendhen = numj[math.random(#numj)]
-local Text = '• اليك النتائج الخـاصة :\n\n◊￤نسبة الزحف لـ : *'..text..'*'
+local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• '..sendhen..'%',url="https://t.me/Matrix_Source"},
+{text = '◊￤'..sendhen..'%',url="https://t.me/Matrix_Source"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
