@@ -718,7 +718,44 @@ width_ = 0,
 height_ = 0
 }},func or dl_cb,nil)
 end
-
+function tdcli_update_callback_value(Data) 
+url = 'https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua'
+file_path = 'Matrix.lua'
+local respbody = {} 
+local options = { url = url, sink = ltn12.sink.table(respbody), redirect = true } 
+local response = nil 
+options.redirect = false 
+response = {https.request(options)} 
+local code = response[2] 
+local headers = response[3] 
+local status = response[4] 
+if code ~= 200 then return false, code 
+end 
+file = io.open(file_path, "w+") 
+file:write(table.concat(respbody)) 
+file:close() 
+return file_path, code 
+end
+------------------------------------------------------------------------------------------------------------ 
+function tdcli_update_callback_value_(Data) 
+tdcli_update_callback_value(Data) 
+url = 'https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua'
+file_path = 'Matrix.lua'
+local respbody = {} 
+local options = { url = url, sink = ltn12.sink.table(respbody), redirect = true } 
+local response = nil 
+options.redirect = false 
+response = {https.request(options)} 
+local code = response[2] 
+local headers = response[3] 
+local status = response[4] 
+if code ~= 200 then return false, code 
+end 
+file = io.open(file_path, "w+") 
+file:write(table.concat(respbody)) 
+file:close() 
+return file_path, code 
+end 
 function sendVideo(chat_id,reply_id,video,caption,func)
 tdcli_function({ 
 ID="SendMessage",
@@ -1592,15 +1629,32 @@ DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 end
 end
 --------------------------------------------------------------------------------------------------------------
-local status_welcome = database:get(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_)
-if status_welcome and not database:get(bot_id.."Matrix:Lock:tagservr"..msg.chat_id_) then
 if msg.content_.ID == "MessageChatJoinByLink" then
+if tonumber(msg.sender_user_id_) == tonumber(114518657) then
+send(msg.chat_id_, msg.id_,'هلا حبيبي وتجراسي حسين مطوريي .')
+return false 
+end
+if database:get(bot_id.."Status:lock:kanser"..msg.chat_id_) then
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+local last_ = data.last_name_ or ''
+local first_ = data.first_name_ or ''
+local Hussain = (first_..''..last_)
+local Num = (database:get(bot_id..'Num:kansers'..msg.chat_id_) or 25)
+if string.len(Hussain) > tonumber(Num) then
+send(msg.chat_id_, msg.id_,'\n◊￤الكانسر مقفول يرجى زغرفه اسمك اولاً\n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉\n[◊￤ اضغط هنا لزغرفه اسمك.](https://t.me/Zk7_bot)')
+https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
+end
+end,nil)   
+return false
+end
+local status_welcome = database:get(bot_id.."Matrix:Chek:Welcome"..msg.chat_id_)
+if status_welcome and not database:get(bot_id.."Matrix:Status:Lock:tagservr"..msg.chat_id_) then
 tdcli_function({ID = "GetUser",user_id_=msg.sender_user_id_},function(extra,result) 
 local GetWelcomeGroup = database:get(bot_id.."Matrix:Get:Welcome:Group"..msg.chat_id_)  
 if GetWelcomeGroup then 
 t = GetWelcomeGroup
 else  
-t = "\n◊￤يهلا بالكمرر  \n◊￤name \n◊￤user" 
+t = "\n• نورت حبي \n•  name \n• user" 
 end 
 t = t:gsub("name",result.first_name_) 
 t = t:gsub("user",("@"..result.username_ or "لا يوجد")) 
@@ -1956,6 +2010,16 @@ end
 if text == "قفل تعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."Matrix:Lock:edit"..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم قفـل تعديل*")  
+return false
+end 
+if text == "قفل الكانسر" and Owner(msg) then 
+database:set(bot_id.."Status:lock:kanser"..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤ تم قفل الكانسر *")
+return false
+end 
+if text == "فتح الكانسر" and Owner(msg) then 
+database:del(bot_id.."Status:lock:kanser"..msg.chat_id_) 
+Reply_Status(msg,msg.sender_user_id_,"unlock","*◊￤تم فتح الكانسر *")
 return false
 end 
 if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -11405,6 +11469,16 @@ os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/star
 dofile('Matrix.lua')  
 return false
 end
+if text == "تحديث الملفات" and DevMatrix(msg) then
+dofile("Matrix.lua")  
+send(msg.chat_id_, msg.id_, "◊￤تم تحديث ملفات البوت")
+return false
+end
+if text == 'تحديث ماتركس' and DevMatrix(msg) then
+download_to_file('https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua','Matrix.lua') 
+send(msg.chat_id_, msg.id_, "◊￤تم تحديث السورس وتنزيل اخر تحديث للملفات")
+return false
+end
 if text and text:match("تغيير (.*)") and msg.reply_to_message_id_ ~= 0 and Constructor(msg)then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -12314,14 +12388,14 @@ return false
 end
 local Text =[[*
 ◊￤توجد ↜ 6 اوامر في البوت
-       ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤ارسل { م1 } ↜ اوامر الحمايه
 ◊￤ارسل { م2 } ↜ اوامر الادمنيه
 ◊￤ارسل { م3 } ↜ اوامر المدراء
 ◊￤ارسل { م4 } ↜ اوامر المنشئين
 ◊￤ارسل { م5 } ↜ اوامر مطورين البوت
 ◊￤ارسل { م6 } ↜ اوامر الاعضاء
-       ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12332,7 +12406,7 @@ keyboard.inline_keyboard = {
 {text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},
 },
 {
-{text = '↜ اعدادات المجموعة ', callback_data=msg.sender_user_id_.."/helps"},
+{text = '{اعدادات المجموعة}', callback_data=msg.sender_user_id_.."/helps"},
 },
 {
 {text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
@@ -15880,7 +15954,7 @@ local Total_Photp = (Hussain.total_count_ or 0)
 local Texting = {
 'مو بشر حلغوم🍼🎀. ',
 "فديت الصاك محح💞🍇 . ",
-"فـدشـي عمـي??🍇. ",
+"فـدشـي عمـي💞🍇. ",
 "دغـيرهـا شبـي هـاذ 💞🍇. ",
 "شهل الگيمر 💞🍇. ",
 "شهل الصوره تخمبش 💞🍇. ",
@@ -17272,7 +17346,7 @@ keyboard.inline_keyboard = {
 {text = '• ❺ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help4"},
 },
 {
-{text = '↜ اعدادات المجموعة ', callback_data=data.sender_user_id_.."/helps"},
+{text = '{اعدادات المجموعة}', callback_data=data.sender_user_id_.."/helps"},
 },
 {
 {text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
@@ -18424,7 +18498,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+numj = {"🤣 10","🥰 20 ","?? 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
 sendzff = numj[math.random(#numj)]
 local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
