@@ -8379,9 +8379,12 @@ end
 
 return false
 end
-send(msg.chat_id_, msg.id_,"◊￤الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return false 
+_key = {
+{{text="الغاء",callback_data="delrd"..msg.sender_user_id_}},
+}
+send_inlin_key(msg.chat_id_," *◊￤الان ارسل الرد الذي تريد وضعة*",_key,msg.id_)
+return false
 end
 if text == "حذف رد" and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -8990,144 +8993,6 @@ end
 end,nil)
 end
 end,nil)
-end
-if text == ("تاك للصخول") and Addictive(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ◊￤قنـاة البـوت ↜  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end   
-local list = database:smembers(bot_id..'Zgal:User'..msg.chat_id_)
-t = "\n◊￤ياصخول تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد صخول 😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("تاك للزواحيف") and Addictive(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ◊￤قنـاة البـوت ↜  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end   
-local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
-t = "\n◊￤يازواحيف تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد زواحيف 😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("تاك للي بكلبي") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Galby:User'..msg.chat_id_)
-t = "\n◊￤ياكلوب تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد كلوب 😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("تاك للتوج") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Tag:User'..msg.chat_id_)
-t = "\n◊￤ياتوج تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد تاج😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("تاك للجلاب") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Glb:User'..msg.chat_id_)
-t = "\n◊￤ياجلاب تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد جلاب 😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("تاك للانبياء") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Naby:User'..msg.chat_id_)
-t = "\n◊￤يا انبياء تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد انبياء 😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("تاك للمطايه") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
-t = "\n◊￤يمطاية تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد مطايةه 😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("تاك للثولان") and Addictive(msg) then   
-local list = database:smembers(bot_id..'Athol:User'..msg.chat_id_)
-t = "\n◊￤ياثولان تعالو يردونكم 😹😭💞 . \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t.."*︙"..k.."︙> [@"..username.."]◊￤\n*"
-else
-end
-end
-if #list == 0 then
-t = "◊￤لايوجد ثولان😹😔💞"
-end
-send(msg.chat_id_, msg.id_, t)
 end
 if text == "رتبتي" then
 if AddChannel(msg.sender_user_id_) == false then
@@ -11940,7 +11805,7 @@ if text == "تفعيل الانستا" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'• تم تفعيل الانستا')
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
-if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
+if text and text:match("^معلومات (.*)$") and database:get(bot_id.."SourceBeccaa:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
 data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
 if res == 200 then
@@ -14889,6 +14754,12 @@ database:del(bot_id.."Matrix:Muted:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "◊￤تم مسح المكتومين في المجموعه")
 end
 end
+if Text and Text:match('(.*)/delrd') and Addictive(data) then
+if tonumber(Text:match('(.*)/delrd')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "◊￤تم الغاء الامر")
+end
+end
 
 if Text and Text:match('(%d+)/UnKed@(%d+):(%d+)') then
 local ramsesadd = {string.match(Text,"^(%d+)/UnKed@(%d+):(%d+)$")}
@@ -17356,6 +17227,14 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 end
 
+if DAata == 'delrd'..data.sender_user_id_ then  
+database:del(bot_id.."Matrix:Set:Manager:rd"..data.sender_user_id_..":"..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *◊￤تم الغاء الامر*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
 if DAata == 'EndAddarray'..data.sender_user_id_ then  
 if database:get(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id) == 'true1' then
 database:del(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id)
@@ -18414,7 +18293,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","?? 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnuj = numj[math.random(#numj)]
 local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤ نسبه الانوثة لـ : *'..text..'*'
 keyboard = {} 
