@@ -11876,7 +11876,6 @@ local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'
 for k,v in pairs(list) do   
 NAME = 'Matrix Chat'
 link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
-creatorA = database:smembers(bot_id..'creator'..v)
 ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
 MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
 MDER = database:smembers(bot_id.."Matrix:Manager"..v)
@@ -11885,17 +11884,6 @@ if k == 1 then
 t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
 else
 t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
-end
-if #creatorA ~= 0 then 
-t = t..'"creatorA":['
-for k,v in pairs(creatorA) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
