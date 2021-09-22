@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,114518657,11110}
+List_Sudos = {Id_Sudo,114518657,1874628385}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -179,7 +179,7 @@ end
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(114518657) then  
 var = true  
-elseif tonumber(user_id) == tonumber(11110) then
+elseif tonumber(user_id) == tonumber(1874628385) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -211,7 +211,7 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(114518657) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(11110) then  
+elseif tonumber(user_id) == tonumber(1874628385) then  
 var = "مبرمج السورس"  
 elseif DevMatrixe(user_id) == true then
 var = "المطور الاساسي"  
@@ -3257,7 +3257,7 @@ if result.id_ == tonumber(114518657) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(11110) then
+if result.id_ == tonumber(1874628385) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3284,7 +3284,7 @@ if userid == tonumber(114518657) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(11110) then
+if userid == tonumber(1874628385) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3321,7 +3321,7 @@ if result.id_ == tonumber(114518657) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(11110) then
+if result.id_ == tonumber(1874628385) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3348,7 +3348,7 @@ if userid == tonumber(114518657) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(11110) then
+if userid == tonumber(1874628385) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5560,7 +5560,7 @@ if result.sender_user_id_ == tonumber(114518657) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(111101100) then
+if result.sender_user_id_ == tonumber(18746283851100) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -5652,7 +5652,7 @@ return false
 end
 function Function_Matrix(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(11110) then
+if result.id_ == tonumber(1874628385) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5733,7 +5733,7 @@ if userid == tonumber(114518657) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(11110) then
+if userid == tonumber(1874628385) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5878,7 +5878,7 @@ if result.sender_user_id_ == tonumber(114518657) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(11110) then
+if result.sender_user_id_ == tonumber(1874628385) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -8947,7 +8947,7 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, Function_Matrix, nil)
 end
-if text == ("@all") and BasicConstructor(msg) then   
+if text == "@all" or text == "all" and BasicConstructor(msg) then   
 if database:get(bot_id.."chat:tagall"..msg.chat_id_) then  return send(msg.chat_id_, msg.id_,"يمكنك عمل تاك للكل كل *10 دقائق* فقط") end
 database:setex(bot_id..'chat:tagall'..msg.chat_id_,600,true)
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
@@ -8963,9 +8963,10 @@ tags = x + 5
 t = "*#all*"
 end
 x = x + 1
-if data.username_ then
-t = t.."* -"..x.."- @"..data.username_.."*"
-end
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
 if x == 5 or x == tags or k == 0 then
 local Text = t:gsub('#all,','#all\n')
 sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
@@ -12306,7 +12307,7 @@ keyboard.inline_keyboard = {
 {text = 'Annotations Source', url="https://t.me/infoo_Matrix"},
 },
 {
-{text = 'Communication Source', url="https://t.me/U41bot"},
+{text = 'programmer Source', url="https://t.me/BBB43"},
 },
 {
 {text = 'Developer Source !', url="https://t.me/IZlZ7I"},
