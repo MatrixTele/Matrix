@@ -909,6 +909,18 @@ document_ = GetInputFile(document),
 caption_ = caption
 }},func or dl_cb,nil)
 end
+function getChatId(id)
+local chat = {}
+local id = tostring(id)
+if id:match('^-100') then
+local channel_id = id:gsub('-100', '')
+chat = {ID = channel_id, type = 'channel'}
+else
+local group_id = id:gsub('-', '')
+chat = {ID = group_id, type = 'group'}
+end
+return chat
+end
 function Kick_Group(chat,user)
 tdcli_function ({
 ID = "ChangeChatMemberStatus",
@@ -1117,10 +1129,12 @@ end
 end
 send(msg.chat_id_, msg.id_,pre_msg)  
 end
+--------------------------------------------------------------------------------------------------------------
 function Matrix_Started_Bot(msg,data) -- بداية العمل
 if msg then
 local msg = data.message_
 local text = msg.content_.text_
+--------------------------------------------------------------------------------------------------------------
 if msg.chat_id_ then
 local id = tostring(msg.chat_id_)
 if id:match("-100(%d+)") then
@@ -1175,10 +1189,10 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if database:get(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if database:get(bot_id.."Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ◊￤" then   
 send(msg.chat_id_, msg.id_,"◊￤تم الغاء الاذاعه") 
-database:del(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
 local list = database:smembers(bot_id.."Chek:Groups") 
@@ -1209,7 +1223,7 @@ database:set(bot_id..'Matrix:Msg:Pin:Chat'..v,msg.content_.sticker_.sticker_.per
 end 
 end
 send(msg.chat_id_, msg.id_,"◊￤تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
-database:del(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 
@@ -1736,10 +1750,10 @@ return false
 end
 end 
 
-if database:get(bot_id.."Matrix:Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if database:get(bot_id.."Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ◊￤" then   
 send(msg.chat_id_, msg.id_,"◊￤تم الغاء الاذاعه للخاص") 
-database:del(bot_id.."Matrix:Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
 local list = database:smembers(bot_id..'Matrix:UsersBot')  
@@ -1766,14 +1780,14 @@ sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)
 end 
 end
 send(msg.chat_id_, msg.id_,"◊￤تمت الاذاعه الى *~ "..#list.." ~* مشترك في الخاص ")     
-database:del(bot_id.."Matrix:Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 
-if database:get(bot_id.."Matrix:Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if database:get(bot_id.."Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ◊￤" then   
 send(msg.chat_id_, msg.id_,"◊￤تم الغاء الاذاعه") 
-database:del(bot_id.."Matrix:Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
 local list = database:smembers(bot_id.."Chek:Groups") 
@@ -1800,14 +1814,14 @@ sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)
 end 
 end
 send(msg.chat_id_, msg.id_,"◊￤تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
-database:del(bot_id.."Matrix:Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 
-if database:get(bot_id.."Matrix:Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if database:get(bot_id.."Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ◊￤" then   
 send(msg.chat_id_, msg.id_,"◊￤تم الغاء الاذاعه") 
-database:del(bot_id.."Matrix:Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
 end 
 if msg.forward_info_ then 
@@ -1821,14 +1835,14 @@ disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
 send(msg.chat_id_, msg.id_,"◊￤تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
-database:del(bot_id.."Matrix:Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 return false
 end
-if database:get(bot_id.."Matrix:Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if database:get(bot_id.."Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ◊￤" then   
 send(msg.chat_id_, msg.id_,"◊￤تم الغاء الاذاعه") 
-database:del(bot_id.."Matrix:Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
 end 
 if msg.forward_info_ then 
@@ -1842,7 +1856,7 @@ disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
 send(msg.chat_id_, msg.id_,"◊￤تمت الاذاعه الى *~ "..#list.." ~* مشترك في الخاص ")     
-database:del(bot_id.."Matrix:Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 return false
 end
@@ -6055,11 +6069,11 @@ Reply_Status(msg,userid,"reply","*◊￤تم الغاء كتمه من هنا*")
 return false
 end
 if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_,true) 
+database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تم قفـل الفارسيه")  
 end
-if text and database:get(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
-list = {"ڄ","که","پی","خسته","برم","راحتی","بیام","بپوشم","كرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن"}
+if text and database:get(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
+list = {"ڄ","گ","که","پی","خسته","برم","راحتی","بیام","بپوشم","گرمه","چه","چ","ڬ","ٺ","چ","ڇ","ڿ","ڀ","ڎ","ݫ","ژ","ڟ","ݜ","ڸ","پ","۴","زدن","دخترا","دیوث","مک","زدن","خالی بند","عزیزم خوبی","سلامت باشی","میخوام","خوببی","ميدم","کی اومدی","خوابیدین"}
 for k,v in pairs(list) do
 if string.find(text,v) ~= nil then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
@@ -6068,7 +6082,7 @@ end
 end
 end
 if text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:del(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_) 
+database:del(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تـم فـتح الفارسيه\n")  
 end
 if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
@@ -6082,7 +6096,7 @@ Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح ا
 return false
 end 
 if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
-database:set(bot_id..'Matrix:Matrix:lock:Fshar'..msg.chat_id_,true) 
+database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تم قفل الفشار")  
 end
 if text and database:get(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) and not Constructor(msg) then 
@@ -6097,6 +6111,23 @@ end
 if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:del(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تـم فـتح الفشار\n")  
+end
+if text == 'قفل الانكليزيه' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+database:set(bot_id..'Matrix:lock:Engilsh'..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم قفل الانكليزيه*")  
+end
+if text and database:get(bot_id..'Matrix:lock:Engilsh'..msg.chat_id_) and not Constructor(msg) then 
+list = {'a','u','y','l','t','b','A','Q','U','J','K','L','B','D','L','V','Z','k','n','c','r','q','o','z','I','j','m','M','w','d','h','e'}
+for k,v in pairs(list) do
+if string.find(text,v) ~= nil then
+DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
+return false
+end
+end
+end
+if text == 'فتح الانكليزيه' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+database:del(bot_id..'Matrix:lock:Engilsh'..msg.chat_id_) 
+Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم فتح الانكليزيه*\n")  
 end
 if text == ("تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -9624,7 +9655,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n◊￤للخروج ارسل الغاء ") 
 return false
 end 
@@ -9633,7 +9664,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n◊￤للخروج ارسل الغاء ") 
 return false
 end  
@@ -9642,7 +9673,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n◊￤للخروج ارسل الغاء ") 
 return false
 end  
@@ -9651,7 +9682,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي التوجيه الان") 
 return false
 end 
@@ -9660,7 +9691,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي التوجيه الان") 
 return false
 end 
@@ -11836,6 +11867,93 @@ ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..UR
 ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
+if text and not database:get(bot_id.."AutoFile") then
+Time = database:get(bot_id.."AutoFile:Time")
+if Time then 
+if Time ~= os.date("%x") then  
+local list = database:smembers(bot_id..'Chek:Groups') 
+local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
+for k,v in pairs(list) do   
+NAME = 'Matrix Chat'
+link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
+creatorA = database:smembers(bot_id..'creator'..v)
+ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
+MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
+MDER = database:smembers(bot_id.."Matrix:Manager"..v)
+MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
+if k == 1 then
+t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
+else
+t = t..',"'..v..'":{"Matrix":"'..NAME..'",'
+end
+if #creatorA ~= 0 then 
+t = t..'"creatorA":['
+for k,v in pairs(creatorA) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #ASAS ~= 0 then 
+t = t..'"ASAS":['
+for k,v in pairs(ASAS) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MOD ~= 0 then
+t = t..'"MOD":['
+for k,v in pairs(MOD) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MDER ~= 0 then
+t = t..'"MDER":['
+for k,v in pairs(MDER) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+if #MNSH ~= 0 then
+t = t..'"MNSH":['
+for k,v in pairs(MNSH) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end   
+t = t..'],'
+end
+t = t..'"linkgroup":"'..link..'"}' or ''
+end
+t = t..'}}'
+local File = io.open('./'..bot_id..'.json', "w")
+File:write(t)
+File:close()
+sendDocument(Id_Sudo, msg.id_,0, 1, nil, './'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
+else 
+database:set(bot_id.."AutoFile:Time",os.date("%x"))
+end
+end
 if text == "تعطيل الانستا" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '◊￤تم تعطيل الانستا')
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"close")
@@ -12077,7 +12195,7 @@ File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
+tdcli_function ({ID = "GetUser",user_id_ = Id_Sudo},function(arg,data) 
 Text = "*◊￤Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*◊￤Dev User ↬* [@"..data.username_.."]"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or IZlZ7I}}}
@@ -12738,6 +12856,7 @@ local keyboard = {
 {'تحديث السورس ↝','تحديث ↝'},
 {'لاصدار ↝','معلومات السيرفر ↝'},
 {'نسخه احتياطيه ↝','رفع نسخه احتياطيه ↝'},
+{'تفعيل النسخه التلقائيه ↝','تعطيل النسخه التلقائيه ↝'},
 {'اعادة التشغيل ↝'},
 {'الغاء ↝'}
 }
@@ -12758,6 +12877,14 @@ end
 end
 database:setex(bot_id..'Matrix:Start:Time'..msg.sender_user_id_,60,true)
 return false
+end
+if text == 'تفعيل النسخه التلقائيه ↝' and VIP_DeV(msg) then  
+send(msg.chat_id_, msg.id_,"*◊￤تم تفعيل النسخه الاحتياطيه التلقائيه*") 
+database:del(bot_id.."AutoFile")
+end
+if text == 'تعطيل النسخه التلقائيه ↝' and VIP_DeV(msg) then  
+send(msg.chat_id_, msg.id_,"*◊￤تم تعطيل النسخه الاحتياطيه التلقائيه*") 
+database:set(bot_id.."AutoFile",true) 
 end
 if text and text:match("^برج (.*)$") then
 local Textbrj = text:match("^برج (.*)$")
@@ -13738,7 +13865,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n◊￤للخروج ارسل الغاء ") 
 return false
 end 
@@ -13747,7 +13874,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n◊￤للخروج ارسل الغاء ") 
 return false
 end  
@@ -13756,7 +13883,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي التوجيه الان") 
 return false
 end 
@@ -13765,7 +13892,7 @@ if database:get(bot_id.."Matrix:Status:Bc") and not DevMatrix(msg) then
 send(msg.chat_id_, msg.id_,"◊￤الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Matrix:Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Matrix:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"◊￤ارسل لي التوجيه الان") 
 return false
 end 
