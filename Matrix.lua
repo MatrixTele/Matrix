@@ -11872,15 +11872,15 @@ if text and not database:get(bot_id.."AutoFile") then
 Time = database:get(bot_id.."AutoFile:Time")
 if Time then 
 if Time ~= os.date("%x") then  
-local list = database:smembers(bot_id..'Chek:Groups') 
+local list = database:smembers(bot_id..'Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
 NAME = 'Matrix Chat'
-link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
 ASAS = database:smembers(bot_id.."Matrix:Basic:Constructor"..v)
 MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
 MDER = database:smembers(bot_id.."Matrix:Manager"..v)
 MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
+link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
 if k == 1 then
 t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
 else
@@ -11933,10 +11933,10 @@ end
 t = t..'"linkgroup":"'..link..'"}' or ''
 end
 t = t..'}}'
-local File = io.open('./'..bot_id..'.json', "w")
+local File = io.open('./File_Libs/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(Id_Sudo, msg.id_,0, 1, nil, './'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
+sendDocument(Id_Sudo, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 database:set(bot_id.."AutoFile:Time",os.date("%x"))
 end
 else 
@@ -11951,15 +11951,14 @@ if text == "تفعيل الانستا" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'◊￤تم تفعيل الانستا')
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
-if text and text:match("^معلومات (.*)$") and database:get(bot_id.."SourceBeccaa:insta_bot"..msg.chat_id_) == "open" then
+if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
 local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
+data,res = https.request('https://black-source.tk/BlackTeAM/infoInstagram.php?username='..URL.escape(Textni)..'')
 if res == 200 then
-muaed = json:decode(data)
-if muaed.Info == true then
-local filee = download_to_file(muaed.ph,msg.sender_user_id_..'.jpg')
-sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',muaed.info)     
-os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
+Hussain = json:decode(data)
+if Hussain.Info == true then
+local msg_id = msg.id_/2097152/0.5
+SendP(msg.chat_id_, msg_id,Hussain.ph, Hussain.info) 
 end
 end
 end
