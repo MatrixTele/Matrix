@@ -10732,12 +10732,6 @@ database:incrby(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)
 end
 database:set(bot_id.."Matrix:Set:Maany"..msg.chat_id_,true)
 end 
-if text == "حجره ورقه مقص" then  
-key = {
-{{text = 'اللعب مع اصدقائك',switch_inline_query=msg.sender_user_id_}},
-}
-send_inline_key(msg.chat_id_,'◊￤اهلا بك في لعبه حجر ورق مقص يمكنك العب مع اصدقائك .',nil,key,msg.id_/2097152/0.5)
-end
 if text == "العكس" then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -10819,6 +10813,97 @@ send(msg.chat_id_, msg.id_,"◊￤اوبس تخمينك غلط \n◊￤ارسل 
 end
 end
 end
+end
+if database:get(bot_id.."Matrix:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
+if text and text:match("^(%d+)$") then
+local NUM = text:match("^(%d+)$")
+if tonumber(NUM) > 20 then
+send(msg.chat_id_, msg.id_,"◊￤عذرآ لا يمكنك تخمين عدد اكبر من ال { 20 } خمن رقم ما بين ال{ 1 و 20 }\n")
+return false  end 
+local GETNUM = database:get(bot_id.."Matrix:GAMES:NUM"..msg.chat_id_)
+if tonumber(NUM) == tonumber(GETNUM) then
+database:del(bot_id.."Matrix:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)
+database:del(bot_id.."Matrix:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
+database:incrby(bot_id.."Matrix:Add:Num"..msg.chat_id_..msg.sender_user_id_,5)  
+send(msg.chat_id_, msg.id_,"◊￤مبروك فزت ويانه وخمنت الرقم الصحيح\n◊￤تم اضافة { 5 } من النقاط \n")
+elseif tonumber(NUM) ~= tonumber(GETNUM) then
+database:incrby(bot_id.."Matrix:SADD:NUM"..msg.chat_id_..msg.sender_user_id_,1)
+if tonumber(database:get(bot_id.."Matrix:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)) >= 3 then
+database:del(bot_id.."Matrix:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)
+database:del(bot_id.."Matrix:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
+send(msg.chat_id_, msg.id_,"◊￤اوبس لقد خسرت في اللعبه \n◊￤حظآ اوفر في المره القادمه \n◊￤كان الرقم الذي تم تخمينه { "..GETNUM.." }")
+else
+send(msg.chat_id_, msg.id_,"◊￤اوبس تخمينك غلط \n◊￤ارسل رقم تخمنه مره اخرى ")
+end
+end
+end
+end
+if text and text:match('^(@[%a%d_]+)$') and database:get(bot_id..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) then
+if database:sismember(bot_id..':List_Rolet:'..msg.chat_id_,text) then
+send(msg.chat_id_,msg.id_,"◊￤المعرف ["..text.." ] موجود سابقا ارسل معرف لم يشارك")
+return false
+end 
+database:sadd(bot_id..':List_Rolet:'..msg.chat_id_,text)
+local CountAdd = database:get(bot_id..":Number_Add:"..msg.chat_id_..msg.sender_user_id_)
+local CountAll = database:scard(bot_id..':List_Rolet:'..msg.chat_id_)
+local CountUser = CountAdd - CountAll
+if tonumber(CountAll) == tonumber(CountAdd) then 
+database:del(bot_id..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) 
+database:setex(bot_id..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_,1400,true)  
+send(msg.chat_id_,msg.id_,"◊￤تم حفظ المعرف (["..text.."])\n◊￤تم اكمال العدد الكلي\n◊￤ارسل (نعم) للبدء")
+return false
+end  
+send(msg.chat_id_,msg.id_,"◊￤تم حفظ المعرف (["..text.."])\n◊￤تبقى "..CountUser.." لاعبين ليكتمل العدد\n◊￤ارسل المعرف التالي")
+return false
+end 
+if text and text:match("^(%d+)$") and database:get(bot_id..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_) then
+if text == "1" then
+send(msg.chat_id_, msg.id_," ◊￤لا استطيع بدء اللعبه بلاعب واحد فقط")
+elseif text ~= "1" then
+database:set(bot_id..":Number_Add:"..msg.chat_id_..msg.sender_user_id_,text)  
+database:del(bot_id..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_)  
+send(msg.chat_id_, msg.id_,"◊￤قم  بأرسال معرفات اللاعبين الان")
+return false
+end
+end 
+if text == 'روليت' then
+database:del(bot_id..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) 
+database:del(bot_id..':List_Rolet:'..msg.chat_id_)  
+database:setex(bot_id..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_,3600,true)  
+send(msg.chat_id_, msg.id_, '◊￤ارسل عدد اللاعبين للروليت')
+end
+if text == 'نعم' and database:get(bot_id..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_) then
+local list = database:smembers(bot_id..':List_Rolet:'..msg.chat_id_) 
+if #list == 1 then 
+send(msg.chat_id_, msg.id_,  "◊￤لم يكتمل العدد الكلي للاعبين" )
+elseif #list == 0 then 
+send(msg.chat_id_, msg.id_, "◊￤عذرا لم تقوم باضافه اي لاعب" )
+return false
+end 
+local UserName = list[math.random(#list)]
+local User_ = UserName:match("^@(.*)$")
+function FunctionStatus(arg, result)
+if (result.id_) then
+database:incrby(bot_id.."Matrix:Add:Num"..msg.chat_id_..result.id_, 3)  
+database:del(bot_id..':List_Rolet:'..msg.chat_id_) 
+database:del(bot_id..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_)
+send(msg.chat_id_, msg.id_,"◊￤الف مبروك يا ["..UserName.."] لقد فزت.\n◊￤تم اضافه 3 نقاط لك .\n◊￤للعب مره اخره ارسل ~ { `روليت` }")
+return false
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = UserName:match("^@(.*)$")}, FunctionStatus, nil)
+end
+if text == 'المشاركين' then
+local list = database:smembers(bot_id..':List_Rolet:'..msg.chat_id_) 
+local Text = '\n — — — — — — — — —\n' 
+if #list == 0 then 
+send(msg.chat_id_, msg.id_,'◊￤لا يوجد لاعبين هنا')
+return false
+end  
+for k, v in pairs(list) do 
+Text = Text..k.."◊￤ » [" ..v.."] »\n"  
+end 
+send(msg.chat_id_, msg.id_, Text)
 end
 if text == "خمن" or text == "تخمين" then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -12293,20 +12378,6 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 return false
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 Text = [[*
 - اهلا بك عزيزي ؛
 - في بوت حذف حسابات التليجرام -
@@ -12317,7 +12388,7 @@ Text = [[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '??𝗲𝗹𝗲𝘁𝗲 𝗯𝗼𝘁',url="https://t.me/F89Fbot"},
+{text = 'D𝗲𝗹𝗲𝘁𝗲 𝗯𝗼𝘁',url="https://t.me/F89Fbot"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14208,77 +14279,6 @@ t =t.."\n\nايدي المجموعه\n"..IdChat
 send(Id_Sudo, msg.id_,t)
 database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
 end,nil)
-end
-end
-if data.ID == "UpdateNewInlineCallbackQuery" then
-local Text = data.payload_.data_
-if Text and Text:match("^(%d+)cle(.*)$")  then  
-local idpla  = Text:match("(%d+)")  
-local OnID = Text:gsub('cle',''):gsub(idpla,'')
-if tonumber(data.sender_user_id_) == tonumber(idpla) then
-https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('◊￤انت من بدأت اللعبه انتظر من فضلك')..'&show_alert=true')
-return false
-end
-if tonumber(data.sender_user_id_) ~= tonumber(idpla) then
-tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,me) 
-tdcli_function ({ID = "GetUser",user_id_ = idpla},function(arg,you) 
-if OnID == "faz" then
-EiMsg = "👤︙الفائز : ( "..me.first_name_.." )\n🧟‍♀️︙حظ اوفر ( "..you.first_name_.." )"
-elseif OnID== "lose" then
-EiMsg = "👤︙الفائز : ( "..you.first_name_.." )\n🧟‍♀️︙حظ اوفر ( "..me.first_name_.." )"
-elseif OnID== "tadl" then
-EiMsg = "👤︙النتيجه تعادل : ( "..you.first_name_.." )|( "..me.first_name_.." ) "
-end
-x = {} 
-x.inline_keyboard = {
-{{text ="اللعب مجددا",switch_inline_query=math.random(8282828283,28383883833)}},
-}
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?inline_message_id='..data.inline_message_id_..'&text='..URL.escape(EiMsg)..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
-end,nil)   
-end,nil)   
-end
-end
-end
-if data.ID == "UpdateNewInlineQuery" then
-local Text = data.query_
-if Text then
-local input_message_content = {message_text = "✂️︙ حجره ورقه مقص\n👤︙ اضغط للعب ", parse_mode = 'Markdown'}	
-local resuult = {{
-type = 'article',
-id = math.random(1,64),
-title = 'حجره',
-input_message_content = input_message_content,
-reply_markup = {
-inline_keyboard ={
-{{text ="- مقص ", callback_data = data.sender_user_id_.."clelose"},{text ="- ورقه ", callback_data = data.sender_user_id_.."clefaz"},{text ="- حجره", callback_data = data.sender_user_id_.."cletadl"}}
-}
-},
-thumb_url = 'https://black-source.tk/geam1.jpg'
-},{
-type = 'article',
-id = math.random(1,64),
-title = 'ورقه',
-input_message_content = input_message_content,
-reply_markup = {
-inline_keyboard ={
-{{text ="- مقص ", callback_data = data.sender_user_id_.."clefaz"},{text ="- ورقه ", callback_data = data.sender_user_id_.."clelose"},{text ="- حجره", callback_data = data.sender_user_id_.."cletadl"}}
-}
-},
-thumb_url = 'https://black-source.tk/geam2.jpg'	
-},{
-type = 'article',
-id = math.random(1,64),
-title = 'مقص',
-input_message_content = input_message_content,
-reply_markup = {
-inline_keyboard ={
-{{text ="- مقص ", callback_data = data.sender_user_id_.."cletadl"},{text ="- ورقه ", callback_data = data.sender_user_id_.."clelose"},{text ="- حجره", callback_data = data.sender_user_id_.."clefaz"}}
-}
-},
-thumb_url = 'https://black-source.tk/geam3.jpg'	
-}
-}
-https.request("https://api.telegram.org/bot"..token..'/answerInlineQuery?inline_query_id='..data.id_..'&switch_pm_text=اختر&switch_pm_parameter=start&results='..JSON.encode(resuult))
 end
 end
 if data.ID == "UpdateNewCallbackQuery" then
