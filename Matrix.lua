@@ -6819,30 +6819,6 @@ local t = '*  \n◊￤تم تعطيل امسح*'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id.."msg:media"..msg.chat_id_,true)  
 end
-if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
-database:set(bot_id.."lock_cleaner"..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_, '◊￤تم تفعيل التنظيف الوسائط التلقائي ')
-return false
-end
-
-if text == "تعطيل تنظيف الوسائط" and Owner(msg) then
-database:del(bot_id.."lock_cleaner"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '◊￤تم تعطيل » التنظيف التلقائي ')
-return false
-end
-
-if text and text:match("^(ضع وقت التنظيف) (%d+)$") and cleaner(msg) then
-local NumLoop = tonumber(text:match("(%d+)"))
-database:set(bot_id..':Timer_Cleaner:'..msg.chat_id_,NumLoop) 
-return send(msg.chat_id_, msg.id_,"◊￤تم وضع وقت التنظيف » { *"..NumLoop.."* } ساعه")
-end
-
-if text == ("مسح الوسائط") and cleaner(msg) then  
-local mmezz = database:smembers(bot_id..":IdsMsgsCleaner:"..msg.chat_id_)
-if #mmezz == 0 then return send(msg.chat_id_, msg.id_,"◊￤لا يوجد وسائط مجدوله للحذف \n ") end
-for k,v in pairs(mmezz) do DeleteMessage(msg.chat_id_, {[0] = v}) end
-return send(msg.chat_id_, msg.id_,"◊￤تم مسح جميع الوسائط المجدوله")
-end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
@@ -9505,15 +9481,11 @@ if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_,"> حساب المالك محذوف")
+send(msg.chat_id_, msg.id_,"◊￤ حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "Matrix_Source")
-Text = "*> Dev Name ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*> Dev User ↬* [@"..UserName.."]"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = ''..b.first_name_..' ',url="t.me/"..UserName or IZlZ7I}}}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..UserName..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+local UserName = (b.username_ or "IZlZ7I")
+send(msg.chat_id_, msg.id_,"◊￤مالك المجموعة ↜ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
 end
@@ -11829,15 +11801,6 @@ gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.e
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_, br.ok.hso)
 end
-if text == "الابراج" and database:get(bot_id.."Matrix:brj_Bots"..msg.chat_id_) == "open" then
-key = {
-{{text = "برج الجوزاء ♊",callback_data=msg.sender_user_id_.."Getprjالجوزاء"},{text ="برج الثور ♉",callback_data=msg.sender_user_id_.."Getprjالثور"},{text ="برج الحمل ♈",callback_data=msg.sender_user_id_.."Getprjالحمل"}},
-{{text = "برج العذراء ♍",callback_data=msg.sender_user_id_.."Getprjالعذراء"},{text ="برج الأسد ♌",callback_data=msg.sender_user_id_.."Getprjالاسد"},{text ="برج السرطان ♋",callback_data=msg.sender_user_id_.."Getprjالسرطان"}},
-{{text = "برج القوس ♐",callback_data=msg.sender_user_id_.."Getprjالقوس"},{text ="برج العقرب ♏",callback_data=msg.sender_user_id_.."Getprjالعقرب"},{text ="برج الميزان ♎",callback_data=msg.sender_user_id_.."Getprjالميزان"}},
-{{text = "برج الحوت ♓",callback_data=msg.sender_user_id_.."Getprjالحوت"},{text ="برج الدلو ♒",callback_data=msg.sender_user_id_.."Getprjالدلو"},{text ="برج الجدي ♑",callback_data=msg.sender_user_id_.."Getprjالجدي"}},
-}
-send_inline_key(msg.chat_id_,"◊￤قم بأختيار برجك الان .",nil,key,msg.id_/2097152/0.5)
-end
 if text == "راسلني" or text =="خاص" or text =="خا"or text =="خ" or text =="خاصك" then
 rpl = {"نعم ﺣحب 💓"," ﮪݪـﯛ عمري تفضل💕","ها حبب كول؟ ","زحفتلك كول شتريد 😂🙂","هها موكلت 💓🥺","راسلتك 👋🏼😂"};
 sender = rpl[math.random(#rpl)]
@@ -12178,13 +12141,14 @@ File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-tdcli_function ({ID = "GetUser",user_id_ = Id_Sudo},function(arg,data) 
-Text = "*◊￤Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*◊￤Dev User ↬* [@"..data.username_.."]"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or IZlZ7I}}}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..data.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end,nil)
+local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
+if Text_Dev then 
+send(msg.chat_id_, msg.id_,Text_Dev)
+else
+tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
+send(msg.chat_id_, msg.id_,"◊￤المطور ↜ ["..data.first_name_.."](T.me/"..data.username_..")")  
+end,nil)   
+end
 end
 if text == 'نقل الاحصائيات' and DevMatrix(msg) then
 local Users = database:smembers('Matrix:'..bot_id.."userss")
@@ -12353,7 +12317,7 @@ Text = [[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝗱𝗲𝗹𝗲𝘁𝗲 𝗯𝗼𝘁',url="https://t.me/F89Fbot"},
+{text = '??𝗲𝗹𝗲𝘁𝗲 𝗯𝗼𝘁',url="https://t.me/F89Fbot"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14323,22 +14287,7 @@ local From_id = data.id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
-if DAata and DAata:match("^(%d+)Getprj(.*)$") then
-local notId  = DAata:match("(%d+)")  
-local OnID = DAata:gsub('Getprj',''):gsub(notId,'')
-if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
-local notText = '◊￤عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
-gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(OnID))
-br = JSON.decode(gk)
-x = {} 
-x.inline_keyboard = {
-{{text = '◊￤Matrix 𝖲𝗈𝗎𝗋𝖼𝖾  .',url='http://t.me/Matrix_Source'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(br.ok.hso)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
-end
+local Text = data.payload_.data_
 
 if Text and Text:match('(.*)/addtslbackk') then
 local Userid = Text:match('(.*)/addtslbackk')
