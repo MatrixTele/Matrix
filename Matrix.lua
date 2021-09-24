@@ -1941,16 +1941,6 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
-if text == "تعطيل المسح التلقائي" and Owner(msg) then        
-database:del(bot_id.."y:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تعطيل المسح التلقائي للميديا*')
-return false
-end 
-if text == "تفعيل المسح التلقائي" and Owner(msg) then        
-database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تفعيل المسح التلقائي للميديا*')
-return false
-end 
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."Matrix:Lock:text"..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم قفـل الدردشه*")  
@@ -2458,16 +2448,6 @@ end
 if text == "فتح الشارحه" and Addictive(msg) then
 database:del(bot_id.."Matrix:Lock:Cmd"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","*◊￤تم فتح الشارحه*")  
-return false
-end 
-if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
-database:set(bot_id.."y:Matrix:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تعطيل المسح التلقائي للميديا*')
-return false
-end 
-if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
-database:del(bot_id.."y:Matrix:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تفعيل المسح التلقائي للميديا*')
 return false
 end 
 if text == "قفل الصور"and Addictive(msg) then
@@ -6091,16 +6071,6 @@ if text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Addic
 database:del(bot_id..'Matrix:lock:Fshar'..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تـم فـتح الفارسيه\n")  
 end
-if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
-database:set(bot_id.."y:Matrix:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تعطيل المسح التلقائي للميديا*')
-return false
-end 
-if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
-database:del(bot_id.."y:Matrix:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح التلقائي للميديا')
-return false
-end 
 if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id..'Matrix:lock:Fshar'..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تم قفل الفشار")  
@@ -6849,6 +6819,30 @@ local t = '*  \n◊￤تم تعطيل امسح*'
 send(msg.chat_id_, msg.id_,t)
 database:set(bot_id.."msg:media"..msg.chat_id_,true)  
 end
+if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
+database:set(bot_id.."lock_cleaner"..msg.chat_id_,true)
+send(msg.chat_id_, msg.id_, '◊￤تم تفعيل التنظيف الوسائط التلقائي ')
+return false
+end
+
+if text == "تعطيل تنظيف الوسائط" and Owner(msg) then
+database:del(bot_id.."lock_cleaner"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, '◊￤تم تعطيل » التنظيف التلقائي ')
+return false
+end
+
+if text and text:match("^(ضع وقت التنظيف) (%d+)$") and cleaner(msg) then
+local NumLoop = tonumber(text:match("(%d+)"))
+database:set(bot_id..':Timer_Cleaner:'..msg.chat_id_,NumLoop) 
+return send(msg.chat_id_, msg.id_,"◊￤تم وضع وقت التنظيف » { *"..NumLoop.."* } ساعه")
+end
+
+if text == ("مسح الوسائط") and cleaner(msg) then  
+local mmezz = database:smembers(bot_id..":IdsMsgsCleaner:"..msg.chat_id_)
+if #mmezz == 0 then return send(msg.chat_id_, msg.id_,"◊￤لا يوجد وسائط مجدوله للحذف \n ") end
+for k,v in pairs(mmezz) do DeleteMessage(msg.chat_id_, {[0] = v}) end
+return send(msg.chat_id_, msg.id_,"◊￤تم مسح جميع الوسائط المجدوله")
+end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
@@ -6887,21 +6881,6 @@ end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'*◊￤تم تنظيف الميديا المعدله*')
-end
-if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
-local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-if gmedia == 200 then
-local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
-for k,v in pairs(liste) do
-local Mesge = v
-if Mesge then
-t = "*◊￤تم مسح "..k.." من الوسائط تلقائيا*\n*◊￤يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )*"
-DeleteMessage(msg.chat_id_,{[0]=Mesge})
-end
-end
-send(msg.chat_id_, msg.id_, t)
-database:del(bot_id.."msg:media"..msg.chat_id_)
-end
 end
 if text == 'رقمي' then   
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
@@ -11782,16 +11761,6 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == "تعطيل المسح التلقائي" and Owner(msg) then        
-database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تعطيل المسح التلقائي للميديا')
-return false
-end 
-if text == "تفعيل المسح التلقائي" and Owner(msg) then        
-database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح التلقائي للميديا')
-return false
-end 
 if text == 'تعطيل الالعاب الاحترافيه' and Owner(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id..'lockGeamVip'..msg.chat_id_,true)  
 send(msg.chat_id_, msg.id_,'*◊￤تم تعطيل الالعاب الاحترافيه*')
@@ -13499,7 +13468,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 ?? 𖥅 𖥃 ?? 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 ?? ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 ?? 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -17679,8 +17648,6 @@ end
 --======================================================================================================
 --======================================================================================================
 if Addictive(msg) then 
-
-
 if (msg.content_.ID == "MessagePhoto" 
 or msg.content_.ID == "MessageSticker" 
 or msg.content_.ID == "MessageVoice" 
@@ -18637,7 +18604,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"🤣 10","🥰 20 ","?? 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+numj = {"🤣 10","🥰 20 ","?? 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️?? 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
 sendzff = numj[math.random(#numj)]
 local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
