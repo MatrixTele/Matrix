@@ -6971,12 +6971,12 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(2,11)
-local Text ='*◊￤تم اختيار مقطع الشعر لك*'
+Matrix = math.random(4,2824); 
+local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/shhar"},
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/shhar"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -7012,10 +7012,12 @@ Matrix = math.random(4,2824);
 local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
+{
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/knelee"}
+},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
@@ -7080,14 +7082,16 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-Matrix = math.random(4,1171); 
+local Matrix = math.random(4,1171); 
 local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
+{
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sphoto"}
+},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل انمي" and Owner(msg)  or text == "تفعيل الانمي" and Owner(msg)  then
@@ -9339,7 +9343,7 @@ return false
 end
 if database:get(bot_id.."Matrix:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Matrix:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","◊￤","🎗","🏵","◊￤","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","◊￤","📍","📓","📗","◊￤","📅","📪","◊￤","◊￤","📭","⏰","📺","🎚","☎️","◊￤"}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","◊￤","🎗","🏵","◊￤","🏆","🥌","🛷","🚗","🚌","🏎","🚓","??","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","◊￤","📍","📓","📗","◊￤","📅","📪","◊￤","◊￤","📭","⏰","📺","🎚","☎️","◊￤"}
 SM = Random[math.random(#Random)]
 database:set(bot_id.."Matrix:Random:Sm"..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,"◊￤اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
