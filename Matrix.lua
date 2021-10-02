@@ -827,7 +827,7 @@ keyboard.inline_keyboard = {
 {text = 'رجوع ...', callback_data=user.."/homelocks"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/help"},
+{text = '• رجوع •', callback_data=user.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat..'&text='..URL.escape(Texti)..'&message_id='..msgid..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -890,7 +890,7 @@ keyboard.inline_keyboard = {
 {text = 'التالي ...', callback_data=user.."/homelocks1"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/help"},
+{text = '• رجوع •', callback_data=user.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat..'&text='..URL.escape(Texti)..'&message_id='..msgid..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -6205,7 +6205,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱??𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='. ◟َِ 𝑱??𝒊?? 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7012,12 +7012,10 @@ Matrix = math.random(4,2824);
 local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{
-{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/knelee"}
-},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
@@ -7082,16 +7080,14 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(4,1171); 
+Matrix = math.random(4,1171); 
 local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{
-{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sphoto"}
-},
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل انمي" and Owner(msg)  or text == "تفعيل الانمي" and Owner(msg)  then
@@ -9828,12 +9824,29 @@ end
 
 return false
 end
-key = {
-{{text = '◊ العاب السورس ◊', callback_data=msg.sender_user_id_.."/gamesos"}},
-{{text = '◊ العاب متطورة ◊', callback_data=msg.sender_user_id_.."/gamemm"}},
-{{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
-}
-send_inline_key(msg.chat_id_,"*\n◊￤اهلا بك في قائمة الالعاب .\n◊￤يمكنك اختيار مجموعة الالعاب .\n◊￤ملاحظة العاب السورس تعطي نقاط فقط .*",nil,key,msg.id_/2097152/0.5)
+Teext = [[*
+◊￤قائمه الالعاب الموجوده
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤لعبة البات ↜ بات
+◊￤لعبة التخمين ↜ خمن
+◊￤لعبه الاسرع ↜ الاسرع
+◊￤لعبة السمايلات ↜ سمايلات
+◊￤لعبة المختلف ↜ المختلف
+◊￤لعبة الامثله ↜ امثله
+◊￤لعبة العكس ↜ العكس 
+◊￤لعبة الحزوره ↜ حزوره
+◊￤لعبة المعاني ↜ معاني
+◊￤لعبة الحروف ↜ حروف
+◊￤لعبة كت تويت ↜ كت
+◊￤لعبة الصراحه ↜ صراحه
+◊￤لعبة لو خيروك ↜ لو خيروك
+◊￤لعبة الرياضيات ↜ رياضيات
+◊￤لعبة الانكليزي ↜ انكليزي
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤مجوهراتي ↜ لعرض عدد الارباح
+◊￤بيع مجوهراتي + العدد ↜ لستبدال كل مجوهره ب50 رساله*
+]]
+send(msg.chat_id_, msg.id_,Teext) 
 end
 if text == 'رسائلي' then
 local nummsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
@@ -10528,6 +10541,21 @@ if text == "تفعيل حساب العمر" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'◊￤تم تفعيل حساب العمر')
 database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"open")
 end
+if text == "تعطيل معاني الاسماء" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '◊￤تم تعطيل معاني الاسماء')
+database:set(bot_id.."Matrix:mean"..msg.chat_id_,"close")
+end
+if text == "تفعيل معاني الاسماء" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'◊￤تم تفعيل معاني الاسماء')
+database:set(bot_id.."Matrix:mean"..msg.chat_id_,"open")
+end
+if text and text:match("^معنى الاسم (.*)$") or text and text:match("^معنى اسم (.*)$") and database:get(bot_id.."Matrix:mean"..msg.chat_id_) == "open" then 
+local TextMean = text:match("^معنى الاسم (.*)$") or text:match("^معنى اسم (.*)$") 
+UrlMean = https.request('https://apiabs.ml/Mean.php?Abs='..URL.escape(TextMean)) 
+Mean = JSON.decode(UrlMean) 
+t = Mean.ok.abs
+send(msg.chat_id_, msg.id_, Mean.ok.hso)
+end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
 ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
@@ -11010,25 +11038,14 @@ end
 return false
 end
 key = {
-{{text = '• ❶ •', callback_data=msg.sender_user_id_.."/help1"},{text = '• ❷ •', callback_data=msg.sender_user_id_.."/help2"},{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"}},
-{{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"}},
-{{text = '{اعدادات المجموعة}', callback_data=msg.sender_user_id_.."/helps"}},
-{{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '𓍹 𝟏 𓍻', callback_data=msg.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=msg.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=msg.sender_user_id_.."/help3"}},
+{{text = '𓍹 𝟒 𓍻', callback_data=msg.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=msg.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=msg.sender_user_id_.."/help6"}},
+{{text = '{آوآمر التسليه}', callback_data=msg.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=msg.sender_user_id_.."/game"}},
+{{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"}},
 }
 send_inline_key(msg.chat_id_,"*\n◊￤توجد ↜ 6 اوامر في البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n◊￤ارسل { م1 } ↜ اوامر الحمايه\n◊￤ارسل { م2 } ↜ اوامر الادمنيه\n◊￤ارسل { م3 } ↜ اوامر المدراء\n◊￤ارسل { م4 } ↜ اوامر المنشئين\n◊￤ارسل { م5 } ↜ اوامر مطورين البوت\n◊￤ارسل { م6 } ↜ اوامر الاعضاء\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*",nil,key,msg.id_/2097152/0.5)
 end
-if text == 'اوامر الرتب' then  
-key = {
-{{text = 'مسح المميزين', callback_data=msg.sender_user_id_.."/delvips"},{text = 'مسح الادمنية', callback_data=msg.sender_user_id_.."/deladmin"}},
-{{text = 'مسح المدراء', callback_data=msg.sender_user_id_.."/delmoder"},{text = 'مسح المنشئين', callback_data=msg.sender_user_id_.."/delmnsh"}},
-{{text = 'مسح المنشئين الاساسيين', callback_data=msg.sender_user_id_.."/delassaseen"},{text = 'مسح المالكين', callback_data=msg.sender_user_id_.."/deldelcreatorr"}},
-{{text = 'مسح المكتومين', callback_data=msg.sender_user_id_.."/delktm"},{text = 'مسح المحظورين', callback_data=msg.sender_user_id_.."/delban"}},
-{{text = 'مسح الاوامر المضافه', callback_data=msg.sender_user_id_.."/delCmdd"},{text = 'مسح المنظفين', callback_data=msg.sender_user_id_.."/delcleanerr"}},
-{{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
-}
-send_inline_key(msg.chat_id_,"*\n◊￤اهلا بك في قائمة اوامر الرتب\n◊￤يمكنك مسح رتب المجموعة من خلال الازرار في الاسفل*",nil,key,msg.id_/2097152/0.5)
-end
-if text == 'التسليه' and Addictive(msg) then  
+if text == 'التسليه' then  
 key = {
 {{text = '◊ اغنيه ◊', callback_data=msg.sender_user_id_.."/aknia"},{text = '◊ ريمكس ◊', callback_data=msg.sender_user_id_.."/remex"}},
 {{text = '◊ غنيلي ◊', callback_data=msg.sender_user_id_.."/knelee"},{text = '◊ انمي ◊', callback_data=msg.sender_user_id_.."/anematin"}},
@@ -11052,7 +11069,7 @@ return false
 end
 key = {
 {{text = '{ قائمة الاوامر }', callback_data=msg.sender_user_id_.."/help"}},
-{{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"}},
 }
 send_inline_key(msg.chat_id_,"*◊￤عليك استخدام اوامر التحكم بالقوائم *",nil,key,msg.id_/2097152/0.5)
 end
@@ -11090,10 +11107,10 @@ local Text = '\n*◊￤المجموعة : {'..chat.title_..'}*\n*◊￤تم تف
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- رفع المالك والادمنية',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{رفع المالك والادمنية}',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 {
-{text = '- قفل جميع الاوامر',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{قفل الكل}',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11222,10 +11239,10 @@ local Text = '\n*◊￤المجموعة : {'..chat.title_..'}*\n*◊￤تم تف
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- رفع المالك والادمنية',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{رفع المالك والادمنيه}',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 {
-{text = '- قفل جميع الاوامر',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{قفل الكل}',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14363,7 +14380,7 @@ keyboard.inline_keyboard = {
 {text = 'تفعيل الانستا', callback_data=data.sender_user_id_.."/Matrix:insta_bot"},{text = 'تعطيل الانستا', callback_data=data.sender_user_id_.."/unMatrix:insta_bot"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -15427,233 +15444,68 @@ return false
 end
 end
 ---------------------------------------------------------------------------------------------------------
-if Text and Text:match('(.*)/gamehome') then
-if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤#;ُِ 𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚐𝚊𝚖𝚎 𝚕𝚒𝚜𝚝 .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤.َ ‹ 𝘠𝘰𝘶 𝘤𝘢𝘯 𝘤𝘩𝘰𝘰𝘴𝘦 𝘢 𝘨𝘳𝘰𝘶𝘱 𝘰𝘧 𝘨𝘢𝘮𝘦𝘴 .
-◊￤.َ ‹ 𝘕𝘰𝘵𝘦: 𝘛𝘩𝘦 𝘴𝘰𝘶𝘳𝘤𝘦 𝘨𝘢𝘮𝘦𝘴 𝘰𝘯𝘭𝘺 𝘨𝘪𝘷𝘦 𝘱𝘰𝘪𝘯𝘵𝘴 .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '◊ العاب السورس ◊', callback_data=data.sender_user_id_.."/gamesos"},
-},
-{
-{text = '◊ الالعاب الاحترافية ◊', callback_data=data.sender_user_id_.."/gamemm"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/gamesos') then
-if tonumber(Text:match('(.*)/gamesos')) == tonumber(data.sender_user_id_) then
+if Text and Text:match('(.*)/game') then
+if tonumber(Text:match('(.*)/game')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ◊￤قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤لعبة البات ◊￤بات
-◊￤لعبة التخمين ◊￤خمن
-◊￤لعبه الاسرع ◊￤الاسرع
-◊￤لعبة السمايلات ◊￤سمايلات
-◊￤لعبة المختلف ◊￤المختلف
-◊￤لعبة الامثله ◊￤امثله
-◊￤لعبة العكس ◊￤العكس 
-◊￤لعبة الحزوره ◊￤حزوره
-◊￤لعبة المعاني ◊￤معاني
-◊￤لعبة الحروف ◊￤حروف
-◊￤لعبة كت تويت ◊￤كت
-◊￤لعبة الصراحه ◊￤صراحه
-◊￤لعبة لو خيروك ◊￤لو خيروك
-◊￤لعبة الرياضيات ◊￤رياضيات
-◊￤لعبة الانكليزي ◊￤انكليزي
+◊￤لعبة البات ↜ بات
+◊￤لعبة التخمين ↜ خمن
+◊￤لعبه الاسرع ↜ الاسرع
+◊￤لعبة السمايلات ↜ سمايلات
+◊￤لعبة المختلف ↜ المختلف
+◊￤لعبة الامثله ↜ امثله
+◊￤لعبة العكس ↜ العكس 
+◊￤لعبة الحزوره ↜ حزوره
+◊￤لعبة المعاني ↜ معاني
+◊￤لعبة الحروف ↜ حروف
+◊￤لعبة كت تويت ↜ كت
+◊￤لعبة الصراحه ↜ صراحه
+◊￤لعبة لو خيروك ↜ لو خيروك
+◊￤لعبة الرياضيات ↜ رياضيات
+◊￤لعبة الانكليزي ↜ انكليزي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤مجوهراتي ◊￤لعرض عدد الارباح
-◊￤بيع مجوهراتي + العدد ◊￤لستبدال كل مجوهره ب50 رساله*
+◊￤مجوهراتي ↜ لعرض عدد الارباح
+◊￤بيع مجوهراتي + العدد ↜ لستبدال كل مجوهره ب50 رساله*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊ العاب متطورة ◊', callback_data=data.sender_user_id_.."/gamemm"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
+{text = 'رجوع', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/gamemm') then
-if tonumber(Text:match('(.*)/gamemm')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/helpst') then
+if tonumber(Text:match('(.*)/helpst')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-◊￤اهلا بك في قائمة الالعاب المحترفة .
+◊￤قائمة اوامر التسليه
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤يمكنك الان اختيار لعبة .
-◊￤قم بارسال اللعبه في المجموعة .
-◊￤ملاحظة العاب السورس تعطي نقاط فقط .
+◊￤يمكنك استخدام الاوامر التالية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
-},
-{
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
-},
-{
-{text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
-},
-{
-{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
-},
-{
-{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
-},
-{
-{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
-},
-{
-{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
-},
-{
-{text = 'MαTRιX TEαM .', url="https://t.me/Matrix_Source"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/helps') then
-if tonumber(Text:match('(.*)/helps')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤أهلا بك عزيزي . 
-◊￤في اعدادات المجموعه . 
-◊￤يمكنك استخدام الازرار عبر ضغط عليهم .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'الاوامر', callback_data=data.sender_user_id_.."/help"},
-},
-{
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
-},
-{
-{text = 'الالعاب', callback_data=data.sender_user_id_.."/gamehome"},{text = 'التسليه', callback_data=data.sender_user_id_.."/tslea0"},
-},
-{
-{text = 'اوامر الرتب', callback_data=data.sender_user_id_.."/rtp0"},
-},
-{
-{text = 'السورس', callback_data=data.sender_user_id_.."/sors0"},
-},
-{
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/sors0') then
-if tonumber(Text:match('(.*)/sors0')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤Source Matrix 
+◊￤غنيلي ↜ لارسال لك مقطع صوتي .
+◊￤اغنيه ↜ لارسال لك مقطع صوتي .
+◊￤شعر ↜ لارسال لك مقطع صوتي .
+◊￤ميمز ↜ لارسال لك مقطع صوتي .
+◊￤متحركه ↜ لارسال لك صوره متحركه .
+◊￤صوره ↜ لارسال لك صوره تمبلر .
+◊￤فلم ↜ لارسال لك فلم .
+◊￤مسلسل ↜ لارسال لك مسلسل .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'Channel Source ،', url="https://t.me/Matrix_Source"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'Annotations Source', url="https://t.me/infoo_Matrix"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'Communication Source', url="https://t.me/U41bot"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = 'Developer Source !', url="https://t.me/IZlZ7I"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/tslea0') then
-if tonumber(Text:match('(.*)/tslea0')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤أهلا بك عزيزي . 
-◊￤في اوامر التسليه للمجموعه . 
-◊￤يمكنك استخدام الازرار عبر ضغط عليهم .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'اغنية', callback_data=data.sender_user_id_.."/aknia"},{text = 'ريمكس', callback_data=data.sender_user_id_.."/remex"},
-},
-{
-{text = 'غنيلي', callback_data=data.sender_user_id_.."/knelee"},{text = 'انمي', callback_data=data.sender_user_id_.."/anematin"},
-},
-{
-{text = 'صوره', callback_data=data.sender_user_id_.."/sphoto"},{text = 'ميمز', callback_data=data.sender_user_id_.."/memz"},
-},
-{
-{text = 'متحركه', callback_data=data.sender_user_id_.."/sgifs"},{text = 'شعر', callback_data=data.sender_user_id_.."/shhar"},
-},
-{
-{text = 'فلم', callback_data=data.sender_user_id_.."/sflm"},{text = 'مسلسل', callback_data=data.sender_user_id_.."/smslsl"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-{
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/rtp0') then
-if tonumber(Text:match('(.*)/rtp0')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤أهلا بك عزيزي . 
-◊￤في اوامر الرتب للمجموعه . 
-◊￤يمكنك استخدام الازرار عبر ضغط عليهم .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'مسح المميزين', callback_data=data.sender_user_id_.."/delvips"},{text = 'مسح الادمنيه', callback_data=data.sender_user_id_.."/deladmin"},
-},
-{
-{text = 'مسح المدراء', callback_data=data.sender_user_id_.."/delmoder"},{text = 'مسح المنشئين', callback_data=data.sender_user_id_.."/delmnsh"},
-},
-{
-{text = 'مسح المنشئين الاساسين', callback_data=data.sender_user_id_.."/delassaseen"},{text = 'مسح المالكين', callback_data=data.sender_user_id_.."/deldelcreatorr"},
-},
-{
-{text = 'مسح المكتومين', callback_data=data.sender_user_id_.."/delktm"},{text = 'مسح المحظورين', callback_data=data.sender_user_id_.."/delban"},
-},
-{
-{text = 'مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/delCmdd"},{text = 'مسح المنظفين', callback_data=data.sender_user_id_.."/delcleanerr"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-{
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15697,13 +15549,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15750,13 +15605,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15795,13 +15653,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15828,13 +15689,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15875,66 +15739,63 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/Services') then
-if tonumber(Text:match('(.*)/Services')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/help6') then
+if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-◊￤اوامر الاعضاء ↜ ↓
+◊￤اوامر الاعضاء 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤اليـوتيوب ..
-◊￤امر التشغيل ↜ ❨ تفعيل اليوتيوب ❩
-◊￤امر التعطيل ↜ ❨ تعطيل اليوتيوب ❩
-◊￤البـحث عن اغنية ↓
-◊￤بحث ↜ اسم الاغنية
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤السورس ◊￤موقعي ◊￤رتبتي ◊￤معلوماتي 
-◊￤رقمي ◊￤لقبي ◊￤اغنيه ◊￤صلاحياتي ◊￤غنيلي
-◊￤ميمز ◊￤متحركه ◊￤صوره ◊￤ريمكس ◊￤فلم ◊￤مسلسل ◊￤انمي
-◊￤رسائلي ◊￤حذف رسائلي ◊￤اسمي ◊￤معرفي 
-◊￤ايدي •ايديي ◊￤جهاتي ◊￤راسلني ◊￤الالعاب 
-◊￤نقاطي ◊￤بيع نقاطي ◊￤القوانين ◊￤زخرفه 
-◊￤رابط الحذف ◊￤نزلني ◊￤اطردني ◊￤المطور 
-◊￤منو ضافني ◊￤مشاهدات المنشور ◊￤الرابط 
-◊￤ايدي المجموعه ◊￤معلومات المجموعه 
-◊￤نسبه الحب ◊￤نسبه الكره ◊￤نسبه الغباء 
-◊￤نسبه الرجوله ◊￤نسبه الانوثه ◊￤التفاعل
+◊￤السورس • موقعي • رتبتي • معلوماتي 
+◊￤رقمي • لقبي • نبذتي • صلاحياتي • غنيلي
+◊￤ميمز • متحركه • صوره • ريمكس • فلم • مسلسل • انمي
+◊￤رسائلي • حذف رسائلي • اسمي • معرفي 
+◊￤ايدي •ايديي • جهاتي • راسلني • الالعاب 
+◊￤مجوهراتي • بيع مجوهراتي • القوانين • زخرفه 
+◊￤رابط الحذف • نزلني • اطردني • المطور 
+◊￤منو ضافني • مشاهدات المنشور • الرابط 
+◊￤ايدي المجموعه • معلومات المجموعه 
+◊￤نسبه الحب • نسبه الكره • نسبه الغباء 
+◊￤نسبه الرجوله • نسبه الانوثه • التفاعل
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤لقبه + بالرد
 ◊￤كول + الكلمه
 ◊￤زخرفه + اسمك
 ◊￤برج + نوع البرج
 ◊￤معنى اسم + الاسم
-◊￤بوسه ◊￤بوسها ↜ بالرد
+◊￤بوسه • بوسها ↜ بالرد
 ◊￤احسب + تاريخ ميلادك
-◊￤رفع مطي ◊￤تنزيل مطي ◊￤المطايه
-◊￤هينه ◊￤هينها ↜ بالرد ◊￤بالمعرف
-◊￤صيحه ◊￤صيحها ↜ بالرد ◊￤بالمعرف
-◊￤صلاحياته ↜ بالرد ◊￤بالمعرف ◊￤بالايدي
-◊￤ايدي ◊￤كشف  ↜ بالرد ◊￤بالمعرف ◊￤بالايدي
-◊￤تحويل + بالرد ↜ صوره ◊￤ملصق ◊￤صوت ◊￤بصمه
+◊￤صلاحياته ↜ بالرد • بالمعرف • بالايدي
+◊￤ايدي • كشف  ↜ بالرد • بالمعرف • بالايدي
+◊￤تحويل + بالرد ↜ صوره • ملصق • صوت • بصمه
 ◊￤انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '?? 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15955,16 +15816,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '{اعدادات المجموعة}', callback_data=data.sender_user_id_.."/helps"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
