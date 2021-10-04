@@ -2022,7 +2022,7 @@ local Numbardel = text:match("^ضع عدد المسح (%d+)$")
 database:set(bot_id.."Matrix:allM:numdel"..msg.chat_id_,Numbardel) 
 send(msg.chat_id_, msg.id_, 'تم تعيين العدد  الى : '..Numbardel)
 end
-if text == ("مسح الميديا") and BasicConstructor(msg) then  
+if text == ("امسح") and BasicConstructor(msg) then  
 local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
@@ -2037,7 +2037,7 @@ t = "◊￤لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("عدد الميديا") and BasicConstructor(msg) then  
+if text == ("الميديا") and BasicConstructor(msg) then  
 local gmria = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"◊￤عدد الميديا الموجود هو (* "..gmria.." *)")
 end
@@ -5946,58 +5946,6 @@ database:del(bot_id.."Private:Group:Link"..msg.chat_id_)
 return false  
 end
 end
-if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
-database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
-end
-if text == "تفعيل امسح" and creatorA(msg) then
-local t = ' \n*◊￤تم تفعيل امسح*'
-send(msg.chat_id_, msg.id_,t)
-database:del(bot_id.."msg:media"..msg.chat_id_) 
-end
-if text == "تعطيل امسح" and creatorA(msg) then
-local t = '*  \n◊￤تم تعطيل امسح*'
-send(msg.chat_id_, msg.id_,t)
-database:set(bot_id.."msg:media"..msg.chat_id_,true)  
-end
-if text == ("امسح") and cleaner(msg) then  
-local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
-for k,v in pairs(list) do
-local Message = v
-if Message then
-t = "*◊￤تم مسح "..k.." من الوسائط الموجوده*"
-DeleteMessage(msg.chat_id_,{[0]=Message})
-database:del(bot_id.."msg:media"..msg.chat_id_)
-end
-end
-if #list == 0 then
-t = "*◊￤لا يوجد ميديا في المجموعه*"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("الميديا") and cleaner(msg) then  
-local gmria = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"◊￤عدد الميديا الموجود هو (* "..gmria.." *)")
-end
-if text == "امسح" and cleaner(msg) then   
-Msgs = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,200 do
-Message = Message - 1048576
-Msgs[i] = Message
-end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
-new = 0
-Msgs2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
-Msgs2[new] = data.messages_[i].id_
-new = new + 1
-end
-end
-DeleteMessage(msg.chat_id_,Msgs2)
-end,nil)  
-send(msg.chat_id_, msg.id_,'*◊￤تم تنظيف الميديا المعدله*')
-end
 if text == 'رقمي' then   
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
 if result.phone_number_  then
@@ -9380,7 +9328,7 @@ end
 end
 
 
-if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 or text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9410,19 +9358,16 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Matrix:Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*◊￤ايديه - '..Id..'\n◊￤رسائله - '..NumMsg..'\n◊￤معرفه - ['..UserName_User..']\n◊￤تفاعله - '..TotalMsg..'\n◊￤رتبته - '..Status_Gps..'\n◊￤تعديلاته - '..message_edit..'\n◊￤جهاته - '..Add_Mem..'\n◊￤نوع الكشف - بالرد \n*') 
+inline = {{{text ='رتبته - '..Status_Gps..'',url="t.me/Matrix_Source"}}, }
+send_inlin_key(msg.chat_id_,'*◊￤ايديه - '..Id..'\n◊￤رسائله - '..NumMsg..'\n◊￤معرفه - *['..UserName_User..']*\n◊￤تفاعله - '..TotalMsg..'\n◊￤رتبته - '..Status_Gps..'\n◊￤تعديلاته - '..message_edit..'\n◊￤جهاته - '..Add_Mem..'\n◊￤نوع الكشف - بالرد \n*',inline,msg.id_)
 end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 
-if text and text:match("^ايدي @(.*)$") or text and text:match("^كشف @(.*)$")  and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
-if text:match("^ايدي @(.*)$") then
-username = text:match("^ايدي @(.*)$") 
-elseif text:match("^كشف @(.*)$") then
-username = text:match("^كشف @(.*)$") 
-end
+if text and text:match("^كشف @(.*)$")  and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+local username = text:match("^كشف @(.*)$") 
 function Function_Matrix(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
@@ -11402,7 +11347,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='. ◟َِ 𝑱??𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -15981,7 +15926,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16034,7 +15979,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16090,7 +16035,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16138,7 +16083,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16174,7 +16119,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16224,7 +16169,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16271,7 +16216,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
