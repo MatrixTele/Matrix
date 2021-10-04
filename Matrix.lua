@@ -736,6 +736,27 @@ file:write(table.concat(respbody))
 file:close() 
 return file_path, code 
 end
+function download(url,name)
+if not name then
+name = url:match('([^/]+)$')
+end
+if string.find(url,'https') then
+data,res = https.request(url)
+elseif string.find(url,'http') then
+data,res = http.request(url)
+else
+return 'The link format is incorrect.'
+end
+if res ~= 200 then
+return 'check url , error code : '..res
+else
+file = io.open(name,'wb')
+file:write(data)
+file:close()
+print('Downloaded :> '..name)
+return './'..name
+end
+end
 ------------------------------------------------------------------------------------------------------------ 
 function tdcli_update_callback_value_(Data) 
 tdcli_update_callback_value(Data) 
@@ -1065,7 +1086,6 @@ sendtext(chat,msg.id_,"*◊￤عذرا الملف ليس بصيغة {JSON} ير�
 end      
 local info_file = io.open('./'..bot_id..'.json', "r"):read('*a')
 local groups = JSON.decode(info_file)
-vardump(groups)  
 for idg,v in pairs(groups.GP_BOT) do
 database:sadd(bot_id..'Chek:Groups',idg) 
 database:set(bot_id.."Matrix:Lock:tagservrbot"..idg,true)   
@@ -1089,6 +1109,41 @@ if v.ASAS then
 for k,idASAS in pairs(v.ASAS) do
 database:sadd(bot_id.."Matrix:Basic:Constructor"..idg,idASAS)  
 end;end
+if v.Status_Dev then
+if v.Status_Dev ~= "" then
+database:set(bot_id.."Matrix:Sudo:Rd"..idg,v.Status_Dev)
+end
+end
+if v.Status_Prt then
+if v.Status_Prt ~= "" then
+database:set(bot_id.."Matrix:BasicConstructor:Rd"..idg,v.Status_Prt)
+end
+end
+if v.Status_Cto then
+if v.Status_Cto ~= "" then
+database:set(bot_id.."Matrix:Constructor:Rd"..idg,v.Status_Cto)
+end
+end
+if v.Status_Own then
+if v.Status_Own ~= "" then
+database:set(bot_id.."Matrix:Manager:Rd"..idg,v.Status_Own) 
+end
+end
+if v.Status_Md then
+if v.Status_Md ~= "" then
+database:set(bot_id.."Matrix:Mod:Rd"..idg,v.Status_Md)
+end
+end
+if v.Status_Vip then
+if v.Status_Vip ~= "" then
+database:set(bot_id.."Matrix:Special:Rd"..idg,v.Status_Vip)
+end
+end
+if v.Status_Mem then
+if v.Status_Mem ~= "" then
+database:set(bot_id.."Matrix:Memp:Rd"..idg,v.Status_Mem)
+end
+end
 if v.linkgroup then
 if v.linkgroup ~= "" then
 database:set(bot_id.."Matrix:Private:Group:Link"..idg,v.linkgroup)   
@@ -1941,6 +1996,61 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
+end
+if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then
+if database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
+local gmedia = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
+local Numbardel = database:get(bot_id.."Matrix:allM:numdel"..msg.chat_id_)  or 200
+if gmedia >= tonumber(Numbardel) then
+local liste = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
+for k,v in pairs(liste) do
+local Mesge = v
+if Mesge then
+t = "◊￤تم مسح "..k.." من الوسائط تلقائيا\n◊￤يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
+DeleteMessage(msg.chat_id_,{[0]=Mesge})
+end
+end
+send(msg.chat_id_, msg.id_, t)
+database:del(bot_id.."Matrix:allM"..msg.chat_id_)
+end
+end
+end
+if text and text:match("^ضع عدد المسح (%d+)$") and BasicConstructor(msg) then  
+local Numbardel = text:match("^ضع عدد المسح (%d+)$")
+database:set(bot_id.."Matrix:allM:numdel"..msg.chat_id_,Numbardel) 
+send(msg.chat_id_, msg.id_, 'تم تعيين العدد  الى : '..Numbardel)
+end
+if text == ("مسح الميديا") and BasicConstructor(msg) then  
+local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "◊￤تم مسح "..k.." من الوسائط الموجوده"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."Matrix:allM"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "◊￤لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("عدد الميديا") and BasicConstructor(msg) then  
+local gmria = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"◊￤عدد الميديا الموجود هو (* "..gmria.." *)")
+end
+if text == "تعطيل المسح التلقائي" and BasicConstructor(msg) then        
+database:del(bot_id.."y:msg:media"..msg.chat_id_)
+Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تعطيل المسح التلقائي للميديا')
+return false
+end 
+if text == "تفعيل المسح التلقائي" and BasicConstructor(msg) then        
+database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
+Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح التلقائي للميديا')
+return false
+end 
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."Matrix:Lock:text"..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم قفـل الدردشه*")  
@@ -2251,7 +2361,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏??𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4349,7 +4459,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉?? 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -10826,6 +10936,129 @@ local Groups = database:scard(bot_id..'Chek:Groups')
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'◊￤احصائيات البوت \n\n◊￤عدد المجموعات *~ '..Groups..'\n◊￤عدد المشتركين ~ '..Users..'*')
 end
+if text == 'جلب نسخه الردود' and DevMatrix(msg) then
+local Get_Json = '{"BotId": '..bot_id..','  
+Get_Json = Get_Json..'"GroupsBotreply":{'
+local Groups = database:smembers(bot_id..'Chek:Groups')  
+for k,ide in pairs(Groups) do   
+listrep = database:smembers(bot_id.."Matrix:List:Manager"..ide.."")
+if k == 1 then
+Get_Json = Get_Json..'"'..ide..'":{'
+else
+Get_Json = Get_Json..',"'..ide..'":{'
+end
+if #listrep >= 5 then
+for k,v in pairs(listrep) do
+if database:get(bot_id.."Matrix:Add:Rd:Manager:Gif"..v..ide) then
+db = "gif@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Gif"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Vico"..v..ide) then
+db = "Vico@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Vico"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..v..ide) then
+db = "Stekrs@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Text"..v..ide) then
+db = "Text@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Text"..v..ide)
+db = string.gsub(db,'"','')
+db = string.gsub(db,"'",'')
+db = string.gsub(db,'*','')
+db = string.gsub(db,'`','')
+db = string.gsub(db,'{','')
+db = string.gsub(db,'}','')
+db = string.gsub(db,'\n',' ')
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Photo"..v..ide) then
+db = "Photo@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Photo"..v..ide) 
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Video"..v..ide) then
+db = "Video@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Video"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..ide) then
+db = "File@"..database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..ide) then
+db = "Audio@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..ide)
+end
+v = string.gsub(v,'"','')
+v = string.gsub(v,"'",'')
+Get_Json = Get_Json..'"'..v..'":"'..db..'",'
+end   
+Get_Json = Get_Json..'"taha":"ok"'
+end
+Get_Json = Get_Json..'}'
+end
+Get_Json = Get_Json..'}}'
+local File = io.open('./File_Libs/MatrixReply.json', "w")
+File:write(Get_Json)
+File:close()
+return sendDocument(msg.chat_id_, msg.id_,'./File_Libs/MatrixReply.json', '')
+end
+if text == 'رفع نسخه الردود' and msg.reply_to_message_id_ ~= 0 and DevMatrix(msg) then
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(arg,data)
+if data.content_.document_ then
+local File_Id = data.content_.document_.document_.persistent_id_ 
+local Name_File = data.content_.document_.file_name_
+local File = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..File_Id)) 
+local download_ = download('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path,''..Name_File) 
+local Get_Info = io.open(download_,"r"):read('*a')
+local Reply_Groups = JSON.decode(Get_Info) 
+for GroupId,ListGroup in pairs(Reply_Groups.GroupsBotreply) do
+if ListGroup.taha == "ok" then
+for k,v in pairs(ListGroup) do
+database:sadd(bot_id.."Matrix:List:Manager"..GroupId,k)
+if v and v:match('gif@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Gif"..k..GroupId,v:match('gif@(.*)'))
+elseif v and v:match('Vico@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Vico"..k..GroupId,v:match('Vico@(.*)'))
+elseif v and v:match('Stekrs@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..k..GroupId,v:match('Stekrs@(.*)'))
+elseif v and v:match('Text@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Text"..k..GroupId,v:match('Text@(.*)'))
+elseif v and v:match('Photo@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Photo"..k..GroupId,v:match('Photo@(.*)'))
+elseif v and v:match('Video@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Video"..k..GroupId,v:match('Video@(.*)'))
+elseif v and v:match('File@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:File"..k..GroupId,v:match('File@(.*)') )
+elseif v and v:match('Audio@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Audio"..k..GroupId,v:match('Audio@(.*)'))
+end
+end
+end
+end
+return send(msg.chat_id_, msg.id_,'\n*◊￤تم استرجاع ردود المجموعات* ')  
+end
+end,nil)
+end
+if text == 'رفع المشتركين' and DevMatrix(msg) then  
+function by_reply(extra, result, success)   
+if result.content_.document_ then 
+local ID_FILE = result.content_.document_.document_.persistent_id_ 
+local File_Name = result.content_.document_.file_name_
+local info_file = io.open('./users.json', "r"):read('*a')
+local users = JSON.decode(info_file)
+if users.users then
+for k,v in pairs(users.users) do
+database:sadd(bot_id..'Matrix:UsersBot',v) 
+end
+send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
+else
+send(msg.chat_id_,msg.id_,'خطا هاذا ليس ملف المشتركين ')
+end
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+if text == 'جلب المشتركين' and DevMatrix(msg) then  
+local list = database:smembers(bot_id..'Matrix:UsersBot')  
+local t = '{"users":['  
+for k,v in pairs(list) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end
+t = t..']}'
+local File = io.open('./users.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_,msg.id_,'./users.json','عدد المشتركين :'..#list,dl_cb,nil)
+end 
 if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
 local list = database:smembers(bot_id..'Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
@@ -10836,6 +11069,76 @@ MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
 MDER = database:smembers(bot_id.."Matrix:Manager"..v)
 MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
 link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
+sudo = database:get(bot_id.."Matrix:Sudo:Rd"..v)
+if sudo then
+sudo = string.gsub(sudo,'"','')
+sudo = string.gsub(sudo,"'",'')
+sudo = string.gsub(sudo,'*','')
+sudo = string.gsub(sudo,'`','')
+sudo = string.gsub(sudo,'{','')
+sudo = string.gsub(sudo,'}','')
+sudo = string.gsub(sudo,'\n',' ')
+end
+pres = database:get(bot_id.."Matrix:BasicConstructor:Rd"..v)
+if pres then
+pres = string.gsub(pres,'"','')
+pres = string.gsub(pres,"'",'')
+pres = string.gsub(pres,'*','')
+pres = string.gsub(pres,'`','')
+pres = string.gsub(pres,'{','')
+pres = string.gsub(pres,'}','')
+pres = string.gsub(pres,'\n',' ')
+end
+cons = database:get(bot_id.."Matrix:Constructor:Rd"..v)
+if cons then
+cons = string.gsub(cons,'"','')
+cons = string.gsub(cons,"'",'')
+cons = string.gsub(cons,'*','')
+cons = string.gsub(cons,'`','')
+cons = string.gsub(cons,'{','')
+cons = string.gsub(cons,'}','')
+cons = string.gsub(cons,'\n',' ')
+end
+mang = database:get(bot_id.."Matrix:Manager:Rd"..v) 
+if mang then
+mang = string.gsub(mang,'"','')
+mang = string.gsub(mang,"'",'')
+mang = string.gsub(mang,'*','')
+mang = string.gsub(mang,'`','')
+mang = string.gsub(mang,'{','')
+mang = string.gsub(mang,'}','')
+mang = string.gsub(mang,'\n',' ')
+end
+admin = database:get(bot_id.."Matrix:Mod:Rd"..v)
+if admin then
+admin = string.gsub(admin,'"','')
+admin = string.gsub(admin,"'",'')
+admin = string.gsub(admin,'*','')
+admin = string.gsub(admin,'`','')
+admin = string.gsub(admin,'{','')
+admin = string.gsub(admin,'}','')
+admin = string.gsub(admin,'\n',' ')
+end
+vipe = database:get(bot_id.."Matrix:Special:Rd"..v)
+if vipe then
+vipe = string.gsub(vipe,'"','')
+vipe = string.gsub(vipe,"'",'')
+vipe = string.gsub(vipe,'*','')
+vipe = string.gsub(vipe,'`','')
+vipe = string.gsub(vipe,'{','')
+vipe = string.gsub(vipe,'}','')
+vipe = string.gsub(vipe,'\n',' ')
+end
+memp = database:get(bot_id.."Matrix:Memp:Rd"..v)
+if memp then
+memp = string.gsub(memp,'"','')
+memp = string.gsub(memp,"'",'')
+memp = string.gsub(memp,'*','')
+memp = string.gsub(memp,'`','')
+memp = string.gsub(memp,'{','')
+memp = string.gsub(memp,'}','')
+memp = string.gsub(memp,'\n',' ')
+end
 if k == 1 then
 t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
 else
@@ -10885,7 +11188,28 @@ end
 end   
 t = t..'],'
 end
-t = t..'"linkgroup":"'..link..'"}' or ''
+if sudo then
+t = t..'"Status_Dev":"'..sudo..'",'
+end
+if Status_Prt then
+t = t..'"Status_Prt":"'..pres..'",'
+end
+if pres then
+t = t..'"Status_Cto":"'..cons..'",'
+end
+if mang then
+t = t..'"Status_Own":"'..mang..'",'
+end
+if admin then
+t = t..'"Status_Md":"'..admin..'",'
+end
+if vipe then
+t = t..'"Status_Vip":"'..vipe..'",'
+end
+if memp then
+t = t..'"Status_Mem":"'..memp..'",'
+end
+t = t..'"Dev":"taha"}'
 end
 t = t..'}}'
 local File = io.open('./File_Libs/'..bot_id..'.json', "w")
@@ -10893,6 +11217,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 end
+
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
 key = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or IZlZ7I}}}
@@ -11363,6 +11688,19 @@ local keyboard = {
 send_inline_key(msg.chat_id_,Text,keyboard)
 return false
 end end
+if text == 'كيبورد النسخ الاحتياطي ↝' then  
+if DevMatrix(msg) then
+local Text = '*◊￤مرحبا بك في كيبورد اوامر الاشتراك*'
+local keyboard = {
+{'جلب المشتركين ↝','رفع المشتركين ↝'},
+{'جلب نسخه الردود ↝','رفع نسخه الردود ↝'},
+{'نسخه احتياطيه ↝','رفع نسخه احتياطيه ↝'},
+{'تفعيل النسخه التلقائيه ↝','تعطيل النسخه التلقائيه ↝'},
+{'رجوع 🔚'},
+}
+send_inline_key(msg.chat_id_,Text,keyboard)
+return false
+end end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'رجوع 🔚' then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -11394,9 +11732,8 @@ local keyboard = {
 {'كيبورد الاشتراك الاجباري ↝'},
 {'المتجر ↝','الاوامر الخدمية ↝'},
 {'تحديث السورس ↝','تحديث ↝'},
+{'كيبورد النسخ الاحتياطي ↝'},
 {'لاصدار ↝','معلومات السيرفر ↝'},
-{'نسخه احتياطيه ↝','رفع نسخه احتياطيه ↝'},
-{'تفعيل النسخه التلقائيه ↝','تعطيل النسخه التلقائيه ↝'},
 {'اعادة التشغيل ↝'},
 {'الغاء ↝'}
 }
@@ -12016,7 +12353,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 ?? 𖥅 𖥃 ?? 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 ?? ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 ?? 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 ?? 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 ?? 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 ?? 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12674,6 +13011,129 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 end
+if text == 'جلب نسخه الردود ↝' and DevMatrix(msg) then
+local Get_Json = '{"BotId": '..bot_id..','  
+Get_Json = Get_Json..'"GroupsBotreply":{'
+local Groups = database:smembers(bot_id..'Chek:Groups')  
+for k,ide in pairs(Groups) do   
+listrep = database:smembers(bot_id.."Matrix:List:Manager"..ide.."")
+if k == 1 then
+Get_Json = Get_Json..'"'..ide..'":{'
+else
+Get_Json = Get_Json..',"'..ide..'":{'
+end
+if #listrep >= 5 then
+for k,v in pairs(listrep) do
+if database:get(bot_id.."Matrix:Add:Rd:Manager:Gif"..v..ide) then
+db = "gif@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Gif"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Vico"..v..ide) then
+db = "Vico@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Vico"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..v..ide) then
+db = "Stekrs@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Text"..v..ide) then
+db = "Text@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Text"..v..ide)
+db = string.gsub(db,'"','')
+db = string.gsub(db,"'",'')
+db = string.gsub(db,'*','')
+db = string.gsub(db,'`','')
+db = string.gsub(db,'{','')
+db = string.gsub(db,'}','')
+db = string.gsub(db,'\n',' ')
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Photo"..v..ide) then
+db = "Photo@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Photo"..v..ide) 
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Video"..v..ide) then
+db = "Video@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Video"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..ide) then
+db = "File@"..database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..ide) then
+db = "Audio@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..ide)
+end
+v = string.gsub(v,'"','')
+v = string.gsub(v,"'",'')
+Get_Json = Get_Json..'"'..v..'":"'..db..'",'
+end   
+Get_Json = Get_Json..'"taha":"ok"'
+end
+Get_Json = Get_Json..'}'
+end
+Get_Json = Get_Json..'}}'
+local File = io.open('./File_Libs/MatrixReply.json', "w")
+File:write(Get_Json)
+File:close()
+return sendDocument(msg.chat_id_, msg.id_,'./File_Libs/MatrixReply.json', '')
+end
+if text == 'رفع نسخه الردود ↝' and msg.reply_to_message_id_ ~= 0 and DevMatrix(msg) then
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(arg,data)
+if data.content_.document_ then
+local File_Id = data.content_.document_.document_.persistent_id_ 
+local Name_File = data.content_.document_.file_name_
+local File = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..File_Id)) 
+local download_ = download('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path,''..Name_File) 
+local Get_Info = io.open(download_,"r"):read('*a')
+local Reply_Groups = JSON.decode(Get_Info) 
+for GroupId,ListGroup in pairs(Reply_Groups.GroupsBotreply) do
+if ListGroup.taha == "ok" then
+for k,v in pairs(ListGroup) do
+database:sadd(bot_id.."Matrix:List:Manager"..GroupId,k)
+if v and v:match('gif@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Gif"..k..GroupId,v:match('gif@(.*)'))
+elseif v and v:match('Vico@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Vico"..k..GroupId,v:match('Vico@(.*)'))
+elseif v and v:match('Stekrs@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..k..GroupId,v:match('Stekrs@(.*)'))
+elseif v and v:match('Text@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Text"..k..GroupId,v:match('Text@(.*)'))
+elseif v and v:match('Photo@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Photo"..k..GroupId,v:match('Photo@(.*)'))
+elseif v and v:match('Video@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Video"..k..GroupId,v:match('Video@(.*)'))
+elseif v and v:match('File@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:File"..k..GroupId,v:match('File@(.*)') )
+elseif v and v:match('Audio@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Audio"..k..GroupId,v:match('Audio@(.*)'))
+end
+end
+end
+end
+return send(msg.chat_id_, msg.id_,'\n*◊￤تم استرجاع ردود المجموعات* ')  
+end
+end,nil)
+end
+if text == 'رفع المشتركين ↝' and DevMatrix(msg) then  
+function by_reply(extra, result, success)   
+if result.content_.document_ then 
+local ID_FILE = result.content_.document_.document_.persistent_id_ 
+local File_Name = result.content_.document_.file_name_
+local info_file = io.open('./users.json', "r"):read('*a')
+local users = JSON.decode(info_file)
+if users.users then
+for k,v in pairs(users.users) do
+database:sadd(bot_id..'Matrix:UsersBot',v) 
+end
+send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
+else
+send(msg.chat_id_,msg.id_,'خطا هاذا ليس ملف المشتركين ')
+end
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+if text == 'جلب المشتركين ↝' and DevMatrix(msg) then  
+local list = database:smembers(bot_id..'Matrix:UsersBot')  
+local t = '{"users":['  
+for k,v in pairs(list) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end
+t = t..']}'
+local File = io.open('./users.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_,msg.id_,'./users.json','عدد المشتركين :'..#list,dl_cb,nil)
+end 
 
 if text == 'الملفات' or text == 'الملفات ↝' and DevMatrix(msg) then
 t = '◊￤جميع الملفات : \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n'
