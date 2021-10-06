@@ -16365,10 +16365,10 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 ??', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 ??', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
@@ -16416,7 +16416,7 @@ keyboard.inline_keyboard = {
 {text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '?? 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
