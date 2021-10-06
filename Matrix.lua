@@ -4531,7 +4531,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉?? 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text =''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8073,14 +8074,17 @@ return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
 },function(ta,Matrix)
-local t = "\n*◊￤قائمة الاعضاء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*"
+local t = ""
 x = 0
 local list = Matrix.members_
 for k, v in pairs(list) do
 tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
 x = x + 1
 if data.username_ then
-t = t.."*"..x.." ↝* [@"..data.username_.."] \n"
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t.."*"..x.." •* ٴ["..tagname.."](tg://user?id="..v.user_id_..") \n"
 end
 if k == 0 then
 t = t.."*يمكنك عمل تاك  + العدد مثال تاك ل 5*"
@@ -8101,12 +8105,12 @@ for k, v in pairs(list) do
 tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
 x = x + 1
 if data.username_ then
-t = t.."*"..x.." ↝* [@"..data.username_.."] \n"
+t = t.."*"..x.." ⌾* [@"..data.username_.."] \n"
 else
 tagname = data.first_name_
 tagname = tagname:gsub("]","")
 tagname = tagname:gsub("[[]","")
-t = t.."*"..x.." ↝* [@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
+t = t.."*"..x.." ⌾* [@"..database:get(bot_id.."Matrix:User:Name"..v.user_id_).."]\n"
 end
 if k == 0 then
 send(msg.chat_id_,msg.id_,t)
@@ -11829,8 +11833,8 @@ if text == 'كيبورد النسخ الاحتياطي ↝' then
 if DevMatrix(msg) then
 local Text = '*◊￤مرحبا بك في كيبورد اوامر الاشتراك*'
 local keyboard = {
-{'جلب المشتركين ↝','رفع المشتركين ↝'},
-{'جلب نسخه الردود ↝','رفع نسخه الردود ↝'},
+{'جلب المشتركين ↝'},
+{'جلب نسخه الردود ↝'},
 {'نسخه احتياطيه ↝','رفع نسخه احتياطيه ↝'},
 {'تفعيل النسخه التلقائيه ↝','تعطيل النسخه التلقائيه ↝'},
 {'رجوع 🔚'},
@@ -12452,7 +12456,7 @@ local keyboard = {
 {'برج الميزان','برج الحمل'},
 {'برج الاسد','برج السرطان'},
 {'برج الدلو','برج العذراء'},
-{'رجوع 🔚'},
+{'رجوع ??'},
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 return false
@@ -16107,7 +16111,8 @@ local Teext =[[*
 ◊￤صوره ↜ لارسال لك صوره تمبلر .
 ◊￤فلم ↜ لارسال لك فلم .
 ◊￤مسلسل ↜ لارسال لك مسلسل .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16160,7 +16165,8 @@ local Teext =[[*
 ◊￤الصوت
 ◊￤الجهات
 ◊￤الاشعارات
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16216,7 +16222,8 @@ local Teext =[[*
 ◊￤المميزين ، المكتومين ، القوانين
 ◊￤المطرودين ، البوتات ، الصوره
 ◊￤الصلاحيات ، الرابط
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16264,7 +16271,8 @@ local Teext =[[*
 ◊￤ردود المدير ، مسح ردود المدير
 ◊￤اضف ، حذف ↜ { رد }
 ◊￤تنظيف ↜ { عدد }
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16300,7 +16308,8 @@ local Teext =[[*
 ◊￤اضف ، حذف ↜ { امر }
 ◊￤الاوامر المضافه ، مسح الاوامر المضافه
 ◊￤تنزيل جميع الرتب
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16350,12 +16359,13 @@ local Teext =[[*
 ◊￤غادر ، غادر ↜ { والايدي }
 ◊￤اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ◊￤اذاعه خاص ، اذاعه خاص بالتوجيه 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 ??', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 ??', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
@@ -16397,7 +16407,8 @@ local Teext =[[*
 ◊￤ايدي • كشف  ↜ بالرد • بالمعرف • بالايدي
 ◊￤تحويل + بالرد ↜ صوره • ملصق • صوت • بصمه
 ◊￤انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -16427,7 +16438,8 @@ local Teext =[[*
 ◊￤ارسل { م4 } ↜ اوامر المنشئين
 ◊￤ارسل { م5 } ↜ اوامر مطورين البوت
 ◊￤ارسل { م6 } ↜ اوامر الاعضاء
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤Carbon - * ]]..UserName..[[ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
