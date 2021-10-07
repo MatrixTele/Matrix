@@ -7060,7 +7060,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(2,11)
+Matrixtslea
 local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -7069,7 +7069,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape("https://t.me/GifDavid/"..Matrix)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape("https://t.me/GifDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل ميمز" and Owner(msg)  or text == "تفعيل الميمز" and Owner(msg)  then
@@ -7097,7 +7097,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(2,11)
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الميمز لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -7106,7 +7106,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/MemzDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل اغنيه" and Owner(msg)  then
@@ -7134,7 +7134,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(2,1167); 
+local kne = math.random(2,11)
 local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -7143,7 +7143,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/DavidMp3/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/DavidMp3/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل شعر" and Owner (msg) then
@@ -7171,7 +7171,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-Matrix = math.random(4,2824); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -7180,7 +7180,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/shermatrixx/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/shermatrixx/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل غنيلي" and Owner(msg)  then
@@ -7208,16 +7208,14 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-Matrix = math.random(4,2824); 
-local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{
-{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/knelee"}
-},
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+local Matrixtslea = math.random(2,11)
+local Text ='*◊￤ تم اختيار المقطع الصوتي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/akny87/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
@@ -7245,7 +7243,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(2,612); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الريمكس لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -7254,10 +7252,10 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/RemixDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/RemixDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
-if text == "تفعيل صوره" and Owner(msg)  or text == "تفعيل الصوره" and Owner(msg)  then
+if text == "تفعيل صوره" and Owner(ج)  or text == "تفعيل الصوره" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل الصوره'
 send(msg.chat_id_, msg.id_,t)
 database:del(bot_id..'Matrix:Photo:Matrix'..msg.chat_id_) 
@@ -7282,7 +7280,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(4,1171); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -7291,7 +7289,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape("https://t.me/PhotosDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل انمي" and Owner(msg)  or text == "تفعيل الانمي" and Owner(msg)  then
@@ -7319,7 +7317,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(3,1002); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار صورة الانمي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -7328,7 +7326,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape("https://t.me/AnimeDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل فلم" and Owner(msg)  then
@@ -7356,7 +7354,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(45,125); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الفلم لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -7365,7 +7363,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MoviesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape("https://t.me/MoviesDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل مسلسل" and Owner(msg)  then
@@ -7393,7 +7391,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(2,54); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار المسلسل لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -7402,7 +7400,7 @@ keyboard.inline_keyboard = {
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SeriesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/SeriesDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == "تفعيل انطق" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل ميزة انطق'
@@ -13050,76 +13048,64 @@ local Userid = Text:match('(.*)/aknia')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(2,1167); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/aknia"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/aknia"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/DavidMp3/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/DavidMp3/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/memz') then
 local Userid = Text:match('(.*)/memz')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(2,1201); 
-local Text ='*◊￤تم اختيار مقطع الميمز لك*'
-keyboard = {}  
-keyboard.inline_keyboard = { 
+local Matrixtslea = math.random(2,11)
+local Text ='*◊￤تم اختيار الميمز لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/memz"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/memz"}
 },
 } 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/MemzDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/sgifs') then
 local Userid = Text:match('(.*)/sgifs')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(2,1075); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار المتحركه لك*'
-keyboard = {}  
-keyboard.inline_keyboard = { 
+keyboard = {} 
+keyboard.inline_keyboard = {
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sgifs"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sgifs"}
 },
 } 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/GifDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape("https://t.me/GifDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/shhar') then
 local Userid = Text:match('(.*)/shhar')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(2,11)
-local Text ='*◊￤تم اختيار مقطع الشعر لك*'
+local Matrixtslea = math.random(2,11)
+local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/shhar"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/shhar"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/shermatrixx/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/shermatrixx/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/knelee') then
 local Userid = Text:match('(.*)/knelee')
@@ -13145,95 +13131,80 @@ local Userid = Text:match('(.*)/remex')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(2,612); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الريمكس لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/remex"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/remex"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/RemixDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/RemixDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/sphoto') then
 local Userid = Text:match('(.*)/sphoto')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(4,1171); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sphoto"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sphoto"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape("https://t.me/PhotosDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/smslsl') then
 local Userid = Text:match('(.*)/smslsl')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(2,54); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار المسلسل لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/smslsl"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/smslsl"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SeriesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape("https://t.me/SeriesDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/sflm') then
 local Userid = Text:match('(.*)/sflm')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(45,125); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار الفلم لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/sflm"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/sflm"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MoviesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape("https://t.me/MoviesDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if Text and Text:match('(.*)/anematin') then
 local Userid = Text:match('(.*)/anematin')
 if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
 https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
 end
-local Matrix = math.random(3,1002); 
+local Matrixtslea = math.random(2,11)
 local Text ='*◊￤تم اختيار صورة الانمي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/anematin"},
-},
-{
-{text = '◊ رجوع ◊', callback_data=Userid.."/addtslbackk"}
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/anematin"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo='..URL.escape("https://t.me/AnimeDavid/"..Matrixtslea)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 
