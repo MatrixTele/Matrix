@@ -11860,7 +11860,7 @@ end
 local Text = '*◊￤اهلا بك مجددا عزيزي المطور \n◊￤اليك الازرار الخاصه بأوامر الخدمية لسورس ماتركس فقط اضغط على الامر الذي تريد تنفيذه*'
 local keyboard = {
 {'الابراج ↝'},
-{'اوامر التسليه ↝','اليوتيوب ↝'},
+{'اليوتيوب ↝'},
 {'نسبة الخيانة','نسبة الزحف'},
 {'نسبة الكره','نسبة الرجوله','نسبة الحب'},
 {'نسبة الرجوله','نسبة الحب'},
@@ -12902,6 +12902,13 @@ local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
 local Text = data.payload_.data_
 
+if Text and Text:match('(.*)/delamr') then
+local Userid = Text:match('(.*)/delamr')
+if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+end
+DeleteMessage(data.chat_id_, {[0] = Msg_id})  
+end
 
 if Text and Text:match('/locall@(.*):(.*)') then
 local Userid = {Text:match('/locall@(.*):(.*)')}
