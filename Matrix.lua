@@ -736,6 +736,27 @@ file:write(table.concat(respbody))
 file:close() 
 return file_path, code 
 end
+function download(url,name)
+if not name then
+name = url:match('([^/]+)$')
+end
+if string.find(url,'https') then
+data,res = https.request(url)
+elseif string.find(url,'http') then
+data,res = http.request(url)
+else
+return 'The link format is incorrect.'
+end
+if res ~= 200 then
+return 'check url , error code : '..res
+else
+file = io.open(name,'wb')
+file:write(data)
+file:close()
+print('Downloaded :> '..name)
+return './'..name
+end
+end
 ------------------------------------------------------------------------------------------------------------ 
 function tdcli_update_callback_value_(Data) 
 tdcli_update_callback_value(Data) 
@@ -827,7 +848,7 @@ keyboard.inline_keyboard = {
 {text = 'رجوع ...', callback_data=user.."/homelocks"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/help"},
+{text = '• رجوع •', callback_data=user.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat..'&text='..URL.escape(Texti)..'&message_id='..msgid..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -890,7 +911,7 @@ keyboard.inline_keyboard = {
 {text = 'التالي ...', callback_data=user.."/homelocks1"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=user.."/help"},
+{text = '• رجوع •', callback_data=user.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat..'&text='..URL.escape(Texti)..'&message_id='..msgid..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -1065,7 +1086,6 @@ sendtext(chat,msg.id_,"*◊￤عذرا الملف ليس بصيغة {JSON} ير�
 end      
 local info_file = io.open('./'..bot_id..'.json', "r"):read('*a')
 local groups = JSON.decode(info_file)
-vardump(groups)  
 for idg,v in pairs(groups.GP_BOT) do
 database:sadd(bot_id..'Chek:Groups',idg) 
 database:set(bot_id.."Matrix:Lock:tagservrbot"..idg,true)   
@@ -1089,6 +1109,41 @@ if v.ASAS then
 for k,idASAS in pairs(v.ASAS) do
 database:sadd(bot_id.."Matrix:Basic:Constructor"..idg,idASAS)  
 end;end
+if v.Status_Dev then
+if v.Status_Dev ~= "" then
+database:set(bot_id.."Matrix:Sudo:Rd"..idg,v.Status_Dev)
+end
+end
+if v.Status_Prt then
+if v.Status_Prt ~= "" then
+database:set(bot_id.."Matrix:BasicConstructor:Rd"..idg,v.Status_Prt)
+end
+end
+if v.Status_Cto then
+if v.Status_Cto ~= "" then
+database:set(bot_id.."Matrix:Constructor:Rd"..idg,v.Status_Cto)
+end
+end
+if v.Status_Own then
+if v.Status_Own ~= "" then
+database:set(bot_id.."Matrix:Manager:Rd"..idg,v.Status_Own) 
+end
+end
+if v.Status_Md then
+if v.Status_Md ~= "" then
+database:set(bot_id.."Matrix:Mod:Rd"..idg,v.Status_Md)
+end
+end
+if v.Status_Vip then
+if v.Status_Vip ~= "" then
+database:set(bot_id.."Matrix:Special:Rd"..idg,v.Status_Vip)
+end
+end
+if v.Status_Mem then
+if v.Status_Mem ~= "" then
+database:set(bot_id.."Matrix:Memp:Rd"..idg,v.Status_Mem)
+end
+end
 if v.linkgroup then
 if v.linkgroup ~= "" then
 database:set(bot_id.."Matrix:Private:Group:Link"..idg,v.linkgroup)   
@@ -1941,6 +1996,61 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+database:sadd(bot_id.."Matrix:allM"..msg.chat_id_, msg.id_)
+end
+if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then
+if database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
+local gmedia = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
+local Numbardel = database:get(bot_id.."Matrix:allM:numdel"..msg.chat_id_)  or 200
+if gmedia == tonumber(Numbardel) then
+local liste = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
+for k,v in pairs(liste) do
+local Mesge = v
+if Mesge then
+t = "⌔︙تم مسح "..k.." من الوسائط تلقائيا\n⌔︙يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
+DeleteMessage(msg.chat_id_,{[0]=Mesge})
+end
+end
+send(msg.chat_id_, msg.id_, t)
+database:del(bot_id.."Matrix:allM"..msg.chat_id_)
+end
+end
+end
+if text and text:match("^ضع عدد المسح (%d+)$") and BasicConstructor(msg) then  
+local Numbardel = text:match("^ضع عدد المسح (%d+)$")
+database:set(bot_id.."Matrix:allM:numdel"..msg.chat_id_,Numbardel) 
+send(msg.chat_id_, msg.id_, 'تم تعيين العدد  الى : '..Numbardel)
+end
+if text == ("مسح الميديا") and BasicConstructor(msg) then  
+local list = database:smembers(bot_id.."Matrix:allM"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "⌔︙تم مسح "..k.." من الوسائط الموجوده"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."Matrix:allM"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "⌔︙لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("عدد الميديا") and BasicConstructor(msg) then  
+local gmria = database:scard(bot_id.."Matrix:allM"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"⌔︙عدد الميديا الموجود هو (* "..gmria.." *)")
+end
+if text == "تعطيل المسح التلقائي" and BasicConstructor(msg) then        
+database:del(bot_id.."y:msg:media"..msg.chat_id_)
+Reply_Status(msg,msg.sender_user_id_,"lock",'⌔︙تم تعطيل المسح التلقائي للميديا')
+return false
+end 
+if text == "تفعيل المسح التلقائي" and BasicConstructor(msg) then        
+database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
+Reply_Status(msg,msg.sender_user_id_,"lock",'⌔︙تم تفعيل المسح التلقائي للميديا')
+return false
+end 
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."Matrix:Lock:text"..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم قفـل الدردشه*")  
@@ -2251,7 +2361,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏??𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4349,7 +4459,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉?? 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6205,7 +6315,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱??𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='. ◟َِ 𝑱??𝒊?? 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6971,12 +7081,12 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-local Matrix = math.random(2,11)
-local Text ='*◊￤تم اختيار مقطع الشعر لك*'
+Matrix = math.random(4,2824); 
+local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {
-{text = '◊ مرة اخرى ◊', callback_data=Userid.."/shhar"},
+{text = '◊ مرة اخرى ◊', callback_data=msg.sender_user_id_.."/shhar"}
 },
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -7238,6 +7348,20 @@ os.execute('rm -rf ./'..Antk.result.translate..'.mp3')
 
 end
 end
+if text == "تفعيل كول" and Owner(msg)  then
+local t = ' \n◊￤تم تفعيل كول'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Matrix:kol'..msg.chat_id_) 
+end
+if text == "تعطيل كول" and Owner(msg)  then
+local t = ' \n◊￤تم تعطيل كول'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Matrix:kol'..msg.chat_id_,true)  
+end
+if text and text:match("^كول (.*)$") and not database:get(bot_id..'Matrix:kol'..msg.chat_id_)  then
+local Textxt = text:match("^كول (.*)$")
+send(msg.chat_id_, msg.id_, Textxt)
+end
 
 
 if text == 'الردود' or text == 'ردود المدير' and Owner(msg) then
@@ -7326,12 +7450,12 @@ end
 
 return false
 end
-database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-_key = {
-{{text="الغاء",callback_data="delrd"..msg.sender_user_id_}},
+inlin = {
+{{text = '- اضغط هنا للالغاء.',callback_data=msg.sender_user_id_..":cancelRd:add"}},
 }
-send_inlin_key(msg.chat_id_," *◊￤الان ارسل الرد الذي تريد وضعة*",_key,msg.id_)
-return false
+send_inlin_key(msg.chat_id_,"◊￤ارسل الكلمه التي تريد اضافتها",inlin,msg.id_)
+database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return false 
 end
 if text == "حذف رد" and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -7345,7 +7469,10 @@ end
 
 return false
 end
-send(msg.chat_id_, msg.id_,"◊￤الان ارسل الرد الذي تريد حذفة")
+inlin = {
+{{text = '- اضغط هنا للالغاء.',callback_data=msg.sender_user_id_..":cancelRd:del"}},
+}
+send_inlin_key(msg.chat_id_,"◊￤ارسل الكلمه التي تريد حذفها",inlin,msg.id_)
 database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
@@ -8392,7 +8519,6 @@ local namebot = {
 'ۿۧهلا ؏ـمࢪي .',
 'اكلك تحبني ؟ وتصيحني هلكد',
 'ۿۧاا ڪـلبي .',
-'انا '..Namebot..' موو بوت ɵ̷̥̥᷄ˬɵ̷̥̥᷅',
 'مو كافي تصيح بوت ترا ورب اغادر',
 'عيونه',
 'ۿۧها ححب  .',
@@ -8412,7 +8538,6 @@ local namebot = {
 'ۿۧهلا ؏ـمࢪي .',
 'اكلك تحبني ؟ وتصيحني هلكد',
 'ۿۧاا ڪـلبي .',
-'انا '..Namebot..' موو بوت ɵ̷̥̥᷄ˬɵ̷̥̥᷅',
 'صيحلي بأسمي '..Namebot..' وأرد عليك',
 'مو كافي تصيح بوت ترا ورب اغادر',
 'عيونه',
@@ -8853,7 +8978,7 @@ end
 return false
 end
 database:set(bot_id.."my_photo:status"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم تفعيل الصوره*") 
+send(msg.chat_id_, msg.id_,'*◊￤تم تفعيل الصوره*') 
 return false
 end
 if text == "تعطيل الصوره" or text == 'تعطيل صورتي' and Addictive(msg) then
@@ -8869,7 +8994,7 @@ end
 return false
 end
 database:del(bot_id.."my_photo:status"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم تعطيل الصوره*") 
+send(msg.chat_id_, msg.id_,'◊￤تم تعطيل الصوره*') 
 return false
 end
 if text == "صورتي"  then
@@ -9255,7 +9380,7 @@ end
 end
 
 
-if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 or text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9292,19 +9417,12 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if text and text:match("^كشف @(.*)$")  and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+if text and text:match("^ايدي @(.*)$") or text and text:match("^كشف @(.*)$")  and not database:get(bot_id..'Matrix:Lock:ID:Bot'..msg.chat_id_) then
+if text:match("^ايدي @(.*)$") then
+username = text:match("^ايدي @(.*)$") 
+elseif text:match("^كشف @(.*)$") then
+username = text:match("^كشف @(.*)$") 
 end
-
-return false
-end
-local username = text:match("^كشف @(.*)$") 
 function Function_Matrix(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
@@ -9343,7 +9461,7 @@ return false
 end
 if database:get(bot_id.."Matrix:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Matrix:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","◊￤","🎗","🏵","◊￤","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","◊￤","📍","📓","📗","◊￤","📅","📪","◊￤","◊￤","📭","⏰","📺","🎚","☎️","◊￤"}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","◊￤","🎗","🏵","◊￤","🏆","🥌","🛷","🚗","🚌","🏎","🚓","??","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","◊￤","📍","📓","📗","◊￤","📅","📪","◊￤","◊￤","📭","⏰","📺","🎚","☎️","◊￤"}
 SM = Random[math.random(#Random)]
 database:set(bot_id.."Matrix:Random:Sm"..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,"◊￤اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
@@ -9828,12 +9946,29 @@ end
 
 return false
 end
-key = {
-{{text = '◊ العاب السورس ◊', callback_data=msg.sender_user_id_.."/gamesos"}},
-{{text = '◊ العاب متطورة ◊', callback_data=msg.sender_user_id_.."/gamemm"}},
-{{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
-}
-send_inline_key(msg.chat_id_,"*\n◊￤اهلا بك في قائمة الالعاب .\n◊￤يمكنك اختيار مجموعة الالعاب .\n◊￤ملاحظة العاب السورس تعطي نقاط فقط .*",nil,key,msg.id_/2097152/0.5)
+Teext = [[*
+◊￤قائمه الالعاب الموجوده
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤لعبة البات ↜ بات
+◊￤لعبة التخمين ↜ خمن
+◊￤لعبه الاسرع ↜ الاسرع
+◊￤لعبة السمايلات ↜ سمايلات
+◊￤لعبة المختلف ↜ المختلف
+◊￤لعبة الامثله ↜ امثله
+◊￤لعبة العكس ↜ العكس 
+◊￤لعبة الحزوره ↜ حزوره
+◊￤لعبة المعاني ↜ معاني
+◊￤لعبة الحروف ↜ حروف
+◊￤لعبة كت تويت ↜ كت
+◊￤لعبة الصراحه ↜ صراحه
+◊￤لعبة لو خيروك ↜ لو خيروك
+◊￤لعبة الرياضيات ↜ رياضيات
+◊￤لعبة الانكليزي ↜ انكليزي
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+◊￤مجوهراتي ↜ لعرض عدد الارباح
+◊￤بيع مجوهراتي + العدد ↜ لستبدال كل مجوهره ب50 رساله*
+]]
+send(msg.chat_id_, msg.id_,Teext) 
 end
 if text == 'رسائلي' then
 local nummsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
@@ -9851,7 +9986,7 @@ local Text = '◊￤عدد التعديلات هنا *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
-database:del(bot_id..'Matrix:message_edit'..msg.chat_id_..':'..msg.sender_user_id_)
+database:del(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_)
 local Text = '◊￤تم مسح جميع تعديلاتك '
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -10528,6 +10663,21 @@ if text == "تفعيل حساب العمر" and Owner(msg) then
 send(msg.chat_id_, msg.id_,'◊￤تم تفعيل حساب العمر')
 database:set(bot_id.."Matrix:age_Bots"..msg.chat_id_,"open")
 end
+if text == "تعطيل معاني الاسماء" and Owner(msg) then
+send(msg.chat_id_, msg.id_, '◊￤تم تعطيل معاني الاسماء')
+database:set(bot_id.."Matrix:mean"..msg.chat_id_,"close")
+end
+if text == "تفعيل معاني الاسماء" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'◊￤تم تفعيل معاني الاسماء')
+database:set(bot_id.."Matrix:mean"..msg.chat_id_,"open")
+end
+if text and text:match("^معنى الاسم (.*)$") or text and text:match("^معنى اسم (.*)$") and database:get(bot_id.."Matrix:mean"..msg.chat_id_) == "open" then 
+local TextMean = text:match("^معنى الاسم (.*)$") or text:match("^معنى اسم (.*)$") 
+UrlMean = https.request('https://apiabs.ml/Mean.php?Abs='..URL.escape(TextMean)) 
+Mean = JSON.decode(UrlMean) 
+t = Mean.ok.abs
+send(msg.chat_id_, msg.id_, Mean.ok.hso)
+end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."Matrix:age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
 ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
@@ -10610,24 +10760,24 @@ database:set(bot_id.."AutoFile:Time",os.date("%x"))
 end
 end
 if text == "تعطيل الانستا" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '◊￤تم تعطيل الانستا')
+send(msg.chat_id_, msg.id_, '◊￤ تم تعطيل الانستا')
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"close")
 end
 if text == "تفعيل الانستا" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'◊￤تم تفعيل الانستا')
+send(msg.chat_id_, msg.id_,'◊￤ تم تفعيل الانستا')
 database:set(bot_id.."Matrix:insta_bot"..msg.chat_id_,"open")
 end
-if text and text:match("^معلومات (.*)$") and database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
-local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://black-source.tk/BlackTeAM/infoInstagram.php?username='..URL.escape(Textni)..'')
-if res == 200 then
-Hussain = json:decode(data)
-if Hussain.Info == true then
-local msg_id = msg.id_/2097152/0.5
-SendP(msg.chat_id_, msg_id,Hussain.ph, Hussain.info) 
+if database:get(bot_id.."Matrix:insta_bot"..msg.chat_id_) == "open" then
+if text and text:match("^معلومات (.*)$")  then
+request = https.request('https://black-source.tk/BlackTeAM/infoInstagram.php?username='..URL.escape(text:match("^معلومات (.*)$")))
+arrGet = JSON.decode(request)
+if arrGet.acid then
+send(msg.chat_id_, msg.id_,"◊￤الاسم : "..arrGet.name.."\n◊￤الايدي : "..arrGet.acid.."\n◊￤المنشورات : "..arrGet.posts.."\n◊￤يتابعك : "..arrGet.rs.."\n◊￤تتابع : "..arrGet.ng)
+else 
+send(msg.chat_id_, msg.id_,"◊￤عذرا تأكد من اليوزر")
 end
 end
-end
+end -- end
 if text == "تعطيل الافلام" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '◊￤تم تعطيل الافلام')
 database:set(bot_id.."Matrix:movie_bot"..msg.chat_id_,"close")
@@ -10786,6 +10936,94 @@ local Groups = database:scard(bot_id..'Chek:Groups')
 local Users = database:scard(bot_id..'Matrix:UsersBot')  
 send(msg.chat_id_, msg.id_,'◊￤احصائيات البوت \n\n◊￤عدد المجموعات *~ '..Groups..'\n◊￤عدد المشتركين ~ '..Users..'*')
 end
+if text == 'جلب نسخه الردود' and DevMatrix(msg) then
+local Get_Json = '{"BotId": '..bot_id..','  
+Get_Json = Get_Json..'"GroupsBotreply":{'
+local Groups = database:smembers(bot_id..'Chek:Groups')  
+for k,ide in pairs(Groups) do   
+listrep = database:smembers(bot_id.."Matrix:List:Manager"..ide.."")
+if k == 1 then
+Get_Json = Get_Json..'"'..ide..'":{'
+else
+Get_Json = Get_Json..',"'..ide..'":{'
+end
+if #listrep >= 5 then
+for k,v in pairs(listrep) do
+if database:get(bot_id.."Matrix:Add:Rd:Manager:Gif"..v..ide) then
+db = "gif@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Gif"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Vico"..v..ide) then
+db = "Vico@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Vico"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..v..ide) then
+db = "Stekrs@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Text"..v..ide) then
+db = "Text@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Text"..v..ide)
+db = string.gsub(db,'"','')
+db = string.gsub(db,"'",'')
+db = string.gsub(db,'*','')
+db = string.gsub(db,'`','')
+db = string.gsub(db,'{','')
+db = string.gsub(db,'}','')
+db = string.gsub(db,'\n',' ')
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Photo"..v..ide) then
+db = "Photo@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Photo"..v..ide) 
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Video"..v..ide) then
+db = "Video@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Video"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..ide) then
+db = "File@"..database:get(bot_id.."Matrix:Add:Rd:Manager:File"..v..ide)
+elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..ide) then
+db = "Audio@"..database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..ide)
+end
+v = string.gsub(v,'"','')
+v = string.gsub(v,"'",'')
+Get_Json = Get_Json..'"'..v..'":"'..db..'",'
+end   
+Get_Json = Get_Json..'"taha":"ok"'
+end
+Get_Json = Get_Json..'}'
+end
+Get_Json = Get_Json..'}}'
+local File = io.open('./File_Libs/GrandReply.json', "w")
+File:write(Get_Json)
+File:close()
+return sendDocument(msg.chat_id_, msg.id_,'./File_Libs/GrandReply.json', '')
+end
+if text == 'رفع نسخه الردود' and msg.reply_to_message_id_ ~= 0 and DevMatrix(msg) then
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(arg,data)
+if data.content_.document_ then
+local File_Id = data.content_.document_.document_.persistent_id_ 
+local Name_File = data.content_.document_.file_name_
+local File = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..File_Id)) 
+local download_ = download('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path,''..Name_File) 
+local Get_Info = io.open(download_,"r"):read('*a')
+local Reply_Groups = JSON.decode(Get_Info) 
+for GroupId,ListGroup in pairs(Reply_Groups.GroupsBotreply) do
+if ListGroup.taha == "ok" then
+for k,v in pairs(ListGroup) do
+database:sadd(bot_id.."Matrix:List:Manager"..GroupId,k)
+if v and v:match('gif@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Gif"..k..GroupId,v:match('gif@(.*)'))
+elseif v and v:match('Vico@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Vico"..k..GroupId,v:match('Vico@(.*)'))
+elseif v and v:match('Stekrs@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..k..GroupId,v:match('Stekrs@(.*)'))
+elseif v and v:match('Text@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Text"..k..GroupId,v:match('Text@(.*)'))
+elseif v and v:match('Photo@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Photo"..k..GroupId,v:match('Photo@(.*)'))
+elseif v and v:match('Video@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Video"..k..GroupId,v:match('Video@(.*)'))
+elseif v and v:match('File@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:File"..k..GroupId,v:match('File@(.*)') )
+elseif v and v:match('Audio@(.*)') then
+database:set(bot_id.."Matrix:Add:Rd:Manager:Audio"..k..GroupId,v:match('Audio@(.*)'))
+end
+end
+end
+end
+return send(msg.chat_id_, msg.id_,'\n*⌔︙تم استرجاع ردود المجموعات* ')  
+end
+end,nil)
+end
 if text == 'جلب نسخه احتياطيه' and DevMatrix(msg) then
 local list = database:smembers(bot_id..'Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
@@ -10796,6 +11034,76 @@ MNSH = database:smembers(bot_id.."Matrix:Constructor"..v)
 MDER = database:smembers(bot_id.."Matrix:Manager"..v)
 MOD = database:smembers(bot_id.."Matrix:Mod:User"..v)
 link = database:get(bot_id.."Matrix:Link_Group"..v) or ''
+sudo = database:get(bot_id.."Matrix:Sudo:Rd"..v)
+if sudo then
+sudo = string.gsub(sudo,'"','')
+sudo = string.gsub(sudo,"'",'')
+sudo = string.gsub(sudo,'*','')
+sudo = string.gsub(sudo,'`','')
+sudo = string.gsub(sudo,'{','')
+sudo = string.gsub(sudo,'}','')
+sudo = string.gsub(sudo,'\n',' ')
+end
+pres = database:get(bot_id.."Matrix:BasicConstructor:Rd"..v)
+if pres then
+pres = string.gsub(pres,'"','')
+pres = string.gsub(pres,"'",'')
+pres = string.gsub(pres,'*','')
+pres = string.gsub(pres,'`','')
+pres = string.gsub(pres,'{','')
+pres = string.gsub(pres,'}','')
+pres = string.gsub(pres,'\n',' ')
+end
+cons = database:get(bot_id.."Matrix:Constructor:Rd"..v)
+if cons then
+cons = string.gsub(cons,'"','')
+cons = string.gsub(cons,"'",'')
+cons = string.gsub(cons,'*','')
+cons = string.gsub(cons,'`','')
+cons = string.gsub(cons,'{','')
+cons = string.gsub(cons,'}','')
+cons = string.gsub(cons,'\n',' ')
+end
+mang = database:get(bot_id.."Matrix:Manager:Rd"..v) 
+if mang then
+mang = string.gsub(mang,'"','')
+mang = string.gsub(mang,"'",'')
+mang = string.gsub(mang,'*','')
+mang = string.gsub(mang,'`','')
+mang = string.gsub(mang,'{','')
+mang = string.gsub(mang,'}','')
+mang = string.gsub(mang,'\n',' ')
+end
+admin = database:get(bot_id.."Matrix:Mod:Rd"..v)
+if admin then
+admin = string.gsub(admin,'"','')
+admin = string.gsub(admin,"'",'')
+admin = string.gsub(admin,'*','')
+admin = string.gsub(admin,'`','')
+admin = string.gsub(admin,'{','')
+admin = string.gsub(admin,'}','')
+admin = string.gsub(admin,'\n',' ')
+end
+vipe = database:get(bot_id.."Matrix:Special:Rd"..v)
+if vipe then
+vipe = string.gsub(vipe,'"','')
+vipe = string.gsub(vipe,"'",'')
+vipe = string.gsub(vipe,'*','')
+vipe = string.gsub(vipe,'`','')
+vipe = string.gsub(vipe,'{','')
+vipe = string.gsub(vipe,'}','')
+vipe = string.gsub(vipe,'\n',' ')
+end
+memp = database:get(bot_id.."Matrix:Memp:Rd"..v)
+if memp then
+memp = string.gsub(memp,'"','')
+memp = string.gsub(memp,"'",'')
+memp = string.gsub(memp,'*','')
+memp = string.gsub(memp,'`','')
+memp = string.gsub(memp,'{','')
+memp = string.gsub(memp,'}','')
+memp = string.gsub(memp,'\n',' ')
+end
 if k == 1 then
 t = t..'"'..v..'":{"Matrix":"'..NAME..'",'
 else
@@ -10845,7 +11153,28 @@ end
 end   
 t = t..'],'
 end
-t = t..'"linkgroup":"'..link..'"}' or ''
+if sudo then
+t = t..'"Status_Dev":"'..sudo..'",'
+end
+if Status_Prt then
+t = t..'"Status_Prt":"'..pres..'",'
+end
+if pres then
+t = t..'"Status_Cto":"'..cons..'",'
+end
+if mang then
+t = t..'"Status_Own":"'..mang..'",'
+end
+if admin then
+t = t..'"Status_Md":"'..admin..'",'
+end
+if vipe then
+t = t..'"Status_Vip":"'..vipe..'",'
+end
+if memp then
+t = t..'"Status_Mem":"'..memp..'",'
+end
+t = t..'"Dev":"taha"}'
 end
 t = t..'}}'
 local File = io.open('./File_Libs/'..bot_id..'.json', "w")
@@ -10853,6 +11182,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 end
+
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
 key = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or IZlZ7I}}}
@@ -10997,7 +11327,11 @@ ID = "OpenChat",
 chat_id_ = chat_id
 }, cb, nil)
 end
-if text == 'الاوامر' and Addictive(msg) then  
+if text == 'الاوامر' then  
+if not Addictive(msg) then
+send(msg.chat_id_, msg.id_,'*◊￤هاذا الامر خاص بالادمنيه*')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11010,25 +11344,14 @@ end
 return false
 end
 key = {
-{{text = '• ❶ •', callback_data=msg.sender_user_id_.."/help1"},{text = '• ❷ •', callback_data=msg.sender_user_id_.."/help2"},{text = '• ❸ •', callback_data=msg.sender_user_id_.."/help3"}},
-{{text = '• ❹ •', callback_data=msg.sender_user_id_.."/help4"},{text = '• ❺ •', callback_data=msg.sender_user_id_.."/help5"},{text = '• ❻ •', callback_data=msg.sender_user_id_.."/Services"}},
-{{text = '{اعدادات المجموعة}', callback_data=msg.sender_user_id_.."/helps"}},
-{{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '𓍹 𝟏 𓍻', callback_data=msg.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=msg.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=msg.sender_user_id_.."/help3"}},
+{{text = '𓍹 𝟒 𓍻', callback_data=msg.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=msg.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=msg.sender_user_id_.."/help6"}},
+{{text = '{آوآمر التسليه}', callback_data=msg.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=msg.sender_user_id_.."/game"}},
+{{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"}},
 }
 send_inline_key(msg.chat_id_,"*\n◊￤توجد ↜ 6 اوامر في البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n◊￤ارسل { م1 } ↜ اوامر الحمايه\n◊￤ارسل { م2 } ↜ اوامر الادمنيه\n◊￤ارسل { م3 } ↜ اوامر المدراء\n◊￤ارسل { م4 } ↜ اوامر المنشئين\n◊￤ارسل { م5 } ↜ اوامر مطورين البوت\n◊￤ارسل { م6 } ↜ اوامر الاعضاء\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*",nil,key,msg.id_/2097152/0.5)
 end
-if text == 'اوامر الرتب' then  
-key = {
-{{text = 'مسح المميزين', callback_data=msg.sender_user_id_.."/delvips"},{text = 'مسح الادمنية', callback_data=msg.sender_user_id_.."/deladmin"}},
-{{text = 'مسح المدراء', callback_data=msg.sender_user_id_.."/delmoder"},{text = 'مسح المنشئين', callback_data=msg.sender_user_id_.."/delmnsh"}},
-{{text = 'مسح المنشئين الاساسيين', callback_data=msg.sender_user_id_.."/delassaseen"},{text = 'مسح المالكين', callback_data=msg.sender_user_id_.."/deldelcreatorr"}},
-{{text = 'مسح المكتومين', callback_data=msg.sender_user_id_.."/delktm"},{text = 'مسح المحظورين', callback_data=msg.sender_user_id_.."/delban"}},
-{{text = 'مسح الاوامر المضافه', callback_data=msg.sender_user_id_.."/delCmdd"},{text = 'مسح المنظفين', callback_data=msg.sender_user_id_.."/delcleanerr"}},
-{{text = 'اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
-}
-send_inline_key(msg.chat_id_,"*\n◊￤اهلا بك في قائمة اوامر الرتب\n◊￤يمكنك مسح رتب المجموعة من خلال الازرار في الاسفل*",nil,key,msg.id_/2097152/0.5)
-end
-if text == 'التسليه' and Addictive(msg) then  
+if text == 'التسليه' then  
 key = {
 {{text = '◊ اغنيه ◊', callback_data=msg.sender_user_id_.."/aknia"},{text = '◊ ريمكس ◊', callback_data=msg.sender_user_id_.."/remex"}},
 {{text = '◊ غنيلي ◊', callback_data=msg.sender_user_id_.."/knelee"},{text = '◊ انمي ◊', callback_data=msg.sender_user_id_.."/anematin"}},
@@ -11052,7 +11375,7 @@ return false
 end
 key = {
 {{text = '{ قائمة الاوامر }', callback_data=msg.sender_user_id_.."/help"}},
-{{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"}},
 }
 send_inline_key(msg.chat_id_,"*◊￤عليك استخدام اوامر التحكم بالقوائم *",nil,key,msg.id_/2097152/0.5)
 end
@@ -11090,10 +11413,10 @@ local Text = '\n*◊￤المجموعة : {'..chat.title_..'}*\n*◊￤تم تف
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- رفع المالك والادمنية',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{رفع المالك والادمنية}',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 {
-{text = '- قفل جميع الاوامر',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{قفل الكل}',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11222,10 +11545,10 @@ local Text = '\n*◊￤المجموعة : {'..chat.title_..'}*\n*◊￤تم تف
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '- رفع المالك والادمنية',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{رفع المالك والادمنيه}',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 {
-{text = '- قفل جميع الاوامر',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
+{text = '{قفل الكل}',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11983,7 +12306,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 ?? 𖥅 𖥃 ?? 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 ?? ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 ?? 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 ?? 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 ?? 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 ?? 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -14363,7 +14686,7 @@ keyboard.inline_keyboard = {
 {text = 'تفعيل الانستا', callback_data=data.sender_user_id_.."/Matrix:insta_bot"},{text = 'تعطيل الانستا', callback_data=data.sender_user_id_.."/unMatrix:insta_bot"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -15427,233 +15750,68 @@ return false
 end
 end
 ---------------------------------------------------------------------------------------------------------
-if Text and Text:match('(.*)/gamehome') then
-if tonumber(Text:match('(.*)/gamehome')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤#;ُِ 𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚐𝚊𝚖𝚎 𝚕𝚒𝚜𝚝 .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤.َ ‹ 𝘠𝘰𝘶 𝘤𝘢𝘯 𝘤𝘩𝘰𝘰𝘴𝘦 𝘢 𝘨𝘳𝘰𝘶𝘱 𝘰𝘧 𝘨𝘢𝘮𝘦𝘴 .
-◊￤.َ ‹ 𝘕𝘰𝘵𝘦: 𝘛𝘩𝘦 𝘴𝘰𝘶𝘳𝘤𝘦 𝘨𝘢𝘮𝘦𝘴 𝘰𝘯𝘭𝘺 𝘨𝘪𝘷𝘦 𝘱𝘰𝘪𝘯𝘵𝘴 .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '◊ العاب السورس ◊', callback_data=data.sender_user_id_.."/gamesos"},
-},
-{
-{text = '◊ الالعاب الاحترافية ◊', callback_data=data.sender_user_id_.."/gamemm"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/gamesos') then
-if tonumber(Text:match('(.*)/gamesos')) == tonumber(data.sender_user_id_) then
+if Text and Text:match('(.*)/game') then
+if tonumber(Text:match('(.*)/game')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ◊￤قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤لعبة البات ◊￤بات
-◊￤لعبة التخمين ◊￤خمن
-◊￤لعبه الاسرع ◊￤الاسرع
-◊￤لعبة السمايلات ◊￤سمايلات
-◊￤لعبة المختلف ◊￤المختلف
-◊￤لعبة الامثله ◊￤امثله
-◊￤لعبة العكس ◊￤العكس 
-◊￤لعبة الحزوره ◊￤حزوره
-◊￤لعبة المعاني ◊￤معاني
-◊￤لعبة الحروف ◊￤حروف
-◊￤لعبة كت تويت ◊￤كت
-◊￤لعبة الصراحه ◊￤صراحه
-◊￤لعبة لو خيروك ◊￤لو خيروك
-◊￤لعبة الرياضيات ◊￤رياضيات
-◊￤لعبة الانكليزي ◊￤انكليزي
+◊￤لعبة البات ↜ بات
+◊￤لعبة التخمين ↜ خمن
+◊￤لعبه الاسرع ↜ الاسرع
+◊￤لعبة السمايلات ↜ سمايلات
+◊￤لعبة المختلف ↜ المختلف
+◊￤لعبة الامثله ↜ امثله
+◊￤لعبة العكس ↜ العكس 
+◊￤لعبة الحزوره ↜ حزوره
+◊￤لعبة المعاني ↜ معاني
+◊￤لعبة الحروف ↜ حروف
+◊￤لعبة كت تويت ↜ كت
+◊￤لعبة الصراحه ↜ صراحه
+◊￤لعبة لو خيروك ↜ لو خيروك
+◊￤لعبة الرياضيات ↜ رياضيات
+◊￤لعبة الانكليزي ↜ انكليزي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤مجوهراتي ◊￤لعرض عدد الارباح
-◊￤بيع مجوهراتي + العدد ◊￤لستبدال كل مجوهره ب50 رساله*
+◊￤مجوهراتي ↜ لعرض عدد الارباح
+◊￤بيع مجوهراتي + العدد ↜ لستبدال كل مجوهره ب50 رساله*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊ العاب متطورة ◊', callback_data=data.sender_user_id_.."/gamemm"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
+{text = 'رجوع', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/gamemm') then
-if tonumber(Text:match('(.*)/gamemm')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/helpst') then
+if tonumber(Text:match('(.*)/helpst')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-◊￤اهلا بك في قائمة الالعاب المحترفة .
+◊￤قائمة اوامر التسليه
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤يمكنك الان اختيار لعبة .
-◊￤قم بارسال اللعبه في المجموعة .
-◊￤ملاحظة العاب السورس تعطي نقاط فقط .
+◊￤يمكنك استخدام الاوامر التالية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '♟ Chess Game ♟',url="https://t.me/T4TTTTBOT?game=chess"},
-},
-{
-{text = 'لعبة 2048 🎰',url="https://t.me/awesomebot?game=g2048"},
-},
-{
-{text = 'تحداني في ❌⭕️',url="https://t.me/XO_AABOT?start3836619"},
-},
-{
-{text = '🐍 3D Snake Game 🐍',url="https://t.me/T4TTTTBOT?game=snake"},
-},
-{
-{text = '🔵 Color Game 🔴', url="https://t.me/T4TTTTBOT?game=color"},
-},
-{
-{text = '🦖 Dragon Game 🦖', url="https://t.me/T4TTTTBOT?game=dragon"},
-},
-{
-{text = '🏹 Arrow Game 🏹', url="https://t.me/T4TTTTBOT?game=arrow"},
-},
-{
-{text = 'MαTRιX TEαM .', url="https://t.me/Matrix_Source"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/gamehome"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/helps') then
-if tonumber(Text:match('(.*)/helps')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤أهلا بك عزيزي . 
-◊￤في اعدادات المجموعه . 
-◊￤يمكنك استخدام الازرار عبر ضغط عليهم .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'الاوامر', callback_data=data.sender_user_id_.."/help"},
-},
-{
-{text = 'آوآمر التعطيل', callback_data=data.sender_user_id_.."/homeaddwd"},{text = 'آوآمر القفل', callback_data=data.sender_user_id_.."/homelocks"},
-},
-{
-{text = 'الالعاب', callback_data=data.sender_user_id_.."/gamehome"},{text = 'التسليه', callback_data=data.sender_user_id_.."/tslea0"},
-},
-{
-{text = 'اوامر الرتب', callback_data=data.sender_user_id_.."/rtp0"},
-},
-{
-{text = 'السورس', callback_data=data.sender_user_id_.."/sors0"},
-},
-{
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/sors0') then
-if tonumber(Text:match('(.*)/sors0')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤Source Matrix 
+◊￤غنيلي ↜ لارسال لك مقطع صوتي .
+◊￤اغنيه ↜ لارسال لك مقطع صوتي .
+◊￤شعر ↜ لارسال لك مقطع صوتي .
+◊￤ميمز ↜ لارسال لك مقطع صوتي .
+◊￤متحركه ↜ لارسال لك صوره متحركه .
+◊￤صوره ↜ لارسال لك صوره تمبلر .
+◊￤فلم ↜ لارسال لك فلم .
+◊￤مسلسل ↜ لارسال لك مسلسل .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'Channel Source ،', url="https://t.me/Matrix_Source"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = 'Annotations Source', url="https://t.me/infoo_Matrix"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = 'Communication Source', url="https://t.me/U41bot"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = 'Developer Source !', url="https://t.me/IZlZ7I"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/tslea0') then
-if tonumber(Text:match('(.*)/tslea0')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤أهلا بك عزيزي . 
-◊￤في اوامر التسليه للمجموعه . 
-◊￤يمكنك استخدام الازرار عبر ضغط عليهم .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'اغنية', callback_data=data.sender_user_id_.."/aknia"},{text = 'ريمكس', callback_data=data.sender_user_id_.."/remex"},
-},
-{
-{text = 'غنيلي', callback_data=data.sender_user_id_.."/knelee"},{text = 'انمي', callback_data=data.sender_user_id_.."/anematin"},
-},
-{
-{text = 'صوره', callback_data=data.sender_user_id_.."/sphoto"},{text = 'ميمز', callback_data=data.sender_user_id_.."/memz"},
-},
-{
-{text = 'متحركه', callback_data=data.sender_user_id_.."/sgifs"},{text = 'شعر', callback_data=data.sender_user_id_.."/shhar"},
-},
-{
-{text = 'فلم', callback_data=data.sender_user_id_.."/sflm"},{text = 'مسلسل', callback_data=data.sender_user_id_.."/smslsl"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-{
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-elseif Text and Text:match('(.*)/rtp0') then
-if tonumber(Text:match('(.*)/rtp0')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤أهلا بك عزيزي . 
-◊￤في اوامر الرتب للمجموعه . 
-◊￤يمكنك استخدام الازرار عبر ضغط عليهم .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'مسح المميزين', callback_data=data.sender_user_id_.."/delvips"},{text = 'مسح الادمنيه', callback_data=data.sender_user_id_.."/deladmin"},
-},
-{
-{text = 'مسح المدراء', callback_data=data.sender_user_id_.."/delmoder"},{text = 'مسح المنشئين', callback_data=data.sender_user_id_.."/delmnsh"},
-},
-{
-{text = 'مسح المنشئين الاساسين', callback_data=data.sender_user_id_.."/delassaseen"},{text = 'مسح المالكين', callback_data=data.sender_user_id_.."/deldelcreatorr"},
-},
-{
-{text = 'مسح المكتومين', callback_data=data.sender_user_id_.."/delktm"},{text = 'مسح المحظورين', callback_data=data.sender_user_id_.."/delban"},
-},
-{
-{text = 'مسح الاوامر المضافه', callback_data=data.sender_user_id_.."/delCmdd"},{text = 'مسح المنظفين', callback_data=data.sender_user_id_.."/delcleanerr"},
-},
-{
-{text = 'رجوع', callback_data=data.sender_user_id_.."/helps"},
-},
-{
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15697,13 +15855,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15750,13 +15911,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15795,13 +15959,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15828,13 +15995,16 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15875,66 +16045,63 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-elseif Text and Text:match('(.*)/Services') then
-if tonumber(Text:match('(.*)/Services')) == tonumber(data.sender_user_id_) then
+elseif Text and Text:match('(.*)/help6') then
+if tonumber(Text:match('(.*)/help6')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
-◊￤اوامر الاعضاء ↜ ↓
+◊￤اوامر الاعضاء 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤اليـوتيوب ..
-◊￤امر التشغيل ↜ ❨ تفعيل اليوتيوب ❩
-◊￤امر التعطيل ↜ ❨ تعطيل اليوتيوب ❩
-◊￤البـحث عن اغنية ↓
-◊￤بحث ↜ اسم الاغنية
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤السورس ◊￤موقعي ◊￤رتبتي ◊￤معلوماتي 
-◊￤رقمي ◊￤لقبي ◊￤اغنيه ◊￤صلاحياتي ◊￤غنيلي
-◊￤ميمز ◊￤متحركه ◊￤صوره ◊￤ريمكس ◊￤فلم ◊￤مسلسل ◊￤انمي
-◊￤رسائلي ◊￤حذف رسائلي ◊￤اسمي ◊￤معرفي 
-◊￤ايدي •ايديي ◊￤جهاتي ◊￤راسلني ◊￤الالعاب 
-◊￤نقاطي ◊￤بيع نقاطي ◊￤القوانين ◊￤زخرفه 
-◊￤رابط الحذف ◊￤نزلني ◊￤اطردني ◊￤المطور 
-◊￤منو ضافني ◊￤مشاهدات المنشور ◊￤الرابط 
-◊￤ايدي المجموعه ◊￤معلومات المجموعه 
-◊￤نسبه الحب ◊￤نسبه الكره ◊￤نسبه الغباء 
-◊￤نسبه الرجوله ◊￤نسبه الانوثه ◊￤التفاعل
+◊￤السورس • موقعي • رتبتي • معلوماتي 
+◊￤رقمي • لقبي • نبذتي • صلاحياتي • غنيلي
+◊￤ميمز • متحركه • صوره • ريمكس • فلم • مسلسل • انمي
+◊￤رسائلي • حذف رسائلي • اسمي • معرفي 
+◊￤ايدي •ايديي • جهاتي • راسلني • الالعاب 
+◊￤مجوهراتي • بيع مجوهراتي • القوانين • زخرفه 
+◊￤رابط الحذف • نزلني • اطردني • المطور 
+◊￤منو ضافني • مشاهدات المنشور • الرابط 
+◊￤ايدي المجموعه • معلومات المجموعه 
+◊￤نسبه الحب • نسبه الكره • نسبه الغباء 
+◊￤نسبه الرجوله • نسبه الانوثه • التفاعل
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤لقبه + بالرد
 ◊￤كول + الكلمه
 ◊￤زخرفه + اسمك
 ◊￤برج + نوع البرج
 ◊￤معنى اسم + الاسم
-◊￤بوسه ◊￤بوسها ↜ بالرد
+◊￤بوسه • بوسها ↜ بالرد
 ◊￤احسب + تاريخ ميلادك
-◊￤رفع مطي ◊￤تنزيل مطي ◊￤المطايه
-◊￤هينه ◊￤هينها ↜ بالرد ◊￤بالمعرف
-◊￤صيحه ◊￤صيحها ↜ بالرد ◊￤بالمعرف
-◊￤صلاحياته ↜ بالرد ◊￤بالمعرف ◊￤بالايدي
-◊￤ايدي ◊￤كشف  ↜ بالرد ◊￤بالمعرف ◊￤بالايدي
-◊￤تحويل + بالرد ↜ صوره ◊￤ملصق ◊￤صوت ◊￤بصمه
+◊￤صلاحياته ↜ بالرد • بالمعرف • بالايدي
+◊￤ايدي • كشف  ↜ بالرد • بالمعرف • بالايدي
+◊￤تحويل + بالرد ↜ صوره • ملصق • صوت • بصمه
 ◊￤انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❸ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❷ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❻ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❺ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '?? 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '⤹𝗲𝘅𝗶𝘁⤾', callback_data=data.sender_user_id_.."/help"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
+},
+{
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=msg.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15955,29 +16122,36 @@ local Teext =[[*
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '• ❷ •', callback_data=data.sender_user_id_.."/help3"},{text = '• ❶ •', callback_data=data.sender_user_id_.."/help2"},{text = '• ⓿ •', callback_data=data.sender_user_id_.."/help1"},
+{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
 },
 {
-{text = '• ❺ •', callback_data=data.sender_user_id_.."/Services"},{text = '• ❹ •', callback_data=data.sender_user_id_.."/help5"},{text = '• ❸ •', callback_data=data.sender_user_id_.."/help4"},
+{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
 },
 {
-{text = '{اعدادات المجموعة}', callback_data=data.sender_user_id_.."/helps"},
+{text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '↜ اخفاء الامر', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
 
-if DAata == 'delrd'..data.sender_user_id_ then  
-database:del(bot_id.."Matrix:Set:Manager:rd"..data.sender_user_id_..":"..Chat_id)
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *◊￤تم الغاء الامر*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+if DAata and DAata:match("^(%d+):cancelRd(.*)$") then
+local notId  = DAata:match("(%d+)")  
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+if database:get(bot_id.."Matrix:Set:Manager:rd"..data.sender_user_id_..":"..data.chat_id_) then
+database:del(bot_id.."Matrix:Set:Manager:rd"..data.sender_user_id_..":"..data.chat_id_)
+https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape("◊￤تم الغاء الامر بنجاح").."&show_alert=true")
+else
+https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
+end
 end
 if DAata == 'EndAddarray'..data.sender_user_id_ then  
 if database:get(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id) == 'true1' then
@@ -16626,325 +16800,11 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
 if text == "كت" or text == "كت تويت" and not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
-local texting = {"اخر افلام شاهدتها", 
-"اخر افلام شاهدتها", 
-"ما هي وظفتك الحياه", 
-"اعز اصدقائك ?", 
-"اخر اغنية سمعتها ?", 
-"تكلم عن نفسك", 
-"ليه انت مش سالك", 
-"ما هيا عيوب سورس ماتركس؟ ", 
-"اخر كتاب قرآته", 
-"روايتك المفضله ?", 
-"اخر اكله اكلتها", 
-"اخر كتاب قرآته", 
-"ليش حسين ذكي؟ ", 
-"افضل يوم ف حياتك", 
-"ليه مضيفتش كل جهاتك", 
-"حكمتك ف الحياه", 
-"لون عيونك", 
-"كتابك المفضل", 
-"هوايتك المفضله", 
-"علاقتك مع اهلك", 
-" ما السيء في هذه الحياة ؟ ", 
-"أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
-"سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس ماتركس؟؟ ", 
-" اكثر ممثل تحبه ؟ ", 
-"قد تخيلت شي في بالك وصار ؟ ", 
-"شيء عندك اهم من الناس ؟ ", 
-"تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
-"وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس ماتركس؟ ", 
-"كم مره حبيت؟ ", 
-" اكثر المتابعين عندك باي برنامج؟", 
-" آخر مره ضربت عشره كانت متى ؟", 
-" نسبه الندم عندك للي وثقت فيهم ؟", 
-"تحب ترتبط بكيرفي ولا فلات؟", 
-" جربت شعور احد يحبك بس انت مو قادر تحبه؟", 
-" تجامل الناس ولا اللي بقلبك على لسانك؟", 
-" عمرك ضحيت باشياء لاجل شخص م يسوى ؟", 
-"مغني تلاحظ أن صوته يعجب الجميع إلا أنت؟ ", 
-" آخر غلطات عمرك؟ ", 
-" مسلسل كرتوني له ذكريات جميلة عندك؟ ", 
-" ما أكثر تطبيق تقضي وقتك عليه؟ ", 
-" أول شيء يخطر في بالك إذا سمعت كلمة نجوم ؟ ", 
-" قدوتك من الأجيال السابقة؟ ", 
-" أكثر طبع تهتم بأن يتواجد في شريك/ة حياتك؟ ", 
-"أكثر حيوان تخاف منه؟ ", 
-" ما هي طريقتك في الحصول على الراحة النفسية؟ ", 
-" إيموجي يعبّر عن مزاجك الحالي؟ ", 
-" أكثر تغيير ترغب أن تغيّره في نفسك؟ ", 
-"أكثر شيء أسعدك اليوم؟ ", 
-"اي رايك في الدنيا دي ؟ ", 
-"ما هو أفضل حافز للشخص؟ ", 
-"ما الذي يشغل بالك في الفترة الحالية؟", 
-"آخر شيء ندمت عليه؟ ", 
-"شاركنا صورة احترافية من تصويرك؟ ", 
-"تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته ", 
-"يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟ ", 
-"نصيحه تبدا ب -لا- ؟ ", 
-"كتاب أو رواية تقرأها هذه الأيام؟ ", 
-"فيلم عالق في ذهنك لا تنساه مِن روعته؟ ", 
-"يوم لا يمكنك نسيانه؟ ", 
-"شعورك الحالي في جملة؟ ", 
-"كلمة لشخص بعيد؟ ", 
-"صفة يطلقها عليك الشخص المفضّل؟ ", 
-"أغنية عالقة في ذهنك هاليومين؟ ", 
-"أكلة مستحيل أن تأكلها؟ ", 
-"كيف قضيت نهارك؟ ", 
-"تصرُّف ماتتحمله؟ ", 
-"موقف غير حياتك؟ ", 
-"اكثر مشروب تحبه؟ ", 
-"القصيدة اللي تأثر فيك؟ ", 
-"متى يصبح الصديق غريب ", 
-"وين نلقى السعاده برايك؟ ", 
-"تاريخ ميلادك؟ ", 
-"قهوه و لا شاي؟ ", 
-"من محبّين الليل أو الصبح؟ ", 
-"حيوانك المفضل؟ ", 
-"كلمة غريبة ومعناها؟ ", 
-"كم تحتاج من وقت لتثق بشخص؟ ", 
-"اشياء نفسك تجربها؟ ", 
-"يومك ضاع على؟ ", 
-"كل شيء يهون الا ؟ ", 
-"اسم ماتحبه ؟ ", 
-"وقفة إحترام للي إخترع ؟ ", 
-"أقدم شيء محتفظ فيه من صغرك؟ ", 
-"كلمات ماتستغني عنها بسوالفك؟ ", 
-"وش الحب بنظرك؟ ", 
-"حب التملك في شخصِيـتك ولا ؟ ", 
-"تخطط للمستقبل ولا ؟ ", 
-"موقف محرج ماتنساه ؟ ", 
-"من طلاسم لهجتكم ؟ ", 
-"اعترف باي حاجه ؟ ", 
-"عبّر عن مودك بصوره ؟ ",
-"آخر مره ضربت عشره كانت متى ؟", 
-"اسم دايم ع بالك ؟ ", 
-"اشياء تفتخر انك م سويتها ؟ ", 
-" لو بكيفي كان ؟ ", 
-  "أكثر جملة أثرت بك في حياتك؟ ",
-  "إيموجي يوصف مزاجك حاليًا؟ ",
-  "أجمل اسم بنت بحرف الباء؟ ",
-  "كيف هي أحوال قلبك؟ ",
-  "أجمل مدينة؟ ",
-  "كيف كان أسبوعك؟ ",
-  "شيء تشوفه اكثر من اهلك ؟ ",
-  "اخر مره فضفضت؟ ",
-  "قد كرهت احد بسبب اسلوبه؟ ",
-  "قد حبيت شخص وخذلك؟ ",
-  "كم مره حبيت؟ ",
-  "اكبر غلطة بعمرك؟ ",
-  "نسبة النعاس عندك حاليًا؟ ",
-  "شرايكم بمشاهير التيك توك؟ ",
-  "ما الحاسة التي تريد إضافتها للحواس الخمسة؟ ",
-  "اسم قريب لقلبك؟ ",
-  "مشتاق لمطعم كنت تزوره قبل الحظر؟ ",
-  "أول شيء يخطر في بالك إذا سمعت كلمة (ابوي يبيك)؟ ",
-  "ما أول مشروع تتوقع أن تقوم بإنشائه إذا أصبحت مليونير؟ ",
-  "أغنية عالقة في ذهنك هاليومين؟ ",
-  "متى اخر مره قريت قرآن؟ ",
-  "كم صلاة فاتتك اليوم؟ ",
-  "تفضل التيكن او السنقل؟ ",
-  "وش أفضل بوت برأيك؟ ",
-"كم لك بالتلي؟ ",
-"وش الي تفكر فيه الحين؟ ",
-"كيف تشوف الجيل ذا؟ ",
-"منشن شخص وقوله، تحبني؟ ",
-"لو جاء شخص وعترف لك كيف ترده؟ ",
-"مر عليك موقف محرج؟ ",
-"وين تشوف نفسك بعد سنتين؟ ",
-"لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟ ",
-"وش اجمل لهجة تشوفها؟ ",
-"قد سافرت؟ ",
-"افضل مسلسل عندك؟ ",
-"افضل فلم عندك؟ ",
-"مين اكثر يخون البنات/العيال؟ ",
-"متى حبيت؟ ",
-  "بالعادة متى تنام؟ ",
-  "شيء من صغرك ماتغير فيك؟ ",
-  "شيء بسيط قادر يعدل مزاجك بشكل سريع؟ ",
-  "تشوف الغيره انانيه او حب؟ ",
-"حاجة تشوف نفسك مبدع فيها؟ ",
-  "مع او ضد : يسقط جمال المراة بسبب قبح لسانها؟ ",
-  "عمرك بكيت على شخص مات في مسلسل ؟ ",
-  "‏- هل تعتقد أن هنالك من يراقبك بشغف؟ ",
-  "تدوس على قلبك او كرامتك؟ ",
-  "اكثر لونين تحبهم مع بعض؟ ",
-  "مع او ضد : النوم افضل حل لـ مشاكل الحياة؟ ",
-  "سؤال دايم تتهرب من الاجابة عليه؟ ",
-  "تحبني ولاتحب الفلوس؟ ",
-  "العلاقه السريه دايماً تكون حلوه؟ ",
-  "لو أغمضت عينيك الآن فما هو أول شيء ستفكر به؟ ",
-"كيف ينطق الطفل اسمك؟ ",
-  "ما هي نقاط الضعف في شخصيتك؟ ",
-  "اكثر كذبة تقولها؟ ",
-  "تيكن ولا اضبطك؟ ",
-  "اطول علاقة كنت فيها مع شخص؟ ",
-  "قد ندمت على شخص؟ ",
-  "وقت فراغك وش تسوي؟ ",
-  "عندك أصحاب كثير؟ ولا ينعد بالأصابع؟ ",
-  "حاط نغمة خاصة لأي شخص؟ ",
-  "وش اسم شهرتك؟ ",
-  "أفضل أكلة تحبه لك؟ ",
-"عندك شخص تسميه ثالث والدينك؟ ",
-  "عندك شخص تسميه ثالث والدينك؟ ",
-  "اذا قالو لك تسافر أي مكان تبيه وتاخذ معك شخص واحد وين بتروح ومين تختار؟ ",
-  "أطول مكالمة كم ساعة؟ ",
-  "تحب الحياة الإلكترونية ولا الواقعية؟ ",
-  "كيف حال قلبك ؟ بخير ولا مكسور؟ ",
-  "أطول مدة نمت فيها كم ساعة؟ ",
-  "تقدر تسيطر على ضحكتك؟ ",
-  "أول حرف من اسم الحب؟ ",
-  "تحب تحافظ على الذكريات ولا تمسحه؟ ",
-  "اسم اخر شخص زعلك؟ ",
-"وش نوع الأفلام اللي تحب تتابعه؟ ",
-  "أنت انسان غامض ولا الكل يعرف عنك؟ ",
-  "لو الجنسية حسب ملامحك وش بتكون جنسيتك؟ ",
-  "عندك أخوان او خوات من الرضاعة؟ ",
-  "إختصار تحبه؟ ",
-  "إسم شخص وتحس أنه كيف؟ ",
-  "وش الإسم اللي دايم تحطه بالبرامج؟ ",
-  "وش برجك؟ ",
-  "لو يجي عيد ميلادك تتوقع يجيك هدية؟ ",
-  "اجمل هدية جاتك وش هو؟ ",
-  "الصداقة ولا الحب؟ ",
-"الصداقة ولا الحب؟ ",
-  "الغيرة الزائدة شك؟ ولا فرط الحب؟ ",
-    "هل انت دي تويت باعت باندا؟ ",
-  "قد حبيت شخصين مع بعض؟ وانقفطت؟ ",
-  "وش أخر شي ضيعته؟ ",
-  "قد ضيعت شي ودورته ولقيته بيدك؟ ",
-  "تؤمن بمقولة اللي يبيك مايحتار فيك؟ ",
-  "سبب وجوك بالتليجرام؟ ",
-  "تراقب شخص حاليا؟ ",
-  "عندك معجبين ولا محد درا عنك؟ ",
-  "لو نسبة جمالك بتكون بعدد شحن جوالك كم بتكون؟ ",
-  "أنت محبوب بين الناس؟ ولاكريه؟ ",
-"كم عمرك؟ ",
-  "لو يسألونك وش اسم امك تجاوبهم ولا تسفل فيهم؟ ",
-  "تؤمن بمقولة الصحبة تغنيك الحب؟ ",
-  "وش مشروبك المفضل؟ ",
-  "قد جربت الدخان بحياتك؟ وانقفطت ولا؟ ",
-  "أفضل وقت للسفر؟ الليل ولا النهار؟ ",
-  "انت من النوع اللي تنام بخط السفر؟ ",
-  "عندك حس فكاهي ولا نفسية؟ ",
-  "تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب؟ ",
-  "أفضل ممارسة بالنسبة لك؟ ",
-  "لو قالو لك تتخلى عن شي واحد تحبه بحياتك وش يكون؟ ",
-"لو احد تركك وبعد فتره يحاول يرجعك بترجع له ولا خلاص؟ ",
-  "برأيك كم العمر المناسب للزواج؟ ",
-  "اذا تزوجت بعد كم بتخلف عيال؟ ",
-  "فكرت وش تسمي أول اطفالك؟ ",
-  "من الناس اللي تحب الهدوء ولا الإزعاج؟ ",
-  "الشيلات ولا الأغاني؟ ",
-  "عندكم شخص مطوع بالعايلة؟ ",
-  "تتقبل النصيحة من اي شخص؟ ",
-  "اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟ ",
-  "جربت شعور احد يحبك بس انت مو قادر تحبه؟ ",
-  "دايم قوة الصداقة تكون بإيش؟ ",
-"أفضل البدايات بالعلاقة بـ وش؟ ",
-  "وش مشروبك المفضل؟ او قهوتك المفضلة؟ ",
-  "تحب تتسوق عبر الانترنت ولا الواقع؟ ",
-  "انت من الناس اللي بعد ماتشتري شي وتروح ترجعه؟ ",
-  "أخر مرة بكيت متى؟ وليش؟ ",
-  "عندك الشخص اللي يقلب الدنيا عشان زعلك؟ ",
-  "أفضل صفة تحبه بنفسك؟ ",
-  "كلمة تقولها للوالدين؟ ",
-  "أنت من الناس اللي تنتقم وترد الاذى ولا تحتسب الأجر وتسامح؟ ",
-  "كم عدد سنينك بالتليجرام؟ ",
-  "تحب تعترف ولا تخبي؟ ",
-"انت من الناس الكتومة ولا تفضفض؟ ",
-  "أنت بعلاقة حب الحين؟ ",
-  "عندك اصدقاء غير جنسك؟ ",
-  "أغلب وقتك تكون وين؟ ",
-  "لو المقصود يقرأ وش بتكتب له؟ ",
-  "تحب تعبر بالكتابة ولا بالصوت؟ ",
-  "عمرك كلمت فويس احد غير جنسك؟ ",
-  "لو خيروك تصير مليونير ولا تتزوج الشخص اللي تحبه؟ ",
-  "لو عندك فلوس وش السيارة اللي بتشتريها؟ ",
-  "كم أعلى مبلغ جمعته؟ ",
-  "اذا شفت احد على غلط تعلمه الصح ولا تخليه بكيفه؟ ",
-"قد جربت تبكي فرح؟ وليش؟ ",
-"تتوقع إنك بتتزوج اللي تحبه؟ ",
-  "ما هو أمنيتك؟ ",
-  "وين تشوف نفسك بعد خمس سنوات؟ ",
-  "هل انت حرامي تويت بتعت باندا؟ ",
-  "لو خيروك تقدم الزمن ولا ترجعه ورا؟ ",
-  "لعبة قضيت وقتك فيه بالحجر المنزلي؟ ",
-  "تحب تطق الميانة ولا ثقيل؟ ",
-  "باقي معاك للي وعدك ما بيتركك؟ ",
-  "اول ماتصحى من النوم مين تكلمه؟ ",
-  "عندك الشخص اللي يكتب لك كلام كثير وانت نايم؟ ",
-  "قد قابلت شخص تحبه؟ وولد ولا بنت؟ ",
-   "هل انت تحب باندا؟ ",
-"اذا قفطت احد تحب تفضحه ولا تستره؟ ",
-  "كلمة للشخص اللي يسب ويسطر؟ ",
-  "آية من القران تؤمن فيه؟ ",
-  "تحب تعامل الناس بنفس المعاملة؟ ولا تكون أطيب منهم؟ ",
-"حاجة ودك تغيرها هالفترة؟ ",
-  "كم فلوسك حاليا وهل يكفيك ام لا؟ ",
-  "وش لون عيونك الجميلة؟ ",
-  "من الناس اللي تتغزل بالكل ولا بالشخص اللي تحبه بس؟ ",
-  "اذكر موقف ماتنساه بعمرك؟ ",
-  "وش حاب تقول للاشخاص اللي بيدخل حياتك؟ ",
-  "ألطف شخص مر عليك بحياتك؟ ",
-   "هل باندا لطيف؟ ",
-"انت من الناس المؤدبة ولا نص نص؟ ",
-  "كيف الصيد معاك هالأيام ؟ وسنارة ولاشبك؟ ",
-  "لو الشخص اللي تحبه قال بدخل حساباتك بتعطيه ولا تكرشه؟ ",
-  "أكثر شي تخاف منه بالحياه وش؟ ",
-  "اكثر المتابعين عندك باي برنامج؟ ",
-  "متى يوم ميلادك؟ ووش الهدية اللي نفسك فيه؟ ",
-  "قد تمنيت شي وتحقق؟ ",
-  "قلبي على قلبك مهما صار لمين تقولها؟ ",
-  "وش نوع جوالك؟ واذا بتغيره وش بتأخذ؟ ",
-  "كم حساب عندك بالتليجرام؟ ",
-  "متى اخر مرة كذبت؟ ",
-"كذبت في الاسئلة اللي مرت عليك قبل شوي؟ ",
-  "تجامل الناس ولا اللي بقلبك على لسانك؟ ",
-  "قد تمصلحت مع أحد وليش؟ ",
-  "وين تعرفت على الشخص اللي حبيته؟ ",
-  "قد رقمت او احد رقمك؟ ",
-  "وش أفضل لعبته بحياتك؟ ",
-  "أخر شي اكلته وش هو؟ ",
-  "حزنك يبان بملامحك ولا صوتك؟ ",
-  "لقيت الشخص اللي يفهمك واللي يقرا افكارك؟ ",
-  "فيه شيء م تقدر تسيطر عليه ؟ ",
-  "منشن شخص متحلطم م يعجبه شيء؟ ",
-"اكتب تاريخ مستحيل تنساه ",
-  "شيء مستحيل انك تاكله ؟ ",
-  "تحب تتعرف على ناس جدد ولا مكتفي باللي عندك ؟ ",
-  "انسان م تحب تتعامل معاه ابداً ؟ ",
-  "شيء بسيط تحتفظ فيه؟ ",
-  "فُرصه تتمنى لو أُتيحت لك ؟ ",
-   "لي باندا ناك اليكس؟ ",
-  "شيء مستحيل ترفضه ؟. ",
-  "لو زعلت بقوة وش بيرضيك ؟ ",
-  "تنام بـ اي مكان ، ولا بس غرفتك ؟ ",
-  "ردك المعتاد اذا أحد ناداك ؟ ",
-  "مين الي تحب يكون مبتسم دائما ؟ ",
-" إحساسك في هاللحظة؟ ",
-  "وش اسم اول شخص تعرفت عليه فالتلقرام ؟ ",
-  "اشياء صعب تتقبلها بسرعه ؟ ",
-  "شيء جميل صار لك اليوم ؟ ",
-  "اذا شفت شخص يتنمر على شخص قدامك شتسوي؟ ",
-  "يهمك ملابسك تكون ماركة ؟ ",
-  "ردّك على شخص قال (أنا بطلع من حياتك)؟. ",
-  "مين اول شخص تكلمه اذا طحت بـ مصيبة ؟ ",
-  "تشارك كل شي لاهلك ولا فيه أشياء ما تتشارك؟ ",
-  "كيف علاقتك مع اهلك؟ رسميات ولا ميانة؟ ",
-  "عمرك ضحيت باشياء لاجل شخص م يسوى ؟ ",
-"اكتب سطر من اغنية او قصيدة جا فـ بالك ؟ ",
-  "شيء مهما حطيت فيه فلوس بتكون مبسوط ؟ ",
-  "مشاكلك بسبب ؟ ",
-  "نسبه الندم عندك للي وثقت فيهم ؟ ",
-  "اول حرف من اسم شخص تقوله? بطل تفكر فيني ابي انام؟ ",
-  "اكثر شيء تحس انه مات ف مجتمعنا؟ ",
-  "لو صار سوء فهم بينك وبين شخص هل تحب توضحه ولا تخليه كذا  لان مالك خلق توضح ؟ ",
-  "كم عددكم بالبيت؟ ",
-  "عادي تتزوج من برا القبيلة؟ ",
-  "أجمل شي بحياتك وش هو؟ ",
+local texting = {
+'آخر مرة زرت مدينة الملاهي؟','آخر مرة أكلت أكلتك المفضّلة؟','الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل','آخر شيء ضاع منك؟','كلمة أخيرة لشاغل البال؟','طريقتك المعتادة في التخلّص من الطاقة السلبية؟','شهر من أشهر العام له ذكرى جميلة معك؟','كلمة غريبة من لهجتك ومعناها؟🤓','‏- شيء سمعته عالق في ذهنك هاليومين؟','متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟','‏- أبرز صفة حسنة في صديقك المقرب؟','هل تشعر أن هنالك مَن يُحبك؟','اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟','أجمل شيء حصل معك خلال هاليوم؟','صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔','كلمة لشخص غالي اشتقت إليه؟💕','آخر خبر سعيد، متى وصلك؟','أنا آسف على ....؟','أوصف نفسك بكلمة؟','صريح، مشتاق؟','‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟','‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭','‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤','‏- تخيّل شيء قد يحدث في المستقبل؟','‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚','شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟','| اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟.','كم مره تسبح باليوم','نسبة النعاس عندك حاليًا؟','لو فقط مسموح شخص واحد تتابعه فالسناب مين بيكون ؟','يهمك ملابسك تكون ماركة ؟','وش الشيء الي تطلع حرتك فيه و زعلت ؟','عندك أخوان او خوات من الرضاعة؟','عندك معجبين ولا محد درا عنك؟','أصعب صفة قد تتواجد في الرجل .؟','كم المده الي تخليك توقع بحب الشخص؟.','تحس انك مستعد للقاء الله ولا باقي.؟','متصالح مع نفسك؟.','يسكر على أصبعك الباب ولا تعض لسانك  بالغلط؟!','عندك غمازات؟.','‏ألوانك المفضّلة؟','ردة فعلك لما تنظلم من شخص ؟','وش الحب بنظرك؟','أكثر شيء تقدره في الصداقات؟','‏لوخيروك ⁞ الاكل لو النت ؟!','عاجبك وجودك في التلي ولا تتمنى تحذفة.؟','افضل هديه ممكن تناسبك؟','شعورك الحالي في جملة؟','أنا حزين جداً أجعلني أبتسم.؟','بماذا يتعافى المرء؟','تاك لشخص نفسيه؟','شاركنا بيت شعري حزين على ذوقك.؟','اغنية عندك بيها ذكريات؟','اشياء تفتخر انك م سويتها ؟','الصراحة وقاحة ولا صدق تعامل.؟','ايهم اصدق نظرة العين او نبرة الصوت ؟','‏قلّة المال لدى الرجل في هذا الزمن يعتبرها العديد كانها عيب، مع أم ضد؟','إيهما تُفضل حُب ناجح أم صداقة دائمة.؟','على نياتكُم تُرزقون تاك لشخص ينطبق علية هذا الشيء.؟','اكثر كلمة ترفع ضغطك ؟','من أصحاب الماضي والحنين ولا الصفحات المطوية.؟','من أصحاب النسيان او التجاوز رغم الذكرى.؟','غزل بلهجتك ؟','مصروفك كم؟.','للحتيت ⁞ ماذا تفضّلين أن تكون مهنة شريك حياتك المستقبلي.؟','يومك ضاع على؟','ما الذي اسعدك اليوم .؟','كيف تتعامل مع الشخص المُتطفل ( الفضولي ) ؟','أصعب صفة قد تتواجد في المرأة.؟','مع أو ضد لو كان خيراً لبقئ.؟','نصيحة لكل شخص يذكر أحد بغيابة بالسوء.؟','كل شيء يهون الا ؟','هل أنت من النوع الذي يواجه المشاكل أو من النوع الذي يهرب ؟','كلمه لشخص خانك!؟.','تحب تحتفظ بالذكريات ؟','شاركنا أقوى بيت شِعر من تأليفك؟','‏اسرع شيء يحسّن من مزاجك؟','كلمتك التسليكيه ؟','كم ساعات نومك؟.','عندك فوبيا او خوف شديد من شيء معين ؟','موهبة تفوز بمدح الناس لك.؟','قدوتك من الأجيال السابقة؟','شخص تتمنئ له الموت؟.','عادةً تُحب النقاش الطويل أم تحب الاختصار؟','تاك لشخص نيته زباله🌚؟','صوتك حلو ؟ .','كلمتين تكررها دايم؟!','افضل روايه قريتيها؟.','متى حدث التغيير الكبير والملحوظ في شخصيتك؟','أكثر اكلهه تحبها؟.','‏كلما ازدادت ثقافة المرء ازداد بؤسه','تتفق.؟','اغبى كذبه صدقتها بطفولتك؟.','كم المده الي تخليك توقع بحب الشخص؟.','تسامح شخص وجع قلبك ؟.','ردة فعلك لما تنظلم من شخص ؟','شيء يعدل نفسيتك بثواني.؟','‏تتوقع الإنسان يحس بقرب موته؟','وقت حزنك تلجأ لمن يخفف عنك.؟','‏أكثر شيء شخصي ضاع منك؟','تزعلك الدنيا ويرضيك ؟','ما الذي يشغل بالك في الفترة الحالية؟','نهارك يصير أجمل بوجود ..؟','حسيت انك ظلمت شخص.؟','صفة يطلقها عليك من حولك بكثرة؟','‏يوم لا يمكنك نسيانه؟','أكثر اكلهه تحبها؟.','اخر كلمة قالها لك حبيبك؟.','من الشخص الاقرب لقلبك؟.','كم المده الي تخليك توقع بحب الشخص؟.','ماهي الهدية التي تتمنى أن تنتظرك يومًا أمام باب منزلك؟','‏اسم او تاك لشخص لا ترتاح في يومك إلا إذا حاجيته؟','صديق أمك ولا أبوك. ؟','لماذا الأشياء التي نريدها بشغف تأتي متأخرة؟','‏تقبل بالعودة لشخص كسر قلبك مرتين؟','افضل هديه ممكن تناسبك؟','كلمة غريبة ومعناها؟','اذا اشتقت تكابر ولا تبادر ؟.','بامكانك تنزع شعور من قلبك للابد ، ايش هو؟.','لو بتغير اسمك ايش بيكون الجديد ؟','‏شخصية لا تستطيع تقبلها؟','ما هي طريقتك في الحصول على الراحة النفسية؟','‏ايموجي يوصف مزاجك حاليًا بدقة؟','تاريخ ميلادك؟','كيف تحد الدولة من الفقر المُتزايد.؟','‏شي مستحيل يتغير فيك؟','لو اخذوك لمستشفى المخابيل كيف تثبت انت صاحي؟','إيموجي يعبّر عن مزاجك الحالي؟','وقت حزنك تلجأ لمن يخفف عنك.؟','اعترف باي حاجه ؟','شاركني آخر صورة جميلة من كاميرا هاتفك.؟','متصالح مع نفسك؟.','لو عندك امنيه وبتحقق وش هي؟.','هل انت شخص مادي.؟','أخر اتصال جاك من مين ؟','تاك لصديقك المُقرب؟.','تحب العلاقات العاطفيه ولا الصداقه؟.','العين الي تستصغرك........؟','تجامل الناس ولا اللي بقلبك على لسانك؟','وقت حزنك تلجأ لمن يخفف عنك.؟','اكثر المتابعين عندك باي برنامج؟','صفه تتمناها بشريك حياتك؟.','من اصدق في الحب الولد ولا البنت؟.','يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟','كلمة لشخص بعيد؟','رحتي لعرس وأكتشفتي العريس حبيبك شنو ردة فعلك.؟','تسامح شخص وجع قلبك ؟.','احقر موقف صار لك؟.','ماذا لو كانت مشاعر البشر مرئية ؟','وين نلقى السعاده برايك؟','قد تخيلت شي في بالك وصار ؟','صفة يطلقها عليك الشخص المفضّل؟','اخر خيانه؟.','تحب تحتفظ بالذكريات ؟','لو بتغير اسمك ايش بيكون الجديد ؟','الاعتذار أخلاق ولا ضعف.؟','هل أنت من النوع الذي يواجه المشاكل أو من النوع الذي يهرب ؟','‏ تكره أحد من قلبك ؟','تاك لشخص وكوله اعترف لك؟','مع أو ضد لو كان خيراً لبقئ.؟','‏هل لديك شخص لا تخفي عنه شيئًا؟','اغنيه تأثر بيك؟','المطوعة والعاقلة من شلتك.؟','مواصفات امير/ة احلامك؟.','‏كلمة لصديقك البعيد؟','تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته؟','قرارتك راضي عنها ام لا ؟','تسامح شخص سبب في بكائك.؟','لو حصل واشتريت جزيرة، ماذا ستختار اسمًا لها.؟','اغنيتك المفضلة؟.','شاركنا اقوئ نكتة عندك.؟','ماذا لو عاد مُشتاقاً.؟','مسلسل كرتوني له ذكريات جميلة عندك؟','أخر اتصال جاك من مين ؟','حيوانك المفضل؟','اول ولد لك شنو رح تسميه ؟','سبب الرحيل.؟','قولها بلهجتك « لا أملك المال ».؟','نهارك يصير أجمل بوجود ..؟','‏لو خيروك، الزواج بمن تُحب او تاخذ مليون دولار؟','تاك لشخص سوالفه حلوه ؟','تصرف لا يُمكن أن تتحمله.؟','ماهي الاطباع فيك التي تحاول اخفائها عن الناس؟.','شيء عندك اهم من الناس؟','قد تخيلت شي في بالك وصار ؟','تمحي العشرة الطيبة عشان موقف ماعجبك أو سوء فهم.؟','جربت شعور احد يحبك بس انت متكدر تحبه؟','بنفسك تبوس شخص بهاي الحظه؟','إذا كانت الصراحة ستبعد عنك من تحب هل تمتلك الشجاعة للمصارحة ام لا .؟','أكمل الدعاء بما شئت ‏اللهم أرزقني ..؟','الصق اخر شيء نسخته .؟','‏تفضل جولة في الغابة أم جولة بحرية؟','‏تاك لشخص لديك لا تخفي عنه شي؟','كلمة غريبة ومعناها؟','‏اوقات لا تحب ان يكلمك فيها احد؟','تملك وسواس من شيء معين ؟','اشمر مقطع من اغنيه متطلع منراسك؟','هل تتأثرين بالكلام الرومانسي من الشباب؟','ما اول شيء يلفت انتباهك في الرجل؟','ماذا تفعلين اذا تعرضتِ للتحرش من قبل شخص ما..؟','اذا كنت شخصاً غني هل توافق على الزواج من فتاة فقيرة..؟','ما هو أكثر شئ لا تستطيع تحمله..؟','ما هي نقاط الضعف في شخصيتك..؟','هل توافق أن زوجتك تدفع الحساب في إحدي المطاعم وأنت موجود؟','ماذا تفعل لو أكتشفت ان زوجتك على علاقة بصديقك؟','ما هي أكثر صفة تكرهها في زوجتك..؟','اذا كان لديك فرصة للخروج مع من سوف تخرج ربعك او زوجتك..؟','ماذا تفعل عندما تري دموع زوجتك..؟','إلى أي الرجال تُريدين أن يكون انتماؤك؟','كم مرة خُدعت في أشخاصٍ، وثقتِ فيهم ثقةً عمياء؟','هل ما زال أصدقاء الطفولة أصدقاءً لك حتى الآن؟','هل ترغبين في أن يكون خطيبك وسيمًا؟','كم مرةٍ فعلت شيئًا لا ترغبين في الإفصاح عنه؟','هل استطعت أن تُحققي آمالك العلمية والعاطفية؟','أكثر شئ ندمت على فعله..؟','هل تشعرين أنك فتاة محظوظة..؟','هل علاقة الحب التي كانت في صغرك، مازالت مستمرة؟','ما هو أكثر شئ يفرحك في هذه الحياة..؟','كم مرة أردت شراء ملابس لأنها جميلة ولكنها لا تناسبك..؟','كم عدد المرات التي قمت فيها بإستبدال شئ اشتريته ولم يعجبك بعد ذلك.؟','كم مرة قمت بكسر الرجيم من أجل تناول طعامك المفضل..؟','هل تعرضت للظلم يوماً ما وعلى يد من..؟','هل كذبت على والديك من قبل..؟','هل خرجتي مع شخص تعرفتي عليه من خلال التليكرام من قبل..؟','هل لو تقدم شخص لاختك من أجل خطبتها وقامت برفضه تقبلين به..؟','لمن تقولين لا أستطيع العيش بدونك..؟','كم عدد المرات التي تعرضتِ فيها إلى أزمة نفسية وأردتِ الصراخ بأعلى صوتك..؟','ماذا تقول للبحر؟','أصعب صفة قد تتواجد في رجل؟','ما أجمل الحياة بدون ...؟','لماذا لم تتم خطبتك حتى الآن..؟','نسبة رضاك عن الأشخاص من حولك هالفترة ؟','ما السيء في هذه الحياة ؟','الفلوس او الحب ؟','أجمل شيء حصل معك خلال هذا الاسبوع ؟','سؤال ينرفزك ؟','كم في حسابك البنكي ؟','شي عندك اهم من الناس ؟','اول ولد او بنت الك شنو تسمي ؟','تفضّل النقاش الطويل او تحب الاختصار ؟','عادي تتزوج او تتزوجين من خارج العشيره ؟','كم مره حبيت ؟','تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب ؟','قلبي على قلبك مهما صار لمنو تكولها ؟','اكثر المتابعين عندك باي برنامج ؟','نسبة النعاس عندك حاليًا ؟','نسبه الندم عندك للي وثقت بيهم ؟','اول شخص تعرفت عليه بالتليكرام بعده موجود ؟','اذا فديوم شخص ضلمك شنو موقفك ؟','افضل عمر للزواج برئيك ؟','انت من النوع الي دائما ينغدر من اقرب الناس اله ؟','ماهو حيوانك المفضل ؟','تاريخ ميلادك ؟','لونك المفضل ؟','انت من النوع العاطفي والي ميكدر يكتم البداخله ؟','اذا فديوم شخص خانك ويريد يرجعلك تقبل ؟','شي بالحياه مخليك عايش لحد الان ؟','تحب النوم لو الشغل ؟','افضل مكان رحت عليه ؟','اختصر الماضي بكلمه وحده ؟','هل سبق وكنت مصر على أمر ما ومن ثم اكتشفت أنك كنت على خطأ ؟','اكثر كلمة ترفع ضغطك ؟','مع او ضد سب البنت للدفاع عن نفسها ؟','يهمك ظن الناس بيك لو لا؟','عبّر عن مودك بصوره ؟','اغلب وقتك ضايع في ؟','يوم متكدر تنساه ؟','تحس انك محظوظ بالاشخاص الي حولك ؟','تستغل وقت فراغك بشنو ؟','مع او ضد مقولة محد يدوم ل احد ؟','لو اخذوك مستشفى المجانين كيف تثبت لهم انك صاحي ؟','مغني تلاحظ أن صوته يعجب الجميع إلا أنت ؟','اخر خيانه ؟','تصرف ماتتحمله ؟','هل يمكنك الكذب والاستمرار بارتكاب الأخطاء كمحاولة منك لعدم الكشف أنك مخطئ ؟','الصق اخر شي نسخته ؟','عمرك انتقمت من أحد ؟','هل وصلك رسالة غير متوقعة من شخص وأثرت فيك ؟','‏-لو امتلكت العصا السحرية ليوم واحد ماذا ستفعل ؟','جابو طاري شخص تكره عندك تشاركهم ولا تمنعهم ؟','أمنية كنت تتمناها وحققتها ؟','هل التعود على شخص والتحدث معه بشكل يومي يعتبر نوع من أنواع الحب ؟','نسبة جمال صوتك ؟','صفة يطلقها عليك الشخص المفضل ؟','شنو هدفك بالمستقبل القريب ؟','تحب القرائه ؟','كليه تتمنى تنقبل بيها ؟',
+'أطول مدة قضيتها بعيد عن أهلك ؟','لو يجي عيد ميلادك تتوقع يجيك هدية؟','يبان عليك الحزن من " صوتك - ملامحك','وين تشوف نفسك بعد سنتين؟','وش يقولون لك لما تغني ؟','عندك حس فكاهي ولا نفسية؟','كيف تتصرف مع الشخص الفضولي ؟','كيف هي أحوال قلبك؟','حاجة تشوف نفسك مبدع فيها ؟','متى حبيت؟','شيء كل م تذكرته تبتسم ...','العلاقه السريه دايماً تكون حلوه؟','صوت مغني م تحبه','لو يجي عيد ميلادك تتوقع يجيك هدية؟','اذا احد سألك عن شيء م تعرفه تقول م اعرف ولا تتفلسف ؟','مع او ضد : النوم افضل حل لـ مشاكل الحياة؟','مساحة فارغة (..............) اكتب اي شيء تبين','اغرب اسم مر عليك ؟','عمرك كلمت فويس احد غير جنسك؟','اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟','لو عندك فلوس وش السيارة اللي بتشتريها؟','وش اغبى شيء سويته ؟','شيء من صغرك ماتغير فيك؟','وش نوع الأفلام اللي تحب تتابعه؟','وش نوع الأفلام اللي تحب تتابعه؟','تجامل احد على حساب مصلحتك ؟','تتقبل النصيحة من اي شخص؟','كلمه ماسكه معك الفترة هذي ؟','متى لازم تقول لا ؟','اكثر شيء تحس انه مات ف مجتمعنا؟','تؤمن ان في "حُب من أول نظرة" ولا لا ؟.','تؤمن ان في "حُب من أول نظرة" ولا لا ؟.','هل تعتقد أن هنالك من يراقبك بشغف؟','اشياء اذا سويتها لشخص تدل على انك تحبه كثير ؟','اشياء صعب تتقبلها بسرعه ؟','اقتباس لطيف؟','أكثر جملة أثرت بك في حياتك؟','عندك فوبيا من شيء ؟.',
+'اكثر لونين تحبهم مع بعض؟','أجمل بيت شعر سمعته ...','سبق وراودك شعور أنك لم تعد تعرف نفسك؟','تتوقع فيه احد حاقد عليك ويكرهك ؟','أجمل سنة ميلادية مرت عليك ؟','لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟','وش تحس انك تحتاج الفترة هاذي ؟','يومك ضاع على؟','@منشن .. شخص تخاف منه اذا عصب ...','فيلم عالق في ذهنك لا تنساه مِن روعته؟','تختار أن تكون غبي أو قبيح؟','الفلوس او الحب ؟','أجمل بلد في قارة آسيا بنظرك؟','ما الذي يشغل بالك في الفترة الحالية؟','احقر الناس هو من ...','وين نلقى السعاده برايك؟','اشياء تفتخر انك م سويتها ؟','تزعلك الدنيا ويرضيك ؟','وش الحب بنظرك؟','افضل هديه ممكن تناسبك؟','كم في حسابك البنكي ؟','كلمة لشخص أسعدك رغم حزنك في يومٍ من الأيام ؟','عمرك انتقمت من أحد ؟!','ما السيء في هذه الحياة ؟','غنية عندك معاها ذكريات🎵🎻','/','أفضل صفة تحبه بنفسك؟','اكثر وقت تحب تنام فيه ...','أطول مدة نمت فيها كم ساعة؟','أصعب قرار ممكن تتخذه ؟','أفضل صفة تحبه بنفسك؟','اكثر وقت تحب تنام فيه ...','أنت محبوب بين الناس؟ ولاكريه؟','إحساسك في هاللحظة؟','اخر شيء اكلته ؟','تشوف الغيره انانيه او حب؟','اذكر موقف ماتنساه بعمرك؟','اكثر مشاكلك بسبب ؟','اول ماتصحى من النوم مين تكلمه؟','آخر مرة ضحكت من كل قلبك؟','لو الجنسية حسب ملامحك وش بتكون جنسيتك؟','اكثر شيء يرفع ضغطك','اذكر موقف ماتنساه بعمرك؟','لو قالوا لك  تناول صنف واحد فقط من الطعام لمدة شهر .',
+'كيف تشوف الجيل ذا؟','ردة فعلك لو مزح معك شخص م تعرفه ؟','احقر الناس هو من ...','تحب ابوك ولا امك','آخر فيلم مسلسل والتقييم🎥؟','أقبح القبحين في العلاقة: الغدر أو الإهمال🤷🏼؟','كلمة لأقرب شخص لقلبك🤍؟','حط@منشن لشخص وقوله "حركتك مالها داعي"😼!','اذا جاك خبر مفرح اول واحد تعلمه فيه مين💃🏽؟','طبع يمكن يخليك تكره شخص حتى لو كنت تُحبه🙅🏻‍♀️؟','افضل ايام الاسبوع عندك🔖؟','يقولون ان الحياة دروس ، ماهو أقوى درس تعلمته من الحياة🏙؟','تاريخ لن تنساه📅؟','تحب الصيف والا الشتاء❄️☀️؟','شخص تحب تستفزه😈؟','شنو ينادونك وانت صغير (عيارتك)👼🏻؟','عقل يفهمك/ج ولا قلب يحبك/ج❤️؟','اول سفره لك وين رح تكون✈️؟','كم عدد اللي معطيهم بلوك👹؟','نوعية من الأشخاص تتجنبهم في حياتك❌؟','شاركنا صورة او فيديو من تصويرك؟📸','كم من عشره تعطي حظك📩؟','اكثر برنامج تواصل اجتماعي تحبه😎؟','من اي دوله انت🌍؟','اكثر دوله ودك تسافر لها🏞؟','مقولة "نكبر وننسى" هل تؤمن بصحتها🧓🏼؟','تعتقد فيه أحد يراقبك👩🏼‍💻؟','لو بيدك تغير الزمن ، تقدمه ولا ترجعه🕰؟','مشروبك المفضل🍹؟','‏قم بلصق آخر اقتباس نسخته؟💭','كم وزنك/ج طولك/ج؟🌚','كم كان عمرك/ج قبل ٨ سنين😈؟','دوله ندمت انك سافرت لها😁؟','لو قالو لك ٣ أمنيات راح تتحقق عالسريع شنو تكون🧞‍♀️؟','‏- نسبة احتياجك للعزلة من 10📊؟','شخص تحبه حظرك بدون سبب واضح، ردة فعلك🧐؟','مبدأ في الحياة تعتمد عليه دائما🕯؟',
 } 
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
