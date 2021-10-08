@@ -2112,7 +2112,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2143,7 +2144,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2164,7 +2166,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2180,7 +2183,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2196,7 +2200,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2212,7 +2217,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2228,7 +2234,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2244,7 +2251,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2260,7 +2268,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2277,7 +2286,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2293,7 +2303,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2309,7 +2320,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2330,7 +2342,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2361,7 +2374,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏??𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2377,7 +2391,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2408,7 +2423,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2424,7 +2440,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2455,7 +2472,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2556,7 +2574,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2587,7 +2606,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2603,7 +2623,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2634,7 +2655,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2725,7 +2747,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2756,7 +2779,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2772,7 +2796,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2803,7 +2828,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2844,7 +2870,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2875,7 +2902,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2911,7 +2939,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2947,7 +2976,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -2983,7 +3013,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3024,7 +3055,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3040,7 +3072,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3056,7 +3089,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3072,7 +3106,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3088,7 +3123,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3369,7 +3405,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3385,7 +3422,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3401,7 +3439,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3416,7 +3455,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3436,7 +3476,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3450,7 +3491,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3464,7 +3506,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3478,7 +3521,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3492,7 +3536,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3507,7 +3552,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3572,7 +3618,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3600,7 +3647,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3628,7 +3676,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3673,7 +3722,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3702,7 +3752,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3977,7 +4028,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -3996,7 +4048,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4024,7 +4077,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4041,7 +4095,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4060,7 +4115,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4085,7 +4141,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4103,7 +4160,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4121,7 +4179,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4149,7 +4208,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4173,7 +4233,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4197,7 +4258,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4214,7 +4276,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4233,7 +4296,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4262,7 +4326,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4279,7 +4344,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4298,7 +4364,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4322,7 +4389,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4340,7 +4408,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4363,7 +4432,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4395,7 +4465,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4416,7 +4487,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4435,7 +4507,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4459,7 +4532,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉?? 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4477,7 +4551,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4500,7 +4575,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4533,7 +4609,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4555,7 +4632,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4574,7 +4652,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4598,7 +4677,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4616,7 +4696,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4653,7 +4734,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4690,7 +4772,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4730,7 +4813,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4773,7 +4857,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4863,7 +4948,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4934,7 +5020,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -4993,7 +5080,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5018,7 +5106,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5048,7 +5137,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5071,7 +5161,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5121,7 +5212,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5172,7 +5264,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5212,7 +5305,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5245,7 +5339,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5313,7 +5408,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5348,7 +5444,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5392,7 +5489,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5426,7 +5524,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5446,7 +5545,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5471,7 +5571,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5488,7 +5589,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5525,7 +5627,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5572,7 +5675,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5608,7 +5712,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5626,7 +5731,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5644,7 +5750,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5662,7 +5769,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5777,7 +5885,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5804,7 +5913,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5831,7 +5941,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5935,7 +6046,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5974,7 +6086,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -5990,7 +6103,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6008,7 +6122,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6026,7 +6141,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6046,7 +6162,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6066,7 +6183,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6082,7 +6200,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6098,7 +6217,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6116,7 +6236,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6140,7 +6261,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6211,7 +6333,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6296,7 +6419,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6349,7 +6473,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6366,7 +6491,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6383,7 +6509,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6403,7 +6530,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6431,7 +6559,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6452,7 +6581,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6496,7 +6626,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6512,7 +6643,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6530,7 +6662,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6553,7 +6686,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6582,7 +6716,7 @@ if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-key = {{{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+key = {{{text ='..titlech..',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6603,7 +6737,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6622,7 +6757,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6646,7 +6782,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6664,7 +6801,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6692,7 +6830,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6707,7 +6846,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6743,7 +6883,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -6761,7 +6902,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7228,7 +7370,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7302,7 +7445,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7321,7 +7465,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7609,7 +7754,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7653,7 +7799,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7787,7 +7934,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7827,7 +7975,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7912,7 +8061,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7927,7 +8077,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7953,7 +8104,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -7996,7 +8148,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8011,7 +8164,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8115,7 +8269,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8150,7 +8305,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8180,7 +8336,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8218,7 +8375,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8252,7 +8410,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8278,7 +8437,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8829,7 +8989,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8845,7 +9006,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8875,7 +9037,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8909,7 +9072,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8924,7 +9088,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8939,7 +9104,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8954,7 +9120,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -8969,7 +9136,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9077,7 +9245,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9244,7 +9413,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9309,7 +9479,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9396,7 +9567,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9458,7 +9630,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9517,7 +9690,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9595,7 +9769,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9634,7 +9809,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9662,7 +9838,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9717,7 +9894,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9766,7 +9944,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9781,7 +9960,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9796,7 +9976,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9862,7 +10043,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9882,7 +10064,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9945,7 +10128,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9963,7 +10147,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -9981,7 +10166,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -10106,7 +10292,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -10134,7 +10321,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -11228,7 +11416,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -11270,7 +11459,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -11393,7 +11583,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -11554,7 +11745,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -11626,7 +11818,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -11657,7 +11850,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
