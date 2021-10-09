@@ -11039,7 +11039,7 @@ v = string.gsub(v,'"','')
 v = string.gsub(v,"'",'')
 Get_Json = Get_Json..'"'..v..'":"'..db..'",'
 end   
-Get_Json = Get_Json..'"taha":"ok"'
+Get_Json = Get_Json..'"Hussain":"ok"'
 end
 Get_Json = Get_Json..'}'
 end
@@ -11059,7 +11059,7 @@ local download_ = download('https://api.telegram.org/file/bot'..token..'/'..File
 local Get_Info = io.open(download_,"r"):read('*a')
 local Reply_Groups = JSON.decode(Get_Info) 
 for GroupId,ListGroup in pairs(Reply_Groups.GroupsBotreply) do
-if ListGroup.taha == "ok" then
+if ListGroup.Hussain == "ok" then
 for k,v in pairs(ListGroup) do
 database:sadd(bot_id.."Matrix:List:Manager"..GroupId,k)
 if v and v:match('gif@(.*)') then
@@ -11271,7 +11271,7 @@ end
 if memp then
 t = t..'"Status_Mem":"'..memp..'",'
 end
-t = t..'"Dev":"taha"}'
+t = t..'"Dev":"Hussain"}'
 end
 t = t..'}}'
 local File = io.open('./File_Libs/'..bot_id..'.json', "w")
@@ -12618,7 +12618,7 @@ v = string.gsub(v,'"','')
 v = string.gsub(v,"'",'')
 Get_Json = Get_Json..'"'..v..'":"'..db..'",'
 end   
-Get_Json = Get_Json..'"taha":"ok"'
+Get_Json = Get_Json..'"Hussain":"ok"'
 end
 Get_Json = Get_Json..'}'
 end
@@ -12627,62 +12627,6 @@ local File = io.open('./File_Libs/MatrixReply.json', "w")
 File:write(Get_Json)
 File:close()
 return sendDocument(msg.chat_id_, msg.id_,'./File_Libs/MatrixReply.json', '')
-end
-if text == 'رفع نسخه الردود ↝' and msg.reply_to_message_id_ ~= 0 and DevMatrix(msg) then
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(arg,data)
-if data.content_.document_ then
-local File_Id = data.content_.document_.document_.persistent_id_ 
-local Name_File = data.content_.document_.file_name_
-local File = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..File_Id)) 
-local download_ = download('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path,''..Name_File) 
-local Get_Info = io.open(download_,"r"):read('*a')
-local Reply_Groups = JSON.decode(Get_Info) 
-for GroupId,ListGroup in pairs(Reply_Groups.GroupsBotreply) do
-if ListGroup.taha == "ok" then
-for k,v in pairs(ListGroup) do
-database:sadd(bot_id.."Matrix:List:Manager"..GroupId,k)
-if v and v:match('gif@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:Gif"..k..GroupId,v:match('gif@(.*)'))
-elseif v and v:match('Vico@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:Vico"..k..GroupId,v:match('Vico@(.*)'))
-elseif v and v:match('Stekrs@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..k..GroupId,v:match('Stekrs@(.*)'))
-elseif v and v:match('Text@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:Text"..k..GroupId,v:match('Text@(.*)'))
-elseif v and v:match('Photo@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:Photo"..k..GroupId,v:match('Photo@(.*)'))
-elseif v and v:match('Video@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:Video"..k..GroupId,v:match('Video@(.*)'))
-elseif v and v:match('File@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:File"..k..GroupId,v:match('File@(.*)') )
-elseif v and v:match('Audio@(.*)') then
-database:set(bot_id.."Matrix:Add:Rd:Manager:Audio"..k..GroupId,v:match('Audio@(.*)'))
-end
-end
-end
-end
-return send(msg.chat_id_, msg.id_,'\n*◊￤تم استرجاع ردود المجموعات* ')  
-end
-end,nil)
-end
-if text == 'رفع المشتركين ↝' and DevMatrix(msg) then  
-function by_reply(extra, result, success)   
-if result.content_.document_ then 
-local ID_FILE = result.content_.document_.document_.persistent_id_ 
-local File_Name = result.content_.document_.file_name_
-local info_file = io.open('./users.json', "r"):read('*a')
-local users = JSON.decode(info_file)
-if users.users then
-for k,v in pairs(users.users) do
-database:sadd(bot_id..'Matrix:UsersBot',v) 
-end
-send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
-else
-send(msg.chat_id_,msg.id_,'خطا هاذا ليس ملف المشتركين ')
-end
-end   
-end
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 if text == 'جلب المشتركين ↝' and DevMatrix(msg) then  
 local list = database:smembers(bot_id..'Matrix:UsersBot')  
