@@ -10285,14 +10285,11 @@ end,nil)
 end
 return false
 end
-if text == ("تحديث السورس") and DevMatrix(msg) then  
-send(msg.chat_id_,msg.id_,'*Updated latest version ...*')
-os.execute('rm -rf Matrix.lua')
-os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua')
-os.execute('wget https://raw.githubusercontent.com/MatrixTele/Matrix/master/start.lua')
-dofile('Matrix.lua')  
-return false
+if text == ("تحديث السورس") or text == 'تحديث' and DevMatrix(msg) then  
+key = {{{text="{تحديث السورس}",callback_data="restart"..msg.sender_user_id_},{text="{تحديث الملفات}",callback_data="restartfiel"..msg.sender_user_id_}},
+{{text = '{اخفاء الكليشه}', callback_data=msg.sender_user_id_.."/delamr"}},
+}
+send_inline_key(msg.chat_id_,"*◊￤اليك ازرار تحديث السورس*",nil,key,msg.id_/2097152/0.5)
 end
 if text == "تحديث الملفات" and DevMatrix(msg) then
 dofile("Matrix.lua")  
@@ -11339,11 +11336,6 @@ local cfhoog =  "\n التاريخ : "..os.date("%Y/%m/%d")
 send(msg.chat_id_, msg.id_,cfhoog)
 end
 
-if text == "تحديث" and DevMatrix(msg) then
-dofile("Matrix.lua")  
-send(msg.chat_id_, msg.id_, "*Ok Im Reload ...*")
-end
-
 if text == "تفعيل الرسائل اليوميه" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '*◊￤تم تفعيل الرسائل اليوميه*')
 database:set(bot_id.."msg:match:"..msg.chat_id_,true)
@@ -11455,7 +11447,8 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-key = {{{text ='. ◟َِ 𝑱??𝒊𝒏 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
 send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
 end
 
@@ -15634,9 +15627,25 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" *> تم تنفيذ الامر سابقا*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 end
+if DAata == 'restartfiel'..data.sender_user_id_ then  
+dofile("Matrix.lua")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape("*Ok Im Reload ...*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == 'restart'..data.sender_user_id_ then  
+download_to_file('https://raw.githubusercontent.com/MatrixTele/Matrix/master/Matrix.lua','Matrix.lua') 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape("*Ok Im Reload ...*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
 if DAata == 'OKKADR'..data.sender_user_id_ then  
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-if database:get(bot_id.."Matrix:Left:Bot"..msg.chat_id_) then 
+if database:get(bot_id.."Matrix:Left:Bot"..data.sender_user_id_..':'..Chat_id) then 
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
