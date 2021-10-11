@@ -1703,6 +1703,10 @@ if tonumber(msg.sender_user_id_) == tonumber(114518657) then
 send(msg.chat_id_, msg.id_,'هلا حبيبي وتجراسي حسين مطوريي .')
 return false 
 end
+if tonumber(msg.sender_user_id_) == tonumber(Id_Sudo) then
+send(msg.chat_id_, msg.id_,'هلا عمريي تجراسي المطور.')
+return false 
+end
 if database:get(bot_id.."Status:lock:kanser"..msg.chat_id_) then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 local last_ = data.last_name_ or ''
@@ -11279,8 +11283,18 @@ end
 
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-key = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or IZlZ7I}}}
-send_inline_key(msg.chat_id_,"*Bot Developer*",nil,key,msg.id_/2097152/0.5)
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = Sudo,offset_ = 0,limit_ = 1},function(extra,bo,success) 
+local Text = "* Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*Dev User ↬* [@"..data.username_.."]"
+if bo.photos_[0] then
+x = {} 
+x.inline_keyboard = {
+{{text ="Bot Developer",url="https://t.me/"..data.username_..""}},
+}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Text)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
+else
+send(msg.chat_id_, msg.id_,Text)
+end
+end,nil)
 end,nil)
 end
 if text == 'نقل الاحصائيات' and DevMatrix(msg) then
@@ -11380,10 +11394,8 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 key = {
-{{text = 'Channel Source ،', url="https://t.me/Matrix_Source"}},
-{{text = 'Annotations Source', url="https://t.me/infoo_Matrix"}},
-{{text = 'programmer Source', url="https://t.me/BBB43"}},
-{{text = 'Developer Source !', url="https://t.me/IZlZ7I"}},
+{{text = 'MatriX Source ،', url="https://t.me/Matrix_Source"}},
+{{text = '- 𝘊𝘢𝘭𝘭 𝘜𝘴 .', url="https://t.me/U41bot"}},
 }
 send_inline_key(msg.chat_id_,"*- Welcome To The Source Matrix .*",nil,key,msg.id_/2097152/0.5)
 end
@@ -11393,9 +11405,9 @@ key = {
 }
 send_inline_key(msg.chat_id_,"*- Welcome To The Source Matrix .*",nil,key,msg.id_/2097152/0.5)
 end
-if text == 'مبرمج السورس' or text == '@BBB43' then  
+if text == 'مبرمج السورس' or text == '@IZIZ7I' then  
 key = {
-{{text = 'Programmer Source !', url="https://t.me/BBB43"}},
+{{text = 'Programmer Source !', url="https://t.me/IZIZ7I"}},
 }
 send_inline_key(msg.chat_id_,"*- Welcome To The Source Matrix .*",nil,key,msg.id_/2097152/0.5)
 end
