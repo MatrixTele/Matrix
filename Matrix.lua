@@ -11573,31 +11573,31 @@ end
 end
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+tdcli_function ({ID = "GetUser",user_id_ = bot_id},function(arg,data) 
+local texte = "@"..data.username_..""
 key = {
-{{text = 'MatriX Source ،', url="https://t.me/Matrix_Source"}},
-{{text = '- 𝘊𝘢𝘭𝘭 𝘜𝘴 .', url="https://t.me/U41bot"}},
+{{text = 'قناه السورس 📢', url="https://t.me/Matrix_Source"}},
+{{text = 'تواصل السورس 💬', url="https://t.me/U41bot"}},
+{{text = 'شروحات السورس 📑', url="https://t.me/infoo_Matrix"}},
 }
-send_inline_key(msg.chat_id_,"*- Welcome To The Source Matrix .*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"البوت "..texte.." من سورس [Matrix team](https://t.me/Matrix_Source)",nil,key,msg.id_/2097152/0.5)
+end,nil)   
 end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'سورس ماتركس' or text == '@IZlZ7I' then
-key = {
-{{text = 'Developer Source !', url="https://t.me/IZlZ7I"}},
+tdcli_function ({ID = "GetUser",user_id_ = Id_Sudo},function(arg,data) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = Id_Sudo,offset_ = 0,limit_ = 1},function(extra,bo,success) 
+local Text = "* Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*Dev User ↬* [@"..data.username_.."]"
+if bo.photos_[0] then
+x = {} 
+x.inline_keyboard = {
+{{text ="Bot Developer",url="https://t.me/IZlZ7I"}},
 }
-send_inline_key(msg.chat_id_,"*- Welcome To The Source Matrix .*",nil,key,msg.id_/2097152/0.5)
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Text)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
+else
+send(msg.chat_id_, msg.id_,Text)
+end
+end,nil)
+end,nil)
 end
 if text == 'مبرمج السورس' or text == '@IZIZ7I' then  
 key = {
