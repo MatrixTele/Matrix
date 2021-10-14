@@ -2116,9 +2116,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2148,9 +2149,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2170,9 +2172,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2187,9 +2190,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2204,9 +2208,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2221,9 +2226,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2238,9 +2244,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2255,9 +2262,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2272,9 +2280,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2290,9 +2299,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2307,9 +2317,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2324,9 +2335,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2346,9 +2358,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2378,9 +2391,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2395,9 +2409,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2427,9 +2442,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2444,9 +2460,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2476,9 +2493,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2578,9 +2596,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2610,9 +2629,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2627,9 +2647,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2659,9 +2680,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2751,9 +2773,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2783,9 +2806,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2800,9 +2824,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2832,9 +2857,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2874,9 +2900,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2906,9 +2933,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2943,9 +2971,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -2980,9 +3009,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3017,9 +3047,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3059,9 +3090,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3076,9 +3108,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3093,9 +3126,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3110,9 +3144,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3127,9 +3162,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3409,9 +3445,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3426,9 +3463,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3443,9 +3481,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3459,9 +3498,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3480,9 +3520,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3495,9 +3536,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3510,9 +3552,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3525,9 +3568,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3540,9 +3584,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3556,9 +3601,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3622,9 +3668,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3651,9 +3698,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3680,9 +3728,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3726,9 +3775,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -3756,9 +3806,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4032,9 +4083,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4052,9 +4104,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4081,9 +4134,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4099,9 +4153,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4119,9 +4174,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4145,9 +4201,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4164,9 +4221,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4183,9 +4241,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4212,9 +4271,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4237,9 +4297,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4262,9 +4323,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4280,9 +4342,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4300,9 +4363,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4330,9 +4394,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4348,9 +4413,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4368,9 +4434,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4393,9 +4460,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4412,9 +4480,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4436,9 +4505,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4469,9 +4539,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4491,9 +4562,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4511,9 +4583,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4536,9 +4609,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4555,9 +4629,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4579,9 +4654,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4613,9 +4689,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4636,9 +4713,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4656,9 +4734,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4681,9 +4760,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4700,9 +4780,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4738,9 +4819,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4776,9 +4858,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4817,9 +4900,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4861,9 +4945,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -4952,9 +5037,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5024,9 +5110,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5084,9 +5171,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5110,9 +5198,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5141,9 +5230,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5165,9 +5255,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5216,9 +5307,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5268,9 +5360,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5309,9 +5402,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5343,9 +5437,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5412,9 +5507,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5448,9 +5544,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5493,9 +5590,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5528,9 +5626,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5549,9 +5648,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5575,9 +5675,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5593,9 +5694,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5631,9 +5733,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5679,9 +5782,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5716,9 +5820,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5735,9 +5840,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5754,9 +5860,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5773,9 +5880,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5889,9 +5997,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5917,9 +6026,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5945,9 +6055,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -5998,8 +6109,12 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'  *⌯  𝐣𝐨𝐢𝐧 ⁦⤵️* \n*◊￤اشتࢪڪ هنا عمࢪي* ['..database:get(bot_id..'add:ch:username')..']')
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
+
 return false
 end
 send(msg.chat_id_,msg.id_," *◊￤حسنآ ارسل اليه الرابط الان*")
@@ -6050,9 +6165,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6090,9 +6206,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6107,9 +6224,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6126,9 +6244,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6145,9 +6264,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6166,9 +6286,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6187,9 +6308,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6204,9 +6326,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6221,9 +6344,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6240,9 +6364,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6265,9 +6390,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6337,9 +6463,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6391,7 +6518,7 @@ if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
 key = {{{text ='. ◟َِ 𝑱??𝒊?? 𝒕𝒉𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 ⁦.',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6423,9 +6550,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6477,9 +6605,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6495,9 +6624,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6513,9 +6643,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6534,9 +6665,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6563,9 +6695,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6585,9 +6718,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6630,9 +6764,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6647,9 +6782,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6666,9 +6802,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6690,9 +6827,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6719,9 +6857,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text ='..titlech..',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6741,9 +6880,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6761,9 +6901,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6786,9 +6927,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6805,9 +6947,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6834,9 +6977,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6850,9 +6994,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6887,9 +7032,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -6906,9 +7052,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -7392,9 +7539,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -7467,9 +7615,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -7487,9 +7636,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -7776,9 +7926,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -7821,9 +7972,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -7956,9 +8108,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -7997,9 +8150,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8083,9 +8237,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8099,9 +8254,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8126,9 +8282,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8170,9 +8327,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8186,9 +8344,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8291,9 +8450,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8327,9 +8487,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8358,9 +8519,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8397,9 +8559,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8432,9 +8595,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -8459,9 +8623,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9011,9 +9176,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9028,9 +9194,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9059,9 +9226,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9094,9 +9262,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9110,9 +9279,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9126,9 +9296,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9142,9 +9313,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9158,9 +9330,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9267,9 +9440,11 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9344,11 +9519,11 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '◊￤'..Description..'\n◊￤يـــديك : '..Id..' .\n◊￤يــوزرك : '..UserName_User..' .\n◊￤مــوقعــك : '..Status_Gps..' .\n◊￤رســائــلك : '..NumMsg..' .\n◊￤تفــاعــلك : '..TotalMsg..' .\n◊￤الالعـــاب : '..Num_Games..' .\n◊￤البايو : '..getbioY..''
+local texte = '◊￤'..Description..'\n◊￤يـــديك ↜ '..Id..' .\n◊￤يــوزرك ↜ '..UserName_User..' .\n◊￤مــوقعــك ↜ '..Status_Gps..' .\n◊￤رســائــلك ↜ '..NumMsg..' .\n◊￤تفــاعــلك ↜ '..TotalMsg..' .\n◊￤الالعـــاب ↜ '..Num_Games..' .\n◊￤البايو ↜ '..getbioY..''
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Hussain.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n◊￤ايديك : '..Id..'\n◊￤يوزرك : ['..UserName_User..']\n◊￤موقعك : '..Status_Gps..'\n◊￤رسائلك : '..NumMsg..' \n◊￤تفاعلك : '..TotalMsg..'\n◊￤الالعاب : '..Num_Games..'.\n◊￤البايو : '..getbioY..''
+local texte = '\n◊￤ايديك ↜ '..Id..'\n◊￤يوزرك ↜ ['..UserName_User..']\n◊￤موقعك ↜ '..Status_Gps..'\n◊￤رسائلك ↜ '..NumMsg..' \n◊￤تفاعلك ↜ '..TotalMsg..'\n◊￤الالعاب ↜ '..Num_Games..'.\n◊￤البايو ↜ '..getbioY..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9435,9 +9610,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9501,9 +9677,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9589,9 +9766,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9652,9 +9830,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9712,9 +9891,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9791,9 +9971,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9831,9 +10012,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9860,9 +10042,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9916,9 +10099,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9966,9 +10150,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9982,9 +10167,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -9998,9 +10184,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -10065,9 +10252,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -10086,9 +10274,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -10150,9 +10339,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -10169,9 +10359,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -10188,9 +10379,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -10311,9 +10503,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -10340,9 +10533,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -11438,9 +11632,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -11459,9 +11654,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -11482,9 +11678,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -11606,9 +11803,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -11768,9 +11966,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -11836,9 +12035,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
@@ -11868,9 +12068,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
+local texte = '['..database:get(bot_id..'add:ch:username')..']'
 local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
 key = {{{text=''..titlech..'',url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-send_inline_key(msg.chat_id_,"*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nعذراً يجب عليك الاشتراك في "..texte.."\nليمكنك استخدام البوت بشكل كامل",nil,key,msg.id_/2097152/0.5)
 end
 
 return false
