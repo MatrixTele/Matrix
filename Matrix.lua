@@ -966,8 +966,8 @@ function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
 local UserName = (data.username_ or "Matrix_Source")
-local NameUser = "\n*◊￤بواسطه ↜* ["..data.first_name_.."](T.me/"..UserName..")"
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUser = "\n*◊￤بواسطه ⇠* ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
 send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*◊￤بخاصيه ( المسح )*\n")
 return false
@@ -1993,7 +1993,7 @@ if text and database:get(bot_id.."Matrix:Set:Cmd:Group1"..msg.chat_id_..":"..msg
 local NewCmd = database:get(bot_id.."Matrix:Set:Cmd:Group:New"..msg.chat_id_)
 database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":"..text,NewCmd)
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"◊￤تم حفظ الامر باسم ↜ { "..text..' }')  
+send(msg.chat_id_, msg.id_,"◊￤تم حفظ الامر باسم ⇠ { "..text..' }')  
 database:del(bot_id.."Matrix:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_)
 return false
 end
@@ -4794,19 +4794,19 @@ function by_reply(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n◊￤تم رفعه "..RTPA.." هنا\n")
 end
 end,nil)   
 end   
@@ -4833,19 +4833,19 @@ function by_reply(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.sender_user_id_) 
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "Matrix_Source")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 end
 end,nil)   
 end   
@@ -4872,19 +4872,19 @@ function py_username(extra, result, success)
 if result.id_ then
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n◊￤تم رفعه "..text1[2].." هنا")   
 end
 else
 info = "◊￤المعرف غلط"
@@ -4914,19 +4914,19 @@ function py_username(extra, result, success)
 if result.id_ then
 local Matrixrt = database:get(bot_id.."Matrix:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
 if Matrixrt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif Matrixrt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif Matrixrt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Matrix:Manager"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Matrix:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif Matrixrt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"◊￤العضو ↜ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"◊￤العضو ⇠ ["..result.title_.."](t.me/"..(text1[3] or "Matrix_Source")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 end
 else
 info = "◊￤المعرف غلط"
@@ -4982,7 +4982,7 @@ database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5084,7 +5084,7 @@ database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, result.id_)
 Kick_Group(msg.chat_id_, result.id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5151,7 +5151,7 @@ database:sadd(bot_id.."Matrix:Ban:User"..msg.chat_id_, userid)
 Kick_Group(msg.chat_id_, userid)  
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5287,7 +5287,7 @@ end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5337,7 +5337,7 @@ end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, result.id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5383,7 +5383,7 @@ end
 database:sadd(bot_id.."Matrix:Muted:User"..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5522,7 +5522,7 @@ else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5566,7 +5566,7 @@ end
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5605,7 +5605,7 @@ else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 local UserName = (data.username_ or "Matrix_Source")
-local NameUserr = "\n*◊￤المستخدم ↜* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")\n"
 local keyboard = {}
 keyboard.inline_keyboard = {
 {
@@ -5830,7 +5830,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '*◊￤تم تعطيل ↜ الحظر ~ والطرد *')
+send(msg.chat_id_, msg.id_, '*◊￤تم تعطيل ⇠ الحظر ~ والطرد *')
 return false
 end
 end
@@ -5850,7 +5850,7 @@ return false
 end
 if Constructor(msg) then
 database:del(bot_id.."Ban:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '◊￤تم تفعيل ↜ الحظر ~ والطرد ')
+send(msg.chat_id_, msg.id_, '◊￤تم تفعيل ⇠ الحظر ~ والطرد ')
 return false
 end
 end
@@ -5870,7 +5870,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '*◊￤تم تعطيل رفع ↜ الادمن ~ المميز *')
+send(msg.chat_id_, msg.id_, '*◊￤تم تعطيل رفع ⇠ الادمن ~ المميز *')
 return false
 end
 end
@@ -5890,7 +5890,7 @@ return false
 end
 if Constructor(msg) then
 database:del(bot_id.."Add:Group:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '◊￤تم تفعيل رفع ↜ الادمن ~ المميز ')
+send(msg.chat_id_, msg.id_, '◊￤تم تفعيل رفع ⇠ الادمن ~ المميز ')
 return false
 end
 end
@@ -6275,7 +6275,7 @@ end
 if Addictive(msg) then
 database:setex(bot_id.."Matrix:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 t  = "◊￤ارسل لي الترحيب الان"
-tt = "\n◊￤تستطيع اضافة مايلي !\n◊￤دالة عرض الاسم ↜{`name`}\n◊￤دالة عرض المعرف ↜{`user`}"
+tt = "\n◊￤تستطيع اضافة مايلي !\n◊￤دالة عرض الاسم ⇠{`name`}\n◊￤دالة عرض المعرف ⇠{`user`}"
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
@@ -6756,7 +6756,9 @@ database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":سح","مسح 
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"سح")
 database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":ر","الرابط")
 database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"ر")
-send(msg.chat_id_, msg.id_,"*◊￤تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .\n- اضف رد - رد . \n- حذف رد - حذ . \n- تنزيل الكل - تك . \n- تثبيت - ت .\n- مسح رسائلي - رس . \n- مسح سحكاتي - سح .\n- الرابط - ر . *")  
+database:set(bot_id.."Matrix:Set:Cmd:Group:New1"..msg.chat_id_..":غ","غنيلي")
+database:sadd(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_,"غ")
+send(msg.chat_id_, msg.id_,"*◊￤تم ترتيب الاوامر بالشكل التالي ~\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n◊￤ايدي ⇠ ا .\n◊￤مميز ⇠ م .\n◊￤ادمن ⇠ اد .\n◊￤مدير ⇠ مد . \n◊￤منشى ⇠ من . \n◊￤المنشئ الاساسي ⇠ اس  . \n◊￤تعطيل الايدي بالصوره ⇠ تعط .\n◊￤تفعيل الايدي بالصوره ⇠ تفع .\n◊￤اضف رد ⇠ رد . \n◊￤حذف رد ⇠ حذ . \n◊￤تنزيل الكل ⇠ تك . \n◊￤تثبيت ⇠ ت .\n◊￤مسح رسائلي ⇠ رس . \n◊￤مسح سحكاتي ⇠ سح .\n◊￤غنيلي ⇠ غ .\n◊￤الرابط ⇠ ر .\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*")  
 end
 if text == "اضف امر" or text == "امر" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -7100,37 +7102,37 @@ end
 if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
 database:set(bot_id.."Matrix:Sudo:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المطور الى ↜ "..Teext)
+send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المطور الى ⇠ "..Teext)
 end
 if text and text:match("^تغير رد المنشئ الاساسي (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المنشئ الاساسي (.*)$") 
 database:set(bot_id.."Matrix:BasicConstructor:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المنشئ الاساسي الى ↜ "..Teext)
+send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المنشئ الاساسي الى ⇠ "..Teext)
 end
 if text and text:match("^تغير رد المنشئ (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المنشئ (.*)$") 
 database:set(bot_id.."Matrix:Constructor:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المنشئ الى ↜ "..Teext)
+send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المنشئ الى ⇠ "..Teext)
 end
 if text and text:match("^تغير رد المدير (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المدير (.*)$") 
 database:set(bot_id.."Matrix:Manager:Rd"..msg.chat_id_,Teext) 
-send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المدير الى ↜ "..Teext)
+send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المدير الى ⇠ "..Teext)
 end
 if text and text:match("^تغير رد الادمن (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد الادمن (.*)$") 
 database:set(bot_id.."Matrix:Mod:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"◊￤تم تغير رد الادمن الى ↜ "..Teext)
+send(msg.chat_id_, msg.id_,"◊￤تم تغير رد الادمن الى ⇠ "..Teext)
 end
 if text and text:match("^تغير رد المميز (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المميز (.*)$") 
 database:set(bot_id.."Matrix:Special:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المميز الى ↜ "..Teext)
+send(msg.chat_id_, msg.id_,"◊￤تم تغير رد المميز الى ⇠ "..Teext)
 end
 if text and text:match("^تغير رد العضو (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد العضو (.*)$") 
 database:set(bot_id.."Matrix:Memp:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"◊￤تم تغير رد العضو الى ↜ "..Teext)
+send(msg.chat_id_, msg.id_,"◊￤تم تغير رد العضو الى ⇠ "..Teext)
 end
 
 if text == ("مسح الرتب") and BasicConstructor(msg) then
@@ -7179,7 +7181,7 @@ db = "ملف ◊￤"
 elseif database:get(bot_id.."Matrix:Add:Rd:Manager:Audio"..v..msg.chat_id_) then
 db = "اغنيه 🎵"
 end
-text = text..""..k..">> ("..v..") ↜ {"..db.."}\n"
+text = text..""..k..">> ("..v..") ⇠ {"..db.."}\n"
 end
 if #list == 0 then
 text = "◊￤لا يوجد ردود للمدير"
@@ -7776,7 +7778,7 @@ db = "ملف ◊￤"
 elseif database:get(bot_id.."Matrix:Add:Rd:Sudo:Audio"..v) then
 db = "اغنيه 🎵"
 end
-text = text..""..k.." >> ("..v..") ↜ {"..db.."}\n"
+text = text..""..k.." >> ("..v..") ⇠ {"..db.."}\n"
 end
 if #list == 0 then
 text = "◊￤لا يوجد ردود للمطور"
@@ -8264,12 +8266,12 @@ return false
 end
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
 if result.first_name_  then
-first_name = "◊￤اسمك الاول ↜ {`"..(result.first_name_).."`}"
+first_name = "◊￤اسمك الاول ⇠ {`"..(result.first_name_).."`}"
 else
 first_name = ""
 end   
 if result.last_name_ then 
-last_name = "◊￤اسمك الثاني ↜ {`"..result.last_name_.."`}" 
+last_name = "◊￤اسمك الثاني ⇠ {`"..result.last_name_.."`}" 
 else
 last_name = ""
 end      
@@ -8465,7 +8467,7 @@ if DevMatrix(msg) then
 database:srem(bot_id.."Matrix:GBan:User",result.id_)
 database:srem(bot_id.."Matrix:Ban:User"..msg.chat_id_,result.id_)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_,result.id_)
-usertext = "\n◊￤العضو ↜ ["..result.title_.."](t.me/"..(username or "kenwa")..")"
+usertext = "\n◊￤العضو ⇠ ["..result.title_.."](t.me/"..(username or "kenwa")..")"
 status  = "\n◊￤تم الغاء القيود عنه"
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
@@ -8505,7 +8507,7 @@ else
 database:srem(bot_id.."Matrix:Ban:User"..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id.."Matrix:Muted:User"..msg.chat_id_,result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = "\n◊￤العضو ↜ ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
+usertext = "\n◊￤العضو ⇠ ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
 status  = "\n◊￤تم الغاء القيود عنه"
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -8545,7 +8547,7 @@ GBan = "محظور عام"
 else
 GBan = "غير محظور عام"
 end
-send(msg.chat_id_, msg.id_,"◊￤الحظر العام ↜ "..GBan.."\n◊￤الحظر ↜ "..Ban.."\n◊￤الكتم ↜ "..Muted)
+send(msg.chat_id_, msg.id_,"◊￤الحظر العام ⇠ "..GBan.."\n◊￤الحظر ⇠ "..Ban.."\n◊￤الكتم ⇠ "..Muted)
 else
 send(msg.chat_id_, msg.id_,"◊￤المعرف غلط")
 end
@@ -8583,7 +8585,7 @@ GBan = "محظور عام"
 else
 GBan = "غير محظور عام"
 end
-Textt = "◊￤الحظر العام ↜ "..GBan.."\n◊￤الحظر ↜ "..Ban.."\n◊￤الكتم ↜ "..Muted..""
+Textt = "◊￤الحظر العام ⇠ "..GBan.."\n◊￤الحظر ⇠ "..Ban.."\n◊￤الكتم ⇠ "..Muted..""
 send(msg.chat_id_, msg.id_,Textt)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
@@ -8612,7 +8614,7 @@ end
 if data.message_ == "CHAT_ADMIN_REQUIRED" then
 send(msg.chat_id_,msg.id_,"◊￤ليست لدي صلاحية تغير اسم المجموعه")  
 else
-send(msg.chat_id_,msg.id_,"↜ ??تم تغيير اسم المجموعه الى {["..Name.."]}")  
+send(msg.chat_id_,msg.id_,"⇠ ??تم تغيير اسم المجموعه الى {["..Name.."]}")  
 end
 end,nil) 
 end
@@ -9128,35 +9130,35 @@ local text =
 "\n◊￤علامة ال {✅} تعني مفعل"..
 "\n◊￤علامة ال {❌} تعني معطل"..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
-"\n◊￤الروابط ↜ "..lock_links..
-"\n".."◊￤المعرفات ↜ "..lock_user..
-"\n".."◊￤التاك ↜ "..lock_hash..
-"\n".."◊￤البوتات ↜ "..lock_bots..
-"\n".."◊￤التوجيه ↜ "..lock_fwd..
-"\n".."◊￤التثبيت ↜ "..lock_pin..
-"\n".."◊￤الاشعارات ↜ "..lock_tagservr..
-"\n".."◊￤الماركدون ↜ "..lock_mark..
-"\n".."◊￤التعديل ↜ "..lock_edit..
+"\n◊￤الروابط ⇠ "..lock_links..
+"\n".."◊￤المعرفات ⇠ "..lock_user..
+"\n".."◊￤التاك ⇠ "..lock_hash..
+"\n".."◊￤البوتات ⇠ "..lock_bots..
+"\n".."◊￤التوجيه ⇠ "..lock_fwd..
+"\n".."◊￤التثبيت ⇠ "..lock_pin..
+"\n".."◊￤الاشعارات ⇠ "..lock_tagservr..
+"\n".."◊￤الماركدون ⇠ "..lock_mark..
+"\n".."◊￤التعديل ⇠ "..lock_edit..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
-"\n".."◊￤الكلايش ↜ "..lock_spam..
-"\n".."◊￤الكيبورد ↜ "..lock_inlin..
-"\n".."◊￤الاغاني ↜ "..lock_vico..
-"\n".."◊￤المتحركه ↜ "..lock_gif..
-"\n".."◊￤الملفات ↜ "..lock_file..
-"\n".."◊￤الدردشه ↜ "..lock_text..
-"\n".."◊￤الفيديو ↜ "..lock_ved..
-"\n".."◊￤الصور ↜ "..lock_photo..
+"\n".."◊￤الكلايش ⇠ "..lock_spam..
+"\n".."◊￤الكيبورد ⇠ "..lock_inlin..
+"\n".."◊￤الاغاني ⇠ "..lock_vico..
+"\n".."◊￤المتحركه ⇠ "..lock_gif..
+"\n".."◊￤الملفات ⇠ "..lock_file..
+"\n".."◊￤الدردشه ⇠ "..lock_text..
+"\n".."◊￤الفيديو ⇠ "..lock_ved..
+"\n".."◊￤الصور ⇠ "..lock_photo..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉"..
-"\n".."◊￤الصوت ↜ "..lock_muse..
-"\n".."◊￤الملصقات ↜ "..lock_ste..
-"\n".."◊￤الجهات ↜ "..lock_phon..
-"\n".."◊￤الدخول ↜ "..lock_join..
-"\n".."◊￤الاضافه ↜ "..lock_add..
-"\n".."◊￤السيلفي ↜ "..lock_self..
-"\n".."◊￤الالعاب ↜ "..lock_geam..
-"\n".."◊￤التكرار ↜ "..flood..
-"\n".."◊￤الترحيب ↜ "..welcome..
-"\n".."◊￤عدد التكرار ↜ "..Num_Flood..
+"\n".."◊￤الصوت ⇠ "..lock_muse..
+"\n".."◊￤الملصقات ⇠ "..lock_ste..
+"\n".."◊￤الجهات ⇠ "..lock_phon..
+"\n".."◊￤الدخول ⇠ "..lock_join..
+"\n".."◊￤الاضافه ⇠ "..lock_add..
+"\n".."◊￤السيلفي ⇠ "..lock_self..
+"\n".."◊￤الالعاب ⇠ "..lock_geam..
+"\n".."◊￤التكرار ⇠ "..flood..
+"\n".."◊￤الترحيب ⇠ "..welcome..
+"\n".."◊￤عدد التكرار ⇠ "..Num_Flood..
 "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*"
 send(msg.chat_id_, msg.id_,text)     
 end    
@@ -9214,7 +9216,7 @@ return false
 end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"◊￤عدد صورك ↜ | "..result.total_count_.." | 📸")
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,"◊￤عدد صورك ⇠ | "..result.total_count_.." | 📸")
 else
 send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
 end end
@@ -9519,11 +9521,11 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '◊￤'..Description..'\n◊￤يـــديك ↜ '..Id..' .\n◊￤يــوزرك ↜ '..UserName_User..' .\n◊￤مــوقعــك ↜ '..Status_Gps..' .\n◊￤رســائــلك ↜ '..NumMsg..' .\n◊￤تفــاعــلك ↜ '..TotalMsg..' .\n◊￤الالعـــاب ↜ '..Num_Games..' .\n◊￤البايو ↜ '..getbioY..''
+local texte = '◊￤'..Description..'\n◊￤يـــديك ⇠ '..Id..' .\n◊￤يــوزرك ⇠ '..UserName_User..' .\n◊￤مــوقعــك ⇠ '..Status_Gps..' .\n◊￤رســائــلك ⇠ '..NumMsg..' .\n◊￤تفــاعــلك ⇠ '..TotalMsg..' .\n◊￤الالعـــاب ⇠ '..Num_Games..' .\n◊￤البايو ⇠ '..getbioY..''
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Hussain.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n◊￤ايديك ↜ '..Id..'\n◊￤يوزرك ↜ ['..UserName_User..']\n◊￤موقعك ↜ '..Status_Gps..'\n◊￤رسائلك ↜ '..NumMsg..' \n◊￤تفاعلك ↜ '..TotalMsg..'\n◊￤الالعاب ↜ '..Num_Games..'.\n◊￤البايو ↜ '..getbioY..''
+local texte = '\n◊￤ايديك ⇠ '..Id..'\n◊￤يوزرك ⇠ ['..UserName_User..']\n◊￤موقعك ⇠ '..Status_Gps..'\n◊￤رسائلك ⇠ '..NumMsg..' \n◊￤تفاعلك ⇠ '..TotalMsg..'\n◊￤الالعاب ⇠ '..Num_Games..'.\n◊￤البايو ⇠ '..getbioY..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -9550,7 +9552,7 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = '\n↜ ايديك : '..Id..'\n↜ يوزرك : ['..UserName_User..']\n↜ موقعك : '..Status_Gps..'\n↜ رسائلك : '..NumMsg..' \n↜ تفاعلك : '..TotalMsg..'\n↜ الالعاب : '..Num_Games..'\n↜ البايو : '..getbioY..''
+local texte = '\n⇠ ايديك : '..Id..'\n⇠ يوزرك : ['..UserName_User..']\n⇠ موقعك : '..Status_Gps..'\n⇠ رسائلك : '..NumMsg..' \n⇠ تفاعلك : '..TotalMsg..'\n⇠ الالعاب : '..Num_Games..'\n⇠ البايو : '..getbioY..''
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10195,24 +10197,24 @@ end
 Teext = [[*
 ◊￤قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤لعبة البات ↜ بات
-◊￤لعبة التخمين ↜ خمن
-◊￤لعبه الاسرع ↜ الاسرع
-◊￤لعبة السمايلات ↜ سمايلات
-◊￤لعبة المختلف ↜ المختلف
-◊￤لعبة الامثله ↜ امثله
-◊￤لعبة العكس ↜ العكس 
-◊￤لعبة الحزوره ↜ حزوره
-◊￤لعبة المعاني ↜ معاني
-◊￤لعبة الحروف ↜ حروف
-◊￤لعبة كت تويت ↜ كت
-◊￤لعبة الصراحه ↜ صراحه
-◊￤لعبة لو خيروك ↜ لو خيروك
-◊￤لعبة الرياضيات ↜ رياضيات
-◊￤لعبة الانكليزي ↜ انكليزي
+◊￤لعبة البات ⇠ بات
+◊￤لعبة التخمين ⇠ خمن
+◊￤لعبه الاسرع ⇠ الاسرع
+◊￤لعبة السمايلات ⇠ سمايلات
+◊￤لعبة المختلف ⇠ المختلف
+◊￤لعبة الامثله ⇠ امثله
+◊￤لعبة العكس ⇠ العكس 
+◊￤لعبة الحزوره ⇠ حزوره
+◊￤لعبة المعاني ⇠ معاني
+◊￤لعبة الحروف ⇠ حروف
+◊￤لعبة كت تويت ⇠ كت
+◊￤لعبة الصراحه ⇠ صراحه
+◊￤لعبة لو خيروك ⇠ لو خيروك
+◊￤لعبة الرياضيات ⇠ رياضيات
+◊￤لعبة الانكليزي ⇠ انكليزي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤مجوهراتي ↜ لعرض عدد الارباح
-◊￤بيع مجوهراتي + العدد ↜ لستبدال كل مجوهره ب50 رساله*
+◊￤مجوهراتي ⇠ لعرض عدد الارباح
+◊￤بيع مجوهراتي + العدد ⇠ لستبدال كل مجوهره ب50 رساله*
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
@@ -10413,9 +10415,9 @@ for i = 1, #pv do
 tdcli_function({ID='GetChat',chat_id_ = pv[i]},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = pv[i], action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,data) 
 if data.ID and data.ID == "Ok"  then
-print('\27[30;33m↜ THE USER IS SAVE ME ↓\n↜ '..pv[i]..'\n\27[1;37m')
+print('\27[30;33m⇠ THE USER IS SAVE ME ↓\n⇠ '..pv[i]..'\n\27[1;37m')
 else
-print('\27[30;31m↜ THE USER IS BLOCK ME ↓\n↜ '..pv[i]..'\n\27[1;37m')
+print('\27[30;31m⇠ THE USER IS BLOCK ME ↓\n⇠ '..pv[i]..'\n\27[1;37m')
 database:srem(bot_id..'Matrix:UsersBot',pv[i])  
 sendok = sendok + 1
 end
@@ -10440,19 +10442,19 @@ for i = 1, #group do
 tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
-print('\27[30;34m↜ THE BOT IS NOT ADMIN ↓\n↜ '..group[i]..'\n\27[1;37m')
+print('\27[30;34m⇠ THE BOT IS NOT ADMIN ↓\n⇠ '..group[i]..'\n\27[1;37m')
 database:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
 database:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;35m↜ THE BOT IS LEFT GROUP ↓\n↜ '..group[i]..'\n\27[1;37m')
+print('\27[30;35m⇠ THE BOT IS LEFT GROUP ↓\n⇠ '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
 database:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;36m↜ THE BOT IS KICKED GROUP ↓\n↜ '..group[i]..'\n\27[1;37m')
+print('\27[30;36m⇠ THE BOT IS KICKED GROUP ↓\n⇠ '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
 database:srem(bot_id..'Chek:Groups',group[i])  
@@ -10518,7 +10520,7 @@ send(msg.chat_id_, msg.id_,' البوت ليس مشرف يرجى ترقيتي ')
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n◊￤العضو ↜ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..') '
+usertext = '\n◊￤العضو ⇠ ['..data.first_name_..'](t.me/'..(data.username_ or 'Matrix')..') '
 status  = '\n◊￤تم تغيير لقب '..namess..''
 send(msg.chat_id_, msg.id_, usertext..status)
 https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&custom_title="..namess)
@@ -10556,7 +10558,7 @@ if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"◊￤عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
 return false 
 end      
-usertext = '\n◊￤العضو ↜ ['..result.title_..'](t.me/'..(username or 'Matrix_Source')..')'
+usertext = '\n◊￤العضو ⇠ ['..result.title_..'](t.me/'..(username or 'Matrix_Source')..')'
 status  = '\n◊￤تم تغيير لقب '..TextEnd[3]..' '
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
@@ -11641,12 +11643,13 @@ end
 return false
 end
 key = {
-{{text = '𓍹 𝟏 𓍻', callback_data=msg.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=msg.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=msg.sender_user_id_.."/help3"}},
-{{text = '𓍹 𝟒 𓍻', callback_data=msg.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=msg.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=msg.sender_user_id_.."/help6"}},
+{{text = '{آوآمر الحمايه}', callback_data=msg.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=msg.sender_user_id_.."/help2"}},
+{{text = '{آوآمر المدراء}', callback_data=msg.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=msg.sender_user_id_.."/help4"}},
+{{text = '{آوآمر المطورين}', callback_data=msg.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=msg.sender_user_id_.."/help6"}},
 {{text = '{آوآمر التسليه}', callback_data=msg.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=msg.sender_user_id_.."/game"}},
-{{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"}},
 }
-send_inline_key(msg.chat_id_,"*\n◊￤توجد ↜ 6 اوامر في البوت\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n◊￤ارسل { م1 } ↜ اوامر الحمايه\n◊￤ارسل { م2 } ↜ اوامر الادمنيه\n◊￤ارسل { م3 } ↜ اوامر المدراء\n◊￤ارسل { م4 } ↜ اوامر المنشئين\n◊￤ارسل { م5 } ↜ اوامر مطورين البوت\n◊￤ارسل { م6 } ↜ اوامر الاعضاء\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nاهلا بك في بوت [Matrix team](https://t.me/Matrix_Source)\nيمكنك استخدام هذه الاوامر 🔽",nil,key,msg.id_/2097152/0.5)
 end
 if text == "م1" or text == "م2" or text == "م3" or text == "م4" or text == "م5" or text == "م6" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -11664,7 +11667,7 @@ return false
 end
 key = {
 {{text = '{ قائمة الاوامر }', callback_data=msg.sender_user_id_.."/help"}},
-{{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"}},
 }
 send_inline_key(msg.chat_id_,"*◊￤عليك استخدام اوامر التحكم بالقوائم *",nil,key,msg.id_/2097152/0.5)
 end
@@ -12004,7 +12007,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Texti = "\n*◊￤أهلآ بك في بوت "..Namebot.." *\n*◊￤اختصاص البوت حماية المجموعات*\n*◊￤لتفعيل البوت عليك اتباع مايلي*\n*◊￤اضف البوت الى مجموعتك*\n*◊￤ارفعه ادمن {مشرف}*\n*◊￤ارسل كلمة { تفعيل } ليتم تفعيل المجموعه*\n*◊￤سيتم ترقيتك منشئ اساسي في البوت*\n*◊￤للعب داخل البوت ارسل  : /play .*\n*◊￤مطور البوت ↜ {"..UserName.."}*"
+Texti = "\n*◊￤أهلآ بك في بوت "..Namebot.." *\n*◊￤اختصاص البوت حماية المجموعات*\n*◊￤لتفعيل البوت عليك اتباع مايلي*\n*◊￤اضف البوت الى مجموعتك*\n*◊￤ارفعه ادمن {مشرف}*\n*◊￤ارسل كلمة { تفعيل } ليتم تفعيل المجموعه*\n*◊￤سيتم ترقيتك منشئ اساسي في البوت*\n*◊￤للعب داخل البوت ارسل  : /play .*\n*◊￤مطور البوت ⇠ {"..UserName.."}*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضفني", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
@@ -12255,12 +12258,12 @@ id_user = result.forward_info_.sender_user_id_
 end     
 tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 
 if text == 'حظر' then
-sendText(Id_Sudo,'◊￤لشخص ↜ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n◊￤تم حظره من التواصل ',msg.id_/2097152/0.5,'md')
+sendText(Id_Sudo,'◊￤لشخص ⇠ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n◊￤تم حظره من التواصل ',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
 if text =='الغاء الحظر' then
-sendText(Id_Sudo,'◊￤الشخص ↜ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n◊￤تم الغاء حظره من التواصل ',msg.id_/2097152/0.5,'md')
+sendText(Id_Sudo,'◊￤الشخص ⇠ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n◊￤تم الغاء حظره من التواصل ',msg.id_/2097152/0.5,'md')
 database:srem(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
@@ -12435,7 +12438,7 @@ if VIP_DeV(msg) then
 if text == "الاشتراك الاجباري ↝"  then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "◊￤تم تفعيل الاشتراك الاجباري \n◊￤على القناة ↜ ["..addchusername.."]")
+send(msg.chat_id_, msg.id_, "◊￤تم تفعيل الاشتراك الاجباري \n◊￤على القناة ⇠ ["..addchusername.."]")
 else
 send(msg.chat_id_, msg.id_, "◊￤لا يوجد قناة في الاشتراك الاجباري ")
 end
@@ -12444,7 +12447,7 @@ end
 if text == "تفعيل الاشتراك الاجباري ↝"  then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"◊￤الاشتراك الاجباري مفعل \n◊￤على القناة ↜ ["..addchusername.."]")
+send(msg.chat_id_, msg.id_,"◊￤الاشتراك الاجباري مفعل \n◊￤على القناة ⇠ ["..addchusername.."]")
 else
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_,"◊￤اهلا عزيزي المطور \n◊￤ارسل الان معرف قناتك")
@@ -12886,7 +12889,7 @@ else
 CeckFile = "(✖)"
 end
 NumFile = NumFile + 1
-TextS = TextS..'*'..NumFile.."↜* {`"..name..'`} ↜ '..CeckFile..'\n[-  About to the file]('..Info..')\n'
+TextS = TextS..'*'..NumFile.."⇠* {`"..name..'`} ⇠ '..CeckFile..'\n[-  About to the file]('..Info..')\n'
 end
 send(msg.chat_id_, msg.id_,TextS..TextE) 
 end
@@ -12903,9 +12906,9 @@ local file = name_t[2]..'.lua'
 local file_bot = io.open("Matrix_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = "*◊￤الملف ↜ {"..file.."}\n◊￤تم تعطيله وحذفه بنجاح \n{✅}*"
+t = "*◊￤الملف ⇠ {"..file.."}\n◊￤تم تعطيله وحذفه بنجاح \n{✅}*"
 else
-t = "*◊￤بالتاكيد تم تعطيل وحذف ملف ↜ {"..file.."} \n{✅}*"
+t = "*◊￤بالتاكيد تم تعطيل وحذف ملف ⇠ {"..file.."} \n{✅}*"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
@@ -12923,9 +12926,9 @@ local file = name_t[2]..'.lua'
 local file_bot = io.open("Matrix_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = "*◊￤بالتاكيد تم تنزيل وتفعيل ملف ↜ {"..file.."} \n{✅}*"
+t = "*◊￤بالتاكيد تم تنزيل وتفعيل ملف ⇠ {"..file.."} \n{✅}*"
 else
-t = "*◊￤الملف ↜ {"..file.."}\n◊￤تم تنزيله وتفعيله بنجاح \n*"
+t = "*◊￤الملف ⇠ {"..file.."}\n◊￤تم تنزيله وتفعيله بنجاح \n*"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/MatrixTele/files_Matrix/master/files_Matrix/"..file)
 if res == 200 then
@@ -15418,24 +15421,24 @@ if tonumber(Text:match('(.*)/game')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ◊￤قائمه الالعاب الموجوده
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤لعبة البات ↜ بات
-◊￤لعبة التخمين ↜ خمن
-◊￤لعبه الاسرع ↜ الاسرع
-◊￤لعبة السمايلات ↜ سمايلات
-◊￤لعبة المختلف ↜ المختلف
-◊￤لعبة الامثله ↜ امثله
-◊￤لعبة العكس ↜ العكس 
-◊￤لعبة الحزوره ↜ حزوره
-◊￤لعبة المعاني ↜ معاني
-◊￤لعبة الحروف ↜ حروف
-◊￤لعبة كت تويت ↜ كت
-◊￤لعبة الصراحه ↜ صراحه
-◊￤لعبة لو خيروك ↜ لو خيروك
-◊￤لعبة الرياضيات ↜ رياضيات
-◊￤لعبة الانكليزي ↜ انكليزي
+◊￤لعبة البات ⇠ بات
+◊￤لعبة التخمين ⇠ خمن
+◊￤لعبه الاسرع ⇠ الاسرع
+◊￤لعبة السمايلات ⇠ سمايلات
+◊￤لعبة المختلف ⇠ المختلف
+◊￤لعبة الامثله ⇠ امثله
+◊￤لعبة العكس ⇠ العكس 
+◊￤لعبة الحزوره ⇠ حزوره
+◊￤لعبة المعاني ⇠ معاني
+◊￤لعبة الحروف ⇠ حروف
+◊￤لعبة كت تويت ⇠ كت
+◊￤لعبة الصراحه ⇠ صراحه
+◊￤لعبة لو خيروك ⇠ لو خيروك
+◊￤لعبة الرياضيات ⇠ رياضيات
+◊￤لعبة الانكليزي ⇠ انكليزي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤مجوهراتي ↜ لعرض عدد الارباح
-◊￤بيع مجوهراتي + العدد ↜ لستبدال كل مجوهره ب50 رساله*
+◊￤مجوهراتي ⇠ لعرض عدد الارباح
+◊￤بيع مجوهراتي + العدد ⇠ لستبدال كل مجوهره ب50 رساله*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -15452,30 +15455,33 @@ local Teext =[[*
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤يمكنك استخدام الاوامر التالية
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤غنيلي ↜ لارسال لك مقطع صوتي .
-◊￤اغنيه ↜ لارسال لك مقطع صوتي .
-◊￤شعر ↜ لارسال لك مقطع صوتي .
-◊￤ميمز ↜ لارسال لك مقطع صوتي .
-◊￤متحركه ↜ لارسال لك صوره متحركه .
-◊￤صوره ↜ لارسال لك صوره تمبلر .
-◊￤فلم ↜ لارسال لك فلم .
-◊￤مسلسل ↜ لارسال لك مسلسل .
+◊￤غنيلي ⇠ لارسال لك مقطع صوتي .
+◊￤اغنيه ⇠ لارسال لك مقطع صوتي .
+◊￤شعر ⇠ لارسال لك مقطع صوتي .
+◊￤ميمز ⇠ لارسال لك مقطع صوتي .
+◊￤متحركه ⇠ لارسال لك صوره متحركه .
+◊￤صوره ⇠ لارسال لك صوره تمبلر .
+◊￤فلم ⇠ لارسال لك فلم .
+◊￤مسلسل ⇠ لارسال لك مسلسل .
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 Carbon -* ]].. UserName..[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15485,9 +15491,9 @@ if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ◊￤اوامر الحمايه اتبع مايلي ...
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤قفل ، فتح ↜ الامر 
+◊￤قفل ، فتح ⇠ الامر 
 ◊￤تستطيع قفل حمايه كما يلي ...
-◊￤↜ { بالتقيد ، بالطرد ، بالكتم }
+◊￤⇠ { بالتقيد ، بالطرد ، بالكتم }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤الروابط
 ◊￤المعرف
@@ -15520,16 +15526,19 @@ Carbon -* ]].. UserName..[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15539,7 +15548,7 @@ if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ◊￤اوامر ادمنية المجموعه ...
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤رفع، تنزيل ↜ مميز
+◊￤رفع، تنزيل ⇠ مميز
 ◊￤تاك للكل ، عدد الكروب
 ◊￤كتم ، حظر ، طرد ، تقيد
 ◊￤الغاء كتم ، الغاء حظر ، الغاء تقيد
@@ -15555,18 +15564,18 @@ local Teext =[[*
 ◊￤تثبيت ، الغاء تثبيت
 ◊￤الرابط ، الاعدادات
 ◊￤الترحيب ، القوانين
-◊￤تفعيل ، تعطيل ↜ الترحيب
-◊￤تفعيل ، تعطيل ↜ الرابط
+◊￤تفعيل ، تعطيل ⇠ الترحيب
+◊￤تفعيل ، تعطيل ⇠ الرابط
 ◊￤اضف صلاحيه ، مسح صلاحيه 
 ◊￤جهاتي ،ايدي ، رسائلي
 ◊￤سحكاتي ، مجوهراتي
 ◊￤كشف البوتات
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤وضع ، ضع ↜ الاوامر التاليه 
+◊￤وضع ، ضع ⇠ الاوامر التاليه 
 ◊￤اسم ، رابط ، صوره
 ◊￤قوانين ، وصف ، ترحيب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤حذف ، مسح ↜ الاوامر التاليه
+◊￤حذف ، مسح ⇠ الاوامر التاليه
 ◊￤قائمه المنع ، المحظورين 
 ◊￤المميزين ، المكتومين ، القوانين
 ◊￤المطرودين ، البوتات ، الصوره
@@ -15577,16 +15586,19 @@ Carbon -* ]].. UserName..[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 ??', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15596,46 +15608,49 @@ if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ◊￤اوامر المدراء في المجموعه
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤رفع ، تنزيل ↜ ادمن
+◊￤رفع ، تنزيل ⇠ ادمن
 ◊￤الادمنيه 
-◊￤رفع، كشف ↜ القيود
-◊￤تنزيل الكل ↜ { بالرد ، بالمعرف }
+◊￤رفع، كشف ⇠ القيود
+◊￤تنزيل الكل ⇠ { بالرد ، بالمعرف }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤لتغيير رد الرتب في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤تغير رد ↜ {اسم الرتبه والنص} 
+◊￤تغير رد ⇠ {اسم الرتبه والنص} 
 ◊￤المطور ، المنشئ الاساسي
 ◊￤المنشئ ، المدير ، الادمن
 ◊￤المميز ، العضو
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤تفعيل ، تعطيل ↜ الاوامر التاليه ↓
+◊￤تفعيل ، تعطيل ⇠ الاوامر التاليه ↓
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤الايدي ، الايدي بالصوره
 ◊￤ردود المطور ، ردود المدير
 ◊￤اطردني ، الالعاب ، الرفع
 ◊￤الحظر ، الرابط ، اوامر التحشيش
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤تعين ، مسح ↜{ الايدي }
+◊￤تعين ، مسح ⇠{ الايدي }
 ◊￤رفع الادمنيه ، مسح الادمنيه
 ◊￤ردود المدير ، مسح ردود المدير
-◊￤اضف ، حذف ↜ { رد }
-◊￤تنظيف ↜ { عدد }
+◊￤اضف ، حذف ⇠ { رد }
+◊￤تنظيف ⇠ { عدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 Carbon -* ]].. UserName..[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15645,16 +15660,16 @@ if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
 local Teext =[[*
 ◊￤اوامر المنشئ الاساسي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤رفع ، تنزيل ↜{ منشئ }
+◊￤رفع ، تنزيل ⇠{ منشئ }
 ◊￤المنشئين ، مسح المنشئين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤اوامر المنشئ المجموعه
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤رفع ، تنزيل ↜ { مدير }
+◊￤رفع ، تنزيل ⇠ { مدير }
 ◊￤المدراء ، مسح المدراء
-◊￤اضف رسائل ↜ { بالرد او الايدي }
-◊￤اضف مجوهرات ↜ { بالرد او الايدي }
-◊￤اضف ، حذف ↜ { امر }
+◊￤اضف رسائل ⇠ { بالرد او الايدي }
+◊￤اضف مجوهرات ⇠ { بالرد او الايدي }
+◊￤اضف ، حذف ⇠ { امر }
 ◊￤الاوامر المضافه ، مسح الاوامر المضافه
 ◊￤تنزيل جميع الرتب
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -15663,16 +15678,19 @@ Carbon -* ]].. UserName..[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15683,19 +15701,19 @@ local Teext =[[*
 ◊￤اوامر المطور الاساسي  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤حظر عام ، الغاء العام
-◊￤اضف ، حذف ↜ { مطور } 
+◊￤اضف ، حذف ⇠ { مطور } 
 ◊￤قائمه العام ، مسح قائمه العام
 ◊￤المطورين ، مسح المطورين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤اضف ، حذف ↜ { رد للكل }
-◊￤وضع ، حذف ↜ { كليشه المطور } 
+◊￤اضف ، حذف ⇠ { رد للكل }
+◊￤وضع ، حذف ⇠ { كليشه المطور } 
 ◊￤مسح ردود المطور ، ردود المطور 
 ◊￤تحديث ،  تحديث السورس 
-◊￤تعين عدد الاعضاء ↜ { العدد }
+◊￤تعين عدد الاعضاء ⇠ { العدد }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤تفعيل ، تعطيل ↜ { الاوامر التاليه ↓}
+◊￤تفعيل ، تعطيل ⇠ { الاوامر التاليه ↓}
 ◊￤البوت الخدمي ، المغادرة ، الاذاعه
-◊￤ملف ↜ { اسم الملف }
+◊￤ملف ⇠ { اسم الملف }
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤مسح جميع الملفات 
 ◊￤المتجر ، الملفات
@@ -15703,9 +15721,9 @@ local Teext =[[*
 ◊￤اوامر المطور في البوت
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤تفعيل ، تعطيل ، الاحصائيات
-◊￤رفع، تنزيل ↜ { منشئ اساسي }
+◊￤رفع، تنزيل ⇠ { منشئ اساسي }
 ◊￤مسح الاساسين ، المنشئين الاساسين 
-◊￤غادر ، غادر ↜ { والايدي }
+◊￤غادر ، غادر ⇠ { والايدي }
 ◊￤اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت
 ◊￤اذاعه خاص ، اذاعه خاص بالتوجيه 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -15714,16 +15732,19 @@ Carbon -* ]].. UserName..[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15750,11 +15771,11 @@ local Teext =[[*
 ◊￤زخرفه + اسمك
 ◊￤برج + نوع البرج
 ◊￤معنى اسم + الاسم
-◊￤بوسه • بوسها ↜ بالرد
+◊￤بوسه • بوسها ⇠ بالرد
 ◊￤احسب + تاريخ ميلادك
-◊￤صلاحياته ↜ بالرد • بالمعرف • بالايدي
-◊￤ايدي • كشف  ↜ بالرد • بالمعرف • بالايدي
-◊￤تحويل + بالرد ↜ صوره • ملصق • صوت • بصمه
+◊￤صلاحياته ⇠ بالرد • بالمعرف • بالايدي
+◊￤ايدي • كشف  ⇠ بالرد • بالمعرف • بالايدي
+◊￤تحويل + بالرد ⇠ صوره • ملصق • صوت • بصمه
 ◊￤انطق + الكلام تدعم جميع اللغات مع الترجمه للعربي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 Carbon -* ]].. UserName..[[
@@ -15762,47 +15783,45 @@ Carbon -* ]].. UserName..[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 elseif Text and Text:match('(.*)/help') then
 if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
-local Teext =[[*
-◊￤توجد ↜ 6 اوامر في البوت
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤ارسل { م1 } ↜ اوامر الحمايه
-◊￤ارسل { م2 } ↜ اوامر الادمنيه
-◊￤ارسل { م3 } ↜ اوامر المدراء
-◊￤ارسل { م4 } ↜ اوامر المنشئين
-◊￤ارسل { م5 } ↜ اوامر مطورين البوت
-◊￤ارسل { م6 } ↜ اوامر الاعضاء
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-Carbon -* ]].. UserName..[[
+local Teext =[[
+اهلا بك في بوت [Matrix team](https://t.me/Matrix_Source)
+يمكنك استخدام هذه الاوامر 🔽
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𓍹 𝟏 𓍻', callback_data=data.sender_user_id_.."/help1"},{text = '𓍹 𝟐 𓍻', callback_data=data.sender_user_id_.."/help2"},{text = '𓍹 𝟑 𓍻', callback_data=data.sender_user_id_.."/help3"},
+{text = '{آوآمر الحمايه}', callback_data=data.sender_user_id_.."/help1"},{text = '{آوآمر الادمنيه}', callback_data=data.sender_user_id_.."/help2"},
 },
 {
-{text = '𓍹 𝟒 𓍻', callback_data=data.sender_user_id_.."/help4"},{text = '𓍹 𝟓 𓍻', callback_data=data.sender_user_id_.."/help5"},{text = '𓍹 𝟔 𓍻', callback_data=data.sender_user_id_.."/help6"},
+{text = '{آوآمر المدراء}', callback_data=data.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=data.sender_user_id_.."/help4"},
+},
+{
+{text = '{آوآمر المطورين}', callback_data=data.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=data.sender_user_id_.."/help6"},
 },
 {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء الكليشه •', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15899,7 +15918,7 @@ end
 end,nil)   
 end
 if DAata == 'noKikedMe'..data.sender_user_id_ then  
-local Text ="*↜ تم الغاء الامر بنجاح .*"
+local Text ="*⇠ تم الغاء الامر بنجاح .*"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'MαTRιX TEαM .',url='http://t.me/Matrix_Source'}},
@@ -16432,61 +16451,61 @@ return false
 end
 if text == "احرف" or text == "حروف" and not database:get(bot_id..'lock:hrof'..msg.chat_id_) then
 local texting = {
-"ماد بحرف ↜ ر  ", 
-" مدينة بحرف ↜ ع  ",
-" حيوان ونبات بحرف ↜ خ  ", 
-" اسم بحرف ↜ ح  ", 
-" اسم ونبات بحرف ↜ م  ", 
-" دولة عربية بحرف ↜ ق  ", 
-" جماد بحرف ↜ ي  ", 
-" نبات بحرف ↜ ج  ", 
-" اسم بنت بحرف ↜ ع  ", 
-" اسم ولد بحرف ↜ ع  ", 
-" اسم بنت وولد بحرف ↜ ث  ", 
-" جماد بحرف ↜ ج  ",
-" حيوان بحرف ↜ ص  ",
-" دولة بحرف ↜ س  ",
-" نبات بحرف ↜ ج  ",
-" مدينة بحرف ↜ ب  ",
-" نبات بحرف ↜ ر  ",
-" اسم بحرف ↜ ك  ",
-" حيوان بحرف ↜ ظ  ",
-" جماد بحرف ↜ ذ  ",
-" مدينة بحرف ↜ و  ",
-" اسم بحرف ↜ م  ",
-" اسم بنت بحرف ↜ خ  ",
-" اسم و نبات بحرف ↜ ر  ",
-" نبات بحرف ↜ و  ",
-" حيوان بحرف ↜ س  ",
-" مدينة بحرف ↜ ك  ",
-" اسم بنت بحرف ↜ ص  ",
-" اسم ولد بحرف ↜ ق  ",
-" نبات بحرف ↜ ز  ",
-"  جماد بحرف ↜ ز  ",
-"  مدينة بحرف ↜ ط  ",
-"  جماد بحرف ↜ ن  ",
-"  مدينة بحرف ↜ ف  ",
-"  حيوان بحرف ↜ ض  ",
-"  اسم بحرف ↜ ك  ",
-"  نبات و حيوان و مدينة بحرف ↜ س  ", 
-"  اسم بنت بحرف ↜ ج  ", 
-"  مدينة بحرف ↜ ت  ", 
-"  جماد بحرف ↜ ه  ", 
-"  اسم بنت بحرف ↜ ر  ", 
-" اسم ولد بحرف ↜ خ  ", 
-" جماد بحرف ↜ ع  ",
-" حيوان بحرف ↜ ح  ",
-" نبات بحرف ↜ ف  ",
-" اسم بنت بحرف ↜ غ  ",
-" اسم ولد بحرف ↜ و  ",
-" نبات بحرف ↜ ل  ",
-"مدينة بحرف ↜ ع  ",
-"دولة واسم بحرف ↜ ب  ",
+"ماد بحرف ⇠ ر  ", 
+" مدينة بحرف ⇠ ع  ",
+" حيوان ونبات بحرف ⇠ خ  ", 
+" اسم بحرف ⇠ ح  ", 
+" اسم ونبات بحرف ⇠ م  ", 
+" دولة عربية بحرف ⇠ ق  ", 
+" جماد بحرف ⇠ ي  ", 
+" نبات بحرف ⇠ ج  ", 
+" اسم بنت بحرف ⇠ ع  ", 
+" اسم ولد بحرف ⇠ ع  ", 
+" اسم بنت وولد بحرف ⇠ ث  ", 
+" جماد بحرف ⇠ ج  ",
+" حيوان بحرف ⇠ ص  ",
+" دولة بحرف ⇠ س  ",
+" نبات بحرف ⇠ ج  ",
+" مدينة بحرف ⇠ ب  ",
+" نبات بحرف ⇠ ر  ",
+" اسم بحرف ⇠ ك  ",
+" حيوان بحرف ⇠ ظ  ",
+" جماد بحرف ⇠ ذ  ",
+" مدينة بحرف ⇠ و  ",
+" اسم بحرف ⇠ م  ",
+" اسم بنت بحرف ⇠ خ  ",
+" اسم و نبات بحرف ⇠ ر  ",
+" نبات بحرف ⇠ و  ",
+" حيوان بحرف ⇠ س  ",
+" مدينة بحرف ⇠ ك  ",
+" اسم بنت بحرف ⇠ ص  ",
+" اسم ولد بحرف ⇠ ق  ",
+" نبات بحرف ⇠ ز  ",
+"  جماد بحرف ⇠ ز  ",
+"  مدينة بحرف ⇠ ط  ",
+"  جماد بحرف ⇠ ن  ",
+"  مدينة بحرف ⇠ ف  ",
+"  حيوان بحرف ⇠ ض  ",
+"  اسم بحرف ⇠ ك  ",
+"  نبات و حيوان و مدينة بحرف ⇠ س  ", 
+"  اسم بنت بحرف ⇠ ج  ", 
+"  مدينة بحرف ⇠ ت  ", 
+"  جماد بحرف ⇠ ه  ", 
+"  اسم بنت بحرف ⇠ ر  ", 
+" اسم ولد بحرف ⇠ خ  ", 
+" جماد بحرف ⇠ ع  ",
+" حيوان بحرف ⇠ ح  ",
+" نبات بحرف ⇠ ف  ",
+" اسم بنت بحرف ⇠ غ  ",
+" اسم ولد بحرف ⇠ و  ",
+" نبات بحرف ⇠ ل  ",
+"مدينة بحرف ⇠ ع  ",
+"دولة واسم بحرف ⇠ ب  ",
 } 
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
-if text == "كت" or text == "كت تويت" and not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
+if text == "كت تويت" or text == "كت" and not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
 local texting = {
 'آخر مرة زرت مدينة الملاهي؟','آخر مرة أكلت أكلتك المفضّلة؟','الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل','آخر شيء ضاع منك؟','كلمة أخيرة لشاغل البال؟','طريقتك المعتادة في التخلّص من الطاقة السلبية؟','شهر من أشهر العام له ذكرى جميلة معك؟','كلمة غريبة من لهجتك ومعناها؟🤓','‏- شيء سمعته عالق في ذهنك هاليومين؟','متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟','‏- أبرز صفة حسنة في صديقك المقرب؟','هل تشعر أن هنالك مَن يُحبك؟','اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟','أجمل شيء حصل معك خلال هاليوم؟','صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔','كلمة لشخص غالي اشتقت إليه؟💕','آخر خبر سعيد، متى وصلك؟','أنا آسف على ....؟','أوصف نفسك بكلمة؟','صريح، مشتاق؟','‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟','‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭','‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤','‏- تخيّل شيء قد يحدث في المستقبل؟','‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚','شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟','| اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟.','كم مره تسبح باليوم','نسبة النعاس عندك حاليًا؟','لو فقط مسموح شخص واحد تتابعه فالسناب مين بيكون ؟','يهمك ملابسك تكون ماركة ؟','وش الشيء الي تطلع حرتك فيه و زعلت ؟','عندك أخوان او خوات من الرضاعة؟','عندك معجبين ولا محد درا عنك؟','أصعب صفة قد تتواجد في الرجل .؟','كم المده الي تخليك توقع بحب الشخص؟.','تحس انك مستعد للقاء الله ولا باقي.؟','متصالح مع نفسك؟.','يسكر على أصبعك الباب ولا تعض لسانك  بالغلط؟!','عندك غمازات؟.','‏ألوانك المفضّلة؟','ردة فعلك لما تنظلم من شخص ؟','وش الحب بنظرك؟','أكثر شيء تقدره في الصداقات؟','‏لوخيروك ⁞ الاكل لو النت ؟!','عاجبك وجودك في التلي ولا تتمنى تحذفة.؟','افضل هديه ممكن تناسبك؟','شعورك الحالي في جملة؟','أنا حزين جداً أجعلني أبتسم.؟','بماذا يتعافى المرء؟','تاك لشخص نفسيه؟','شاركنا بيت شعري حزين على ذوقك.؟','اغنية عندك بيها ذكريات؟','اشياء تفتخر انك م سويتها ؟','الصراحة وقاحة ولا صدق تعامل.؟','ايهم اصدق نظرة العين او نبرة الصوت ؟','‏قلّة المال لدى الرجل في هذا الزمن يعتبرها العديد كانها عيب، مع أم ضد؟','إيهما تُفضل حُب ناجح أم صداقة دائمة.؟','على نياتكُم تُرزقون تاك لشخص ينطبق علية هذا الشيء.؟','اكثر كلمة ترفع ضغطك ؟','من أصحاب الماضي والحنين ولا الصفحات المطوية.؟','من أصحاب النسيان او التجاوز رغم الذكرى.؟','غزل بلهجتك ؟','مصروفك كم؟.','للحتيت ⁞ ماذا تفضّلين أن تكون مهنة شريك حياتك المستقبلي.؟','يومك ضاع على؟','ما الذي اسعدك اليوم .؟','كيف تتعامل مع الشخص المُتطفل ( الفضولي ) ؟','أصعب صفة قد تتواجد في المرأة.؟','مع أو ضد لو كان خيراً لبقئ.؟','نصيحة لكل شخص يذكر أحد بغيابة بالسوء.؟','كل شيء يهون الا ؟','هل أنت من النوع الذي يواجه المشاكل أو من النوع الذي يهرب ؟','كلمه لشخص خانك!؟.','تحب تحتفظ بالذكريات ؟','شاركنا أقوى بيت شِعر من تأليفك؟','‏اسرع شيء يحسّن من مزاجك؟','كلمتك التسليكيه ؟','كم ساعات نومك؟.','عندك فوبيا او خوف شديد من شيء معين ؟','موهبة تفوز بمدح الناس لك.؟','قدوتك من الأجيال السابقة؟','شخص تتمنئ له الموت؟.','عادةً تُحب النقاش الطويل أم تحب الاختصار؟','تاك لشخص نيته زباله🌚؟','صوتك حلو ؟ .','كلمتين تكررها دايم؟!','افضل روايه قريتيها؟.','متى حدث التغيير الكبير والملحوظ في شخصيتك؟','أكثر اكلهه تحبها؟.','‏كلما ازدادت ثقافة المرء ازداد بؤسه','تتفق.؟','اغبى كذبه صدقتها بطفولتك؟.','كم المده الي تخليك توقع بحب الشخص؟.','تسامح شخص وجع قلبك ؟.','ردة فعلك لما تنظلم من شخص ؟','شيء يعدل نفسيتك بثواني.؟','‏تتوقع الإنسان يحس بقرب موته؟','وقت حزنك تلجأ لمن يخفف عنك.؟','‏أكثر شيء شخصي ضاع منك؟','تزعلك الدنيا ويرضيك ؟','ما الذي يشغل بالك في الفترة الحالية؟','نهارك يصير أجمل بوجود ..؟','حسيت انك ظلمت شخص.؟','صفة يطلقها عليك من حولك بكثرة؟','‏يوم لا يمكنك نسيانه؟','أكثر اكلهه تحبها؟.','اخر كلمة قالها لك حبيبك؟.','من الشخص الاقرب لقلبك؟.','كم المده الي تخليك توقع بحب الشخص؟.','ماهي الهدية التي تتمنى أن تنتظرك يومًا أمام باب منزلك؟','‏اسم او تاك لشخص لا ترتاح في يومك إلا إذا حاجيته؟','صديق أمك ولا أبوك. ؟','لماذا الأشياء التي نريدها بشغف تأتي متأخرة؟','‏تقبل بالعودة لشخص كسر قلبك مرتين؟','افضل هديه ممكن تناسبك؟','كلمة غريبة ومعناها؟','اذا اشتقت تكابر ولا تبادر ؟.','بامكانك تنزع شعور من قلبك للابد ، ايش هو؟.','لو بتغير اسمك ايش بيكون الجديد ؟','‏شخصية لا تستطيع تقبلها؟','ما هي طريقتك في الحصول على الراحة النفسية؟','‏ايموجي يوصف مزاجك حاليًا بدقة؟','تاريخ ميلادك؟','كيف تحد الدولة من الفقر المُتزايد.؟','‏شي مستحيل يتغير فيك؟','لو اخذوك لمستشفى المخابيل كيف تثبت انت صاحي؟','إيموجي يعبّر عن مزاجك الحالي؟','وقت حزنك تلجأ لمن يخفف عنك.؟','اعترف باي حاجه ؟','شاركني آخر صورة جميلة من كاميرا هاتفك.؟','متصالح مع نفسك؟.','لو عندك امنيه وبتحقق وش هي؟.','هل انت شخص مادي.؟','أخر اتصال جاك من مين ؟','تاك لصديقك المُقرب؟.','تحب العلاقات العاطفيه ولا الصداقه؟.','العين الي تستصغرك........؟','تجامل الناس ولا اللي بقلبك على لسانك؟','وقت حزنك تلجأ لمن يخفف عنك.؟','اكثر المتابعين عندك باي برنامج؟','صفه تتمناها بشريك حياتك؟.','من اصدق في الحب الولد ولا البنت؟.','يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟','كلمة لشخص بعيد؟','رحتي لعرس وأكتشفتي العريس حبيبك شنو ردة فعلك.؟','تسامح شخص وجع قلبك ؟.','احقر موقف صار لك؟.','ماذا لو كانت مشاعر البشر مرئية ؟','وين نلقى السعاده برايك؟','قد تخيلت شي في بالك وصار ؟','صفة يطلقها عليك الشخص المفضّل؟','اخر خيانه؟.','تحب تحتفظ بالذكريات ؟','لو بتغير اسمك ايش بيكون الجديد ؟','الاعتذار أخلاق ولا ضعف.؟','هل أنت من النوع الذي يواجه المشاكل أو من النوع الذي يهرب ؟','‏ تكره أحد من قلبك ؟','تاك لشخص وكوله اعترف لك؟','مع أو ضد لو كان خيراً لبقئ.؟','‏هل لديك شخص لا تخفي عنه شيئًا؟','اغنيه تأثر بيك؟','المطوعة والعاقلة من شلتك.؟','مواصفات امير/ة احلامك؟.','‏كلمة لصديقك البعيد؟','تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته؟','قرارتك راضي عنها ام لا ؟','تسامح شخص سبب في بكائك.؟','لو حصل واشتريت جزيرة، ماذا ستختار اسمًا لها.؟','اغنيتك المفضلة؟.','شاركنا اقوئ نكتة عندك.؟','ماذا لو عاد مُشتاقاً.؟','مسلسل كرتوني له ذكريات جميلة عندك؟','أخر اتصال جاك من مين ؟','حيوانك المفضل؟','اول ولد لك شنو رح تسميه ؟','سبب الرحيل.؟','قولها بلهجتك « لا أملك المال ».؟','نهارك يصير أجمل بوجود ..؟','‏لو خيروك، الزواج بمن تُحب او تاخذ مليون دولار؟','تاك لشخص سوالفه حلوه ؟','تصرف لا يُمكن أن تتحمله.؟','ماهي الاطباع فيك التي تحاول اخفائها عن الناس؟.','شيء عندك اهم من الناس؟','قد تخيلت شي في بالك وصار ؟','تمحي العشرة الطيبة عشان موقف ماعجبك أو سوء فهم.؟','جربت شعور احد يحبك بس انت متكدر تحبه؟','بنفسك تبوس شخص بهاي الحظه؟','إذا كانت الصراحة ستبعد عنك من تحب هل تمتلك الشجاعة للمصارحة ام لا .؟','أكمل الدعاء بما شئت ‏اللهم أرزقني ..؟','الصق اخر شيء نسخته .؟','‏تفضل جولة في الغابة أم جولة بحرية؟','‏تاك لشخص لديك لا تخفي عنه شي؟','كلمة غريبة ومعناها؟','‏اوقات لا تحب ان يكلمك فيها احد؟','تملك وسواس من شيء معين ؟','اشمر مقطع من اغنيه متطلع منراسك؟','هل تتأثرين بالكلام الرومانسي من الشباب؟','ما اول شيء يلفت انتباهك في الرجل؟','ماذا تفعلين اذا تعرضتِ للتحرش من قبل شخص ما..؟','اذا كنت شخصاً غني هل توافق على الزواج من فتاة فقيرة..؟','ما هو أكثر شئ لا تستطيع تحمله..؟','ما هي نقاط الضعف في شخصيتك..؟','هل توافق أن زوجتك تدفع الحساب في إحدي المطاعم وأنت موجود؟','ماذا تفعل لو أكتشفت ان زوجتك على علاقة بصديقك؟','ما هي أكثر صفة تكرهها في زوجتك..؟','اذا كان لديك فرصة للخروج مع من سوف تخرج ربعك او زوجتك..؟','ماذا تفعل عندما تري دموع زوجتك..؟','إلى أي الرجال تُريدين أن يكون انتماؤك؟','كم مرة خُدعت في أشخاصٍ، وثقتِ فيهم ثقةً عمياء؟','هل ما زال أصدقاء الطفولة أصدقاءً لك حتى الآن؟','هل ترغبين في أن يكون خطيبك وسيمًا؟','كم مرةٍ فعلت شيئًا لا ترغبين في الإفصاح عنه؟','هل استطعت أن تُحققي آمالك العلمية والعاطفية؟','أكثر شئ ندمت على فعله..؟','هل تشعرين أنك فتاة محظوظة..؟','هل علاقة الحب التي كانت في صغرك، مازالت مستمرة؟','ما هو أكثر شئ يفرحك في هذه الحياة..؟','كم مرة أردت شراء ملابس لأنها جميلة ولكنها لا تناسبك..؟','كم عدد المرات التي قمت فيها بإستبدال شئ اشتريته ولم يعجبك بعد ذلك.؟','كم مرة قمت بكسر الرجيم من أجل تناول طعامك المفضل..؟','هل تعرضت للظلم يوماً ما وعلى يد من..؟','هل كذبت على والديك من قبل..؟','هل خرجتي مع شخص تعرفتي عليه من خلال التليكرام من قبل..؟','هل لو تقدم شخص لاختك من أجل خطبتها وقامت برفضه تقبلين به..؟','لمن تقولين لا أستطيع العيش بدونك..؟','كم عدد المرات التي تعرضتِ فيها إلى أزمة نفسية وأردتِ الصراخ بأعلى صوتك..؟','ماذا تقول للبحر؟','أصعب صفة قد تتواجد في رجل؟','ما أجمل الحياة بدون ...؟','لماذا لم تتم خطبتك حتى الآن..؟','نسبة رضاك عن الأشخاص من حولك هالفترة ؟','ما السيء في هذه الحياة ؟','الفلوس او الحب ؟','أجمل شيء حصل معك خلال هذا الاسبوع ؟','سؤال ينرفزك ؟','كم في حسابك البنكي ؟','شي عندك اهم من الناس ؟','اول ولد او بنت الك شنو تسمي ؟','تفضّل النقاش الطويل او تحب الاختصار ؟','عادي تتزوج او تتزوجين من خارج العشيره ؟','كم مره حبيت ؟','تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب ؟','قلبي على قلبك مهما صار لمنو تكولها ؟','اكثر المتابعين عندك باي برنامج ؟','نسبة النعاس عندك حاليًا ؟','نسبه الندم عندك للي وثقت بيهم ؟','اول شخص تعرفت عليه بالتليكرام بعده موجود ؟','اذا فديوم شخص ضلمك شنو موقفك ؟','افضل عمر للزواج برئيك ؟','انت من النوع الي دائما ينغدر من اقرب الناس اله ؟','ماهو حيوانك المفضل ؟','تاريخ ميلادك ؟','لونك المفضل ؟','انت من النوع العاطفي والي ميكدر يكتم البداخله ؟','اذا فديوم شخص خانك ويريد يرجعلك تقبل ؟','شي بالحياه مخليك عايش لحد الان ؟','تحب النوم لو الشغل ؟','افضل مكان رحت عليه ؟','اختصر الماضي بكلمه وحده ؟','هل سبق وكنت مصر على أمر ما ومن ثم اكتشفت أنك كنت على خطأ ؟','اكثر كلمة ترفع ضغطك ؟','مع او ضد سب البنت للدفاع عن نفسها ؟','يهمك ظن الناس بيك لو لا؟','عبّر عن مودك بصوره ؟','اغلب وقتك ضايع في ؟','يوم متكدر تنساه ؟','تحس انك محظوظ بالاشخاص الي حولك ؟','تستغل وقت فراغك بشنو ؟','مع او ضد مقولة محد يدوم ل احد ؟','لو اخذوك مستشفى المجانين كيف تثبت لهم انك صاحي ؟','مغني تلاحظ أن صوته يعجب الجميع إلا أنت ؟','اخر خيانه ؟','تصرف ماتتحمله ؟','هل يمكنك الكذب والاستمرار بارتكاب الأخطاء كمحاولة منك لعدم الكشف أنك مخطئ ؟','الصق اخر شي نسخته ؟','عمرك انتقمت من أحد ؟','هل وصلك رسالة غير متوقعة من شخص وأثرت فيك ؟','‏-لو امتلكت العصا السحرية ليوم واحد ماذا ستفعل ؟','جابو طاري شخص تكره عندك تشاركهم ولا تمنعهم ؟','أمنية كنت تتمناها وحققتها ؟','هل التعود على شخص والتحدث معه بشكل يومي يعتبر نوع من أنواع الحب ؟','نسبة جمال صوتك ؟','صفة يطلقها عليك الشخص المفضل ؟','شنو هدفك بالمستقبل القريب ؟','تحب القرائه ؟','كليه تتمنى تنقبل بيها ؟',
 'أطول مدة قضيتها بعيد عن أهلك ؟','لو يجي عيد ميلادك تتوقع يجيك هدية؟','يبان عليك الحزن من " صوتك - ملامحك','وين تشوف نفسك بعد سنتين؟','وش يقولون لك لما تغني ؟','عندك حس فكاهي ولا نفسية؟','كيف تتصرف مع الشخص الفضولي ؟','كيف هي أحوال قلبك؟','حاجة تشوف نفسك مبدع فيها ؟','متى حبيت؟','شيء كل م تذكرته تبتسم ...','العلاقه السريه دايماً تكون حلوه؟','صوت مغني م تحبه','لو يجي عيد ميلادك تتوقع يجيك هدية؟','اذا احد سألك عن شيء م تعرفه تقول م اعرف ولا تتفلسف ؟','مع او ضد : النوم افضل حل لـ مشاكل الحياة؟','مساحة فارغة (..............) اكتب اي شيء تبين','اغرب اسم مر عليك ؟','عمرك كلمت فويس احد غير جنسك؟','اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟','لو عندك فلوس وش السيارة اللي بتشتريها؟','وش اغبى شيء سويته ؟','شيء من صغرك ماتغير فيك؟','وش نوع الأفلام اللي تحب تتابعه؟','وش نوع الأفلام اللي تحب تتابعه؟','تجامل احد على حساب مصلحتك ؟','تتقبل النصيحة من اي شخص؟','كلمه ماسكه معك الفترة هذي ؟','متى لازم تقول لا ؟','اكثر شيء تحس انه مات ف مجتمعنا؟','تؤمن ان في "حُب من أول نظرة" ولا لا ؟.','تؤمن ان في "حُب من أول نظرة" ولا لا ؟.','هل تعتقد أن هنالك من يراقبك بشغف؟','اشياء اذا سويتها لشخص تدل على انك تحبه كثير ؟','اشياء صعب تتقبلها بسرعه ؟','اقتباس لطيف؟','أكثر جملة أثرت بك في حياتك؟','عندك فوبيا من شيء ؟.',
