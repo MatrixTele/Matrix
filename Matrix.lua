@@ -11739,12 +11739,14 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تفعيل مجموعه جديده'..
-'\n◊￤بواسطة ~ '..Name..''..
-'\n◊￤ايدي المجموعه ~ `'..IdChat..'`'..
-'\n◊￤عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n◊￤اسم المجموعه ~ ['..NameChat..']'..
-'\n◊￤الرابط ~ ['..LinkGp..']'
+Text = '*◊￤تم تفعيل مجموعه جديده*'..
+'\n*◊￤اسم المجموعه ~* ['..NameChat..']'..
+'\n*◊￤بواسطة ~* '..Name..''..
+'\n*◊￤ايدي المجموعه ~* `'..IdChat..'`'..
+'\n*◊￤عدد اعضاء المجموعه ~ '..NumMember..'*'..
+'\n*◊￤عدد الادمنيه ~ '..data.administrator_count_..'*'..
+'\n*◊￤عدد المطرودين ~ '..data.kicked_count_..'*'..
+'\n*◊￤الرابط ~* ['..LinkGp..']'
 if not DevMatrix(msg) then
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11787,11 +11789,14 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تعطيل مجموعه جديده\n'..
-'\n◊￤بواسطة ~ '..Name..''..
-'\n◊￤ايدي المجموعه ~ `'..IdChat..'`'..
-'\n◊￤اسم المجموعه ~ ['..NameChat..']'..
-'\n◊￤الرابط ~ ['..LinkGp..']'
+Text = '*◊￤تم تعطيل مجموعة جديدة*'..
+'\n*◊￤اسم المجموعه ~* ['..NameChat..']'..
+'\n*◊￤بواسطة ~* '..Name..''..
+'\n*◊￤ايدي المجموعه ~* `'..IdChat..'`'..
+'\n*◊￤عدد اعضاء المجموعه ~ '..NumMember..'*'..
+'\n*◊￤عدد الادمنيه ~ '..data.administrator_count_..'*'..
+'\n*◊￤عدد المطرودين ~ '..data.kicked_count_..'*'..
+'\n*◊￤الرابط ~* ['..LinkGp..']'
 if not DevMatrix(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
@@ -11875,12 +11880,14 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تفعيل مجموعه جديده'..
-'\n◊￤من قام بتفعيلها ~ '..Name..''..
-'\n◊￤ايدي المجموعه ~ `'..IdChat..'`'..
-'\n◊￤عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n◊￤اسم المجموعه ~ ['..NameChat..']'..
-'\n◊￤الرابط ~ ['..LinkGp..']'
+Text = '*◊￤تم تفعيل مجموعه جديده*'..
+'\n*◊￤اسم المجموعه ~* ['..NameChat..']'..
+'\n*◊￤بواسطة ~* '..Name..''..
+'\n*◊￤ايدي المجموعه ~* `'..IdChat..'`'..
+'\n*◊￤عدد اعضاء المجموعه ~ '..NumMember..'*'..
+'\n*◊￤عدد الادمنيه ~ '..data.administrator_count_..'*'..
+'\n*◊￤عدد المطرودين ~ '..data.kicked_count_..'*'..
+'\n*◊￤الرابط ~* ['..LinkGp..']'
 if not DevMatrix(msg) then
 keyboard = {} 
 keyboard.inline_keyboard = {
