@@ -10223,20 +10223,19 @@ local nummsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg
 local Text = '◊￤عدد رسائلك هنا *~ '..nummsg..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'مسح رسائلي' then
-database:del(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_)
-local Text = '◊￤تم مسح جميع رسائلك '
-send(msg.chat_id_, msg.id_,Text) 
-end
 if text == 'سحكاتي' or text == 'تعديلاتي' then
 local edit = database:get(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Text = '◊￤عدد التعديلات هنا *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
-database:del(bot_id..'Matrix:message_edit'..msg.chat_id_..msg.sender_user_id_)
-local Text = '◊￤تم مسح جميع تعديلاتك '
-send(msg.chat_id_, msg.id_,Text) 
+if text == "مسح سحكاتي" or text == "مسح رسائلي" then
+local Text = [[
+◊￤من خلال الازرار يمكنك مسح رسائلك وسحكاتك
+]] 
+keyboard = {} 
+keyboard.inline_keyboard = {{{text="مسح رسائلي",callback_data="DelMsg:"..msg.sender_user_id_},{text="مسح سحكاتي",callback_data="DelEdit:"..msg.sender_user_id_}},{{text="• اخفاء الكليشه •",callback_data="/delamr:"..msg.sender_user_id_}}}
+local msg_id = msg.id_/2097152/0.5
+return https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'جهاتي' then
 local addmem = database:get(bot_id.."Matrix:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
@@ -15842,6 +15841,23 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 else
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 end
+end
+if DAata == 'DelHome:'..data.sender_user_id_ then  
+keyboard = {} 
+keyboard.inline_keyboard = {{{text="مسح رسائلي",callback_data="DelMsg:"..data.sender_user_id_},{text="مسح سحكاتي",callback_data="DelEdit:"..data.sender_user_id_}},{{text="• اخفاء الكليشه •",callback_data="/delamr"..data.sender_user_id_}}}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape("*◊￤من خلال الازرار يمكنك مسح رسائلك وسحكاتك*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == 'DelMsg:'..data.sender_user_id_ then  
+database:del(bot_id..'Matrix:messageUser'..data.chat_id_..':'..data.sender_user_id_)
+keyboard = {} 
+keyboard.inline_keyboard = {{{text="‹ رجوع ›",callback_data="DelHome:"..data.sender_user_id_}},{{text="‹ اخفاء الكليشه ›",callback_data="/delamr"..data.sender_user_id_}}}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape("*◊￤تم حذف جميع رسائلك بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if DAata == 'DelEdit:'..data.sender_user_id_ then  
+database:del(bot_id..'Matrix:message_edit'..data.chat_id_..data.sender_user_id_)
+keyboard = {} 
+keyboard.inline_keyboard = {{{text="‹ رجوع ›",callback_data="DelHome:"..data.sender_user_id_}},{{text="‹ اخفاء الكليشه ›",callback_data="/delamr"..data.sender_user_id_}}}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape("*◊￤تم حذف جميع تعديلاتك بنجاح*")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if DAata == 'EndAddarray'..data.sender_user_id_ then  
 if database:get(bot_id..'Set:array'..data.sender_user_id_..':'..Chat_id) == 'true1' then
