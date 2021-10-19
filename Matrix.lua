@@ -11740,12 +11740,14 @@ else
 LinkGp = 'لا يوجد'
 end
 Text = '*◊￤تم تفعيل مجموعه جديده*'..
-'\n*◊￤اسم المجموعه ~* ['..NameChat..']'..
+'\n*◊￤اسم المجموعه ~ '..NameChat..'*'..
 '\n*◊￤بواسطة ~* '..Name..''..
-'\n*◊￤ايدي المجموعه ~* `'..IdChat..'`'..
+'\n*◊￤ايدي المجموعه '..IdChat..'*'..
 '\n*◊￤عدد اعضاء المجموعه ~ '..NumMember..'*'..
 '\n*◊￤عدد الادمنيه ~ '..data.administrator_count_..'*'..
 '\n*◊￤عدد المطرودين ~ '..data.kicked_count_..'*'..
+'\n*◊￤الوقت ~ '..os.date("%I:%M%p")..'*'..
+'\n*◊￤التاريخ ~ '..os.date("%Y/%m/%d")..'*'..
 '\n*◊￤الرابط ~* ['..LinkGp..']'
 if not DevMatrix(msg) then
 keyboard = {} 
@@ -11765,13 +11767,13 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text == 'تعطيل' and DevBot(msg) then
+if text == 'تعطيل' and creatorA(msg) then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'*◊￤تم تعطيلها مسبقا >* {'..chat.title_..'}')
+send(msg.chat_id_, msg.id_,'*◊￤تم تعطيلها مسبقا ⇠* {'..chat.title_..'}')
 else
-Reply_Status(msg,result.id_,'reply_Add','*◊￤تم تعطيل المجموعه >* {'..chat.title_..'}')
+Reply_Status(msg,result.id_,'reply_Add','*◊￤تم تعطيل المجموعه ⇠* {'..chat.title_..'}')
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -11790,14 +11792,16 @@ else
 LinkGp = 'لا يوجد'
 end
 Text = '*◊￤تم تعطيل مجموعة جديدة*'..
-'\n*◊￤اسم المجموعه ~* ['..NameChat..']'..
+'\n*◊￤اسم المجموعه ~ '..NameChat..'*'..
 '\n*◊￤بواسطة ~* '..Name..''..
-'\n*◊￤ايدي المجموعه ~* `'..IdChat..'`'..
+'\n*◊￤ايدي المجموعه '..IdChat..'*'..
 '\n*◊￤عدد اعضاء المجموعه ~ '..NumMember..'*'..
 '\n*◊￤عدد الادمنيه ~ '..data.administrator_count_..'*'..
 '\n*◊￤عدد المطرودين ~ '..data.kicked_count_..'*'..
+'\n*◊￤الوقت ~ '..os.date("%I:%M%p")..'*'..
+'\n*◊￤التاريخ ~ '..os.date("%Y/%m/%d")..'*'..
 '\n*◊￤الرابط ~* ['..LinkGp..']'
-if not DevMatrix(msg) then
+if not creatorA(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -11881,12 +11885,14 @@ else
 LinkGp = 'لا يوجد'
 end
 Text = '*◊￤تم تفعيل مجموعه جديده*'..
-'\n*◊￤اسم المجموعه ~* ['..NameChat..']'..
+'\n*◊￤اسم المجموعه ~ '..NameChat..'*'..
 '\n*◊￤بواسطة ~* '..Name..''..
-'\n*◊￤ايدي المجموعه ~* `'..IdChat..'`'..
+'\n*◊￤ايدي المجموعه '..IdChat..'*'..
 '\n*◊￤عدد اعضاء المجموعه ~ '..NumMember..'*'..
 '\n*◊￤عدد الادمنيه ~ '..data.administrator_count_..'*'..
 '\n*◊￤عدد المطرودين ~ '..data.kicked_count_..'*'..
+'\n*◊￤الوقت ~ '..os.date("%I:%M%p")..'*'..
+'\n*◊￤التاريخ ~ '..os.date("%Y/%m/%d")..'*'..
 '\n*◊￤الرابط ~* ['..LinkGp..']'
 if not DevMatrix(msg) then
 keyboard = {} 
