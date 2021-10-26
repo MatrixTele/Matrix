@@ -5010,6 +5010,11 @@ return false
 end
 if text == "هينه" or text == "هينها" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 function start_function(extra, result, success)
+if result.sender_user_id_ == tonumber(114518657) then
+local texting = {'دي لك تريد اهين تاج راسك ترة بنععال 😹','تاج راسك وراس عشيرتك شلون اهينه؟😂','شلون اهين مطور السورس دماغك بي زربةة؟😒'}
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+return false 
+end
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' البوت ليس مشرف يرجى ترقيتي !') 
 return false  
@@ -6187,9 +6192,6 @@ one_nu = "◊￤تم وضع رقمك لجهاتك اتصالك فقط"
 end      
 send(msg.chat_id_, msg.id_,one_nu) 
 end,nil)
-end 
-if text == 'بايو' then   
-send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
 end 
 if text == 'ايديي' then   
 send(msg.chat_id_, msg.id_,'*◊￤ايديك >* '..msg.sender_user_id_)
@@ -11650,6 +11652,24 @@ key = {
 }
 send_inline_key(msg.chat_id_,"\nاهلا بك في بوت [Matrix team](https://t.me/Matrix_Source)\nيمكنك استخدام هذه الاوامر 🔽",nil,key,msg.id_/2097152/0.5)
 end
+if text ==('تحكم') and Addictive(msg) then
+function prom_reply(extra, result, success)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,dp) 
+if dp.first_name_ == false then
+send(msg.chat_id_, msg.id_, '◊￤الحساب محذوف')
+return false  
+end
+local Text = '◊￤قم باستعمال الازرار للتحكم العضو ↫ ⤈\n◊￤العضو ↫ ['..dp.first_name_..'](t.me/'..(dp.username_ or 'XXXZZ')..')'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text="رفع رتبه",callback_data=msg.sender_user_id_..":SetList:"..result.sender_user_id_},{text="تنزيل رتبه",callback_data=msg.sender_user_id_..":RemList:"..result.sender_user_id_}},{{text="كتم",callback_data=msg.sender_user_id_..":Mute:"..result.sender_user_id_},{text="الغاء كتم",callback_data=msg.sender_user_id_..":UnMute:"..result.sender_user_id_}},{{text="حظر",callback_data=msg.sender_user_id_..":Ban:"..result.sender_user_id_},{text="الغاء حظر",callback_data=msg.sender_user_id_..":UnBan:"..result.sender_user_id_}},{{text="تقيد",callback_data=msg.sender_user_id_..":Tkeed:"..result.sender_user_id_},{text="الغاء تقيد",callback_data=msg.sender_user_id_..":UnTkeed:"..result.sender_user_id_}}}
+Msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)
+end 
+if tonumber(tonumber(msg.reply_to_message_id_)) > 0 then
+getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),prom_reply)
+end 
+end
 if text == "م1" or text == "م2" or text == "م3" or text == "م4" or text == "م5" or text == "م6" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -16256,12 +16276,6 @@ end
 if text == "شنو رئيك بهاي" or text == "شنو رئيك بهايي" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"دور حلوين 🤕😹","جكمه وصخه عوفها ☹️😾","حقيره ومنتكبره 😶😂"}
-send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
-end
-end
-if text == "هينه" or text == "رزله" then
-if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"ولك هيو لتندك بسيادك لو بهاي 👞👈","ميستاهل اتعبي روحي ويا لانه عار"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
