@@ -9470,7 +9470,7 @@ else
 tarek = 'لا يوجد ' 
 end
 if data.username_ then
-UserName_User = '@'..data.username_
+UserName_User = ''..data.username_..''
 else
 UserName_User = 'لا يوجد'
 end
@@ -9517,19 +9517,43 @@ else
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᴇɴɢʟɪsʜ', callback_data=msg.sender_user_id_.."/ideengphoto"},{text = 'ᴀʀᴀʙɪᴄ', callback_data=msg.sender_user_id_.."/idearpphoto"},
+{text = '◊￤Your Bio :', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = ''..getbioY..'', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = '◊￤Stast :', callback_data=msg.sender_user_id_..''},{text = '{'..Status_Gps..'}', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = '◊￤User :', callback_data=msg.sender_user_id_..''},{text = '{@'..UserName_User..'}', url="https://t.me/"..UserName_User..""},
+},
+{
+{text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = '◊￤'..Description..'\n◊￤يـــديك ⇠ '..Id..' .\n◊￤يــوزرك ⇠ '..UserName_User..' .\n◊￤مــوقعــك ⇠ '..Status_Gps..' .\n◊￤رســائــلك ⇠ '..NumMsg..' .\n◊￤تفــاعــلك ⇠ '..TotalMsg..' .\n◊￤الالعـــاب ⇠ '..Num_Games..' .\n◊￤البايو ⇠ '..getbioY..''
+local texte = ". َ<3ٰ ٍَ:  ُꪝ ٰꫀٰᥣٰᥴٰ᥆ٰꪑٰꫀ ٰƚٰ᥆ ُႦٰ᥆ٰƚ ُ᥉ٰ᥆ٰυٰɾٰᥴٰꫀ ُꪔُᥲٰƚٰɾٰᎥٰ᥊ 'َِ◞."
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Hussain.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = '\n◊￤ايديك ⇠ '..Id..'\n◊￤يوزرك ⇠ ['..UserName_User..']\n◊￤موقعك ⇠ '..Status_Gps..'\n◊￤رسائلك ⇠ '..NumMsg..' \n◊￤تفاعلك ⇠ '..TotalMsg..'\n◊￤الالعاب ⇠ '..Num_Games..'.\n◊￤البايو ⇠ '..getbioY..''
+local texte = ". َ<3ٰ ٍَ:  ُꪝ ٰꫀٰᥣٰᥴٰ᥆ٰꪑٰꫀ ٰƚٰ᥆ ُႦٰ᥆ٰƚ ُ᥉ٰ᥆ٰυٰɾٰᥴٰꫀ ُꪔُᥲٰƚٰɾٰᎥٰ᥊ 'َِ◞."
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᴇɴɢʟɪsʜ', callback_data=msg.sender_user_id_.."/ideeng"},{text = 'ᴀʀᴀʙɪᴄ', callback_data=msg.sender_user_id_.."/idearp"},
+{text = '◊￤Your Bio :', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = ''..getbioY..'', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = '◊￤Stast :', callback_data=msg.sender_user_id_..''},{text = '{'..Status_Gps..'}', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = '◊￤User :', callback_data=msg.sender_user_id_..''},{text = '{@'..UserName_User..'}', url="https://t.me/"..UserName_User..""},
+},
+{
+{text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9552,11 +9576,23 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = '\n⇠ ايديك : '..Id..'\n⇠ يوزرك : ['..UserName_User..']\n⇠ موقعك : '..Status_Gps..'\n⇠ رسائلك : '..NumMsg..' \n⇠ تفاعلك : '..TotalMsg..'\n⇠ الالعاب : '..Num_Games..'\n⇠ البايو : '..getbioY..''
+local texte = ". َ<3ٰ ٍَ:  ُꪝ ٰꫀٰᥣٰᥴٰ᥆ٰꪑٰꫀ ٰƚٰ᥆ ُႦٰ᥆ٰƚ ُ᥉ٰ᥆ٰυٰɾٰᥴٰꫀ ُꪔُᥲٰƚٰɾٰᎥٰ᥊ 'َِ◞."
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ᴇɴɢʟɪsʜ', callback_data=msg.sender_user_id_.."/ideeng"},{text = 'ᴀʀᴀʙɪᴄ', callback_data=msg.sender_user_id_.."/idearp"},
+{text = '◊￤Your Bio :', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = ''..getbioY..'', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = '◊￤Stast :', callback_data=msg.sender_user_id_..''},{text = '{'..Status_Gps..'}', callback_data=msg.sender_user_id_..''},
+},
+{
+{text = '◊￤User :', callback_data=msg.sender_user_id_..''},{text = '{@'..UserName_User..'}', url="https://t.me/"..UserName_User..""},
+},
+{
+{text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9689,7 +9725,7 @@ return false
 end
 if database:get(bot_id.."Matrix:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Matrix:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","◊￤","🎗","🏵","◊￤","🏆","🥌","🛷","🚗","🚌","🏎","🚓","??","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","◊￤","📍","📓","📗","◊￤","📅","📪","◊￤","◊￤","📭","⏰","📺","🎚","☎️","◊￤"}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","??","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","??","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","??","🎬","🎨","🎭","🎪","🎟","◊￤","🎗","🏵","◊￤","🏆","🥌","🛷","🚗","🚌","🏎","🚓","??","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","◊￤","📍","📓","📗","◊￤","📅","📪","◊￤","◊￤","📭","⏰","📺","🎚","☎️","◊￤"}
 SM = Random[math.random(#Random)]
 database:set(bot_id.."Matrix:Random:Sm"..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,"◊￤اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
@@ -16618,7 +16654,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","?? 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnuj = numj[math.random(#numj)]
 local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤ نسبة الرجوله لـ : *'..text..'*'
 keyboard = {} 
