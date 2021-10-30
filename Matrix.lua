@@ -8671,8 +8671,8 @@ return false
 end
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = owner_id,offset_ = 0,limit_ = 1},function(arg,getpro) 
 if getpro.photos_[0] then
-Name = '*المالك ↬* ['..b.first_name_..'](tg://user?id='..b.id_..')\n'
-Name = Name..'*البايو ↬* ['..getbio(owner_id)..']\n'
+Name = '*Owner Name ↬* ['..b.first_name_..'](tg://user?id='..b.id_..')\n*Owner user ↬ *@['..b.username_..']'
+Name = Name..'*\nOwner Bio ↬* ['..getbio(owner_id)..']\n'
 keyboard = {}
 keyboard.inline_keyboard = {{{text = ''..b.first_name_..'', url = "https://t.me/"..b.username_..""}},}
 local msg_id = msg.id_/2097152/0.5
