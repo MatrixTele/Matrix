@@ -969,32 +969,32 @@ local UserName = (data.username_ or "Matrix_Source")
 local NameUser = "\n*◊￤بواسطه ⇠* ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "\n*◊￤المستخدم ⇠* ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*◊￤بخاصيه ( المسح )*\n")
-return false
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,""..NameUser.."\n"..text.."\n*◊￤بخاصيه ( المسح )*\n",nil,key,msg.id_/2097152/0.5)
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*◊￤بخاصيه ( الكتم )*\n")
-return false
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,""..NameUser.."\n"..text.."\n*◊￤بخاصيه ( الكتم )*\n",nil,key,msg.id_/2097152/0.5)
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*◊￤بخاصيه ( الطرد )*\n")
-return false
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,""..NameUser.."\n"..text.."\n*◊￤بخاصيه ( الطرد )*\n",nil,key,msg.id_/2097152/0.5)
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n*◊￤بخاصيه ( التقيد )*\n")
-return false
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,""..NameUser.."\n"..text.."\n*◊￤بخاصيه ( التقيد )*\n",nil,key,msg.id_/2097152/0.5)
 end
 if status == "unlock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text)
-return false
+key = {{{text = ""..data.first_name_.."", url="https://t.me/"..data.username_..""}}}   
+send_inline_key(msg.chat_id_,""..NameUser.."\n"..text.."",nil,key,msg.id_/2097152/0.5)
 end
 if status == "reply" then
-send(msg.chat_id_, msg.id_,NameUserr.."\n"..text)
-return false
+key = {{{text = ""..data.first_name_.."", url="https://t.me/"..data.username_..""}}}   
+send_inline_key(msg.chat_id_,""..NameUser.."\n"..text.."",nil,key,msg.id_/2097152/0.5)
 end
 if status == "reply_Add" then
-send(msg.chat_id_, msg.id_,NameUserr.."\n"..text)
-return false
+key = {{{text = ""..data.first_name_.."", url="https://t.me/"..data.username_..""}}}   
+send_inline_key(msg.chat_id_,""..NameUser.."\n"..text.."",nil,key,msg.id_/2097152/0.5)
 end
 else
 send(msg.chat_id_, msg.id_,"◊￤الحساب محذوف يرجى استخدام الامر بصوره صحيحه")
@@ -7300,7 +7300,28 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token ..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/DavidMp3/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
-if text == "تفعيل غنيلي" and Owner(msg)  then
+if text == "تفعيل شعر" and Owner(msg)  then
+local t = ' \n◊￤تم تفعيل شعر'
+send(msg.chat_id_, msg.id_,t)
+database:del(bot_id..'Matrix:sher'..msg.chat_id_) 
+end
+if text == "تعطيل شعر" and Owner(msg)  then
+local t = ' \n◊￤تم تعطيل شعر'
+send(msg.chat_id_, msg.id_,t)
+database:set(bot_id..'Matrix:sher'..msg.chat_id_,true)  
+end
+if text == "شعر" and not database:get(bot_id..'Matrix:sher'..msg.chat_id_) then
+Matrixsong = math.random(2,11);
+Text ='*◊￤تم اختيار المقطع الصوتي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'MαTRιX TEαM .',url="t.me/Matrix_Source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/matrixsher/'..Matrixsong..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+--     Source Matrix     --
+if text == "تفعيل غنيلي" and Owner(msg) then
 local t = ' \n◊￤تم تفعيل غنيلي'
 send(msg.chat_id_, msg.id_,t)
 database:del(bot_id..'Matrix:Audios:Matrix'..msg.chat_id_) 
@@ -8745,11 +8766,28 @@ send(msg.chat_id_, msg.id_, namebot[name])
 return false 
 end
 
+if text == "شسمك" then
+Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
+local namebot = {
+"متششوف يععنيي؟؟ اسمي "..Namebot,
+"وججعع بكلبك اسمي "..Namebot, 
+"اسميي لحلو "..Namebot, 
+"تتججرااسسكك "..Namebot, 
+"ااسستتااددككك "..Namebot, 
+"القميل "..Namebot, 
+"العميد الركن "..Namebot, 
+}
+name = math.random(#namebot)
+send(msg.chat_id_, msg.id_, namebot[name]) 
+return false 
+end
+
 if text == "بوت" then
 Namebot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 local namebot = {
 "لتخليني ارجع لحركاتي لقديمه وردا ترا اسمي "..Namebot,
 "باوع لك خليني احبك وصيحلي باسمي "..Namebot,
+"يخي مو بوت لاصير كانسرر اسمي "..Namebot,
 "اسممممممممممييي "..Namebot,
 'ۿۧهلا ؏ـمࢪي .',
 'اكلك تحبني ؟ وتصيحني هلكد',
@@ -8757,6 +8795,7 @@ local namebot = {
 'صيحلي بأسمي '..Namebot..' وأرد عليك',
 'مو كافي تصيح بوت ترا ورب اغادر',
 'عيونه',
+'هـا يـغثيث؟ ',
 'ۿۧها ححب  .',
 'راح نموت بكورونا ونته بعدك تصيح بوت'
 }
@@ -10642,7 +10681,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username[2]}, Function_Matrix, nil)
 return false
 end
-if text == ("تعديل الصلاحيات") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
+if text == ("تعديل الصلاحيات") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then
 function Function_Matrix(extra, result, success)
 key = {
 {{text = 'تعديل الصلاحيات', callback_data='amr@'..msg.sender_user_id_..'/user@'..result.sender_user_id_.."/setiinginfo"}},
@@ -10652,7 +10691,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^تعديل الصلاحيات @(.*)$") and Constructor(msg) then
+if text and text:match("^تعديل الصلاحيات @(.*)$") and creatorA(msg) then
 local username = text:match("^تعديل الصلاحيات @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
@@ -10676,7 +10715,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
-if text == ("رفع مشرف") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then
+if text == ("رفع مشرف") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then
 function Function_Matrix(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_invite_users=True")
 key = {
@@ -10687,7 +10726,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
-if text and text:match("^رفع مشرف @(.*)$") and Constructor(msg) then
+if text and text:match("^رفع مشرف @(.*)$") and creatorA(msg) then
 local username = text:match("^رفع مشرف @(.*)$")
 function Function_Matrix(extra, result, success)
 if result.id_ then
@@ -11645,13 +11684,13 @@ end,nil)
 end,nil)
 end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'سورس ماتركس' or text == '@IZlZ7I' then
-tdcli_function ({ID = "GetUser",user_id_ = Id_Sudo},function(arg,data) 
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = Id_Sudo,offset_ = 0,limit_ = 1},function(extra,bo,success) 
+tdcli_function ({ID = "GetUser",user_id_ = 114518657},function(arg,data) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = 114518657,offset_ = 0,limit_ = 1},function(extra,bo,success) 
 local Text = "* Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*Dev User ↬* [@"..data.username_.."]"
 if bo.photos_[0] then
 x = {} 
 x.inline_keyboard = {
-{{text ="Bot Developer",url="https://t.me/IZlZ7I"}},
+{{text =""..data.first_name_.."",url="https://t.me/"..data.username_..""}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Text)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
 else
@@ -11667,7 +11706,7 @@ local Text = "* Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..
 if bo.photos_[0] then
 x = {} 
 x.inline_keyboard = {
-{{text = 'Programmer Source !', url="https://t.me/IZIZ7I"}},
+{{text =""..data.first_name_.."",url="https://t.me/"..data.username_..""}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Text)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
 else
@@ -12210,7 +12249,7 @@ end
 if text == 'رموز مزخرفة 🏷️' then
 Text = [[
  ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 ?? 𖥅 𖥃 ?? 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 ?? ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 ?? 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 ?? 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 ?? ?? 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
+𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 ?? 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 ?? 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 ?? 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 ?? ?? 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
