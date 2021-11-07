@@ -8139,8 +8139,6 @@ end
 
 return false
 end
-if database:get(bot_id.."chat:tagall"..msg.chat_id_) then  return send(msg.chat_id_, msg.id_,"يمكنك عمل تاك للكل كل *10 دقائق* فقط") end
-database:setex(bot_id..'chat:tagall'..msg.chat_id_,600,true)
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_
 },function(ta,Matrix)
@@ -8160,7 +8158,8 @@ tagname = tagname:gsub("[[]","")
 t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
 if x == 5 or x == tags or k == 0 then
 local Text = t:gsub('#all,','#all\n')
-sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,Text,nil,key,msg.id_/2097152/0.5)
 end
 end,nil)
 end
@@ -8194,7 +8193,8 @@ t = t.."*"..x.." ↝* [@"..data.username_.."] \n"
 end
 if k == 0 then
 t = t.."*يمكنك عمل تاك  + العدد مثال تاك ل 5*"
-send(msg.chat_id_,msg.id_,t)
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,t,nil,key,msg.id_/2097152/0.5)
 end
 end,nil)
 end
@@ -8296,7 +8296,8 @@ last_name = "◊￤اسمك الثاني ⇠ {`"..result.last_name_.."`}"
 else
 last_name = ""
 end      
-send(msg.chat_id_, msg.id_,first_name.."\n"..last_name) 
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,first_name.."\n"..last_name,nil,key,msg.id_/2097152/0.5)
 end,nil)
 end 
 if text==("عدد الكروب") and Addictive(msg) then  
@@ -8324,7 +8325,8 @@ local Hussain = "◊￤عدد الادمنيه : "..data.administrator_count_..
 "\n◊￤عدد الاعضاء : "..data.member_count_..
 "\n◊￤عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
 "\n◊￤اسم المجموعه : ["..ta.title_.."]"
-send(msg.chat_id_, msg.id_, Hussain) 
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,Hussain,nil,key,msg.id_/2097152/0.5)
 end,nil)
 end,nil)
 end 
@@ -8415,8 +8417,8 @@ if text == 'منو ضافني' then
 if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da and da.status_.ID == "ChatMemberStatusCreator" then
-send(msg.chat_id_, msg.id_,'◊￤انت منشئ المجموعه') 
-return false
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,'◊￤انت منشئ المجموعه',nil,key,msg.id_/2097152/0.5)
 end
 local Added_Me = database:get(bot_id.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
 if Added_Me then 
@@ -8430,7 +8432,8 @@ send(msg.chat_id_, msg.id_,'◊￤انت دخلت عبر الرابط لتلح')
 end
 end,nil)
 else
-send(msg.chat_id_, msg.id_,'◊￤تم تعطيل امر منو ضافني') 
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,'◊￤تم تعطيل امر منو ضافني',nil,key,msg.id_/2097152/0.5)
 end
 end
 
@@ -8607,7 +8610,8 @@ else
 GBan = "غير محظور عام"
 end
 Textt = "◊￤الحظر العام ⇠ "..GBan.."\n◊￤الحظر ⇠ "..Ban.."\n◊￤الكتم ⇠ "..Muted..""
-send(msg.chat_id_, msg.id_,Textt)
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_,Textt,nil,key,msg.id_/2097152/0.5)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
@@ -10989,7 +10993,8 @@ if text and text:match("^برج (.*)$") and database:get(bot_id.."Matrix:brj_Bot
 local Textbrj = text:match("^برج (.*)$")
 gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
-send(msg.chat_id_, msg.id_, br.ok.hso)
+key = {{{text = 'ᴍᴀᴛʀɪх ᴛᴇᴀᴍ', url="https://t.me/Matrix_Source"}}}   
+send_inline_key(msg.chat_id_, br.ok.hso,nil,key,msg.id_/2097152/0.5)
 end
 if text == "راسلني" or text =="خاص" or text =="خا"or text =="خ" or text =="خاصك" then
 rpl = {"نعم ﺣحب 💓"," ﮪݪـﯛ عمري تفضل💕","ها حبب كول؟ ","زحفتلك كول شتريد 😂🙂","هها موكلت 💓🥺","راسلتك 👋🏼😂"};
@@ -11131,7 +11136,7 @@ end
 
 if text and text:match("^فلم (.*)$") and database:get(bot_id.."Matrix:movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
-data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
+data,res = https.request('https://black-source.tk/BlackTeAM/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
 getmo = json:decode(data)
 if getmo.Info == true then
