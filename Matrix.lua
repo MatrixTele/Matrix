@@ -10570,7 +10570,7 @@ end,nil)
 end
 return false
 end
-if text == ("تحديث السورس") or text == 'تحديث' and DevMatrix(msg) then  
+if text == "تحديث السورس" and DevMatrix(msg) or text == "تحديث" and DevMatrix(msg) then  
 key = {{{text="{تحديث السورس}",callback_data="restart"..msg.sender_user_id_},{text="{تحديث الملفات}",callback_data="restartfiel"..msg.sender_user_id_}},
 {{text = '{اخفاء الكليشه}', callback_data=msg.sender_user_id_.."/delamr"}},
 }
@@ -11755,6 +11755,8 @@ end
 
 return false
 end
+tdcli_function ({ID = "GetUser",user_id_ = bot_id},function(arg,data) 
+local texte = "["..data.first_name_.."](T.me/"..data.username_..")"
 key = {
 {{text = '{آوآمر الحمايه}', callback_data=msg.sender_user_id_.."/homelocks"},{text = '{آوآمر الادمنيه}', callback_data=msg.sender_user_id_.."/help2"}},
 {{text = '{آوآمر المدراء}', callback_data=msg.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=msg.sender_user_id_.."/help4"}},
@@ -11762,7 +11764,8 @@ key = {
 {{text = '{آوآمر التسليه}', callback_data=msg.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=msg.sender_user_id_.."/game"}},
 {{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"}},
 }
-send_inline_key(msg.chat_id_,"\nاهلا بك في بوت [Matrix team](https://t.me/Matrix_Source)\nيمكنك استخدام هذه الاوامر 🔽",nil,key,msg.id_/2097152/0.5)
+send_inline_key(msg.chat_id_,"\nاهلا بك في بوت "..texte.."\nيمكنك استخدام هذه الاوامر 🔽",nil,key,msg.id_/2097152/0.5)
+end,nil)
 end
 if text == "م1" or text == "م2" or text == "م3" or text == "م4" or text == "م5" or text == "م6" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
