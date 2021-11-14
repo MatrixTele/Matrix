@@ -11828,7 +11828,7 @@ key = {
 {{text = '{آوآمر المدراء}', callback_data=msg.sender_user_id_.."/help3"},{text = '{آوآمر المنشئين}', callback_data=msg.sender_user_id_.."/help4"}},
 {{text = '{آوآمر المطورين}', callback_data=msg.sender_user_id_.."/help5"},{text = '{آوآمر الاعضاء}', callback_data=msg.sender_user_id_.."/help6"}},
 {{text = '{آوآمر التسليه}', callback_data=msg.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=msg.sender_user_id_.."/game"}},
-{{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"}},
 }
 send_inline_key(msg.chat_id_,"\nاهلا بك في بوت "..texte.."\nيمكنك استخدام هذه الاوامر 🔽",nil,key,msg.id_/2097152/0.5)
 end,nil)
@@ -11859,7 +11859,7 @@ return false
 end
 key = {
 {{text = '{ قائمة الاوامر }', callback_data=msg.sender_user_id_.."/help"}},
-{{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"}},
+{{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"}},
 }
 send_inline_key(msg.chat_id_,"*◊￤عليك استخدام اوامر التحكم بالقوائم *",nil,key,msg.id_/2097152/0.5)
 end
@@ -15785,7 +15785,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15845,7 +15845,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15897,7 +15897,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15937,7 +15937,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15991,7 +15991,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16042,7 +16042,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
+{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"},{text = '• رجوع •', callback_data=data.sender_user_id_.."/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -16068,7 +16068,7 @@ keyboard.inline_keyboard = {
 {text = '{آوآمر التسليه}', callback_data=data.sender_user_id_.."/helpst"},{text = '{الالعاب}', callback_data=data.sender_user_id_.."/game"},
 },
 {
-{text = '• اخفاء •', callback_data=msg.sender_user_id_.."/delamr"},
+{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
