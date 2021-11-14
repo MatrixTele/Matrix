@@ -289,8 +289,24 @@ end
 return var
 end
 function send(chat_id, reply_to_message_id, text)
+local text1 = database:get(bot_id..'Matrix:new:sourse1') or '┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉'
+local text2 = database:get(bot_id..'Matrix:new:sourse2') or '◊￤'
+text = string.gsub(text,"┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉",text1)
+text = string.gsub(text,"◊￤",text2)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
-tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil)
+pcall(tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil))
+end
+function send1(chat_id, reply_to_message_id, text)
+local text1 = database:get(bot_id..'Matrix:new:sourse1') or '┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉'
+local text2 = database:get(bot_id..'Matrix:new:sourse2') or '◊￤'
+text = string.gsub(text,"┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉",text1)
+text = string.gsub(text,"◊￤",text2)
+local TextParseMode = {ID = "TextParseModeMarkdown"}
+pcall(tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 0,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil))
+end
+function send2(chat_id, reply_to_message_id, text)
+local TextParseMode = {ID = "TextParseModeMarkdown"}
+pcall(tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 0,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil))
 end
 function DeleteMessage(chat,id)
 tdcli_function ({
@@ -579,6 +595,44 @@ elseif markdown == "html" then
 url = url.."&parse_mode=HTML" 
 end 
 return s_api(url)  
+end
+function send_inline_keyboard(chat_id,text,keyboard,inline,reply_id) 
+local response = {} 
+response.keyboard = keyboard 
+response.inline_keyboard = inline 
+response.resize_keyboard = true 
+response.one_time_keyboard = false 
+response.selective = false  
+local Status_Api = "https://api.telegram.org/bot"..token.."/sendMessage?chat_id="..chat_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true&reply_markup="..URL.escape(JSON.encode(response)) 
+if reply_id then 
+Status_Api = Status_Api.."&reply_to_message_id="..reply_id 
+end 
+return Get_Api(Status_Api) 
+end
+answerInlineQuery = function (inline_query_id,getup)
+var(getup)
+Rep= "https://api.telegram.org/bot"..token.. '/answerInlineQuery?inline_query_id=' .. inline_query_id ..'&results=' .. URL.escape(JSON.encode(getup))..'&cache_time=' .. 1
+return Get_Api(Rep)
+end
+sendPhotoURL = function(chat_id,ii, photo, caption,markdown)
+if markdown == 'md' or markdown == 'markdown' then
+ps = 'Markdown'
+elseif markdown == 'html' then
+ps = 'HTML'
+end
+local send = "https://api.telegram.org/bot"..token..'/sendPhoto'
+local curl_command = 'curl -s "'..send..'" -F "chat_id='..chat_id..'" -F "reply_to_message_id='..ii..'" -F "photo='..photo..'" -F "parse_mode='..ps..'" -F "caption='..caption..'"'
+return io.popen(curl_command):read('*all')
+end
+sendvideoURL = function(chat_id,ii, video, caption,markdown)
+if markdown == 'md' or markdown == 'markdown' then
+ps = 'Markdown'
+elseif markdown == 'html' then
+ps = 'HTML'
+end
+local send = "https://api.telegram.org/bot"..token..'/sendVideo'
+local curl_command = 'curl -s "'..send..'" -F "chat_id='..chat_id..'" -F "reply_to_message_id='..ii..'" -F "video='..video..'" -F "parse_mode='..ps..'" -F "caption='..caption..'"'
+return io.popen(curl_command):read('*all')
 end
 function send_inlin_key(chat_id,text,inline,reply_id) 
 local keyboard = {} 
@@ -1743,7 +1797,7 @@ local Te = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n┉ ┉ ┉
 if bo.photos_[0] then
 x = {} 
 x.inline_keyboard = {
-{{text ="- اضفني ",url="https://t.me/"..data.username_.."?startgroup=new"}},
+{{text = '{رفع المالك والادمنية}',callback_data="/fulsbot@"..msg.chat_id_..':'..msg.sender_user_id_}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Te)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
 else
@@ -10306,6 +10360,28 @@ Teext = [[*
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
+if text == 'تغير شكل السورس' and VIP_DeV(msg) then
+database:set(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_,'true1') 
+send2(msg.chat_id_, msg.id_, 'ارسل رمز بدلا عن هاذا \n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉')
+return false
+end
+if database:get(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_) == 'true1' then
+database:set(bot_id..'Matrix:new:sourse1',text)
+send2(msg.chat_id_, msg.id_, 'الان ارسل رمز بدلا عن ◊￤ ')
+database:set(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_,'true2') 
+return false
+end
+if database:get(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_) == 'true2' then
+database:set(bot_id..'Matrix:new:sourse2',text)
+database:del(bot_id..'Matrix:new:sourse'..msg.chat_id_..msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_, 'تم تغير شكل السورس')
+return false
+end
+if text == 'حذف شكل السورس' and VIP_DeV(msg) then
+database:del(bot_id..'Matrix:new:sourse1')
+database:del(bot_id..'Matrix:new:sourse2')
+send(msg.chat_id_, msg.id_, 'تم حذف شكل السورس')
+end
 if text == 'رسائلي' then
 local nummsg = database:get(bot_id..'Matrix:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
 local Text = '◊￤عدد رسائلك هنا *~ '..nummsg..'*'
@@ -12136,7 +12212,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Texti = "\n*◊￤أهلآ بك في بوت "..Namebot.." *\n*◊￤اختصاص البوت حماية المجموعات*\n*◊￤لتفعيل البوت عليك اتباع مايلي*\n*◊￤اضف البوت الى مجموعتك*\n*◊￤ارفعه ادمن {مشرف}*\n*◊￤ارسل كلمة { تفعيل } ليتم تفعيل المجموعه*\n*◊￤سيتم ترقيتك منشئ اساسي في البوت*\n*◊￤للعب داخل البوت ارسل  : /play .*\n*◊￤مطور البوت ⇠ {"..UserName.."}*"
+Texti = "\n*◊￤أهلآ بك في بوت "..Namebot.." \n◊￤اختصاص البوت حماية المجموعات\n◊￤لتفعيل البوت عليك اتباع مايلي\n◊￤اضف البوت الى مجموعتك\n◊￤ارفعه ادمن {مشرف}\n◊￤ارسل كلمة { تفعيل } ليتم تفعيل المجموعه\n◊￤سيتم ترقيتك منشئ اساسي في البوت\n◊￤للعب داخل البوت ارسل  : /play .\n◊￤مطور البوت ⇠ {"..UserName.."}*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضفني", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
@@ -13089,17 +13165,15 @@ end --- Chat_Type = 'UserBot'
 end
 end
 function tdcli_update_callback(data)
-if data.ID == "UpdateChannel" then 
+if data.ID == ("UpdateChannel") then 
 if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
-t = "قام احد المنشئين بطرد البوت من مجموعته\n\n"
-tdcli_function({ID ="GetChat",chat_id_="-100"..data.channel_.id_},function(arg,chat)  
-local NameChat = chat.title_
-t =t.."اسم المجموعه\n"..NameChat
-local IdChat = "-100"..data.channel_.id_
-t =t.."\n\nايدي المجموعه\n"..IdChat
-send(Id_Sudo, msg.id_,t)
 database:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
-end,nil)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
+local NameChat = chat.title_
+local IdChat = msg.chat_id_
+Text = ''
+sendText(Id_Sudo,'تم طرد البوت من مجموعه \n اسم المجموعه - (['..NameChat..'])\n ايدي المجموعه - (['..IdChat..'])',0,'md')
+end,nil) 
 end
 end
 if data.ID == "UpdateNewInlineCallbackQuery" then
@@ -13201,6 +13275,86 @@ https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callb
 end
 end
 
+if Text and Text:match('/fulsbot@(.*):(.*)') then
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,'◊￤البوت ليس ادمن يرجى ترقيتي !') 
+return false  
+end
+tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Matrix:Num:Add:Bot') or 0) and not DevMatrix(msg) then
+send(msg.chat_id_, msg.id_,'◊￤عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Matrix:Num:Add:Bot') or 0)..'* عضو')
+return false
+end
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
+if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'\n*◊￤المجموعة : {'..chat.title_..'}*\n*◊￤تم تفعيلها مسبقا*')
+else
+local Text = '\n*◊￤المجموعة : {'..chat.title_..'}*\n*◊￤تم تفعيلها بنجاح*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '{رفع المالك والادمنية}',callback_data="/addadmin@"..msg.chat_id_..':'..msg.sender_user_id_},
+},
+{
+{text = '{قفل الكل}',callback_data="/locall@"..msg.chat_id_..':'..msg.sender_user_id_},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+end 
+end  
+end,nil)
+database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+local NameChat = chat.title_
+NameChat = NameChat:gsub('"',"") 
+NameChat = NameChat:gsub('"',"") 
+NameChat = NameChat:gsub("`","") 
+NameChat = NameChat:gsub("*","") 
+NameChat = NameChat:gsub("{","") 
+NameChat = NameChat:gsub("}","") 
+local IdChat = msg.chat_id_
+local NumMember = data.member_count_
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+LinkGp = linkgpp.result
+else
+LinkGp = 'لا يوجد'
+end
+Text = '*◊￤تم تفعيل مجموعه جديده*'..
+'\n*◊￤اسم المجموعه ~ '..NameChat..'*'..
+'\n*◊￤بواسطة ~* '..Name..''..
+'\n*◊￤ايدي المجموعه '..IdChat..'*'..
+'\n*◊￤عدد اعضاء المجموعه ~ '..NumMember..'*'..
+'\n*◊￤عدد الادمنيه ~ '..data.administrator_count_..'*'..
+'\n*◊￤عدد المطرودين ~ '..data.kicked_count_..'*'..
+'\n*◊￤الوقت ~ '..os.date("%I:%M%p")..'*'..
+'\n*◊￤التاريخ ~ '..os.date("%Y/%m/%d")..'*'..
+'\n*◊￤الرابط ~* ['..LinkGp..']'
+if not DevMatrix(msg) then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'مغادرة البوت',callback_data="/leftbot@"..IdChat},
+},
+{
+{text = URL.escape(NameChat),url=LinkGp},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. Id_Sudo .. '&text=' .. URL.escape(Text).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end,nil) 
+end,nil) 
+end,nil)
+end
 if Text and Text:match('/addadmin@(.*):(.*)') then
 local Userid = {Text:match('/addadmin@(.*):(.*)')}
 if tonumber(Userid[2]) == tonumber(data.sender_user_id_) then
