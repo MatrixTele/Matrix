@@ -1797,7 +1797,7 @@ local Te = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n┉ ┉ ┉
 if bo.photos_[0] then
 x = {} 
 x.inline_keyboard = {
-{{text = '{رفع المالك والادمنية}',callback_data="/fulsbot@"..msg.chat_id_..':'..msg.sender_user_id_}},
+{{text ="- اضفني ",url="https://t.me/"..data.username_.."?startgroup=new"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Te)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
 else
@@ -7265,19 +7265,18 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(2,1075); 
+local Matrix = math.random(2,11)
 local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/sgifs"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token ..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/GifDavid/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation='..URL.escape("https://t.me/GifDavid/"..Matrix)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --     Source Matrix     --
 if text == "تفعيل ميمز" and Owner(msg)  or text == "تفعيل الميمز" and Owner(msg)  then
@@ -7307,14 +7306,13 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(2,1201); 
+local Matrix = math.random(2,11)
 local Text ='*◊￤تم اختيار الميمز لك*'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/memz"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل اغنيه" and Owner(msg)  then
@@ -7344,14 +7342,13 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(2,1167); 
+local Matrix = math.random(2,1167); 
 local Text ='*◊￤تم اختيار الاغنيه لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard = {}  
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/aknia"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token ..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/DavidMp3/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/DavidMp3/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل شعر" and Owner(msg)  then
@@ -7402,14 +7399,12 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(4,2824); 
+Matrix = math.random(4,2824); 
 local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard = {}  
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/knelee"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrixsong..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
@@ -7439,14 +7434,13 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(2,612); 
+local Matrix = math.random(2,612); 
 local Text ='*◊￤تم اختيار الريمكس لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard = {}  
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/remex"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token ..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/RemixDavid/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/RemixDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل صوره" and Owner(msg)  or text == "تفعيل الصوره" and Owner(msg)  then
@@ -7474,14 +7468,13 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(4,1171); 
+local Matrix = math.random(4,1171); 
 local Text ='*◊￤تم اختيار الصوره لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard = {}  
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/sphoto"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token ..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل انمي" and Owner(msg)  or text == "تفعيل الانمي" and Owner(msg)  then
@@ -7511,14 +7504,13 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(3,1002); 
+local Matrix = math.random(3,1002); 
 local Text ='*◊￤تم اختيار صورة الانمي لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard = {}  
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/anematin"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token ..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل فلم" and Owner(msg)  then
@@ -7548,14 +7540,13 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(45,125); 
+local Matrix = math.random(45,125); 
 local Text ='*◊￤تم اختيار الفلم لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard = {}  
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/sflm"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token ..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MoviesDavid/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MoviesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Matrix     --
 if text == "تفعيل مسلسل" and Owner(msg)  then
@@ -7585,14 +7576,13 @@ return false
 end
 hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
 sendhson = hson[math.random(#hson)]
-Matrixsong = math.random(2,54); 
+local Matrix = math.random(2,54); 
 local Text ='*◊￤تم اختيار المسلسل لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = ''..sendhson..'',url="t.me/Matrix_Source"}},
-}
+keyboard = {}  
+keyboard.inline_keyboard = {}
+keyboard.inline_keyboard = {{{text = '𓍹 مرة اخرى 𓍻', callback_data=msg.sender_user_id_.."/smslsl"}},{{text = ''..sendhson..'',url="t.me/Matrix_Source"}}} 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token ..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SeriesDavid/'..Matrixsong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SeriesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "تفعيل كول" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل كول'
@@ -11843,6 +11833,16 @@ key = {
 send_inline_key(msg.chat_id_,"\nاهلا بك في بوت "..texte.."\nيمكنك استخدام هذه الاوامر 🔽",nil,key,msg.id_/2097152/0.5)
 end,nil)
 end
+if text == 'التسليه' then  
+key = {
+{{text = '𓍹 اغنيه 𓍻', callback_data=msg.sender_user_id_.."/aknia"},{text = '𓍹 ريمكس 𓍻', callback_data=msg.sender_user_id_.."/remex"}},
+{{text = '𓍹 غنيلي 𓍻', callback_data=msg.sender_user_id_.."/knelee"},{text = '𓍹 انمي 𓍻', callback_data=msg.sender_user_id_.."/anematin"}},
+{{text = '𓍹 صوره 𓍻', callback_data=msg.sender_user_id_.."/sphoto"},{text = '𓍹 ميمز 𓍻', callback_data=msg.sender_user_id_.."/memz"}},
+{{text = '𓍹 متحركه 𓍻', callback_data=msg.sender_user_id_.."/sgifs"},{text = '𓍹 شعر 𓍻', callback_data=msg.sender_user_id_.."/shhar"}},
+{{text = '𓍹 اخفاء الامر 𓍻', callback_data=msg.sender_user_id_.."/delamr"}},
+}
+send_inline_key(msg.chat_id_,"\n*◊￤اهلا بك في قائمة اوامر التسليه ↫ ⤈*\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n*◊￤غنيلي*\n*◊￤اغنيه*\n*◊￤متحركه*\n*◊￤ريمكس*\n*◊￤ميمز*\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n◊￤[Source Channel](https://t.me/Matrix_Source)",nil,key,msg.id_/2097152/0.5)
+end
 if text == "م1" or text == "م2" or text == "م3" or text == "م4" or text == "م5" or text == "م6" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -13255,14 +13255,247 @@ local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
 local Text = data.payload_.data_
 
+
 if Text and Text:match('(.*)/delamr') then
 local Userid = Text:match('(.*)/delamr')
-if tonumber(Userid) ~= tonumber(data.sender_user_id_) then
-https.request("https://api.telegram.org/bot"..token..'/answerCallbackQuery?callback_query_id='..data.id_..'&text='..URL.escape('الامر لا يخصك')..'&show_alert=true')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
 end
 DeleteMessage(data.chat_id_, {[0] = Msg_id})  
 end
-
+if Text and Text:match('(.*)/aknia') then
+local notId = Text:match('(.*)/aknia')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+Matrix = math.random(2,1167); 
+local Text ='*◊￤تم اختيار الاغنيه لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/aknia"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/DavidMp3/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/memz') then
+local notId = Text:match('(.*)/memz')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(2,1201); 
+local Text ='*◊￤تم اختيار مقطع الميمز لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/memz"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/sgifs') then
+local notId = Text:match('(.*)/sgifs')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(2,1075); 
+local Text ='*◊￤تم اختيار المتحركه لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/sgifs"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/GifDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/shhar') then
+local notId = Text:match('(.*)/shhar')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(2,11)
+local Text ='*◊￤تم اختيار مقطع الشعر لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/shhar"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/shermatrixx/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/knelee') then
+local notId = Text:match('(.*)/knelee')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(4,2824); 
+local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/knelee"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/remex') then
+local notId = Text:match('(.*)/remex')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(2,612); 
+local Text ='*◊￤تم اختيار الريمكس لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/remex"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/RemixDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/sphoto') then
+local notId = Text:match('(.*)/sphoto')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(4,1171); 
+local Text ='*◊￤تم اختيار الصوره لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/sphoto"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/smslsl') then
+local notId = Text:match('(.*)/smslsl')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(2,54); 
+local Text ='*◊￤تم اختيار المسلسل لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/smslsl"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SeriesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/sflm') then
+local notId = Text:match('(.*)/sflm')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(45,125); 
+local Text ='*◊￤تم اختيار الفلم لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/sflm"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MoviesDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text and Text:match('(.*)/anematin') then
+local notId = Text:match('(.*)/anematin')
+if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
+local notText = '◊￤عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Matrix = math.random(3,1002); 
+local Text ='*◊￤تم اختيار صورة الانمي لك*'
+hson = {": تُمۅٛتہ ڪٰٖݪ ﺎݪاغـَﭑنيہ ۅٛيَحٰـَݪاݪيہ صُۅٛتڪٰٖك .",": ﺎݪـَقاڼۉڼ ࢪَقـَم ١٢٦",": ۅٛاݪيفࢪجۿﭑ صَۅٛتڪٰٖك ،",": عٰـَﭑيفنِيہٰ ࢦِـيݪَ بݪاَ ڪٰٖمࢪ .","نضِݛۿہ‌َٖ منڪ ټݽٖۅهۤۃ ؏َـيونۿمہ‌َٖ ڪٰٖـلهم!","ټرىٰ ﭑݪنضراټ ۿمَ ڪِٰلمات يسمِع صوتهِا ﭑݪيفهم .",": ۅٛڪٰٖݪڪٰٖم صَࢪتۅٛ ضَـٰدييہِ .",": خَنڪٰٖۿهہ !",};
+sendhson = hson[math.random(#hson)]
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{
+{text = '𓍹 مرة اخرى 𓍻', callback_data=notId.."/anematin"},
+},
+{
+{text = ''..sendhson..'',url="t.me/Matrix_Source"}
+},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+--     Source Matrix     --
 if Text and Text:match('/locall@(.*):(.*)') then
 local Userid = {Text:match('/locall@(.*):(.*)')}
 if tonumber(Userid[2]) == tonumber(data.sender_user_id_) then
@@ -15770,7 +16003,7 @@ local Teext =[[*
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ◊￤السورس • موقعي • رتبتي • معلوماتي 
 ◊￤رقمي • لقبي • نبذتي • صلاحياتي • غنيلي
-◊￤ميمز • متحركه • صوره • ريمكس • فلم • مسلسل • انمي
+◊￤ميمز • متحركه ‹ صوره › ريمكس • فلم • مسلسل • انمي
 ◊￤رسائلي • حذف رسائلي • اسمي • معرفي 
 ◊￤ايدي •ايديي • جهاتي • راسلني • الالعاب 
 ◊￤مجوهراتي • بيع مجوهراتي • القوانين • زخرفه 
