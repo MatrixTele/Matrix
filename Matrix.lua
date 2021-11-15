@@ -9566,7 +9566,7 @@ else
 tarek = 'لا يوجد ' 
 end
 if data.username_ then
-UserName_User = ''..data.username_..''
+UserName_User = '@'..data.username_..''
 else
 UserName_User = 'لا يوجد'
 end
@@ -9613,41 +9613,17 @@ else
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◊￤Your Bio :', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = ''..getbioY..'', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = '◊￤Stast :', callback_data=msg.sender_user_id_..''},{text = '{'..Status_Gps..'}', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = '◊￤User :', callback_data=msg.sender_user_id_..''},{text = '{@'..UserName_User..'}', url="https://t.me/"..UserName_User..""},
-},
-{
 {text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
 },
 }
 local msg_id = msg.id_/2097152/0.5
-local texte = ". َ<3ٰ ٍَ:  ُꪝ ٰꫀٰᥣٰᥴٰ᥆ٰꪑٰꫀ ٰƚٰ᥆ ُႦٰ᥆ٰƚ ُ᥉ٰ᥆ٰυٰɾٰᥴٰꫀ ُꪔُᥲٰƚٰɾٰᎥٰ᥊ 'َِ◞."
+local texte = '\n˛ َ𝖴ᥱ᥉ : '..UserName_User..' .\n˛ َ𝖲𝗍ُɑِ  : '..Status_Gps..' . \n˛ َ𝖨ժ : '..Id..' .\n˛ َ𝖬⁪⁬⁮᥉𝗀ِ : '..NumMsg..' .\n˛ َ𝖶ᥱᥣ𝖼ơ𝗆ᥱ : َ𝖥𝗂𝗋᥉𝗍ُ .˛𝖳𝗁𝖾 ُMaُtِrx  . .'
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(texte)..'&photo='..Hussain.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 else
-local texte = ". َ<3ٰ ٍَ:  ُꪝ ٰꫀٰᥣٰᥴٰ᥆ٰꪑٰꫀ ٰƚٰ᥆ ُႦٰ᥆ٰƚ ُ᥉ٰ᥆ٰυٰɾٰᥴٰꫀ ُꪔُᥲٰƚٰɾٰᎥٰ᥊ 'َِ◞."
+local texte = '\n˛ َ𝖴ᥱ᥉ : '..UserName_User..' .\n˛ َ𝖲𝗍ُɑِ  : '..Status_Gps..' . \n˛ َ𝖨ժ : '..Id..' .\n˛ َ𝖬⁪⁬⁮᥉𝗀ِ : '..NumMsg..' .\n˛ َ𝖶ᥱᥣ𝖼ơ𝗆ᥱ : َ𝖥𝗂𝗋᥉𝗍ُ .˛𝖳𝗁𝖾 ُMaُtِrx  . .'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '◊￤Your Bio :', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = ''..getbioY..'', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = '◊￤Stast :', callback_data=msg.sender_user_id_..''},{text = '{'..Status_Gps..'}', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = '◊￤User :', callback_data=msg.sender_user_id_..''},{text = '{@'..UserName_User..'}', url="https://t.me/"..UserName_User..""},
-},
 {
 {text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
 },
@@ -9672,21 +9648,9 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = ". َ<3ٰ ٍَ:  ُꪝ ٰꫀٰᥣٰᥴٰ᥆ٰꪑٰꫀ ٰƚٰ᥆ ُႦٰ᥆ٰƚ ُ᥉ٰ᥆ٰυٰɾٰᥴٰꫀ ُꪔُᥲٰƚٰɾٰᎥٰ᥊ 'َِ◞."
+local texte = '\n˛ َ𝖴ᥱ᥉ : '..UserName_User..' .\n˛ َ𝖲𝗍ُɑِ  : '..Status_Gps..' . \n˛ َ𝖨ժ : '..Id..' .\n˛ َ𝖬⁪⁬⁮᥉𝗀ِ : '..NumMsg..' .\n˛ َ𝖶ᥱᥣ𝖼ơ𝗆ᥱ : َ𝖥𝗂𝗋᥉𝗍ُ .˛𝖳𝗁𝖾 ُMaُtِrx  . .'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '◊￤Your Bio :', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = ''..getbioY..'', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = '◊￤Stast :', callback_data=msg.sender_user_id_..''},{text = '{'..Status_Gps..'}', callback_data=msg.sender_user_id_..''},
-},
-{
-{text = '◊￤User :', callback_data=msg.sender_user_id_..''},{text = '{@'..UserName_User..'}', url="https://t.me/"..UserName_User..""},
-},
 {
 {text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
 },
