@@ -9613,7 +9613,7 @@ else
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
+{text = '˛ َtِٰٰHٌe ٰٰDِِٰatٌِe oٰf ٰٰJِِoٍٰiِ𝗇 ↝ ('..tarek..')', callback_data=msg.sender_user_id_..''},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9625,7 +9625,7 @@ local texte = '\n˛ َ𝖴ᥱ᥉ : '..UserName_User..' .\n˛ َ𝖲𝗍ُɑِ  :
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
+{text = '˛ َtِٰٰHٌe ٰٰDِِٰatٌِe oٰf ٰٰJِِoٍٰiِ𝗇 ↝ ('..tarek..')', callback_data=msg.sender_user_id_..''},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9648,11 +9648,11 @@ local texte = '['..get_id..']'
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texte).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 else
-local texte = '\n˛ َ𝖴ᥱ᥉ : '..UserName_User..' .\n˛ َ𝖲𝗍ُɑِ  : '..Status_Gps..' . \n˛ َ𝖨ժ : '..Id..' .\n˛ َ𝖬⁪⁬⁮᥉𝗀ِ : '..NumMsg..' .\n˛ َ𝖶ᥱᥣ𝖼ơ𝗆ᥱ : َ𝖥𝗂𝗋᥉𝗍ُ .˛𝖳𝗁𝖾 ُMaُtِrx  . .'
+local texte = '\n˛ َ𝖴ᥱ᥉ : '..UserName_User..' .\n˛ َ𝖲𝗍ُɑِ  : '..Status_Gps..' . \n˛ َ𝖨ժ : '..Id..' .\n˛ َ𝖬⁪⁬⁮᥉𝗀ِ : '..NumMsg..' .\n˛ َ𝖶ᥱᥣ𝖼ơ𝗆ᥱ : َ𝖥𝗂??᥉𝗍ُ .˛𝖳𝗁𝖾 ُMaُtِrx  . .'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'تاريخ الانضمام ⇠ '..tarek..'', callback_data=msg.sender_user_id_..''},
+{text = '˛ َtِٰٰHٌe ٰٰDِِٰatٌِe oٰf ٰٰJِِoٍٰiِ𝗇 ↝ ('..tarek..')', callback_data=msg.sender_user_id_..''},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11406,6 +11406,8 @@ function by_reply(extra, result, success)
 if result.content_.document_ then 
 local ID_FILE = result.content_.document_.document_.persistent_id_ 
 local File_Name = result.content_.document_.file_name_
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
+download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
 local info_file = io.open('./users.json', "r"):read('*a')
 local users = JSON.decode(info_file)
 if users.users then
@@ -13139,6 +13141,34 @@ Text = ''
 sendText(Id_Sudo,'تم طرد البوت من مجموعه \n اسم المجموعه - (['..NameChat..'])\n ايدي المجموعه - (['..IdChat..'])',0,'md')
 end,nil) 
 end
+end
+if text == "صلاحياته" and tonumber(msg.reply_to_message_id_) > 0 then
+if tonumber(msg.reply_to_message_id_) ~= 0 then 
+function prom_reply(extra, result, success) 
+Get_Info(msg,msg.chat_id_,result.sender_user_id_)
+end  
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},prom_reply, nil)
+end
+end
+------------------------------------------------------------------------
+if text == "صلاحياتي" then 
+if tonumber(msg.reply_to_message_id_) == 0 then 
+Get_Info(msg,msg.chat_id_,msg.sender_user_id_)
+end  
+end
+------------------------------------------------------------------------
+if text and text:match('^صلاحياته @(.*)') then   
+local username = text:match('صلاحياته @(.*)')   
+if tonumber(msg.reply_to_message_id_) == 0 then 
+function prom_username(extra, result, success) 
+if (result and result.code_ == 400 or result and result.message_ == "USERNAME_NOT_OCCUPIED") then
+SendText(msg.chat_id_,msg.id_,"*⌔︙المعرف غير صحيح \n*")   
+return false 
+end   
+Get_Info(msg,msg.chat_id_,result.id_)
+end  
+tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil) 
+end 
 end
 if data.ID == "UpdateNewInlineCallbackQuery" then
 local Text = data.payload_.data_
@@ -16428,7 +16458,7 @@ local Name_Bot = (database:get(bot_id.."Matrix:Name:Bot") or "ماتركس")
 if not database:get(bot_id.."Matrix:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
-local Fun = {'لوكي وزاحف من ساع زحفلي وحضرته 😒','خوش ولد و ورده مال الله 💋🙄','يلعب ع البنات 🙄', 'ولد زايعته الكاع 😶🙊','صاك يخبل ومعضل ','محلو وشواربه جنها مكناسه 😂🤷🏼‍♀️','اموت عليه 🌝','هوه غير الحب مال اني 🤓❤️','مو خوش ولد صراحه ☹️','ادبسز وميحترم البنات  ', 'فد واحد قذر 🙄😒','ماطيقه كل ما اكمشه ريحته جنها بخاخ بف باف مال حشرات 😂🤷‍♀️','مو خوش ولد 🤓' } 
+local Fun = {'لوكي وزاحف من ساع زحفلي وحضرته 😒','خوش ولد و ورده مال الله 💋🙄','يلعب ع البنات 🙄', 'ولد زايعته الكاع 😶🙊','صاك يخبل ومعضل ','محلو وشواربه جنها مكناسه ??🤷🏼‍♀️','اموت عليه 🌝','هوه غير الحب مال اني 🤓❤️','مو خوش ولد صراحه ☹️','ادبسز وميحترم البنات  ', 'فد واحد قذر 🙄😒','ماطيقه كل ما اكمشه ريحته جنها بخاخ بف باف مال حشرات 😂🤷‍♀️','مو خوش ولد 🤓' } 
 send(msg.chat_id_, result.id_,''..Fun[math.random(#Fun)]..'')   
 end   
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunBot, nil)
